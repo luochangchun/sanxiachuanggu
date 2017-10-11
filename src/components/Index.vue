@@ -29,7 +29,9 @@ export default {
     commonHeader : header,
     commonCarousel : carousel
   },
-  methods: {}
+  methods: {
+    
+  }
 }
 </script>
 
