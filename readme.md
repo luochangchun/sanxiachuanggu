@@ -1,1 +1,0 @@
-for wap code
