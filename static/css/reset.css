@@ -102,4 +102,12 @@ html>body .clearfix { overflow: hidden; }
 .black2 { color: #666; }
 .black3 { color: #999; }
 .txt_indent{ text-indent:2em;}
-
+body {
+    font-family: 'PingFang SC', 'Open Sans', Arial, SimHei, '黑体', SimSun, Helvetica, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: transparent;
+}

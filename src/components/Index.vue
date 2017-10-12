@@ -1,15 +1,14 @@
 <template>
   <div>
     <!-- <allMap></allMap> -->
-    <Information></Information>
+    <!-- <Information></Information> -->
+    首页
   </div>
 </template>
 
 <script>
 import api from '../axios/api.js'
 import Header from '../components/header.vue'
-import Map from '../components/map.vue'
-import Information from '../components/information.vue'
 export default {
   data () {
     return {
@@ -21,10 +20,7 @@ export default {
   created () {
     // this.setNewsApi()
   },
-  components: {
-    allMap: Map,
-    Information: Information
-  },
+  components: {},
   methods: {
     preview () {
       this.$refs.dialog.open()
