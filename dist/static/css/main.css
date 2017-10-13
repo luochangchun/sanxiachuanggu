@@ -1,0 +1,39 @@
+a {
+    display: block;
+}
+p {
+    margin: 0 0 10px;
+}
+.text-ellipsis {
+    overflow: hidden;
+    display: block;
+    word-break: break-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+.padder-v {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+  @media (min-width: 768px) {
+    .container {
+      width: 750px;
+    }
+  }
+  @media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .container {
+      width: 1170px;
+    }
+  }
