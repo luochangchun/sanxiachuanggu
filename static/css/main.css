@@ -1,8 +1,7 @@
-a {
-    display: block;
-}
-p {
-    margin: 0 0 10px;
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 .text-ellipsis {
     overflow: hidden;
@@ -15,6 +14,10 @@ p {
 .padder-v {
     padding-top: 15px;
     padding-bottom: 15px;
+}
+.padder-vx {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .container {
     padding-right: 15px;

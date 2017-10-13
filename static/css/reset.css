@@ -17,6 +17,7 @@ del { text-decoration: line-through; }
 /* tables still need 'cellspacing="0"' in the markup */
 table { border-collapse: collapse; border-spacing: 0; }
 input { -webkit-appearance: none; }
+i{ font-style:normal}
 /*clearfix*/
 .clearfix:after { clear: both; content: "Matrix"; display: block; font-size: 0; height: 0; visibility: hidden; }
 *html .clearfix { height: 1%; }

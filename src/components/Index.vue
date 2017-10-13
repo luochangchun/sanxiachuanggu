@@ -1,5 +1,6 @@
 <template>
   <div>
+    <commonHeader></commonHeader>
     <!-- <allMap></allMap> -->
     <!-- <Information></Information> -->
     首页
@@ -20,7 +21,9 @@ export default {
   created () {
     // this.setNewsApi()
   },
-  components: {},
+  components: {
+    commonHeader: Header
+  },
   methods: {
     preview () {
       this.$refs.dialog.open()
