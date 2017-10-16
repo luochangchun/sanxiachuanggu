@@ -1,3 +1,12 @@
+body {
+  font-family: 'PingFang SC', 'Open Sans', Arial, SimHei, '黑体', SimSun, Helvetica, sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: transparent;
+}
 img {
   display: block;
   max-width: 100%;
@@ -11,13 +20,32 @@ img {
     text-overflow: ellipsis;
     width: 100%;
 }
-.padder-v {
-    padding-top: 15px;
-    padding-bottom: 15px;
+.padder-v-xxs {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .padder-vx {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.padder-v {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.padder-v-md {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.m-b-xs {
+  margin-bottom: 5px;
+}
+.m-t-xs {
+  margin-top: 5px;
+}
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 .container {
     padding-right: 15px;

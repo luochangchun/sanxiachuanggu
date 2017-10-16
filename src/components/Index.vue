@@ -1,15 +1,18 @@
 <template>
   <div>
     <commonHeader></commonHeader>
+    <commonSwiper></commonSwiper>
     <!-- <allMap></allMap> -->
     <!-- <Information></Information> -->
-    首页
+    <commonFooter></commonFooter>
   </div>
 </template>
 
 <script>
 import api from '../axios/api.js'
 import Header from '../components/header.vue'
+import Swiper from '../components/swiper.vue'
+import Footer from '../components/footer.vue'
 export default {
   data () {
     return {
@@ -22,7 +25,9 @@ export default {
     // this.setNewsApi()
   },
   components: {
-    commonHeader: Header
+    commonHeader: Header,
+    commonFooter: Footer,
+    commonSwiper: Swiper
   },
   methods: {
     preview () {
