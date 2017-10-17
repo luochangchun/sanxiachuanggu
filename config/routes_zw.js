@@ -3,19 +3,36 @@ import VueRouter from 'vue-router'
 import Main from '../src/Main.vue'
 import Index from '../src/components/Index.vue'
 import Map from '../src/components/Map.vue'
-import Information from '../src/components/Information.vue'
 import InformationPara from '../src/components/InformationPara.vue'
 import Activitys from '../src/components/Activitys.vue'
 import ActivityPara from '../src/components/ActivityPara.vue'
+
+
+
+
+
+
+
+//罗长春
+import news from '../src/components/news.vue'
+import incubators from '../src/components/incubators.vue'
 
 Vue.use(VueRouter)
 const routes = [
   {path: '/', component: Index},
   {path: '/map', component: Map},
-  {path: '/information', component: Information},
   {path: '/informationPara', component: InformationPara},
   {path: '/activitys', component: Activitys},
-  {path: '/activityPara', component: ActivityPara}
+  {path: '/activityPara', component: ActivityPara},
+
+
+
+
+
+
+//  罗长春
+	{path: '/news', component: news},
+	{path: '/incubators', component: incubators}
 ]
 
 export default new VueRouter({

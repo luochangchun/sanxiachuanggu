@@ -6,6 +6,7 @@ import '../static/css/main.css'
 import App from './App'
 import router from '../config/routes_zw.js'
 
+
 Vue.use(ElementUI)
 
 require('./mock.js')
