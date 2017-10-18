@@ -1,50 +1,71 @@
 <template>
-    <div class="news padder-v-md">
-        <div class="container">
-            <el-row :gutter="20">
-                <!--左边部分-->
-                <el-col :span="12" :offset="3">
-                    <a href="">
-                        <div class="bg-cover block h"></div>
-                    </a>
-                    <!--切换-->
-                    <el-row :gutter="20" class="b-b m-t">
-                        <el-col :span="4">全部</el-col>
-                        <el-col :span="4">园区新闻</el-col>
-                        <el-col :span="4">国家政策</el-col>
-                    </el-row>
-                    <!--左图右文字-->
-                    <el-row :gutter="20" class="b-b m-t">
-                        <el-col :span="8">
-                            <a @click="!showread">
-                                <div class="left1"></div>
-                            </a>
-                        </el-col>
-                        <el-col :span="16" class="pos" v-show="showread">
-                            <p class="text-md font-bold text-ellipsis">
-                                <a href="" class="text-dark-lt">湖北发文规范推进人才创新创业超市建设</a>
-                            </p>
-                            <p class="text-ellipsis-3">
-                                近日，湖北省委组织部、省人社厅、省科技厅、省教育厅等四部门联合印发《关于推进人才创新创业超市建设的通知》(以下简称《通知》)，持续、规范推进人才创新创业超市建设，为人才"双创"营造优良的生态环境。
-                            </p>
-                            <div class="pos-abt" style="bottom:15px;">
-                                <p class="text-muted pull-left m-r">
-                                    <i class="el-icon-time fa fa-clock-o m-r-xs"></i>
-                                    <span>时间：2017-10-10</span>
-                                </p>
-                                <p class="text-muted pull-left">
-                                    <i class="el-icon-edit fa fa-edit m-r-xs"></i>
-                                    <span>创谷空间</span>
-                                </p>
+    <div>
+        <el-row :gutter="10">
+            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
+                <el-row :gutter="10">
+                    <!--左边图文-->
+                    <el-col :lg="16" :md="16" :sm="24" :xs="24">
+                        <!--&lt;!&ndash;上一整图&ndash;&gt;-->
+                        <!--<el-row :gutter="10">-->
+                            <!--<el-col :lg="24" :md="24" :sm="24" :xs="24">-->
+                                <!--<a href="">-->
+                                    <!--<div class="bg-cover block h"></div>-->
+                                <!--</a>-->
+                            <!--</el-col>-->
+                        <!--</el-row>-->
+                        <!--导航切换-->
+                        <el-row :gutter="10" style="margin-top: 50px;" class="news-button">
+                            <el-col :lg="4" :md="4" :sm="4" :xs="4"><button>每日头条</button></el-col>
+                            <el-col :lg="4" :md="4" :sm="6" :xs="6"><button>政府双创</button></el-col>
+                            <el-col :lg="4" :md="4" :sm="6" :xs="6"><button>企业双创</button></el-col>
+                            <el-col :lg="4" :md="4" :sm="6" :xs="6"><button>园区双创</button></el-col>
+                            <el-col :lg="4" :md="4" :sm="6" :xs="6"><button>双创服务机构</button></el-col>
+                        </el-row>
+                        <!--左图右文-->
+                        <el-row :gutter="10"  class="news-leftlist">
+                            <div class="m-t b-b clea">
+                                <el-col :lg="7" :md="7" :sm="7" :xs="24" class="no-padder">
+                                    <a @click="!showread">
+                                        <img src="../../static/img/download-8.jpg" alt="" class="w-full">
+                                    </a>
+                                </el-col>
+                                <el-col :lg="16" :md="16" :sm="16" :xs="24" offset="1" class="pos">
+                                    <p class="text-md font-bold text-ellipsis">
+                                        <a href="" class="text-dark-lt">湖北发文规范推进人才创新创业超市建设</a>
+                                    </p>
+                                    <p class="text-ellipsis-3">
+                                        近日，湖北省委组织部、省人社厅、省科技厅、省教育厅等四部门联合印发《关于推进人才创新创业超市建设的通知》(以下简称《通知》)，持续、规范推进人才创新创业超市建设，为人才"双创"营造优良的生态环境。
+                                    </p>
+                                    <div class="pos-abt" style="bottom:15px;">
+                                        <p class="text-muted pull-left m-r">
+                                            <i class="el-icon-time fa fa-clock-o m-r-xs"></i>
+                                            <span>时间：2017-10-10</span>
+                                        </p>
+                                        <p class="text-muted pull-left">
+                                            <i class="el-icon-edit fa fa-edit m-r-xs"></i>
+                                            <span>创谷空间</span>
+                                        </p>
+                                    </div>
+                                </el-col>
                             </div>
-                        </el-col>
-                        <!--点击图片进入详情-->
-                        <el-col :span="16" v-show="!showread" style="display: none">
+                        </el-row>
+                        <!--分页-->
+                        <el-row :gutter="10">
+                            <el-col :lg="8" :md="8" :sm="24" :xs="24"  :offset="8">
+                                <div class="block">
+                                    <el-pagination layout="prev, pager, next" :total="1000">
+                                    </el-pagination>
+                                </div>
+                            </el-col>
+                        </el-row>
+                    </el-col>
+
+                    <!--点击图片进入详情-->
+                    <el-row :gutter="10" style="display: none">
+                        <el-col :lg="16" :md="16" :sm="24" :xs="24">
                             <div class="text-center">
                                 <p class="text-xxxl">省科技厅关于开展2017年省级众创空间认定工作的通知</p>
-                                <p>
-                                    <span>时间：2017-10-11</span>
-                                </p>
+                                <p><span>时间：2017-10-11</span></p>
                             </div>
                             <div class="wrapper-lg">
                                 <p></p>
@@ -65,8 +86,7 @@
                                 <p style="text-align:left;"> 2.各市州科技局负责本辖区申请机构的申报组织及审核推荐工作，东湖高新区管委会负责区内各申请机构申报组织及审核推荐工作。 </p>
                                 <p style="text-align:left;"> 3.省科技厅将尽快组织专家对申报材料进行评价并进行实地考察。省科技厅将根据评价结果，对认定的众创空间统一发文公示。</p>
                                 <p style="text-align:left;"> 四、联系人及联系方式</p>
-                                <p style="text-align:left;"> 省科技厅协调办&nbsp;黄&nbsp;源、陈&nbsp;满</p>
-                                <p style="text-align:left;"> 联系电话：027-87135795、87135349</p>
+                                <p style="text-align:left;"> 省科技厅协调办&nbsp;黄&nbsp;源、陈&nbsp;满</p><p style="text-align:left;"> 联系电话：027-87135795、87135349</p>
                                 <p style="text-align:left;"> 电子邮箱：chenman1118@163.com</p>
                                 <p style="text-align:left;"> 附件1、《省级众创空间申报信息汇总表》</p>
                                 <p style="text-align:left;"> &nbsp; &nbsp; &nbsp;2、《湖北省省级众创空间认定申请书》</p>
@@ -77,310 +97,308 @@
                             </div>
                         </el-col>
                     </el-row>
-                </el-col>
-                <!--右边部分:精彩活动-->
-                <el-col :span="6">
-                    <div class="news-rightlist">
-                        <p class="text-md font-bold">精彩活动</p>
-                        <hr class="m-n b-b">
-                        <el-row :gutter="20" class="news-rightlist">
-                            <el-col :span="24">
-                                <a href="">
-                                    <span class="block pos-rlt">
-                                        <img src="../../static/img/download.jpg" alt="">
-                                        <span class="pos-abt text-xl block text-green text-ellipsis-2 padder-md" style="top:30%;">中秋话团圆，火凤凰云创空间中秋联谊会圆满举办</span>
-                                        <span class="pos-abt inline padder-xs padder-v-xxs bg-grey text-white" style="bottom:5px; right:10px;"> 已结束 </span>
-                                        <span class="black-box block"></span>
-                                    </span>
-                                </a>
+
+                    <!--精彩活动-->
+                    <el-col :lg="8" :md="8" :sm="24" :xs="24">
+                        <el-row :gutter="10">
+                            <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                                <div class="news-rightlist">
+                                    <p class="text-md font-bold">精彩活动</p>
+                                    <hr class="m-n b-b">
+                                    <el-row :gutter="10" class="news-rightlist">
+                                        <el-col :lg="24" :md="24" :sm="12" :xs="24">
+                                            <a href="">
+                                             <span class="block pos-rlt">
+                                                <img src="../../static/img/download.jpg" alt="">
+                                                <span class="pos-abt text-xl block text-green text-ellipsis-2 padder-md" style="top:30%;">中秋话团圆，火凤凰云创空间中秋联谊会圆满举办</span>
+                                                <span class="pos-abt inline padder-xs padder-v-xxs bg-grey text-white" style="bottom:0; right:0;"> 已结束 </span>
+                                                <span class="black-box block"></span>
+                                            </span>
+                                            </a>
+                                        </el-col>
+                                        <el-col :lg="24" :md="24" :sm="12" :xs="24">
+                                            <a href="">
+                                             <span class="block pos-rlt">
+                                                <img src="../../static/img/download.jpg" alt="">
+                                                <span class="pos-abt text-xl block text-green text-ellipsis-2 padder-md" style="top:30%;">中秋话团圆，火凤凰云创空间中秋联谊会圆满举办</span>
+                                                <span class="pos-abt inline padder-xs padder-v-xxs bg-grey text-white" style="bottom:0; right:0;"> 已结束 </span>
+                                                <span class="black-box block"></span>
+                                            </span>
+                                            </a>
+                                        </el-col>
+                                        <el-col :lg="24" :md="24" :sm="12" :xs="24">
+                                            <a href="">
+                                             <span class="block pos-rlt">
+                                                <img src="../../static/img/download.jpg" alt="">
+                                                <span class="pos-abt text-xl block text-green text-ellipsis-2 padder-md" style="top:30%;">中秋话团圆，火凤凰云创空间中秋联谊会圆满举办</span>
+                                                <span class="pos-abt inline padder-xs padder-v-xxs bg-grey text-white" style="bottom:0; right:0;"> 已结束 </span>
+                                                <span class="black-box block"></span>
+                                            </span>
+                                            </a>
+                                        </el-col>
+                                    </el-row>
+                                </div>
                             </el-col>
                         </el-row>
-                    </div>
-                </el-col>
-            </el-row>
-            <el-row :gutter="20">
-                <el-col :span="8" :offset="8">
-                    <div class="block">
-                        <el-pagination layout="prev, pager, next" :total="50">
-                        </el-pagination>
-                    </div>
-                </el-col>
-            </el-row>
-            <!--footer-->
-            <div style="width:100%;">
-                <el-row :gutter="20">
-                    <el-col :span="14">
-
                     </el-col>
                 </el-row>
-            </div>
-
-        </div>
+            </el-col>
+        </el-row>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-import header from './header.vue'
-const False = false;
-export default {
-    data() {
-        return {
-            //				abnormalA:true,
-            //				abnormalB:false,
-            //				abnormalC:false,
-            showread: true
-        };
-    },
-    methods: {
+	import header from './header.vue'
+	const False = false;
+	export default {
+		data() {
+			return {
+				//				abnormalA:true,
+				//				abnormalB:false,
+				//				abnormalC:false,
+				showread: true
+			};
+		},
+		methods: {
 
-    }
+		}
 
-};
+	};
 
 </script>
 <style>
-.el-row {
-    margin-bottom: 20px;
-}
+    /*@import "../../static/css/common.css";*/
+    .el-row {
+        margin-bottom: 20px;
+    }
 
-.el-row:last-child {
-    margin-bottom: 0;
-}
+    .el-row:last-child {
+        margin-bottom: 0;
+    }
 
-.el-col {
-    border-radius: 4px;
-}
+    .el-col {
+        border-radius: 4px;
+    }
 
-.padder-v-md {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
+    .padder-v-md {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 
-.container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    /* margin-top: 40px; */
-}
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 40px;
+    }
+    .padder-v-md {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        /*margin-top:40px;*/
+    }
+    .bg-cover{
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        margin-bottom: 30px;
+    }
+    .h {
+        height: 200px;
+        background-image:url(../../static/img/banner-2.jpg);
+    }
+    .block {
+        display: block;
+    }
+    .m-b-sm {
+        margin-bottom: 10px;
+    }
+    .no-padder {
+        padding: 0 !important;
+    }
+    /*导航切换*/
+    .news-button button{
+        border-radius: 4px;
+        height:30px;
+        line-height:30px;
+        border:none;
+        background-color:#ddd;
+        width:100px;
+        color:#999;
+    }
 
-.bg-cover {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    margin-bottom: 30px;
-}
-
-.h {
-    height: 200px;
-    background-image: url(../../static/img/banner-2.jpg);
-}
-
-.block {
-    display: block;
-}
-
-.no-padder {
-    margin-bottom: 10px;
-    padding: 0 !important;
-}
-
-
-/*左图*/
-
-.left1 {
-    background-image: url(../../static/img/download.jpg);
-    height: 144px;
-}
-
-
-/*右文字*/
-
-.pos {
-    height: 150px;
-}
-
-.text-ellipsis {
-    overflow: hidden;
-    display: block;
-    word-break: break-all;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    width: 100%;
-}
-
-.text-ellipsis {
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.text-md {
-    font-size: 16px;
-}
-
-.font-bold {
-    font-weight: 700;
-}
-
-p {
-    margin: 0 0 10px;
-}
-
-.text-dark-lt {
-    color: #454b60;
-}
-
-a {
-    color: #428bca;
-    text-decoration: none;
-}
-
-.text-ellipsis-3 {
-    height: 4.2em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    font-size: 14px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    line-height: 1.42857143;
-    color: #333;
-}
-
-.pos-abt {
-    position: absolute;
-}
-
-.pull-left {
-    float: left;
-}
-
-.m-r {
-    margin-right: 15px;
-}
-
-.text-muted {
-    color: #98a6ad;
-    font-size: 14px;
-}
-
-.pull-left {
-    float: left !important;
-}
-
-.fa {
-    display: inline-block;
-    /* font: normal normal normal 14px/1 FontAwesome; */
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.m-r-xs {
-    margin-right: 5px;
-}
-
-.pull-left {
-    float: left;
-}
-
-.pull-left {
-    float: left !important;
-}
-
-.b-b {
-    border-bottom: 1px solid #dee5e7;
-}
-
-.m-t {
-    margin-top: 15px;
-    padding-bottom: 15px;
-}
-
-
-/*右边图片*/
-
-.news-rightlist span img {
-    width: 100%;
-}
-
-.text-green {
-    color: #0ab394;
-}
-
-.padder-md {
-    padding-right: 20px;
-    padding-left: 20px;
-}
-
-.text-ellipsis-2 {
-    height: 2.8em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
-
-.text-xl {
-    font-size: 20px;
-    line-height: 1.42857143;
-}
-
-.text-white {
-    color: #fff !important;
-}
-
-.bg-grey {
-    background-color: #93959a;
-    color: #fff;
-}
-
-.padder-v-xxs {
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.padder-xs {
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-.inline {
-    display: inline-block !important;
-}
-
-.black-box {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.2);
-    display: none;
-}
-
-
-/*点击图片详情*/
-
-.text-center {
-    text-align: center;
-}
-
-.text-xxxl {
-    font-size: 24px;
-}
-
-p {
-    margin: 0 0 10px;
-}
-
-.wrapper-lg {
-    padding: 30px;
-}
+    /*左图右文字*/
+    .w-full {
+        width: 100%;
+        /*max-height:120px;*/
+    }
+    .no-padder a img{
+        width:100%;
+    }
+    .h-sm {
+        height: 150px;
+    }
+    .pos{
+        height: 150px;
+    }
+    .text-ellipsis {
+        overflow: hidden;
+        display: block;
+        word-break: break-all;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+    .text-ellipsis {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .text-md {
+        font-size: 16px;
+    }
+    .font-bold {
+        font-weight: 700;
+    }
+    p {
+        margin: 0 0 10px;
+    }
+    .text-dark-lt {
+        color: #454b60;
+    }
+    a {
+        color: #428bca;
+        text-decoration: none;
+    }
+    .text-ellipsis-3 {
+        height: 4.2em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.42857143;
+        color: #333;
+    }
+    .pos-abt {
+        position: absolute;
+    }
+    .pull-left {
+        float: left;
+    }
+    .m-r {
+        margin-right: 15px;
+    }
+    .text-muted {
+        color: #98a6ad;
+        font-size:14px;
+    }
+    .pull-left {
+        float: left !important;
+    }
+    .m-r-xs {
+        margin-right: 5px;
+    }
+    .pull-left {
+        float: left;
+    }
+    .pull-left {
+        float: left !important;
+    }
+    .b-b{
+        border-bottom: 1px das #dee5e7;
+    }
+    .m-t {
+        margin-top: 15px;
+    }
+    .m-b-lg {
+        margin-bottom: 30px;
+    }
+    .clea {
+        display: block;
+        overflow: hidden;
+        clear: both;
+    }
+    /*右边图片*/
+    .news-rightlist span img{
+        width:100%;
+    }
+    .text-green {
+        color: #0ab394;
+    }
+    .padder-md {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    .text-ellipsis-2 {
+        height: 2.8em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .text-xl {
+        font-size: 20px;
+        line-height: 1.42857143;
+    }
+    .text-white {
+        color: #fff !important;
+    }
+    .bg-grey {
+        background-color: #93959a;
+        color: #fff;
+    }
+    .padder-v-xxs {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .padder-xs {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .inline {
+        display: inline-block !important;
+    }
+    .pos-rlt {
+        position: relative;
+    }
+    .pos-abt {
+        position: absolute;
+    }
+    a:hover .black-box{
+        display:block;
+    }
+    .black-box{
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:98%;
+        background:rgba(0,0,0,0.2);
+        display:none;
+    }
+    /*点击图片详情*/
+    .text-center {
+        text-align: center;
+    }
+    .text-xxxl {
+        font-size: 24px;
+    }
+    p {
+        margin: 0 0 10px;
+    }
+    .wrapper-lg {
+        padding: 30px;
+    }
 </style>

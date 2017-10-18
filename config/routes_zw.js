@@ -16,6 +16,11 @@ import ActivityPara from '../src/components/ActivityPara.vue'
 //罗长春
 import news from '../src/components/news.vue'
 import incubators from '../src/components/incubators.vue'
+import research from '../src/components/research.vue'
+import service from '../src/components/service.vue'
+
+
+
 
 Vue.use(VueRouter)
 const routes = [
@@ -24,6 +29,7 @@ const routes = [
   {path: '/informationPara', component: InformationPara},
   {path: '/activitys', component: Activitys},
   {path: '/activityPara', component: ActivityPara},
+  {path: '/service', component: service},
 
 
 
@@ -32,7 +38,9 @@ const routes = [
 
 //  罗长春
 	{path: '/news', component: news},
-	{path: '/incubators', component: incubators}
+	{path: '/incubators', component: incubators},
+	{path: '/research', component: research},
+	{path: '/service', component: service}
 ]
 
 export default new VueRouter({
