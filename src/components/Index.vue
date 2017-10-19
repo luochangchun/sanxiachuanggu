@@ -91,9 +91,48 @@
     <!-- 双创办公室 -->
     <!-- 培训活动 -->
     <div class="activitys">
-      
+      <div class="container">
+        <el-row :gutter="0">
+          <el-col :xs="24" :sm="24" :md="24" :lg="24">
+            <div class="l activitys_title"></div>
+            <div class="r more_plus" style="margin-bottom:20px;"></div>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20">
+          <el-col :xs="8" :sm="8" :md="8" :lg="8" v-for="(item, index) in 6" :key="item">
+            <a class="activitys_item">
+              <img src="../../static/img/activity01.png" alt="">
+              <div class="process abs">
+                <p class="white f16 tc text-ellipsis">关于举办陷阱的价值沙龙的通知</p>
+                <p class=" f16 tc tag">进行中</p>
+              </div>
+            </a>
+          </el-col>
+        </el-row>
+      </div>
     </div>
     <!-- 培训活动 -->
+    <!-- 服务商 -->
+    <div class="service_provider">
+      <div class="container">
+        <el-row :gutter="0">
+          <el-col :xs="24" :sm="24" :md="24" :lg="24">
+            <div class="l service_provider_title"></div>
+            <div class="r more_plus"></div>
+          </el-col>
+        </el-row>
+        <el-row class="office_wrap">
+          <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in 6" :key="item">
+            <a class="service_provider_item rel">
+              <img src="../../static/img/service01.png" alt="">
+              <p class="tc">长江证券</p>
+              <i class="tag abs white tc f14">项目申报</i>
+            </a>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
+    <!-- 服务商 -->
     <commonFooter></commonFooter>
   </div>
 </template>
