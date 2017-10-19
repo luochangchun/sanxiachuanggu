@@ -7,6 +7,9 @@ body {
   color: #333;
   background-color: transparent;
 }
+a {
+  display: block;
+}
 .text-ellipsis {
     overflow: hidden;
     display: block;
@@ -19,9 +22,13 @@ body {
   overflow:hidden;/*超出隐藏*/
   text-overflow:ellipsis;/*文本溢出时显示省略标记*/
   display:-webkit-box;/*设置弹性盒模型*/
+  -webkit-box-orient: vertical;
 }
 .text-ellipsis-2 {
   -webkit-line-clamp:2;/*文本占的行数,如果要设置2行加...则设置为2*/
+}
+.text-ellipsis-4 {
+  -webkit-line-clamp:4;/*文本占的行数,如果要设置2行加...则设置为2*/
 }
 .text-ellipsis-6 {
   -webkit-line-clamp:6;/*文本占的行数,如果要设置2行加...则设置为2*/
@@ -271,19 +278,94 @@ body {
 }
 /* 服务商 */
 
+/* 创业导师 */
+.tutor_title {
+  width: 144px;
+  background: url(../../static/img/E.png) no-repeat center 100%;
+}
+.tutor_item {
+  margin:10px 0;
+}
+.tutor_img,
+.tutor_img img {
+  border-radius: 50%;
+}
+.tutor_img {
+  width: 60%;
+  background-color: #fff;
+  border: 1px solid #3c8cdc;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tutor_img img{
+  width: 90%;
+  height: 90%;
+  background-color: #3c8cdc;
+  padding: 5%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+}
+.tutor_item p {
+  width: 90%;
+  margin-top: 16px;
+  line-height: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tutor_item p.text-ellipsis-muti {
+  height: 96px;
+}
+/* 创业导师 */
+
+/* 融资项目 */
+.Financing_item {
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.Financing_wrap {
+  border-left: 1px solid #f1f1f1;
+  border-right: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
+}
+.Financing_wrap .pl10 {
+  border-top: 1px solid #f1f1f1;
+  margin-top: 8px;
+  padding: 4px;
+}
+.Financing_title {
+  width: 144px;
+  background: url(../../static/img/F.png) no-repeat center 100%;
+}
+.Financing_info {
+  padding: 8px;
+  background-color: #f1f1f1;
+  box-sizing: border-box;
+}
+.Financing_money p {
+  padding: 6px 8px;
+  line-height: 24px;
+  box-sizing: border-box;
+}
+/* 融资项目 */
+
 /* common */
 .more_plus, 
 .headLineTitle,
 .space_display_title,
 .office_title,
 .activitys_title,
-.service_provider_title {
+.service_provider_title,
+.tutor_title,
+.Financing_title {
   height: 30px;
   background-size: contain;
 }
 .office,
 .activitys,
-.service_provider {
+.service_provider,
+.tutor,
+.Financing {
   padding-bottom: 50px;
 }
 .office_wrap,

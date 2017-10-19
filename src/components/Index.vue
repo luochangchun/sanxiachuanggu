@@ -54,7 +54,7 @@
           </el-col>
         </el-row>
         <el-row :gutter="20">
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" v-for="(item, index) in 4" :key="item"  class="display_item">
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" v-for="(item, index) in 4" :key="item" class="display_item">
             <div class="gray" @mouseover="show_display(index)">
               <img src="../../static/img/display01.jpg" alt="">
               <p class="word white abs tc f14">宜昌孵化器展示</p>
@@ -133,6 +133,69 @@
       </div>
     </div>
     <!-- 服务商 -->
+    <!-- 创业导师 -->
+    <div class="tutor">
+      <div class="container">
+        <el-row :gutter="0">
+          <el-col :xs="24" :sm="24" :md="24" :lg="24">
+            <div class="l tutor_title"></div>
+            <div class="r more_plus"></div>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20">
+          <el-col :xs="12" :sm="12" :md="6" :lg="6" v-for="(item, index) in 4" :key="item">
+            <a class="tutor_item rel">
+              <div class="tutor_img"><img src="../../static/img/person01.png" alt=""></div>
+              <p class="tc f14">袁天罡
+                <i>&nbsp;&nbsp;高级讲师</i>
+              </p>
+              <p class="tc f14 text-ellipsis-muti text-ellipsis-4">中国著名中国著名中国著名中国著名中国著名的电信专家和传统文化学者，中国实战派管理专家， 曾经任清华经管学院客座教授，央视网创新科技频道高级顾问</p>
+            </a>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
+    <!-- 融资项目 -->
+    <div class="Financing">
+      <div class="container">
+        <el-row :gutter="0">
+          <el-col :xs="24" :sm="24" :md="24" :lg="24">
+            <div class="l Financing_title"></div>
+            <div class="r more_plus"></div>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20">
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" v-for="(item, index) in 2" :key="item">
+            <a class="Financing_item rel">
+              <img src="../../static/img/project01.png" alt="">
+              <div class="Financing_wrap">
+                <div class="Financing_info">
+                  <h1 class="f16">融创投资新三板领投基金</h1>
+                  <p class="text-ellipsis">融创投资新三板领投基金融创投资新三板领投基金融创投资新三板领投基金融创投资新三板领投基金</p>
+                </div>
+                <el-row type="flex" class="Financing_money">
+                  <el-col :span="6">
+                    <p class="f14">3240万<br/>已获得投资意向</p>
+                  </el-col>
+                  <el-col :span="6" :push="12">
+                    <p class="f14 tr">5000万<br/>预融资总额</p>
+                  </el-col>
+                </el-row>
+                <el-tag type="primary" style="margin-left:8px">行业领域:
+                  <span>消费生活</span>
+                </el-tag>
+                <el-tag type="success">已完成融资:
+                  <span>未完成融资</span>
+                </el-tag>
+                <p class="f14 pl10">发起人:融创中国</p>
+              </div>
+            </a>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
+    <!-- 融资项目 -->
+    <!-- 创业导师 -->
     <commonFooter></commonFooter>
   </div>
 </template>
@@ -150,7 +213,7 @@ export default {
     }
   },
   created() {
-    // this.setNewsApi()
+    this.setNewsApi()
   },
   components: {
     commonHeader: Header,
@@ -162,11 +225,10 @@ export default {
       this.$refs.dialog.open()
     },
     setNewsApi() {
-      api.JH_news('/news/index', 'type=top&key=123456')
+      api.Get('/index')
         .then(res => {
-          console.log(res)
-          this.newsListShow = res.articles
-        })
+          console.log(res);
+        });
     },
     // 创谷空间展示
     show_display(index) {
@@ -188,7 +250,6 @@ iframe {
   width: 1000px;
   height: 300px;
 }
-
 </style>
 
 
