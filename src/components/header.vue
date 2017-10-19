@@ -15,9 +15,9 @@
             </div>
         </div>
         <div class="main">
-            <div class="container">
+            <div class="container clear" style="position:relative;display:block;height:auto;overflow: inherit;">
                 <a href="" class="l logo"><img src="static/img/logo.png" alt="" class="padder-vx"></a>
-                <div class="nav nav_pc r">
+                <div class="nav nav_pc">
                     <div id="menu-button">菜单</div>
                     <ul>
                         <li>
@@ -31,6 +31,9 @@
                                 </li>
                                 <li class='has-sub'>
                                     <a href='#'>JS代码</a>
+                                </li>
+                                <li class='has-sub'>
+                                    <a href='#'>J代码</a>
                                 </li>
                             </ul>
                         </li>
@@ -137,6 +140,7 @@ export default {
 .header {
     padding-bottom: 84px;
 }
+
 .top {
     background-color: #0089e3;
 }
@@ -149,6 +153,7 @@ export default {
     color: #fff;
     padding: 0;
 }
+
 .header .text {
     display: inline-block;
     padding: 0 5px;
@@ -160,17 +165,21 @@ export default {
     background-color: #f48100;
     border-radius: 3px;
 }
+
 .header .hr {
     color: #fff;
 }
+
 .el-col-xs-0 {
     display: none;
 }
+
 @media (min-width: 768px) {
     .el-col-xs-0 {
         display: none;
     }
 }
+
 @media (min-width: 992px) {
     .el-col-xs-0 {
         display: block;
@@ -192,6 +201,7 @@ export default {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 .nav:after,
 .nav>ul:after {
     content: ".";
@@ -201,37 +211,48 @@ export default {
     line-height: 0;
     height: 0;
 }
+
 .nav #menu-button {
     display: none;
 }
+
 .nav {
     width: auto;
-    font-family: 'Open Sans', sans-serif;
     line-height: 1;
     background: #ffffff;
     padding: 12px 0;
     display: block;
+    position: absolute;
+    right: 0;
+    z-index: 10;
 }
+
 .nav>ul>li {
     float: left;
 }
+
 .nav.align-center>ul {
     font-size: 0;
     text-align: center;
 }
+
 .nav.align-center>ul>li {
     display: inline-block;
     float: none;
 }
+
 .nav.align-center ul ul {
     text-align: left;
 }
+
 .nav.align-right>ul>li {
     float: right;
 }
+
 .nav.align-right ul ul {
     text-align: right;
 }
+
 .nav>ul>li>a {
     line-height: 20px;
     padding: 16px 10px;
@@ -245,15 +266,17 @@ export default {
     -o-transition: color .2s ease;
     transition: color .2s ease;
 }
+
 .nav>ul>li:hover>a,
 .nav>ul>li.active>a {
     color: #0089e3;
-    border-bottom:2px solid #0089e3;
+    border-bottom: 2px solid #0089e3;
 }
 
 .nav>ul>li.has-sub>a {
     padding-right: 25px;
 }
+
 .nav>ul>li.has-sub>a::after {
     position: absolute;
     top: 22px;
@@ -274,19 +297,24 @@ export default {
     -o-transition: border-color 0.2s ease;
     transition: border-color 0.2s ease;
 }
+
 .nav>ul>li.has-sub:hover>a::after {
     border-color: #009ae1;
 }
+
 .nav ul ul {
     position: absolute;
     left: -9999px;
 }
+
 .nav li:hover>ul {
     left: auto;
 }
+
 .nav.align-right li:hover>ul {
     right: 0;
 }
+
 .nav ul ul ul {
     margin-left: 100%;
     top: 0;
@@ -296,6 +324,7 @@ export default {
     margin-left: 0;
     margin-right: 100%;
 }
+
 .nav ul ul li {
     height: 0;
     -webkit-transition: height .2s ease;
@@ -304,9 +333,11 @@ export default {
     -o-transition: height .2s ease;
     transition: height .2s ease;
 }
+
 .nav ul li:hover>ul>li {
     height: 32px;
 }
+
 .nav ul ul li a {
     padding: 10px 20px;
     width: 160px;
@@ -320,10 +351,12 @@ export default {
     -o-transition: color .2s ease;
     transition: color .2s ease;
 }
+
 .nav ul ul li:hover>a,
 .nav ul ul li a:hover {
     color: #ffffff;
 }
+
 .nav ul ul li.has-sub>a::after {
     position: absolute;
     top: 13px;
@@ -357,6 +390,7 @@ export default {
 .nav ul ul li.has-sub:hover>a::after {
     border-color: #ffffff;
 }
+
 @media all and (min-width: 120px) {
     .nav_pc {
         display: block;
@@ -371,9 +405,15 @@ export default {
     }
     .nav {
         width: 100%;
+        padding: 12px 0 0;
     }
     .nav ul {
         width: 100%;
+    }
+    .nav>ul>li:hover>a,
+    .nav>ul>li.active>a {
+        color: #0089e3;
+        border-bottom: none;
     }
     .nav.align-center>ul,
     .nav.align-right ul ul {
