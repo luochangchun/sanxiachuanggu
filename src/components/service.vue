@@ -1,5 +1,8 @@
 <template>
     <div>
+        <!--header-->
+        <commonHeader></commonHeader>
+
     <!--banner-->
         <el-row :gutter="10">
             <el-col :lg="24" :md="24" :sm="24" :xs="24"class="service-banner">
@@ -46,52 +49,113 @@
             </el-col>
         </el-row>
     <!--服务商专区-->
-        <el-row :gutter="10">
+        <el-row :gutter="10" style="margin-bottom: 50px;">
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                 <div class="title" id="title-service">
                     <h1>服务商专区</h1>
                     <p>SERVICE AREA</p>
                     <hr>
                     <span></span>
-                    <button>MORE+</button>
+                    <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10">
-                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show"id="showone">
-                        <img src="../../static/img/s_05.png" alt="">
+                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show"id="showone"v-for="(item, index) in serviceList">
+                        <img :src="item.image" alt="">
                         <div class="service-opcity">
-                            <h2>海量客户 遍布全国</h2>
-                            <p>16+城市,40+场区,3000+入驻企业,30000+注册用户</p>
-                        </div>
-                    </el-col>
-                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show"id="showtwo">
-                        <img src="../../static/img/s_07.png" alt="">
-                        <div class="service-opcity">
-                            <h2>立体推广 精准直达</h2>
-                            <p>专属推广活动,频道展示,优质企业推荐,多渠道提供合作机会 </p>
-                        </div>
-                    </el-col>
-                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show"id="showthree">
-                        <img src="../../static/img/s_09.png" alt="">
-                        <div class="service-opcity">
-                            <h2>优质标签 彰显身份</h2>
-                            <p>服务商评估体系,您的标签,就是您三峡创谷的尊贵身份</p>
+                            <h2>{{item.title}}</h2>
+                            <p>{{item.text}}</p>
                         </div>
                     </el-col>
                 </el-row>
             </el-col>
         </el-row>
-
-
-
-
-
-
-
+        <!-- 服务商 -->
+        <div  class="service_provider">
+            <el-row :gutter="10">
+                <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
+                    <div class="l service_provider_title"></div>
+                    <div class="r more_plus"></div>
+                </el-col>
+            </el-row>
+            <el-row :gutter="10">
+                <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
+                    <el-row class="office_wrap">
+                        <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in 10" :key="item">
+                            <a class="service_provider_item rel">
+                                <img src="../../static/img/service01.png" alt="">
+                                <p class="tc">长江证券</p>
+                                <i class="tag abs white tc f14">项目申报</i>
+                            </a>
+                        </el-col>
+                    </el-row>
+                </el-col>
+            </el-row>
+        </div>
+    <!--入孵企业专区-->
+        <el-row :gutter="10" style="margin-bottom: 50px;">
+            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
+                <div class="title" id="title-company">
+                    <h1>入孵企业专区</h1>
+                    <p>SERVICE AREA</p>
+                    <hr>
+                    <span></span>
+                    <div class="r more_plus"></div>
+                </div>
+                <el-row :gutter="10">
+                    <!--<el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show"v-for="(item, index) in serviceList">-->
+                        <!--<img :src="item.image" alt="">-->
+                        <!--<div class="service-opcity">-->
+                            <!--<h2>{{item.title}}</h2>-->
+                            <!--<p>{{item.text}}</p>-->
+                        <!--</div>-->
+                    <!--</el-col>-->
+                </el-row>
+            </el-col>
+        </el-row>
+        <!-- footer -->
+        <commonFooter></commonFooter>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
+	import api from '../axios/api.js'
+	import Header from '../components/header.vue'
+	import Swiper from '../components/swiper.vue'
+	import Footer from '../components/footer.vue'
+	export default {
+		data() {
+			return {
+				serviceList:[
+                    {
+                    	image:'../../static/img/s_05.png',
+                    	title:'海量客户 遍布全国',
+                        text:'16+城市,40+场区,3000+入驻企业,30000+注册用户',
+                    },
+                    {
+						image:'../../static/img/s_07.png',
+                    	title:'立体推广 精准直达',
+                        text:'专属推广活动,频道展示,优质企业推荐,多渠道提供合作机会',
+                    },
+					{
+						image:'../../static/img/s_09.png',
+						title:'优质标签 彰显身份',
+						text:'服务商评估体系,您的标签,就是您三峡创谷的尊贵身份',
+					},
+                ]
+			}
+		},
+		created() {
 
+		},
+		components: {
+			commonHeader: Header,
+			commonFooter: Footer,
+			commonSwiper: Swiper
+		},
+		methods: {
+
+        }
+			}
 </script>
 
 <style>
@@ -146,15 +210,8 @@
         border:2px solid #0089e3;
         width:10%;
     }
-    .title button{
-        position: absolute;
-        top: 40px;
-        right:13%;
-        font-size: 12px;
-        color:#999;
-        border-radius:4px;
-        border:1px solid #ddd;
-        background-color: transparent;
+    .title div{
+        margin-top: -42px;
     }
     #title-service{
         position:relative;
@@ -190,20 +247,21 @@
         margin-top: 5%;
         color:#999;
     }
-    #showtwo{
+   .service-show img{
+       width:100%;
+   }
+
+    /*服务商*/
+    .service_provider_item img{
+        margin-left:20%;
+    }
+    /*入孵企业专区*/
+    #title-company{
         position:relative;
     }
-    #showtwo div{
+    #title-company span{
         position: absolute;
-        top: 15%;
-        left:15%;
-    }
-    #showthree{
-        position:relative;
-    }
-    #showthree div{
-        position: absolute;
-        top: 15%;
-        left:15%;
+        top: 48px;
+        left:45%;
     }
 </style>

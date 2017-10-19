@@ -1,37 +1,22 @@
 <template>
     <div>
+        <!--header-->
+        <commonHeader></commonHeader>
+        <commonSwiper></commonSwiper>
         <!--双创空间展示-->
         <el-row :gutter="10"style="margin-bottom: 50px;">
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                 <div class="title" id="title-incubators">
-                    <h1>院校展示</h1>
+                    <h1>双创空间展示</h1>
                     <p>ENTREPRENEURIAL MENTOP</p>
                     <hr>
                     <span></span>
-                    <button>MORE+</button>
+                    <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10">
-                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="incubators-show">
+                    <el-col :lg="6" :md="6" :sm="12" :xs="24" class="incubators-show"v-for="(item,index) in 5">
                         <img src="../../static/img/103.png" alt="">
-                        <span style="bottom: 0;right:5px;">清创</span>
-                    </el-col>
-                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="incubators-show">
-                        <img src="../../static/img/103.png" alt="">
-                        <span style="bottom: 0;right:5px;">清创</span>
-                    </el-col>
-                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="incubators-show">
-                        <img src="../../static/img/103.png" alt="">
-                        <span style="bottom: 0;right:5px;">清创</span>
-                    </el-col>
-                </el-row>
-                <el-row :gutter="10"style="margin-top: 10px;">
-                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="incubators-show">
-                        <img src="../../static/img/103.png" alt="">
-                        <span style="bottom: 0;right:5px;">清创</span>
-                    </el-col>
-                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="incubators-show">
-                        <img src="../../static/img/103.png" alt="">
-                        <span style="bottom: 0;right:5px;">清创</span>
+                        <span>清创</span>
                     </el-col>
                 </el-row>
             </el-col>
@@ -45,40 +30,49 @@
                         <p>ENTREPRENEURIAL MENTOP</p>
                         <hr>
                         <span></span>
-                        <button>MORE+</button>
+                        <div class="r more_plus"></div>
                     </div>
-                    <el-row :gutter="10">
-                        <el-col :lg="6" :md="6" :sm="12" :xs="24" >
-                            <img src="../../static/img/zn_07.png" alt="">
-                        </el-col>
-                        <el-col :lg="6" :md="6" :sm="12" :xs="24" >
-                            <img src="../../static/img/zn_07.png" alt="">
-                        </el-col>
-                        <el-col :lg="6" :md="6" :sm="12" :xs="24" >
-                            <img src="../../static/img/zn_07.png" alt="">
-                        </el-col>
-                        <el-col :lg="6" :md="6" :sm="12" :xs="24" >
-                            <img src="../../static/img/zn_07.png" alt="">
-                        </el-col>
-                    </el-row>
-                    <el-row :gutter="10"style="margin-top:10px;">
-                        <el-col :lg="6" :md="6" :sm="12" :xs="24" >
-                            <img src="../../static/img/zn_07.png" alt="">
-                        </el-col>
-                        <el-col :lg="6" :md="6" :sm="12" :xs="24" >
-                            <img src="../../static/img/zn_07.png" alt="">
-                        </el-col>
-                    </el-row>
+                    <div  class="service_provider">
+                        <el-row :gutter="10">
+                            <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                                <el-row class="office_wrap">
+                                    <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in 10" :key="item">
+                                        <a class="service_provider_item rel">
+                                            <img src="../../static/img/service01.png" alt="">
+                                            <p class="tc">西陵区工商局</p>
+                                        </a>
+                                    </el-col>
+                                </el-row>
+                            </el-col>
+                        </el-row>
+                    </div>
                 </el-col>
             </el-row>
         </div>
 
-
+        <!-- footer -->
+        <commonFooter></commonFooter>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
+	import api from '../axios/api.js'
+	import Header from '../components/header.vue'
+	import Swiper from '../components/swiper.vue'
+	import Footer from '../components/footer.vue'
+	export default {
+		data() {
+			return {}
+		},
+		methods: {
 
+		},
+		components: {
+			commonHeader: Header,
+			commonFooter: Footer,
+			commonSwiper: Swiper
+		},
+		}
 </script>
 
 <style>
@@ -97,6 +91,10 @@
         text-align: center;
         height: 30px;
         line-height: 30px;
+        bottom: 5px;
+        left:0;
+        margin-right:5px;
+        margin-left: 5px;
     }
     /*定位*/
     #title-incubators{
@@ -142,14 +140,7 @@
         border:2px solid #0089e3;
         width:10%;
     }
-    .title button{
-        position: absolute;
-        top: 40px;
-        right:13%;
-        font-size: 12px;
-        color:#999;
-        border-radius:4px;
-        border:1px solid #ddd;
-        background-color: transparent;
+    .title div{
+        margin-top: -41px;
     }
 </style>

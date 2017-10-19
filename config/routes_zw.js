@@ -18,6 +18,7 @@ import news from '../src/components/news.vue'
 import incubators from '../src/components/incubators.vue'
 import research from '../src/components/research.vue'
 import service from '../src/components/service.vue'
+import college from '../src/components/college.vue'
 
 
 
@@ -30,7 +31,7 @@ const routes = [
   {path: '/activitys', component: Activitys},
   {path: '/activityPara', component: ActivityPara},
   {path: '/service', component: service},
-
+  {path: '/college', component: college},
 
 
 

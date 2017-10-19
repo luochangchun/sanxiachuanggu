@@ -1,25 +1,20 @@
 <template>
     <div>
+        <!--header-->
+        <commonHeader></commonHeader>
+        <commonSwiper></commonSwiper>
         <el-row :gutter="10">
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                 <el-row :gutter="10">
                     <!--左边图文-->
                     <el-col :lg="16" :md="16" :sm="24" :xs="24">
-                        <!--&lt;!&ndash;上一整图&ndash;&gt;-->
-                        <!--<el-row :gutter="10">-->
-                            <!--<el-col :lg="24" :md="24" :sm="24" :xs="24">-->
-                                <!--<a href="">-->
-                                    <!--<div class="bg-cover block h"></div>-->
-                                <!--</a>-->
-                            <!--</el-col>-->
-                        <!--</el-row>-->
                         <!--导航切换-->
-                        <el-row :gutter="10" style="margin-top: 50px;" class="news-button">
-                            <el-col :lg="4" :md="4" :sm="4" :xs="4"><button>每日头条</button></el-col>
-                            <el-col :lg="4" :md="4" :sm="6" :xs="6"><button>政府双创</button></el-col>
-                            <el-col :lg="4" :md="4" :sm="6" :xs="6"><button>企业双创</button></el-col>
-                            <el-col :lg="4" :md="4" :sm="6" :xs="6"><button>园区双创</button></el-col>
-                            <el-col :lg="4" :md="4" :sm="6" :xs="6"><button>双创服务机构</button></el-col>
+                        <el-row :gutter="20" style="margin-top: 50px;" class="news-button">
+                            <el-col :lg="4" :md="6" :sm="8" :xs="12" class="button">每日头条</el-col>
+                            <el-col :lg="4" :md="6" :sm="8" :xs="12" class="button">政府双创</el-col>
+                            <el-col :lg="4" :md="6" :sm="8" :xs="12" class="button">企业双创</el-col>
+                            <el-col :lg="4" :md="6" :sm="8" :xs="12" class="button">园区双创</el-col>
+                            <el-col :lg="4" :md="6" :sm="8" :xs="12" class="button">双创服务机构</el-col>
                         </el-row>
                         <!--左图右文-->
                         <el-row :gutter="10"  class="news-leftlist">
@@ -43,7 +38,7 @@
                                         </p>
                                         <p class="text-muted pull-left">
                                             <i class="el-icon-edit fa fa-edit m-r-xs"></i>
-                                            <span>创谷空间</span>
+                                            <span>158</span>
                                         </p>
                                     </div>
                                 </el-col>
@@ -144,11 +139,16 @@
                 </el-row>
             </el-col>
         </el-row>
+        <!--footer-->
+        <commonFooter></commonFooter>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-	import header from './header.vue'
+	import api from '../axios/api.js'
+	import Header from '../components/header.vue'
+	import Swiper from '../components/swiper.vue'
+	import Footer from '../components/footer.vue'
 	const False = false;
 	export default {
 		data() {
@@ -158,6 +158,11 @@
 				//				abnormalC:false,
 				showread: true
 			};
+		},
+		components: {
+			commonHeader: Header,
+			commonFooter: Footer,
+			commonSwiper: Swiper
 		},
 		methods: {
 
@@ -223,14 +228,15 @@
         padding: 0 !important;
     }
     /*导航切换*/
-    .news-button button{
+    .news-button > .button{
         border-radius: 4px;
         height:30px;
         line-height:30px;
         border:none;
         background-color:#ddd;
-        width:100px;
         color:#999;
+        text-align: center;
+        margin-right: 5px;
     }
 
     /*左图右文字*/
@@ -316,7 +322,7 @@
         float: left !important;
     }
     .b-b{
-        border-bottom: 1px das #dee5e7;
+        border-bottom: 1px dashed #dee5e7;
     }
     .m-t {
         margin-top: 15px;
