@@ -1,6 +1,5 @@
 <template>
   <div class="index">
-    <commonHeader></commonHeader>
     <commonSwiper></commonSwiper>
     <!-- 今日头条 -->
     <div class="headLines padder-v">
@@ -196,15 +195,12 @@
     </div>
     <!-- 融资项目 -->
     <!-- 创业导师 -->
-    <commonFooter></commonFooter>
   </div>
 </template>
 
 <script>
 import api from '../axios/api.js'
-import Header from '../components/header.vue'
 import Swiper from '../components/swiper.vue'
-import Footer from '../components/footer.vue'
 export default {
   data() {
     return {
@@ -214,11 +210,6 @@ export default {
   },
   created() {
     this.setNewsApi()
-  },
-  components: {
-    commonHeader: Header,
-    commonFooter: Footer,
-    commonSwiper: Swiper
   },
   methods: {
     preview() {
