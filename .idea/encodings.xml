@@ -1,28 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/img/banner-2.jpg" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/img/download-3.jpg" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/img/download.jpg" charset="GBK" />
     <file url="file://$PROJECT_DIR$/static/img/103.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/static/img/7_03.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/static/img/a.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/static/img/b.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/static/img/college_1.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/static/img/college_2.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/static/img/college_3.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/static/img/college_4.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/static/img/download-8.jpg" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/static/img/nav_01.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/img/id_03.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/img/id_06.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/static/img/right.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/static/img/s_05.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/static/img/s_07.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/static/img/s_09.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/static/img/school_03.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/static/img/school_05.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/static/img/school_07.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/static/img/school_09.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/static/img/school_11.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/static/img/service-banner_02.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/static/img/x_03.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/static/img/x_05.png" charset="GBK" />

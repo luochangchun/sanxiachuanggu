@@ -93,13 +93,9 @@
         	data() {
         		return{
 					schoolList:[
-                        {
-							image:'../../static/img/x_03.png',
-                            school:'武汉大学',
-                        },
 						{
 							image:'../../static/img/x_05.png',
-							school:'华中科技大学',
+							school:'华中师范大学',
 						},
 						{
 							image:'../../static/img/x_07.png',

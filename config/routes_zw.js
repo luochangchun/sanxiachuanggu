@@ -19,6 +19,8 @@ import incubators from '../src/components/incubators.vue'
 import research from '../src/components/research.vue'
 import service from '../src/components/service.vue'
 import college from '../src/components/college.vue'
+import incubators_details from '../src/components/incubators_details.vue'
+
 
 
 
@@ -30,8 +32,7 @@ const routes = [
   {path: '/informationPara', component: InformationPara},
   {path: '/activitys', component: Activitys},
   {path: '/activityPara', component: ActivityPara},
-  {path: '/service', component: service},
-  {path: '/college', component: college},
+
 
 
 
@@ -41,7 +42,9 @@ const routes = [
 	{path: '/news', component: news},
 	{path: '/incubators', component: incubators},
 	{path: '/research', component: research},
-	{path: '/service', component: service}
+	{path: '/college', component: college},
+	{path: '/service', component: service},
+	{path: '/incubators_details', component: incubators_details}
 ]
 
 export default new VueRouter({

@@ -53,7 +53,56 @@
                 </el-col>
             </el-row>
         </div>
-
+        <!--活动专区-->
+        <el-row class="activitys">
+            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
+                <div class="title" id="title-activitys">
+                    <h1>活动专区</h1>
+                    <p>ACTIVITYZONE </p>
+                    <hr>
+                    <span></span>
+                    <div class="r more_plus"></div>
+                </div>
+                <el-row :gutter="10">
+                    <el-col :xs="8" :sm="8" :md="8" :lg="8" v-for="(item, index) in 6" :key="item">
+                        <a class="activitys_item">
+                            <img src="../../static/img/activity01.png" alt="">
+                            <div class="process abs">
+                                <p class="white f16 tc text-ellipsis">关于举办陷阱的价值沙龙的通知</p>
+                                <p class=" f16 tc tag">进行中</p>
+                            </div>
+                        </a>
+                    </el-col>
+                </el-row>
+            </el-col>
+        </el-row>
+        <!--精彩瞬间-->
+        <div style="background-color: #eee;padding-bottom: 50px;">
+            <el-row :gutter="10">
+                <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
+                    <div class="title" id="title-splendid">
+                        <h1>精彩瞬间</h1>
+                        <p>SPLENDID MOMENT</p>
+                        <hr>
+                        <span></span>
+                        <div class="r more_plus"></div>
+                    </div>
+                    <el-row :gutter="10">
+                        <el-col :lg="3" :md="3" :sm="2" :xs="2" class="arrows-splendid left">
+                            <div><</div>
+                        </el-col>
+                        <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in 3">
+                            <div class="research-splendid">
+                                <img src="../../static/img/college_4.png" alt="">
+                            </div>
+                        </el-col>
+                        <el-col :lg="3" :md="3" :sm="2" :xs="2" class="arrows-splendid right">
+                            <div><</div>
+                        </el-col>
+                    </el-row>
+                </el-col>
+            </el-row>
+        </div>
         <!--footer-->
         <commonFooter></commonFooter>
     </div>
@@ -197,5 +246,57 @@
     font-size:14px;
     border:none;
     margin: 20px auto;
+}
+    /*活动专区*/
+#title-activitys{
+    position:relative;
+}
+#title-activitys span{
+    position: absolute;
+    top: 48px;
+    left:45%;
+}
+.activitys_item img{
+    width:100%;
+}
+/*精彩瞬间*/
+#title-splendid{
+    position:relative;
+}
+#title-splendid span{
+    position: absolute;
+    top: 48px;
+    left:45%;
+}
+.research-splendid img{
+    width:100%;
+}
+    .arrows-splendid div{
+        font-size: 48px;
+        color:#d1e0ea;
+        background-color:#a6d0eb;
+        max-height:60px;
+        max-width:50px;
+        text-align: center;
+        line-height: 60px;
+        margin-top: 50%;
+    }
+@media screen and (min-width: 992px) {
+    .right div{
+        float:right;
+        height:60px;
+        width:50px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .arrows-splendid div {
+        overflow: hidden;
+        margin-top: 20%;
+    }
+    .right div{
+        float:right;
+        height:60px;
+        width:28px;
+    }
 }
 </style>
