@@ -434,7 +434,70 @@ img {
 }
 .details_tag {
   border:1px solid #ddd;
-  padding: 20px;
+  padding: 5px 20px;
+  margin: 35px 0;
+}
+.details_tag .el-row {
+  border-bottom: 1px dashed #dddddd;
+}
+.details_tag .el-row:last-child {
+  border-bottom:none;
+}
+.class_name{
+  height: 30px;
+  line-height: 30px;
+  padding: 5px;
+}
+.more_tag {
+  padding: 3px;
+  border: 1px solid #0089e3;
+  color: #0089e3;
+  cursor: pointer;
+}
+.h_fixed {
+  height: 30px;
+  overflow: hidden;
+}
+.h_auto {
+  height: auto;
+}
+.Multiple_choices {
+  padding: 5px;
+}
+.Multiple_choices a{
+  padding: 5px;
+  display: inline-block;
+  color: #666666;
+}
+.Multiple_choices a:first-child{
+  color: #0089e3;
+}
+.talent_list, .mb35 {
+  margin-bottom: 35px;
+}
+.talent_top {
+  border-top: 2px solid #0089e3;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd; 
+}
+.talent_top p {
+  font-size: 14px;
+  color: #666666;
+  padding: 10px;
+  font-weight: bold;
+}
+.talent_item p {
+  font-size: 12px;
+  color: #666666;
+  padding: 10px;
+  border-bottom: 1px dotted #dddddd; 
+}
+.talent_item p.blue {
+  color:#0089e3;
+}
+.talent_item p.orange {
+  color:#f48100;
 }
 /* 创谷人才 */
 
