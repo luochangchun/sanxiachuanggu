@@ -23,7 +23,7 @@ import incubators from '../src/components/incubators.vue'
 import research from '../src/components/research.vue'
 import service from '../src/components/service.vue'
 import financing from '../src/components/financing.vue'
-
+import college from '../src/components/college.vue'
 
 
 
@@ -52,7 +52,10 @@ const routes = [
 	{path: '/incubators', component: incubators},
 	{path: '/research', component: research},
 	{path: '/service', component: service},
-	{path: '/financing', component: financing}
+	{path: '/financing', component: financing},
+	{path: '/service', component: service},
+	{path: '/college', component: college}
+
 ]
 
 export default new VueRouter({

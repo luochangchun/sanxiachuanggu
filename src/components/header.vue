@@ -1,15 +1,15 @@
 <template>
     <div class="header">
         <div class="top">
-            <div class="container">
+            <div class="container" style="margin-top:0;">
                 <el-row :gutter="0">
                     <el-col :xs="0" :sm="0" :md="6" :lg="6">
                         <p class="solgan_word f14">集众智而生·筑时代之城</p>
                     </el-col>
                     <el-col :xs="12" :sm="12" :md="6" :lg="6" :offset="12">
-                        <a href="" class="text r">免费注册</a>
+                        <router-link to="/register" class="text r">免费注册</router-link>
                         <i class="r hr">&nbsp;&nbsp;|&nbsp;&nbsp;</i>
-                        <a href="" class="text cur r">登录</a>
+                        <router-link to="/login" class="text cur r">登录</router-link>
                     </el-col>
                 </el-row>
             </div>
@@ -21,47 +21,47 @@
                     <div id="menu-button">菜单</div>
                     <ul>
                         <li>
-                            <a href='#'>首页</a>
+                            <router-link to="/">首页</router-link>
                         </li>
                         <li class='has-sub'>
-                            <a href='#'>创谷空间</a>
+                            <router-link to="/map">创谷空间</router-link>
                             <ul>
                                 <li class='has-sub'>
-                                    <a href='#'>jQuery特效</a>
+                                    <router-link to="/">jQuery特效</router-link>
                                 </li>
                                 <li class='has-sub'>
-                                    <a href='#'>JS代码</a>
+                                    <router-link to="/">JS代码</router-link>
                                 </li>
                                 <li class='has-sub'>
-                                    <a href='#'>J代码</a>
+                                    <router-link to="/">JS代码</router-link>
                                 </li>
                             </ul>
                         </li>
                         <li class='has-sub'>
-                            <a href='#'>双创空间</a>
+                            <router-link to="/incubators">双创空间</router-link>
                             <ul>
                                 <li class='has-sub'>
-                                    <a href='#'>jQuery特效</a>
+                                    <router-link to="/">双创空间</router-link>
                                 </li>
                             </ul>
                         </li>
                         <li class='has-sub'>
-                            <a href='#'>创谷学院</a>
+                            <router-link to="/college">创谷学院</router-link>
                         </li>
                         <li>
-                            <a href='#'>创谷资讯</a>
+                            <router-link to="/news">创谷资讯</router-link>
                         </li>
                         <li>
-                            <a href='#'>创谷企业</a>
+                            <router-link to="/service">创谷企业</router-link>
                         </li>
                         <li>
-                            <a href='#'>创谷研究</a>
+                            <router-link to="/research">创谷研究</router-link>
                         </li>
                         <li>
-                            <a href='#'>投融资库</a>
+                            <router-link to="/">投融资库</router-link>
                         </li>
                         <li>
-                            <a href='#'>创谷人才</a>
+                            <router-link to="/talent">创谷人才</router-link>
                         </li>
                     </ul>
                 </div>
@@ -141,7 +141,7 @@ export default {
 </script>
 <style scoped>
 .header {
-    padding-bottom: 84px;
+    padding-bottom: 84px
 }
 
 .top {
