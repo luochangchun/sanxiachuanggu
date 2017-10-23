@@ -2,9 +2,9 @@
     <div>
         <!--header-->
         <el-row :gutter="10">
-            <el-col :lg="24" :md="24" :sm="24" :xs="24"class="incubators-banner">
-                <div class="incubators-nav">
-                    <img src="../../" alt="">
+            <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                <div class="banner_img">
+                    <img src="../../static/img/banner_sckj.png" alt="">
                 </div>
             </el-col>
         </el-row>
@@ -56,9 +56,8 @@
                 </el-row>
             </div>
         </div>
-
         <!--双创空间详情页-->
-        <el-row :gutter="10"style="margin-bottom: 50px;"v-show="incubators_details">
+        <el-row :gutter="10"style="margin-bottom: 50px;" v-show="incubators_details">
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                 <el-row :gutter="10" style="margin-top: 50px;">
                     <el-col :lg="12" :md="12" :sm="24" :xs="24">
@@ -84,7 +83,6 @@
                 </el-row>
             </el-col>
         </el-row>
-
         <!-- footer -->
     </div>
 </template>
@@ -112,6 +110,10 @@
 </script>
 
 <style>
+    /*banner*/
+    .banner_img img{
+        width:100%;
+    }
     /*双创空间详情页*/
     .details-img img{
         width:100%;

@@ -1,15 +1,15 @@
 <template>
     <div>
-        <!--header-->
+    <!--header-->
     <!--banner-->
         <el-row :gutter="10">
-            <el-col :lg="24" :md="24" :sm="24" :xs="24"class="service-banner">
+            <el-col :lg="24" :md="24" :sm="24" :xs="24" class="service-banner">
                 <el-row :gutter="10">
                     <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                         <el-row :gutter="10">
-                            <el-col :lg="6" :md="6" :sm="6" :xs="24" style="background-color:#f9fafa">
+                            <el-col :lg="4" :md="6" :sm="6" :xs="24" style="background-color:#f9fafa">
                                 <div class="service-nav">
-                                    <img src="../../static/img/nav_1.png" alt=""style="margin-top: 3px;">
+                                    <img src="../../static/img/nav_1.png" alt="" style="margin-top: 3px;">
                                     <p>信息化服务</p>
                                 </div>
                                 <div class="service-nav">
@@ -57,7 +57,7 @@
                     <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10">
-                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show"id="showone"v-for="(item, index) in serviceList" :key="item">
+                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show"id="showone" v-for="(item, index) in serviceList" :key="item">
                         <img :src="item.image" alt="">
                         <div class="service-opcity">
                             <h2>{{item.title}}</h2>
@@ -67,7 +67,7 @@
                 </el-row>
             </el-col>
         </el-row>
-        <!-- 服务商 -->
+    <!-- 服务商 -->
         <div  class="service_provider">
             <el-row :gutter="10">
                 <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
@@ -100,7 +100,7 @@
                     <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10">
-                    <!--<el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show"v-for="(item, index) in serviceList">-->
+                    <!--<el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show"v-for="(item, index) in serviceList" :key="item">-->
                         <!--<img :src="item.image" alt="">-->
                         <!--<div class="service-opcity">-->
                             <!--<h2>{{item.title}}</h2>-->
@@ -110,11 +110,11 @@
                 </el-row>
             </el-col>
         </el-row>
-        <!-- footer -->
+    <!-- footer -->
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 	import api from '../axios/api.js'
 	import Header from '../components/header.vue'
 	import Swiper from '../components/swiper.vue'
@@ -165,17 +165,18 @@
         width:100%;
     }
     .service-nav{
-        background-image: url(../../static/img/right.png);
-        background-repeat: no-repeat;
-        background-size: 8px;
-        background-position: right;
+        /*background-image: url(../../static/img/right.png);*/
+        /*background-repeat: no-repeat;*/
+        /*background-size: 8px;*/
+        /*background-position: right;*/
         border-bottom:1px solid #ddd;
     }
     .service-nav img{
+        width:17px;
         display: inline-block;
-        margin-bottom:-5px;
-        margin-left: 5px;
-        margin-right: 5px;
+        margin-bottom:0;
+        margin-left: 8px;
+        margin-right: 8px;
     }
     .service-nav p{
         height:40px;

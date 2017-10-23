@@ -12,7 +12,7 @@
                     <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10">
-                    <el-col :lg="6" :md="6" :sm="12" :xs="24" class="college-show"v-for="(item,index) in 4" :key="item">
+                    <el-col :lg="6" :md="6" :sm="12" :xs="24" class="college-show"v-for="(item,index) in 4">
                         <img src="../../static/img/college_1.png" alt="">
                         <div>
                             <h6>新手创业指南手册</h6>
@@ -34,7 +34,7 @@
                         <div class="r more_plus"></div>
                     </div>
                     <el-row :gutter="10">
-                        <el-col :lg="11" :md="11" :sm="11" :xs="22" :offset="1" v-for="(item, index) in 4" :key="item">
+                        <el-col :lg="11" :md="11" :sm="11" :xs="22" :offset="1" v-for="(item, index) in 4">
                             <div class="research-teacher">
                                 <img src="../../static/img/college_2.png" alt="">
                                 <div>
@@ -89,13 +89,13 @@
                         <el-col :lg="3" :md="3" :sm="2" :xs="2" class="arrows-splendid left">
                             <div><</div>
                         </el-col>
-                        <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in 3" :key="item">
+                        <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in 3">
                             <div class="research-splendid">
                                 <img src="../../static/img/college_4.png" alt="">
                             </div>
                         </el-col>
                         <el-col :lg="3" :md="3" :sm="2" :xs="2" class="arrows-splendid right">
-                            <div>> </div>
+                            <div><</div>
                         </el-col>
                     </el-row>
                 </el-col>
@@ -201,7 +201,7 @@
     position: relative;
 }
 .research-teacher img{
-    width:120px;
+    width:30%;
     margin-right: auto;
     margin-left: auto;
     display: block;
@@ -210,7 +210,7 @@
     left: -28px;
 }
 .research-teacher div{
-    margin-left:38px;
+    margin-left:30px;
     margin-right:30px;
     text-align: center;
     color:#fff;
@@ -220,13 +220,13 @@
     font-size:16px;
     font-weight: normal;
     line-height:30px;
-    /*margin-left: -70px;*/
+    margin-left: -70px;
 }
 .research-teacher div h3{
     font-size:14px;
     font-weight: normal;
     line-height:30px;
-    /*margin-left: -60px;*/
+    margin-left: -60px;
 }
 .research-teacher div p{
     font-size:12px;

@@ -1,6 +1,13 @@
     <template>
         <div>
             <!--header-->
+            <el-row :gutter="10">
+                <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                    <div class="banner_img">
+                        <img src="../../static/img/banner_cgyj.png" alt="">
+                    </div>
+                </el-col>
+            </el-row>
             <!--院校展示-->
             <el-row :gutter="10"style="margin-bottom: 50px;">
                 <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
@@ -121,6 +128,10 @@
     </script>
 
     <style>
+        /*banner*/
+        /*.banner_img img{*/
+            /*width:100%;*/
+        /*}*/
         /*院校展示*/
         .schoolList{
             position: relative;

@@ -2,6 +2,13 @@
     <div>
         <!--header-->
         <el-row :gutter="10">
+            <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                <div class="banner_img">
+                    <img src="../../static/img/banner_cgzx.png" alt="">
+                </div>
+            </el-col>
+        </el-row>
+        <el-row :gutter="10">
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                 <el-row :gutter="10">
                     <!--左边图文-->
@@ -52,7 +59,6 @@
                             </el-col>
                         </el-row>
                     </el-col>
-
                     <!--点击图片进入详情-->
                     <el-row :gutter="10" style="display: none" v-show="show_read">
                         <el-col :lg="16" :md="16" :sm="24" :xs="24">
@@ -90,7 +96,6 @@
                             </div>
                         </el-col>
                     </el-row>
-
                     <!--热门排行-->
                     <el-col :lg="8" :md="8" :sm="24" :xs="24">
                         <el-row :gutter="10">
@@ -142,7 +147,10 @@
 
 </script>
 <style>
-    /*@import "../../static/css/common.css";*/
+    /*banner*/
+    .banner_img img{
+        width:100%;
+    }
     .el-row {
         margin-bottom: 20px;
     }
