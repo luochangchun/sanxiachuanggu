@@ -165,7 +165,7 @@
         padding-left: 15px;
         margin-right: auto;
         margin-left: auto;
-        margin-top: 40px;
+        /* margin-top: 40px; */
     }
     .padder-v-md {
         padding-top: 20px;

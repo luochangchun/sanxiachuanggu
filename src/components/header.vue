@@ -7,9 +7,9 @@
                         <p class="solgan_word f14">集众智而生·筑时代之城</p>
                     </el-col>
                     <el-col :xs="12" :sm="12" :md="6" :lg="6" :offset="12">
-                        <a href="" class="text r">免费注册</a>
+                        <router-link to="/register" class="text r">免费注册</router-link>
                         <i class="r hr">&nbsp;&nbsp;|&nbsp;&nbsp;</i>
-                        <a href="" class="text cur r">登录</a>
+                        <router-link to="/login" class="text cur r">登录</router-link>
                     </el-col>
                 </el-row>
             </div>
