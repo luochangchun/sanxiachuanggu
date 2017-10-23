@@ -24,3 +24,11 @@
         </div>
     </div>
 </template>
+
+<script>
+//    loginData(){
+//		this.axios.post(this.ajax_head+'http://192.168.11.222/apidocs/#/pub/post_pub_sign_in', {
+//
+//		})
+//    }
+</script>

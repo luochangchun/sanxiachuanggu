@@ -5,7 +5,9 @@
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <div class="banner_img">
                     <img src="../../static/img/banner_trzk.png" alt="">
-                    <button>查看详情</button>
+                    <a href="/" class="invest_detail">
+                        <button>查看详情</button>
+                    </a>
                 </div>
             </el-col>
         </el-row>
@@ -98,14 +100,22 @@
     .banner_img img{
         width:100%;
     }
+    .invest_detail{
+        width:100%;
+        display: block;
+        height:25px;
+        position: absolute;
+        bottom: 20%;
+        text-align: center;
+    }
     .banner_img button{
         border:none;
         background-color: #fada0b;
         border-radius: 4px;
         color:#fff;
-        position: absolute;
-        bottom: 20%;
-        margin-left: 45%;
+        height: 25px;
+        line-height: 25px;
+        width: 80px;
     }
     /*title*/
     .title{

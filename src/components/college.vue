@@ -96,7 +96,7 @@
                             </div>
                         </el-col>
                         <el-col :lg="3" :md="3" :sm="2" :xs="2" class="arrows-splendid right">
-                            <div><</div>
+                            <div>></div>
                         </el-col>
                     </el-row>
                 </el-col>
@@ -202,7 +202,7 @@
     position: relative;
 }
 .research-teacher img{
-    width:30%;
+    width:120px;
     margin-right: auto;
     margin-left: auto;
     display: block;

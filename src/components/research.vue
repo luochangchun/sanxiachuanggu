@@ -21,7 +21,7 @@
                     <el-row :gutter="10">
                         <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in schoolList" :key="item" class="schoolList">
                             <img :src="item.image" alt="" style="border:1px solid #ddd;">
-                            <span>{{item.school}}</span>
+                            <p>{{item.school}}</p>
                         </el-col>
                     </el-row>
                 </el-col>
@@ -65,7 +65,7 @@
                         <div class="r more_plus"></div>
                     </div>
                     <el-row :gutter="10" style="margin-bottom: 50px;">
-                        <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in 4" :key="item">
+                        <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in 4" :key="item" style="margin-bottom: 20px;">
                             <el-row>
                                 <el-col :lg="6" :md="6" :sm="6" :xs="24">
                                     <div class="research-teacher-img">
@@ -135,14 +135,13 @@
         /*院校展示*/
         .schoolList{
             position: relative;
-
         }
-        .schoolList span{
+        .schoolList p{
             position: absolute;
             bottom:20px;
-            left:30%;
             font-size:14px;
             text-align: center;
+            width: 100%;
         }
         .schoolList img{
             width:100%;

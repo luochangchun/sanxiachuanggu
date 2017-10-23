@@ -45,7 +45,7 @@
                     </el-form-item>
 
                     <el-form-item>
-                        <el-button type="primary" @click="submitForm('ruleForm')">提交申请</el-button>
+                        <el-button @click="submitForm('ruleForm')" style="background-color: #f48100;border:none;color:#fff;">提交申请</el-button>
                     </el-form-item>
                 </el-form>
             </el-col>
