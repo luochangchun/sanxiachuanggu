@@ -60,7 +60,7 @@
               <div class="cur_mask abs" :class="{ db: display_active[index] }">
                 <h1 class="f20 tc">宜昌慧云科技孵化器</h1>
                 <p class="f14 white text-ellipsis-muti text-ellipsis-6">宜昌慧云科技孵化器宜昌慧云科技孵化器宜昌慧云科技孵化器</p>
-                <a href="javascript:;" class="Apply white f14 tc b">申请入驻</a>
+                <a href="javascript:;" class="Apply white f14 tc b">查看详情</a>
               </div>
             </div>
           </el-col>
@@ -207,6 +207,9 @@ export default {
       selected: undefined,
       display_active: [true, false, false, false]
     }
+  },
+  components: {
+    commonSwiper:Swiper
   },
   created() {
     this.setNewsApi()

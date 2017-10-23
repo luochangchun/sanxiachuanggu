@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <!--header-->
         <!--培训-->
         <el-row :gutter="10"style="margin-bottom: 50px;">
@@ -105,7 +106,7 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 	import api from '../axios/api.js'
 	import Header from '../components/header.vue'
 	import Swiper from '../components/swiper.vue'
