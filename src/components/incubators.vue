@@ -1,8 +1,13 @@
 <template>
     <div>
         <!--header-->
-        <commonHeader></commonHeader>
-        <commonSwiper></commonSwiper>
+        <el-row :gutter="10">
+            <el-col :lg="24" :md="24" :sm="24" :xs="24"class="incubators-banner">
+                <div class="incubators-nav">
+                    <img src="../../" alt="">
+                </div>
+            </el-col>
+        </el-row>
         <!--双创空间展示-->
         <div v-show="!incubators_details">
             <el-row :gutter="10"style="margin-bottom: 50px;">
@@ -59,7 +64,7 @@
                     <el-col :lg="12" :md="12" :sm="24" :xs="24">
                         <div class="details-img"><img src="../../static/img/id_03.png" alt=""></div>
                         <el-row :gutter="10">
-                            <el-col :lg="4" :md="4" :sm="4" :xs="4" v-for="(item,index) in 6">
+                            <el-col :lg="4" :md="4" :sm="4" :xs="4" v-for="(item,index) in 6" :key="item">
                                 <div class="details-title-img">
                                     <img src="../../static/img/id_06.png" alt="">
                                 </div>
@@ -81,7 +86,6 @@
         </el-row>
 
         <!-- footer -->
-        <commonFooter></commonFooter>
     </div>
 </template>
 

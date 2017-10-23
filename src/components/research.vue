@@ -1,8 +1,6 @@
     <template>
         <div>
             <!--header-->
-            <commonHeader></commonHeader>
-            <commonSwiper></commonSwiper>
             <!--院校展示-->
             <el-row :gutter="10"style="margin-bottom: 50px;">
                 <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
@@ -14,7 +12,7 @@
                         <div class="r more_plus"></div>
                     </div>
                     <el-row :gutter="10">
-                        <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in schoolList" class="schoolList">
+                        <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in schoolList" :key="item" class="schoolList">
                             <img :src="item.image" alt="" style="border:1px solid #ddd;">
                             <span>{{item.school}}</span>
                         </el-col>
@@ -33,7 +31,7 @@
                             <div class="r more_plus"></div>
                         </div>
                         <el-row :gutter="10">
-                            <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in 4">
+                            <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in 4" :key="item">
                                 <div class="research-teacher">
                                     <img src="../../static/img/b.png" alt="">
                                     <div>
@@ -60,7 +58,7 @@
                         <div class="r more_plus"></div>
                     </div>
                     <el-row :gutter="10" style="margin-bottom: 50px;">
-                        <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in 4">
+                        <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in 4" :key="item">
                             <el-row>
                                 <el-col :lg="6" :md="6" :sm="6" :xs="24">
                                     <div class="research-teacher-img">
@@ -80,7 +78,6 @@
                 </el-col>
             </el-row>
             <!-- footer -->
-            <commonFooter></commonFooter>
         </div>
     </template>
 

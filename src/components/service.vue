@@ -1,8 +1,6 @@
 <template>
     <div>
         <!--header-->
-        <commonHeader></commonHeader>
-
     <!--banner-->
         <el-row :gutter="10">
             <el-col :lg="24" :md="24" :sm="24" :xs="24"class="service-banner">
@@ -59,7 +57,7 @@
                     <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10">
-                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show"id="showone"v-for="(item, index) in serviceList">
+                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show"id="showone"v-for="(item, index) in serviceList" :key="item">
                         <img :src="item.image" alt="">
                         <div class="service-opcity">
                             <h2>{{item.title}}</h2>
@@ -113,7 +111,6 @@
             </el-col>
         </el-row>
         <!-- footer -->
-        <commonFooter></commonFooter>
     </div>
 </template>
 

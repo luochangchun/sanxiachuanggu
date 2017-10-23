@@ -1,8 +1,6 @@
 <template>
     <div>
         <!--header-->
-        <commonHeader></commonHeader>
-        <commonSwiper></commonSwiper>
         <el-row :gutter="10">
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                 <el-row :gutter="10">
@@ -116,7 +114,6 @@
             </el-col>
         </el-row>
         <!--footer-->
-        <commonFooter></commonFooter>
     </div>
 </template>
 
