@@ -58,7 +58,7 @@
                             <router-link to="/research">创谷研究</router-link>
                         </li>
                         <li>
-                            <router-link to="/">投融资库</router-link>
+                            <router-link to="/financing">投融资库</router-link>
                         </li>
                         <li>
                             <router-link to="/talent">创谷人才</router-link>

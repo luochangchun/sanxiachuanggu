@@ -22,7 +22,7 @@
                             <el-col :lg="4" :md="6" :sm="8" :xs="12" class="button">双创服务机构</el-col>
                         </el-row>
                         <!--左图右文-->
-                        <el-row :gutter="10"  class="news-leftlist">
+                        <el-row :gutter="10"  class="news-leftlist" v-for="(item,index) in 4" :key="item">
                             <div class="m-t b-b clea">
                                 <el-col :lg="7" :md="7" :sm="7" :xs="24" class="no-padder">
                                     <div>
@@ -50,7 +50,7 @@
                             </div>
                         </el-row>
                         <!--分页-->
-                        <el-row :gutter="10">
+                        <el-row :gutter="10" style="margin-bottom: 50px;">
                             <el-col :lg="8" :md="8" :sm="24" :xs="24"  :offset="8">
                                 <div class="block">
                                     <el-pagination layout="prev, pager, next" :total="1000">

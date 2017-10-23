@@ -24,6 +24,7 @@ import research from '../src/components/research.vue'
 import service from '../src/components/service.vue'
 import financing from '../src/components/financing.vue'
 import college from '../src/components/college.vue'
+import enter from '../src/components/enter.vue'
 
 
 
@@ -54,7 +55,8 @@ const routes = [
 	{path: '/service', component: service},
 	{path: '/financing', component: financing},
 	{path: '/service', component: service},
-	{path: '/college', component: college}
+	{path: '/college', component: college},
+	{path: '/enter', component: enter}
 
 ]
 

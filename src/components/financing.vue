@@ -74,7 +74,6 @@
                         </a>
                     </el-col>
                 </el-row>
-
             </el-col>
             <!--<el-col :lg="24" :md="24" :sm="24" :xs="24">-->
                 <!--<div class="Financing">-->
