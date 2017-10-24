@@ -14,8 +14,8 @@
                             </el-form-item>
                             <el-form-item class="loginBtn">
                                 <el-button type="primary" @click="login('loginForm')">登录</el-button>
-                                <a href="#" class="r f12">立即注册</a>
-                                <a href="#" class="r f12">忘记密码&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+                                <router-link to="/register" class="r f12">立即注册</router-link>
+                                <router-link to="/forgetPassword" class="r f12">忘记密码&nbsp;&nbsp;|&nbsp;&nbsp;</router-link>
                             </el-form-item>
                         </el-form>
                     </el-col>
