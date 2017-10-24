@@ -12,30 +12,29 @@
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                 <el-row :gutter="10">
                     <!--左边图文-->
-                    <el-col :lg="16" :md="16" :sm="24" :xs="24"v-show="!show_read">
+                    <el-col :lg="16" :md="16" :sm="24" :xs="24">
                         <!--导航切换-->
-                        <el-row :gutter="20" style="margin-top: 50px;" class="news-button">
-                            <el-col :lg="4" :md="6" :sm="8" :xs="12" class="button">每日头条</el-col>
-                            <el-col :lg="4" :md="6" :sm="8" :xs="12" class="button">政府双创</el-col>
-                            <el-col :lg="4" :md="6" :sm="8" :xs="12" class="button">企业双创</el-col>
-                            <el-col :lg="4" :md="6" :sm="8" :xs="12" class="button">园区双创</el-col>
-                            <el-col :lg="4" :md="6" :sm="8" :xs="12" class="button">双创服务机构</el-col>
-                        </el-row>
+                        <template>
+                            <el-tabs v-model="activeName" @tab-click="handleClick">
+                                <el-tab-pane label="政府双创" name="first">政府双创</el-tab-pane>
+                                <el-tab-pane label="企业双创" name="second">企业双创</el-tab-pane>
+                                <el-tab-pane label="园区双创" name="third">园区双创</el-tab-pane>
+                                <el-tab-pane label="双创服务机构" name="fourth">双创服务机构</el-tab-pane>
+                            </el-tabs>
+                        </template>
                         <!--左图右文-->
-                        <el-row :gutter="10"  class="news-leftlist" v-for="(item,index) in 4" :key="item">
+                        <el-row :gutter="10"  class="news-leftlist" v-for="(item,index) in category" :key="index" v-show="!show_read">
                             <div class="m-t b-b clea">
                                 <el-col :lg="7" :md="7" :sm="7" :xs="24" class="no-padder">
                                     <div>
-                                        <img src="../../static/img/download-8.jpg" class="w-full" @click="show_read=false">
+                                        <img src="../../static/img/download-8.jpg" class="w-full" @click="show_read=true">
                                     </div>
                                 </el-col>
                                 <el-col :lg="16" :md="16" :sm="16" :xs="24" :offset="1" class="pos">
                                     <p class="text-md font-bold text-ellipsis">
                                         <a href="" class="text-dark-lt">湖北发文规范推进人才创新创业超市建设</a>
                                     </p>
-                                    <p class="text-ellipsis-3">
-                                        近日，湖北省委组织部、省人社厅、省科技厅、省教育厅等四部门联合印发《关于推进人才创新创业超市建设的通知》(以下简称《通知》)，持续、规范推进人才创新创业超市建设，为人才"双创"营造优良的生态环境。
-                                    </p>
+                                    <p class="text-ellipsis-3">{{item.description}}</p>
                                     <div class="pos-abt" style="bottom:15px;">
                                         <p class="text-muted pull-left m-r">
                                             <i class="el-icon-time fa fa-clock-o m-r-xs"></i>
@@ -103,12 +102,17 @@
                                 <div class="news-rightlist">
                                     <div class="news-hot">热门排行</div>
                                     <div class="news-button">
-                                        <button>周排行</button>
-                                        <button>日排行</button>
+                                        <button @click="week=true">周排行</button>
+                                        <button @click="week=false">日排行</button>
                                     </div>
-                                    <ul>
-                                        <li  v-for="( item,index ) in 10" :key="item">
-                                            <span>1</span>hey,创客!你的专属优创优惠政策指南请查收!
+                                    <ul v-show="week">
+                                        <li  v-for="( item,index ) in weekly" :key="index">
+                                            <span>{{item.pid}}</span>{{item.description}}
+                                        </li>
+                                    </ul>
+                                    <ul v-show="!week" style="display:none;">
+                                        <li  v-for="( item,index ) in daily" :key="index">
+                                            <span>{{item.pid}}</span>{{item.description}}
                                         </li>
                                     </ul>
                                 </div>
@@ -124,25 +128,35 @@
 
 <script type="text/ecmascript-6">
 	import api from '../axios/api.js'
-	import Header from '../components/header.vue'
 	import Swiper from '../components/swiper.vue'
-	import Footer from '../components/footer.vue'
-//	const False = false;
 	export default {
 		data() {
 			return {
-				show_read: false
-			};
+				show_read:false,
+				week:true,
+				limit:'10',
+				category: '',//分类
+				weekly:'',
+				daily:'',
+			}
 		},
-		components: {
-			commonHeader: Header,
-			commonFooter: Footer,
-			commonSwiper: Swiper
+		created() {
+			this.newApi()
 		},
 		methods: {
+			newApi() {
 
-		}
-
+				api.Get('/info/${limit}')
+					.then(res => {
+						this.category = res['category'];
+						this.weekly = res['weekly'];
+						this.daily = res['daily'];
+					})
+			}
+		},
+		components: {
+			commonSwiper: Swiper
+		},
 	};
 
 </script>

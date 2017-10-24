@@ -96,24 +96,7 @@
 		export default {
         	data() {
         		return{
-					schoolList:[
-						{
-							image:'../../static/img/x_05.png',
-							school:'华中师范大学',
-						},
-						{
-							image:'../../static/img/x_07.png',
-							school:'三峡大学',
-						},
-						{
-							image:'../../static/img/x_09.png',
-							school:'中南民族大学',
-						},
-						{
-							image:'../../static/img/x_11.png',
-							school:'武汉轻工大学',
-						}
-                    ]
+
                       }
                  },
 			methods: {

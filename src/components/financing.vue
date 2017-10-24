@@ -5,7 +5,7 @@
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <div class="banner_img">
                     <img src="../../static/img/banner_trzk.png" alt="">
-                    <a href="/" class="invest_detail">
+                    <a href="javascript:;" class="invest_detail">
                         <button>查看详情</button>
                     </a>
                 </div>

@@ -25,14 +25,19 @@
                 <el-row :gutter="10">
                     <el-col :lg="24">
                         <div class="padder-v">
-                            <p class="f24">活动票种 </p>
+                            <p class="f24">活动票种</p>
                             <div class="stamp rel">
                                 <img src="http://www.egowork.com/themes/egowork/img/bg_ticket.png" class="img-responsive h-xs">
                                 <p class="abs f18" style="top:30px;left:30px;color:#fff;">免费</p>
                             </div>
 
                             <div class="content">
-                                <p class="f24">活动内容 </p>
+                                <p class="f24">
+                                    <span>活动内容</span>
+                                    <router-link to="/train">
+                                        <button style="">活动申请</button>
+                                    </router-link>
+                                </p>
                                 <div class="wrapper">
                                     <p>陈文强</p>
                                     <p><br></p>
@@ -69,6 +74,24 @@
     </div>
 </template>
 <style scoped>
+    .f24 span{
+        float:left;
+    }
+    .f24 button{
+        float:right;
+        background-color: #f48100;
+        border: none;
+        color: #fff;
+        border-radius: 4px;
+        width: 90px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+    }
+
+.wrapper{
+    clear:both;
+}
 .activity_para {
     height: auto;
     min-height: 100%;

@@ -22,7 +22,7 @@
                         <p>场地面积:24000平米</p>
                         <p>在孵企业数:61家</p>
                         <p>重点孵化类型:文化创意产业,科技企业</p>
-                        <router-link to="/enter"><button>申请入驻</button></router-link>
+                        <router-link to="/enter"><button>科研机构</button></router-link>
                     </el-col>
                 </el-row>
                 <el-row :gutter="10" style="margin-top: 50px;">
@@ -54,11 +54,11 @@
         border: 1px solid #ddd;
     }
     img {
-        width: 100%;
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
-        vertical-align: middle;
+    width: 100%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    vertical-align: middle;
     }
 
     .details-text h6 {

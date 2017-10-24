@@ -13,13 +13,15 @@
                     <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10">
-                    <el-col :lg="6" :md="6" :sm="12" :xs="24" class="college-show"v-for="(item,index) in 4">
-                        <img src="../../static/img/college_1.png" alt="">
-                        <div>
-                            <h6>新手创业指南手册</h6>
-                            <p>从公司设立的新手创业指南手册新手创南手册新手创业指南手册新手创业指南手册...</p>
-                        </div>
-                    </el-col>
+                    <router-link to="/ActivityPara">
+                        <el-col :lg="6" :md="6" :sm="12" :xs="24" class="college-show"v-for="(item,index) in 4">
+                            <img src="../../static/img/college_1.png" alt="">
+                            <div>
+                                <h6>新手创业指南手册</h6>
+                                <p>从公司设立的新手创业指南手册新手创南手册新手创业指南手册新手创业指南手册...</p>
+                            </div>
+                        </el-col>
+                    </router-link>
                 </el-row>
             </el-col>
         </el-row>
