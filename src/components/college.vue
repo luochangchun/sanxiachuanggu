@@ -13,11 +13,11 @@
                     <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10">
-                    <el-col :lg="6" :md="6" :sm="12" :xs="24" class="college-show"v-for="(item,index) in 4">
-                        <img src="../../static/img/college_1.png" alt="">
+                    <el-col :lg="6" :md="6" :sm="12" :xs="24" class="college-show"v-for="(item,index) in lecture" :key="index">
+                        <img :src="item.icon" alt="">
                         <div>
-                            <h6>新手创业指南手册</h6>
-                            <p>从公司设立的新手创业指南手册新手创南手册新手创业指南手册新手创业指南手册...</p>
+                            <h6>{{item.name}}</h6>
+                            <p>{{item.detail || '无'}}</p>
                         </div>
                     </el-col>
                 </el-row>
@@ -35,7 +35,7 @@
                         <div class="r more_plus"></div>
                     </div>
                     <el-row :gutter="10">
-                        <el-col :lg="11" :md="11" :sm="11" :xs="22" :offset="1" v-for="(item, index) in 4">
+                        <el-col :lg="11" :md="11" :sm="11" :xs="22" :offset="1" v-for="(item, index) in 4" :key="index">
                             <div class="research-teacher">
                                 <img src="../../static/img/college_2.png" alt="">
                                 <div>
@@ -63,12 +63,13 @@
                     <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10">
-                    <el-col :xs="8" :sm="8" :md="8" :lg="8" v-for="(item, index) in 6" :key="item">
+                    <el-col :xs="8" :sm="8" :md="8" :lg="8" v-for="(item, index) in activity" :key="index">
                         <a class="activitys_item">
-                            <img src="../../static/img/activity01.png" alt="">
+                            <img :src="item.icon" alt="">
                             <div class="process abs">
-                                <p class="white f16 tc text-ellipsis">关于举办陷阱的价值沙龙的通知</p>
-                                <p class=" f16 tc tag">进行中</p>
+                                <p class="white f16 tc text-ellipsis">{{item.name}}</p>
+                                <p v-if="item.status==1" class="f16 tc tag">进行中</p>
+                                <p v-if="item.status==2" class="f16 tc tag">已结束</p>
                             </div>
                         </a>
                     </el-col>
@@ -90,13 +91,13 @@
                         <el-col :lg="3" :md="3" :sm="2" :xs="2" class="arrows-splendid left">
                             <div><</div>
                         </el-col>
-                        <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in 3">
+                        <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in highlight" :key="index">
                             <div class="research-splendid">
-                                <img src="../../static/img/college_4.png" alt="">
+                                <img :src="item.photo" alt="">
                             </div>
                         </el-col>
                         <el-col :lg="3" :md="3" :sm="2" :xs="2" class="arrows-splendid right">
-                            <div>></div>
+                            <div><</div>
                         </el-col>
                     </el-row>
                 </el-col>
@@ -108,19 +109,33 @@
 
 <script>
 	import api from '../axios/api.js'
-	import Header from '../components/header.vue'
+	// import Header from '../components/header.vue'
 	import Swiper from '../components/swiper.vue'
-	import Footer from '../components/footer.vue'
+	// import Footer from '../components/footer.vue'
 	export default {
 		data() {
-			return {}
+			return {
+                lecture: '', //培训
+                activity: '', //活动专区
+                highlight: ''//精彩瞬间
+            }
 		},
 		methods: {
-
-		},
+            setTronsApi() {
+                api.Get("/colleges").then(res => {
+                    this.lecture = res['lecture'];
+                    this.highlight = res['highlight'];
+                    this.activity = res['activity'];
+                    // this.office = res['office'];
+                });
+            }
+        },
+        created() {
+            this.setTronsApi()
+        },
 		components: {
-			commonHeader: Header,
-			commonFooter: Footer,
+			// commonHeader: Header,
+			// commonFooter: Footer,
 			commonSwiper: Swiper
 		},
 	}
@@ -202,7 +217,7 @@
     position: relative;
 }
 .research-teacher img{
-    width:120px;
+    width:30%;
     margin-right: auto;
     margin-left: auto;
     display: block;
