@@ -20,15 +20,18 @@ import Talent from '../src/components/talent.vue'
 //罗长春
 import news from '../src/components/news.vue'
 import incubators from '../src/components/incubators.vue'
-import research from '../src/components/research.vue'
+import tutor from '../src/components/tutor.vue'
 import service from '../src/components/service.vue'
 import financing from '../src/components/financing.vue'
 import college from '../src/components/college.vue'
+<<<<<<< HEAD
 import enter from '../src/components/enter.vue'
 import incubators_details from '../src/components/incubators_details.vue'
 import station from '../src/components/station.vue'
 
 
+=======
+>>>>>>> e06b84e96caa6248b7b42dc24347a486db47d3ed
 
 
 
@@ -55,15 +58,19 @@ const routes = [
 //  罗长春
 	{path: '/news', component: news},
 	{path: '/incubators', component: incubators},
-	{path: '/research', component: research},
+	{path: '/tutor', component: tutor},
 	{path: '/service', component: service},
 	{path: '/financing', component: financing},
 	{path: '/service', component: service},
+<<<<<<< HEAD
 	{path: '/college', component: college},
 	{path: '/enter', component: enter},
 	{path: '/incubators_details', component: incubators_details},
 	{path: '/station', component: station}
 
+=======
+	{path: '/college', component: college}
+>>>>>>> e06b84e96caa6248b7b42dc24347a486db47d3ed
 
 ]
 
