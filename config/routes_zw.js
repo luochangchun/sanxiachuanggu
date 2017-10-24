@@ -26,6 +26,8 @@ import financing from '../src/components/financing.vue'
 import college from '../src/components/college.vue'
 import enter from '../src/components/enter.vue'
 import incubators_details from '../src/components/incubators_details.vue'
+import station from '../src/components/station.vue'
+
 
 
 
@@ -59,7 +61,8 @@ const routes = [
 	{path: '/service', component: service},
 	{path: '/college', component: college},
 	{path: '/enter', component: enter},
-	{path: '/incubators_details', component: incubators_details}
+	{path: '/incubators_details', component: incubators_details},
+	{path: '/station', component: station}
 
 
 ]
