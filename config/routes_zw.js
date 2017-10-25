@@ -13,10 +13,6 @@ import Talent from '../src/components/talent.vue'
 
 
 
-
-
-
-
 //罗长春
 import news from '../src/components/news.vue'
 import incubators from '../src/components/incubators.vue'
@@ -39,16 +35,16 @@ import provider from '../src/components/provider.vue'
 
 Vue.use(VueRouter)
 const routes = [
-  {path: '/', component: Index},
-  {path: '/map', component: Map},
-  {path: '/informationPara', component: InformationPara},
-  {path: '/activitys', component: Activitys},
-  {path: '/activityPara', component: ActivityPara},
-  {path: '/service', component: service},
-  {path: '/register', component: Register},
-  {path: '/login', component: Login},
-  {path: '/forgetPassword', component: ForgetPassword},
-  {path: '/talent', component: Talent},
+  {path: '/', component: Index, name: 'Index'},
+  {path: '/map', component: Map, name: 'Map'},
+  {path: '/informationPara', component: InformationPara, name: 'InformationPara'},
+  {path: '/activitys', component: Activitys, name: 'Activitys'},
+  {path: '/activityPara/:id', component: ActivityPara, name: 'ActivityPara'},
+  {path: '/service', component: service, name: 'service'},
+  {path: '/register', component: Register, name: 'Register'},
+  {path: '/login', component: Login, name: 'Login'},
+  {path: '/forgetPassword', component: ForgetPassword, name: 'ForgetPassword'},
+  {path: '/talent', component: Talent, name: 'Talent'},
 
 
 
@@ -67,7 +63,7 @@ const routes = [
 	{path: '/college', component: college},
 	{path: '/position', component: position},
 	{path: '/school_detail', component: school_detail},
-	{path: '/incubators_details', component: incubators_details},
+	{path: '/incubators_details/:id', component: incubators_details, name: 'incubators_details'},
 	{path: '/enter', component: enter},
 	{path: '/train', component: train},
 	{path: '/provider/:id', component: provider},

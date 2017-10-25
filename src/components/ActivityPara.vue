@@ -73,6 +73,23 @@
         </div>
     </div>
 </template>
+<script>
+    import api from '../axios/api.js'
+    export default {
+        created() {
+            let id = this.$route.params.id
+            this.getActivity(id);
+        },
+        methods: {
+            getActivity(id) {
+                api.Get('/article/' + id)
+                    .then(res => {
+                        console.log(res);
+                    });
+            }
+        }
+    }
+</script>
 <style scoped>
     .f24 span{
         float:left;

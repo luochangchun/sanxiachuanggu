@@ -60,7 +60,9 @@
               <div class="cur_mask abs" :class="{ db: display_active[index] }">
                 <h1 class="f20 tc">{{item.name}}</h1>
                 <p class="f14 white text-ellipsis-muti text-ellipsis-6">{{item.intro}}</p>
-                <a href="javascript:;" class="Apply white f14 tc b">查看详情</a>
+                <router-link :to="{ name: 'incubators_details', params: { id: item.id} }" class="Apply white f14 tc b">
+                查看详情
+                </router-link>
               </div>
             </div>
           </el-col>
@@ -99,14 +101,14 @@
         </el-row>
         <el-row :gutter="20">
           <el-col :xs="8" :sm="8" :md="8" :lg="8" v-for="(item, index) in activity" :key="index">
-            <a class="activitys_item">
+            <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }"  class="activitys_item">
               <img :src="item.icon" alt="">
               <div class="process abs">
                 <p class="white f16 tc text-ellipsis">{{item.name}}</p>
                 <p v-if="item.status==1" class="f16 tc tag">进行中</p>
                 <p v-if="item.status==2" class="f16 tc tag">已结束</p>
               </div>
-            </a>
+            </router-link>
           </el-col>
         </el-row>
       </div>
