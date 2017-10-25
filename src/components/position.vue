@@ -23,10 +23,7 @@
                         </el-radio-group>
                         <el-button @click="submitForm('resumeForm')" style="background-color: #ddd;border:none;color:#fff;">简历上传</el-button>
                     </el-form-item>
-
-
-
-
+                    
                     <el-form-item>
                         <el-button @click="submitForm('ruleForm')" style="background-color: #f48100;border:none;color:#fff;">提交申请</el-button>
                     </el-form-item>

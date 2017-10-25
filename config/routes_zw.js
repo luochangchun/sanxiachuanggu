@@ -24,14 +24,15 @@ import tutor from '../src/components/tutor.vue'
 import service from '../src/components/service.vue'
 import financing from '../src/components/financing.vue'
 import college from '../src/components/college.vue'
-<<<<<<< HEAD
-import enter from '../src/components/enter.vue'
-import incubators_details from '../src/components/incubators_details.vue'
 import station from '../src/components/station.vue'
+import position from '../src/components/position.vue'
+import school_detail from '../src/components/school_detail.vue'
+import research from '../src/components/research.vue'
+import incubators_details from '../src/components/incubators_details.vue'
+import enter from '../src/components/enter.vue'
+import train from '../src/components/train.vue'
+import provider from '../src/components/provider.vue'
 
-
-=======
->>>>>>> e06b84e96caa6248b7b42dc24347a486db47d3ed
 
 
 
@@ -61,16 +62,16 @@ const routes = [
 	{path: '/tutor', component: tutor},
 	{path: '/service', component: service},
 	{path: '/financing', component: financing},
-	{path: '/service', component: service},
-<<<<<<< HEAD
+	{path: '/research', component: research},
+	{path: '/station', component: station},
 	{path: '/college', component: college},
-	{path: '/enter', component: enter},
+	{path: '/position', component: position},
+	{path: '/school_detail', component: school_detail},
 	{path: '/incubators_details', component: incubators_details},
-	{path: '/station', component: station}
+	{path: '/enter', component: enter},
+	{path: '/train', component: train},
+	{path: '/provider', component: provider},
 
-=======
-	{path: '/college', component: college}
->>>>>>> e06b84e96caa6248b7b42dc24347a486db47d3ed
 
 ]
 

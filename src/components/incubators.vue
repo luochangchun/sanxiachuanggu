@@ -89,9 +89,7 @@
 
 <script type="text/ecmascript-6">
     import api from "../axios/api.js";
-    // import Header from '../components/header.vue'
     import Swiper from "../components/swiper.vue";
-    // import Footer from '../components/footer.vue'
     export default {
         data() {
             return {
@@ -113,8 +111,6 @@
             this.setTronsApi()
         },
         components: {
-            // commonHeader: Header,
-            // commonFooter: Footer,
             commonSwiper: Swiper
         }
     };
