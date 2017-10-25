@@ -4,8 +4,9 @@
             <el-row :gutter="0" class="padder-v-md">
                 <el-col :xs="24" :sm="24" :md="12" :lg="15" class="contact_info padder-v">
                     <p class="b white">加入我们 | 联系我们</p>
-                    <p class="gray">公司地址：武汉市江汉经济开发区江旺路6号</p>
-                    <p class="gray">客服电话：027-62432550</p>
+                    <p class="gray">公司名称：宜昌市西陵区高新技术产业孵化中心</p>
+                    <p class="gray">公司地址：宜昌市西陵经济开发区西湖路32号</p>
+                    <p class="gray">客服电话：0717-6496789</p>
                     <p class="gray">邮箱：marketing@hansap.com</p>
                 </el-col>
                 <el-col :xs="24" :sm="24" :md="12" :lg="9" class="contact_img">

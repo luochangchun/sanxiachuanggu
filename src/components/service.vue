@@ -57,12 +57,14 @@
                     <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10">
-                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show"id="showone" v-for="(item, index) in normal" :key="index">
-                        <img :src="item.icon" alt="">
-                        <div class="service-opcity">
-                            <h2>{{item.name}}</h2>
-                            <p>{{item.intro}}</p>
-                        </div>
+                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show" id="showone" v-for="(item, index) in normal" :key="index">
+                        <router-link :to="{ path: 'provider' + item.id}">
+                            <img :src="item.icon" alt="">
+                            <div class="service-opcity">
+                                <h2>{{item.name}}</h2>
+                                <p>{{item.intro}}</p>
+                            </div>
+                        </router-link>
                     </el-col>
                 </el-row>
             </el-col>
@@ -80,9 +82,11 @@
                     <el-row class="office_wrap">
                         <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in provider" :key="index">
                             <a class="service_provider_item rel">
-                                <img :src="item.icon" alt="">
-                                <p class="tc">{{item.name}}</p>
-                                <i class="tag abs white tc f14">{{item.service}}</i>
+                                <router-link to="/">
+                                    <img :src="item.icon" alt="">
+                                    <p class="tc">{{item.name}}</p>
+                                    <i class="tag abs white tc f14">{{item.service}}</i>
+                                </router-link>
                             </a>
                         </el-col>
                     </el-row>
@@ -122,23 +126,6 @@
 			return {
 				provider:'',
 				normal:'',
-//				serviceList:[
-//                    {
-//                    	image:'../../static/img/s_05.png',
-//                    	title:'海量客户 遍布全国',
-//                        text:'16+城市,40+场区,3000+入驻企业,30000+注册用户',
-//                    },
-//                    {
-//						image:'../../static/img/s_07.png',
-//                    	title:'立体推广 精准直达',
-//                        text:'专属推广活动,频道展示,优质企业推荐,多渠道提供合作机会',
-//                    },
-//					{
-//						image:'../../static/img/s_09.png',
-//						title:'优质标签 彰显身份',
-//						text:'服务商评估体系,您的标签,就是您三峡创谷的尊贵身份',
-//					},
-//                ]
 			}
 		},
 		created() {

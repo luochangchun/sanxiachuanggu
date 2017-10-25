@@ -9,7 +9,7 @@
             </el-col>
         </el-row>
         <!--双创空间展示-->
-        <div v-show="!incubators_details">
+        <div>
             <el-row :gutter="10" style="margin-bottom: 50px;">
                 <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                     <div class="title" id="title-incubators">
@@ -21,8 +21,10 @@
                     </div>
                     <el-row :gutter="10">
                         <el-col :lg="6" :md="6" :sm="12" :xs="24" class="incubators-show" v-for="(item,index) in incubator" :key="item">
-                            <img src="../../static/img/103.png" alt="" @click="incubators_details=true">
-                            <span>{{item.name}}</span>
+                            <router-link :to="{ path: 'incubators_details' + item.id}">
+                                <img src="../../static/img/103.png" alt="">
+                                <span>{{item.name}}</span>
+                            </router-link>
                         </el-col>
                     </el-row>
                 </el-col>
@@ -56,33 +58,6 @@
                 </el-row>
             </div>
         </div>
-        <!--双创空间详情页-->
-        <el-row :gutter="10" style="margin-bottom: 50px;" v-show="incubators_details">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
-                <el-row :gutter="10" style="margin-top: 50px;">
-                    <el-col :lg="12" :md="12" :sm="24" :xs="24">
-                        <div class="details-img"><img src="../../static/img/id_03.png" alt=""></div>
-                        <el-row :gutter="10">
-                            <el-col :lg="4" :md="4" :sm="4" :xs="4" v-for="(item,index) in 6" :key="item">
-                                <div class="details-title-img">
-                                    <img src="../../static/img/id_06.png" alt="">
-                                </div>
-                            </el-col>
-                        </el-row>
-                    </el-col>
-                    <el-col :lg="11" :md="11" :sm="24" :xs="24" :offset="1" class="details-text">
-                        <h6>715文化创业园</h6>
-                        <p>地址:湖北省宜昌市西陵区绿萝路43号</p>
-                        <p>级别:市级</p>
-                        <p>联系方式:李丽洁 13476854766</p>
-                        <p>场地面积:24000平米</p>
-                        <p>在孵企业数:61家</p>
-                        <p>重点孵化类型:文化创意产业,科技企业</p>
-                        <button>申请入驻</button>
-                    </el-col>
-                </el-row>
-            </el-col>
-        </el-row>
         <!-- footer -->
     </div>
 </template>
@@ -105,6 +80,9 @@
                     this.incubator = res['incubator'];
                     this.office = res['office'];
                 });
+            },
+            goIncubatorsDetails(id) {
+				window.location.href='/incubators_details/'+id;
             }
         },
         created() {

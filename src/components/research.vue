@@ -19,7 +19,7 @@
                     <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10">
-                    <router-link to="/school_detail">
+                    <router-link :to="{ path:'school_detail' + item.id}">
                         <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in university" :key="index" class="schoolList">
                             <img :src="item.icon" alt="" style="border:1px solid #ddd;">
                             <p>{{item.name}}</p>
@@ -111,7 +111,10 @@
 						this.mentor = res['mentor'];
 						this.talented = res['talented'];
 					})
-			}
+			},
+            goSchoolDetail(id) {
+				window.location.href='/school_detail/'+id;
+            }
 		},
 		components: {
 			commonSwiper: Swiper

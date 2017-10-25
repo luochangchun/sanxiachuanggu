@@ -13,54 +13,54 @@
                 <el-row :gutter="10">
                     <!--左边图文-->
                     <el-col :lg="16" :md="16" :sm="24" :xs="24">
-                        <!--导航切换-->
-                        <template>
-                            <el-tabs v-model="activeName" @tab-click="handleClick">
-                                <el-tab-pane label="政府双创" name="first">政府双创</el-tab-pane>
-                                <el-tab-pane label="企业双创" name="second">企业双创</el-tab-pane>
-                                <el-tab-pane label="园区双创" name="third">园区双创</el-tab-pane>
-                                <el-tab-pane label="双创服务机构" name="fourth">双创服务机构</el-tab-pane>
-                            </el-tabs>
-                        </template>
-                        <!--左图右文-->
-                        <el-row :gutter="10"  class="news-leftlist" v-for="(item,index) in category" :key="index" v-show="!show_read">
-                            <div class="m-t b-b clea">
-                                <el-col :lg="7" :md="7" :sm="7" :xs="24" class="no-padder">
-                                    <div>
-                                        <img src="../../static/img/download-8.jpg" class="w-full" @click="show_read=true">
-                                    </div>
-                                </el-col>
-                                <el-col :lg="16" :md="16" :sm="16" :xs="24" :offset="1" class="pos">
-                                    <p class="text-md font-bold text-ellipsis">
-                                        <a href="" class="text-dark-lt">湖北发文规范推进人才创新创业超市建设</a>
-                                    </p>
-                                    <p class="text-ellipsis-3">{{item.description}}</p>
-                                    <div class="pos-abt" style="bottom:15px;">
-                                        <p class="text-muted pull-left m-r">
-                                            <i class="el-icon-time fa fa-clock-o m-r-xs"></i>
-                                            <span>时间：2017-10-10</span>
+                        <div v-show="!show_read">
+                            <!--导航切换-->
+                            <template>
+                                <el-tabs v-model="activeName" @tab-click="handleClick">
+                                    <el-tab-pane label="政府双创" name="first">政府双创</el-tab-pane>
+                                    <el-tab-pane label="企业双创" name="second">企业双创</el-tab-pane>
+                                    <el-tab-pane label="园区双创" name="third">园区双创</el-tab-pane>
+                                    <el-tab-pane label="双创服务机构" name="fourth">双创服务机构</el-tab-pane>
+                                </el-tabs>
+                            </template>
+                            <!--左图右文-->
+                            <el-row :gutter="10"  class="news-leftlist" v-for="(item,index) in category" :key="index" v-show="!show_read">
+                                <div class="m-t b-b clea">
+                                    <el-col :lg="7" :md="7" :sm="7" :xs="24" class="no-padder">
+                                        <div>
+                                            <img src="../../static/img/download-8.jpg" class="w-full" @click="show_read=true">
+                                        </div>
+                                    </el-col>
+                                    <el-col :lg="16" :md="16" :sm="16" :xs="24" :offset="1" class="pos">
+                                        <p class="text-md font-bold text-ellipsis">
+                                            <a href="" class="text-dark-lt">湖北发文规范推进人才创新创业超市建设</a>
                                         </p>
-                                        <p class="text-muted pull-left">
-                                            <i class="el-icon-edit fa fa-edit m-r-xs"></i>
-                                            <span>158</span>
-                                        </p>
-                                    </div>
-                                </el-col>
-                            </div>
-                        </el-row>
-                        <!--分页-->
-                        <el-row :gutter="10" style="margin-bottom: 50px;">
-                            <el-col :lg="8" :md="8" :sm="24" :xs="24"  :offset="8">
-                                <div class="block">
-                                    <el-pagination layout="prev, pager, next" :total="1000">
-                                    </el-pagination>
+                                        <p class="text-ellipsis-3">{{item.description}}</p>
+                                        <div class="pos-abt" style="bottom:15px;">
+                                            <p class="text-muted pull-left m-r">
+                                                <i class="el-icon-time fa fa-clock-o m-r-xs"></i>
+                                                <span>时间：2017-10-10</span>
+                                            </p>
+                                            <p class="text-muted pull-left">
+                                                <i class="el-icon-edit fa fa-edit m-r-xs"></i>
+                                                <span>158</span>
+                                            </p>
+                                        </div>
+                                    </el-col>
                                 </div>
-                            </el-col>
-                        </el-row>
-                    </el-col>
-                    <!--点击图片进入详情-->
-                    <el-row :gutter="10" style="display: none" v-show="show_read">
-                        <el-col :lg="16" :md="16" :sm="24" :xs="24">
+                            </el-row>
+                            <!--分页-->
+                            <el-row :gutter="10" style="margin-bottom: 50px;">
+                                <el-col :lg="8" :md="8" :sm="24" :xs="24"  :offset="8">
+                                    <div class="block">
+                                        <el-pagination layout="prev, pager, next" :total="1000">
+                                        </el-pagination>
+                                    </div>
+                                </el-col>
+                            </el-row>
+                        </div>
+                        <!--点击图片进入详情-->
+                        <div v-show="show_read">
                             <div class="text-center">
                                 <p class="text-xxxl">省科技厅关于开展2017年省级众创空间认定工作的通知</p>
                                 <p><span>时间：2017-10-11</span></p>
@@ -93,9 +93,9 @@
                                 <p><br></p>
                                 <p></p>
                             </div>
-                        </el-col>
-                    </el-row>
-                    <!--热门排行-->
+                        </div>
+                    </el-col>
+                    <!--右边热门排行-->
                     <el-col :lg="8" :md="8" :sm="24" :xs="24">
                         <el-row :gutter="10">
                             <el-col :lg="24" :md="24" :sm="24" :xs="24">
@@ -132,6 +132,7 @@
 	export default {
 		data() {
 			return {
+				activeName: 'second',
 				show_read:false,
 				week:true,
 				limit:'10',
@@ -144,9 +145,12 @@
 			this.newApi()
 		},
 		methods: {
+			handleClick(tab, event) {
+				console.log(tab, event);
+			},
 			newApi() {
-
-				api.Get('/info/${limit}')
+                var url='/info'+this.limit;
+				api.Get('url')
 					.then(res => {
 						this.category = res['category'];
 						this.weekly = res['weekly'];

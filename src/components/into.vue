@@ -53,33 +53,33 @@
                 <el-row>
                     <el-col :lg="17" :md="17" :sm="24" :xs="24" >
                         <table border="1" class="table table-bordered bg-light" style="background-color: #edf1f2">
-                            <tbody> 
-                                <tr>
-                                    <td class="font-bold w-xs">企业名称</td>
-                                    <td colspan="3"><p>华夏银行</p></td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold w-xs">联系人</td>
-                                    <td>刘经理</td>
-                                    <td class="font-bold">联系电话</td>
-                                    <td><p>15172525978</p></td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold w-xs">地址</td>
-                                    <td colspan="3"><p>武汉市洪山区珞狮北路2号樱花大厦A座</p></td>
-                                </tr>
-                                <tr style="height:240px;">
-                                    <td class="font-bold w-xs h-md">企业简介与优势</td>
-                                    <td colspan="3"></td>
-                                </tr>
-                                <tr style="height:90px;">
-                                    <td class="font-bold w-xs">服务领域</td>
-                                    <td colspan="3" class="h-xs"><p>小微型企业、个体经营户</p></td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold w-xs">备注</td>
-                                    <td colspan="3"></td>
-                                </tr>
+                            <tbody>
+                            <tr>
+                                <td class="font-bold w-xs">企业名称</td>
+                                <td colspan="3"><p>华夏银行</p></td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold w-xs">联系人</td>
+                                <td>刘经理</td>
+                                <td class="font-bold">联系电话</td>
+                                <td><p>15172525978</p></td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold w-xs">地址</td>
+                                <td colspan="3"><p>武汉市洪山区珞狮北路2号樱花大厦A座</p></td>
+                            </tr>
+                            <tr style="height:240px;">
+                                <td class="font-bold w-xs h-md">企业简介与优势</td>
+                                <td colspan="3"></td>
+                            </tr>
+                            <tr style="height:90px;">
+                                <td class="font-bold w-xs">服务领域</td>
+                                <td colspan="3" class="h-xs"><p>小微型企业、个体经营户</p></td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold w-xs">备注</td>
+                                <td colspan="3"></td>
+                            </tr>
                             </tbody>
                         </table>
                     </el-col>
