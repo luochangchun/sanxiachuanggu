@@ -70,7 +70,7 @@ const routes = [
 	{path: '/incubators_details', component: incubators_details},
 	{path: '/enter', component: enter},
 	{path: '/train', component: train},
-	{path: '/provider', component: provider},
+	{path: '/provider/:id', component: provider},
 
 
 ]
