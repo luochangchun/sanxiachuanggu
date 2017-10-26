@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import Main from '../src/Main.vue'
 import Index from '../src/components/Index.vue'//首页
 import Map from '../src/components/Map.vue'//地图
-import InformationPara from '../src/components/InformationPara.vue'
 import Activitys from '../src/components/Activitys.vue'//活动首页
 import ActivityPara from '../src/components/ActivityPara.vue'//活动详情
 import Register from '../src/components/register/register.vue'//注册页面

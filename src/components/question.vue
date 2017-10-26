@@ -46,7 +46,7 @@
                                     <p>发布时间</p>
                                 </el-col>
                             </el-row>
-                            <el-row :gutter="10" v-for="(item,index) in 20" class="need_xq">
+                            <el-row :gutter="10" v-for="(item,index) in 20" class="need_xq" :key="index">
                                 <div  @click="show_need=true">
                                     <el-col :lg="10" :md="10" :sm="10" :xs="10" class="need_xq_p">
                                         <p>企业并购法律流程是什么  <span>[法律相关]</span></p>

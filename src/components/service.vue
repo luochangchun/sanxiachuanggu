@@ -58,7 +58,6 @@
                 </div>
                 <el-row :gutter="10">
                     <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show" id="showone" v-for="(item, index) in normal" :key="index">
-<<<<<<< HEAD
                         <router-link :to="{ path: 'provider' + item.id}">
                             <img :src="item.icon" alt="">
                             <div class="service-opcity">
@@ -66,13 +65,6 @@
                                 <p>{{item.intro}}</p>
                             </div>
                         </router-link>
-=======
-                        <img :src="item.icon" alt="">
-                        <div class="service-opcity">
-                            <h2>{{item.name}}</h2>
-                            <p>{{item.intro}}</p>
-                        </div>
->>>>>>> 8d8d4e5898dd2c3358c0cd82aaa05068ebe39df0
                     </el-col>
                 </el-row>
             </el-col>
@@ -89,21 +81,11 @@
                 <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                     <el-row class="office_wrap">
                         <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in provider" :key="index">
-<<<<<<< HEAD
-                            <a class="service_provider_item rel">
-                                <router-link to="/">
-                                    <img :src="item.icon" alt="">
-                                    <p class="tc">{{item.name}}</p>
-                                    <i class="tag abs white tc f14">{{item.service}}</i>
-                                </router-link>
-                            </a>
-=======
                             <router-link :to="{path:'/provider/'+item.id}" class="service_provider_item rel">
                                 <img :src="item.icon" alt="">
                                 <p class="tc">{{item.name}}</p>
                                 <i class="tag abs white tc f14">{{item.service}}</i>
                             </router-link>
->>>>>>> 8d8d4e5898dd2c3358c0cd82aaa05068ebe39df0
                         </el-col>
                     </el-row>
                 </el-col>
@@ -135,33 +117,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-	import api from '../axios/api.js'
-	import Swiper from '../components/swiper.vue'
-	export default {
-		data() {
-			return {
-				provider:'',
-				normal:'',
-			}
-		},
-		created() {
-			this.researchApi()
-		},
-		methods: {
-			researchApi() {
-				api.Get('/enterprises')
-					.then(res => {
-						this.provider = res['provider'];
-						this.normal = res['normal'];
-					})
-			}
-		},
-		components: {
-			commonSwiper: Swiper
-		},
-			}
-=======
     import api from '../axios/api.js'
     import Swiper from '../components/swiper.vue'
     export default {
@@ -190,7 +145,6 @@
         },
         created() {
             this.researchApi()
-
         },
         methods: {
             researchApi() {
@@ -201,14 +155,13 @@
                     })
             },
             goProvider(id) {
-                window.location.href='/provider/'+id;
+                window.location.href = '/provider/' + id;
             }
         },
         components: {
             commonSwiper: Swiper
         },
     }
->>>>>>> 8d8d4e5898dd2c3358c0cd82aaa05068ebe39df0
 </script>
 
 <style>
