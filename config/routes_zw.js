@@ -1,14 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Main from '../src/Main.vue'
-import Index from '../src/components/Index.vue'
-import Map from '../src/components/Map.vue'
-import Activitys from '../src/components/Activitys.vue'
-import ActivityPara from '../src/components/ActivityPara.vue'
-import Register from '../src/components/register/register.vue'
-import Login from '../src/components/register/login.vue'
-import ForgetPassword from '../src/components/register/forgetPassword.vue'
-import Talent from '../src/components/talent.vue'
+import Index from '../src/components/Index.vue'//首页
+import Map from '../src/components/Map.vue'//地图
+import InformationPara from '../src/components/InformationPara.vue'
+import Activitys from '../src/components/Activitys.vue'//活动首页
+import ActivityPara from '../src/components/ActivityPara.vue'//活动详情
+import Register from '../src/components/register/register.vue'//注册页面
+import Login from '../src/components/register/login.vue'//登录页面
+import ForgetPassword from '../src/components/register/forgetPassword.vue'//忘记密码
+import Talent from '../src/components/talent.vue'//创谷人才首页
 
 
 
@@ -70,6 +71,7 @@ const routes = [
 	{path: '/into', component: into, name: 'into'},//入孵企业详情页
 	{path: '/need', component: need, name: 'need'},//服务需求
 	{path: '/question', component: question, name: 'question'},//答疑解惑页面
+
 
 ]
 
