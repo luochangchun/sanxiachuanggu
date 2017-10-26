@@ -12,10 +12,6 @@ import Talent from '../src/components/talent.vue'
 
 
 
-
-
-
-
 //罗长春
 import news from '../src/components/news.vue'
 import incubators from '../src/components/incubators.vue'
@@ -37,17 +33,19 @@ import question from '../src/components/question.vue'
 
 
 
+
 Vue.use(VueRouter)
 const routes = [
-  {path: '/', component: Index},//首页
-  {path: '/map', component: Map},//创谷空间
-  {path: '/activitys', component: Activitys},
-  {path: '/activityPara', component: ActivityPara},
-  {path: '/service', component: service},
-  {path: '/register', component: Register},
-  {path: '/login', component: Login},
-  {path: '/forgetPassword', component: ForgetPassword},
-  {path: '/talent', component: Talent},//创谷人才首页
+  {path: '/', component: Index, name: 'Index'},
+  {path: '/map', component: Map, name: 'Map'},
+  {path: '/activitys', component: Activitys, name: 'Activitys'},
+  {path: '/activityPara/:id', component: ActivityPara, name: 'ActivityPara'},
+  {path: '/service', component: service, name: 'service'},
+  {path: '/register', component: Register, name: 'Register'},
+  {path: '/login', component: Login, name: 'Login'},
+  {path: '/forgetPassword', component: ForgetPassword, name: 'ForgetPassword'},
+  {path: '/talent', component: Talent, name: 'Talent'},
+
 
 
 
@@ -55,23 +53,24 @@ const routes = [
 
 
 //  罗长春
-	{path: '/news', component: news},//创谷资讯首页
-	{path: '/incubators', component: incubators},//双创空间首页
-	{path: '/service', component: service},//创谷企业首页
-	{path: '/financing', component: financing},//投融资库首页
-	{path: '/research', component: research},//创谷研究首页
-	{path: '/station', component: station},//申请工位表单
-	{path: '/college', component: college},//创谷学院首页
-	{path: '/position', component: position},//申请职位表单
-	{path: '/school_detail/:id', component: school_detail},//学院详情
-	{path: '/incubators_details/:id', component: incubators_details},//双创空间详情页
-	{path: '/enter', component: enter},//申请入驻表单
-	{path: '/train', component: train},//活动报名表单
-	{path: '/provider', component: provider},//服务商详情页
-	{path: '/provider/:id', component: provider},//服务商详情页
-	{path: '/into', component: into},//入孵企业详情页
-	{path: '/need', component: need},//服务需求
-	{path: '/question', component: question},//答疑解惑页面
+	{path: '/news', component: news, name: 'news'},//创谷资讯首页
+	{path: '/incubators', component: incubators, name: 'incubators'},//双创空间首页
+	{path: '/service', component: service, name: 'service'},//创谷企业首页
+	{path: '/financing', component: financing, name: 'financing'},//投融资库首页
+	{path: '/research', component: research, name: 'research'},//创谷研究首页
+	{path: '/station', component: station, name: 'station'},//申请工位表单
+	{path: '/college', component: college, name: 'college'},//创谷学院首页
+	{path: '/position', component: position, name: 'position'},//申请职位表单
+	{path: '/school_detail', component: school_detail, name: 'school_detail'},//学院详情
+	{path: '/incubators_details/:id', component: incubators_details, name: 'incubators_details'},//双创空间详情页
+	{path: '/enter', component: enter, name: 'enter'},//申请入驻表单
+	{path: '/train', component: train, name: 'train'},//活动报名表单
+	{path: '/provider', component: provider, name: 'provider'},//服务商详情页
+	{path: '/provider/:id', component: provider, name: 'provider'},//服务商详情页
+	{path: '/into', component: into, name: 'into'},//入孵企业详情页
+	{path: '/need', component: need, name: 'need'},//服务需求
+	{path: '/question', component: question, name: 'question'},//答疑解惑页面
+
 ]
 
 export default new VueRouter({

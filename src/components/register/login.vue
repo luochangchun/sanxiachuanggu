@@ -52,20 +52,17 @@
                     pass: ""
                 },
                 loginRules: {
-                    phone: [
-                        {
-                            required: true,
-                            validator: validatePhone,
-                            message: '请输入正确手机号',
-                            trigger: 'blur'
-                        }
-                    ],
+                    phone: [{
+                        required: true,
+                        validator: validatePhone,
+                        message: '请输入正确手机号',
+                        trigger: 'blur'
+                    }],
                     pass: [{
-                            required: true,
-                            validator: validatePass,
-                            trigger: "blur"
-                        }
-                    ],  
+                        required: true,
+                        validator: validatePass,
+                        trigger: "blur"
+                    }],
                 },
             }
         },
@@ -79,8 +76,14 @@
                         }
                         api.Post('/sign/in', params)
                             .then(res => {
-                                alert(res.msg);
-                                console.log(res);
+                                if (res['suc'] == true) {
+                                    let userCookie = JSON.stringify(res);
+                                    let expires = res['data']['createAt'] / 1000;
+                                    api.SetCookie(res['data']['nickname'], userCookie, expires);
+                                    // window.location.href="/";
+                                } else if(res['suc'] == false){
+                                    alert(res['msg']);
+                                }
                             });
                     } else {
                         console.log('error submit!!');
