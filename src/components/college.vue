@@ -14,11 +14,13 @@
                 </div>
                 <el-row :gutter="10">
                     <el-col :lg="6" :md="6" :sm="12" :xs="24" class="college-show"v-for="(item,index) in lecture" :key="index">
-                        <img :src="item.icon" alt="">
-                        <div>
-                            <h6>{{item.name}}</h6>
-                            <p>{{item.detail || '无'}}</p>
-                        </div>
+                        <router-link :to="{ name:'train_detail', params: {id: item.id }}">
+                            <img :src="item.icon" alt="">
+                            <div>
+                                <h6>{{item.name}}</h6>
+                                <p>{{item.detail || '无'}}</p>
+                            </div>
+                        </router-link>
                     </el-col>
                 </el-row>
             </el-col>
@@ -44,7 +46,9 @@
                                     <p>教师简介:07年毕业于中欧国际工商管理学院获得MBA研究生学位,2014年至今担任江汉区政协常委委员,先后任武汉中小企业协会常务副会长,武汉中小企业协会对外交流合作分会会长,江汉区高新技术企业联合会副会长.</p>
                                 </div>
                                 <div>
-                                    <button>导师介绍</button>
+                                    <router-link :to="{ name:'', params: {id: item.id }}">
+                                        <button>导师介绍</button>
+                                    </router-link>
                                 </div>
                             </div>
                         </el-col>
@@ -64,14 +68,16 @@
                 </div>
                 <el-row :gutter="10">
                     <el-col :xs="8" :sm="8" :md="8" :lg="8" v-for="(item, index) in activity" :key="index">
-                        <a class="activitys_item">
-                            <img :src="item.icon" alt="">
-                            <div class="process abs">
-                                <p class="white f16 tc text-ellipsis">{{item.name}}</p>
-                                <p v-if="item.status==1" class="f16 tc tag">进行中</p>
-                                <p v-if="item.status==2" class="f16 tc tag">已结束</p>
-                            </div>
-                        </a>
+                        <router-link :to="{ name:'ActivityPara', params: {id: item.id }}">
+                            <a class="activitys_item">
+                                <img :src="item.icon" alt="">
+                                <div class="process abs">
+                                    <p class="white f16 tc text-ellipsis">{{item.name}}</p>
+                                    <p v-if="item.status==1" class="f16 tc tag">进行中</p>
+                                    <p v-if="item.status==2" class="f16 tc tag">已结束</p>
+                                </div>
+                            </a>
+                        </router-link>
                     </el-col>
                 </el-row>
             </el-col>
@@ -92,12 +98,14 @@
                             <div><</div>
                         </el-col>
                         <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in highlight" :key="index">
-                            <div class="research-splendid">
-                                <img :src="item.photo" alt="">
-                            </div>
+                            <router-link :to="{ name:'splendid_detail', params: {id: item.id }}">
+                                <div class="research-splendid">
+                                    <img :src="item.photo" alt="">
+                                </div>
+                            </router-link>
                         </el-col>
                         <el-col :lg="3" :md="3" :sm="2" :xs="2" class="arrows-splendid right">
-                            <div><</div>
+                            <div>></div>
                         </el-col>
                     </el-row>
                 </el-col>
@@ -109,8 +117,8 @@
 
 <script>
 	import api from '../axios/api.js'
-	// import Header from '../components/header.vue'
 	import Swiper from '../components/swiper.vue'
+	// import Header from '../components/header.vue'
 	// import Footer from '../components/footer.vue'
 	export default {
 		data() {
@@ -126,7 +134,7 @@
 					this.lecture = res['lecture'];
 					this.highlight = res['highlight'];
 					this.activity = res['activity'];
-					// this.office = res['office'];
+					this.office = res['office'];
 				});
 			}
 		},

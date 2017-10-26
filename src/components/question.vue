@@ -46,7 +46,7 @@
                                     <p>发布时间</p>
                                 </el-col>
                             </el-row>
-                            <el-row :gutter="10" v-for="(item,index) in 20" class="need_xq">
+                            <el-row :gutter="10" v-for="(item,index) in 20" class="need_xq" :key="index">
                                 <div  @click="show_need=true">
                                     <el-col :lg="10" :md="10" :sm="10" :xs="10" class="need_xq_p">
                                         <p>企业并购法律流程是什么  <span>[法律相关]</span></p>
@@ -91,7 +91,7 @@
                                     </div>
                                     <div style="clear:both;">
                                         <h1>你需要提交以下材料:</h1>
-                                        <p v-for="(item,index) in 7">1.股东会关于股权变更的决议;</p>
+                                        <p v-for="(item,index) in 7" :key="index">1.股东会关于股权变更的决议;</p>
                                         <p>如果B在公司李担任职务的需求注意任免情况</p>
                                     </div>
 
@@ -102,7 +102,6 @@
                             <button>留言</button>
                         </div>
                     </el-col>
-                    
                     <!--热门排行-->
                     <el-col :lg="8" :md="8" :sm="24" :xs="24">
                         <el-row :gutter="10">

@@ -19,12 +19,12 @@
                     <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10">
-                    <router-link :to="{ path:'school_detail' + item.id}">
+                    <!--<router-link :to="{ name:'school_detail', params: {id: item.id }}">-->
                         <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in university" :key="index" class="schoolList">
                             <img :src="item.icon" alt="" style="border:1px solid #ddd;">
                             <p>{{item.name}}</p>
                         </el-col>
-                    </router-link>
+                    <!--</router-link>-->
                 </el-row>
             </el-col>
         </el-row>
@@ -48,7 +48,9 @@
                                     <p>{{item.title}}</p>
                                 </div>
                                 <div>
-                                    <button>查看更多>></button>
+                                    <!--<router-link :to="{ name:'', params: {id: item.id }}">-->
+                                        <button>查看更多>></button>
+                                    <!--</router-link>-->
                                 </div>
                             </div>
                         </el-col>
@@ -67,20 +69,21 @@
                     <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10" style="margin-bottom: 50px;">
-                    <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in talented" :key="index"
-                            style="margin-bottom: 20px;">
-                        <el-row>
-                            <el-col :lg="6" :md="6" :sm="6" :xs="24">
-                                <div class="research-teacher-img">
-                                    <img :src="item.photo" alt="">
-                                </div>
-                            </el-col>
-                            <el-col :lg="17" :md="17" :sm="17" :xs="24" :offset="1">
-                                <p class="research-name">{{item.name}}</p>
-                                <p class="research-school">{{item.university}}</p>
-                                <p class="research-text">{{item.title}}</p>
-                            </el-col>
-                        </el-row>
+                    <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in talented" :key="index" style="margin-bottom: 20px;">
+                        <!--<router-link :to="{ name:'', params: {index: item.index }}">-->
+                            <el-row>
+                                <el-col :lg="6" :md="6" :sm="6" :xs="24">
+                                    <div class="research-teacher-img">
+                                        <img :src="item.photo" alt="">
+                                    </div>
+                                </el-col>
+                                <el-col :lg="17" :md="17" :sm="17" :xs="24" :offset="1">
+                                    <p class="research-name">{{item.name}}</p>
+                                    <p class="research-school">{{item.university}}</p>
+                                    <p class="research-text">{{item.title}}</p>
+                                </el-col>
+                            </el-row>
+                        <!--</router-link>-->
                     </el-col>
                 </el-row>
             </el-col>
@@ -112,9 +115,6 @@
 						this.talented = res['talented'];
 					})
 			},
-            goSchoolDetail(id) {
-				window.location.href='/school_detail/'+id;
-            }
 		},
 		components: {
 			commonSwiper: Swiper

@@ -74,21 +74,21 @@
     </div>
 </template>
 <script>
-    import api from '../axios/api.js'
-    export default {
-        created() {
-            let id = this.$route.params.id;
-            this.getActivity(id);
-        },
-        methods: {
-            getActivity(id) {
-                api.Get('/article/' + id)
-                    .then(res => {
-                        console.log(res);
-                    });
-            }
-        }
-    }
+	import api from '../axios/api.js'
+	export default {
+		created() {
+			let id = this.$route.params.id
+			this.getActivity(id);
+		},
+		methods: {
+			getActivity(id) {
+				api.Get('/article/' + id)
+					.then(res => {
+						console.log(res);
+					});
+			}
+		}
+	}
 </script>
 <style scoped>
     .f24 span{
@@ -106,41 +106,41 @@
         line-height: 30px;
     }
 
-.wrapper{
-    clear:both;
-}
-.activity_para {
-    height: auto;
-    min-height: 100%;
-}
+    .wrapper{
+        clear:both;
+    }
+    .activity_para {
+        height: auto;
+        min-height: 100%;
+    }
 
-.bg-info {
-    color: #dcf2f8;
-    background-color: #23b7e5;
-}
+    .bg-info {
+        color: #dcf2f8;
+        background-color: #23b7e5;
+    }
 
-.line-w {
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border: 0;
-    border-top: 2px solid #eee;
-    margin-right: 30%;
-}
+    .line-w {
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border: 0;
+        border-top: 2px solid #eee;
+        margin-right: 30%;
+    }
 
-.padder-v-xxl {
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
+    .padder-v-xxl {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
 
-.wrapper {
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 15px;
-}
+    .wrapper {
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 15px;
+    }
 
-.stamp img {
-    display: block;
-    height: 90px;
-    max-width: 100%;
-    margin-bottom: 50px;
-}
+    .stamp img {
+        display: block;
+        height: 90px;
+        max-width: 100%;
+        margin-bottom: 50px;
+    }
 </style>

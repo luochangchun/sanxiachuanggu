@@ -25,11 +25,13 @@
                     <el-row :gutter="10">
                         <el-col :lg="24" :md="24" :sm="24" :xs="24">
                             <el-row class="office_wrap">
-                                <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in 10" :key="item">
+                                <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in investor" :key="item">
                                     <a class="service_provider_item rel">
-                                        <img src="../../static/img/service01.png" alt="">
-                                        <p class="tc">长江证券</p>
-                                        <i class="tag abs white tc f14">项目申报</i>
+                                        <router-link :to="{ name: '',params: {id: item.id } }">
+                                            <img :src="item.icon" alt="">
+                                            <p class="tc">{{ item.name }}</p>
+                                            <i class="tag abs white tc f14">{{item.intro}}</i>
+                                        </router-link>
                                     </a>
                                 </el-col>
                             </el-row>
@@ -49,20 +51,22 @@
                     <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10">
-                    <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in 6" :key="item">
+                    <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in financing" :key="item">
                         <a class="Financing_item rel">
-                            <img src="../../static/img/project01.png" alt="">
+                            <router-link :to="{ name: '',params: {id: item.id } }">
+                                <img :src='item.logo' alt="">
+                            </router-link>
                             <div class="Financing_wrap">
                                 <div class="Financing_info">
-                                    <h1 class="f16">融创投资新三板领投基金</h1>
-                                    <p class="text-ellipsis">融创投资新三板领投基金融创投资新三板领投基金融创投资新三板领投基金融创投资新三板领投基金</p>
+                                    <h1 class="f16">{{item.name}}</h1>
+                                    <p class="text-ellipsis">{{item.intro}}</p>
                                 </div>
                                 <el-row type="flex" class="Financing_money">
                                     <el-col :span="6">
-                                        <p class="f14">3240万<br/>已获得投资意向</p>
+                                        <p class="f14">{{item.archived}}万<br/>已获得投资意向</p>
                                     </el-col>
                                     <el-col :span="6" :push="12">
-                                        <p class="f14 tr">5000万<br/>预融资总额</p>
+                                        <p class="f14 tr">{{item.financing}}万<br/>预融资总额</p>
                                     </el-col>
                                 </el-row>
                                 <el-tag type="primary" style="margin-left:8px">行业领域:
@@ -71,29 +75,42 @@
                                 <el-tag type="success">已完成融资:
                                     <span>未完成融资</span>
                                 </el-tag>
-                                <p class="f14 pl10">发起人:融创中国</p>
+                                <p class="f14 pl10" style="margin-left:8px;">发起人:{{item.founder}}</p>
                             </div>
                         </a>
                     </el-col>
                 </el-row>
             </el-col>
-            <!--<el-col :lg="24" :md="24" :sm="24" :xs="24">-->
-                <!--<div class="Financing">-->
-                    <!--<div class="container">-->
-                        <!--<el-row :gutter="10">-->
-                            <!--<el-col v-for="(item, index) in 6" :key="item">-->
-                                <!---->
-                            <!--</el-col>-->
-                        <!--</el-row>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</el-col>-->
         </el-row>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
+	import api from '../axios/api.js'
+	import Swiper from '../components/swiper.vue'
+	export default {
+		data() {
+			return {
+				investor: '', //投资机构
+				financing: '', //融资项目
+			};
+		},
+		methods: {
+			setFinancingApi() {
+				api.Get("/financing").then(res => {
+					console.log(res);
+					this.investor = res['investor'];
+					this.financing = res['financing'];
+				});
+			},
+		},
+		created() {
+			this.setFinancingApi()
+		},
+		components: {
 
+		}
+	};
 </script>
 
 <style>
