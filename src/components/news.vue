@@ -149,8 +149,8 @@
 				console.log(tab, event);
 			},
 			newApi() {
-                var url='/info'+this.limit;
-				api.Get('url')
+                var url='/pub/info/'+this.limit;
+				api.Get(url)
 					.then(res => {
 						this.category = res['category'];
 						this.weekly = res['weekly'];

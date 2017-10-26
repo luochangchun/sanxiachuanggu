@@ -9,6 +9,7 @@ import Register from '../src/components/register/register.vue'//注册页面
 import Login from '../src/components/register/login.vue'//登录页面
 import ForgetPassword from '../src/components/register/forgetPassword.vue'//忘记密码
 import Talent from '../src/components/talent.vue'//创谷人才首页
+import TutorDetail from '../src/components/tutorDetail.vue'//创谷人才首页
 
 
 
@@ -45,11 +46,7 @@ const routes = [
   {path: '/login', component: Login, name: 'Login'},
   {path: '/forgetPassword', component: ForgetPassword, name: 'ForgetPassword'},
   {path: '/talent', component: Talent, name: 'Talent'},
-
-
-
-
-
+  {path: '/tutorDetail/:id', component: TutorDetail, name: 'tutorDetail'},
 
 
 //  罗长春

@@ -148,7 +148,7 @@
         },
         methods: {
             researchApi() {
-                api.Get('/enterprises')
+                api.Get('/pub/enterprises')
                     .then(res => {
                         this.provider = res['provider'];
                         this.normal = res['normal'];

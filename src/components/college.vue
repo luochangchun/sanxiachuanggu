@@ -122,7 +122,7 @@
 		},
 		methods: {
 			setTronsApi() {
-				api.Get("/colleges").then(res => {
+				api.Get("/pub/colleges").then(res => {
 					this.lecture = res['lecture'];
 					this.highlight = res['highlight'];
 					this.activity = res['activity'];

@@ -75,7 +75,7 @@
         },
         methods: {
             setTronsApi() {
-                api.Get("/trons").then(res => {
+                api.Get("/pub/trons").then(res => {
                     console.log(res);
                     this.incubator = res['incubator'];
                     this.office = res['office'];

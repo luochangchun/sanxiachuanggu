@@ -105,7 +105,7 @@
 		},
 		methods: {
 			researchApi() {
-				api.Get('/research')
+				api.Get('/pub/research')
 					.then(res => {
 						this.university = res['university'];
 						this.mentor = res['mentor'];
