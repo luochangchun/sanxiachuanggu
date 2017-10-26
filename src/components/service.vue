@@ -58,7 +58,7 @@
                 </div>
                 <el-row :gutter="10">
                     <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show" id="showone" v-for="(item, index) in normal" :key="index">
-                        <router-link :to="{ path: 'provider' + item.id}">
+                        <router-link :to="{name:'provider', params: {id:item.id} }">
                             <img :src="item.icon" alt="">
                             <div class="service-opcity">
                                 <h2>{{item.name}}</h2>
@@ -81,7 +81,7 @@
                 <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                     <el-row class="office_wrap">
                         <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in provider" :key="index">
-                            <router-link :to="{path:'/provider/'+item.id}" class="service_provider_item rel">
+                            <router-link :to="{name:'provider', params: {id:item.id} }" class="service_provider_item rel">
                                 <img :src="item.icon" alt="">
                                 <p class="tc">{{item.name}}</p>
                                 <i class="tag abs white tc f14">{{item.service}}</i>

@@ -21,7 +21,7 @@
                     </div>
                     <el-row :gutter="10">
                         <el-col :lg="6" :md="6" :sm="12" :xs="24" class="incubators-show" v-for="(item,index) in incubator" :key="item">
-                            <router-link :to="{ path: 'incubators_details' + item.id}">
+                            <router-link :to="{ name: 'incubators_details', params: { id: item.id} }">
                                 <img src="../../static/img/103.png" alt="">
                                 <span>{{item.name}}</span>
                             </router-link>

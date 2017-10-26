@@ -10,6 +10,7 @@ import Login from '../src/components/register/login.vue'//登录页面
 import ForgetPassword from '../src/components/register/forgetPassword.vue'//忘记密码
 import Talent from '../src/components/talent.vue'//创谷人才首页
 import TutorDetail from '../src/components/tutorDetail.vue'//创谷人才首页
+import FinancingDetail from '../src/components/financingDetail.vue'//创谷人才首页
 
 
 
@@ -46,8 +47,8 @@ const routes = [
   {path: '/login', component: Login, name: 'Login'},
   {path: '/forgetPassword', component: ForgetPassword, name: 'ForgetPassword'},
   {path: '/talent', component: Talent, name: 'Talent'},
-  {path: '/tutorDetail/:id', component: TutorDetail, name: 'tutorDetail'},
-
+  {path: '/tutorDetail/:id', component: TutorDetail, name: 'tutorDetail'},//导师详情
+  {path: '/financingDetail/:id', component: FinancingDetail, name: 'financingDetail'},//融资项目详情
 
 //  罗长春
 	{path: '/news', component: news, name: 'news'},//创谷资讯首页
@@ -62,7 +63,6 @@ const routes = [
 	{path: '/incubators_details/:id', component: incubators_details, name: 'incubators_details'},//双创空间详情页
 	{path: '/enter', component: enter, name: 'enter'},//申请入驻表单
 	{path: '/train', component: train, name: 'train'},//活动报名表单
-	{path: '/provider', component: provider, name: 'provider'},//服务商详情页
 	{path: '/provider/:id', component: provider, name: 'provider'},//服务商详情页
 	{path: '/into', component: into, name: 'into'},//入孵企业详情页
 	{path: '/need', component: need, name: 'need'},//服务需求

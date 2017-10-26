@@ -35,18 +35,18 @@
                         <div class="r more_plus"></div>
                     </div>
                     <el-row :gutter="10">
-                        <el-col :lg="11" :md="11" :sm="11" :xs="22" :offset="1" v-for="(item, index) in 4" :key="index">
-                            <div class="research-teacher">
-                                <img src="../../static/img/college_2.png" alt="">
+                        <el-col :lg="11" :md="11" :sm="11" :xs="22" :offset="1" v-for="(item, index) in teacher" :key="index" >
+                            <router-link :to="{name:'tutorDetail', params: {id:item.id} }" class="research-teacher">
+                                <img :src="item.photo" alt="">
                                 <div>
-                                    <h4>指导老师:钟学保</h4>
-                                    <h3>火凤凰云计算董事长</h3>
-                                    <p>教师简介:07年毕业于中欧国际工商管理学院获得MBA研究生学位,2014年至今担任江汉区政协常委委员,先后任武汉中小企业协会常务副会长,武汉中小企业协会对外交流合作分会会长,江汉区高新技术企业联合会副会长.</p>
+                                    <h4>指导老师:{{item.name}}</h4>
+                                    <h3>{{item.title}}</h3>
+                                    <p>教师简介:{{item.intro}}</p>
                                 </div>
                                 <div>
                                     <button>导师介绍</button>
                                 </div>
-                            </div>
+                            </router-link>
                         </el-col>
                     </el-row>
                 </el-col>
@@ -64,14 +64,14 @@
                 </div>
                 <el-row :gutter="10">
                     <el-col :xs="8" :sm="8" :md="8" :lg="8" v-for="(item, index) in activity" :key="index">
-                        <a class="activitys_item">
+                        <router-link :to="{name:'ActivityPara', params: {id:item.id} }" class="activitys_item">
                             <img :src="item.icon" alt="">
                             <div class="process abs">
                                 <p class="white f16 tc text-ellipsis">{{item.name}}</p>
                                 <p v-if="item.status==1" class="f16 tc tag">进行中</p>
                                 <p v-if="item.status==2" class="f16 tc tag">已结束</p>
                             </div>
-                        </a>
+                        </router-link>
                     </el-col>
                 </el-row>
             </el-col>
@@ -115,7 +115,8 @@
 	export default {
 		data() {
 			return {
-				lecture: '', //培训
+                lecture: '', //培训
+                teacher: '', //优秀讲师
 				activity: '', //活动专区
 				highlight: ''//精彩瞬间
 			}
@@ -126,7 +127,7 @@
 					this.lecture = res['lecture'];
 					this.highlight = res['highlight'];
 					this.activity = res['activity'];
-					// this.office = res['office'];
+					this.teacher = res['teacher'];
 				});
 			}
 		},

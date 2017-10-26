@@ -382,9 +382,11 @@ img {
   line-height: 24px;
   margin-left: auto;
   margin-right: auto;
+  color: #333;
 }
 .tutor_item p.text-ellipsis-muti {
-  height: 96px;
+  color: #666;
+  max-height: 96px;
 }
 /* 创业导师 */
 
@@ -402,6 +404,7 @@ img {
   border-top: 1px solid #f1f1f1;
   margin-top: 8px;
   padding: 4px;
+  color: #666;
 }
 .Financing_title {
   width: 144px;
@@ -411,11 +414,13 @@ img {
   padding: 8px;
   background-color: #f1f1f1;
   box-sizing: border-box;
+  color: #333;
 }
 .Financing_money p {
   padding: 6px 8px;
   line-height: 24px;
   box-sizing: border-box;
+  color: #666;
 }
 /* 融资项目 */
 
@@ -533,6 +538,11 @@ img {
   border-bottom:1px solid #dddddd;
   border-right:1px solid #dddddd;
   display: block;
+}
+.office_item,
+.service_provider_item p
+ {
+  color: #666;
 }
   @media (min-width: 768px) {
     .container {

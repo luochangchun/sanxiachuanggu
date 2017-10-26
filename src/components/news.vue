@@ -15,49 +15,45 @@
                     <el-col :lg="16" :md="16" :sm="24" :xs="24">
                         <div v-show="!show_read">
                             <!--导航切换-->
-                            <template>
-                                <el-tabs v-model="activeName" @tab-click="handleClick">
-                                    <el-tab-pane label="政府双创" name="first">政府双创</el-tab-pane>
-                                    <el-tab-pane label="企业双创" name="second">企业双创</el-tab-pane>
-                                    <el-tab-pane label="园区双创" name="third">园区双创</el-tab-pane>
-                                    <el-tab-pane label="双创服务机构" name="fourth">双创服务机构</el-tab-pane>
-                                </el-tabs>
-                            </template>
+                            <el-tabs v-model="activeName" @tab-click="handleClick">
+                                <el-tab-pane v-for="(item,index) in category" :key="index" :label="item.name" :name="item.cname" :cid="item.id">
+                                    <el-row :gutter="10" class="news-leftlist" v-show="!show_read">
+                                        <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }" class="m-t b-b clea" v-for="(item, index) in newsListData" :key="index">
+                                            <el-col :lg="7" :md="7" :sm="7" :xs="24" class="no-padder">
+                                                <div>
+                                                    <img :src="item.icon" class="w-full" @click="show_read=true">
+                                                </div>
+                                            </el-col>
+                                            <el-col :lg="16" :md="16" :sm="16" :xs="24" :offset="1" class="pos">
+                                                <p class="text-md font-bold text-ellipsis">
+                                                    <a href="" class="text-dark-lt">{{item['title']}}</a>
+                                                </p>
+                                                <p class="text-ellipsis-3">{{item['content']}}</p>
+                                                <div style="bottom:15px;">
+                                                    <p class="text-muted pull-left m-r">
+                                                        <i class="el-icon-time fa fa-clock-o m-r-xs"></i>
+                                                        <span>时间：{{item['time'] | formatDate}}</span>
+                                                    </p>
+                                                    <p class="text-muted pull-left">
+                                                        <i class="el-icon-edit fa fa-edit m-r-xs"></i>
+                                                        <span>{{item['views']}}</span>
+                                                    </p>
+                                                </div>
+                                            </el-col>
+                                        </router-link>
+                                    </el-row>
+                                    <!--分页-->
+                                    <el-row :gutter="10" style="margin-bottom: 50px;">
+                                        <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
+                                            <div class="block">
+                                                <el-pagination :current-page="1" :total="totalPages" @size-change="handleSizeChange" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                                </el-pagination>
+                                            </div>
+                                        </el-col>
+                                    </el-row>
+                                </el-tab-pane>
+                            </el-tabs>
                             <!--左图右文-->
-                            <el-row :gutter="10"  class="news-leftlist" v-for="(item,index) in category" :key="index" v-show="!show_read">
-                                <div class="m-t b-b clea">
-                                    <el-col :lg="7" :md="7" :sm="7" :xs="24" class="no-padder">
-                                        <div>
-                                            <img src="../../static/img/download-8.jpg" class="w-full" @click="show_read=true">
-                                        </div>
-                                    </el-col>
-                                    <el-col :lg="16" :md="16" :sm="16" :xs="24" :offset="1" class="pos">
-                                        <p class="text-md font-bold text-ellipsis">
-                                            <a href="" class="text-dark-lt">湖北发文规范推进人才创新创业超市建设</a>
-                                        </p>
-                                        <p class="text-ellipsis-3">{{item.description}}</p>
-                                        <div class="pos-abt" style="bottom:15px;">
-                                            <p class="text-muted pull-left m-r">
-                                                <i class="el-icon-time fa fa-clock-o m-r-xs"></i>
-                                                <span>时间：2017-10-10</span>
-                                            </p>
-                                            <p class="text-muted pull-left">
-                                                <i class="el-icon-edit fa fa-edit m-r-xs"></i>
-                                                <span>158</span>
-                                            </p>
-                                        </div>
-                                    </el-col>
-                                </div>
-                            </el-row>
-                            <!--分页-->
-                            <el-row :gutter="10" style="margin-bottom: 50px;">
-                                <el-col :lg="8" :md="8" :sm="24" :xs="24"  :offset="8">
-                                    <div class="block">
-                                        <el-pagination layout="prev, pager, next" :total="1000">
-                                        </el-pagination>
-                                    </div>
-                                </el-col>
-                            </el-row>
                         </div>
                         <!--点击图片进入详情-->
                         <div v-show="show_read">
@@ -84,7 +80,8 @@
                                 <p style="text-align:left;"> 2.各市州科技局负责本辖区申请机构的申报组织及审核推荐工作，东湖高新区管委会负责区内各申请机构申报组织及审核推荐工作。 </p>
                                 <p style="text-align:left;"> 3.省科技厅将尽快组织专家对申报材料进行评价并进行实地考察。省科技厅将根据评价结果，对认定的众创空间统一发文公示。</p>
                                 <p style="text-align:left;"> 四、联系人及联系方式</p>
-                                <p style="text-align:left;"> 省科技厅协调办&nbsp;黄&nbsp;源、陈&nbsp;满</p><p style="text-align:left;"> 联系电话：027-87135795、87135349</p>
+                                <p style="text-align:left;"> 省科技厅协调办&nbsp;黄&nbsp;源、陈&nbsp;满</p>
+                                <p style="text-align:left;"> 联系电话：027-87135795、87135349</p>
                                 <p style="text-align:left;"> 电子邮箱：chenman1118@163.com</p>
                                 <p style="text-align:left;"> 附件1、《省级众创空间申报信息汇总表》</p>
                                 <p style="text-align:left;"> &nbsp; &nbsp; &nbsp;2、《湖北省省级众创空间认定申请书》</p>
@@ -106,12 +103,12 @@
                                         <button @click="week=false">日排行</button>
                                     </div>
                                     <ul v-show="week">
-                                        <li  v-for="( item,index ) in weekly" :key="index">
+                                        <li v-for="( item,index ) in weekly" :key="index">
                                             <span>{{item.pid}}</span>{{item.description}}
                                         </li>
                                     </ul>
                                     <ul v-show="!week" style="display:none;">
-                                        <li  v-for="( item,index ) in daily" :key="index">
+                                        <li v-for="( item,index ) in daily" :key="index">
                                             <span>{{item.pid}}</span>{{item.description}}
                                         </li>
                                     </ul>
@@ -127,65 +124,95 @@
 </template>
 
 <script type="text/ecmascript-6">
-	import api from '../axios/api.js'
-	import Swiper from '../components/swiper.vue'
-	export default {
-		data() {
-			return {
-				activeName: 'second',
-				show_read:false,
-				week:true,
-				limit:'10',
-				category: '',//分类
-				weekly:'',
-				daily:'',
-			}
-		},
-		created() {
-			this.newApi()
-		},
-		methods: {
-			handleClick(tab, event) {
-				console.log(tab, event);
-			},
-			newApi() {
-                var url='/pub/info/'+this.limit;
-				api.Get(url)
-					.then(res => {
-						this.category = res['category'];
-						this.weekly = res['weekly'];
-						this.daily = res['daily'];
-					})
-			}
-		},
-		components: {
-			commonSwiper: Swiper
-		},
-	};
-
+    import api from '../axios/api.js'
+    import {
+        formatDate
+    } from '../../static/js/date.js'
+    export default {
+        data() {
+            return {
+                activeName: 'tab1',
+                show_read: false,
+                week: true,
+                limit: '10',
+                category: '', //分类
+                weekly: '',
+                daily: '',
+                newsListData: '',
+                totalPages:''
+            }
+        },
+        created() {
+            this.newApi()
+        },
+        methods: {
+            handleClick(tab, event) { //点击切换tab,切换文章列表类别
+                this.initNewsList(tab['$attrs']['cid'])
+            },
+            newApi() { //获取新闻列表基本信息
+                var url = '/pub/info/' + this.limit;
+                api.Get(url)
+                    .then(res => {
+                        this.category = res['category'];
+                        this.weekly = res['weekly'];
+                        this.daily = res['daily'];
+                        this.category.forEach((value, index, array) => {　
+                            this.category[index]['cname'] = 'tab' + (index + 1);
+                            if (index == 0) { //打开新闻资讯首页，默认加载每日头条第1页
+                                this.initNewsList(this.category[index]['id'])
+                            }
+                        });
+                    })
+            },
+            initNewsList(cid) {
+                var url = '/pub/info/' + cid + '/' + '10' + '/' + '1'
+                api.Get(url)
+                    .then(res => {
+                        console.log(res);
+                        this.newsListData = res['data'];
+                        this.totalPages = res['totalPages']*10;
+                    })
+            },
+            handleSizeChange(val) {
+                console.log(`每页 ${val} 条`);
+            },
+            handleCurrentChange(val) {
+                //获取到当前分页页码，获取当前页面数据
+                var url = '/pub/info/' + '20' + '/' + '10' + '/' + val
+                api.Get(url)
+                    .then(res => {
+                        console.log(res);
+                        this.totalPages = res['totalPages']*10;
+                    })
+            }
+        },
+        filters: {
+            formatDate(time) {
+                let date = new Date(time)
+                return formatDate(date, 'yyyy-MM-dd hh:mm')
+            }
+        }
+    };
 </script>
+
 <style>
     /*banner*/
-    .banner_img img{
-        width:100%;
+    .banner_img img {
+        width: 100%;
     }
     .el-row {
         margin-bottom: 20px;
     }
-
     .el-row:last-child {
         margin-bottom: 0;
     }
-
     .el-col {
         border-radius: 4px;
     }
-
     .padder-v-md {
         padding-top: 20px;
         padding-bottom: 20px;
     }
-
     .container {
         padding-right: 15px;
         padding-left: 15px;
@@ -204,7 +231,7 @@
         margin-left: auto;
         /*margin-top:40px;*/
     }
-    .bg-cover{
+    .bg-cover {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
@@ -212,7 +239,7 @@
     }
     .h {
         height: 200px;
-        background-image:url(../../static/img/banner-2.jpg);
+        background-image: url(../../static/img/banner-2.jpg);
     }
     .block {
         display: block;
@@ -224,29 +251,28 @@
         padding: 0 !important;
     }
     /*导航切换*/
-    .news-button > .button{
+    .news-button>.button {
         border-radius: 4px;
-        height:30px;
-        line-height:30px;
-        border:none;
-        background-color:#ddd;
-        color:#999;
+        height: 30px;
+        line-height: 30px;
+        border: none;
+        background-color: #ddd;
+        color: #999;
         text-align: center;
         margin-right: 5px;
     }
-
     /*左图右文字*/
     .w-full {
         width: 100%;
         /*max-height:120px;*/
     }
-    .no-padder a img{
-        width:100%;
+    .no-padder a img {
+        width: 100%;
     }
     .h-sm {
         height: 150px;
     }
-    .pos{
+    .pos {
         height: 150px;
     }
     .text-ellipsis {
@@ -303,7 +329,7 @@
     }
     .text-muted {
         color: #98a6ad;
-        font-size:14px;
+        font-size: 14px;
     }
     .pull-left {
         float: left !important;
@@ -317,7 +343,7 @@
     .pull-left {
         float: left !important;
     }
-    .b-b{
+    .b-b {
         border-bottom: 1px dashed #dee5e7;
     }
     .m-t {
@@ -344,44 +370,44 @@
         padding: 30px;
     }
     /*热门排行*/
-    .news-rightlist{
-        border:1px solid #ddd;
-        width:100%;
+    .news-rightlist {
+        border: 1px solid #ddd;
+        width: 100%;
         /*position: absolute;*/
-        padding: 0 10px  20px 20px;
+        padding: 0 10px 20px 20px;
         margin-bottom: 50px;
     }
-    .news-hot{
+    .news-hot {
         position: relative;
-        top:-11px;
-        left:20px;
-        background-color:#fff;
-        width:25%;
+        top: -11px;
+        left: 20px;
+        background-color: #fff;
+        width: 25%;
         text-align: center;
-        color:#0089e3;
+        color: #0089e3;
         font-weight: 600;
         font-size: 16px;
     }
-    .news-button button{
-        border:none;
+    .news-button button {
+        border: none;
         background-color: #ff0000;
-        float:right;
+        float: right;
         margin-right: 10px;
         border-radius: 4px;
         margin-bottom: 10px;
     }
-    .news-rightlist ul li{
-        clear:both;
-        line-height:30px;
-        color:#a1a1a1;
+    .news-rightlist ul li {
+        clear: both;
+        line-height: 30px;
+        color: #a1a1a1;
         font-size: 14px;
     }
-    .news-rightlist ul li span{
+    .news-rightlist ul li span {
         display: inline-block;
-        width:20px;
-        height:20px;
+        width: 20px;
+        height: 20px;
         background-color: #0089e3;
-        color:#fff;
+        color: #fff;
         text-align: center;
         line-height: 20px;
         margin-right: 10px;
