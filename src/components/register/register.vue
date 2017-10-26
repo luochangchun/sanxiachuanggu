@@ -6,7 +6,7 @@
                     <div class="register_wrap">
                         <el-form :model="enterpriseForm" :rules="enterpriseRules" ref="enterpriseForm" label-width="120px" class="register_form">
                             <el-form-item label="组织机构代码:" prop="code">
-                                <el-input type="text" v-model="enterpriseForm.code" placeholder="请输入正数第9位到倒数第2位之间的9位" auto-complete="off"></el-input>
+                                <el-input type="text" v-model="enterpriseForm.code" placeholder="请输入组织结构代码" auto-complete="off"></el-input>
                             </el-form-item>
                             <el-form-item label="企业名称:" prop="name">
                                 <el-input type="text" v-model="enterpriseForm.name" placeholder="请输入企业名称" auto-complete="off"></el-input>
@@ -20,11 +20,11 @@
                             <el-row :gutter="10">
                                 <el-col :xs="18" :sm="18" :md="18" :lg="18">
                                     <el-form-item label="验证码:">
-                                        <el-input placeholder="请输入短信验证码"></el-input>
+                                        <el-input placeholder="请输入短信验证码" v-model="enterpriseForm.captcha"></el-input>
                                     </el-form-item>
                                 </el-col>
                                 <el-col :xs="6" :sm="6" :md="6" :lg="6">
-                                    <el-button type="primary">获取验证码</el-button>
+                                    <el-button type="primary" @click="sendCaptcha">获取验证码</el-button>
                                 </el-col>
                             </el-row>
                             <el-form-item label="登录密码:" prop="pass">
@@ -52,7 +52,7 @@
                                     </el-form-item>
                                 </el-col>
                                 <el-col :xs="8" :sm="6" :md="6" :lg="6">
-                                    <el-button type="primary">获取验证码</el-button>
+                                    <el-button type="primary" @click="sendSingleCaptcha">获取验证码</el-button>
                                 </el-col>
                             </el-row>
                             <el-form-item label="登录密码:" prop="pass">
@@ -106,10 +106,9 @@
                     callback();
                 }
             };
-
             //企业用户自定义正则验证
             let validateCode = (rule, value, callback) => {
-                let re=/^[0-9A-Z]{18}$/;
+                let re = /^[0-9A-Z]{18}$/;
                 if (value === "" || !re.test(value)) {
                     callback(new Error("请输入正确的机构代码！"));
                 } else {
@@ -173,14 +172,12 @@
                     checkPass: ""
                 },
                 personalRules: {
-                    phone: [
-                        {
-                            required: true,
-                            validator: validatePhone,
-                            message: '请输入正确手机号',
-                            trigger: 'blur'
-                        }
-                    ],
+                    phone: [{
+                        required: true,
+                        validator: validatePhone,
+                        message: '请输入正确手机号',
+                        trigger: 'blur'
+                    }],
                     pass: [{
                             required: true,
                             validator: validatePass,
@@ -192,64 +189,81 @@
                         // }
                     ],
                     checkPass: [{
-                            required: true,
-                            validator: validatePass2,
-                            trigger: "blur"
-                        }
-                    ]
+                        required: true,
+                        validator: validatePass2,
+                        trigger: "blur"
+                    }]
                 },
                 enterpriseRules: {
-                    code:[
-                        {
-                            required: true,
-                            validator: validateCode,
-                            message: '请输入机构代码',
-                            trigger: 'blur'
-                        }
-                    ],
-                    name:[
-                        {
-                            required: true,
-                            validator: validateName,
-                            message: '请输入企业名称',
-                            trigger: 'blur'
-                        }
-                    ],
-                    contact: [
-                        {
-                            required: true,
-                            validator: validateContact,
-                            message: '请输入联系人姓名！',
-                            trigger: 'blur'
-                        }
-                    ],
-                    phone: [
-                        {
-                            required: true,
-                            validator: validatePhone,
-                            message: '请输入正确手机号',
-                            trigger: 'blur'
-                        }
-                    ],
-                    pass: [{
-                            required: true,
-                            validator: validatePass_enterprise,
-                            trigger: "blur"
-                        }
-                    ],
-                    checkPass: [{
-                            required: true,
-                            validator: validateCheckPass_enterprise,
-                            trigger: "blur"
-                        }
-                    ]
-                }
+                    code: [{
+                        required: true,
+                        validator: validateCode,
+                        message: '请输入机构代码',
+                        trigger: 'blur'
+                    }],
+                    name: [{
+                        required: true,
+                        validator: validateName,
+                        message: '请输入企业名称',
+                        trigger: 'blur'
+                    }],
+                    contact: [{
+                        required: true,
+                        validator: validateContact,
+                        message: '请输入联系人姓名！',
+                        trigger: 'blur'
+                    }],
+                    phone: [{
+                        required: true,
+                        validator: validatePhone,
+                        message: '请输入正确手机号',
+                        trigger: 'blur'
+                    }],
 
+                    pass: [{
+                        required: true,
+                        validator: validatePass_enterprise,
+                        trigger: "blur"
+                    }],
+                    checkPass: [{
+                        required: true,
+                        validator: validateCheckPass_enterprise,
+                        trigger: "blur"
+                    }]
+                }
             };
         },
         methods: {
             handleClick(tab, event) {
                 // console.log(tab, event);
+            },
+            sendSingleCaptcha() {
+                let re = /^1[34578]\d{9}$/;
+                let tel = this.personalForm.phone;
+                if(this.personalForm.phone === "" || !re.test(tel) || tel.length < 11) {
+                    alert('请输入正确手机号');
+                    return false;
+                }
+                let url= '/captcha/' + tel
+                api.Post(url, {})
+                    .then(res => {
+                        console.log(res);
+                        alert(res.msg);
+                });
+            },
+            sendCaptcha() {
+                let re = /^1[34578]\d{9}$/;
+                let tel = this.enterpriseForm.phone;
+                if(this.enterpriseForm.phone === "" || !re.test(tel) || tel.length < 11) {
+                    alert('请输入正确手机号');
+                    return false;
+                }
+                let url= '/captcha/' + tel
+                api.Post(url, {})
+                    .then(res => {
+                        console.log(res);
+                        alert(res.msg);
+                });
             },
             // 个人注册
             personalRegister(formName) {
@@ -257,12 +271,16 @@
                     if (valid) {
                         var params = {
                             "phone": this.personalForm.phone,
-                            "captcha": "123456",
+                            "captcha": this.personalForm.captcha,
                             "password": this.personalForm.pass
                         }
                         api.Post('/sign/personal', params)
                             .then(res => {
                                 console.log(res);
+                                if(res['msg'] == null) {
+                                    alert("注册成功");
+                                }
+                                
                             });
                     } else {
                         console.log('error submit!!');
@@ -279,12 +297,15 @@
                             "name": this.enterpriseForm.name,
                             "contact": this.enterpriseForm.contact,
                             "phone": this.enterpriseForm.phone,
-                            "captcha": "123456",
+                            "captcha": this.enterpriseForm.captcha,
                             "password": this.enterpriseForm.pass
                         }
                         api.Post('/sign/enterprise', params)
                             .then(res => {
                                 console.log(res);
+                                if(res["suc"] == true) {
+                                    alert("注册成功");
+                                }
                             });
                     } else {
                         console.log('error submit!!');

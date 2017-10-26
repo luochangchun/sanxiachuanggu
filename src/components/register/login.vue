@@ -78,9 +78,9 @@
                             .then(res => {
                                 if (res['suc'] == true) {
                                     let userCookie = JSON.stringify(res);
-                                    let expires = res['data']['createAt'] / 1000;
-                                    api.SetCookie(res['data']['nickname'], userCookie, expires);
-                                    // window.location.href="/";
+                                    let expires = res['data']['createAt'];
+                                    api.SetCookie("userInfo", userCookie, expires);
+                                    window.location.href="/";
                                 } else if(res['suc'] == false){
                                     alert(res['msg']);
                                 }

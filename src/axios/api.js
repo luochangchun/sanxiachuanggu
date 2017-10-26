@@ -45,33 +45,26 @@ export function fetch (url, params) {
 };
 
 //设置cookie
-export function setCookie(cname, cvalue, exdays) {
-  var d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  var expires = "expires=" + d.toUTCString();
-  console.info(cname + "=" + cvalue + "; " + expires);
-  document.cookie = cname + "=" + cvalue + "; " + expires;
-  console.info(document.cookie);
+export function setCookie(name, value, days) {
+  var d = new Date;
+  d.setTime(d.getTime() + days);
+  window.document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
 }
 //获取cookie
-export function getCookie(cname) {
-  var name = cname + "=";
-  var ca = document.cookie.split(';');
-  for (var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') c = c.substring(1);
-    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
-  }
-  return "";
+export function getCookie(name) {
+  var v = window.document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+  return v ? v[2] : null;
 }
 export function deleteCookie(name) {
   this.set(name, '', -1);
 }
 export function checkCookie() {
-  var user = this.getCookie("nickname");
+  let user = getCookie("userInfo");
+  let data = JSON.parse(user);
   if (user != "") {
     // alert("Welcome again " + user);
-    self.$router.replace({ path: 'index' })
+    // self.$router.replace({ path: 'index' })
+    window.localStorage.setItem("nickname",data['data']['nickname']);
   } else {
     // user = prompt("Please enter your name:", "");
     if (user != "" && user != null) {
@@ -89,6 +82,12 @@ export default {
   },
   SetCookie(cname, cvalue, exdays) {
     return setCookie(cname, cvalue, exdays)
+  },
+  GetCookie(name) {
+    return getCookie(name)
+  },
+  CheckCookie() {
+    return checkCookie()
   }
   
 }

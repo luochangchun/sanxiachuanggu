@@ -9,7 +9,8 @@
                     <el-col :xs="12" :sm="12" :md="6" :lg="6" :offset="12">
                         <router-link to="/register" class="text r">免费注册</router-link>
                         <i class="r hr">&nbsp;&nbsp;|&nbsp;&nbsp;</i>
-                        <router-link to="/login" class="text cur r">登录</router-link>
+                        <router-link v-if="!name" to="/login" class="text cur r">登录</router-link>
+                        <p v-if="name" class="text r">{{name}}</p>
                     </el-col>
                 </el-row>
             </div>
@@ -130,12 +131,18 @@
     </div>
 </template>
 <script>
+import api from '../axios/api.js'
 export default {
     data() {
         return {
             visible: false,
-            visible_sub: false
+            visible_sub: false,
+            name:"",
         }
+    },
+    created() {
+        this.getName();
+        this.name = window.localStorage.getItem('nickname');
     },
     methods: {
         showMenu() {
@@ -151,7 +158,12 @@ export default {
             } else {
                 this.visible_sub = true;
             }
+        },
+        getName() {
+            api.CheckCookie();
         }
+
+        
     },
 }
 </script>
