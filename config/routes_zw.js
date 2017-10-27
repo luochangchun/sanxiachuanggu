@@ -14,6 +14,7 @@ import FinancingDetail from '../src/components/financingDetail.vue'//创谷人�
 
 
 
+
 //罗长春
 import news from '../src/components/news.vue'
 import incubators from '../src/components/incubators.vue'
@@ -35,11 +36,14 @@ import question from '../src/components/question.vue'
 import train_detail from '../src/components/train_detail.vue'
 import splendid_detail from '../src/components/splendid_detail.vue'
 import activity_more from '../src/components/activity_more.vue'
-import incubators_more from '../src/components/incubators_more.vue'
+import space_more from '../src/components/space_more.vue'
+import incubator_more from '../src/components/incubator_more.vue'
+//10.27
 import into_more from '../src/components/into_more.vue'
-
-
-
+import service_provider_more from '../src/components/service_provider_more.vue'
+import invest_more from '../src/components/invest_more.vue'
+import invest_detail from '../src/components/invest_detail.vue'
+import financingDetail from '../src/components/financingDetail.vue'
 
 
 
@@ -55,6 +59,7 @@ const routes = [
   {path: '/forgetPassword', component: ForgetPassword, name: 'ForgetPassword'},
   {path: '/talent', component: Talent, name: 'Talent'},
   {path: '/tutorDetail/:id', component: TutorDetail, name: 'tutorDetail'},//导师详情
+  {path: '/tutorlist', component: Tutorlist, name: 'tutorlist'},//导师列表
   {path: '/financingDetail/:id', component: FinancingDetail, name: 'financingDetail'},//融资项目详情
 
 //  罗长春
@@ -78,8 +83,14 @@ const routes = [
 	{path: '/train_detail/:id', component: train_detail, name: 'train_detail'},//培训活动详情页
 	{path: '/splendid_detail/:id', component: splendid_detail, name: 'splendid_detail'},//精彩瞬间详情页
 	{path: '/activity_more', component: activity_more, name: 'activity_more'},//活动(more)
-	{path: '/incubators_more', component: incubators_more, name: 'incubators_more'},//双创空间(more)
+	{path: '/space_more', component: space_more, name: 'space_more'},//双创空间(more)
+	{path: '/incubator_more', component: incubator_more, name: 'incubator_more'},//孵化器(more)
+	//10.27
+	{path: '/invest_detail', component: invest_detail, name: 'invest_detail'},//投资机构详情页
+	{path: '/invest_more', component: invest_more, name: 'invest_more'},//投资机构(more)
 	{path: '/into_more', component: into_more, name: 'into_more'},//入孵企业(more)
+	{path: '/service_provider_more', component: service_provider_more, name: 'service_provider_more'},//服务商(more)
+	{path: '/financingDetail', component: financingDetail, name: 'financingDetail'},//投资项目详情页
 
 ];
 
