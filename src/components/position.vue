@@ -1,7 +1,7 @@
 <template>
     <div>
-        <el-row :gutter="10">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
+        <el-row :gutter="10" style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
+            <el-col :lg="10" :md="10" :sm="10" :xs="10" :offset="7" style="background-color:#fff;padding:30px 25px 15px 0">
                 <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
 
                     <el-form-item label="姓名" prop="name">
