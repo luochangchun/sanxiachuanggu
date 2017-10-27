@@ -325,7 +325,8 @@
             // var qrcode = '/api/qrcode.php?text=' + encodeURIComponent(share_url);
             var url = '';
             //alert(data.act_id);
-            url = '/c/' + data.user_nicename;
+            console.log(data);
+            url = 'http://localhost:3636/#/incubators_details/' + data.id;
             var html = "";
             html +=
                 "<div class='sh_boxmn'><div class='sh_boxhide' onClick='closeInfoWindow()'>×</div><div class='sh_mation'>";
@@ -382,11 +383,9 @@
                         offset: new AMap.Pixel(-12, -28),
                         content: content,
                         extData: {
-                            
                             company_name: mk.name,
                             company: mk.name,
-                           
-                           
+                            id:mk.id,
                             phone: phone,
                             map_desc: desc,
                             logo: logo,

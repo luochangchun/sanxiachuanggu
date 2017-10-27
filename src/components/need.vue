@@ -46,7 +46,7 @@
                                         <p>发布时间</p>
                                     </el-col>
                                 </el-row>
-                                <el-row :gutter="10" v-for="(item,index) in 20" :key="index" class="need_xq">
+                                <el-row :gutter="10" v-for="(item,index) in 20" class="need_xq" :key="index">
                                     <div  @click="show_need=true">
                                         <el-col :lg="10" :md="10" :sm="10" :xs="10" class="need_xq_p">
                                             <p>企业并购法律流程是什么  <span>[法律相关]</span></p>
@@ -112,12 +112,12 @@
                                                     </el-col>
 
                                                     <el-col :lg="8" :md="8" :sm="8" :xs="8">
-                                                        <p>郑丽</p>
-                                                        <p>优秀创业导师</p>
+                                                    <p>郑丽</p>
+                                                    <p>优秀创业导师</p>
                                                     </el-col>
 
                                                     <el-col :lg="8" :md="8" :sm="8" :xs="8">
-                                                        <button>提问</button>
+                                                    <button>提问</button>
                                                     </el-col>
                                                 </el-row>
                                             </li>
@@ -131,6 +131,7 @@
         </el-row>
     </div>
 </template>
+
 <script type="text/ecmascript-6">
 	import api from '../axios/api.js'
 	import Swiper from '../components/swiper.vue'

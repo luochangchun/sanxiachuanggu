@@ -1,6 +1,6 @@
 import axios from 'axios'
-const baseUrl='http://192.168.11.222:8080/servant/pub';
-axios.defaults.baseURL = 'http://192.168.11.222:8080/servant/pub';
+const baseUrl='http://192.168.11.222:8080/servant';
+axios.defaults.baseURL = 'http://192.168.11.222:8080/servant';
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 

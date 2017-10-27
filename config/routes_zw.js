@@ -3,13 +3,14 @@ import VueRouter from 'vue-router'
 import Main from '../src/Main.vue'
 import Index from '../src/components/Index.vue'//首页
 import Map from '../src/components/Map.vue'//地图
-import InformationPara from '../src/components/InformationPara.vue'
 import Activitys from '../src/components/Activitys.vue'//活动首页
 import ActivityPara from '../src/components/ActivityPara.vue'//活动详情
 import Register from '../src/components/register/register.vue'//注册页面
 import Login from '../src/components/register/login.vue'//登录页面
 import ForgetPassword from '../src/components/register/forgetPassword.vue'//忘记密码
 import Talent from '../src/components/talent.vue'//创谷人才首页
+import TutorDetail from '../src/components/tutorDetail.vue'//创谷人才首页
+import FinancingDetail from '../src/components/financingDetail.vue'//创谷人才首页
 
 
 
@@ -30,6 +31,13 @@ import into from '../src/components/into.vue'
 import need from '../src/components/need.vue'
 import provider from '../src/components/provider.vue'
 import question from '../src/components/question.vue'
+//10.26
+import train_detail from '../src/components/train_detail.vue'
+import splendid_detail from '../src/components/splendid_detail.vue'
+import activity_more from '../src/components/activity_more.vue'
+import incubators_more from '../src/components/incubators_more.vue'
+import into_more from '../src/components/into_more.vue'
+
 
 
 
@@ -46,12 +54,8 @@ const routes = [
   {path: '/login', component: Login, name: 'Login'},
   {path: '/forgetPassword', component: ForgetPassword, name: 'ForgetPassword'},
   {path: '/talent', component: Talent, name: 'Talent'},
-
-
-
-
-
-
+  {path: '/tutorDetail/:id', component: TutorDetail, name: 'tutorDetail'},//导师详情
+  {path: '/financingDetail/:id', component: FinancingDetail, name: 'financingDetail'},//融资项目详情
 
 //  罗长春
 	{path: '/news', component: news, name: 'news'},//创谷资讯首页
@@ -66,14 +70,18 @@ const routes = [
 	{path: '/incubators_details/:id', component: incubators_details, name: 'incubators_details'},//双创空间详情页
 	{path: '/enter', component: enter, name: 'enter'},//申请入驻表单
 	{path: '/train', component: train, name: 'train'},//活动报名表单
-	{path: '/provider', component: provider, name: 'provider'},//服务商详情页
 	{path: '/provider/:id', component: provider, name: 'provider'},//服务商详情页
 	{path: '/into', component: into, name: 'into'},//入孵企业详情页
 	{path: '/need', component: need, name: 'need'},//服务需求
 	{path: '/question', component: question, name: 'question'},//答疑解惑页面
+	//10.26
+	{path: '/train_detail/:id', component: train_detail, name: 'train_detail'},//培训活动详情页
+	{path: '/splendid_detail/:id', component: splendid_detail, name: 'splendid_detail'},//精彩瞬间详情页
+	{path: '/activity_more', component: activity_more, name: 'activity_more'},//活动(more)
+	{path: '/incubators_more', component: incubators_more, name: 'incubators_more'},//双创空间(more)
+	{path: '/into_more', component: into_more, name: 'into_more'},//入孵企业(more)
 
-
-]
+];
 
 export default new VueRouter({
   mode: 'hash',

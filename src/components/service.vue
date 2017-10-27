@@ -58,19 +58,13 @@
                 </div>
                 <el-row :gutter="10">
                     <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show" id="showone" v-for="(item, index) in normal" :key="index">
-                        <router-link :to="{ name: 'provider', params: {id: item.id }}">
+                        <router-link :to="{name:'provider', params: {id:item.id} }">
                             <img :src="item.icon" alt="">
                             <div class="service-opcity">
                                 <h2>{{item.name}}</h2>
                                 <p>{{item.intro}}</p>
                             </div>
                         </router-link>
-
-                        <img :src="item.icon" alt="">
-                        <div class="service-opcity">
-                            <h2>{{item.name}}</h2>
-                            <p>{{item.intro}}</p>
-                        </div>
                     </el-col>
                 </el-row>
             </el-col>
@@ -87,7 +81,7 @@
                 <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                     <el-row class="office_wrap">
                         <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in provider" :key="index">
-                            <router-link :to="{name:'provider', params: { id: item.id }}" class="service_provider_item rel">
+                            <router-link :to="{name:'provider', params: {id:item.id} }" class="service_provider_item rel">
                                 <img :src="item.icon" alt="">
                                 <p class="tc">{{item.name}}</p>
                                 <i class="tag abs white tc f14">{{item.service}}</i>
@@ -108,14 +102,13 @@
                     <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10">
-                    <el-col :xs="24" :sm="12" :md="8" :lg="8" v-for="(item, index) in 4" :key="index">
-                        <!--<router-link>-->
-                        <div class="service_into">
-                            <img src="../../static/img/servie01.png" alt="">
-                            <p class="tc">火凤凰云计算基地</p>
-                        </div>
-                        <!--</router-link>-->
-                    </el-col>
+                    <!--<el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show"v-for="(item, index) in serviceList" :key="item">-->
+                    <!--<img :src="item.image" alt="">-->
+                    <!--<div class="service-opcity">-->
+                    <!--<h2>{{item.title}}</h2>-->
+                    <!--<p>{{item.text}}</p>-->
+                    <!--</div>-->
+                    <!--</el-col>-->
                 </el-row>
             </el-col>
         </el-row>
@@ -124,31 +117,51 @@
 </template>
 
 <script>
-	import api from '../axios/api.js'
-	import Swiper from '../components/swiper.vue'
-	export default {
-		data() {
-			return {
-				provider:'',
-				normal:'',
-			}
-		},
-		created() {
-			this.researchApi()
-		},
-		methods: {
-			researchApi() {
-				api.Get('/enterprises')
-					.then(res => {
-						this.provider = res['provider'];
-						this.normal = res['normal'];
-					})
-			}
-		},
-		components: {
-			commonSwiper: Swiper
-		},
-			}
+    import api from '../axios/api.js'
+    import Swiper from '../components/swiper.vue'
+    export default {
+        data() {
+            return {
+                provider: '',
+                normal: '',
+                //				serviceList:[
+                //                    {
+                //                    	image:'../../static/img/s_05.png',
+                //                    	title:'海量客户 遍布全国',
+                //                        text:'16+城市,40+场区,3000+入驻企业,30000+注册用户',
+                //                    },
+                //                    {
+                //						image:'../../static/img/s_07.png',
+                //                    	title:'立体推广 精准直达',
+                //                        text:'专属推广活动,频道展示,优质企业推荐,多渠道提供合作机会',
+                //                    },
+                //					{
+                //						image:'../../static/img/s_09.png',
+                //						title:'优质标签 彰显身份',
+                //						text:'服务商评估体系,您的标签,就是您三峡创谷的尊贵身份',
+                //					},
+                //                ]
+            }
+        },
+        created() {
+            this.researchApi()
+        },
+        methods: {
+            researchApi() {
+                api.Get('/pub/enterprises')
+                    .then(res => {
+                        this.provider = res['provider'];
+                        this.normal = res['normal'];
+                    })
+            },
+            goProvider(id) {
+                window.location.href = '/provider/' + id;
+            }
+        },
+        components: {
+            commonSwiper: Swiper
+        },
+    }
 </script>
 
 <style>
@@ -256,9 +269,5 @@
         position: absolute;
         top: 48px;
         left: 45%;
-    }
-    .service_into p{
-        position: relative;
-        bottom: 30px;
     }
 </style>

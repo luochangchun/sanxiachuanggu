@@ -21,17 +21,15 @@
                     <span></span>
                     <div class="r more_plus"></div>
                 </div>
-                <div  class="service_provider">
+                <div class="service_provider">
                     <el-row :gutter="10">
                         <el-col :lg="24" :md="24" :sm="24" :xs="24">
                             <el-row class="office_wrap">
                                 <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in investor" :key="item">
                                     <a class="service_provider_item rel">
-                                        <router-link :to="{ name: '',params: {id: item.id } }">
-                                            <img :src="item.icon" alt="">
-                                            <p class="tc">{{ item.name }}</p>
-                                            <i class="tag abs white tc f14">{{item.intro}}</i>
-                                        </router-link>
+                                        <img :src="item.icon" alt="">
+                                        <p class="tc text-ellipsis">{{item.name}}</p>
+                                        <i class="tag abs white tc f14">{{item.service}}</i>
                                     </a>
                                 </el-col>
                             </el-row>
@@ -52,10 +50,8 @@
                 </div>
                 <el-row :gutter="10">
                     <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in financing" :key="item">
-                        <a class="Financing_item rel">
-                            <router-link :to="{ name: '',params: {id: item.id } }">
-                                <img :src='item.logo' alt="">
-                            </router-link>
+                        <router-link :to="{ name: 'financingDetail', params: { id: item.id} }" class="Financing_item rel">
+                            <img :src='item.logo' alt="">
                             <div class="Financing_wrap">
                                 <div class="Financing_info">
                                     <h1 class="f16">{{item.name}}</h1>
@@ -77,108 +73,115 @@
                                 </el-tag>
                                 <p class="f14 pl10" style="margin-left:8px;">发起人:{{item.founder}}</p>
                             </div>
-                        </a>
+                        </router-link>
                     </el-col>
                 </el-row>
             </el-col>
+            <!--<el-col :lg="24" :md="24" :sm="24" :xs="24">-->
+            <!--<div class="Financing">-->
+            <!--<div class="container">-->
+            <!--<el-row :gutter="10">-->
+            <!--<el-col v-for="(item, index) in 6" :key="item">-->
+            <!---->
+            <!--</el-col>-->
+            <!--</el-row>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</el-col>-->
         </el-row>
     </div>
 </template>
 
-<script type="text/ecmascript-6">
-	import api from '../axios/api.js'
-	import Swiper from '../components/swiper.vue'
-	export default {
-		data() {
-			return {
-				investor: '', //投资机构
-				financing: '', //融资项目
-			};
-		},
-		methods: {
-			setFinancingApi() {
-				api.Get("/financing").then(res => {
-					console.log(res);
-					this.investor = res['investor'];
-					this.financing = res['financing'];
-				});
-			},
-		},
-		created() {
-			this.setFinancingApi()
-		},
-		components: {
-
-		}
-	};
+<script>
+    import api from '../axios/api.js'
+    export default {
+        data() {
+            return {
+                investor: '', //投资机构
+                financing: '', //融资项目
+            }
+        },
+        created() {
+            this.getFinance()
+        },
+        methods: {
+            getFinance() {
+                api.Get('/pub/financing')
+                    .then(res => {
+                        this.investor = res['investor'];
+                        this.financing = res['financing'];
+                    });
+            },
+        }
+    }
 </script>
 
 <style>
-    .banner_img img{
-        width:100%;
+    .banner_img img {
+        width: 100%;
     }
-    .invest_detail{
-        width:100%;
+    .invest_detail {
+        width: 100%;
         display: block;
-        height:25px;
+        height: 25px;
         position: absolute;
         bottom: 20%;
         text-align: center;
     }
-    .banner_img button{
-        border:none;
+    .banner_img button {
+        border: none;
         background-color: #fada0b;
         border-radius: 4px;
-        color:#fff;
+        color: #fff;
         height: 25px;
         line-height: 25px;
         width: 80px;
     }
     /*title*/
-    .title{
+    .title {
         text-align: center;
         margin-top: 25px;
         margin-bottom: 25px;
     }
-    .title h1{
-        color:#0089e3;
-        font-size:18px;
-        font-weight:600;
+    .title h1 {
+        color: #0089e3;
+        font-size: 18px;
+        font-weight: 600;
     }
-    .title p{
-        color:#ddd;
+    .title p {
+        color: #ddd;
         font-size: 10px;
     }
-    .title hr{
-        width:30%;
-        border:1px solid #454b60;
+    .title hr {
+        width: 30%;
+        border: 1px solid #454b60;
     }
-    .title span{
+    .title span {
         display: block;
-        border:2px solid #0089e3;
-        width:10%;
+        border: 2px solid #0089e3;
+        width: 10%;
     }
-    .title div{
+    .title div {
         margin-top: -42px;
     }
     /*投资机构*/
-    #title-invest{
-        position:relative;
+    #title-invest {
+        position: relative;
         margin-top: 50px;
     }
-    #title-invest span{
+    #title-invest span {
         position: absolute;
         top: 48px;
-        left:45%;
+        left: 45%;
     }
     /*融资项目*/
-    #title-financing{
-        position:relative;
+    #title-financing {
+        position: relative;
         /*margin-top: 50px;*/
     }
-    #title-financing span{
+    #title-financing span {
         position: absolute;
         top: 48px;
-        left:45%;
+        left: 45%;
     }
 </style>

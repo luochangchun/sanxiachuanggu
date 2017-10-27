@@ -20,9 +20,9 @@
                         <div class="r more_plus"></div>
                     </div>
                     <el-row :gutter="10">
-                        <el-col :lg="6" :md="6" :sm="12" :xs="24" class="incubators-show" v-for="(item,index) in incubator" :key="index">
-                            <router-link :to="{ name: 'incubators_details', params: {id: item.id } }">
-                                <img :src="item.icon" alt="">
+                        <el-col :lg="6" :md="6" :sm="12" :xs="24" class="incubators-show" v-for="(item,index) in incubator" :key="item">
+                            <router-link :to="{ name: 'incubators_details', params: { id: item.id} }">
+                                <img src="../../static/img/103.png" alt="">
                                 <span>{{item.name}}</span>
                             </router-link>
                         </el-col>
@@ -75,15 +75,15 @@
         },
         methods: {
             setTronsApi() {
-                api.Get("/trons").then(res => {
+                api.Get("/pub/trons").then(res => {
                     console.log(res);
                     this.incubator = res['incubator'];
                     this.office = res['office'];
                 });
             },
-//            goIncubatorsDetails(id) {
-//				window.location.href='/incubators_details/'+id;
-//            }
+            goIncubatorsDetails(id) {
+				window.location.href='/incubators_details/'+id;
+            }
         },
         created() {
             this.setTronsApi()

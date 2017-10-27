@@ -106,11 +106,15 @@
 </template>
 
 <script>
+    import api from '../axios/api.js'
     export default {
         data() {
             return {
                 multi01: false
             };
+        },
+        created() {
+            this.getTalent()
         },
         methods: {
             showMore() {
@@ -119,7 +123,14 @@
                 } else {
                     this.multi01 = true;
                 }
-            }
+            },
+            getTalent() {
+                api.Get('/pub/recruit')
+                    .then(res => {
+                        // this.investor = res['investor'];
+                        // this.financing = res['financing'];
+                    });
+            },
         }
     };
 </script>
