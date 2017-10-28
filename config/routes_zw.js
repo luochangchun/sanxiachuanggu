@@ -10,8 +10,10 @@ import Login from '../src/components/register/login.vue'//登录页面
 import ForgetPassword from '../src/components/register/forgetPassword.vue'//忘记密码
 import Talent from '../src/components/talent.vue'//创谷人才首页
 import TutorDetail from '../src/components/tutorDetail.vue'//创谷人才首页
+import Tutorlist from '../src/components/tutorList.vue'//创谷学院导师列表
 import FinancingDetail from '../src/components/financingDetail.vue'//创谷人才首页
-
+import FinancingList from '../src/components/financingList.vue'//融资项目列表页面
+import TopicList from '../src/components/topicList.vue'//今日头条列表页
 
 
 
@@ -49,7 +51,7 @@ import financingDetail from '../src/components/financingDetail.vue'
 
 Vue.use(VueRouter)
 const routes = [
-  {path: '/', component: Index, name: 'Index'},
+  {path: '/index', component: Index, name: 'Index'},
   {path: '/map', component: Map, name: 'Map'},
   {path: '/activitys', component: Activitys, name: 'Activitys'},
   {path: '/activityPara/:id', component: ActivityPara, name: 'ActivityPara'},
@@ -61,6 +63,8 @@ const routes = [
   {path: '/tutorDetail/:id', component: TutorDetail, name: 'tutorDetail'},//导师详情
   {path: '/tutorlist', component: Tutorlist, name: 'tutorlist'},//导师列表
   {path: '/financingDetail/:id', component: FinancingDetail, name: 'financingDetail'},//融资项目详情
+  {path: '/financingList', component: FinancingList, name: 'financingList'},//融资项目列表页面
+  {path: '/topicList', component: TopicList, name: 'topicList'},//融资项目详情
 
 //  罗长春
 	{path: '/news', component: news, name: 'news'},//创谷资讯首页
@@ -71,7 +75,8 @@ const routes = [
 	{path: '/station', component: station, name: 'station'},//申请工位表单
 	{path: '/college', component: college, name: 'college'},//创谷学院首页
 	{path: '/position', component: position, name: 'position'},//申请职位表单
-	{path: '/school_detail', component: school_detail, name: 'school_detail'},//学院详情
+	{path: '/school_detail/:id', component: school_detail, name: 'school_detail'},//学院详情
+	// {path: '/schoolList', component: schoolList, name: 'schoolList'},//学院列表
 	{path: '/incubators_details/:id', component: incubators_details, name: 'incubators_details'},//双创空间详情页
 	{path: '/enter', component: enter, name: 'enter'},//申请入驻表单
 	{path: '/train', component: train, name: 'train'},//活动报名表单
@@ -86,7 +91,7 @@ const routes = [
 	{path: '/space_more', component: space_more, name: 'space_more'},//双创空间(more)
 	{path: '/incubator_more', component: incubator_more, name: 'incubator_more'},//孵化器(more)
 	//10.27
-	{path: '/invest_detail', component: invest_detail, name: 'invest_detail'},//投资机构详情页
+	{path: '/invest_detail/:id', component: invest_detail, name: 'invest_detail'},//投资机构详情页
 	{path: '/invest_more', component: invest_more, name: 'invest_more'},//投资机构(more)
 	{path: '/into_more', component: into_more, name: 'into_more'},//入孵企业(more)
 	{path: '/service_provider_more', component: service_provider_more, name: 'service_provider_more'},//服务商(more)
@@ -95,6 +100,7 @@ const routes = [
 ];
 
 export default new VueRouter({
+  linkActiveClass: 'active',
   mode: 'hash',
   base: __dirname,
   routes:routes

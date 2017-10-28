@@ -13,12 +13,14 @@
                     <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10">
-                    <el-col :lg="6" :md="6" :sm="12" :xs="24" class="college-show"v-for="(item,index) in lecture" :key="index">
-                        <img :src="item.icon" alt="">
-                        <div>
-                            <h6>{{item.name}}</h6>
-                            <p>{{item.detail || '无'}}</p>
-                        </div>
+                    <el-col :lg="6" :md="6" :sm="12" :xs="24" class="college-show" v-for="(item,index) in lecture" :key="index">
+                        <router-link :to="{name:'ActivityPara', params: {id:item.id} }">
+                            <img :src="item.icon" alt="">
+                            <div>
+                                <h6>{{item.name}}</h6>
+                                <p>{{item.detail || '无'}}</p>
+                            </div>
+                        </router-link>
                     </el-col>
                 </el-row>
             </el-col>
@@ -32,7 +34,7 @@
                         <p>GREAT SPEAKERS</p>
                         <hr>
                         <span></span>
-                        <div class="r more_plus"></div>
+                        <router-link :to="{ name: 'tutorlist'}" class="r more_plus"></router-link>
                     </div>
                     <el-row :gutter="10">
                         <el-col :lg="11" :md="11" :sm="11" :xs="22" :offset="1" v-for="(item, index) in teacher" :key="index" >

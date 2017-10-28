@@ -9,7 +9,7 @@
                             <img src="" alt="">
                         </div>
                         <div>
-                            <p>长江成长资本</p>
+                            <p>{{financeDetail['name']}}</p>
                             <button>投资机构</button>
                         </div>
                     </el-col>
@@ -26,12 +26,12 @@
                             <tr>
                                 <td class="font-bold w-xs">企业名称</td>
                                 <td colspan="3">
-                                    <p>长江成长资本</p>
+                                    <p>{{financeDetail['name']}}</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="font-bold w-xs">联系人</td>
-                                <td>长江成长资本</td>
+                                <td>{{financeDetail['founder']}}</td>
                                 <td class="font-bold">联系电话</td>
                                 <td>
                                     <p>15172525978</p>
@@ -45,12 +45,12 @@
                             </tr>
                             <tr style="height:240px;">
                                 <td class="font-bold w-xs h-md">企业简介与优势</td>
-                                <td colspan="3">长江成长资本</td>
+                                <td colspan="3">{{financeDetail['how']}}</td>
                             </tr>
                             <tr style="height:90px;">
                                 <td class="font-bold w-xs">服务领域</td>
                                 <td colspan="3" class="h-xs">
-                                    <p>小微型企业、个体经营户</p>
+                                    <p>{{financeDetail['what']}}</p>
                                 </td>
                             </tr>
                             <tr>
@@ -72,20 +72,26 @@
 </template>
 
 <script>
-//	import api from '../axios/api.js'
-//	export default {
-//		data() {
-//			return {
-//
-//			}
-//		},
-//		created() {
-//
-//		},
-//		methods: {
-//
-//		}
-//	}
+import api from '../axios/api.js'
+   export default {
+       data() {
+            return {
+                financeDetail: '',
+            }
+        },
+       created() {
+           let id = this.$route.params.id;
+           this.getFinanceItem(id);
+       },
+       methods: {
+           getFinanceItem(id) {
+               api.Get('/finance/' + id)
+                   .then(res => {
+                       this.financeDetail=res;
+                   });
+           }
+       }
+   }
 </script>
 
 <style>

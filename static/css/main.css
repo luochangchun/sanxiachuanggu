@@ -27,6 +27,9 @@ a {
 .text-ellipsis-2 {
   -webkit-line-clamp:2;/*文本占的行数,如果要设置2行加...则设置为2*/
 }
+.text-ellipsis-3 {
+  -webkit-line-clamp:3;/*文本占的行数,如果要设置2行加...则设置为2*/
+}
 .text-ellipsis-4 {
   -webkit-line-clamp:4;/*文本占的行数,如果要设置2行加...则设置为2*/
 }
@@ -73,7 +76,6 @@ img {
   margin-left: auto;
   vertical-align: middle;
 }
-
 /* 注册 */
 .register_wrap {
   border-bottom: 1px solid #bfcbd9;
@@ -261,17 +263,18 @@ img {
   color: #009aff;
 }
 .space_display .cur_mask p {
-  margin-top: 20px;
-  height: 144px;
+  margin-top: 10px;
+  height: 72px;
   line-height: 24px;
 }
 .Apply {
-  width: 140px;
-  height: 40px;
-  line-height: 40px;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top:10px;
   background-color: #f48100;
   border-radius: 5px;
 }
@@ -368,12 +371,9 @@ img {
   margin-right: auto;
 }
 .tutor_img img{
-  width: 90%;
-  height: 90%;
-  background-color: #3c8cdc;
+  width: 100%;
+  height: 100%;
   padding: 5%;
-  margin-top: 5px;
-  margin-bottom: 5px;
   box-sizing: border-box;
 }
 .tutor_item p {

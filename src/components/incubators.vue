@@ -20,9 +20,10 @@
                         <div class="r more_plus"></div>
                     </div>
                     <el-row :gutter="10">
-                        <el-col :lg="6" :md="6" :sm="12" :xs="24" class="incubators-show" v-for="(item,index) in incubator" :key="item">
+                        <el-col :lg="6" :md="6" :sm="12" :xs="24" class="incubators-show" v-for="(item,index) in incubator" :key="index">
                             <router-link :to="{ name: 'incubators_details', params: { id: item.id} }">
-                                <img src="../../static/img/103.png" alt="">
+                                <img :src="item['icon']" alt="">
+                                <!-- <div class="img" :style="{backgroundImage: 'url('+'http://'+ item['icon'] + ')'}"  :key="index"></div> -->
                                 <span>{{item.name}}</span>
                             </router-link>
                         </el-col>

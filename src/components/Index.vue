@@ -7,7 +7,7 @@
         <el-row>
           <el-col :xs="24" :sm="24" :md="24" :lg="24">
             <div class="l headLineTitle"></div>
-            <div class="r more_plus"></div>
+            <router-link to="/topicList" class="r more_plus"></router-link>
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="13">
             <div class="headLine_swiper">
@@ -25,7 +25,7 @@
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="10" :push="1" class="headLine_news_r">
             <ul class="headLine_news">
-              <a v-for="(item, index) in topic" :key="index">
+              <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }" v-for="(item, index) in topic" :key="index">
                 <el-row>
                   <el-col :span="5">
                     <img :src='item.icon'>
@@ -35,7 +35,7 @@
                     <p>{{item['time'] | formatDate}}</p>
                   </el-col>
                 </el-row>
-              </a>
+              </router-link>
             </ul>
           </el-col>
         </el-row>
@@ -54,11 +54,11 @@
         <el-row :gutter="20">
           <el-col :xs="24" :sm="12" :md="12" :lg="6" v-for="(item, index) in incubator" :key="index" class="display_item">
             <div class="gray" @mouseover="show_display(index)">
-              <img src="../../static/img/display01.jpg" alt="">
+              <img :src="item['icon']" alt="">
               <p class="word white abs tc f14">{{item.name}}</p>
               <div class="cur_mask abs" :class="{ db: display_active[index] }">
                 <h1 class="f20 tc">{{item.name}}</h1>
-                <p class="f14 white text-ellipsis-muti text-ellipsis-6">{{item.intro}}</p>
+                <p class="f14 white text-ellipsis-muti text-ellipsis-3">{{item.intro}}</p>
                 <router-link :to="{ name: 'incubators_details', params: { id: item.id} }" class="Apply white f14 tc b">
                   查看详情
                 </router-link>
@@ -119,7 +119,7 @@
         <el-row :gutter="0">
           <el-col :xs="24" :sm="24" :md="24" :lg="24">
             <div class="l service_provider_title"></div>
-            <router-link to="/service" class="r more_plus"></router-link>
+            <router-link to="/service_provider_more" class="r more_plus"></router-link>
           </el-col>
         </el-row>
         <el-row class="office_wrap">
@@ -140,7 +140,7 @@
         <el-row :gutter="0">
           <el-col :xs="24" :sm="24" :md="24" :lg="24">
             <div class="l tutor_title"></div>
-            <router-link to="/tutor" class="r more_plus"></router-link>
+            <router-link to="/tutorList" class="r more_plus"></router-link>
           </el-col>
         </el-row>
         <el-row :gutter="20">
@@ -162,11 +162,11 @@
         <el-row :gutter="0">
           <el-col :xs="24" :sm="24" :md="24" :lg="24">
             <div class="l Financing_title"></div>
-            <div class="r more_plus"></div>
+            <router-link :to="{ name: 'financingList'}" class="r more_plus"></router-link>
           </el-col>
         </el-row>
         <el-row :gutter="20">
-          <el-col :xs="24" :sm="24" :md="12" :lg="12" v-for="(item, index) in financing" :key="index">
+          <el-col :xs="24" :sm="12" :md="6" :lg="6" v-for="(item, index) in financing" :key="index">
             <router-link :to="{ name: 'financingDetail', params: { id: item.id} }" class="Financing_item rel">
               <img :src='item.logo' alt="">
               <div class="Financing_wrap">

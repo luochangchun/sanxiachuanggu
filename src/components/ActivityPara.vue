@@ -1,6 +1,6 @@
 <template>
     <div class="activity_para">
-        <div class="bg-info">
+        <div>
             <div class="container">
                 <el-row :gutter="10">
                     <el-col :xs="24" :sm="24" :md="10" :lg="8">
@@ -30,10 +30,9 @@
                                 <img src="http://www.egowork.com/themes/egowork/img/bg_ticket.png" class="img-responsive h-xs">
                                 <p class="abs f18" style="top:30px;left:30px;color:#fff;">免费</p>
                             </div> -->
-
                             <div class="content">
                                 <div class="wrapper">
-                                    {{activity['detail'] || '暂无数据'}}
+                                    {{activity['detail']['content'] || '暂无数据'}}
                                 </div>
                                 <!-- <p class="f24">
                                     <span>活动内容</span>
@@ -137,12 +136,6 @@
     height: auto;
     min-height: 100%;
 }
-
-.bg-info {
-    color: #dcf2f8;
-    background-color: #23b7e5;
-}
-
 .line-w {
     margin-top: 5px;
     margin-bottom: 10px;

@@ -26,11 +26,11 @@
                         <el-col :lg="24" :md="24" :sm="24" :xs="24">
                             <el-row class="office_wrap">
                                 <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in investor" :key="item">
-                                    <a class="service_provider_item rel">
+                                    <router-link :to="{ name: 'invest_detail', params: { id: item.id} }" class="service_provider_item rel">
                                         <img :src="item.icon" alt="">
                                         <p class="tc text-ellipsis">{{item.name}}</p>
                                         <i class="tag abs white tc f14">{{item.service}}</i>
-                                    </a>
+                                    </router-link>
                                 </el-col>
                             </el-row>
                         </el-col>
@@ -42,14 +42,14 @@
         <el-row :gutter="10" style="margin-bottom: 50px;">
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                 <div class="title" id="title-financing">
-                    <h1>投资机构</h1>
+                    <h1>融资项目</h1>
                     <p>INVESTMENT ORGANIZATION</p>
                     <hr>
                     <span></span>
-                    <div class="r more_plus"></div>
+                    <router-link :to="{ name: 'financingDetail'}" class="r more_plus"></router-link>
                 </div>
                 <el-row :gutter="10">
-                    <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in financing" :key="item">
+                    <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in financing" :key="item">
                         <router-link :to="{ name: 'financingDetail', params: { id: item.id} }" class="Financing_item rel">
                             <img :src='item.logo' alt="">
                             <div class="Financing_wrap">
@@ -93,95 +93,94 @@
 </template>
 
 <script>
-    import api from '../axios/api.js'
-    export default {
-        data() {
-            return {
-                investor: '', //投资机构
-                financing: '', //融资项目
-            }
-        },
-        created() {
-            this.getFinance()
-        },
-        methods: {
-            getFinance() {
-                api.Get('/pub/financing')
-                    .then(res => {
-                        this.investor = res['investor'];
-                        this.financing = res['financing'];
-                    });
-            },
-        }
+import api from "../axios/api.js";
+export default {
+  data() {
+    return {
+      investor: "", //投资机构
+      financing: "" //融资项目
+    };
+  },
+  created() {
+    this.getFinance();
+  },
+  methods: {
+    getFinance() {
+      api.Get("/pub/financing").then(res => {
+        this.investor = res["investor"];
+        this.financing = res["financing"];
+      });
     }
+  }
+};
 </script>
 
 <style>
-    .banner_img img {
-        width: 100%;
-    }
-    .invest_detail {
-        width: 100%;
-        display: block;
-        height: 25px;
-        position: absolute;
-        bottom: 20%;
-        text-align: center;
-    }
-    .banner_img button {
-        border: none;
-        background-color: #fada0b;
-        border-radius: 4px;
-        color: #fff;
-        height: 25px;
-        line-height: 25px;
-        width: 80px;
-    }
-    /*title*/
-    .title {
-        text-align: center;
-        margin-top: 25px;
-        margin-bottom: 25px;
-    }
-    .title h1 {
-        color: #0089e3;
-        font-size: 18px;
-        font-weight: 600;
-    }
-    .title p {
-        color: #ddd;
-        font-size: 10px;
-    }
-    .title hr {
-        width: 30%;
-        border: 1px solid #454b60;
-    }
-    .title span {
-        display: block;
-        border: 2px solid #0089e3;
-        width: 10%;
-    }
-    .title div {
-        margin-top: -42px;
-    }
-    /*投资机构*/
-    #title-invest {
-        position: relative;
-        margin-top: 50px;
-    }
-    #title-invest span {
-        position: absolute;
-        top: 48px;
-        left: 45%;
-    }
-    /*融资项目*/
-    #title-financing {
-        position: relative;
-        /*margin-top: 50px;*/
-    }
-    #title-financing span {
-        position: absolute;
-        top: 48px;
-        left: 45%;
-    }
+.banner_img img {
+  width: 100%;
+}
+.invest_detail {
+  width: 100%;
+  display: block;
+  height: 25px;
+  position: absolute;
+  bottom: 20%;
+  text-align: center;
+}
+.banner_img button {
+  border: none;
+  background-color: #fada0b;
+  border-radius: 4px;
+  color: #fff;
+  height: 25px;
+  line-height: 25px;
+  width: 80px;
+}
+/*title*/
+.title {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.title h1 {
+  color: #0089e3;
+  font-size: 18px;
+  font-weight: 600;
+}
+.title p {
+  color: #ddd;
+  font-size: 10px;
+}
+.title hr {
+  width: 30%;
+  border: 1px solid #454b60;
+}
+.title span {
+  display: block;
+  border: 2px solid #0089e3;
+  width: 10%;
+}
+.title div {
+  margin-top: -42px;
+}
+/*投资机构*/
+#title-invest {
+  position: relative;
+  margin-top: 50px;
+}
+#title-invest span {
+  position: absolute;
+  top: 48px;
+  left: 45%;
+}
+/*融资项目*/
+#title-financing {
+  position: relative;
+  /*margin-top: 50px;*/
+}
+#title-financing span {
+  position: absolute;
+  top: 48px;
+  left: 45%;
+}
 </style>

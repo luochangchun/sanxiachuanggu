@@ -25,7 +25,7 @@
                         <router-link to="/enter"><button>申请入驻</button></router-link>
                     </el-col>
                 </el-row>
-                <el-row :gutter="10" class="incubators_details_text" style="border:1px solid #ddd;background-color: #fff;padding:15px;">
+                <el-row :gutter="10" class="incubators_details_text" style="border:1px solid #ddd;background-color: #fff;padding:15px;margin-top:20px;">
                     <p>重点孵化类型:{{content}}</p>
                 </el-row>
             </el-col>
@@ -56,6 +56,8 @@
                         this.photos = res['photos']
                         if(!res['incubator']['detail']) {
                             this.content="暂无数据"
+                        } else {
+                            this.content=res['incubator']['detail']['content'];
                         }
                     });
             }

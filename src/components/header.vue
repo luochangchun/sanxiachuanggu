@@ -22,21 +22,10 @@
                     <div id="menu-button">菜单</div>
                     <ul>
                         <li>
-                            <router-link to="/">首页</router-link>
+                            <router-link to="/index">首页</router-link>
                         </li>
-                        <li class='has-sub'>
+                        <li>
                             <router-link to="/map">创谷空间</router-link>
-                            <ul>
-                                <li class='has-sub'>
-                                    <router-link to="/">jQuery特效</router-link>
-                                </li>
-                                <li class='has-sub'>
-                                    <router-link to="/">JS代码</router-link>
-                                </li>
-                                <li class='has-sub'>
-                                    <router-link to="/">JS代码</router-link>
-                                </li>
-                            </ul>
                         </li>
                         <li class='has-sub'>
                             <router-link to="/incubators">双创空间</router-link>
@@ -169,7 +158,8 @@ export default {
 </script>
 <style scoped>
 .header {
-    padding-bottom: 84px
+    padding-bottom: 84px;
+    border-bottom:1px solid #dddddd; 
 }
 
 .top {
@@ -303,7 +293,10 @@ export default {
     color: #0089e3;
     border-bottom: 2px solid #0089e3;
 }
-
+.nav ul li .active {
+  color: #0089e3;
+  border-bottom: 2px solid #0089e3;
+}
 .nav>ul>li.has-sub>a {
     padding-right: 25px;
 }
