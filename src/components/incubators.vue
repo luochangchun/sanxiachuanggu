@@ -21,10 +21,10 @@
                     </div>
                     <el-row :gutter="10">
                         <el-col :lg="6" :md="6" :sm="12" :xs="24" class="incubators-show" v-for="(item,index) in incubator" :key="index">
-                            <router-link :to="{ name: 'incubators_details', params: { id: item.id} }">
+                            <router-link :to="{ name: 'incubators_details', params: { id: item.id} }" style="position: relative">
                                 <img :src="item['icon']" alt="">
                                 <!-- <div class="img" :style="{backgroundImage: 'url('+'http://'+ item['icon'] + ')'}"  :key="index"></div> -->
-                                <span>{{item.name}}</span>
+                                <p>{{item.name}}</p>
                             </router-link>
                         </el-col>
                     </el-row>
@@ -138,27 +138,30 @@
     }
     /*双创空间展示*/
     .incubators-show {
-        position: relative;
+        /* position: relative; */
+        /* box-sizing: border-box; */
+        /* margin:0 5px; */
     }
     .incubators-show img {
         width: 100%;
     }
-    .incubators-show span {
+    .incubators-show p {
         position: absolute;
         background: rgba(0, 0, 0, 0.5);
         color: #fff;
-        width: 97%;
+        width: 100%;
         text-align: center;
         height: 30px;
         line-height: 30px;
         bottom: 5px;
         left: 0;
-        margin-right: 5px;
-        margin-left: 5px;
+        box-sizing: border-box;
+        padding: 0;
     }
     /*定位*/
     #title-incubators {
         position: relative;
+        box-sizing: border-box;
     }
     #title-incubators span {
         position: absolute;

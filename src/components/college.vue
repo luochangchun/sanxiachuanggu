@@ -10,11 +10,11 @@
                     <p>CULTVATE</p>
                     <hr>
                     <span></span>
-                    <div class="r more_plus"></div>
+                    <router-link :to="{ name: 'activity_more'}" class="r more_plus to"></router-link>
                 </div>
                 <el-row :gutter="10">
                     <el-col :lg="6" :md="6" :sm="12" :xs="24" class="college-show" v-for="(item,index) in lecture" :key="index">
-                        <router-link :to="{name:'ActivityPara', params: {id:item.id} }">
+                        <router-link :to="{name:'train_detail', params: {id:item.id} }">
                             <img :src="item.icon" alt="">
                             <div>
                                 <h6>{{item.name}}</h6>
@@ -34,7 +34,7 @@
                         <p>GREAT SPEAKERS</p>
                         <hr>
                         <span></span>
-                        <router-link :to="{ name: 'tutorlist'}" class="r more_plus"></router-link>
+                        <router-link :to="{ name: 'tutorlist'}" class="r more_plus" style="margin-bottom:0;"></router-link>
                     </div>
                     <el-row :gutter="40">
                         <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in teacher" :key="index" >
@@ -62,7 +62,7 @@
                     <p>ACTIVITYZONE </p>
                     <hr>
                     <span></span>
-                    <div class="r more_plus"></div>
+                    <router-link :to="{ name: 'activity_more'}" class="r more_plus to"></router-link>
                 </div>
                 <el-row :gutter="10">
                     <el-col :xs="8" :sm="8" :md="8" :lg="8" v-for="(item, index) in activity" :key="index">
@@ -151,8 +151,8 @@
     }
     .college-show div{
         box-shadow:0 0 10px #ddd ;
-        margin-top: -5px;
-        padding:1px 5px 20px 5px;
+        /* margin-top: -5px; */
+        padding: 5px;
     }
     .college-show div h6{
         color:#666;
@@ -192,7 +192,7 @@
         border:2px solid #0089e3;
         width:10%;
     }
-    .title div{
+    .title a.to{
         margin-top: -41px;
     }
     #title-college{
@@ -218,6 +218,7 @@
         padding-top: 20px;
         margin-top: 50px;
         position: relative;
+        min-height: 220px;
     }
     .research-teacher img{
         width:30%;

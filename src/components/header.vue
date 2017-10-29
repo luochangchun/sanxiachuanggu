@@ -27,15 +27,10 @@
                         <li>
                             <router-link to="/map">创谷空间</router-link>
                         </li>
-                        <li class='has-sub'>
+                        <li>
                             <router-link to="/incubators">双创空间</router-link>
-                            <ul>
-                                <li class='has-sub'>
-                                    <router-link to="/">双创空间</router-link>
-                                </li>
-                            </ul>
                         </li>
-                        <li class='has-sub'>
+                        <li>
                             <router-link to="/college">创谷学院</router-link>
                         </li>
                         <li>
@@ -71,26 +66,13 @@
                         <li>
                             <a href='#'>首页</a>
                         </li>
-                        <li class='has-sub' @click='showMenu_sub()'>
+                        <li @click='showMenu_sub()'>
                             <span class="submenu-button submenu-opened"></span>
                             <a href='#'>创谷空间</a>
-                            <ul v-show="visible_sub">
-                                <li class='has-sub'>
-                                    <a href='#'>jQuery特效</a>
-                                </li>
-                                <li class='has-sub'>
-                                    <a href='#'>JS代码</a>
-                                </li>
-                            </ul>
                         </li>
-                        <li class='has-sub' @click='showMenu_sub()'>
+                        <li @click='showMenu_sub()'>
                             <span class="submenu-button submenu-opened"></span>
                             <a href='#'>双创空间</a>
-                            <ul v-show="visible_sub">
-                                <li class='has-sub'>
-                                    <a href='#'>jQuery特效</a>
-                                </li>
-                            </ul>
                         </li>
                         <li class='has-sub'>
                             <a href='#'>创谷学院</a>

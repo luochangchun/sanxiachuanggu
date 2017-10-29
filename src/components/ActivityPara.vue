@@ -1,11 +1,11 @@
 <template>
     <div class="activity_para">
-        <div>
+        <!-- <div>
             <div class="container">
                 <el-row :gutter="10">
                     <el-col :xs="24" :sm="24" :md="10" :lg="8">
                         <div class="padder-v">
-                            <img :src="activity['icon']" alt="">
+                            <img src="http://www.egowork.com/themes/egowork/img/tra_de.jpg" alt="">
                         </div>
                     </el-col>
                     <el-col :xs="24" :sm="24" :md="14" :lg="10">
@@ -19,7 +19,7 @@
                     </el-col>
                 </el-row>
             </div>
-        </div>
+        </div> -->
         <div class="padder-v-xxl">
             <div class="container">
                 <el-row :gutter="10">

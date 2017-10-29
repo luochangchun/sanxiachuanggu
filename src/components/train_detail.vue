@@ -10,36 +10,30 @@
                     </el-col>
                     <el-col :xs="24" :sm="24" :md="14" :lg="10">
                         <div class="padder-v">
-                            <p class="f18 b">创业培训 | 从业20年的顶级职业经理告诉你，如何规避创业路上的各种雷坑 </p>
+                            <p class="f18 b">{{train['name']}}</p>
                             <hr class="line-w">
-                            <p> 活动时间：2017-09-21 </p> <hr class="line-w">
-                            <p> 地点：火凤凰云基地云创咖啡厅 </p>
-                            <p> 人数限额：30人 </p>
+                            <p> 活动时间：{{train['createAt'] | formatDate}}</p>
+                            <hr class="line-w">
+                            <p> 地点：{{train['location'] || "暂无数据"}} </p>
+                            <p> 人数限额：{{train['total'] || "暂无数据"}}人 </p>
                         </div>
                     </el-col>
                 </el-row>
             </div>
         </div>
-        <div class="padder-v-xxl">
+        <div class="padder-v-xx">
             <div class="container">
                 <el-row :gutter="10">
                     <el-col :lg="24">
                         <div class="padder-v">
-                            <p class="f24">活动票种</p>
-                            <div class="stamp rel">
-                                <img src="http://www.egowork.com/themes/egowork/img/bg_ticket.png" class="img-responsive h-xs">
-                                <p class="abs f18" style="top:30px;left:30px;color:#fff;">免费</p>
-                            </div>
-
                             <div class="content">
                                 <p class="f24">
                                     <span>活动内容</span>
-                                    <router-link to="/train">
-                                        <button style="">活动申请</button>
-                                    </router-link>
+                                    <router-link to="/train">活动申请</router-link>
                                 </p>
                                 <div class="wrapper">
-                                    <p>陈文强</p>
+                                    {{train['detail']['content']}}
+                                    <!-- <p>陈文强</p>
                                     <p><br></p>
                                     <p>武汉泰利美信医疗科技有限公司CEO。首都医科大学医学本科，清华大学工业设计专业硕士。</p>
                                     <p><br></p>
@@ -62,10 +56,22 @@
                                     <p><br></p>
                                     <p>1．结合陈老师的亲身经历讲解创业初期存在的问题；</p>
                                     <p>2．告诉你如何避免创业中的各种雷坑；</p>
-                                    <p>3．现场和陈老师一对一交流，答疑解惑。</p>
+                                    <p>3．现场和陈老师一对一交流，答疑解惑。</p> -->
                                 </div>
                             </div>
-
+                        </div>
+                    </el-col>
+                    <el-col :xs="24" :sm="24" :md="16"  :lg="10">
+                        <div class="content">
+                            <p class="f24">
+                                <span>培训基本信息</span>
+                            </p>
+                            <div class="wrapper">
+                                <p> 联系人：{{train['name'] || "暂无数据"}} </p>
+                                <p> 手机号码：{{train['phone'] || "暂无数据"}} </p>
+                                <p> 活动时间：{{train['createAt'] | formatDate}} </p>
+                                <p> 活动地点：{{train['location'] || "暂无数据"}} </p>
+                            </div>
                         </div>
                     </el-col>
                 </el-row>
@@ -73,29 +79,46 @@
         </div>
     </div>
 </template>
+
 <script>
-	import api from '../axios/api.js'
-	export default {
-		created() {
-			let id = this.$route.params.id
-			this.getActivity(id);
-		},
-		methods: {
-			getActivity(id) {
-				api.Get('/article/' + id)
-					.then(res => {
-						console.log(res);
-					});
-			}
-		}
-	}
-</script>
-<style scoped>
-    .f24 span{
-        float:left;
+    import api from '../axios/api.js'
+    import {
+        formatDate
+    } from '../../static/js/date.js'
+    export default {
+        data() {
+            return {
+                train: '',
+            }
+        },
+        created() {
+            let id = this.$route.params.id
+            this.getActivity(id);
+        },
+        methods: {
+            getActivity(id) {
+                api.Get('/activity/' + id)
+                    .then(res => {
+                        this.train = res['activity'];
+                    });
+            }
+        },
+        filters: {
+            formatDate(time) {
+                let date = new Date(time)
+                return formatDate(date, 'yyyy-MM-dd hh:mm')
+            }
+        }
     }
-    .f24 button{
-        float:right;
+</script>
+
+<style scoped>
+    .f24 span {
+        float: left;
+        margin-bottom: 10px;
+    }
+    .f24 a {
+        float: right;
         background-color: #f48100;
         border: none;
         color: #fff;
@@ -104,21 +127,22 @@
         height: 30px;
         text-align: center;
         line-height: 30px;
+        font-size: 16px;
     }
-
-    .wrapper{
-        clear:both;
+    .wrapper {
+        clear: both;
     }
     .activity_para {
         height: auto;
         min-height: 100%;
     }
-
     .bg-info {
         color: #dcf2f8;
-        background-color: #23b7e5;
+        background-color: #0089e3;
     }
-
+    .activity_para p {
+        margin: 0 0 10px;
+    }
     .line-w {
         margin-top: 5px;
         margin-bottom: 10px;
@@ -126,17 +150,14 @@
         border-top: 2px solid #eee;
         margin-right: 30%;
     }
-
-    .padder-v-xxl {
-        padding-top: 50px;
+    .padder-v-xx {
+        padding-top: 20px;
         padding-bottom: 50px;
     }
-
     .wrapper {
         border: 1px solid rgba(0, 0, 0, 0.05);
         padding: 15px;
     }
-
     .stamp img {
         display: block;
         height: 90px;

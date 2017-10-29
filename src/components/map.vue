@@ -7,7 +7,7 @@ export default {
   mounted() {
     // let w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     let h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    this.$refs.container.style.height = 500 + 'px';
+    this.$refs.container.style.height = 600 + 'px';
   }
 
 }
