@@ -41,25 +41,19 @@
                         <li>
                             <router-link to="/news">创谷资讯</router-link>
                         </li>
-                        <li>
+                        <li class='has-sub'>
                             <router-link to="/service">创谷企业</router-link>
                             <ul>
-                                <li class='has-sub'>
-                                    <router-link to="/provider">服务商</router-link>
-                                </li>
-                                <li class='has-sub'>
-                                    <router-link to="/into">入孵企业</router-link>
-                                </li>
                                 <li class='has-sub'>
                                     <router-link to="/need">服务需求</router-link>
                                 </li>
                             </ul>
                         </li>
-                        <li>
+                        <li class='has-sub'>
                             <router-link to="/research">创谷研究</router-link>
                             <ul>
                                 <li class='has-sub'>
-                                    <router-link to="/question">答疑解惑</router-link>
+                                    <router-link to="/question">技术难题及需求</router-link>
                                 </li>
                             </ul>
                         </li>

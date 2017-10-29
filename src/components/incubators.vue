@@ -17,7 +17,7 @@
                         <p>ENTREPRENEURIAL MENTOP</p>
                         <hr>
                         <span></span>
-                        <div class="r more_plus"></div>
+                        <!-- <div class="r more_plus"></div> -->
                     </div>
                     <el-row :gutter="10">
                         <el-col :lg="6" :md="6" :sm="12" :xs="24" class="incubators-show" v-for="(item,index) in incubator" :key="index">

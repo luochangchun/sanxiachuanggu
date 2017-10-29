@@ -17,11 +17,11 @@
                     <el-col :lg="11" :md="11" :sm="24" :xs="24" :offset="1" class="details-text">
                         <h3>院校：{{university['name']}}</h3>
                         <p>地址:湖北省宜昌市西陵区绿萝路43号</p>
-                        <p>级别:市级</p>
+                        <!-- <p>级别:市级</p>
                         <p>联系方式:李丽洁 13476854766</p>
                         <p>场地面积:24000平米</p>
                         <p>在孵企业数:61家</p>
-                        <p>重点孵化类型:文化创意产业,科技企业</p>
+                        <p>重点孵化类型:文化创意产业,科技企业</p> -->
                         <router-link to="/enter"><button>科研机构</button></router-link>
                     </el-col>
                 </el-row>

@@ -10,7 +10,7 @@
                         </div>
                         <div>
                             <p>{{provider['name']}}</p>
-                            <button>贷款</button>
+                            <!-- <button>贷款</button> -->
                         </div>
                     </el-col>
                 </el-row>
@@ -28,27 +28,27 @@
                     <el-col :lg="4" :md="4" :sm="24" :xs="24">
                         <el-popover ref="popover1" placement="top-start" title="请联系平台" width="200" trigger="hover" content="027-65465656">
                         </el-popover>
-                        <el-button v-popover:popover1>申请服务</el-button>
+                    <!-- <el-button v-popover:popover1>申请服务</el-button> -->
                     </el-col>
                 </el-row>
             </el-col>
         </el-row>
         <!--服务详情介绍-->
         <el-row :gutter="10">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" class="provider_discounts">
+            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" class="provider_discounts" style="margin-bottom:30px;">
                 <h1>服务详情介绍</h1>
                 <el-row class="provider_p">
                     <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                        <div>
+                        <!-- <div>
                             <img src="../../static/img/provide_1.jpg" alt="">
-                        </div>
+                        </div> -->
                         <p style="margin:40px 0;">{{content}}</p>
                     </el-col>
                 </el-row>
             </el-col>
         </el-row>
         <!--企业详情-->
-        <el-row :gutter="10" style="margin-top: 50px;margin-bottom: 50px;">
+        <!-- <el-row :gutter="10" style="margin-top: 50px;margin-bottom: 50px;">
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                 <el-row>
                     <el-col :lg="17" :md="17" :sm="24" :xs="24">
@@ -98,7 +98,7 @@
                     </el-col>
                 </el-row>
             </el-col>
-        </el-row>
+        </el-row> -->
     </div>
 </template>
 
@@ -122,6 +122,8 @@
                         this.provider = res;
                         if(res['detail'] == null) {
                             this.content="暂无数据"
+                        } else {
+                            this.content=res['detail']['content'];
                         }
                     });
             }

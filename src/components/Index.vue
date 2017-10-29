@@ -106,6 +106,7 @@
                 <p class="white f16 tc text-ellipsis">{{item.name}}</p>
                 <p v-if="item.status==1" class="f16 tc tag">进行中</p>
                 <p v-if="item.status==2" class="f16 tc tag">已结束</p>
+                <p v-if="item.status==3" class="f16 tc tag">已完成</p>
               </div>
             </router-link>
           </el-col>
@@ -166,7 +167,7 @@
           </el-col>
         </el-row>
         <el-row :gutter="20">
-          <el-col :xs="24" :sm="12" :md="6" :lg="6" v-for="(item, index) in financing" :key="index">
+          <el-col :xs="24" :sm="12" :md="12" :lg="12" v-for="(item, index) in financing" :key="index">
             <router-link :to="{ name: 'financingDetail', params: { id: item.id} }" class="Financing_item rel">
               <img :src='item.logo' alt="">
               <div class="Financing_wrap">
@@ -186,7 +187,8 @@
                   <span>消费生活</span>
                 </el-tag>
                 <el-tag type="success">已完成融资:
-                  <span>未完成融资</span>
+                  <span v-if="item.status == 1">未融资</span>
+                  <span v-if="item.status == 2">未完成融资</span>
                 </el-tag>
                 <p class="f14 pl10" style="margin-left:8px;">发起人:{{item.founder}}</p>
               </div>

@@ -102,13 +102,13 @@
                     <div class="r more_plus"></div>
                 </div>
                 <el-row :gutter="10">
-                    <!--<el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show"v-for="(item, index) in serviceList" :key="item">-->
-                    <!--<img :src="item.image" alt="">-->
-                    <!--<div class="service-opcity">-->
-                    <!--<h2>{{item.title}}</h2>-->
-                    <!--<p>{{item.text}}</p>-->
-                    <!--</div>-->
-                    <!--</el-col>-->
+                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show"v-for="(item, index) in normal" :key="item">
+                    <img :src="item.icon" alt="">
+                    <div class="service-opcity">
+                    <h2>{{item.name}}</h2>
+                    <p>{{item.intro}}</p>
+                    </div>
+                    </el-col>
                 </el-row>
             </el-col>
         </el-row>

@@ -5,8 +5,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name='renderer' content='webkit'>
     <meta http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1'>
-    <title></title>
+    <title>三峡创谷双创地图</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
         blockquote,
         body,
         button,
@@ -33,9 +38,233 @@
         th,
         ul {
             margin: 0;
-            padding: 0;
+            padding: 0
         }
 
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: 100%;
+            font-weight: 400
+        }
+
+        address,
+        cite,
+        dfn,
+        em,
+        var {
+            font-style: normal
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: courier new, courier, monospace
+        }
+
+        small {
+            font-size: 12px
+        }
+
+        ol,
+        ul {
+            list-style-type: none
+        }
+
+        legend {
+            color: #000
+        }
+
+        fieldset,
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            font-size: inherit
+        }
+
+        body,
+        button,
+        input,
+        select,
+        textarea {
+            font: 14px/25px "微软雅黑";
+            color: #333
+        }
+        *clearfix*/
+        .clearfix:after { clear: both; content: "Matrix"; display: block; font-size: 0; height: 0; visibility: hidden; }
+        *html .clearfix { height: 1%; }
+        *+html .clearfix { height: 1%; }
+        .clearfix { display: inline-block; }
+        .clearfix { display: block; }
+        .clearfix { zoom: 1 }
+        html>body .clearfix { overflow: hidden; }
+        .clear { clear: both; height: 0px; line-height: 0px; font-size: 0px; overflow: hidden; }
+        /*"Open Sans","Hiragino Sans GB","Microsoft YaHei",STHeiti,"WenQuanYi Micro Hei",SimSun,Arial,sans-serif*/
+
+        input,
+        select,
+        textarea {
+            font-size: 100%;
+            outline: 0
+        }
+
+        button {
+            cursor: pointer;
+            outline: 0
+        }
+
+        mark {
+            background-color: transparent;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            outline: 0;
+            _color: #333;
+            +color: #333;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        a:focus {
+            outline: 0
+        }
+
+        ::selection {
+            color: #fff;
+            background: #328EFE;
+            text-shadow: none
+        }
+
+        ::-moz-selection {
+            color: #fff;
+            background: #328EFE;
+            text-shadow: none
+        }
+
+        input::-ms-clear {
+            display: none
+        }
+
+        input[type=password]::-ms-reveal {
+            display: none
+        }
+
+        @font-face {
+            font-family: iconfont;
+            src: url(iconfont.eot);
+            src: url(iconfont.eot?#iefix) format('embedded-opentype'), url(iconfont.woff) format('woff'), url(iconfont.ttf) format('truetype'), url(iconfont.svg#iconfont) format('svg')
+        }
+
+        .iconfont {
+            font-family: iconfont!important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: .2px;
+            -moz-osx-font-smoothing: grayscale
+        }
+
+        .icon-close:before {
+            content: "\e600"
+        }
+
+        .icon-list:before {
+            content: "\e601"
+        }
+
+        .icon-edit:before {
+            content: "\e60a"
+        }
+
+        .icon-qq:before {
+            content: "\e603"
+        }
+
+        .icon-eye:before {
+            content: "\e604"
+        }
+
+        .icon-weibo:before {
+            content: "\e605"
+        }
+
+        .icon-weixin:before {
+            content: "\e606"
+        }
+
+        .icon-time:before {
+            content: "\e607"
+        }
+
+        .icon-exit:before {
+            content: "\e608"
+        }
+
+        .icon-return:before {
+            content: "\e609"
+        }
+
+        .icon-fall:before {
+            content: "\e60b"
+        }
+
+        .icon-rise:before {
+            content: "\e60c"
+        }
+
+        .icon-tweibo-o:before {
+            content: "\e60e"
+        }
+
+        .icon-weixin-o:before {
+            content: "\e60f"
+        }
+
+        .icon-weibo-o:before {
+            content: "\e615"
+        }
+
+        .icon-paper {
+            background: url(../img/nr-01.jpg?1605121440) no-repeat left center
+        }
+
+        .ic-wb {
+            background: url(../img/icon_share_b.png?1605121440) no-repeat 0 0;
+            height: 24px;
+            width: 24px
+        }
+
+        .ic-wx {
+            background: url(../img/icon_share_w.png?1605121440) no-repeat 0 0;
+            height: 24px;
+            width: 24px
+        }
+
+        .righbon {
+            position: absolute;
+            right: -13px;
+            width: 16px;
+            height: 50px;
+            line-height: 50px;
+            background: #fff;
+            cursor: pointer;
+            border-radius: 0 3px 3px 0;
+            box-shadow: 2px 0 3px #999;
+        }
+        .l {float: left}
         #container {
             height: 1000px;
             display: -webkit-box;
@@ -79,6 +308,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            font-weight: bold;
         }
 
         .sh_dlsm {
@@ -103,10 +333,15 @@
         }
 
         .sh_dlsm dd p {
-            width: 155px;
-            font-size: 14px;
+            width: 180px;
+            font-size: 12px;
         }
-
+        .sh_dlsm dd p .s01 {
+            width: auto;
+        }
+        .sh_dlsm dd p .s02 {
+            width: 136px;
+        }
         .bm {
             height: 30px;
         }
@@ -150,80 +385,353 @@
             color: red;
             border: none;
         }
+
+        .C_zlist {
+            width: 400px;
+            background: #fff;
+            z-index: 1;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            box-shadow: 1px 1px 5px #999;
+        }
+
+        .zsbig2 {
+            width: 300px;
+            animation: myfirst2 1s forwards;
+        }
+
+        .C_topall {
+            line-height: 30px;
+            padding: 0 12px;
+        }
+
+        .C_topall span {
+            color: #0089e3;
+            padding: 0 3px;
+        }
+
+        .C_liboxs {
+            overflow: auto;
+            max-height: 450px;
+        }
+
+        .C_liboxs::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .C_liboxs::-webkit-scrollbar-thumb {
+            background-color: #eee;
+            /*æ»‘åŠ¨æ¡è¡¨é¢*/
+            border-radius: 4px;
+            /*æ»‘åŠ¨æ¡åœ†è§’å®½åº¦*/
+        }
+
+        .C_boxsmall {
+            padding-left: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .C_boxsmall .C_linum {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #0089e3;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            left: 10px;
+            top: 5px;
+        }
+
+        .C_boxsmall .C_listnv h1 {
+            font-weight: bold;
+            line-height: 25px;
+        }
+
+        .C_boxsmall:hover {
+            background: #eee;
+            border-radius: 3px;
+        }
+
+        .C_licts {
+            font-size: 12px;
+            color: #666;
+            line-height: 25px;
+            overflow: hidden;
+        }
+
+        .C_licts em {
+            float: left;
+            width: 14px;
+            height: 14px;
+            background: #fff;
+            margin-right: 10px;
+            position: relative;
+            top: 6px;
+            background: url(../img/cdsc.png) no-repeat -3px 0;
+        }
+
+        .C_licts .C_on1 {
+            background-position: -3px 0;
+        }
+
+        .C_licts .C_on2 {
+            background-position: -3px -26px;
+        }
+
+        .C_licts .C_on3 {
+            background-position: -3px -74px;
+        }
+
+        .C_licts .C_on4 {
+            background-position: -3px -51px;
+        }
+
+        .C_licts .C_on5 {
+            background-position: -3px -98px;
+        }
+
+        .C_licts .C_on6 {
+            width: 18px;
+            margin-right: 6px;
+            background-position: 0 -123px;
+            left: -2px;
+        }
+
+        .C_licts .C_on7 {
+            width: 18px;
+            margin-right: 6px;
+            background-position: 0 -150px;
+            left: -2px;
+        }
+
+        .C_licts h2 {
+            font-size: 12px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding-right: 20px;
+        }
+
+        .C_licts div {
+            float: left;
+            width: 170px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .C_page {
+            overflow: hidden;
+            color: #666;
+            font-size: 12px;
+            padding: 12px 5px 12px 12px;
+        }
+
+        .C_page div {
+            float: left;
+        }
+
+        .C_page p {
+            float: right;
+        }
+
+        .C_page p a {
+            float: left;
+            margin-left: 4px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            padding: 0 9px;
+            border-radius: 3px;
+            background: #EFEFEF;
+        }
+
+        .C_page p .cbig {
+            font-size: 30px;
+            line-height: 18px;
+            padding: 0 7px;
+        }
+
+        @media only screen and (max-height: 800px) and (min-height: 500px) {
+            .C_liboxs {
+                max-height: 300px;
+            }
+        }
+
+        @keyframes myfirst {
+            from {
+                left: 20px;
+            }
+            to {
+                left: -320px;
+            }
+        }
+
+        @-moz-keyframes myfirst
+        /* Firefox */
+
+            {
+            from {
+                left: 20px;
+            }
+            to {
+                left: -320px;
+            }
+        }
+
+        @-webkit-keyframes myfirst
+        /* Safari 和 Chrome */
+
+            {
+            from {
+                left: 20px;
+            }
+            to {
+                left: -320px;
+            }
+        }
+
+        @-o-keyframes myfirst
+        /* Opera */
+
+            {
+            from {
+                left: 20px;
+            }
+            to {
+                left: -320px;
+            }
+        }
+
+
+        @keyframes myfirst2 {
+            from {
+                left: -320px;
+            }
+            to {
+                left: 20px;
+            }
+        }
+
+        @-moz-keyframes myfirst2
+        /* Firefox */
+
+            {
+            from {
+                left: -320px;
+            }
+            to {
+                left: 20px;
+            }
+        }
+
+        @-webkit-keyframes myfirst2
+        /* Safari 和 Chrome */
+
+            {
+            from {
+                left: -320px;
+            }
+            to {
+                left: 20px;
+            }
+        }
+
+        @-o-keyframes myfirst2
+        /* Opera */
+
+            {
+            from {
+                left: -320px;
+            }
+            to {
+                left: 20px;
+            }
+        }
+
+        .righbon {
+            position: absolute;
+            right: -13px;
+            width: 16px;
+            height: 50px;
+            line-height: 50px;
+            background: #fff;
+            cursor: pointer;
+            border-radius: 0 3px 3px 0;
+            box-shadow: 2px 0 3px #999;
+        }
+
+        .righbon:hover {
+            background: #eee;
+        }
+
+        .zsbig {
+            width: 300px;
+            animation: myfirst 1s forwards;
+        }
+
+        .zsbig2 {
+            width: 300px;
+            animation: myfirst2 1s forwards;
+        }
+
+        .C_zlist {
+            top: 20px;
+        }
+
+        .C_xread .C_xblack {
+            top: 110px;
+        }
+        #zero {
+            display: none;
+        }
     </style>
 </head>
 
 <body>
+    <!-- 左侧列表 -->
+    <div class="C_zlist zsbig2" id="J_mapleft">
+        <div class="righbon">◀</div>
+        <div class="C_topall">当前有
+            <span id="total"></span>家</div>
+        <div class="C_liboxs" id="C_liboxs">
+            <p id='zero'>暂无数据</p>
+            <!-- <a href="javascript:;">
+                <div class="C_boxsmall">
+                    <div class="C_linum">1</div>
+                    <div class="C_listnv">
+                        <h1>四川川大科技园</h1>
+                        <div class="C_licts">
+                            <h2>
+                                <em class="C_on1"></em>成都市一环路南一段24号四川大学科创中心6F</h2>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+
+            <div class="C_page">
+            <div></div>
+            <p>
+                <a href="javascript:;">首页</a>
+                <a href="javascript:;" class="cbig">‹</a>
+                <a href="javascript:;" onclick="cdgo(2)" class="cbig">›</a>
+                <a href="javascript:;" onclick="cdgo(138)">尾页</a>
+            </p>-->
+        </div>
+        
+    </div>
+
     <div id="container" tabindex="0"></div>
     <script src="http://www.ctoutiao.com/style/toutiao/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=3b8169faeed399dbb6371be89f27b759"></script>
     <script>
-        // var input = [
-        //     {
-        //         "id": "0",
-        //         "company_type": "2",
-        //         "lng": '111.33417',
-        //         "lat": '30.71303',
-        //         "phone": "15827649287",
-        //         "company_name": "715文化创意产业园",
-        //         "company": "715文化创意产业园",
-        //     },
-        //     {
-        //         "id": "1",
-        //         "company_type": "2",
-        //         "lng": '111.301608',
-        //         "lat": '30.70677',
-        //         "phone": "123",
-        //         "company_name": "三峡总部创客空间",
-        //         "company": "三峡总部创客空间",
-        //     },
-        //     {
-        //         "id": "2",
-        //         "company_type": "2",
-        //         "lng": '111.297397',
-        //         "lat": '30.701836',
-        //         "phone": "123",
-        //         "company_name": "东升创客空间",
-        //         "company": "东升创客空间",
-        //     },
-        //     {
-        //         "id": "3",
-        //         "company_type": "2",
-        //         "lng": '111.323025',
-        //         "lat": '30.735136',
-        //         "phone": "123",
-        //         "company_name": "住邦科技园",
-        //         "company": "住邦科技园",
-        //     },
-        //     {
-        //         "id": "4",
-        //         "company_type": "2",
-        //         "lng": '111.300478',
-        //         "lat": '30.694102',
-        //         "phone": "123",
-        //         "company_name": "创创社区众创空间",
-        //         "company": "创创社区众创空间",
-        //     },
-        //     {
-        //         "id": "5",
-        //         "company_type": "2",
-        //         "lng": '111.33417',
-        //         "lat": '30.733175',
-        //         "phone": "123",
-        //         "company_name": "宜昌慧云科技孵化器",
-        //         "company": "宜昌慧云科技孵化器",
-        //     },
-        //     {
-        //         "id": "6",
-        //         "company_type": "2",
-        //         "lng": '111.320745',
-        //         "lat": '30.733342',
-        //         "phone": "123",
-        //         "company_name": "西陵区高新产业孵化中心",
-        //         "company": "西陵区高新产业孵化中心",
-        //     }
-        // ];
-
         function Dictionary() {
             this.data = new Array();
 
@@ -246,9 +754,47 @@
             this.size = function () {
                 return this.data.length;
             };
+        };
+        function temphtml(href, index, name, address) {
+            var html = '<a href=' + href + ' target="_parent">\
+                                <div class="C_boxsmall">\
+                                    <div class="C_linum">'+ index + '</div>\
+                                    <div class="C_listnv">\
+                                        <h1>'+ name + '</h1>\
+                                        <div class="C_licts">\
+                                            <h2>\
+                                                <em class="C_on1"></em>'+ address + '</h2>\
+                                        </div>\
+                                    </div>\
+                                </div></a>';
+            return html;
         }
-
         $(function () {
+            //显示详情
+            $('.C_liboxs').on('click', 'a', function () {
+                $('.C_xread').show();
+                var tpmk = markers.get($(this).attr('data-id'));
+                if (tpmk) {
+                    tpmk.emit('click', { target: tpmk });
+                    //alert(map.getZoom());
+                    //居中
+                    //map.setCenter(tpmk.getPosition());
+                    map.setZoomAndCenter(15, tpmk.getPosition());
+                }
+                // $('.C_xbigcs').load('/ajax_new/ajax_action.php?action=com_detail&id=' + $(this).attr('data-id'));
+                //$('.C_xread').scrollTop(0);
+                // $('#J_mapleft').hide();
+            })
+            $('.righbon').on('click', function () {
+                if ($(this).hasClass('nn')) {
+                    $(this).removeClass('nn').text('◀')
+                    $(this).parent().removeClass('zsbig').addClass('zsbig2')
+                } else {
+                    $(this).addClass('nn').text('▶')
+                    $(this).parent().removeClass('zsbig2').addClass('zsbig')
+                }
+            })
+
             /*地图样式*/
             var windowh = $(window).height();
             $('#container').css({
@@ -276,8 +822,25 @@
                 type: "GET",   //请求方式    
                 success: function (data) {
                     //请求成功时处理
+                    var res = data;
+                    var list = '';
                     showData(data);
+                    if(res==null || res==undefined) {
+                        $('#zero').show();
+                        $('#total').text('0');
+                    } else {
+                        $('#total').text(res.length);
+                        for (var i = 0; i < res.length; i++) {
+                            // var href='javascript:;';
+                            var href = 'http://localhost:3636/#/incubators_details/' + res[i]['id'];
+                            var index = i + 1;
+                            list += temphtml(href, index, res[i]['name'], res[i]['address']);
+                        }
+                    }
+                    
+                    $("#C_liboxs").append(list);
                 },
+
                 complete: function () {
                     //请求完成的处理    
                 },
@@ -316,13 +879,10 @@
         }
 
         function fnOpenInfoWindow(e) {
-
             $('.diz_citybox').hide();
             if (!infoWindow) fnLoadInfoWindow();
             var data = this.getExtData();
             var type = data.company_type;
-            // var share_url = 'http://www.ctoutiao.com/cmap.php?act=home&id=' + data.company_id + '&type=' + type;
-            // var qrcode = '/api/qrcode.php?text=' + encodeURIComponent(share_url);
             var url = '';
             //alert(data.act_id);
             console.log(data);
@@ -334,14 +894,14 @@
             html += "<dl class='sh_dlsm'>";
             html += "<dd>";
             //        if (data.company) html += "<p>" + data.company + "</p>";
-            //        if (data.map_desc) html += "<p>地址：" + data.map_desc + "</p>";
+                   if (data.map_desc) html += "<p class='clearfix'><span class='l s01'>地址：</span><span class='l s02'>" +data.map_desc + "</span></p>";
             if (data.phone) html += "<p>电话：" + data.phone + "</p>";
             html += "</dd></dl>";
             if (data.act_id != '0') {
                 html += "<div class='bmacy'><p><span>活动</span><a href='/activity/view/" + data.act_id +
                     ".html' target='_blank' title='" + data.act_title + "'>" + data.act_title + "</a></p></div>";
             }
-            html += "<div class='bm'><div class='sh_cha'><a target='_blank' href='" + url + "'>去企业号</a>";
+            html += "<div class='bm'><div class='sh_cha'><a target='_parent' href='" + url + "'>查看详情</a>";
             html += "</div></div>"
             html += "<div class='triangle2'></div></div>"
             infoWindow.setContent(html);
@@ -385,7 +945,7 @@
                         extData: {
                             company_name: mk.name,
                             company: mk.name,
-                            id:mk.id,
+                            id: mk.id,
                             phone: phone,
                             map_desc: desc,
                             logo: logo,
@@ -394,12 +954,12 @@
                             user_nicename: mk.user_nicename
                         }
                     });
-                   
+
                     marker.setLabel({ //label默认蓝框白底左上角显示，样式className为：amap-marker-label
                         offset: new AMap.Pixel(0, -30), //修改label相对于maker的位置
                         content: mk.name
                     })
-                    
+
                     //鼠标点击marker弹出自定义的信息窗体
                     AMap.event.addListener(marker, 'click', fnOpenInfoWindow);
                     markers.put(mk.com_id, marker);

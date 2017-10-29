@@ -10,12 +10,12 @@
                 </el-col>
             </el-row>
             <el-row  :gutter="20" class="tutorList">
-                <el-col :xs="12" :sm="12" :md="8" :lg="8" v-for="(item, index) in teacher" :key="index">
+                <el-col :xs="12" :sm="12" :md="6" :lg="6" v-for="(item, index) in teacher" :key="index">
                     <div class="item">
                         <img :src="item.photo" alt="">
-                        <p class="f18">{{item.name}}</p>
-                        <p class="f16 text-ellipsis-muti text-ellipsis-3" style="height:60px;max-height:60px;">{{item.intro}}</p>
-                        <router-link :to="{ name: 'tutorDetail', params: { id: item.id}}" class="tutorcCheck white tc">
+                        <p class="f16">{{item.name}}</p>
+                        <p class="f14 text-ellipsis-muti text-ellipsis-3" style="height:60px;max-height:60px;">{{item.intro}}</p>
+                        <router-link :to="{ name: 'tutorDetail', params: { id: item.id}}" class="tutorcCheck white tc f14">
                             查看详情>>
                         </router-link>
                     </div>
@@ -68,8 +68,8 @@
         margin-bottom: 15px;
     }
     .tutorList .item img {
-        width: 90%;
-        padding: 5%;
+        width: 80%;
+        padding: 10%;
         border-radius:20px;
     }
     .tutorList .item p {

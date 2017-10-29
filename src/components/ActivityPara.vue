@@ -32,7 +32,7 @@
                             </div> -->
                             <div class="content">
                                 <div class="wrapper">
-                                    {{activity['detail']['content'] || '暂无数据'}}
+                                    {{content || '暂无数据'}}
                                 </div>
                                 <!-- <p class="f24">
                                     <span>活动内容</span>
@@ -84,7 +84,8 @@
                 activity: '',
                 photos: '',
                 startAt: '',
-                endAt: ''
+                endAt: '',
+                content: '',
             }
         },
         created() {
@@ -98,11 +99,15 @@
                         if(res['activity'] == null) {
                             this.startAt="暂无数据"
                             this.endAt="暂无数据"
+                            this.content="暂无数据"
                         } else {
                             this.activity = res['activity'];
-                            this.photos = res['photos']
+                            this.photos = res['photos'];
+                            this.startAt = res['activity']['startAt'];
+                            this.endAt = res['activity']['endAt'];
+                            this.content= res['activity']['detail']['content']
                         }
-                    });
+                    })
             }
         },
         filters: {

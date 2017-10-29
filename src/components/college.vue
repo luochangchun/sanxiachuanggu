@@ -36,8 +36,8 @@
                         <span></span>
                         <router-link :to="{ name: 'tutorlist'}" class="r more_plus"></router-link>
                     </div>
-                    <el-row :gutter="10">
-                        <el-col :lg="11" :md="11" :sm="11" :xs="22" :offset="1" v-for="(item, index) in teacher" :key="index" >
+                    <el-row :gutter="40">
+                        <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in teacher" :key="index" >
                             <router-link :to="{name:'tutorDetail', params: {id:item.id} }" class="research-teacher">
                                 <img :src="item.photo" alt="">
                                 <div>
@@ -46,7 +46,7 @@
                                     <p>教师简介:{{item.intro}}</p>
                                 </div>
                                 <div>
-                                    <button>导师介绍</button>
+                                    <button>讲师介绍</button>
                                 </div>
                             </router-link>
                         </el-col>
@@ -233,7 +233,7 @@
         margin-right:30px;
         text-align: center;
         color:#fff;
-        margin-top: 10px;
+        margin-top: 25px;
     }
     .research-teacher div h4{
         font-size:16px;

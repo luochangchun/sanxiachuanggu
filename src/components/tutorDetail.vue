@@ -20,17 +20,24 @@
                         <p class="clearfix"><span class="l" style="width:70px;">个人简介：</span><span class="l" style="width:400px">{{tutorDetail['intro'] || "暂无数据"}} </span></p>
                         <p class="clearfix"><span class="l" style="width:70px;">关注领域：</span><span class="l" style="width:400px">{{tutorDetail['talent'] || "暂无数据"}} </span></p>
                         <p class="clearfix"><span class="l" style="width:70px;">所获荣誉：</span><span class="l" style="width:400px">{{tutorDetail['cert'] || "暂无数据"}}</span></p>
-                        <h1 class="f20" style="margin-top:120px;">问题留言:</h1>
-                        <div class="padder-v">
-                            <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm">
-                                <el-form-item label="" prop="desc">
-                                    <el-input type="textarea" :rows="7" placeholder="有什么问题，你在这里提问"></el-input>
-                                </el-form-item>
-                                <el-form-item>
-                                    <el-button type="primary" class="tutorBtn r">提交问题</el-button>
-                                </el-form-item>``
-                            </el-form>
-                        </div>
+                    </div>
+                </el-col>
+            </el-row>
+            <el-row>
+                <el-col :xs="24" :sm="24" :md="10" :lg="8">
+                    <div class="padder-v"></div>
+                </el-col>
+                <el-col :xs="24" :sm="24" :md="14" :lg="10" style="padding-top:20px;border-top: 1px solid #dddddd;">
+                    <h1 class="f20">问题留言:</h1>
+                    <div class="padder-v">
+                        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm">
+                            <el-form-item label="" prop="desc">
+                                <el-input type="textarea" :rows="7" placeholder="有什么问题，你在这里提问"></el-input>
+                            </el-form-item>
+                            <el-form-item>
+                                <el-button type="primary" class="tutorBtn r">提交问题</el-button>
+                            </el-form-item>``
+                        </el-form>
                     </div>
                 </el-col>
             </el-row>
