@@ -4,7 +4,8 @@
             <el-row :gutter="10">
                 <el-col :xs="24" :sm="24" :md="24" :lg="24">
                     <el-breadcrumb separator="/" class="padder-vx">
-                        <el-breadcrumb-item :to="{ path: '/' }">创谷学院</el-breadcrumb-item>
+                        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+                        <el-breadcrumb-item :to="{ path: '/college' }">创谷学院</el-breadcrumb-item>
                         <el-breadcrumb-item>讲师列表</el-breadcrumb-item>
                     </el-breadcrumb>
                 </el-col>

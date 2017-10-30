@@ -14,8 +14,7 @@ import Tutorlist from '../src/components/tutorList.vue'//创谷学院导师列�
 import FinancingDetail from '../src/components/financingDetail.vue'//创谷人才首页
 import FinancingList from '../src/components/financingList.vue'//融资项目列表页面
 import TopicList from '../src/components/topicList.vue'//今日头条列表页
-
-
+import splendid_list from '../src/components/splendid_list.vue'//今日头条列表页
 
 //罗长春
 import news from '../src/components/news.vue'
@@ -65,7 +64,6 @@ const routes = [
   {path: '/financingDetail/:id', component: FinancingDetail, name: 'financingDetail'},//融资项目详情
   {path: '/financingList', component: FinancingList, name: 'financingList'},//融资项目列表页面
   {path: '/topicList', component: TopicList, name: 'topicList'},//融资项目详情
-
 //  罗长春
 	{path: '/news', component: news, name: 'news'},//创谷资讯首页
 	{path: '/incubators', component: incubators, name: 'incubators'},//双创空间首页
@@ -87,6 +85,7 @@ const routes = [
 	//10.26
 	{path: '/train_detail/:id', component: train_detail, name: 'train_detail'},//培训活动详情页
 	{path: '/splendid_detail/:id', component: splendid_detail, name: 'splendid_detail'},//精彩瞬间详情页
+	{path: '/splendid_list', component: splendid_list, name: 'splendid_list'},//精彩瞬间详情页
 	{path: '/activity_more', component: activity_more, name: 'activity_more'},//活动(more)
 	{path: '/space_more', component: space_more, name: 'space_more'},//双创空间(more)
 	{path: '/incubator_more', component: incubator_more, name: 'incubator_more'},//孵化器(more)

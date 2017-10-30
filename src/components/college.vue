@@ -1,9 +1,7 @@
 <template>
     <div>
-
-        <!--header-->
         <!--培训-->
-        <el-row :gutter="10"style="margin-bottom: 50px;">
+        <el-row :gutter="10" style="margin-bottom: 50px;">
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                 <div class="title" id="title-college">
                     <h1>培训</h1>
@@ -14,7 +12,7 @@
                 </div>
                 <el-row :gutter="10">
                     <el-col :lg="6" :md="6" :sm="12" :xs="24" class="college-show" v-for="(item,index) in lecture" :key="index">
-                        <router-link :to="{name:'train_detail', params: {id:item.id} }">
+                        <router-link :to="{name:'train_detail', params: {id:item.id}}">
                             <img :src="item.icon" alt="">
                             <div>
                                 <h6>{{item.name}}</h6>
@@ -34,16 +32,16 @@
                         <p>GREAT SPEAKERS</p>
                         <hr>
                         <span></span>
-                        <router-link :to="{ name: 'tutorlist'}" class="r more_plus" style="margin-bottom:0;"></router-link>
+                        <router-link :to="{ name: 'tutorlist'}" class="r more_plus to"></router-link>
                     </div>
                     <el-row :gutter="40">
-                        <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in teacher" :key="index" >
+                        <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in teacher" :key="index">
                             <router-link :to="{name:'tutorDetail', params: {id:item.id} }" class="research-teacher">
                                 <img :src="item.photo" alt="">
                                 <div>
                                     <h4>指导老师:{{item.name}}</h4>
                                     <h3>{{item.title}}</h3>
-                                    <p>教师简介:{{item.intro}}</p>
+                                    <p class="text-ellipsis-muti text-ellipsis-2">教师简介:{{item.intro}}</p>
                                 </div>
                                 <div>
                                     <button>讲师介绍</button>
@@ -66,7 +64,7 @@
                 </div>
                 <el-row :gutter="10">
                     <el-col :xs="8" :sm="8" :md="8" :lg="8" v-for="(item, index) in activity" :key="index">
-                        <router-link :to="{name:'ActivityPara', params: {id:item.id} }" class="activitys_item">
+                        <router-link :to="{name:'train_detail', params: {id:item.id} }" class="activitys_item">
                             <img :src="item.icon" alt="">
                             <div class="process abs">
                                 <p class="white f16 tc text-ellipsis">{{item.name}}</p>
@@ -87,141 +85,131 @@
                         <p>SPLENDID MOMENT</p>
                         <hr>
                         <span></span>
-                        <div class="r more_plus"></div>
+                        <router-link :to="{ name: 'splendid_list'}" class="r more_plus to"></router-link>
                     </div>
                     <el-row :gutter="10">
-                        <el-col :lg="3" :md="3" :sm="2" :xs="2" class="arrows-splendid left">
-                            <div><</div>
-                        </el-col>
-                        <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in highlight" :key="index">
-                            <div class="research-splendid">
+                        <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in teacher" :key="index">
+                            <router-link :to="{name:'train_detail', params: {id:item.id} }" class="research-splendid">
                                 <img :src="item.photo" alt="">
-                            </div>
-                        </el-col>
-                        <el-col :lg="3" :md="3" :sm="2" :xs="2" class="arrows-splendid right">
-                            <div><</div>
+                            </router-link>
                         </el-col>
                     </el-row>
                 </el-col>
             </el-row>
-        </div>
-        <!--footer-->
-    </div>
+            </div>
+            <!--footer-->
+            </div>
 </template>
 
 <script>
-	import api from '../axios/api.js'
-	// import Header from '../components/header.vue'
-	import Swiper from '../components/swiper.vue'
-	// import Footer from '../components/footer.vue'
-	export default {
-		data() {
-			return {
-                lecture: '', //培训
-                teacher: '', //优秀讲师
-				activity: '', //活动专区
-				highlight: ''//精彩瞬间
-			}
-		},
-		methods: {
-			setTronsApi() {
-				api.Get("/pub/colleges").then(res => {
-					this.lecture = res['lecture'];
-					this.highlight = res['highlight'];
-					this.activity = res['activity'];
-					this.teacher = res['teacher'];
-				});
-			}
-		},
-		created() {
-			this.setTronsApi()
-		},
-		components: {
-			// commonHeader: Header,
-			// commonFooter: Footer,
-			commonSwiper: Swiper
-		},
-	}
+    import api from "../axios/api.js";
+    import Swiper from "../components/swiper.vue";
+    export default {
+        data() {
+            return {
+                lecture: "", //培训
+                teacher: "", //优秀讲师
+                activity: "", //活动专区
+                highlight: "" //精彩瞬间
+            };
+        },
+        methods: {
+            setTronsApi() {
+                api.Get("/pub/colleges").then(res => {
+                    this.lecture = res["lecture"];
+                    this.highlight = res["highlight"];
+                    this.activity = res["activity"];
+                    this.teacher = res["teacher"];
+                });
+            }
+        },
+        created() {
+            this.setTronsApi();
+        },
+        components: {
+            // commonHeader: Header,
+            // commonFooter: Footer,
+            commonSwiper: Swiper
+        }
+    };
 </script>
 
 <style>
     /*培训*/
-    .college-show img{
-        width:100%;
+    .college-show img {
+        width: 100%;
     }
-    .college-show div{
-        box-shadow:0 0 10px #ddd ;
+    .college-show div {
+        box-shadow: 0 0 10px #ddd;
         /* margin-top: -5px; */
         padding: 5px;
     }
-    .college-show div h6{
-        color:#666;
-        font-size:14px;
-        line-height:30px;
+    .college-show div h6 {
+        color: #666;
+        font-size: 14px;
+        line-height: 30px;
     }
-    .college-show div p{
-        color:#999;
-        font-size:12px;
-        line-height:20px;
+    .college-show div p {
+        color: #999;
+        font-size: 12px;
+        line-height: 20px;
     }
-    .college-show{
+    .college-show {
         margin-bottom: 20px;
     }
-
     /*title*/
-    .title{
+    .title {
         text-align: center;
         margin-top: 25px;
         margin-bottom: 25px;
     }
-    .title h1{
-        color:#0089e3;
-        font-size:18px;
-        font-weight:600;
+    .title h1 {
+        color: #0089e3;
+        font-size: 18px;
+        font-weight: 600;
     }
-    .title p{
-        color:#ddd;
+    .title p {
+        color: #ddd;
         font-size: 10px;
     }
-    .title hr{
-        width:30%;
-        border:1px solid #454b60;
+    .title hr {
+        width: 30%;
+        border: 1px solid #454b60;
     }
-    .title span{
+    .title span {
         display: block;
-        border:2px solid #0089e3;
-        width:10%;
+        border: 2px solid #0089e3;
+        width: 10%;
     }
-    .title a.to{
+    .title a.to {
         margin-top: -41px;
     }
-    #title-college{
-        position:relative;
+    #title-college {
+        position: relative;
     }
-    #title-college span{
+    #title-college span {
         position: absolute;
         top: 48px;
-        left:45%;
+        left: 45%;
     }
     /*优秀讲师*/
-    #title-teacher{
-        position:relative;
+    #title-teacher {
+        position: relative;
     }
-    #title-teacher span{
+    #title-teacher span {
         position: absolute;
         top: 48px;
-        left:45%;
+        left: 45%;
     }
-
-    .research-teacher{
-        background-color:#2c2b32;
+    .research-teacher {
+        background-color: #2c2b32;
         padding-top: 20px;
         margin-top: 50px;
         position: relative;
         min-height: 220px;
     }
-    .research-teacher img{
-        width:30%;
+    .research-teacher img {
+        width: 30%;
         margin-right: auto;
         margin-left: auto;
         display: block;
@@ -229,80 +217,81 @@
         top: -28px;
         left: -28px;
     }
-    .research-teacher div{
-        margin-left:30px;
-        margin-right:30px;
+    .research-teacher div {
+        margin-left: 30px;
+        margin-right: 30px;
         text-align: center;
-        color:#fff;
+        color: #fff;
         margin-top: 25px;
     }
-    .research-teacher div h4{
-        font-size:16px;
+    .research-teacher div h4 {
+        font-size: 16px;
         font-weight: normal;
-        line-height:30px;
+        line-height: 30px;
         margin-left: -70px;
     }
-    .research-teacher div h3{
-        font-size:14px;
+    .research-teacher div h3 {
+        font-size: 14px;
         font-weight: normal;
-        line-height:30px;
+        line-height: 30px;
         margin-left: -60px;
     }
-    .research-teacher div p{
-        font-size:12px;
+    .research-teacher div p {
+        font-size: 12px;
         font-weight: normal;
-        line-height:20px;
+        line-height: 20px;
         margin-top: 10px;
+        height: 40px;
     }
-    .research-teacher button{
-        width:100px;
+    .research-teacher button {
+        width: 100px;
         line-height: 26px;
-        border-radius:12px;
-        background-color:#f53436;
-        color:#fff;
-        font-size:14px;
-        border:none;
+        border-radius: 12px;
+        background-color: #f53436;
+        color: #fff;
+        font-size: 14px;
+        border: none;
         margin: 20px auto;
     }
     /*活动专区*/
-    #title-activitys{
-        position:relative;
+    #title-activitys {
+        position: relative;
     }
-    #title-activitys span{
+    #title-activitys span {
         position: absolute;
         top: 48px;
-        left:45%;
+        left: 45%;
     }
-    .activitys_item img{
-        width:100%;
+    .activitys_item img {
+        width: 100%;
     }
     /*精彩瞬间*/
-    #title-splendid{
-        position:relative;
+    #title-splendid {
+        position: relative;
     }
-    #title-splendid span{
+    #title-splendid span {
         position: absolute;
         top: 48px;
-        left:45%;
+        left: 45%;
     }
-    .research-splendid img{
-        width:100%;
+    .research-splendid {
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
     }
-    .arrows-splendid div{
-        font-size: 48px;
-        color:#d1e0ea;
-        background-color:#a6d0eb;
-        max-height:60px;
-        max-width:50px;
-        text-align: center;
-        line-height: 60px;
-        margin-top: 50%;
+    .research-splendid:hover {
+        box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.1);
+    }
+    .research-splendid img {
+        width: 100%;
     }
     @media screen and (min-width: 992px) {
-        .right div{
-            float:right;
-            height:60px;
-            width:50px;
+        .right div {
+            float: right;
+            height: 60px;
+            width: 50px;
         }
     }
     @media screen and (max-width: 768px) {
@@ -310,10 +299,10 @@
             overflow: hidden;
             margin-top: 20%;
         }
-        .right div{
-            float:right;
-            height:60px;
-            width:28px;
+        .right div {
+            float: right;
+            height: 60px;
+            width: 28px;
         }
     }
 </style>

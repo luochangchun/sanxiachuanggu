@@ -382,7 +382,7 @@
         }
 
         .amap-marker-label {
-            color: red;
+            color: #666;
             border: none;
         }
 
@@ -857,7 +857,7 @@
             resizeEnable: true,
             rotateEnable: true,
             pitchEnable: true,
-            zoom: 14,
+            zoom: 13,
             pitch: 60,
             viewMode: '3D', //开启3D视图,默认为关闭
             buildingAnimation: true, //楼块出现是否带动画
@@ -954,11 +954,17 @@
                             user_nicename: mk.user_nicename
                         }
                     });
-
-                    marker.setLabel({ //label默认蓝框白底左上角显示，样式className为：amap-marker-label
-                        offset: new AMap.Pixel(0, -30), //修改label相对于maker的位置
+                    if(mk.id == 5) {
+                        marker.setLabel({ //label默认蓝框白底左上角显示，样式className为：amap-marker-label
+                        offset: new AMap.Pixel(-100, -20), //修改label相对于maker的位置
+                        content: mk.name})
+                    } else {
+                        marker.setLabel({ //label默认蓝框白底左上角显示，样式className为：amap-marker-label
+                        offset: new AMap.Pixel(0, -20), //修改label相对于maker的位置
                         content: mk.name
                     })
+                    }
+                    
 
                     //鼠标点击marker弹出自定义的信息窗体
                     AMap.event.addListener(marker, 'click', fnOpenInfoWindow);
@@ -975,13 +981,6 @@
                     //添加marker标记
                     var mk = input[i];
                     var noactClass = actClass = '';
-                    // if (mk.company_type == 1) {
-                    //     noactClass = 'shn2';
-                    //     actClass = 'shact2';
-                    // } else if (mk.company_type == 3) {
-                    //     noactClass = 'shn1';
-                    //     actClass = 'shact1';
-                    // }
                     if (!mk.activity) {
                         var id = '0';
                         var title = '';

@@ -5,12 +5,12 @@
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                 <el-breadcrumb separator=">" class="padder-vx">
                     <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-                    <el-breadcrumb-item>创谷学院</el-breadcrumb-item>
+                    <el-breadcrumb-item :to="{ path: '/college' }">创谷学院</el-breadcrumb-item>
                     <el-breadcrumb-item>活动列表</el-breadcrumb-item>
                 </el-breadcrumb>
                 <el-row :gutter="10">
                     <el-col :xs="24" :sm="12" :md="8" :lg="8" v-for="(item, index) in activityList" :key="index">
-                        <router-link :to="{name:'ActivityPara', params: {id:item.id} }" class="activitys_item">
+                        <router-link :to="{name:'train_detail', params: {id:item.id} }" class="activitys_item">
                             <img :src="item.icon" alt="">
                             <div class="process abs">
                                 <!--<p class="white f16 tc text-ellipsis">活动5</p>-->

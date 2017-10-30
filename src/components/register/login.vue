@@ -74,13 +74,13 @@
                             "phone": this.loginForm.phone,
                             "password": this.loginForm.pass
                         }
-                        api.Post('/sign/in', params)
+                        api.Post('/pub/sign/in', params)
                             .then(res => {
                                 if (res['suc'] == true) {
                                     let userCookie = JSON.stringify(res);
                                     let expires = res['data']['createAt'];
                                     api.SetCookie("userInfo", userCookie, expires);
-                                    window.location.href="/";
+                                    window.location.href="/index";
                                 } else if(res['suc'] == false){
                                     alert(res['msg']);
                                 }
