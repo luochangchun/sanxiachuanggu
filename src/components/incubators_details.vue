@@ -19,14 +19,16 @@
                         <p>地址:{{incubator['address']}}</p>
                         <p>级别:{{incubator['level']}}</p>
                         <p>联系方式:{{incubator['contact']}} {{incubator['phone']}}</p>
-                        <p>场地面积:24000平米</p>
+                        <!-- <p>场地面积:24000平米</p> -->
                         <p>在孵企业数:{{incubator['cubicles']}}家</p>
-                        
-                        <router-link to="/enter"><button>申请入驻</button></router-link>
+                        <!-- 跳到孵化器申请表单 -->
+                        <router-link v-if="incubator['categoryId']==2" :to="{ name: 'enter', params: { id: incubator.id} }">申请入驻</router-link>
+                        <!-- 跳到工位申请表单 -->
+                        <router-link v-if="incubator['categoryId']==3" :to="{ name: 'station', params: { id: incubator.id} }">申请入驻</router-link>
                     </el-col>
                 </el-row>
                 <el-row :gutter="10" class="incubators_details_text" style="border:1px solid #ddd;background-color: #fff;padding:15px;margin-top:20px;">
-                    <p>重点孵化类型:{{content}}</p>
+                    <p v-html="content"></p>
                 </el-row>
             </el-col>
         </el-row>
@@ -89,7 +91,7 @@
     .details-text p {
         line-height: 200%;
     }
-    .details-text button {
+    .details-text a {
         background-color: #f48100;
         border: none;
         color: #fff;

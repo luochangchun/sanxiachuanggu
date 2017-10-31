@@ -77,10 +77,12 @@
                         api.Post('/pub/sign/in', params)
                             .then(res => {
                                 if (res['suc'] == true) {
-                                    let userCookie = JSON.stringify(res);
-                                    let expires = res['data']['createAt'];
-                                    api.SetCookie("userInfo", userCookie, expires);
-                                    window.location.href="/index";
+                                    var expireDate = new Date();
+                                    expireDate.setDate(expireDate.getDate() + 1);
+                                    window.localStorage.setItem('Authorization',res['msg']);//存取授权值
+                                    let userCookie = JSON.stringify(res);    
+                                    api.SetCookie("userInfo", userCookie, expireDate);
+                                    this.$router.push({ path: 'index' }) 
                                 } else if(res['suc'] == false){
                                     alert(res['msg']);
                                 }

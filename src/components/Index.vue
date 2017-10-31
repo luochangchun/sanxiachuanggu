@@ -15,7 +15,7 @@
                 <el-carousel-item v-for="(item, index) in topic" :key="index">
                   <div class="item_img_wrap">
                     <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }">
-                      <img :src='item.icon'>
+                      <img :src='item.icon' style="max-height:358px;">
                       <p class="text-ellipsis white abs tc f14">{{item.title}}</p>
                     </router-link>
                   </div>
@@ -95,18 +95,21 @@
         <el-row :gutter="0">
           <el-col :xs="24" :sm="24" :md="24" :lg="24">
             <div class="l activitys_title"></div>
-            <router-link to="/college" class="r more_plus" style="margin-bottom:20px;"></router-link>
+            <router-link to="/activity_more" class="r more_plus" style="margin-bottom:20px;"></router-link>
           </el-col>
         </el-row>
         <el-row :gutter="20">
           <el-col :xs="12" :sm="12" :md="6" :lg="6" v-for="(item, index) in activity" :key="index">
-            <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }" class="activitys_item">
+            <router-link :to="{ name: 'train_detail', params: { id: item.id} }" class="activitys_item">
               <img :src="item.icon" alt="">
               <div class="process abs">
                 <p class="white f16 tc text-ellipsis">{{item.name}}</p>
-                <p v-if="item.status==1" class="f16 tc tag">进行中</p>
-                <p v-if="item.status==2" class="f16 tc tag">已结束</p>
-                <p v-if="item.status==3" class="f16 tc tag">已完成</p>
+                <p v-if="item.status==0" class="f16 tc tag">待审核</p>
+                <p v-if="item.status==1" class="f16 tc tag">审核通过</p>
+                <p v-if="item.status==2" class="f16 tc tag">进行中</p>
+                <p v-if="item.status==3" class="f16 tc tag">完成</p>
+                <p v-if="item.status==4" class="f16 tc tag">被驳回</p>
+                <p v-if="item.status==5" class="f16 tc tag">被取消</p>
               </div>
             </router-link>
           </el-col>
@@ -228,6 +231,7 @@
     },
     created() {
       this.setNewsApi()
+      // api.checkCookie()
     },
     filters: {
       formatDate(time) {

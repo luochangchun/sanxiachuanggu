@@ -30,7 +30,7 @@ import school_detail from '../src/components/school_detail.vue'
 import research from '../src/components/research.vue'
 import incubators_details from '../src/components/incubators_details.vue'
 import enter from '../src/components/enter.vue'
-import train from '../src/components/train.vue'
+import train_Application from '../src/components/train_Application.vue'
 import into from '../src/components/into.vue'
 import need from '../src/components/need.vue'
 import provider from '../src/components/provider.vue'
@@ -83,14 +83,14 @@ const routes = [
 	{path: '/service', component: service, name: 'service'},//创谷企业首页
 	{path: '/financing', component: financing, name: 'financing'},//投融资库首页
 	{path: '/research', component: research, name: 'research'},//创谷研究首页
-	{path: '/station', component: station, name: 'station'},//申请工位表单
+	{path: '/station/:id', component: station, name: 'station'},//申请工位表单
 	{path: '/college', component: college, name: 'college'},//创谷学院首页
 	{path: '/position', component: position, name: 'position'},//申请职位表单
 	{path: '/school_detail/:id', component: school_detail, name: 'school_detail'},//学院详情
 	// {path: '/schoolList', component: schoolList, name: 'schoolList'},//学院列表
 	{path: '/incubators_details/:id', component: incubators_details, name: 'incubators_details'},//双创空间详情页
-	{path: '/enter', component: enter, name: 'enter'},//申请入驻表单
-	{path: '/train', component: train, name: 'train'},//活动报名表单
+	{path: '/enter/:id', component: enter, name: 'enter'},//申请入驻表单
+	{path: '/train_Application/:id', component: train_Application, name: 'train_Application'},//活动报名表单
 	{path: '/provider/:id', component: provider, name: 'provider'},//服务商详情页
 	{path: '/into/:id', component: into, name: 'into'},//入孵企业详情页
 	{path: '/need', component: need, name: 'need'},//服务需求
