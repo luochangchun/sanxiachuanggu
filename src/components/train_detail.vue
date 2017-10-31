@@ -29,7 +29,7 @@
                             <div class="content">
                                 <p class="f24">
                                     <span>培训内容</span>
-                                    <router-link to="/train">培训申请</router-link>
+                                    <router-link :to="{ name: 'train_Application', params: { id: train['id']} }">培训申请</router-link>
                                 </p>
                                 <div class="wrapper">
                                     {{train['detail']['content']}}

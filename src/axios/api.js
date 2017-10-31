@@ -1,7 +1,9 @@
 import axios from 'axios'
+import VueRouter from 'vue-router'
 const baseUrl='http://192.168.11.222:8080/servant';
 axios.defaults.baseURL = 'http://192.168.11.222:8080/servant';
-// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+let Authorization=window.localStorage.getItem('Authorization');
+axios.defaults.headers.common['Authorization'] = 'Bearer '+Authorization;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
 // 请求拦截器
@@ -61,15 +63,12 @@ export function deleteCookie(name) {
 export function checkCookie() {
   let user = getCookie("userInfo");
   let data = JSON.parse(user);
-  if (user != "") {
-    // alert("Welcome again " + user);
-    // self.$router.replace({ path: 'index' })
-    window.localStorage.setItem("nickname",data['data']['nickname']);
+  if (user != null) {
+    console.log('用户已经登录');
+    // window.location.href="http://localhost:3636/#/index";
   } else {
-    // user = prompt("Please enter your name:", "");
-    if (user != "" && user != null) {
-      this.setCookie("nickname", user, 365);
-    }
+    console.log('授权过期，请重新登录');
+    window.location.href="http://localhost:3636/#/login";
   }
 }
 
