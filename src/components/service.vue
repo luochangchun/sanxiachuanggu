@@ -27,7 +27,7 @@
         <el-row :gutter="10" style="margin: 30px 0;">
             <el-col :lg="20" :md="20" :sm="20" :xs="20" :offset="2">
                 <div class="title" id="title-service">
-                    <h1>服务商专区</h1>
+                    <h1>热门服务</h1>
                     <p>SERVICE AREA</p>
                     <hr>
                     <span></span>

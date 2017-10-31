@@ -19,7 +19,7 @@
                     <p>INVESTMENT ORGANIZATION</p>
                     <hr>
                     <span></span>
-                    <div class="r more_plus"></div>
+                    <router-link :to="{ name: 'invest_more'}" class="r more_plus" style="margin-top:-41px"></router-link>
                 </div>
                 <div class="service_provider">
                     <el-row :gutter="10">
@@ -46,7 +46,8 @@
                     <p>INVESTMENT ORGANIZATION</p>
                     <hr>
                     <span></span>
-                    <router-link :to="{ name: 'financingDetail'}" class="r more_plus"></router-link>
+                    <router-link :to="{ name: 'financing_more'}" class="r more_plus" style="margin-top:-41px"></router-link>
+                    <!-- <router-link :to="{ name: 'financingDetail'}" class="r more_plus"></router-link> -->
                 </div>
                 <el-row :gutter="10" style="margin-top: 70px;">
                     <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in financing" :key="item">

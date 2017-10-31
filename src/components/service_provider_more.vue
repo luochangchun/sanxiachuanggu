@@ -48,10 +48,10 @@
                                 </el-row>
                             </el-col>
                             <el-col :xs="4" :sm="4" :md="4" :lg="4">
-                                <h1>{{item['service']}}</h1>
+                                <h1 class="tc">{{item['service']}}</h1>
                             </el-col>
                             <el-col :xs="3" :sm="3" :md="3" :lg="3">
-                                <h2>曹总</h2>
+                                <h2 class="tc">曹总</h2>
                             </el-col>
                             <el-col :xs="5" :sm="5" :md="5" :lg="5">
                                 <h2 class="tc">13232658712</h2>

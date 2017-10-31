@@ -16,12 +16,11 @@
                     <p>ENTREPRENEURIAL MENTOP</p>
                     <hr>
                     <span></span>
-                    <!--<div class="r more_plus"></div>-->
                 </div>
                 <el-row :gutter="10">
                     <router-link :to="{name:'school_detail', params: {id:item['id']} }" v-for="(item, index) in university" :key="index">
                         <el-col :lg="6" :md="6" :sm="12" :xs="24" class="schoolList">
-                            <img :src="item.icon" alt="" style="border:1px solid #ddd;min-height:291px;">
+                            <img :src="item.icon" alt="" style="border:1px solid #ddd;">
                             <p style="color:#666;">{{item.name}}</p>
                         </el-col>
                     </router-link>
@@ -37,7 +36,7 @@
                         <p>ENTREPRENEURIAL MENTOP</p>
                         <hr>
                         <span></span>
-                        <!--<div class="r more_plus"></div>-->
+                        <router-link :to="{ name: 'tutorList'}" class="r more_plus" style="margin-top:-41px"></router-link>
                     </div>
                     <el-row :gutter="10">
                         <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in mentor" :key="index">
@@ -59,7 +58,7 @@
             </el-row>
         </div>
         <!--校园人才-->
-        <el-row :gutter="10">
+        <!-- <el-row :gutter="10">
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                 <div class="title" id="title-talents">
                     <h1>校园人才</h1>
@@ -85,7 +84,7 @@
                     </el-col>
                 </el-row>
             </el-col>
-        </el-row>
+        </el-row> -->
         <!-- footer -->
     </div>
 </template>
@@ -134,10 +133,10 @@
         width: 100%;
         color: #000;
     }
-    /*.schoolList img {*/
-        /*min-height:264px;*/
-
-    /*}*/
+    .schoolList img {
+        padding:20px 0;
+        height: 232px;
+    }
     /*定位*/
     #title-school {
         position: relative;

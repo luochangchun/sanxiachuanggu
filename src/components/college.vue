@@ -1,5 +1,12 @@
 <template>
     <div>
+        <el-row :gutter="10">
+            <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                <div class="banner_img">
+                    <img src="../../static/img/cg.jpg" alt="">
+                </div>
+            </el-col>
+        </el-row>
         <!--培训-->
         <el-row :gutter="10" style="margin-bottom: 50px;">
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
@@ -32,10 +39,10 @@
                         <p>GREAT SPEAKERS</p>
                         <hr>
                         <span></span>
-                        <router-link :to="{ name: 'tutorlist'}" class="r more_plus to"></router-link>
+                        <router-link :to="{ name: 'trainList'}" class="r more_plus to"></router-link>
                     </div>
                     <el-row :gutter="40">
-                        <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in teacher" :key="index">
+                        <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in teacher" :key="index" v-if="item['type'] == 4">
                             <router-link :to="{name:'tutorDetail', params: {id:item.id} }" class="research-teacher">
                                 <img :src="item.photo" alt="">
                                 <div>

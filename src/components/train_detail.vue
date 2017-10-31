@@ -12,7 +12,7 @@
                         <div class="padder-v">
                             <p class="f18 b">{{train['name']}}</p>
                             <hr class="line-w">
-                            <p> 活动时间：{{train['createAt'] | formatDate}}</p>
+                            <p> 培训时间：{{train['createAt'] | formatDate}}</p>
                             <hr class="line-w">
                             <p> 地点：{{train['location'] || "暂无数据"}} </p>
                             <p> 人数限额：{{train['total'] || "暂无数据"}}人 </p>
@@ -28,8 +28,8 @@
                         <div class="padder-v">
                             <div class="content">
                                 <p class="f24">
-                                    <span>活动内容</span>
-                                    <router-link to="/train">活动申请</router-link>
+                                    <span>培训内容</span>
+                                    <router-link to="/train">培训申请</router-link>
                                 </p>
                                 <div class="wrapper">
                                     {{train['detail']['content']}}
@@ -69,8 +69,8 @@
                             <div class="wrapper">
                                 <p> 联系人：{{train['name'] || "暂无数据"}} </p>
                                 <p> 手机号码：{{train['phone'] || "暂无数据"}} </p>
-                                <p> 活动时间：{{train['createAt'] | formatDate}} </p>
-                                <p> 活动地点：{{train['location'] || "暂无数据"}} </p>
+                                <p> 培训时间：{{train['createAt'] | formatDate}} </p>
+                                <p> 培训地点：{{train['location'] || "暂无数据"}} </p>
                             </div>
                         </div>
                     </el-col>

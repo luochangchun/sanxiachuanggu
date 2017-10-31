@@ -10,7 +10,8 @@ import Login from '../src/components/register/login.vue'//登录页面
 import ForgetPassword from '../src/components/register/forgetPassword.vue'//忘记密码
 import Talent from '../src/components/talent.vue'//创谷人才首页
 import TutorDetail from '../src/components/tutorDetail.vue'//创谷人才首页
-import Tutorlist from '../src/components/tutorList.vue'//创谷学院导师列表
+import TrainList from '../src/components/trainList.vue'//创谷学院讲师列表
+import TutorList from '../src/components/tutorList.vue'//投融资导师列表
 import FinancingDetail from '../src/components/financingDetail.vue'//创谷人才首页
 import FinancingList from '../src/components/financingList.vue'//融资项目列表页面
 import TopicList from '../src/components/topicList.vue'//今日头条列表页
@@ -69,8 +70,9 @@ const routes = [
   {path: '/login', component: Login, name: 'Login'},
   {path: '/forgetPassword', component: ForgetPassword, name: 'ForgetPassword'},
   {path: '/talent', component: Talent, name: 'Talent'},
+  {path: '/trainList', component: TrainList, name: 'trainList'},//培训讲师列表
   {path: '/tutorDetail/:id', component: TutorDetail, name: 'tutorDetail'},//导师详情
-  {path: '/tutorlist', component: Tutorlist, name: 'tutorlist'},//导师列表
+  {path: '/tutorList', component: TutorList, name: 'tutorList'},//导师列表
   {path: '/financingDetail/:id', component: FinancingDetail, name: 'financingDetail'},//融资项目详情
   {path: '/financingList', component: FinancingList, name: 'financingList'},//融资项目列表页面
   {path: '/topicList', component: TopicList, name: 'topicList'},//融资项目详情
