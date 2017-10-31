@@ -606,8 +606,8 @@ img {
 .office_item,
 .service_provider_item
  {
-  padding: 10px 0;
-  border:1px solid #dddddd;
+  /* padding: 10px 0; */
+  border: 1px solid rgba(0, 0, 0, 0.05);
   display: block;
 }
 .office_item,

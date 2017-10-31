@@ -66,7 +66,8 @@
 
 <style>
     .details-img img {
-        width: 100%;
+        width: 210px;
+        height:175px;
     }
     .details-title-img img {
         width: 100%;

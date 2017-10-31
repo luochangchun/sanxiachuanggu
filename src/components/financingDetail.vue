@@ -3,7 +3,7 @@
         <el-row :gutter="10">
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                 <div class="object_detail_head">
-                    <h2></h2>
+                    <h2>{{financeDetail['name']}}</h2>
                     <div></div>
                 </div>
                 <div class="column">
@@ -14,7 +14,7 @@
                             <div class="creative_main_info">
                                 <table>
                                     <tbody><tr>
-                                        <td><span class="txt">姓名：</span><label>{{financeDetail['name']}}</label></td>
+                                        <td><span class="txt">姓名：</span><label>{{financeDetail['founder']}}</label></td>
                                         <td><span class="txt">出生年月：</span><label>1975-07-10</label></td>
                                         <td><span class="txt">投股比例：</span><label>80%</label></td>
                                     </tr>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="column red" style="margin-bottom: 50px;">
                     <div class="column_title">为什么投资我们？</div>
-                    <div class="column_content creative_main" style="color:#000;">专注内容开发，有实力的运营团队。具备成功的运营经验。<br>融资主要用于团队建设，IT支撑系统升级和市场拓展。<br>力争三年内进入国内旅游用车第一阵营，年营收收入1亿以上。</div>
+                    <div class="column_content creative_main" style="color:#000;">{{financeDetail['why']}}</div>
                 </div>
             </el-col>
 

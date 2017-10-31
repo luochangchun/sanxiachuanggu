@@ -28,7 +28,7 @@
                                                 <p class="text-md font-bold text-ellipsis">
                                                     <a href="" class="text-dark-lt">{{item['title']}}</a>
                                                 </p>
-                                                <p class="text-ellipsis-3">{{item['content']}}</p>
+                                                <p class="text-ellipsis-3" v-html="item['description']"></p>
                                                 <div style="bottom:15px;">
                                                     <p class="text-muted pull-left m-r">
                                                         <i class="el-icon-time fa fa-clock-o m-r-xs"></i>
@@ -55,42 +55,6 @@
                             </el-tabs>
                             <!--左图右文-->
                         </div>
-                        <!--点击图片进入详情-->
-                        <div v-show="show_read">
-                            <div class="text-center">
-                                <p class="text-xxxl">省科技厅关于开展2017年省级众创空间认定工作的通知</p>
-                                <p><span>时间：2017-10-11</span></p>
-                            </div>
-                            <div class="wrapper-lg">
-                                <p></p>
-                                <p style="text-align:left;">各市、州、直管市、神农架林区科技局，东湖国家自主创新示范区管委会，各有关单位：</p>
-                                <p style="text-align:left;"> 为进一步指导和推动全省各级各类众创空间科学构建、健康发展，在全社会营造大众创业、万众创新的良好生态环境，省科技厅现决定开展2017年省级众创空间认定工作，现就有关事项通知如下：</p>
-                                <p style="text-align:left;"> 一、基本条件</p>
-                                <p style="text-align:left;"> 1.众创空间的运营机构应当是湖北省境内注册的具有独立法人资格的企事业单位，实际运营时间应达到半年以上。</p>
-                                <p style="text-align:left;"> 2.众创空间的服务团队和主要负责人要具备一定行业背景、丰富的创新创业经历和相关行业资源，人员的知识结构、综合素质、业务技能和服务能力能够满足大众创新创业服务需求。</p>
-                                <p style="text-align:left;"> 3.众创空间应当拥有不少于500平米的可自主支配的工作空间，应当能够为创新创业者提供免费或低成本的办公条件，具备完善的基本服务设施。专注于特定产业或技术领域的众创空间，还应当为创新创业者提供开源软件、装配工具、试验仪器等公共技术资源共享空间。</p>
-                                <p style="text-align:left;"> 4.众创空间应当搭建有便于创业者、技术人员、投融资机构等各方交流对接的线上（线下）社交空间，每年开展的促进创新创业者信息沟通交流的线下活动应当不少于20场。</p>
-                                <p style="text-align:left;"> 5、众创空间应当有与天使投资人、创业投资机构的合作协议，优先支持自建或主导建设天使投资基金的众创空间。</p>
-                                <p style="text-align:left;"> 二、申报要求</p>
-                                <p style="text-align:left;"> 1、申请认定为省级众创空间的有关机构，应满足上述5条要求，同时应符合《科技部关于印发&lt;发展众创空间工作指引&gt;的通知》（国科发火〔2015〕297号）中的有关条件和要求。</p>
-                                <p style="text-align:left;"> 2、申请机构请认真填写《湖北省省级众创空间认定申请书》（附件2），并向所在地的科技管理部门递交申报材料。</p>
-                                <p style="text-align:left;"> 3、地方科技管理部门要认真审核把关，提出审核意见。同意推荐的，出具推荐函并附《省级众创空间申报信息汇总表》（见附件1）报省科技厅，同时将《信息汇总表》电子版发送至联系人邮箱。</p>
-                                <p style="text-align:left;"> 三、申报方式及时间</p>
-                                <p style="text-align:left;"> 1.各申请机构请将申报材料纸质版材料一式三份报送至地方科技管理部门，由地方科技管理部门审核盖章推荐后于10月30日前统一报送至省科技厅协调办。</p>
-                                <p style="text-align:left;"> 2.各市州科技局负责本辖区申请机构的申报组织及审核推荐工作，东湖高新区管委会负责区内各申请机构申报组织及审核推荐工作。 </p>
-                                <p style="text-align:left;"> 3.省科技厅将尽快组织专家对申报材料进行评价并进行实地考察。省科技厅将根据评价结果，对认定的众创空间统一发文公示。</p>
-                                <p style="text-align:left;"> 四、联系人及联系方式</p>
-                                <p style="text-align:left;"> 省科技厅协调办&nbsp;黄&nbsp;源、陈&nbsp;满</p>
-                                <p style="text-align:left;"> 联系电话：027-87135795、87135349</p>
-                                <p style="text-align:left;"> 电子邮箱：chenman1118@163.com</p>
-                                <p style="text-align:left;"> 附件1、《省级众创空间申报信息汇总表》</p>
-                                <p style="text-align:left;"> &nbsp; &nbsp; &nbsp;2、《湖北省省级众创空间认定申请书》</p>
-                                <p style="text-align:left;"> 湖北省科技厅</p>
-                                <p style="text-align:left;"> 2017年9月18日</p>
-                                <p><br></p>
-                                <p></p>
-                            </div>
-                        </div>
                     </el-col>
                     <!--右边热门排行-->
                     <el-col :lg="8" :md="8" :sm="24" :xs="24">
@@ -102,14 +66,14 @@
                                         <button @click="week=true">周排行</button>
                                         <button @click="week=false">日排行</button>
                                     </div>
-                                    <ul v-show="week">
-                                        <li v-for="( item,index ) in weekly" :key="index">
-                                            <span>{{item.pid}}</span>{{item.description}}
-                                        </li>
-                                    </ul>
                                     <ul v-show="!week" style="display:none;">
                                         <li v-for="( item,index ) in daily" :key="index">
-                                            <span>{{item.pid}}</span>{{item.description}}
+                                            <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }" class="text-ellipsis"><span>{{index+1}}</span>{{item.title}}</router-link>
+                                        </li>
+                                    </ul>
+                                    <ul v-show="week">
+                                        <li v-for="( item,index ) in weekly" :key="index">
+                                            <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }" class="text-ellipsis"><span>{{index+1}}</span>{{item.title}}</router-link>
                                         </li>
                                     </ul>
                                 </div>
@@ -133,7 +97,7 @@
             return {
                 activeName: 'tab1',
                 show_read: false,
-                week: true,
+                week: false,
                 limit: '10',
                 category: '', //分类
                 weekly: '',
@@ -150,7 +114,7 @@
                 this.initNewsList(tab['$attrs']['cid'])
             },
             newApi() { //获取新闻列表基本信息
-                var url = '/pub/info/' + this.limit;
+                var url = '/pub/info/' + 10;
                 api.Get(url)
                     .then(res => {
                         this.category = res['category'];
@@ -369,6 +333,17 @@
     .wrapper-lg {
         padding: 30px;
     }
+    .no-padder img{
+        width:210px;
+        height:120px;
+    }
+    @media (max-width: 768px) {
+        .no-padder img{
+            width:100%;
+            height:320px;
+            margin-bottom: 15px;
+        }
+    }
     /*热门排行*/
     .news-rightlist {
         border: 1px solid #ddd;
@@ -390,7 +365,8 @@
     }
     .news-button button {
         border: none;
-        background-color: #ff0000;
+        background-color:#0089e3;
+        color:#fff;
         float: right;
         margin-right: 10px;
         border-radius: 4px;

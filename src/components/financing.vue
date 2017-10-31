@@ -48,10 +48,12 @@
                     <span></span>
                     <router-link :to="{ name: 'financingDetail'}" class="r more_plus"></router-link>
                 </div>
-                <el-row :gutter="10">
-                    <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in financing" :key="item">
+                <el-row :gutter="10" style="margin-top: 70px;">
+                    <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in financing" :key="item">
                         <router-link :to="{ name: 'financingDetail', params: { id: item.id} }" class="Financing_item rel">
-                            <img :src='item.logo' alt="">
+                            <div  style="height:250px;">
+                                <img :src='item.logo' alt="" style="max-height:220px;">
+                            </div>
                             <div class="Financing_wrap">
                                 <div class="Financing_info">
                                     <h1 class="f16">{{item.name}}</h1>
@@ -77,17 +79,6 @@
                     </el-col>
                 </el-row>
             </el-col>
-            <!--<el-col :lg="24" :md="24" :sm="24" :xs="24">-->
-            <!--<div class="Financing">-->
-            <!--<div class="container">-->
-            <!--<el-row :gutter="10">-->
-            <!--<el-col v-for="(item, index) in 6" :key="item">-->
-            <!---->
-            <!--</el-col>-->
-            <!--</el-row>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</el-col>-->
         </el-row>
     </div>
 </template>

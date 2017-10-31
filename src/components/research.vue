@@ -16,12 +16,12 @@
                     <p>ENTREPRENEURIAL MENTOP</p>
                     <hr>
                     <span></span>
-                    <div class="r more_plus"></div>
+                    <!--<div class="r more_plus"></div>-->
                 </div>
                 <el-row :gutter="10">
                     <router-link :to="{name:'school_detail', params: {id:item['id']} }" v-for="(item, index) in university" :key="index">
                         <el-col :lg="6" :md="6" :sm="12" :xs="24" class="schoolList">
-                            <img :src="item.icon" alt="" style="border:1px solid #ddd;">
+                            <img :src="item.icon" alt="" style="border:1px solid #ddd;min-height:291px;">
                             <p style="color:#666;">{{item.name}}</p>
                         </el-col>
                     </router-link>
@@ -37,7 +37,7 @@
                         <p>ENTREPRENEURIAL MENTOP</p>
                         <hr>
                         <span></span>
-                        <div class="r more_plus"></div>
+                        <!--<div class="r more_plus"></div>-->
                     </div>
                     <el-row :gutter="10">
                         <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in mentor" :key="index">
@@ -132,10 +132,12 @@
         font-size: 14px;
         text-align: center;
         width: 100%;
+        color: #000;
     }
-    .schoolList img {
-        width: 100%;
-    }
+    /*.schoolList img {*/
+        /*min-height:264px;*/
+
+    /*}*/
     /*定位*/
     #title-school {
         position: relative;
