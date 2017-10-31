@@ -145,6 +145,9 @@
     .incubators-show img {
         width: 100%;
     }
+    .incubators-show img:hover{
+        box-shadow: 0 0 10px #999;
+    }
     .incubators-show p {
         position: absolute;
         background: rgba(0, 0, 0, 0.5);
@@ -153,7 +156,7 @@
         text-align: center;
         height: 30px;
         line-height: 30px;
-        bottom: 5px;
+        bottom: 0;
         left: 0;
         box-sizing: border-box;
         padding: 0;

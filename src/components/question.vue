@@ -16,7 +16,11 @@
                                     <li>软件开发业</li>
                                     <li>健康医疗业</li>
                                     <li>第三方服务业</li>
-                                    <li><button>发布问题</button></li>
+                                    <li>
+                                        <router-link :to="{ name: 'problem' }">
+                                            <button>发布问题</button>
+                                        </router-link>
+                                    </li>
                                 </ul>
                             </div>
                             <!--导航切换-->
@@ -234,12 +238,17 @@
         margin-left: 84%;
         margin-top: 20px;
     }
+    .classify ul{
+        height:30px;
+        line-height:30px;
+    }
     @media (min-width: 768px) {
         .classify ul li{
             float:left;
             margin-right: 3%;
             font-size: 12px;
             color:#0089e3;
+            height:30px;
         }
         .classify ul li button{
             border:none;

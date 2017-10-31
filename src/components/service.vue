@@ -23,7 +23,7 @@
                 </el-row>
             </el-col>
         </el-row>
-        <!--服务商专区-->
+        <!--热门服务-->
         <el-row :gutter="10" style="margin: 30px 0;">
             <el-col :lg="20" :md="20" :sm="20" :xs="20" :offset="2">
                 <div class="title" id="title-service">
@@ -56,7 +56,7 @@
                         </a>
                     </el-col>
                 </el-row>
-                <el-row style="height:200px;overflow:hidden">
+                <el-row style="height:255px;overflow:hidden">
                     <el-col :lg="6" :md="12" :sm="12" :xs="24">
                         <a href="http://www.egowork.com/hr.html" class="service-mini">
                             <img src="http://www.egowork.com/themes/egowork/img/icon-1.png" class="center-block img-responsive">
@@ -349,7 +349,8 @@
         width: 100%;
         height: 30px;
         line-height: 30px;
-        margin-top: -50px;
+        margin-top: -60px;
+        margin-bottom: 50px;
         color: #fff;
     }
     /* .service-show-into img:hover {
