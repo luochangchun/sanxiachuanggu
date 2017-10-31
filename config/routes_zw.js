@@ -46,8 +46,17 @@ import service_provider_more from '../src/components/service_provider_more.vue'
 import invest_more from '../src/components/invest_more.vue'
 import invest_detail from '../src/components/invest_detail.vue'
 import financingDetail from '../src/components/financingDetail.vue'
-
-
+//10.29
+import problem from '../src/components/problem.vue'
+import service_needs from '../src/components/service_needs.vue'
+//10.30
+import attract from '../src/components/attract.vue'
+import demand from '../src/components/demand.vue'
+import financing_more from '../src/components/financing_more.vue'
+import attract_detail from '../src/components/attract_detail.vue'
+import demand_detail from '../src/components/demand_detail.vue'
+import attract_list from '../src/components/attract_list.vue'
+import demand_list from '../src/components/demand_list.vue'
 
 Vue.use(VueRouter)
 const routes = [
@@ -97,6 +106,17 @@ const routes = [
 	{path: '/into_more', component: into_more, name: 'into_more'},//入孵企业(more)
 	{path: '/service_provider_more', component: service_provider_more, name: 'service_provider_more'},//服务商(more)
 	{path: '/financingDetail', component: financingDetail, name: 'financingDetail'},//投资项目详情页
+	//10.29
+	{path: '/problem', component: problem, name: 'problem'},//发布企业难题表单
+	{path: '/service_needs', component: service_needs, name: 'service_needs'},//服务需求发布表单
+	//10.30
+	{path: '/attract', component: attract, name: 'attract'},//招商讯息页
+	{path: '/demand', component: demand, name: 'demand'},//求租讯息页
+	{path: '/financing_more', component: financing_more, name: 'financing_more'},//融资项目(more)
+	{path: '/attract_detail', component: attract_detail, name: 'attract_detail'},//招商讯息详情
+	{path: '/demand_detail', component: demand_detail, name: 'demand_detail'},//求租讯息详情
+	{path: '/attract_list', component: attract_list, name: 'attract_list'},//招商发布表单
+	{path: '/demand_list', component: demand_list, name: 'demand_list'},//求租发布表单
 
 ];
 
