@@ -119,7 +119,7 @@
                                     <div class="news-hot">导师推荐</div>
                                     <ul>
                                         <li v-for="( item,index ) in 2" :key="index" class="need_teacher">
-                                            <el-row :gutter="10">
+                                            <el-row :gutter="10" style="margin-bottom: 10px;">
                                                 <el-col :lg="8" :md="8" :sm="8" :xs="8">
                                                     <img src="../../static/img/college_2.png" alt="">
                                                 </el-col>
@@ -173,6 +173,10 @@
 
 <style>
     /*问题详情*/
+    .show_need p{
+        line-height:30px;
+        margin-top: 10px;
+    }
     .need_import_img img{
         border-radius: 50%;
         width:60px;
@@ -194,7 +198,7 @@
     }
 
     .need_import{
-        border:2px solid #0089e3;
+        box-shadow: 0 0 15px #999;
         padding: 10px;
         margin-bottom: 20px;
     }
@@ -207,7 +211,7 @@
         font-weight: normal;
         font-size: 12px;
         color:#999;
-        height:30px;
+        /*height:30px;*/
         line-height:30px;
         border-bottom: 1px solid #ddd;
     }
@@ -230,7 +234,64 @@
         margin-left: 84%;
         margin-top: 20px;
     }
-
+    @media (min-width: 768px) {
+        .classify ul li{
+            float:left;
+            margin-right: 3%;
+            font-size: 12px;
+            color:#0089e3;
+        }
+        .classify ul li button{
+            border:none;
+            background-color: #f48100;
+            color:#fff;
+            font-size:12px;
+            width:70px;
+            height:28px;
+            border-radius: 4px;
+            margin-left: 20px;
+            text-align: center;
+            margin-top: -8px;
+        }
+    }
+    @media (min-width: 992px) {
+        .classify ul li{
+            float:left;
+            margin-right: 3px;
+            font-size: 12px;
+            color:#0089e3;
+        }
+        .classify ul li button{
+            border:none;
+            background-color: #f48100;
+            color:#fff;
+            font-size:12px;
+            width:60px;
+            height:28px;
+            border-radius: 4px;
+            margin-left:0;
+            /*margin-top: -8px;*/
+        }
+    }
+    @media (min-width: 1200px) {
+        .classify ul li{
+            float:left;
+            margin-right: 2%;
+            font-size: 12px;
+            color:#0089e3;
+        }
+        .classify ul li button{
+            border:none;
+            background-color: #f48100;
+            color:#fff;
+            font-size:12px;
+            width:70px;
+            height:28px;
+            border-radius: 4px;
+            margin-left:30px;
+            margin-top: -8px;
+        }
+    }
 
 
 
@@ -244,22 +305,24 @@
         margin-top: 30px;
         margin-bottom: 10px;
     }
-    .classify ul li{
-        float:left;
-        margin-right: 3%;
-        font-size: 12px;
-        color:#0089e3;
-    }
-    .classify ul li button{
-        border:none;
-        background-color: #f48100;
-        color:#fff;
-        font-size:14px;
-        width:70px;
-        height:28px;
-        border-radius: 4px;
-        margin-left: 30px;
-    }
+    /*.classify ul li{*/
+    /*float:left;*/
+    /*margin-right: 3%;*/
+    /*font-size: 12px;*/
+    /*color:#0089e3;*/
+    /*height:28px;*/
+    /*line-height:28px;*/
+    /*}*/
+    /*.classify ul li button{*/
+    /*border:none;*/
+    /*background-color: #f48100;*/
+    /*color:#fff;*/
+    /*font-size:14px;*/
+    /*width:70px;*/
+    /*height:28px;*/
+    /*border-radius: 4px;*/
+    /*margin-left: 30px;*/
+    /*}*/
     .classify span{
         border:1px solid #ddd;
         display: block;
@@ -285,7 +348,7 @@
     }
     /*热门排行*/
     .news-rightlist{
-        border:1px solid #ddd;
+        box-shadow: 0 0 10px #ddd;
         width:100%;
         padding: 0 10px  20px 20px;
         margin-bottom: 50px;
@@ -347,6 +410,5 @@
         width:70px;
         height:28px;
         border-radius: 4px;
-        margin-top: 40px;
     }
 </style>
