@@ -13,7 +13,7 @@
                     </el-form-item>
 
                     <el-form-item>
-                        <el-button @click="train_Application('trainForm')" style="background-color: #f48100;border:none;color:#fff;">确定</el-button>
+                        <el-button @click="submitForm('trainForm')" style="background-color: #f48100;border:none;color:#fff;">确定</el-button>
                     </el-form-item>
                 </el-form>
             </el-col>
@@ -65,21 +65,18 @@
 			}
 		},
 		methods: {
-			train_Application(formName) {
+			submitForm(formName) {
 				this.$refs[formName].validate((valid) => {
 					if (valid) {
-						let id = this.$route.params.id
 						var params = {
-							"activityId": id,
 							"phone": this.trainForm.phone,
 							"name": this.trainForm.name
 						};
 						api.Post('/activity/apply', params)
 							.then(res => {
-								if (res['suc'] == true) {
-									this.$message(res['msg']);
-								} else if (res['suc'] == false) {
-									this.$message(res['msg']);
+								console.log(res);
+								if(res['msg'] == null) {
+									alert("报名成功");
 								}
 							});
 					} else {
@@ -93,3 +90,7 @@
 
 
 </script>
+
+<style>
+
+</style>

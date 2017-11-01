@@ -3,26 +3,30 @@
         <el-row :gutter="10">
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" >
                 <el-row :gutter="10">
-                    <el-col :lg="16" :md="16" :sm="24" :xs="24">
+                    <el-col :lg="16" :md="24" :sm="24" :xs="24">
                         <!--行业分类-->
                         <div v-show="!show_need">
-                            <div class="classify">
-                                <h3>行业分类</h3>
-                                <ul>
-                                    <li>生产制造业</li>
-                                    <li>信息产业</li>
-                                    <li>电子商务业</li>
-                                    <li>高新技术业</li>
-                                    <li>软件开发业</li>
-                                    <li>健康医疗业</li>
-                                    <li>第三方服务业</li>
-                                    <li>
-                                        <router-link :to="{ name: 'problem' }">
-                                            <button>发布问题</button>
-                                        </router-link>
-                                    </li>
-                                </ul>
-                            </div>
+                            <el-row :gutter="10">
+                                <el-col :lg="20" :md="22" :sm="22" :xs="22">
+                                    <h3>行业分类</h3>
+                                    <template>
+                                        <el-tabs v-model="activeName" @tab-click="handleClick">
+                                            <el-tab-pane label="生产制造业" name="first">生产制造业</el-tab-pane>
+                                            <el-tab-pane label="信息产业" name="second">信息产业</el-tab-pane>
+                                            <el-tab-pane label="电子商务业" name="third">电子商务业</el-tab-pane>
+                                            <el-tab-pane label="高新技术业" name="fourth">高新技术业</el-tab-pane>
+                                            <el-tab-pane label="软件开发业" name="five">软件开发业</el-tab-pane>
+                                            <el-tab-pane label="健康医疗业" name="six">健康医疗业</el-tab-pane>
+                                            <el-tab-pane label="第三方服务业" name="seven">第三方服务业</el-tab-pane>
+                                        </el-tabs>
+                                    </template>
+                                </el-col>
+                                <el-col :lg="4" :md="4" :sm="2" :xs="2">
+                                    <router-link :to="{ name: 'problem' }" >
+                                        <button class="show_btn">发布问题</button>
+                                    </router-link>
+                                </el-col>
+                            </el-row>
                             <!--导航切换-->
                             <el-row :gutter="10" class="need_xq">
                                 <el-col :lg="24" :md="24" :sm="24" :xs="24">
@@ -79,7 +83,11 @@
                         </div>
 
                         <div v-show="show_need" style="display: none" class="show_need">
-                            <p>您所在的位置 : <span>答疑解惑列表</span> > 问题详情</p>
+                            <el-breadcrumb separator=">">
+                                <el-breadcrumb-item :to="{ path: '/' }">您所在的位置 :</el-breadcrumb-item>
+                                <el-breadcrumb-item>答疑解惑列表</el-breadcrumb-item>
+                                <el-breadcrumb-item>问题详情</el-breadcrumb-item>
+                            </el-breadcrumb>
                             <div class="need_import">
                                 <h3>工商局办理公司股东变更登记需要哪些手续</h3>
                                 <p>企业名称: 乐行(宜昌)科技有限公司 | 需求类型: 法律类 | 联系人: 李涛 | 联系方式: 13996003628 | 2017-10-24 | 已解决</p>
@@ -176,6 +184,12 @@
 </script>
 
 <style>
+    /*面包屑导航*/
+    .el-breadcrumb {
+        font-size: 13px;
+        line-height: 3;
+        margin-top: 10px;
+    }
     /*问题详情*/
     .show_need p{
         line-height:30px;

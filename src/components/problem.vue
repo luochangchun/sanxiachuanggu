@@ -35,7 +35,7 @@
                     </el-form-item>
 
                     <el-form-item>
-                        <el-button @click="sureForm('problemForm')" style="background-color: #f48100;border:none;color:#fff;">发布</el-button>
+                        <el-button @click="publishForm('problemForm')" style="background-color: #f48100;border:none;color:#fff;">发布</el-button>
                         <el-button @click="resetForm('problemForm')">取消</el-button>
                     </el-form-item>
                 </el-form>
@@ -129,7 +129,7 @@
 			};
 		},
 		methods: {
-			sureForm(formName) {
+			publishForm(formName) {
 				this.$refs[formName].validate((valid) => {
 					if (valid) {
 						var params = {
@@ -145,11 +145,11 @@
 							.then(res => {
 								console.log(res);
 								if(res['msg'] == null) {
-									alert("发布难题成功");
+									alert("发布难题成功!");
 								}
 							});
 					} else {
-						console.log('error submit!!');
+						console.log('发布难题失败!');
 						return false;
 					}
 				});
