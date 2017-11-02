@@ -31,41 +31,8 @@
                                 <p class="abs f18" style="top:30px;left:30px;color:#fff;">免费</p>
                             </div> -->
                             <div class="content">
-                                <div class="wrapper">
-                                    {{content || '暂无数据'}}
-                                </div>
-                                <!-- <p class="f24">
-                                    <span>活动内容</span>
-                                    <router-link to="/train">
-                                        <button style="">活动申请</button>
-                                    </router-link>
-                                </p>
-                                <div class="wrapper">
-                                    <p>陈文强</p>
-                                    <p><br></p>
-                                    <p>武汉泰利美信医疗科技有限公司CEO。首都医科大学医学本科，清华大学工业设计专业硕士。</p>
-                                    <p><br></p>
-                                    <p>资深顶级医疗外企职业经理人，曾供职于GE、KODAK及BARCO，历任产品线经理、销售总监、以及大中华区业务负责人。</p>
-                                    <p><br></p>
-                                    <p>DEMO China创业导师，医疗组评委。</p>
-                                    <p>四、活动内容</p>
-                                    <p><br></p>
-                                    <p>1．结合陈老师的亲身经历讲解创业初期存在的问题；</p>
-                                    <p>2．告诉你如何避免创业中的各种雷坑；</p>
-                                    <p>3．现场和陈老师一对一交流，答疑解惑。</p>
-                                    <p>陈文强</p>
-                                    <p><br></p>
-                                    <p>武汉泰利美信医疗科技有限公司CEO。首都医科大学医学本科，清华大学工业设计专业硕士。</p>
-                                    <p><br></p>
-                                    <p>资深顶级医疗外企职业经理人，曾供职于GE、KODAK及BARCO，历任产品线经理、销售总监、以及大中华区业务负责人。</p>
-                                    <p><br></p>
-                                    <p>DEMO China创业导师，医疗组评委。</p>
-                                    <p>四、活动内容</p>
-                                    <p><br></p>
-                                    <p>1．结合陈老师的亲身经历讲解创业初期存在的问题；</p>
-                                    <p>2．告诉你如何避免创业中的各种雷坑；</p>
-                                    <p>3．现场和陈老师一对一交流，答疑解惑。</p>
-                                </div> -->
+                                <div class="wrapper" v-html="content || '暂无数据'"></div>
+                                
                             </div>
 
                         </div>

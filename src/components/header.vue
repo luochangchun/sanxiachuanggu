@@ -7,9 +7,11 @@
                         <p class="solgan_word f14">集众智而生·筑时代之城</p>
                     </el-col>
                     <el-col :xs="12" :sm="12" :md="6" :lg="6" :offset="12">
+                        <router-link v-if="!name" to="/demand_comm_service01" class="text r">个人中心</router-link>
                         <router-link to="/register" class="text r">免费注册</router-link>
                         <i class="r hr">&nbsp;&nbsp;|&nbsp;&nbsp;</i>
                         <router-link v-if="!name" to="/login" class="text cur r">登录</router-link>
+                        
                         <p v-if="name" class="text r">{{name}}</p>
                     </el-col>
                 </el-row>

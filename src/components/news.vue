@@ -87,7 +87,7 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
     import api from '../axios/api.js'
     import {
         formatDate
@@ -132,7 +132,6 @@
                 var url = '/pub/info/' + cid + '/' + '10' + '/' + '1'
                 api.Get(url)
                     .then(res => {
-                        console.log(res);
                         this.newsListData = res['data'];
                         this.totalPages = res['totalPages']*10;
                     })
@@ -145,7 +144,7 @@
                 var url = '/pub/info/' + '20' + '/' + '10' + '/' + val
                 api.Get(url)
                     .then(res => {
-                        console.log(res);
+                        this.newsListData = res['data'];
                         this.totalPages = res['totalPages']*10;
                     })
             }

@@ -46,6 +46,20 @@ export function fetch (url, params) {
   })
 };
 
+// put
+export function put(url, params) {
+  const newUrl = baseUrl + url
+  return new Promise((resolve, reject) => {
+    axios.put(newUrl, params)
+      .then(response => {
+        resolve(response.data)
+      })
+      .catch((error) => {
+        reject(error)
+      })
+  })
+};
+
 //设置cookie
 export function setCookie(name, value, days) {
   var d = new Date;
@@ -63,9 +77,11 @@ export function deleteCookie(name) {
 export function checkCookie() {
   let user = getCookie("userInfo");
   let data = JSON.parse(user);
+  let userId = data['data']['id'];
   if (user != null) {
     console.log('用户已经登录');
     // window.location.href="http://localhost:3636/#/index";
+    window.localStorage.setItem('userId', userId)
   } else {
     console.log('授权过期，请重新登录');
     window.location.href="http://localhost:3636/#/login";
@@ -78,6 +94,9 @@ export default {
   },
   Post (url, params) {
     return fetch(url, params)
+  },
+  Put(url, params) {
+    return put(url, params)
   },
   SetCookie(cname, cvalue, exdays) {
     return setCookie(cname, cvalue, exdays)
