@@ -1,11 +1,11 @@
 <template>
     <div>
-        <!-- 创谷 -->
+        <!-- 双创 -->
         <el-row :gutter="10" style="margin-bottom: 50px;">
             <el-col :xs="18" :sm="18" :md="18" :lg="18" :offset="3" style="margin-top:15px;">
                 <el-breadcrumb separator="/" class="padder-vx">
                     <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-                    <el-breadcrumb-item :to="{ path: '/map' }">创谷空间</el-breadcrumb-item>
+                    <el-breadcrumb-item :to="{ path: '/incubators' }">双创空间</el-breadcrumb-item>
                     <el-breadcrumb-item>招商信息列表</el-breadcrumb-item>
                 </el-breadcrumb>
             </el-col>
@@ -37,7 +37,7 @@
             </el-col>
         </el-row>
         <!--分页-->
-        <el-row :gutter="10" style="margin-bottom: 50px;">
+        <el-row :gutter="10" style="margin-bottom: 50px;" v-if="attractFlag">
             <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
                 <div class="block">
                     <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
@@ -59,16 +59,10 @@
         },
         created() {
             let type = this.$route.params.type;
-            this.initInvest();  
+            this.initRent();
         },
         methods: {
-            initInvest() {
-                let url = "/qb/tenancy/2/" + '10' + '/1';
-                api.Get(url).then(res => {
-                    this.investData = res['data'];
-                    this.totalPages = res['totalPages'] * 10;
-                });
-            },
+           
             initRent() {
                 let url = "/qb/tenancy/3/" + '10' + '/1';
                 api.Get(url).then(res => {

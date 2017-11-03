@@ -3,9 +3,12 @@
 		<el-row :gutter="10" style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
 			<el-col :lg="14" :md="10" :sm="10" :xs="10" :offset="5">
 				<el-form :model="tenancyForm" :rules="tenancyRules" ref="tenancyForm" label-width="120px" class="tenancyForm">
-					<el-form-item class="tc f18 b">发布招商表</el-form-item>
-					<el-form-item label="联系人" prop="name">
-						<el-input type="text" v-model="tenancyForm.name"></el-input>
+					<el-form-item class="tc f18 b">发布招商信息</el-form-item>
+					<el-form-item label="标题" prop="title">
+						<el-input type="text" v-model="tenancyForm.title"></el-input>
+					</el-form-item>
+					<el-form-item label="联系人" prop="contact">
+						<el-input type="text" v-model="tenancyForm.contact"></el-input>
 					</el-form-item>
 					<el-form-item label="联系电话" prop="phone">
 						<el-input type="tel" v-model="tenancyForm.phone"></el-input>
@@ -38,7 +41,9 @@
 							<el-radio label="false">否</el-radio>
 						</el-radio-group>
 					</el-form-item>
-					<!-- <vue-editor v-model="content"></vue-editor> -->
+					<el-form-item label="编辑文章" prop="article">
+						<vue-editor v-model="tenancyForm.content" :editorToolbar="customToolbar"></vue-editor>
+					</el-form-item>	
 					<el-form-item>
 						<el-button type="primary" @click="submitForm('tenancyForm')">发布</el-button>
 					</el-form-item>
@@ -58,8 +63,10 @@
 </style>
 
 <script>
+	import { VueEditor } from 'vue2-editor'
 	import api from "../axios/api.js";
 	export default {
+		components: {VueEditor},
 		data() {
 			let validatePhone = (rule, value, callback) => {
 				let re = /^1[34578]\d{9}$/;
@@ -115,7 +122,7 @@
 					}
 				],
 				tenancyForm: {
-					name: "",
+					title: "",
 					phone: "",
 					building: "",
 					buildingType: "",
@@ -124,10 +131,15 @@
 					price: "",
 					unit: "",
 					cubicle: "",
-					detail: ""
+					content: ""
 				},
 				tenancyRules: {
-					name: [{
+					title: [{
+						required: true,
+						message: "请输入标题",
+						trigger: "blur"
+					}],
+					contact: [{
 						required: true,
 						validator: validateName,
 						message: "请输入联系人",
@@ -169,7 +181,7 @@
 						message: "请选择工位是否能租赁",
 						trigger: "blur"
 					}],
-					detail: [{
+					content: [{
 						message: "请输入简介",
 						trigger: "blur"
 					}]
@@ -182,7 +194,6 @@
 					if (valid) {
 						let url = "/qb/tenancy/apply";
 						var params = {
-							name: this.tenancyForm.name,
 							contact: this.tenancyForm.contact,
 							phone: this.tenancyForm.phone,
 							building: this.tenancyForm.building,
@@ -192,7 +203,10 @@
 							price: this.tenancyForm.price,
 							unit: this.tenancyForm.unit,
 							cubicle: this.tenancyForm.cubicle,
-							detail: "123",
+							detail: {
+								"title": this.tenancyForm.title,
+								"content": this.tenancyForm.content,
+							}
 						};
 						api.Post("/qb/tenancy/apply", params).then(res => {
 							console.log(res);
@@ -203,8 +217,8 @@
 							}
 						})
 					} else {
-						// console.log("error submit!!");
-						// return false;
+						console.log("error submit!!");
+						return false;
 					}
 				});
 			},

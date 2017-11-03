@@ -11,7 +11,7 @@ import ForgetPassword from '../src/components/register/forgetPassword.vue'//忘�
 import Talent from '../src/components/talent.vue'//创谷人才首页
 import TutorDetail from '../src/components/tutorDetail.vue'//创谷人才首页
 import TrainList from '../src/components/trainList.vue'//创谷学院讲师列表
-import TutorList from '../src/components/tutorList.vue'//投融资导师列表
+import TutorList from '../src/components/tutorList.vue'//
 import FinancingDetail from '../src/components/financingDetail.vue'//创谷人才首页
 import FinancingList from '../src/components/financingList.vue'//融资项目列表页面
 import TopicList from '../src/components/topicList.vue'//今日头条列表页
@@ -61,7 +61,8 @@ import problem from '../src/components/problem.vue'
 import service_needs from '../src/components/service_needs.vue'
 //10.30
 import attract from '../src/components/attract.vue'
-import demand from '../src/components/demand.vue'
+import attract_college from '../src/components/attract_college.vue'
+// import demand from '../src/components/demand.vue'
 import financing_more from '../src/components/financing_more.vue'
 import attract_detail from '../src/components/attract_detail.vue'
 import demand_detail from '../src/components/demand_detail.vue'
@@ -134,8 +135,9 @@ const routes = [
 	{ path: '/problem/:type', component: problem, name: 'problem' },//发布企业难题表单
 	{ path: '/service_needs', component: service_needs, name: 'service_needs' },//服务需求发布表单
 	//10.30
-	{ path: '/attract/:type', component: attract, name: 'attract' },//招商讯息页
-	{ path: '/demand', component: demand, name: 'demand' },//求租讯息页
+	{ path: '/attract', component: attract, name: 'attract' },//招商讯息页
+	{ path: '/attract_college', component: attract_college, name: 'attract_college' },//创谷学院招商讯息页
+	// { path: '/demand', component: demand, name: 'demand' },//求租讯息页
 	{ path: '/financing_more', component: financing_more, name: 'financing_more' },//融资项目(more)
 	{ path: '/attract_detail/:id', component: attract_detail, name: 'attract_detail' },//招商讯息详情
 	{ path: '/demand_detail', component: demand_detail, name: 'demand_detail' },//求租讯息详情

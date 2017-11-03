@@ -29,22 +29,16 @@
                         <li class='has-sub'>
                             <router-link to="/map">创谷空间</router-link>
                             <ul>
-                                <li class='has-sub'>
-                                    <router-link to="/attract/invest">招商信息</router-link>
-                                </li>
-                                <li class='has-sub'>
-                                    <router-link to="/attract/rent">求租信息</router-link>
+                                <li>
+                                    <router-link to="/attract">招商/求租信息</router-link>
                                 </li>
                             </ul>
                         </li>
                         <li class='has-sub'>
                             <router-link to="/incubators">双创空间</router-link>
                             <ul>
-                                <li class='has-sub'>
-                                    <router-link to="/need">招商信息</router-link>
-                                </li>
-                                <li class='has-sub'>
-                                    <router-link to="/need">求租信息</router-link>
+                                <li>
+                                    <router-link to="/attract_college">招商/求租信息</router-link>
                                 </li>
                             </ul>
                         </li>
