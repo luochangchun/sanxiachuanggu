@@ -323,6 +323,7 @@
     }
     .service-show img {
         width: 100%;
+        box-shadow: 0 0 15px #999;
     }
     /*服务商*/
     .service_provider_item img {
@@ -356,7 +357,7 @@
         line-height: 30px;
         margin-top: -60px;
         margin-bottom: 50px;
-        color: #fff;
+        color: #000;
     }
     /* .service-show-into img:hover {
         width: 101%;

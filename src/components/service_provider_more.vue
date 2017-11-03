@@ -125,8 +125,8 @@
     }
     .into_more_header {
         background-color: #f1f1f1;
-        height: 40px;
-        line-height: 40px;
+        /*height: 40px;*/
+        /*line-height: 40px;*/
     }
     .into_more_img img {
         width: 100%;

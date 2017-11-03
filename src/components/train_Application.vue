@@ -92,5 +92,7 @@
 </script>
 
 <style>
-
+.el-button{
+    padding: 10px 15px !important;
+}
 </style>
