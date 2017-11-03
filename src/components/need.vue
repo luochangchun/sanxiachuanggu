@@ -34,21 +34,20 @@
                                             <p v-show="noData" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
                                             <a v-for="(item,index) in needData" :key="index" @click="openDetail(item.id)">
                                                 <el-row v-show="!noData" :gutter="10" class="need_xq">
-                                                <el-col :lg="10" :md="10" :sm="10" :xs="10" class="need_xq_p">
-                                                    <p class="text-ellipsis">{{item['needs']}} <span>[{{item['title']}}]</span></p>
-                                                </el-col>
-                                                <el-col :lg="3" :md="3" :sm="3" :xs="3">
-                                                    <p>{{item['contact']}}</p>
-                                                </el-col>
-                                                <el-col :lg="5" :md="5" :sm="5" :xs="5">
-                                                    <p>{{item['phone']}}</p>
-                                                </el-col>
-                                                <el-col :lg="5" :md="5" :sm="5" :xs="5">
-                                                    <p>{{item['createAt'] | formatDate}}</p>
-                                                </el-col>
+                                                    <el-col :lg="10" :md="10" :sm="10" :xs="10" class="need_xq_p">
+                                                        <p class="text-ellipsis">{{item['needs']}} <span>[{{item['title']}}]</span></p>
+                                                    </el-col>
+                                                    <el-col :lg="3" :md="3" :sm="3" :xs="3">
+                                                        <p>{{item['contact']}}</p>
+                                                    </el-col>
+                                                    <el-col :lg="5" :md="5" :sm="5" :xs="5">
+                                                        <p>{{item['phone']}}</p>
+                                                    </el-col>
+                                                    <el-col :lg="5" :md="5" :sm="5" :xs="5">
+                                                        <p>{{item['createAt'] | formatDate}}</p>
+                                                    </el-col>
                                                 </el-row>
                                             </a>
-                                            
                                             <!--分页-->
                                             <el-row :gutter="10" style="margin: 50px 0;">
                                                 <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
@@ -61,7 +60,7 @@
                                     </el-tabs>
                                 </el-col>
                                 <el-col :lg="4" :md="4" :sm="2" :xs="2">
-                                    <router-link :to="{ name: 'problem' }">
+                                    <router-link :to="{name:'problem', params: {type:'enterprise'}}">
                                         <button class="show_btn">发布问题</button>
                                     </router-link>
                                 </el-col>
@@ -72,10 +71,10 @@
                         <div v-show="openFlag" class="show_need_mask" @click="closeDetail"></div>
                         <div v-show="openFlag" class="show_need">
                             <!-- <el-breadcrumb separator=">">
-                                <el-breadcrumb-item :to="{ path: '/' }">您所在的位置 :</el-breadcrumb-item>
-                                <el-breadcrumb-item>服务需求列表</el-breadcrumb-item>
-                                <el-breadcrumb-item>需求详情</el-breadcrumb-item>
-                            </el-breadcrumb> -->
+                                    <el-breadcrumb-item :to="{ path: '/' }">您所在的位置 :</el-breadcrumb-item>
+                                    <el-breadcrumb-item>服务需求列表</el-breadcrumb-item>
+                                    <el-breadcrumb-item>需求详情</el-breadcrumb-item>
+                                </el-breadcrumb> -->
                             <div class="need_import">
                                 <h3>{{openData['needs']}}</h3>
                                 <p>企业名称: {{openData['enterprise']}} | 需求类型: {{openData['title']}} | 联系人: {{openData['contact']}} | 联系方式: {{openData['phone']}} | <span>{{openData['createAt'] | formatDate}}</span> | <span v-if="openData.status == 1">审核通过</span></p>
@@ -85,7 +84,7 @@
                             <h1>请输入留言</h1>
                             <el-input type="textarea" :rows="4" placeholder="请输入内容" v-model="msg">
                             </el-input>
-                            <button @click="enterpriseMsg">留言</button>
+                            <button @click.prevent="enterpriseMsg(openData['id'])">留言</button>
                         </div>
                     </el-col>
                     <!--热门排行-->
@@ -104,14 +103,15 @@
                                 <div class="news-rightlist">
                                     <div class="news-hot">导师推荐</div>
                                     <ul>
-                                        <li v-for="( item,index ) in 2" :key="index" class="need_teacher">
+                                        <p v-show="recommendFlag" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
+                                        <li v-for="( item,index ) in recommend" :key="index" class="need_teacher" v-show="!recommendFlag">
                                             <el-row :gutter="10" style="margin-bottom: 10px;">
                                                 <el-col :lg="8" :md="8" :sm="8" :xs="8">
-                                                    <img src="../../static/img/college_2.png" alt="">
+                                                    <img :src="item['icon']" alt="">
                                                 </el-col>
                                                 <el-col :lg="8" :md="8" :sm="8" :xs="8">
-                                                    <p>郑丽</p>
-                                                    <p>优秀创业导师</p>
+                                                    <p>{{item['name']}}</p>
+                                                    <p class="text-ellipsis">{{item['intro']}}</p>
                                                 </el-col>
                                                 <el-col :lg="8" :md="8" :sm="8" :xs="8">
                                                     <button>提问</button>
@@ -130,334 +130,353 @@
 </template>
 
 <script>
-    import api from "../axios/api.js";
-    import {
-        formatDate
-    } from "../../static/js/date.js";
-    export default {
-        data() {
-            return {
-                activeName: "tab1",
-                activeName2: "first",
-                show_need: false,
-                textarea: "",
-                category: "",
-                needData: "",
-                noData: false,
-                openFlag: false,
-                openData:'',
-                msg:'',
-                rankData:''
-            };
-        },
-        created() {
-            this.getServiceClass();
-            this.initRank();
-        },
-        methods: {
-            getServiceClass() {
-                api.Get("/dict/service").then(res => {
-                    this.category = res;
-                    this.category.forEach((value, index, array) => {
-                        this.category[index]["cname"] = "tab" + (index + 1);
-                        if (index == 0) {
-                            this.initServicesList(this.category[index]["id"]);
-                        }
-                    });
-                });
-            },
-            handleClick(tab, event) {
-                this.initServicesList(tab["$attrs"]["cid"]);
-                this.activeName2 = 'first';
-            },
-            handleClick2(tab, event) {
-                this.selectServicesList(tab["$attrs"]["cid"], tab["$attrs"]["st"]);
-            },
-            initServicesList(cid) {
-                var url = "/enterprise/apply/" + "10" + "/" + "1" + "?cid=" + cid;
-                api.Get(url).then(res => {
-                    this.needData = res["data"];
-                    if (this.needData.length == 0) {
-                        this.noData = true;
-                    } else if (this.needData.length > 0) {
-                        this.noData = false;
-                        this.needData = res["data"];
-                        this.totalPages = res["totalPages"] * 10;
-                    }
-                });
-            },
-            selectServicesList(cid, st) {
-                if (st == 0) {
-                    var url = "/enterprise/apply/" + "10" + "/" + "1" + "?cid=" + cid;
-                } else {
-                    var url = "/enterprise/apply/" + "10" + "/" + "1" + "?cid=" + cid + '&st=' + st;
-                }
-                api.Get(url).then(res => {
-                    this.needData = res["data"];
-                    if (this.needData.length == 0) {
-                        this.noData = true;
-                    } else if (this.needData.length > 0) {
-                        this.noData = false;
-                        this.needData = res["data"];
-                        this.totalPages = res["totalPages"] * 10;
-                    }
-                });
-            },
-            handleCurrentChange(val) {
-                //获取到当前分页页码，获取当前页面数据
-                var url = "/enterprise/apply/" + "10" + "/" + val;
-                api.Get(url).then(res => {
-                    this.needData = res["data"];
-                    this.totalPages = res["totalPages"] * 10;
-                });
-            },
-            //打开服务需求详情
-            openDetail(id) { 
-                this.openFlag = true;
-                var url = "/enterprise/apply/" + id;
-                api.Get(url).then(res => {
-                    this.openData=res;
-                })
-            },
-            //关闭服务需求详情
-            closeDetail() {
-                this.openFlag = false;
-            },
-            //留言
-            enterpriseMsg() {
-                let params={
-                    "subjectId": 0,
-                    "content": this.msg
-                }
-                var url = "/enterprise/apply/msg";
-                api.Post(url,params).then(res => {
-                    this.openData=res;
-                })
-            },
-            initRank() {
-                var url = "/enterprise/apply/rank/10";
-                api.Get(url).then(res => {
-                    this.rankData=res;
-                })
-            }
-        },
-        filters: {
-            formatDate(time) {
-                let date = new Date(time);
-                return formatDate(date, "yyyy-MM-dd hh:mm");
-            }
-        }
+import api from "../axios/api.js";
+import { formatDate } from "../../static/js/date.js";
+export default {
+  data() {
+    return {
+      activeName: "tab1",
+      activeName2: "first",
+      show_need: false,
+      textarea: "",
+      category: "",
+      needData: "",
+      noData: false,
+      openFlag: false,
+      openData: "",
+      msg: "",
+      rankData: "",
+      recommend:'',//导师推荐
+      recommendFlag: false//导师有无数据标记
     };
+  },
+  created() {
+    this.getServiceClass();
+    this.initRank();
+  },
+  methods: {
+    getServiceClass() {
+      api.Get("/dict/service").then(res => {
+        this.category = res;
+        this.category.forEach((value, index, array) => {
+          this.category[index]["cname"] = "tab" + (index + 1);
+          if (index == 0) {
+            this.initServicesList(this.category[index]["id"]);
+          }
+        });
+      });
+    },
+    handleClick(tab, event) {
+      this.initServicesList(tab["$attrs"]["cid"]);
+      this.activeName2 = "first";
+    },
+    handleClick2(tab, event) {
+      this.selectServicesList(tab["$attrs"]["cid"], tab["$attrs"]["st"]);
+    },
+    initServicesList(cid) {
+      var url = "/enterprise/apply/" + "10" + "/" + "1" + "?cid=" + cid;
+      api.Get(url).then(res => {
+        this.needData = res["page"]["data"];
+        this.recommend = res["recommend"];
+        if (this.needData.length == 0) {
+          this.noData = true;
+        } else if (this.needData.length > 0) {
+          this.noData = false;
+          this.needData = res["page"]["data"];
+          this.totalPages = res["page"]["totalPages"] * 10;
+        }
+
+        // 导师推荐
+        if (this.recommend.length == 0) {
+          this.recommendFlag = true;
+        } else if (this.recommend.length > 0) {
+          this.recommendFlag = false;
+          this.recommend = res["recommend"];
+        }
+      });
+    },
+    selectServicesList(cid, st) {
+      if (st == 0) {
+        var url = "/enterprise/apply/" + "10" + "/" + "1" + "?cid=" + cid;
+      } else {
+        var url =
+          "/enterprise/apply/" + "10" + "/" + "1" + "?cid=" + cid + "&st=" + st;
+      }
+      api.Get(url).then(res => {
+        this.needData = res["page"]["data"];
+        this.recommend = res["recommend"];
+        if (this.needData.length == 0) {
+          this.noData = true;
+        } else if (this.needData.length > 0) {
+          this.noData = false;
+          this.needData = res["page"]["data"];
+          this.totalPages = res["page"]["totalPages"] * 10;
+        }
+
+        // 导师推荐
+        if (this.recommend.length == 0) {
+          this.noData = true;
+        } else if (this.recommend.length > 0) {
+          this.noData = false;
+          this.recommend = res["recommend"];
+        }
+      });
+    },
+    handleCurrentChange(val) {
+      //获取到当前分页页码，获取当前页面数据
+      var url = "/enterprise/apply/" + "10" + "/" + val;
+      api.Get(url).then(res => {
+        this.needData = res["page"]["data"];
+        this.totalPages = res["page"]["totalPages"] * 10;
+      });
+    },
+    //打开服务需求详情
+    openDetail(id) {
+      this.openFlag = true;
+      var url = "/enterprise/apply/" + id;
+      api.Get(url).then(res => {
+        this.openData = res;
+      });
+    },
+    //关闭服务需求详情
+    closeDetail() {
+      this.openFlag = false;
+    },
+    //留言
+    enterpriseMsg(id) {
+      let params = {
+        subjectId: id,
+        content: this.msg
+      };
+      var url = "/enterprise/apply/msg";
+      api.Post(url, params).then(res => {
+        this.openData = res;
+      });
+    },
+    initRank() {
+      var url = "/enterprise/apply/rank/10";
+      api.Get(url).then(res => {
+        this.rankData = res;
+      });
+    }
+  },
+  filters: {
+    formatDate(time) {
+      let date = new Date(time);
+      return formatDate(date, "yyyy-MM-dd hh:mm");
+    }
+  }
+};
 </script>
 
 <style>
-    /*面包屑导航*/
-    .el-breadcrumb {
-        font-size: 13px;
-        line-height: 3;
-        margin-top: 10px;
-    }
-    .show_need_mask {
-        width:100%;
-        height:100%;
-        position:fixed;
-        top:0;
-        left:0;
-        background-color:rgba(0,0,0,.5);
-        z-index: 99;
-    }
-    .show_need {
-        position:fixed;
-        top:20%;
-        left:50%;
-        margin-left:-335px;
-        padding:10px;
-        background-color:#fff;
-        z-index: 100;
-        border:1px solid #eee;
-        border-radius:5px;
-
-    }
-    .show_need p {
-        line-height: 30px;
-        margin-top: 10px;
-    }
-    .need_import {
-        margin-bottom: 20px;
-        margin-top: 10px;
-    }
-    .need_import h3 {
-        font-size: 16px;
-        font-weight: normal;
-        color: #666;
-    }
-    .need_import p {
-        font-weight: normal;
-        font-size: 12px;
-        color: #999;
-        line-height: 20px;
-        border-bottom: 1px solid #ddd;
-        margin-top: 10px;
-    }
-    .need_import h1 {
-        height: 30px;
-        line-height: 30px;
-        font-weight: normal;
-        font-size: 12px;
-        color: #666;
-        margin-top: 15px;
-    }
-    .show_need button {
-        border: none;
-        background-color: #f48100;
-        color: #fff;
-        font-size: 14px;
-        width: 70px;
-        height: 28px;
-        border-radius: 4px;
-        margin-left: 84%;
-        margin-top: 20px;
-    }
-    /*行业分类*/
-    .show_btn {
-        border: none;
-        background-color: #f48100;
-        color: #fff;
-        font-size: 14px;
-        width: 70px;
-        height: 28px;
-        border-radius: 4px;
-        margin-left: 30px;
-    }
-    @media (min-width: 768px) {
-        .classify ul li {
-            float: left;
-            margin-right: 3%;
-            font-size: 12px;
-            color: #0089e3;
-        }
-        .show_btn {
-            border: none;
-            background-color: #f48100;
-            color: #fff;
-            font-size: 12px;
-            width: 70px;
-            height: 28px;
-            border-radius: 4px;
-            margin-left: 20px;
-            text-align: center;
-            margin-top: 28px;
-        }
-    }
-    @media (min-width: 992px) {
-        .show_btn {
-            border: none;
-            background-color: #f48100;
-            color: #fff;
-            font-size: 12px;
-            width: 60px;
-            height: 28px;
-            border-radius: 4px;
-            margin-left: 0;
-            margin-top: 28px;
-        }
-    }
-    @media (min-width: 1200px) {
-        .show_btn {
-            border: none;
-            background-color: #f48100;
-            color: #fff;
-            font-size: 12px;
-            width: 70px;
-            height: 28px;
-            border-radius: 4px;
-            margin-left: 30px;
-            margin-top: 28px;
-        }
-    }
-    /*企业技术难题及需求*/
-    .need_xq {
-        border-bottom: 1px solid #ddd;
-    }
-    .need_xq:hover {
-        border-bottom:1px solid #91d3ff;
-    }
-    .need_xq p {
-        height: 38px;
-        line-height: 38px;
-        color: #0089e3;
-        font-size: 12px;
-        cursor: pointer;
-    }
-    .need_xq p span {
-        margin-left: 10px;
-        color: #999;
-        font-size: 12px;
-    }
-    /*热门排行*/
-    .news-rightlist {
-        box-shadow: 0 0 10px #ddd;
-        width: 100%;
-        padding: 0 10px 20px 20px;
-        margin-bottom: 50px;
-        margin-top: 40px;
-    }
-    .news-hot {
-        position: relative;
-        top: -11px;
-        left: 20px;
-        background-color: #fff;
-        width: 25%;
-        text-align: center;
-        color: #0089e3;
-        font-weight: 600;
-        font-size: 16px;
-    }
-    .news-button button {
-        border: none;
-        background-color: #ff0000;
-        float: right;
-        margin-right: 10px;
-        border-radius: 4px;
-        margin-bottom: 10px;
-    }
-    .news-rightlist ul li {
-        clear: both;
-        line-height: 30px;
-        color: #a1a1a1;
-        font-size: 14px;
-        letter-spacing: 1px;
-    }
-    .news-rightlist ul li span {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        background-color: #0089e3;
-        color: #fff;
-        text-align: center;
-        line-height: 20px;
-        margin-right: 10px;
-    }
-    /*导师推荐*/
-    .need_teacher div img {
-        width: 100px;
-        border-radius: 50%;
-    }
-    .need_teacher div p {
-        line-height: 30px;
-        font-size: 14px;
-    }
-    .need_teacher div p:first-child {
-        margin-top: 25px;
-    }
-    .need_teacher div button {
-        border: none;
-        background-color: #f48100;
-        color: #fff;
-        font-size: 14px;
-        width: 70px;
-        height: 28px;
-        border-radius: 4px;
-        margin-top: 40px;
-    }
+/*面包屑导航*/
+.el-breadcrumb {
+  font-size: 13px;
+  line-height: 3;
+  margin-top: 10px;
+}
+.show_need_mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+.show_need {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  margin-left: -335px;
+  padding: 10px;
+  background-color: #fff;
+  z-index: 100;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+.show_need p {
+  line-height: 30px;
+  margin-top: 10px;
+}
+.need_import {
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.need_import h3 {
+  font-size: 16px;
+  font-weight: normal;
+  color: #666;
+}
+.need_import p {
+  font-weight: normal;
+  font-size: 12px;
+  color: #999;
+  line-height: 20px;
+  border-bottom: 1px solid #ddd;
+  margin-top: 10px;
+}
+.need_import h1 {
+  height: 30px;
+  line-height: 30px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
+  margin-top: 15px;
+}
+.show_need button {
+  border: none;
+  background-color: #f48100;
+  color: #fff;
+  font-size: 14px;
+  width: 70px;
+  height: 28px;
+  border-radius: 4px;
+  margin-left: 84%;
+  margin-top: 20px;
+}
+/*行业分类*/
+.show_btn {
+  border: none;
+  background-color: #f48100;
+  color: #fff;
+  font-size: 14px;
+  width: 70px;
+  height: 28px;
+  border-radius: 4px;
+  margin-left: 30px;
+}
+@media (min-width: 768px) {
+  .classify ul li {
+    float: left;
+    margin-right: 3%;
+    font-size: 12px;
+    color: #0089e3;
+  }
+  .show_btn {
+    border: none;
+    background-color: #f48100;
+    color: #fff;
+    font-size: 12px;
+    width: 70px;
+    height: 28px;
+    border-radius: 4px;
+    margin-left: 20px;
+    text-align: center;
+    margin-top: 28px;
+  }
+}
+@media (min-width: 992px) {
+  .show_btn {
+    border: none;
+    background-color: #f48100;
+    color: #fff;
+    font-size: 12px;
+    width: 60px;
+    height: 28px;
+    border-radius: 4px;
+    margin-left: 0;
+    margin-top: 28px;
+  }
+}
+@media (min-width: 1200px) {
+  .show_btn {
+    border: none;
+    background-color: #f48100;
+    color: #fff;
+    font-size: 12px;
+    width: 70px;
+    height: 28px;
+    border-radius: 4px;
+    margin-left: 30px;
+    margin-top: 28px;
+  }
+}
+/*企业技术难题及需求*/
+.need_xq {
+  border-bottom: 1px solid #ddd;
+}
+.need_xq:hover {
+  border-bottom: 1px solid #91d3ff;
+}
+.need_xq p {
+  height: 38px;
+  line-height: 38px;
+  color: #0089e3;
+  font-size: 12px;
+  cursor: pointer;
+}
+.need_xq p span {
+  margin-left: 10px;
+  color: #999;
+  font-size: 12px;
+}
+/*热门排行*/
+.news-rightlist {
+  box-shadow: 0 0 10px #ddd;
+  width: 100%;
+  padding: 0 10px 20px 20px;
+  margin-bottom: 50px;
+  margin-top: 40px;
+}
+.news-hot {
+  position: relative;
+  top: -11px;
+  left: 20px;
+  background-color: #fff;
+  width: 25%;
+  text-align: center;
+  color: #0089e3;
+  font-weight: 600;
+  font-size: 16px;
+}
+.news-button button {
+  border: none;
+  background-color: #ff0000;
+  float: right;
+  margin-right: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.news-rightlist ul li {
+  clear: both;
+  line-height: 30px;
+  color: #a1a1a1;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+.news-rightlist ul li span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #0089e3;
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+  margin-right: 10px;
+}
+/*导师推荐*/
+.need_teacher div img {
+  width: 100px;
+  border-radius: 50%;
+  padding:16px 0;
+}
+.need_teacher div p {
+  line-height: 30px;
+  font-size: 14px;
+}
+.need_teacher div p:first-child {
+  /* margin-top: 25px; */
+}
+.need_teacher div button {
+  border: none;
+  background-color: #f48100;
+  color: #fff;
+  font-size: 14px;
+  width: 70px;
+  height: 28px;
+  border-radius: 4px;
+  margin-top: 25px;
+}
 </style>

@@ -19,7 +19,7 @@
                             <p>{{item.title}}</p>
                         </div>
                         <div>
-                            <router-link :to="{name:'tutorDetail', params: {id:item.id} }">
+                            <router-link :to="{name:'tutorDetail', params: {id:item.id}}">
                                 查看更多>>
                             </router-link>
                         </div>

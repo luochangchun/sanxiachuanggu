@@ -39,10 +39,7 @@
                 <h1>服务详情介绍</h1>
                 <el-row class="provider_p">
                     <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                        <!-- <div>
-                            <img src="../../static/img/provide_1.jpg" alt="">
-                        </div> -->
-                        <p style="margin:40px 0;">{{content}}</p>
+                        <div v-html="content"></div>
                     </el-col>
                 </el-row>
             </el-col>
