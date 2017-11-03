@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="container">
         <el-row :gutter="10">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" >
+            <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <el-row :gutter="10">
                     <el-col :lg="16" :md="24" :sm="24" :xs="24">
                         <!--行业分类-->
@@ -72,14 +72,14 @@
 
                             </el-row>
                             <!--分页-->
-                            <el-row :gutter="10" style="margin-bottom: 50px;margin-top: 50px;">
-                                <el-col :lg="8" :md="8" :sm="24" :xs="24"  :offset="8">
-                                    <div class="block">
-                                        <el-pagination layout="prev, pager, next" :total="1000">
-                                        </el-pagination>
-                                    </div>
-                                </el-col>
-                            </el-row>
+                            <!--<el-row :gutter="10" style="margin-bottom: 50px;margin-top: 50px;">-->
+                                <!--<el-col :lg="8" :md="8" :sm="24" :xs="24"  :offset="8">-->
+                                    <!--<div class="block">-->
+                                        <!--<el-pagination :current-page="1" :total="totalPages" @size-change="handleSizeChange" @current-change="handleCurrentChange" layout="prev, pager, next" :total="1000">-->
+                                        <!--</el-pagination>-->
+                                    <!--</div>-->
+                                <!--</el-col>-->
+                            <!--</el-row>-->
                         </div>
                         <!--需求详情-->
                         <div v-show="show_need" style="display: none" class="show_need">
@@ -152,17 +152,32 @@
 			return {
 				activeName: 'second',
 				show_need:false,
-				textarea: ''
+				textarea: '',
+//                //服务需求列表
+//				totalPages: ''
 			}
 		},
-		created() {
-
-		},
-		methods: {
-			handleClick(tab, event) {
-				console.log(tab, event);
-			},
-		},
+//		created() {
+//			this.getServiceList()
+//		},
+//		methods: {
+//			getTopList() {
+//				api.Get('/enterprise/apply/20/1')
+//					.then(res => {
+//						this.into_list = res['data'];
+//						this.totalPages = res['totalPages'] * 10;
+//					});
+//			},
+//			handleCurrentChange(val) {
+////				//获取到当前分页页码，获取当前页面数据
+////				var url = '/enterprise/apply/' + '10' + '/' + val;
+////				api.Get(url)
+////					.then(res => {
+////						this.provider_list = res['data'];
+////						this.totalPages = res['totalPages'] * 10;
+////					})
+////			}
+//		},
 		components: {
 			commonSwiper: Swiper
 		},
@@ -304,7 +319,7 @@
     /*热门排行*/
     .news-rightlist{
         box-shadow: 0 0 10px #ddd;
-        width:100%;
+        width:93%;
         padding: 0 10px  20px 20px;
         margin-bottom: 50px;
         margin-top: 40px;

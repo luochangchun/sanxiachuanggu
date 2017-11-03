@@ -1,54 +1,56 @@
 <template>
     <div style="width:100%;background-color:#ececec;">
-        <el-row :gutter="10">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
-                <div class="object_detail_head">
-                    <h2>{{financeDetail['name']}}</h2>
-                    <div></div>
-                </div>
-                <div class="column">
-                    <div class="column_title">我们是谁？</div>
-                    <div class="column_content">
-                        <div class="creative_main">
-                            <h3>创始人</h3>
-                            <div class="creative_main_info">
-                                <table>
-                                    <tbody><tr>
-                                        <td><span class="txt">姓名：</span><label>{{financeDetail['founder']}}</label></td>
-                                        <td><span class="txt">出生年月：</span><label>1975-07-10</label></td>
-                                        <td><span class="txt">投股比例：</span><label>80%</label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="txt">最高学历：</span><label>研究生</label></td>
-                                        <td><span class="txt">毕业院校：</span><label>北京交通大学</label></td>
-                                        <td><span class="txt">专业：</span><label>交通信息工程</label></td>
+        <div class="container">
+            <el-row :gutter="10">
+                <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                    <div class="object_detail_head">
+                        <h2>{{financeDetail['name']}}</h2>
+                        <div></div>
+                    </div>
+                    <div class="column">
+                        <div class="column_title">我们是谁？</div>
+                        <div class="column_content">
+                            <div class="creative_main">
+                                <h3>创始人</h3>
+                                <div class="creative_main_info">
+                                    <table>
+                                        <tbody><tr>
+                                            <td><span class="txt">姓名：</span><label>{{financeDetail['founder']}}</label></td>
+                                            <td><span class="txt">出生年月：</span><label>{{financeDetail['birth']}}</label></td>
+                                            <td><span class="txt">投股比例：</span><label>{{financeDetail['ratio']}}</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="txt">最高学历：</span><label>{{financeDetail['graduate']}}</label></td>
+                                            <td><span class="txt">毕业院校：</span><label>{{financeDetail['edu']}}</label></td>
+                                            <td><span class="txt">专业：</span><label>{{financeDetail['specialty']}}</label></td>
 
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3"><span class="txt">个人简历：</span>
-                                            <div>{{financeDetail['intro']}}</div>
-                                        </td>
-                                    </tr>
-                                    </tbody></table>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3"><span class="txt">个人简历：</span>
+                                                <div>{{financeDetail['intro']}}</div>
+                                            </td>
+                                        </tr>
+                                        </tbody></table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="column orange">
-                    <div class="column_title">我们在做什么？</div>
-                    <div class="column_content creative_main">{{financeDetail['what']}}</div>
-                </div>
-                <div class="column green">
-                    <div class="column_title">我们做得怎么样？</div>
-                    <div class="column_content creative_main" style="color:#000;">{{financeDetail['how']}}</div>
-                </div>
-                <div class="column red" style="margin-bottom: 50px;">
-                    <div class="column_title">为什么投资我们？</div>
-                    <div class="column_content creative_main" style="color:#000;">{{financeDetail['why']}}</div>
-                </div>
-            </el-col>
+                    <div class="column orange">
+                        <div class="column_title">我们在做什么？</div>
+                        <div class="column_content creative_main">{{financeDetail['what']}}</div>
+                    </div>
+                    <div class="column green">
+                        <div class="column_title">我们做得怎么样？</div>
+                        <div class="column_content creative_main" style="color:#000;">{{financeDetail['how']}}</div>
+                    </div>
+                    <div class="column red" style="margin-bottom: 50px;">
+                        <div class="column_title">为什么投资我们？</div>
+                        <div class="column_content creative_main" style="color:#000;">{{financeDetail['why']}}</div>
+                    </div>
+                </el-col>
 
-        </el-row>
+            </el-row>
+        </div>
     </div>
 </template>
 

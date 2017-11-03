@@ -118,11 +118,11 @@
 				this.$refs[formName].validate((valid) => {
 					if (valid) {
 						var params = {
-//							"classifyId": this.serviceNeedsForm.classifyId,
-//							"title": this.serviceNeedsForm.title,
-//							"needs": this.serviceNeedsForm.needs,
+							"classifyId": this.serviceNeedsForm.classifyId,
+							"title": this.serviceNeedsForm.title,
+							"needs": this.serviceNeedsForm.needs,
 							"captcha": this.serviceNeedsForm.captcha,
-//							"enterprise": this.serviceNeedsForm.enterprise,
+							"enterprise": this.serviceNeedsForm.enterprise,
 							"phone": this.serviceNeedsForm.phone
 						};
 						api.Post('/enterprise/apply', params)

@@ -143,6 +143,11 @@ img {
   width: auto;
   border-radius: 0;
 }
+.el-button {
+  margin: 0;
+  padding: 10px 15px !important;
+  border-radius: 4px;
+}
 /* 登录 */
 
 /* 首页--今日头条 */
@@ -346,7 +351,7 @@ img {
 .process {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, .4);
+  /*background-color: rgba(0, 0, 0, .4);*/
   top: 0;
   left: 0;
 }

@@ -8,81 +8,84 @@
                 </div>
             </el-col>
         </el-row>
-        <el-row :gutter="10">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
-                <el-row :gutter="10">
-                    <!--左边图文-->
-                    <el-col :lg="16" :md="16" :sm="24" :xs="24">
-                        <div v-show="!show_read">
-                            <!--导航切换-->
-                            <el-tabs v-model="activeName" @tab-click="handleClick">
-                                <el-tab-pane v-for="(item,index) in category" :key="index" :label="item.name" :name="item.cname" :cid="item.id">
-                                    <el-row :gutter="10" class="news-leftlist" v-show="!show_read">
-                                        <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }" class="m-t b-b clea" v-for="(item, index) in newsListData" :key="index">
-                                            <el-col :lg="7" :md="7" :sm="7" :xs="24" class="no-padder">
-                                                <div>
-                                                    <img :src="item.icon" class="w-full" @click="show_read=true">
+        <div class="container">
+            <el-row :gutter="10">
+                <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                    <el-row :gutter="10">
+                        <!--左边图文-->
+                        <el-col :lg="16" :md="16" :sm="24" :xs="24">
+                            <div v-show="!show_read">
+                                <!--导航切换-->
+                                <el-tabs v-model="activeName" @tab-click="handleClick">
+                                    <el-tab-pane v-for="(item,index) in category" :key="index" :label="item.name" :name="item.cname" :cid="item.id">
+                                        <el-row :gutter="10" class="news-leftlist" v-show="!show_read">
+                                            <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }" class="m-t b-b clea" v-for="(item, index) in newsListData" :key="index">
+                                                <el-col :lg="7" :md="7" :sm="7" :xs="24" class="no-padder">
+                                                    <div>
+                                                        <img :src="item.icon" class="w-full" @click="show_read=true">
+                                                    </div>
+                                                </el-col>
+                                                <el-col :lg="16" :md="16" :sm="16" :xs="24" :offset="1" class="pos">
+                                                    <p class="text-md font-bold text-ellipsis">
+                                                        <a href="" class="text-dark-lt">{{item['title']}}</a>
+                                                    </p>
+                                                    <p class="text-ellipsis-3" v-html="item['description']"></p>
+                                                    <div style="bottom:15px;">
+                                                        <p class="text-muted pull-left m-r">
+                                                            <i class="el-icon-time fa fa-clock-o m-r-xs"></i>
+                                                            <span>时间：{{item['time'] | formatDate}}</span>
+                                                        </p>
+                                                        <p class="text-muted pull-left">
+                                                            <i class="el-icon-edit fa fa-edit m-r-xs"></i>
+                                                            <span>{{item['views']}}</span>
+                                                        </p>
+                                                    </div>
+                                                </el-col>
+                                            </router-link>
+                                        </el-row>
+                                        <!--分页-->
+                                        <el-row :gutter="10" style="margin-bottom: 50px;">
+                                            <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
+                                                <div class="block">
+                                                    <el-pagination :current-page="1" :total="totalPages" @size-change="handleSizeChange" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                                    </el-pagination>
                                                 </div>
                                             </el-col>
-                                            <el-col :lg="16" :md="16" :sm="16" :xs="24" :offset="1" class="pos">
-                                                <p class="text-md font-bold text-ellipsis">
-                                                    <a href="" class="text-dark-lt">{{item['title']}}</a>
-                                                </p>
-                                                <p class="text-ellipsis-3" v-html="item['description']"></p>
-                                                <div style="bottom:15px;">
-                                                    <p class="text-muted pull-left m-r">
-                                                        <i class="el-icon-time fa fa-clock-o m-r-xs"></i>
-                                                        <span>时间：{{item['time'] | formatDate}}</span>
-                                                    </p>
-                                                    <p class="text-muted pull-left">
-                                                        <i class="el-icon-edit fa fa-edit m-r-xs"></i>
-                                                        <span>{{item['views']}}</span>
-                                                    </p>
-                                                </div>
-                                            </el-col>
-                                        </router-link>
-                                    </el-row>
-                                    <!--分页-->
-                                    <el-row :gutter="10" style="margin-bottom: 50px;">
-                                        <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
-                                            <div class="block">
-                                                <el-pagination :current-page="1" :total="totalPages" @size-change="handleSizeChange" @current-change="handleCurrentChange" layout="prev, pager, next">
-                                                </el-pagination>
-                                            </div>
-                                        </el-col>
-                                    </el-row>
-                                </el-tab-pane>
-                            </el-tabs>
-                            <!--左图右文-->
-                        </div>
-                    </el-col>
-                    <!--右边热门排行-->
-                    <el-col :lg="8" :md="8" :sm="24" :xs="24">
-                        <el-row :gutter="10">
-                            <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                                <div class="news-rightlist">
-                                    <div class="news-hot">热门排行</div>
-                                    <div class="news-button">
-                                        <button @click="week=true">周排行</button>
-                                        <button @click="week=false">日排行</button>
+                                        </el-row>
+                                    </el-tab-pane>
+                                </el-tabs>
+                                <!--左图右文-->
+                            </div>
+                        </el-col>
+                        <!--右边热门排行-->
+                        <el-col :lg="8" :md="8" :sm="24" :xs="24">
+                            <el-row :gutter="10">
+                                <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                                    <div class="news-rightlist">
+                                        <div class="news-hot">热门排行</div>
+                                        <div class="news-button">
+                                            <button @click="week=true">周排行</button>
+                                            <button @click="week=false">日排行</button>
+                                        </div>
+                                        <ul v-show="!week" style="display:none;">
+                                            <li v-for="( item,index ) in daily" :key="index">
+                                                <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }" class="text-ellipsis"><span>{{index+1}}</span>{{item.title}}</router-link>
+                                            </li>
+                                        </ul>
+                                        <ul v-show="week">
+                                            <li v-for="( item,index ) in weekly" :key="index">
+                                                <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }" class="text-ellipsis"><span>{{index+1}}</span>{{item.title}}</router-link>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <ul v-show="!week" style="display:none;">
-                                        <li v-for="( item,index ) in daily" :key="index">
-                                            <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }" class="text-ellipsis"><span>{{index+1}}</span>{{item.title}}</router-link>
-                                        </li>
-                                    </ul>
-                                    <ul v-show="week">
-                                        <li v-for="( item,index ) in weekly" :key="index">
-                                            <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }" class="text-ellipsis"><span>{{index+1}}</span>{{item.title}}</router-link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </el-col>
-                        </el-row>
-                    </el-col>
-                </el-row>
-            </el-col>
-        </el-row>
+                                </el-col>
+                            </el-row>
+                        </el-col>
+                    </el-row>
+                </el-col>
+            </el-row>
+        </div>
+
         <!--footer-->
     </div>
 </template>

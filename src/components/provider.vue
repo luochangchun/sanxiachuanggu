@@ -3,102 +3,106 @@
         <!--服务企业login-->
         <el-row :gutter="10">
             <el-col :lg="24" :md="24" :sm="24" :xs="24" style="background-color:#23b7e5">
-                <el-row :gutter="10">
-                    <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" class="provider_header">
-                        <div class="provider_login">
-                            <img :src="provider['icon']" alt="">
-                        </div>
-                        <div>
-                            <p>{{provider['name']}}</p>
-                            <!-- <button>贷款</button> -->
-                        </div>
-                    </el-col>
-                </el-row>
+                <div class="container">
+                    <el-row :gutter="10">
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24" class="provider_header">
+                            <div class="provider_login">
+                                <img :src="provider['icon']" alt="">
+                            </div>
+                            <div>
+                                <p>{{provider['name']}}</p>
+                                <!-- <button>贷款</button> -->
+                            </div>
+                        </el-col>
+                    </el-row>
+                </div>
             </el-col>
         </el-row>
-        <!--优惠服务-->
-        <el-row :gutter="10">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" class="provider_discounts">
-                <h1>优惠服务</h1>
-                <el-row class="provider_p">
-                    <el-col :lg="20" :md="20" :sm="24" :xs="24">
-                        <p>服务内容</p>
-                        <p>{{provider['intro']}}</p>
-                    </el-col>
-                    <el-col :lg="4" :md="4" :sm="24" :xs="24">
-                        <el-popover ref="popover1" placement="top-start" title="请联系平台" width="200" trigger="hover" content="027-65465656">
-                        </el-popover>
-                    <!-- <el-button v-popover:popover1>申请服务</el-button> -->
-                    </el-col>
-                </el-row>
-            </el-col>
-        </el-row>
-        <!--服务详情介绍-->
-        <el-row :gutter="10">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" class="provider_discounts" style="margin-bottom:30px;">
-                <h1>服务详情介绍</h1>
-                <el-row class="provider_p">
-                    <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                        <!-- <div>
-                            <img src="../../static/img/provide_1.jpg" alt="">
-                        </div> -->
-                        <p style="margin:40px 0;">{{content}}</p>
-                    </el-col>
-                </el-row>
-            </el-col>
-        </el-row>
-        <!--企业详情-->
-        <!-- <el-row :gutter="10" style="margin-top: 50px;margin-bottom: 50px;">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
-                <el-row>
-                    <el-col :lg="17" :md="17" :sm="24" :xs="24">
-                        <table border="1" class="table table-bordered bg-light" style="background-color: #edf1f2">
-                            <tbody>
-                                <tr>
-                                    <td class="font-bold w-xs">企业名称</td>
-                                    <td colspan="3">
-                                        <p>{{provider['name']}}</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold w-xs">联系人</td>
-                                    <td>{{provider['author']}}</td>
-                                    <td class="font-bold">联系电话</td>
-                                    <td>
-                                        <p>15172525978</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold w-xs">地址</td>
-                                    <td colspan="3">
-                                        <p>武汉市洪山区珞狮北路2号樱花大厦A座</p>
-                                    </td>
-                                </tr>
-                                <tr style="height:240px;">
-                                    <td class="font-bold w-xs h-md">企业简介与优势</td>
-                                    <td colspan="3">{{content}}</td>
-                                </tr>
-                                <tr style="height:90px;">
-                                    <td class="font-bold w-xs">服务领域</td>
-                                    <td colspan="3" class="h-xs">
-                                        <p>小微型企业、个体经营户</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold w-xs">备注</td>
-                                    <td colspan="3"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </el-col>
-                    <el-col :lg="6" :md="6" :sm="24" :xs="24" :offset="1">
-                        <div>
-                            <img src="../../static/img/provider_2.jpg" alt="">
-                        </div>
-                    </el-col>
-                </el-row>
-            </el-col>
-        </el-row> -->
+        <div class="container">
+            <!--优惠服务-->
+            <el-row :gutter="10">
+                <el-col :lg="24" :md="24" :sm="24" :xs="24" class="provider_discounts">
+                    <h1>优惠服务</h1>
+                    <el-row class="provider_p">
+                        <el-col :lg="20" :md="20" :sm="24" :xs="24">
+                            <p>服务内容</p>
+                            <p>{{provider['intro']}}</p>
+                        </el-col>
+                        <el-col :lg="4" :md="4" :sm="24" :xs="24">
+                            <el-popover ref="popover1" placement="top-start" title="请联系平台" width="200" trigger="hover" content="027-65465656">
+                            </el-popover>
+                            <!-- <el-button v-popover:popover1>申请服务</el-button> -->
+                        </el-col>
+                    </el-row>
+                </el-col>
+            </el-row>
+            <!--服务详情介绍-->
+            <el-row :gutter="10">
+                <el-col :lg="24" :md="24" :sm="24" :xs="24" class="provider_discounts" style="margin-bottom:30px;">
+                    <h1>服务详情介绍</h1>
+                    <el-row class="provider_p">
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                            <!-- <div>
+                                <img src="../../static/img/provide_1.jpg" alt="">
+                            </div> -->
+                            <p style="margin:40px 0;">{{content}}</p>
+                        </el-col>
+                    </el-row>
+                </el-col>
+            </el-row>
+            <!--企业详情-->
+            <!-- <el-row :gutter="10" style="margin-top: 50px;margin-bottom: 50px;">
+                <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                    <el-row>
+                        <el-col :lg="17" :md="17" :sm="24" :xs="24">
+                            <table border="1" class="table table-bordered bg-light" style="background-color: #edf1f2">
+                                <tbody>
+                                    <tr>
+                                        <td class="font-bold w-xs">企业名称</td>
+                                        <td colspan="3">
+                                            <p>{{provider['name']}}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold w-xs">联系人</td>
+                                        <td>{{provider['author']}}</td>
+                                        <td class="font-bold">联系电话</td>
+                                        <td>
+                                            <p>15172525978</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold w-xs">地址</td>
+                                        <td colspan="3">
+                                            <p>武汉市洪山区珞狮北路2号樱花大厦A座</p>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:240px;">
+                                        <td class="font-bold w-xs h-md">企业简介与优势</td>
+                                        <td colspan="3">{{content}}</td>
+                                    </tr>
+                                    <tr style="height:90px;">
+                                        <td class="font-bold w-xs">服务领域</td>
+                                        <td colspan="3" class="h-xs">
+                                            <p>小微型企业、个体经营户</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold w-xs">备注</td>
+                                        <td colspan="3"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </el-col>
+                        <el-col :lg="6" :md="6" :sm="24" :xs="24" :offset="1">
+                            <div>
+                                <img src="../../static/img/provider_2.jpg" alt="">
+                            </div>
+                        </el-col>
+                    </el-row>
+                </el-col>
+            </el-row> -->
+        </div>
     </div>
 </template>
 

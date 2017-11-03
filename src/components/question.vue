@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="container">
         <el-row :gutter="10">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" >
+            <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <el-row :gutter="10">
                     <el-col :lg="16" :md="24" :sm="24" :xs="24">
                         <!--行业分类-->
@@ -322,36 +322,62 @@
 
 
     /*行业分类*/
-    .classify h3{
+    .show_btn{
+        border:none;
+        background-color: #f48100;
+        color:#fff;
         font-size:14px;
-        font-weight: normal;
-        margin-top: 30px;
-        margin-bottom: 10px;
+        width:70px;
+        height:28px;
+        border-radius: 4px;
+        margin-left: 30px;
     }
-    /*.classify ul li{*/
-    /*float:left;*/
-    /*margin-right: 3%;*/
-    /*font-size: 12px;*/
-    /*color:#0089e3;*/
-    /*height:28px;*/
-    /*line-height:28px;*/
-    /*}*/
-    /*.classify ul li button{*/
-    /*border:none;*/
-    /*background-color: #f48100;*/
-    /*color:#fff;*/
-    /*font-size:14px;*/
-    /*width:70px;*/
-    /*height:28px;*/
-    /*border-radius: 4px;*/
-    /*margin-left: 30px;*/
-    /*}*/
-    .classify span{
-        border:1px solid #ddd;
-        display: block;
-        clear:both;
-        width:48%;
 
+    @media (min-width: 768px) {
+        .classify ul li{
+            float:left;
+            margin-right: 3%;
+            font-size: 12px;
+            color:#0089e3;
+        }
+        .show_btn{
+            border:none;
+            background-color: #f48100;
+            color:#fff;
+            font-size:12px;
+            width:70px;
+            height:28px;
+            border-radius: 4px;
+            margin-left: 20px;
+            text-align: center;
+            margin-top: 28px;
+        }
+    }
+    @media (min-width: 992px) {
+        .show_btn{
+            border:none;
+            background-color: #f48100;
+            color:#fff;
+            font-size:12px;
+            width:60px;
+            height:28px;
+            border-radius: 4px;
+            margin-left:0;
+            margin-top: 28px;
+        }
+    }
+    @media (min-width: 1200px) {
+        .show_btn{
+            border:none;
+            background-color: #f48100;
+            color:#fff;
+            font-size:12px;
+            width:70px;
+            height:28px;
+            border-radius: 4px;
+            margin-left:30px;
+            margin-top: 28px;
+        }
     }
     /*企业技术难题及需求*/
     .need_xq{
@@ -372,7 +398,7 @@
     /*热门排行*/
     .news-rightlist{
         box-shadow: 0 0 10px #ddd;
-        width:100%;
+        width:93%;
         padding: 0 10px  20px 20px;
         margin-bottom: 50px;
         margin-top: 40px;

@@ -3,71 +3,75 @@
         <!--服务企业login-->
         <el-row :gutter="10">
             <el-col :lg="24" :md="24" :sm="24" :xs="24" style="background-color:#23b7e5">
-                <el-row :gutter="10">
-                    <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" class="provider_header">
-                        <div class="provider_login">
-                            <img src="" alt="">
-                        </div>
-                        <div>
-                            <p>{{financeDetail['name']}}</p>
-                            <button>投资机构</button>
-                        </div>
-                    </el-col>
-                </el-row>
+                <div class="container">
+                    <el-row :gutter="10">
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24" class="provider_header">
+                            <div class="provider_login">
+                                <img src="" alt="">
+                            </div>
+                            <div>
+                                <p>{{financeDetail['name']}}</p>
+                                <button>投资机构</button>
+                            </div>
+                        </el-col>
+                    </el-row>
+                </div>
             </el-col>
         </el-row>
         <!--企业详情-->
-        <el-row :gutter="10" style="margin-top: 50px;margin-bottom: 50px;">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
-                <el-row>
-                    <el-col :lg="17" :md="17" :sm="24" :xs="24">
-                        <table border="1" class="table table-bordered bg-light" style="background-color: #edf1f2">
-                            <tbody>
-                            <tr>
-                                <td class="font-bold w-xs">企业名称</td>
-                                <td colspan="3">
-                                    <p>{{financeDetail['name']}}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold w-xs">联系人</td>
-                                <td>{{financeDetail['founder']}}</td>
-                                <td class="font-bold">联系电话</td>
-                                <td>
-                                    <p>15172525978</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold w-xs">地址</td>
-                                <td colspan="3">
-                                    <p>武汉市洪山区珞狮北路2号樱花大厦A座</p>
-                                </td>
-                            </tr>
-                            <tr style="height:240px;">
-                                <td class="font-bold w-xs h-md">企业简介与优势</td>
-                                <td colspan="3">{{financeDetail['how']}}</td>
-                            </tr>
-                            <tr style="height:90px;">
-                                <td class="font-bold w-xs">服务领域</td>
-                                <td colspan="3" class="h-xs">
-                                    <p>{{financeDetail['what']}}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold w-xs">备注</td>
-                                <td colspan="3"></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </el-col>
-                    <el-col :lg="6" :md="6" :sm="24" :xs="24" :offset="1">
-                        <div>
-                            <img src="../../static/img/provider_2.jpg" alt="">
-                        </div>
-                    </el-col>
-                </el-row>
-            </el-col>
-        </el-row>
+        <div class="container">
+            <el-row :gutter="10" style="margin-top: 50px;margin-bottom: 50px;">
+                <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                    <el-row>
+                        <el-col :lg="17" :md="17" :sm="24" :xs="24">
+                            <table border="1" class="table table-bordered bg-light" style="background-color: #edf1f2">
+                                <tbody>
+                                <tr>
+                                    <td class="font-bold w-xs">企业名称</td>
+                                    <td colspan="3">
+                                        <p>{{financeDetail['name']}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold w-xs">联系人</td>
+                                    <td>{{financeDetail['founder']}}</td>
+                                    <td class="font-bold">联系电话</td>
+                                    <td>
+                                        <p>15172525978</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold w-xs">地址</td>
+                                    <td colspan="3">
+                                        <p>武汉市洪山区珞狮北路2号樱花大厦A座</p>
+                                    </td>
+                                </tr>
+                                <tr style="height:240px;">
+                                    <td class="font-bold w-xs h-md">企业简介与优势</td>
+                                    <td colspan="3">{{financeDetail['how']}}</td>
+                                </tr>
+                                <tr style="height:90px;">
+                                    <td class="font-bold w-xs">服务领域</td>
+                                    <td colspan="3" class="h-xs">
+                                        <p>{{financeDetail['what']}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold w-xs">备注</td>
+                                    <td colspan="3"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </el-col>
+                        <el-col :lg="6" :md="6" :sm="24" :xs="24" :offset="1">
+                            <div>
+                                <img src="../../static/img/provider_2.jpg" alt="">
+                            </div>
+                        </el-col>
+                    </el-row>
+                </el-col>
+            </el-row>
+        </div>
     </div>
 </template>
 

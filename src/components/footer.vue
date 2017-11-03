@@ -17,7 +17,7 @@
         </div>
         <div class="bg-dark">
             <div class="tc padder-v-xxs">
-                <p class="m-b-xs m-t-xs">Copyright © 2017.Phoenix All rights reserved.鄂ICP备16001629号-1</p>
+                <p class="m-b-xs m-t-xs">Copyright © 2017.Phoenix All rights reserved.鄂ICP备17024353号</p>
             </div>
         </div>
     </div>

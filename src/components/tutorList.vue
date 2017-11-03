@@ -14,12 +14,12 @@
                 <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in tutorList" :key="index">
                     <div class="research-teacher">
                         <img :src="item.photo" alt="">
-                        <div>
-                            <h3>{{item.name}}</h3>
+                        <div class="b">
+                            <h3 class="f16">{{item.name}}</h3>
                             <p>{{item.title}}</p>
                         </div>
-                        <div>
-                            <router-link :to="{name:'tutorDetail', params: {id:item.id} }">
+                        <div class="tutorcCheck white tc f14">
+                            <router-link :to="{name:'tutorDetail', params: {id:item.id} }" style="color:#fff;">
                                 查看更多>>
                             </router-link>
                         </div>
@@ -74,6 +74,17 @@
 </script>
 
 <style scoped>
+    .white{
+        color:#fff;
+    }
+    .f16{
+        text-align: center;
+    }
+    .b p{
+        text-align: center;
+        line-height: 30px;
+        padding: 0% 5px;
+    }
     .research-teacher {
         margin-bottom: 30px;
     }

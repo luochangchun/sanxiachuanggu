@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="container">
 		<el-row :gutter="10" style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
 			<el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" style="background-color:#fff;padding:30px 25px 15px 0">
 				<p class="tc b f20">工位申请表</p>

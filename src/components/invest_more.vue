@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="container">
         <el-row :gutter="10" style="margin-bottom: 50px;">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" style="margin-top:30px;">
+            <el-col :lg="24" :md="24" :sm="24" :xs="24" style="margin-top:30px;">
                 <p style="font-size:14px;color:#666;line-height:40px;">您所在的位置 : <span style="color:#0089e3;">投融资库</span> > 投资机构列表</p>
                 <div>
                     <el-row :gutter="10" style="margin-bottom: 10px;" class="into_more_header">

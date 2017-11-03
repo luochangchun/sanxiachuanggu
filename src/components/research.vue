@@ -9,82 +9,90 @@
             </el-col>
         </el-row>
         <!--院校展示-->
-        <el-row :gutter="10" style="margin-bottom: 50px;">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
-                <div class="title" id="title-school">
-                    <h1>院校展示</h1>
-                    <p>ENTREPRENEURIAL MENTOP</p>
-                    <hr>
-                    <span></span>
-                </div>
-                <el-row :gutter="10">
-                    <router-link :to="{name:'school_detail', params: {id:item['id']} }" v-for="(item, index) in university" :key="index">
-                        <el-col :lg="6" :md="6" :sm="12" :xs="24" class="schoolList">
-                            <img :src="item.icon" alt="" style="border:1px solid #ddd;">
-                            <p style="color:#666;">{{item.name}}</p>
-                        </el-col>
-                    </router-link>
-                </el-row>
-            </el-col>
-        </el-row>
-        <!--创业导师团-->
-        <div style="background-color: #eee;padding-bottom: 50px;">
-            <el-row :gutter="10">
-                <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
-                    <div class="title" id="title-teacher">
-                        <h1>创业导师团</h1>
+        <div class="container">
+            <el-row :gutter="10" style="margin-bottom: 50px;">
+                <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                    <div class="title" id="title-school">
+                        <h1>院校展示</h1>
                         <p>ENTREPRENEURIAL MENTOP</p>
                         <hr>
                         <span></span>
-                        <router-link :to="{ name: 'tutorList'}" class="r more_plus" style="margin-top:-41px"></router-link>
                     </div>
                     <el-row :gutter="10">
-                        <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in mentor" :key="index">
-                            <div class="research-teacher">
-                                <img :src="item.photo" alt="">
-                                <div>
-                                    <h3>{{item.name}}</h3>
-                                    <p>{{item.title}}</p>
-                                </div>
-                                <div>
-                                    <router-link :to="{name:'tutorDetail', params: {id:item.id} }">
-                                        查看更多>>
-                                    </router-link>
-                                </div>
-                            </div>
-                        </el-col>
+                        <router-link :to="{name:'school_detail', params: {id:item['id']} }" v-for="(item, index) in university" :key="index">
+                            <el-col :lg="6" :md="6" :sm="12" :xs="24" class="schoolList">
+                                <img :src="item.icon" alt="" style="border:1px solid #ddd;">
+                                <p style="color:#666;">{{item.name}}</p>
+                            </el-col>
+                        </router-link>
                     </el-row>
                 </el-col>
             </el-row>
         </div>
-        <!--校园人才-->
-        <!-- <el-row :gutter="10">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
-                <div class="title" id="title-talents">
-                    <h1>校园人才</h1>
-                    <p>ENTREPRENEURIAL MENTOP</p>
-                    <hr>
-                    <span></span>
-                    <div class="r more_plus"></div>
-                </div>
-                <el-row :gutter="10" style="margin-bottom: 50px;">
-                    <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in talented" :key="index" style="margin-bottom: 20px;">
-                        <el-row>
-                            <el-col :lg="6" :md="6" :sm="6" :xs="24">
-                                <div class="research-teacher-img">
+
+        <!--创业导师团-->
+        <div style="background-color: #eee;padding-bottom: 50px;">
+            <div class="container">
+                <el-row :gutter="10">
+                    <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                        <div class="title" id="title-teacher">
+                            <h1>创业导师团</h1>
+                            <p>ENTREPRENEURIAL MENTOP</p>
+                            <hr>
+                            <span></span>
+                            <router-link :to="{ name: 'tutorList'}" class="r more_plus" style="margin-top:-41px"></router-link>
+                        </div>
+                        <el-row :gutter="10">
+                            <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in mentor" :key="index">
+                                <div class="research-teacher">
                                     <img :src="item.photo" alt="">
+                                    <div>
+                                        <h3>{{item.name}}</h3>
+                                        <p>{{item.title}}</p>
+                                    </div>
+                                    <div>
+                                        <router-link :to="{name:'tutorDetail', params: {id:item.id} }">
+                                            查看更多>>
+                                        </router-link>
+                                    </div>
                                 </div>
-                            </el-col>
-                            <el-col :lg="17" :md="17" :sm="17" :xs="24" :offset="1">
-                                <p class="research-name">{{item.name}}</p>
-                                <p class="research-school">{{item.university}}</p>
-                                <p class="research-text">{{item.title}}</p>
                             </el-col>
                         </el-row>
                     </el-col>
                 </el-row>
-            </el-col>
-        </el-row> -->
+            </div>
+        </div>
+        <!--校园人才-->
+        <!--<div class="container">-->
+            <!--<el-row :gutter="10">-->
+                <!--<el-col :lg="18" :md="18" :sm="18" :xs="18">-->
+                    <!--<div class="title" id="title-talents">-->
+                        <!--<h1>校园人才</h1>-->
+                        <!--<p>ENTREPRENEURIAL MENTOP</p>-->
+                        <!--<hr>-->
+                        <!--<span></span>-->
+                        <!--<div class="r more_plus"></div>-->
+                    <!--</div>-->
+                    <!--<el-row :gutter="10" style="margin-bottom: 50px;">-->
+                        <!--<el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in talented" :key="index" style="margin-bottom: 20px;">-->
+                            <!--<el-row>-->
+                                <!--<el-col :lg="6" :md="6" :sm="6" :xs="24">-->
+                                    <!--<div class="research-teacher-img">-->
+                                        <!--<img :src="item.photo" alt="">-->
+                                    <!--</div>-->
+                                <!--</el-col>-->
+                                <!--<el-col :lg="17" :md="17" :sm="17" :xs="24" :offset="1">-->
+                                    <!--<p class="research-name">{{item.name}}</p>-->
+                                    <!--<p class="research-school">{{item.university}}</p>-->
+                                    <!--<p class="research-text">{{item.title}}</p>-->
+                                <!--</el-col>-->
+                            <!--</el-row>-->
+                        <!--</el-col>-->
+                    <!--</el-row>-->
+                <!--</el-col>-->
+            <!--</el-row>-->
+        <!--</div>-->
+
         <!-- footer -->
     </div>
 </template>

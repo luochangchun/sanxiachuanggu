@@ -72,18 +72,30 @@
     <!-- 双创办公室 -->
     <div class="office">
       <div class="container">
-        <el-row :gutter="0">
+        <el-row :gutter="20">
           <el-col :xs="24" :sm="24" :md="24" :lg="24">
             <div class="l office_title"></div>
-            <router-link to="/incubators" class="r more_plus"></router-link>
+            <!--<router-link to="/incubators" class="r more_plus"></router-link>-->
           </el-col>
         </el-row>
-        <el-row class="office_wrap"  :gutter="6">
-          <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in office" :key="index">
-            <a class="office_item" :href="item.redirect">
-              <img :src="item.icon" alt="">
-              <p class="tc black2">{{item.name}}</p>
-            </a>
+        <el-row class="office_wrap"  :gutter="6" style="margin-top: 40px;">
+          <el-col :xs="24" :sm="24" :md="12" :lg="12">
+             <router-link :to="{ name: 'office_list_policy'}" class="office_con">
+                <img src="../../static/img/fw (2).png" alt="">
+                <div>
+                  <h3>优惠政策</h3>
+                  <h2>入口>></h2>
+                </div>
+             </router-link>
+          </el-col>
+          <el-col :xs="24" :sm="24" :md="12" :lg="12">
+            <router-link :to="{ name: 'office_list_window'}" class="office_con">
+              <img src="../../static/img/fw (1).png" alt="">
+              <div>
+                <h3>服务窗口</h3>
+                <h2>入口>></h2>
+              </div>
+            </router-link>
           </el-col>
         </el-row>
       </div>
@@ -166,7 +178,7 @@
         <el-row :gutter="0">
           <el-col :xs="24" :sm="24" :md="24" :lg="24">
             <div class="l Financing_title"></div>
-            <router-link :to="{ name: 'financingList'}" class="r more_plus"></router-link>
+            <router-link :to="{ name: 'financing_more'}" class="r more_plus"></router-link>
           </el-col>
         </el-row>
         <el-row :gutter="20">
@@ -222,8 +234,17 @@
         financing: '', //融资项目
         incubator: '', //孵化器
         mentor: '', //创业导师
-        office: '', //双创办公室
-        provider: '' //服务商
+        provider: '' ,//服务商
+		officeList: [
+			  {
+                url: '../../static/img/fw (2).png',
+                title: '优惠政策'
+			  },
+			{
+				url: '../../static/img/fw (1).png',
+				title: '服务窗口'
+			}
+		  ]
       }
     },
     components: {
@@ -270,5 +291,28 @@
   }
 </script>
 
+<style>
+  .office_con{
+    position: relative;
+  }
+  .office_con h2{
+    font-size: 14px;
+    color:#2970a4;
+    font-weight: normal;
+    margin-left:120px;
 
+  }
+  .office_con h3{
+    color:#2970a4;
+    font-size:26px;
+    letter-spacing: 5px;
+  }
+  .office_con div{
+    width:100%;
+    position:absolute;
+    line-height:25px;
+    top:40%;
+    text-align: center;
+  }
+</style>
 
