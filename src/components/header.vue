@@ -30,7 +30,10 @@
                             <router-link to="/map">创谷空间</router-link>
                             <ul>
                                 <li class='has-sub'>
-                                    <router-link to="/need">服务需求</router-link>
+                                    <router-link to="/attract/invest">招商信息</router-link>
+                                </li>
+                                <li class='has-sub'>
+                                    <router-link to="/attract/rent">求租信息</router-link>
                                 </li>
                             </ul>
                         </li>
@@ -39,6 +42,9 @@
                             <ul>
                                 <li class='has-sub'>
                                     <router-link to="/need">招商信息</router-link>
+                                </li>
+                                <li class='has-sub'>
+                                    <router-link to="/need">求租信息</router-link>
                                 </li>
                             </ul>
                         </li>

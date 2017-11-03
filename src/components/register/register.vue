@@ -244,7 +244,7 @@
                     alert('请输入正确手机号');
                     return false;
                 }
-                let url= '/captcha/' + tel
+                let url= '/pub/captcha/' + tel
                 api.Post(url, {})
                     .then(res => {
                         console.log(res);
@@ -258,7 +258,7 @@
                     alert('请输入正确手机号');
                     return false;
                 }
-                let url= '/captcha/' + tel
+                let url= '/pub/captcha/' + tel
                 api.Post(url, {})
                     .then(res => {
                         console.log(res);

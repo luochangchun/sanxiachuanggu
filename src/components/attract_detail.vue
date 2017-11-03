@@ -15,16 +15,18 @@
                         </el-row>
                     </el-col>
                     <el-col :lg="11" :md="11" :sm="24" :xs="24" :offset="1" class="details-text">
-                        <h6>{{incubator['name']}}</h6>
-                        <p>地址:{{incubator['address']}}</p>
-                        <p>级别:{{incubator['level']}}</p>
-                        <p>联系方式:{{incubator['contact']}} {{incubator['phone']}}</p>
-                        <p>场地面积:24000平米</p>
-                        <p>在孵企业数:{{incubator['cubicles']}}家</p>
+                        <h6>{{tenancyApply['detail']['title']}}</h6>
+                        <p>地址:{{tenancyApply['address']}}</p>
+                        <p>联系方式:{{tenancyApply['detail']['contact']}} {{tenancyApply['phone']}}</p>
+                        <p>场地面积:{{tenancyApply['area']}}平米</p>
+                        <!-- 跳到孵化器申请表单 -->
+                        <router-link v-if="tenancyApply['type']==2" :to="{ name: 'attract_list', params: { id: tenancyApply.id} }">申请入驻</router-link>
+                        <!-- 跳到工位申请表单 -->
+                        <router-link v-if="tenancyApply['type']==3" :to="{ name: 'station', params: { id: tenancyApply.id} }">申请入驻</router-link>
                     </el-col>
                 </el-row>
                 <el-row :gutter="10" class="incubators_details_text" style="border:1px solid #ddd;background-color: #fff;padding:15px;margin-top:20px;">
-                    <p>重点孵化类型:{{content}}</p>
+                    <p v-html="content"></p>
                 </el-row>
             </el-col>
         </el-row>
@@ -35,26 +37,26 @@
 	export default {
 		data() {
 			return {
-				incubator: '',
+				tenancyApply: '',
 				photos: '',
 				content:''
 			}
 		},
 		created() {
 			let id = this.$route.params.id
-			this.getIncubator(id);
+			this.getTenancyApply(id);
 		},
 		methods: {
-			getIncubator(id) {
-				api.Get('/qb/' + id)
+			getTenancyApply(id) {
+				api.Get('/qb/tenancy/' + id)
 					.then(res => {
 						console.log(res);
-						this.incubator = res['incubator'];
+						this.tenancyApply = res['tenancyApply'];
 						this.photos = res['photos']
-						if(!res['incubator']['detail']) {
+						if(!res['tenancyApply']['detail']) {
 							this.content="暂无数据"
 						} else {
-							this.content=res['incubator']['detail']['content'];
+							this.content=res['tenancyApply']['detail']['content'];
 						}
 					});
 			}
@@ -86,7 +88,7 @@
     .details-text p {
         line-height: 200%;
     }
-    .details-text button {
+    .details-text a {
         background-color: #f48100;
         border: none;
         color: #fff;

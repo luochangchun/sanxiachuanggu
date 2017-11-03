@@ -186,10 +186,8 @@
 <style>
     /*banner*/
     .service-banner {
-        background-image: url(../../static/img/service-banner_02.png);
-        background-repeat: no-repeat;
+        background: url(../../static/img/service02.png) no-repeat center center;
         background-size: cover;
-        background-position: center center;
         width: 100%;
     }
     .service-nav {
