@@ -70,7 +70,7 @@ import demand_list from '../src/components/demand_list.vue'
 
 Vue.use(VueRouter)
 const routes = [
-	{ path: '/index', component: Index, name: 'Index' },
+	{ path: '/', component: Index, name: 'Index' },
 	{ path: '/map', component: Map, name: 'Map' },
 	{ path: '/activitys', component: Activitys, name: 'Activitys' },
 	{ path: '/activityPara/:id', component: ActivityPara, name: 'ActivityPara' },
@@ -134,12 +134,12 @@ const routes = [
 	{ path: '/problem/:type', component: problem, name: 'problem' },//发布企业难题表单
 	{ path: '/service_needs', component: service_needs, name: 'service_needs' },//服务需求发布表单
 	//10.30
-	{ path: '/attract', component: attract, name: 'attract' },//招商讯息页
+	{ path: '/attract/:type', component: attract, name: 'attract' },//招商讯息页
 	{ path: '/demand', component: demand, name: 'demand' },//求租讯息页
 	{ path: '/financing_more', component: financing_more, name: 'financing_more' },//融资项目(more)
-	{ path: '/attract_detail', component: attract_detail, name: 'attract_detail' },//招商讯息详情
+	{ path: '/attract_detail/:id', component: attract_detail, name: 'attract_detail' },//招商讯息详情
 	{ path: '/demand_detail', component: demand_detail, name: 'demand_detail' },//求租讯息详情
-	{ path: '/attract_list', component: attract_list, name: 'attract_list' },//招商发布表单
+	{ path: '/attract_list/:id', component: attract_list, name: 'attract_list' },//招商发布表单
 	{ path: '/demand_list', component: demand_list, name: 'demand_list' },//求租发布表单
 
 ];

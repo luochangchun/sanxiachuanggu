@@ -176,7 +176,7 @@ export default {
       this.selectServicesList(tab["$attrs"]["cid"], tab["$attrs"]["st"]);
     },
     initServicesList(cid) {
-      var url = "/consult/" + "10" + "/" + "1" + "?cid=" + cid;
+      var url = "/consult/" + "10" + "/" + "1" + "?bid=" + cid;
       api.Get(url).then(res => {
         this.needData = res["page"]["data"];
         this.recommend = res["recommend"];
@@ -200,9 +200,9 @@ export default {
     },
     selectServicesList(cid, st) {
       if (st == 0) {
-        var url = "/consult/" + "10" + "/" + "1" + "?cid=" + cid;
+        var url = "/consult/" + "10" + "/" + "1" + "?bid=" + cid;
       } else {
-        var url = "/consult/" + "10" + "/" + "1" + "?cid=" + cid + "&st=" + st;
+        var url = "/consult/" + "10" + "/" + "1" + "?bid=" + cid + "&st=" + st;
       }
       api.Get(url).then(res => {
         this.needData = res["page"]["data"];
@@ -213,14 +213,15 @@ export default {
         } else if (this.needData.length > 0) {
           this.noData = false;
           this.needData = res["page"]["data"];
+          console.log(this.needData);
           this.totalPages = res["totalPages"] * 10;
         }
 
         // 导师推荐
         if (this.recommend.length == 0) {
-          this.noData = true;
+          this.recommendFlag = true;
         } else if (this.recommend.length > 0) {
-          this.noData = false;
+          this.recommendFlag = false;
           this.recommend = res["recommend"];
         }
       });
@@ -251,7 +252,7 @@ export default {
         subjectId: id,
         content: this.msg
       };
-      var url = "/enterprise/apply/msg";
+      var url = "/consult/msg";
       api.Post(url, params).then(res => {
         this.openData = res;
       });
