@@ -18,40 +18,37 @@
                             <h2>联系方式</h2>
                         </el-col>
                     </el-row>
-                    <el-row :gutter="10" v-for="(item, index) in provider_list" :key="index" class="into_more_list">
-                        <el-col :xs="12" :sm="12" :md="12" :lg="12" class="into_more_img">
-                            <el-row :gutter="10">
-                                <el-col :xs="8" :sm="4" :md="4" :lg="4">
-                                    <div>
-                                        <img :src="item['icon']" alt="">
-                                    </div>
-                                </el-col>
-                                <el-col :xs="16" :sm="16" :md="16" :lg="16">
-                                    <h1>{{item['name']}}</h1>
-                                    <p>{{item['intro']}}</p>
-                                </el-col>
-                            </el-row>
-                        </el-col>
-                        <el-col :xs="4" :sm="4" :md="4" :lg="4">
-                            <h1>{{item['service']}}</h1>
-                        </el-col>
-                        <el-col :xs="3" :sm="3" :md="3" :lg="3">
-                            <h2>曹总</h2>
-                        </el-col>
-                        <el-col :xs="3" :sm="3" :md="3" :lg="3">
-                            <h2>13232658712</h2>
-                        </el-col>
-                        <el-col :xs="2" :sm="2" :md="2" :lg="2">
-                            <router-link :to="{ name: 'provider', params: { id: item.id} }" style="color:#f48100">
-                                查看详情
-                            </router-link>
-                        </el-col>
+                    <el-row :gutter="10" v-for="(item, index) in provider_class_list" :key="index" class="into_more_list">
+                        <router-link :to="{ name: 'provider', params: { id: item.id} }" style="color:#f48100">
+                            <el-col :xs="12" :sm="12" :md="12" :lg="12" class="into_more_img">
+                                <el-row :gutter="10">
+                                    <el-col :xs="8" :sm="4" :md="4" :lg="4">
+                                        <div>
+                                            <img :src="item['icon']" alt="">
+                                        </div>
+                                    </el-col>
+                                    <el-col :xs="16" :sm="16" :md="16" :lg="16">
+                                        <h1>{{item['name']}}</h1>
+                                        <p>{{item['intro']}}</p>
+                                    </el-col>
+                                </el-row>
+                            </el-col>
+                            <el-col :xs="4" :sm="4" :md="4" :lg="4">
+                                <h1>{{item['service'] || "暂无数据"}}</h1>
+                            </el-col>
+                            <el-col :xs="3" :sm="3" :md="3" :lg="3">
+                                <h2>曹总</h2>
+                            </el-col>
+                            <el-col :xs="5" :sm="5" :md="5" :lg="5">
+                                <h2>13232658712</h2>
+                            </el-col>
+                        </router-link>
                     </el-row>
                     <!--分页-->
                     <el-row :gutter="10" style="margin-bottom: 50px;">
                         <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
                             <div class="block">
-                                <el-pagination :current-page="1" :total="totalPages" @size-change="handleSizeChange" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
                                 </el-pagination>
                             </div>
                         </el-col>
@@ -71,7 +68,7 @@
         data() {
             return {
                 provider_class_list: '',
-                totalPages:''
+                totalPages: ''
             }
         },
         created() {
@@ -80,14 +77,22 @@
         },
         methods: {
             getProviderClass(id) {
-                let url='/enterprise/'+id+'/'+'2'+'/'+'10'+'/'+'1';
+                let url = '/enterprise/' + id + '/' + '2' + '/' + '10' + '/' + '1';
                 api.Get(url)
                     .then(res => {
                         this.provider_class_list = res['data'];
-                        this.totalPages=res['totalPages']*10;
+                        this.totalPages = res['totalPages'] * 10;
+                    });
+            },
+            handleCurrentChange(val) {
+                let id = this.$route.params.id
+                let url = '/enterprise/' + id + '/' + '2' + '/' + '10' + '/' + val;
+                api.Get(url)
+                    .then(res => {
+                        this.provider_class_list = res['data'];
+                        this.totalPages = res['totalPages'] * 10;
                     });
             }
-            
         },
         filters: {
             formatDate(time) {

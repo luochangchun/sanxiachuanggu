@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <div class="index" v-loading.fullscreen.lock="fullscreenLoading">
     <commonSwiper></commonSwiper>
     <!-- 今日头条 -->
     <div class="headLines padder-v">
@@ -25,7 +25,7 @@
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="10" :push="1" class="headLine_news_r">
             <ul class="headLine_news">
-              <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }" v-for="(item, index) in topic" :key="index">
+              <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }" v-for="(item, index) in topic" :key="index" v-if="index<3">
                 <el-row>
                   <el-col :span="5">
                     <img :src='item.icon' class="top_cube">
@@ -55,7 +55,7 @@
           <el-col :xs="24" :sm="12" :md="12" :lg="6" v-for="(item, index) in incubator" :key="index" class="display_item">
             <div class="gray" @mouseover="show_display(index)">
               <img :src="item['icon']" alt="">
-              <p class="word white abs tc f14"  :class="{ dn: display_active[index] }">{{item.name}}</p>
+              <p class="word white abs tc f14" :class="{ dn: display_active[index] }">{{item.name}}</p>
               <div class="cur_mask abs" :class="{ db: display_active[index] }">
                 <h1 class="f20 tc text-ellipsis">{{item.name}}</h1>
                 <p class="f14 white text-ellipsis-muti text-ellipsis-3">{{item.intro}}</p>
@@ -70,7 +70,7 @@
     </div>
     <!-- 创谷空间展示 -->
     <!-- 双创办公室 -->
-    <div class="office">
+    <!-- <div class="office">
       <div class="container">
         <el-row :gutter="0">
           <el-col :xs="24" :sm="24" :md="24" :lg="24">
@@ -78,7 +78,7 @@
             <router-link to="/incubators" class="r more_plus"></router-link>
           </el-col>
         </el-row>
-        <el-row class="office_wrap"  :gutter="6">
+        <el-row class="office_wrap" :gutter="6">
           <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in office" :key="index">
             <a class="office_item" :href="item.redirect">
               <img :src="item.icon" alt="">
@@ -87,7 +87,39 @@
           </el-col>
         </el-row>
       </div>
+    </div> -->
+    <!-- 双创办公室 -->
+    <div class="office">
+      <div class="container">
+        <el-row :gutter="20">
+          <el-col :xs="24" :sm="24" :md="24" :lg="24">
+            <div class="l office_title"></div>
+            <!--<router-link to="/incubators" class="r more_plus"></router-link>-->
+          </el-col>
+        </el-row>
+        <el-row class="office_wrap"  :gutter="6" style="margin-top: 40px;">
+          <el-col :xs="24" :sm="24" :md="12" :lg="12">
+             <router-link :to="{ name: 'office_list_policy'}" class="office_con">
+                <img src="static/img/fw1.png" alt="">
+                <div>
+                  <h3>优惠政策</h3>
+                  <h2>入口>></h2>
+                </div>
+             </router-link>
+          </el-col>
+          <el-col :xs="24" :sm="24" :md="12" :lg="12">
+            <router-link :to="{ name: 'office_list_window'}" class="office_con">
+              <img src="static/img/fw2.png" alt="">
+              <div>
+                <h3>服务窗口</h3>
+                <h2>入口>></h2>
+              </div>
+            </router-link>
+          </el-col>
+        </el-row>
+      </div>
     </div>
+    <!-- 双创办公室 -->
     <!-- 双创办公室 -->
     <!-- 培训活动 -->
     <div class="activitys">
@@ -99,7 +131,8 @@
           </el-col>
         </el-row>
         <el-row :gutter="20">
-          <el-col :xs="12" :sm="12" :md="6" :lg="6" v-for="(item, index) in activity" :key="index">
+          <el-col :xs="12" :sm="12" :md="6" :lg="6" v-for="(item, index) in activity" :key="index" v-if="index<4">
+            <!-- {{index}} -->
             <router-link :to="{ name: 'train_detail', params: { id: item.id} }" class="activitys_item">
               <img :src="item.icon" alt="">
               <div class="process abs">
@@ -113,6 +146,7 @@
               </div>
             </router-link>
           </el-col>
+          
         </el-row>
       </div>
     </div>
@@ -127,7 +161,7 @@
           </el-col>
         </el-row>
         <el-row class="office_wrap">
-          <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in provider" :key="index">
+          <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in provider" :key="index" v-if="index<6">
             <router-link :to="{ name: 'provider', params: { id: item.id} }" class="service_provider_item rel">
               <img :src="item.icon" alt="">
               <p class="tc text-ellipsis">{{item.name}}</p>
@@ -148,7 +182,7 @@
           </el-col>
         </el-row>
         <el-row :gutter="20">
-          <el-col :xs="12" :sm="12" :md="6" :lg="6" v-for="(item, index) in mentor" :key="index">
+          <el-col :xs="12" :sm="12" :md="6" :lg="6" v-for="(item, index) in mentor" :key="index" v-if="index<4">
             <router-link :to="{ name: 'tutorDetail', params: { id: item.id} }" class="tutor_item rel">
               <div class="tutor_img"><img :src="item.photo" alt=""></div>
               <p class="tc f14">{{item.name}}
@@ -170,7 +204,7 @@
           </el-col>
         </el-row>
         <el-row :gutter="20">
-          <el-col :xs="24" :sm="12" :md="12" :lg="12" v-for="(item, index) in financing" :key="index">
+          <el-col :xs="24" :sm="12" :md="12" :lg="12" v-for="(item, index) in financing" :key="index" v-if="index<2">
             <router-link :to="{ name: 'financingDetail', params: { id: item.id} }" class="Financing_item rel">
               <!-- <img :src='item.logo' alt=""> -->
               <div :style="{backgroundImage: 'url(' +item.logo+ ')'}" class="bg-cover"></div>
@@ -223,7 +257,8 @@
         incubator: '', //孵化器
         mentor: '', //创业导师
         office: '', //双创办公室
-        provider: '' //服务商
+        provider: '', //服务商
+        fullscreenLoading: false
       }
     },
     components: {
@@ -244,15 +279,17 @@
         this.$refs.dialog.open()
       },
       setNewsApi() {
+        this.fullscreenLoading = true;
         api.Get('/pub/index')
           .then(res => {
             this.topic = res['topic']; //今日头条接口数据
-            this.activity = res['activity']; //活动接口数据
+            this.activity = res['activity'];//活动接口数据
             this.financing = res['financing']; //融资项目
             this.incubator = res['incubator']; //创谷空间展示
             this.mentor = res['mentor']; //创业导师
             this.office = res['office']; //双创办公室
             this.provider = res['provider']; //服务商接口数据
+            this.fullscreenLoading = false;
           });
       },
       // 创谷空间展示
@@ -265,10 +302,33 @@
             this.$set(this.display_active, i, true)
           }
         }
-      }
+      },
     }
   }
 </script>
+<style scoped>
+  .office_con{
+    position: relative;
+  }
+  .office_con h2{
+    font-size: 14px;
+    color:#2970a4;
+    font-weight: normal;
+    margin-left:120px;
 
+  }
+  .office_con h3{
+    color:#2970a4;
+    font-size:26px;
+    letter-spacing: 5px;
+  }
+  .office_con div{
+    width:100%;
+    position:absolute;
+    line-height:25px;
+    top:40%;
+    text-align: center;
+  }
+</style>
 
 

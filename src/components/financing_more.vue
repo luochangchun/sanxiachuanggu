@@ -12,7 +12,7 @@
             <el-row  :gutter="20" class="tutorList">
                 <el-col :xs="12" :sm="12" :md="6" :lg="6" v-for="(item, index) in financing" :key="index">
                     <div class="item">
-                        <div  style="height:250px;">
+                        <div  style="max-height:250px;">
                             <img :src='item.logo' alt="" style="max-height:220px;">
                         </div>
                         <p class="f16">{{item.name}}</p>

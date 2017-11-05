@@ -1,5 +1,5 @@
                                              <template>
-  <iframe ref="container" id="container" src="http://localhost:3636/static/map.html" frameborder="0">
+  <iframe ref="container" id="container" src="http://localhost:8888/static/map.html" frameborder="0">
   </iframe>
 </template>
 <script>

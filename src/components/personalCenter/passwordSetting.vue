@@ -89,9 +89,8 @@ export default {
     };
   },
   created() {
-      let userInfo=api.GetCookie("userInfo");
-      let user=JSON.parse(userInfo);
-      this.nickName = user['data']['nickname'];
+     
+      
   },
   methods: {
     // 个人注册

@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-row :gutter="10" style="margin-bottom: 50px;">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" style="margin-top:30px;">
+            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                 <p style="font-size:14px;color:#666;line-height:40px;">您所在的位置 : <span style="color:#0089e3;">创谷企业</span> > 入孵企业列表</p>
                 <div>
                     <el-row :gutter="10" style="margin-bottom: 10px;" class="into_more_header">
@@ -51,7 +51,7 @@
         <el-row :gutter="10" style="margin-bottom: 50px;">
             <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
                 <div class="block">
-                    <el-pagination :current-page="1" :total="totalPages" @size-change="handleSizeChange" @current-change="handleCurrentChange" layout="prev, pager, next">
+                    <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
                     </el-pagination>
                 </div>
             </el-col>
@@ -87,7 +87,7 @@
                 var url = '/enterprise/' + '1' + '/' + '10' + '/' + val
                 api.Get(url)
                     .then(res => {
-                        this.provider_list = res['data'];
+                        this.into_list = res['data'];
                         this.totalPages = res['totalPages'] * 10;
                     })
             }

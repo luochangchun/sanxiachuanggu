@@ -70,11 +70,6 @@
                         <!--需求详情-->
                         <div v-show="openFlag" class="show_need_mask" @click="closeDetail"></div>
                         <div v-show="openFlag" class="show_need">
-                            <!-- <el-breadcrumb separator=">">
-                                    <el-breadcrumb-item :to="{ path: '/' }">您所在的位置 :</el-breadcrumb-item>
-                                    <el-breadcrumb-item>服务需求列表</el-breadcrumb-item>
-                                    <el-breadcrumb-item>需求详情</el-breadcrumb-item>
-                                </el-breadcrumb> -->
                             <div class="need_import">
                                 <h3>{{openData['needs']}}</h3>
                                 <p>企业名称: {{openData['enterprise']}} | 需求类型: {{openData['title']}} | 联系人: {{openData['contact']}} | 联系方式: {{openData['phone']}} | <span>{{openData['createAt'] | formatDate}}</span> | <span v-if="openData.status == 1">审核通过</span></p>
@@ -84,7 +79,7 @@
                             <h1>请输入留言</h1>
                             <el-input type="textarea" :rows="4" placeholder="请输入内容" v-model="msg">
                             </el-input>
-                            <button @click.prevent="enterpriseMsg(openData['id'])">留言</button>
+                            <button @click.stop.prevent="enterpriseMsg(openData['id'])">留言</button>
                         </div>
                     </el-col>
                     <!--热门排行-->
@@ -101,7 +96,7 @@
                                 </div>
                                 <!--导师推荐-->
                                 <div class="news-rightlist">
-                                    <div class="news-hot">导师推荐</div>
+                                    <div class="news-hot">服务商推荐</div>
                                     <ul>
                                         <p v-show="recommendFlag" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
                                         <li v-for="( item,index ) in recommend" :key="index" class="need_teacher" v-show="!recommendFlag">
@@ -109,13 +104,13 @@
                                                 <el-col :lg="8" :md="8" :sm="8" :xs="8">
                                                     <img :src="item['icon']" alt="">
                                                 </el-col>
-                                                <el-col :lg="8" :md="8" :sm="8" :xs="8">
+                                                <el-col :lg="16" :md="16" :sm="16" :xs="16">
                                                     <p>{{item['name']}}</p>
                                                     <p class="text-ellipsis">{{item['intro']}}</p>
                                                 </el-col>
-                                                <el-col :lg="8" :md="8" :sm="8" :xs="8">
+                                                <!-- <el-col :lg="8" :md="8" :sm="8" :xs="8">
                                                     <button>提问</button>
-                                                </el-col>
+                                                </el-col> -->
                                             </el-row>
                                         </li>
                                     </ul>
@@ -215,9 +210,9 @@ export default {
 
         // 导师推荐
         if (this.recommend.length == 0) {
-          this.noData = true;
+          this.recommendFlag = true;
         } else if (this.recommend.length > 0) {
-          this.noData = false;
+          this.recommendFlag = false;
           this.recommend = res["recommend"];
         }
       });
@@ -248,9 +243,18 @@ export default {
         subjectId: id,
         content: this.msg
       };
+      api.Get("/enterprise/apply/" + id).then(res => {
+          this.openData = res;
+      });
       var url = "/enterprise/apply/msg";
       api.Post(url, params).then(res => {
-        this.openData = res;
+        if(res['suc'] == true) {
+          this.$message('留言提交成功');
+          this.openFlag = false;
+        } else if(res['suc'] == false) {
+          this.$message(res['msg']);
+          this.openFlag = false;
+        }
       });
     },
     initRank() {
@@ -269,7 +273,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 /*面包屑导航*/
 .el-breadcrumb {
   font-size: 13px;
@@ -425,7 +429,7 @@ export default {
   top: -11px;
   left: 20px;
   background-color: #fff;
-  width: 25%;
+  width: 30%;
   text-align: center;
   color: #0089e3;
   font-weight: 600;
@@ -459,6 +463,8 @@ export default {
 /*导师推荐*/
 .need_teacher div img {
   width: 100px;
+  height: 80px;
+  max-height: 80px;
   border-radius: 50%;
   padding:16px 0;
 }

@@ -20,10 +20,16 @@
                         <p class="clearfix"><span class="l" style="width:70px;">个人简介：</span><span class="l" style="width:400px">{{tutorDetail['intro'] || "暂无数据"}} </span></p>
                         <p class="clearfix"><span class="l" style="width:70px;">关注领域：</span><span class="l" style="width:400px">{{tutorDetail['talent'] || "暂无数据"}} </span></p>
                         <p class="clearfix"><span class="l" style="width:70px;">所获荣誉：</span><span class="l" style="width:400px">{{tutorDetail['cert'] || "暂无数据"}}</span></p>
+                        <router-link v-if="tutorDetail['type'] == 3" :to="{name:'tutorProblem', params: {businessId:tutorDetail.businessId,id:tutorDetail.id}}" style="margin:0!important" class="tc white tutorBtn">
+                            技术咨询
+                        </router-link>
                     </div>
                 </el-col>
             </el-row>
-            <el-row>
+            <el-row v-if="tutorDetail['type'] == 3" :gutter="10" class="incubators_details_text" style="background-color: #fff;padding:15px;margin-top:20px;margin-bottom:50px">
+                <p v-html="content"></p>
+            </el-row>
+            <el-row v-if="tutorDetail['type'] == 4">
                 <el-col :xs="24" :sm="24" :md="10" :lg="8">
                     <div class="padder-v"></div>
                 </el-col>
@@ -36,7 +42,7 @@
                             </el-form-item>
                             <el-form-item>
                                 <el-button type="primary" class="tutorBtn r">提交问题</el-button>
-                            </el-form-item>``
+                            </el-form-item>
                         </el-form>
                     </div>
                 </el-col>
@@ -51,6 +57,7 @@
         data() {
             return {
                 tutorDetail: '',
+                content: ''
             }
         },
         created() {
@@ -63,6 +70,11 @@
                     .then(res => {
                         console.log(res);
                         this.tutorDetail = res
+                        if (!res['detail']) {
+                            this.content = "暂无数据"
+                        } else {
+                            this.content = res['detail']['content'];
+                        }
                     });
             }
         }
@@ -99,8 +111,10 @@
         padding: 15px;
     }
     .tutorBtn {
-        width: 100px;
+        display:inline-block;
         background-color: #f48100;
         border-color: #f48100;
+        padding: 5px 6px;
+        border-radius:5px;
     }
 </style>

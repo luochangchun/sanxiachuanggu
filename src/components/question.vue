@@ -64,7 +64,6 @@
                                     <router-link :to="{name:'problem', params: {type:'consult'}}">
                                         <button class="show_btn">发布问题</button>
                                     </router-link>
-                                    
                                 </el-col>
                             </el-row>
                             <!--导航切换-->
@@ -252,9 +251,18 @@ export default {
         subjectId: id,
         content: this.msg
       };
+      api.Get("/consult/" + id).then(res => {
+          this.openData = res;
+      });
       var url = "/consult/msg";
       api.Post(url, params).then(res => {
-        this.openData = res;
+        if(res['suc'] == true) {
+          this.$message('留言提交成功');
+          this.openFlag = false;
+        } else if(res['suc'] == false) {
+          this.$message(res['msg']);
+          this.openFlag = false;
+        }
       });
     },
     initRank() {

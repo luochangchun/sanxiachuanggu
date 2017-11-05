@@ -23,7 +23,7 @@
                             <img :src="item.icon" alt="">
                             <div>
                                 <h6>{{item.name}}</h6>
-                                <p>{{item.detail || '无'}}</p>
+                                <!-- <p>{{item.detail || '无'}}</p> -->
                             </div>
                         </router-link>
                     </el-col>
@@ -43,7 +43,7 @@
                     </div>
                     <el-row :gutter="40">
                         <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in teacher" :key="index" v-if="item['type'] == 4">
-                            <router-link :to="{name:'tutorDetail', params: {id:item.id} }" class="research-teacher">
+                            <div class="research-teacher">
                                 <img :src="item.photo" alt="">
                                 <div>
                                     <h4>指导老师:{{item.name}}</h4>
@@ -51,9 +51,9 @@
                                     <p class="text-ellipsis-muti text-ellipsis-2">教师简介:{{item.intro}}</p>
                                 </div>
                                 <div>
-                                    <button>讲师介绍</button>
+                                    <router-link :to="{name:'tutorDetail', params: {id:item.id} }">讲师介绍</router-link>
                                 </div>
-                            </router-link>
+                            </div>
                         </el-col>
                     </el-row>
                 </el-col>
@@ -209,7 +209,7 @@
         left: 45%;
     }
     .research-teacher {
-        background-color: #2c2b32;
+        background-color: #0068b7;
         padding-top: 20px;
         margin-top: 50px;
         position: relative;
@@ -250,7 +250,7 @@
         margin-top: 10px;
         height: 40px;
     }
-    .research-teacher button {
+    .research-teacher a {
         width: 100px;
         line-height: 26px;
         border-radius: 12px;

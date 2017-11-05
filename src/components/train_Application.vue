@@ -1,24 +1,21 @@
 <template>
-    <div>
-        <el-row :gutter="10"style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
-            <el-col :lg="10" :md="10" :sm="10" :xs="10" :offset="7" style="background-color:#fff;padding:30px 25px 15px 0">
-                <el-form :model="trainForm" :rules="trainRules" ref="trainForm" label-width="100px" class="demo-ruleForm">
-
-                    <el-form-item label="姓名" prop="name">
-                        <el-input v-model="trainForm.name" placeholder="请输入联系人姓名"></el-input>
-                    </el-form-item>
-
-                    <el-form-item label="手机号" prop="phone">
-                        <el-input v-model="trainForm.phone" placeholder="请输入联系人手机号码"></el-input>
-                    </el-form-item>
-
-                    <el-form-item>
-                        <el-button @click="submitForm('trainForm')" style="background-color: #f48100;border:none;color:#fff;">确定</el-button>
-                    </el-form-item>
-                </el-form>
-            </el-col>
-        </el-row>
-    </div>
+	<div>
+		<el-row :gutter="10" style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
+			<el-col :lg="10" :md="10" :sm="10" :xs="10" :offset="7" style="background-color:#fff;padding:30px 25px 15px 0">
+				<el-form :model="trainForm" :rules="trainRules" ref="trainForm" label-width="100px" class="demo-ruleForm">
+					<el-form-item label="姓名" prop="name">
+						<el-input v-model="trainForm.name" placeholder="请输入联系人姓名"></el-input>
+					</el-form-item>
+					<el-form-item label="手机号" prop="phone">
+						<el-input v-model="trainForm.phone" placeholder="请输入联系人手机号码"></el-input>
+					</el-form-item>
+					<el-form-item>
+						<el-button @click="submitForm('trainForm')" style="background-color: #f48100;border:none;color:#fff;">确定</el-button>
+					</el-form-item>
+				</el-form>
+			</el-col>
+		</el-row>
+	</div>
 </template>
 
 <script>
@@ -75,8 +72,28 @@
 						api.Post('/activity/apply', params)
 							.then(res => {
 								console.log(res);
-								if(res['msg'] == null) {
-									alert("报名成功");
+								if (res['suc'] == true) {
+									// alert("报名成功");
+									this.$confirm('报名成功', '提示', {
+										confirmButtonText: '确定',
+										cancelButtonText: '取消',
+										type: 'success'
+									}).then(() => {
+										let id = this.$route.params.id;
+										let redirect = decodeURIComponent('/train_detail/');
+										this.$router.push({
+											path: redirect + id
+										})
+									}).catch(() => {
+										//点击取消
+									});
+								} else if (res['suc'] == false) {
+									this.$message(res['msg']);
+									let id = this.$route.params.id;
+									let redirect = decodeURIComponent('/train_detail/');
+									this.$router.push({
+										path: redirect + id
+									})
 								}
 							});
 					} else {
@@ -87,8 +104,6 @@
 			}
 		}
 	}
-
-
 </script>
 
 <style>

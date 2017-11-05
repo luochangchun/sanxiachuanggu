@@ -26,7 +26,7 @@
                         <el-col :lg="24" :md="24" :sm="24" :xs="24">
                             <el-row class="office_wrap">
                                 <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in investor" :key="item">
-                                    <router-link :to="{ name: 'invest_detail', params: { id: item.id} }" class="service_provider_item rel">
+                                    <router-link :to="{ name: 'provider', params: { id: item.id} }" class="service_provider_item rel">
                                         <img :src="item.icon" alt="">
                                         <p class="tc text-ellipsis">{{item.name}}</p>
                                         <i class="tag abs white tc f14">{{item.service}}</i>
@@ -52,7 +52,7 @@
                 <el-row :gutter="10" style="margin-top: 70px;">
                     <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in financing" :key="item">
                         <router-link :to="{ name: 'financingDetail', params: { id: item.id} }" class="Financing_item rel">
-                            <div  style="height:250px;">
+                            <div  style="max-height:250px;">
                                 <img :src='item.logo' alt="" style="max-height:220px;">
                             </div>
                             <div class="Financing_wrap">

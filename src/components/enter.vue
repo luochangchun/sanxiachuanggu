@@ -146,9 +146,21 @@
 						api.Post('/qb/apply', params)
 							.then(res => {
 								if (res['suc'] == true) {
-									this.$message('申请成功！');
+									this.$confirm('登录成功', '提示', {
+                                        confirmButtonText: '确定',
+                                        cancelButtonText: '取消',
+                                        type: 'success'
+                                    }).then(() => {
+										let id = this.$route.params.id;
+                                        let redirect = decodeURIComponent('/incubators_details/');
+                                            this.$router.push({
+                                                path: redirect+id
+                                            })
+                                    }).catch(() => {
+                                        //点击取消
+                                    });
 								} else if (res['suc'] == false) {
-									this.$message('申请失败！');
+									alert(res['msg']);
 								}
 							});
 					} else {

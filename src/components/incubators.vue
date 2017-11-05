@@ -31,7 +31,7 @@
                 </el-col>
             </el-row>
             <!--职能部门展示-->
-            <div style="background-color: #eee;padding-bottom: 40px;">
+            <div v-if="false" style="background-color: #eee;padding-bottom: 40px;">
                 <el-row :gutter="10">
                     <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                         <div class="title" id="title-department">

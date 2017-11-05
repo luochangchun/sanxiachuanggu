@@ -27,8 +27,9 @@
                 </el-row>
             </el-col>
         </el-row>
-        <!--创业导师团-->
-        <div style="background-color: #eee;padding-bottom: 50px;">
+        
+         <!--创业导师团-->
+        <div style="padding-bottom: 50px;background-color:#eee">
             <el-row :gutter="10">
                 <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                     <div class="title" id="title-teacher">
@@ -36,22 +37,23 @@
                         <p>ENTREPRENEURIAL MENTOP</p>
                         <hr>
                         <span></span>
-                        <router-link :to="{ name: 'tutorList'}" class="r more_plus" style="margin-top:-41px"></router-link>
+                        <router-link :to="{ name: 'tutorList'}" class="r more_plus to" style="margin-top: -41px;"></router-link>
                     </div>
-                    <el-row :gutter="10">
-                        <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in mentor" :key="index">
-                            <div class="research-teacher">
+                    <el-row :gutter="40">
+                        <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in mentor" :key="index">
+                            <router-link :to="{name:'tutorDetail', params: {id:item.id} }" class="research-teacher">
                                 <img :src="item.photo" alt="">
                                 <div>
-                                    <h3>{{item.name}}</h3>
-                                    <p>{{item.title}}</p>
+                                    <h4>指导老师:{{item.name}}</h4>
+                                    <h3>{{item.title}}</h3>
+                                    <!-- <p class="text-ellipsis-muti text-ellipsis-2">教师简介:{{item.intro}}</p> -->
                                 </div>
                                 <div>
                                     <router-link :to="{name:'tutorDetail', params: {id:item.id} }">
                                         查看更多>>
                                     </router-link>
                                 </div>
-                            </div>
+                            </router-link>
                         </el-col>
                     </el-row>
                 </el-col>
@@ -91,7 +93,6 @@
 
 <script>
     import api from '../axios/api.js'
-    import Swiper from '../components/swiper.vue'
     export default {
         data() {
             return {
@@ -114,13 +115,10 @@
                     })
             }
         },
-        components: {
-            commonSwiper: Swiper
-        },
     }
 </script>
 
-<style>
+<style scoped>
     /*院校展示*/
     .schoolList {
         position: relative;
@@ -182,46 +180,66 @@
         top: 48px;
         left: 45%;
     }
-    /*创业导师团*/
+     /*优秀讲师*/
+    #title-teacher {
+        position: relative;
+    }
+    #title-teacher span {
+        position: absolute;
+        top: 48px;
+        left: 45%;
+    }
     .research-teacher {
         background-color: #0068b7;
         padding-top: 20px;
-        padding-bottom: 20px;
-        margin-top: 30px;
+        margin-top: 50px;
+        position: relative;
+        min-height: 220px;
     }
     .research-teacher img {
-        border-radius: 50%;
-        width: 40%;
+        width: 30%;
         margin-right: auto;
         margin-left: auto;
         display: block;
+        position: absolute;
+        top: -28px;
+        left: -28px;
     }
     .research-teacher div {
         margin-left: 30px;
         margin-right: 30px;
         text-align: center;
         color: #fff;
-        margin-top: 10px;
+        margin-top: 25px;
+    }
+    .research-teacher div h4 {
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 30px;
+        margin-left: -70px;
     }
     .research-teacher div h3 {
         font-size: 14px;
         font-weight: normal;
         line-height: 30px;
+        margin-left: -60px;
     }
     .research-teacher div p {
         font-size: 12px;
         font-weight: normal;
         line-height: 20px;
+        margin-top: 10px;
+        height: 40px;
     }
     .research-teacher a {
         width: 100px;
         line-height: 26px;
-        border-radius: 4px;
-        background-color: #f48100;
+        border-radius: 12px;
+        background-color: #f53436;
         color: #fff;
         font-size: 14px;
         border: none;
-        margin: 30px auto;
+        margin: 20px auto;
     }
     /*校园人才*/
     .research-teacher-img img {
@@ -251,5 +269,23 @@
         position: absolute;
         top: 48px;
         left: 45%;
+    }
+     @media screen and (min-width: 992px) {
+        .right div {
+            float: right;
+            height: 60px;
+            width: 50px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .arrows-splendid div {
+            overflow: hidden;
+            margin-top: 20%;
+        }
+        .right div {
+            float: right;
+            height: 60px;
+            width: 28px;
+        }
     }
 </style>

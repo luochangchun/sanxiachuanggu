@@ -59,8 +59,7 @@
 
 <script>
   import api from '../../axios/api.js'
-  let userInfo = api.GetCookie("userInfo");
-  let user = JSON.parse(userInfo);
+ 
   export default {
     data() {
       return {

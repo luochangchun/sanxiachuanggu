@@ -16,8 +16,8 @@
                                     <p>招商讯息</p><i class="el-icon-arrow-right"></i></el-menu-item>
                                 <el-menu-item index="/demand_comm_service05">
                                     <p>求租讯息</p><i class="el-icon-arrow-right"></i></el-menu-item>
-                                <el-menu-item index="/demand_comm_service06">
-                                    <p>招聘讯息</p><i class="el-icon-arrow-right"></i></el-menu-item>
+                                <!-- <el-menu-item index="/demand_comm_service06">
+                                    <p>招聘讯息</p><i class="el-icon-arrow-right"></i></el-menu-item> -->
                             </el-menu-item-group>
                             <el-menu-item-group title="账号设置">
                                 <el-menu-item index="/personalInformation">

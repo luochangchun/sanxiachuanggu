@@ -6,16 +6,17 @@
                     <el-col :lg="20" :md="20" :sm="20" :xs="20" :offset="2">
                         <el-row :gutter="10">
                             <el-col :lg="4" :md="6" :sm="8" :xs="24" style="background-color:#f9fafa">
+                                
                                 <router-link :to="{name:'service_class', params: {id:item.id} }" class="service-nav" v-for='(item, index) in ServiceList' :key='index'>
-                                    <img src="../../static/img/nav_1.png" v-show='index == 0' style="margin-top: 3px;">
-                                    <img src="../../static/img/nav_2.png" v-show='index == 1'>
-                                    <img src="../../static/img/nav_3.png" v-show='index == 2'>
-                                    <img src="../../static/img/nav_4.png" v-show='index == 3'>
-                                    <img src="../../static/img/nav_5.png" v-show='index == 4'>
-                                    <img src="../../static/img/nav_6.png" v-show='index == 5'>
-                                    <img src="../../static/img/nav_7.png" v-show='index == 6'>
-                                    <img src="../../static/img/nav_8.png" v-show='index == 7'>
-                                    <p>{{item['value']}}</p>
+                                    <img src="../../static/img/nav_1.png" v-show='index == 1' style="margin-top: 3px;">
+                                    <img src="../../static/img/nav_2.png" v-show='index == 2'>
+                                    <img src="../../static/img/nav_3.png" v-show='index == 3'>
+                                    <img src="../../static/img/nav_4.png" v-show='index == 4'>
+                                    <img src="../../static/img/nav_5.png" v-show='index == 5'>
+                                    <img src="../../static/img/nav_6.png" v-show='index == 6'>
+                                    <img src="../../static/img/nav_7.png" v-show='index == 7'>
+                                    <img src="../../static/img/nav_8.png" v-show='index == 8'>
+                                    <p v-show="index>0">{{item['value']}}</p>
                                 </router-link>
                             </el-col>
                         </el-row>
@@ -118,7 +119,7 @@
                     <router-link to="/into_more" class="r more_plus" style="margin-top:-41px;"></router-link>
                 </div>
                 <el-row :gutter="10">
-                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show-into" v-for="(item, index) in normal" :key="index">
+                    <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show-into" v-for="(item, index) in normal" :key="index" style="border:1px solid #eee;">
                         <router-link :to="{name:'provider', params: {id:item.id} }">
                             <img :src="item.icon" alt="">
                             <div class="service-opcity-into">
@@ -183,7 +184,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     /*banner*/
     .service-banner {
         background: url(../../static/img/service02.png) no-repeat center center;
