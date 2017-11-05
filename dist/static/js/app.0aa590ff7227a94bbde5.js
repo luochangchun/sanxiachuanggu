@@ -2460,6 +2460,42 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABh
 
 /***/ }),
 
+/***/ "4QON":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "activity_para"
+  }, [_c('div', {
+    staticClass: "padder-v-xxl"
+  }, [_c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
+    attrs: {
+      "gutter": 10
+    }
+  }, [_c('el-col', {
+    attrs: {
+      "lg": 24
+    }
+  }, [_c('div', {
+    staticClass: "padder-v"
+  }, [_c('div', {
+    staticClass: "content"
+  }, [_c('div', {
+    staticClass: "wrapper",
+    domProps: {
+      "innerHTML": _vm._s(_vm.content || '暂无数据')
+    }
+  })])])])], 1)], 1)])])
+}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
 /***/ "4UsN":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2664,7 +2700,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('router-link', {
       attrs: {
         "to": {
-          name: 'ActivityPara',
+          name: 'article',
           params: {
             id: item.id
           }
@@ -2696,7 +2732,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       key: index,
       attrs: {
         "to": {
-          name: 'ActivityPara',
+          name: 'article',
           params: {
             id: item.id
           }
@@ -3485,7 +3521,18 @@ var Component = normalizeComponent(
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-row', {
+  return _c('div', {
+    directives: [{
+      name: "loading",
+      rawName: "v-loading.fullscreen.lock",
+      value: (_vm.fullscreenLoading),
+      expression: "fullscreenLoading",
+      modifiers: {
+        "fullscreen": true,
+        "lock": true
+      }
+    }]
+  }, [_c('el-row', {
     attrs: {
       "gutter": 10
     }
@@ -3569,7 +3616,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         staticClass: "m-t b-b clea",
         attrs: {
           "to": {
-            name: 'ActivityPara',
+            name: 'article',
             params: {
               id: item.id
             }
@@ -3708,7 +3755,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "text-ellipsis",
       attrs: {
         "to": {
-          name: 'ActivityPara',
+          name: 'article',
           params: {
             id: item.id
           }
@@ -3729,7 +3776,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "text-ellipsis",
       attrs: {
         "to": {
-          name: 'ActivityPara',
+          name: 'article',
           params: {
             id: item.id
           }
@@ -9248,6 +9295,7 @@ exports.default = {
             var _this = this;
 
             //获取新闻列表基本信息
+            this.fullscreenLoading = true;
             var url = '/pub/info/' + 10;
             _api2.default.Get(url).then(function (res) {
                 _this.category = res['category'];
@@ -9258,6 +9306,7 @@ exports.default = {
                     if (index == 0) {
                         //打开新闻资讯首页，默认加载每日头条第1页
                         _this.initNewsList(_this.category[index]['id']);
+                        _this.fullscreenLoading = false;
                     }
                 });
             });
@@ -13408,6 +13457,41 @@ var Component = normalizeComponent(
 
 /***/ }),
 
+/***/ "Xt6H":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_article_vue__ = __webpack_require__("jkN4");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_article_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_article_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4eca1411_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_article_vue__ = __webpack_require__("4QON");
+function injectStyle (ssrContext) {
+  __webpack_require__("p64G")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-4eca1411"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_article_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4eca1411_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_article_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
 /***/ "Y2hr":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -14270,8 +14354,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var baseUrl = 'http://192.168.11.222:8080/servant';
 _axios2.default.defaults.timeout = 5000;
 _axios2.default.defaults.baseURL = baseUrl;
-// let Authorization=window.localStorage.getItem('Authorization');
-// axios.defaults.headers.common['Authorization'] = 'Bearer ' + Authorization;
 _axios2.default.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 // 请求拦截器
@@ -16045,6 +16127,10 @@ var _ActivityPara = __webpack_require__("ym7B");
 
 var _ActivityPara2 = _interopRequireDefault(_ActivityPara);
 
+var _article = __webpack_require__("Xt6H");
+
+var _article2 = _interopRequireDefault(_article);
+
 var _register = __webpack_require__("QQmU");
 
 var _register2 = _interopRequireDefault(_register);
@@ -16305,8 +16391,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //创谷人才首页
 //忘记密码
 //注册页面
-//活动首页
-//首页
+//活动详情
+//地图
 _vue2.default.use(_vueRouter2.default);
 //11.2
 
@@ -16326,13 +16412,14 @@ _vue2.default.use(_vueRouter2.default);
 //创谷人才首页
 //登录页面
 //活动详情
-//地图
+//活动首页
+//首页
 
 
 var routes = [{
 	path: '/index', component: _Index2.default, name: 'Index'
 }, {
-	path: '/map', component: _Map2.default, name: 'Map' }, { path: '/activitys', component: _Activitys2.default, name: 'Activitys' }, { path: '/activityPara/:id', component: _ActivityPara2.default, name: 'ActivityPara' }, { path: '/service', component: _service2.default, name: 'service' }, { path: '/register', component: _register2.default, name: 'Register' }, { path: '/login', component: _login2.default, name: 'Login' }, { path: '/forgetPassword', component: _forgetPassword2.default, name: 'ForgetPassword' }, { path: '/talent', component: _talent2.default, name: 'Talent' }, { path: '/trainList', component: _trainList2.default, name: 'trainList' }, //培训讲师列表
+	path: '/map', component: _Map2.default, name: 'Map' }, { path: '/activitys', component: _Activitys2.default, name: 'Activitys' }, { path: '/activityPara/:id', component: _ActivityPara2.default, name: 'ActivityPara' }, { path: '/article/:id', component: _article2.default, name: 'article' }, { path: '/service', component: _service2.default, name: 'service' }, { path: '/register', component: _register2.default, name: 'Register' }, { path: '/login', component: _login2.default, name: 'Login' }, { path: '/forgetPassword', component: _forgetPassword2.default, name: 'ForgetPassword' }, { path: '/talent', component: _talent2.default, name: 'Talent' }, { path: '/trainList', component: _trainList2.default, name: 'trainList' }, //培训讲师列表
 { path: '/tutorDetail/:id', component: _tutorDetail2.default, name: 'tutorDetail' }, //导师详情
 { path: '/tutorList', component: _tutorList2.default, name: 'tutorList' }, //导师列表
 { path: '/financingDetail/:id', component: _financingDetail2.default, name: 'financingDetail' }, //融资项目详情
@@ -16357,7 +16444,10 @@ var routes = [{
 { path: '/school_detail/:id', component: _school_detail2.default, name: 'school_detail' }, //学院详情
 // {path: '/schoolList', component: schoolList, name: 'schoolList'},//学院列表
 { path: '/incubators_details/:id', component: _incubators_details2.default, name: 'incubators_details' }, //双创空间详情页
-{ path: '/enter/:id', component: _enter2.default, name: 'enter' }, //申请入驻表单
+{
+	path: '/enter/:id', component: _enter2.default, name: 'enter', meta: {
+		requireAuth: true
+	} }, //申请入驻表单
 { path: '/train_Application/:id', component: _train_Application2.default, name: 'train_Application' }, //活动报名表单
 { path: '/provider/:id', component: _provider2.default, name: 'provider' }, //服务商详情页
 { path: '/into/:id', component: _into2.default, name: 'into' }, //入孵企业详情页
@@ -16387,12 +16477,18 @@ var routes = [{
 { path: '/financing_more', component: _financing_more2.default, name: 'financing_more' }, //融资项目(more)
 { path: '/attract_detail/:id', component: _attract_detail2.default, name: 'attract_detail' }, //招商讯息详情
 { path: '/demand_detail', component: _demand_detail2.default, name: 'demand_detail' }, //求租讯息详情
-{ path: '/attract_list/:id', component: _attract_list2.default, name: 'attract_list' }, //招商发布表单
+{
+	path: '/attract_list/:id', component: _attract_list2.default, name: 'attract_list', meta: {
+		requireAuth: true
+	} }, //招商发布表单
 { path: '/demand_list', component: _demand_list2.default, name: 'demand_list' }, //求租发布表单
 //11.2
 { path: '/office_list_window', component: _office_list_window2.default, name: 'office_list_window' }, //双创办公室服务窗口列表
 { path: '/office_list_policy', component: _office_list_policy2.default, name: 'office_list_policy' }, //双创办公室优惠政策列表
-{ path: '/office_list_detail/:id', component: _office_list_detail2.default, name: 'office_list_detail' }];
+{ path: '/office_list_detail/:id', component: _office_list_detail2.default, name: 'office_list_detail' }, //双创办公室详情
+// { path: '/financing_needs', component: financing_needs, name: 'financing_needs' },//融资需求表单
+{ path: '*', //其他页面，强制跳转到登录页面
+	redirect: '/index' }];
 // 页面刷新时，重新赋值token
 if (window.localStorage.getItem('token')) {
 	_store2.default.commit(types.LOGIN, window.localStorage.getItem('token'));
@@ -16676,7 +16772,42 @@ var Component = normalizeComponent(
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "activity_para"
+  }, [_c('div', [_c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
+    attrs: {
+      "gutter": 10
+    }
+  }, [_c('el-col', {
+    attrs: {
+      "xs": 24,
+      "sm": 24,
+      "md": 10,
+      "lg": 8
+    }
   }, [_c('div', {
+    staticClass: "padder-v"
+  }, [_c('img', {
+    attrs: {
+      "src": "http://www.egowork.com/themes/egowork/img/tra_de.jpg",
+      "alt": ""
+    }
+  })])]), _vm._v(" "), _c('el-col', {
+    attrs: {
+      "xs": 24,
+      "sm": 24,
+      "md": 14,
+      "lg": 10
+    }
+  }, [_c('div', {
+    staticClass: "padder-v"
+  }, [_c('p', {
+    staticClass: "f18 b"
+  }, [_vm._v(_vm._s(_vm.activity['name'] || "暂无数据"))]), _vm._v(" "), _c('hr', {
+    staticClass: "line-w"
+  }), _vm._v(" "), _c('p', [_vm._v(" 活动时间：" + _vm._s(_vm._f("formatDate")(_vm.startAt)) + " -- " + _vm._s(_vm._f("formatDate")(_vm.endAt)))]), _vm._v(" "), _c('hr', {
+    staticClass: "line-w"
+  }), _vm._v(" "), _c('p', [_vm._v(" 地点：" + _vm._s(_vm.activity['location'] || "暂无数据") + " ")]), _vm._v(" "), _c('p', [_vm._v(" 人数限额：" + _vm._s(_vm.activity['total'] || "暂无数据") + "人 ")])])])], 1)], 1)]), _vm._v(" "), _c('div', {
     staticClass: "padder-v-xxl"
   }, [_c('div', {
     staticClass: "container"
@@ -17488,6 +17619,78 @@ var Component = normalizeComponent(
 
 /* harmony default export */ __webpack_exports__["default"] = (Component.exports);
 
+
+/***/ }),
+
+/***/ "jkN4":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _api = __webpack_require__("c2Ch");
+
+var _api2 = _interopRequireDefault(_api);
+
+var _date = __webpack_require__("KheU");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+    data: function data() {
+        return {
+            photos: '',
+            content: ''
+        };
+    },
+    created: function created() {
+        var id = this.$route.params.id;
+        this.getActivity(id);
+    },
+
+    methods: {
+        getActivity: function getActivity(id) {
+            var _this = this;
+
+            _api2.default.Get('/article/' + id).then(function (res) {
+                if (res['content'] == null) {} else {
+                    _this.photos = res['icon'];
+                    _this.content = res['content'];
+                }
+            });
+        }
+    },
+    filters: {
+        formatDate: function formatDate(time) {
+            var date = new Date(time);
+            return (0, _date.formatDate)(date, 'yyyy-MM-dd hh:mm');
+        }
+    }
+};
 
 /***/ }),
 
@@ -18945,6 +19148,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "p64G":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -21208,8 +21418,9 @@ exports.default = {
     };
   },
   mounted: function mounted() {
-    var userinfo = JSON.parse(this.$store.state.userinfo);
-    if (userinfo) {
+    var userInfoStr = window.localStorage.getItem('userinfo');
+    if (userInfoStr) {
+      var userinfo = JSON.parse(userInfoStr);
       this.loginFlag = true;
       this.nickname = userinfo['data']['nickname'];
     }
@@ -22648,4 +22859,4 @@ module.exports = __webpack_require__.p + "static/img/banner_cgzx.2f9115e.png";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.ce120efa68c85c8e1a86.js.map
+//# sourceMappingURL=app.0aa590ff7227a94bbde5.js.map
