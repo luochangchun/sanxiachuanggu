@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-loading.fullscreen.lock="fullscreenLoading">
         <!--header-->
         <el-row :gutter="10">
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
@@ -18,7 +18,7 @@
                             <el-tabs v-model="activeName" @tab-click="handleClick">
                                 <el-tab-pane v-for="(item,index) in category" :key="index" :label="item.name" :name="item.cname" :cid="item.id">
                                     <el-row :gutter="10" class="news-leftlist" v-show="!show_read">
-                                        <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }" class="m-t b-b clea" v-for="(item, index) in newsListData" :key="index">
+                                        <router-link :to="{ name: 'article', params: { id: item.id} }" class="m-t b-b clea" v-for="(item, index) in newsListData" :key="index">
                                             <el-col :lg="7" :md="7" :sm="7" :xs="24" class="no-padder">
                                                 <div>
                                                     <img :src="item.icon" class="w-full" @click="show_read=true">
@@ -68,12 +68,12 @@
                                     </div>
                                     <ul v-show="!week" style="display:none;">
                                         <li v-for="( item,index ) in daily" :key="index">
-                                            <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }" class="text-ellipsis"><span>{{index+1}}</span>{{item.title}}</router-link>
+                                            <router-link :to="{ name: 'article', params: { id: item.id} }" class="text-ellipsis"><span>{{index+1}}</span>{{item.title}}</router-link>
                                         </li>
                                     </ul>
                                     <ul v-show="week">
                                         <li v-for="( item,index ) in weekly" :key="index">
-                                            <router-link :to="{ name: 'ActivityPara', params: { id: item.id} }" class="text-ellipsis"><span>{{index+1}}</span>{{item.title}}</router-link>
+                                            <router-link :to="{ name: 'article', params: { id: item.id} }" class="text-ellipsis"><span>{{index+1}}</span>{{item.title}}</router-link>
                                         </li>
                                     </ul>
                                 </div>
@@ -114,6 +114,7 @@
                 this.initNewsList(tab['$attrs']['cid'])
             },
             newApi() { //获取新闻列表基本信息
+                this.fullscreenLoading = true;
                 var url = '/pub/info/' + 10;
                 api.Get(url)
                     .then(res => {
@@ -124,6 +125,7 @@
                             this.category[index]['cname'] = 'tab' + (index + 1);
                             if (index == 0) { //打开新闻资讯首页，默认加载每日头条第1页
                                 this.initNewsList(this.category[index]['id'])
+                                this.fullscreenLoading = false;
                             }
                         });
                     })

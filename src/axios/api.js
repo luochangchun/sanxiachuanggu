@@ -6,8 +6,6 @@ import router from '../routes.js'
 const baseUrl = 'http://192.168.11.222:8080/servant';
 axios.defaults.timeout = 5000;
 axios.defaults.baseURL = baseUrl;
-// let Authorization=window.localStorage.getItem('Authorization');
-// axios.defaults.headers.common['Authorization'] = 'Bearer ' + Authorization;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
 // 请求拦截器

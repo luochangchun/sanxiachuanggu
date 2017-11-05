@@ -120,8 +120,9 @@ export default {
     };
   },
   mounted() {
-    let userinfo = JSON.parse(this.$store.state.userinfo);
-    if(userinfo) {
+    let userInfoStr=window.localStorage.getItem('userinfo');
+    if(userInfoStr) {
+        let userinfo = JSON.parse(userInfoStr);
         this.loginFlag = true;
         this.nickname = userinfo['data']['nickname'];
     }

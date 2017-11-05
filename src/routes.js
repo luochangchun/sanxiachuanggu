@@ -8,6 +8,7 @@ import Index from '../src/components/Index.vue'//首页
 import Map from '../src/components/Map.vue'//地图
 import Activitys from '../src/components/Activitys.vue'//活动首页
 import ActivityPara from '../src/components/ActivityPara.vue'//活动详情
+import article from '../src/components/article.vue'//活动详情
 import Register from '../src/components/register/register.vue'//注册页面
 import Login from '../src/components/register/login.vue'//登录页面
 import ForgetPassword from '../src/components/register/forgetPassword.vue'//忘记密码
@@ -87,6 +88,7 @@ const routes = [
 		path: '/map', component: Map, name: 'Map'},
 	{ path: '/activitys', component: Activitys, name: 'Activitys' },
 	{ path: '/activityPara/:id', component: ActivityPara, name: 'ActivityPara' },
+	{ path: '/article/:id', component: article, name: 'article' },
 	{ path: '/service', component: service, name: 'service' },
 	{ path: '/register', component: Register, name: 'Register' },
 	{ path: '/login', component: Login, name: 'Login' },
@@ -127,7 +129,10 @@ const routes = [
 	{ path: '/school_detail/:id', component: school_detail, name: 'school_detail' },//学院详情
 	// {path: '/schoolList', component: schoolList, name: 'schoolList'},//学院列表
 	{ path: '/incubators_details/:id', component: incubators_details, name: 'incubators_details' },//双创空间详情页
-	{ path: '/enter/:id', component: enter, name: 'enter' },//申请入驻表单
+	{
+		path: '/enter/:id', component: enter, name: 'enter', meta: {
+			requireAuth: true,
+		} },//申请入驻表单
 	{ path: '/train_Application/:id', component: train_Application, name: 'train_Application' },//活动报名表单
 	{ path: '/provider/:id', component: provider, name: 'provider' },//服务商详情页
 	{ path: '/into/:id', component: into, name: 'into' },//入孵企业详情页
@@ -157,13 +162,18 @@ const routes = [
 	{ path: '/financing_more', component: financing_more, name: 'financing_more' },//融资项目(more)
 	{ path: '/attract_detail/:id', component: attract_detail, name: 'attract_detail' },//招商讯息详情
 	{ path: '/demand_detail', component: demand_detail, name: 'demand_detail' },//求租讯息详情
-	{ path: '/attract_list/:id', component: attract_list, name: 'attract_list' },//招商发布表单
+	{
+		path: '/attract_list/:id', component: attract_list, name: 'attract_list', meta: {
+			requireAuth: true,
+		} },//招商发布表单
 	{ path: '/demand_list', component: demand_list, name: 'demand_list' },//求租发布表单
 	//11.2
 	{ path: '/office_list_window', component: office_list_window, name: 'office_list_window' },//双创办公室服务窗口列表
 	{ path: '/office_list_policy', component: office_list_policy, name: 'office_list_policy' },//双创办公室优惠政策列表
 	{ path: '/office_list_detail/:id', component: office_list_detail, name: 'office_list_detail' },//双创办公室详情
 	// { path: '/financing_needs', component: financing_needs, name: 'financing_needs' },//融资需求表单
+	{path: '*', //其他页面，强制跳转到登录页面
+		redirect: '/index'}
 
 ];
 // 页面刷新时，重新赋值token
