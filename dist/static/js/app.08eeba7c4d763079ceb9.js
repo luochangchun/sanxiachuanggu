@@ -2442,7 +2442,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     ref: "container",
     attrs: {
       "id": "container",
-      "src": "http://localhost:8888/static/map.html",
+      "src": "http://192.168.11.222/static/map.html",
       "frameborder": "0"
     }
   })
@@ -22939,4 +22939,4 @@ module.exports = __webpack_require__.p + "static/img/banner_cgzx.2f9115e.png";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.1b4e4cfa90fd71e71b77.js.map
+//# sourceMappingURL=app.08eeba7c4d763079ceb9.js.map
