@@ -219,7 +219,6 @@
                         message: '请输入正确手机号',
                         trigger: 'blur'
                     }],
-
                     pass: [{
                         required: true,
                         validator: validatePass_enterprise,
@@ -240,30 +239,30 @@
             sendSingleCaptcha() {
                 let re = /^1[34578]\d{9}$/;
                 let tel = this.personalForm.phone;
-                if(this.personalForm.phone === "" || !re.test(tel) || tel.length < 11) {
+                if (this.personalForm.phone === "" || !re.test(tel) || tel.length < 11) {
                     alert('请输入正确手机号');
                     return false;
                 }
-                let url= '/pub/captcha/' + tel
+                let url = '/pub/captcha/' + tel
                 api.Post(url, {})
                     .then(res => {
                         console.log(res);
                         alert(res.msg);
-                });
+                    });
             },
             sendCaptcha() {
                 let re = /^1[34578]\d{9}$/;
                 let tel = this.enterpriseForm.phone;
-                if(this.enterpriseForm.phone === "" || !re.test(tel) || tel.length < 11) {
+                if (this.enterpriseForm.phone === "" || !re.test(tel) || tel.length < 11) {
                     alert('请输入正确手机号');
                     return false;
                 }
-                let url= '/pub/captcha/' + tel
+                let url = '/pub/captcha/' + tel
                 api.Post(url, {})
                     .then(res => {
                         console.log(res);
                         alert(res.msg);
-                });
+                    });
             },
             // 个人注册
             personalRegister(formName) {
@@ -274,13 +273,20 @@
                             "captcha": this.personalForm.captcha,
                             "password": this.personalForm.pass
                         }
-                        api.Post('/sign/personal', params)
+                        api.Post('/pub/sign/personal', params)
                             .then(res => {
                                 console.log(res);
-                                if(res['msg'] == null) {
-                                    alert("注册成功");
+                                if (res["suc"] == true) {
+                                    this.$message("注册成功");
+                                    let redirect = decodeURIComponent('/index');
+                                    this.$router.push({
+                                        path: redirect
+                                    })
+                                    window.location.reload();
                                 }
-                                
+                                if (res["suc"] == false) {
+                                    this.$message(res['msg']);
+                                }
                             });
                     } else {
                         console.log('error submit!!');
@@ -300,11 +306,19 @@
                             "captcha": this.enterpriseForm.captcha,
                             "password": this.enterpriseForm.pass
                         }
-                        api.Post('/sign/enterprise', params)
+                        api.Post('/pub/sign/enterprise', params)
                             .then(res => {
                                 console.log(res);
-                                if(res["suc"] == true) {
-                                    alert("注册成功");
+                                if (res["suc"] == true) {
+                                    this.$message("注册成功");
+                                    let redirect = decodeURIComponent('/index');
+                                    this.$router.push({
+                                        path: redirect
+                                    })
+                                    window.location.reload();
+                                }
+                                if (res["suc"] == false) {
+                                    this.$message(res['msg']);
                                 }
                             });
                     } else {

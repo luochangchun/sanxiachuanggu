@@ -207,7 +207,7 @@
           <el-col :xs="24" :sm="12" :md="12" :lg="12" v-for="(item, index) in financing" :key="index" v-if="index<2">
             <router-link :to="{ name: 'financingDetail', params: { id: item.id} }" class="Financing_item rel">
               <!-- <img :src='item.logo' alt=""> -->
-              <div :style="{backgroundImage: 'url(' +item.logo+ ')'}" class="bg-cover"></div>
+              <div :style="{backgroundImage: 'url(' +item.logo+ ')'}" class="bg-cover" style="margin-bottom:0;"></div>
               <div class="Financing_wrap">
                 <div class="Financing_info">
                   <h1 class="f16">{{item.name}}</h1>

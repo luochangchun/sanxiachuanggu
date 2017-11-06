@@ -120,7 +120,7 @@
                 </div>
                 <el-row :gutter="10">
                     <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show-into" v-for="(item, index) in normal" :key="index" style="border:1px solid #eee;">
-                        <router-link :to="{name:'provider', params: {id:item.id} }">
+                        <router-link :to="{name:'provider', params: {id:item.id}}" style="display:block;padding:5px 0">
                             <img :src="item.icon" alt="">
                             <div class="service-opcity-into">
                                 <h2>{{item.name}}</h2>
@@ -338,6 +338,9 @@
         top: 48px;
         left: 45%;
     }
+    .service-show-into {
+        margin-bottom:10px;
+    }
     .service-opcity-into {
         text-align: center;
         margin-top: 5%;
@@ -349,7 +352,6 @@
         height: 30px;
         line-height: 30px;
         margin-top: -60px;
-        margin-bottom: 50px;
         color: #fff;
     }
     /* .service-show-into img:hover {
