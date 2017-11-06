@@ -14,10 +14,9 @@ export default {
     data() {
         return {
             imgArrs: [
-                { "id": '1', "src": "../static/img/banner01.jpg" },
+                { "id": '1', "src": "../static/img/banner01.png" },
                 { "id": '2', "src": "../static/img/banner02.png" },
                 { "id": '3', "src": "../static/img/banner03.png" },
-                { "id": '4', "src": "../static/img/banner02.png" }
             ]
         }
     },

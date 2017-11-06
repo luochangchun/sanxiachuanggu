@@ -2485,6 +2485,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "content"
   }, [_c('div', {
     staticClass: "wrapper",
+    staticStyle: {
+      "min-height": "300px"
+    },
     domProps: {
       "innerHTML": _vm._s(_vm.content || '暂无数据')
     }
@@ -2628,7 +2631,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
     data: function data() {
         return {
-            imgArrs: [{ "id": '1', "src": "../static/img/banner01.jpg" }, { "id": '2', "src": "../static/img/banner02.png" }, { "id": '3', "src": "../static/img/banner03.png" }, { "id": '4', "src": "../static/img/banner02.png" }]
+            imgArrs: [{ "id": '1', "src": "./static/img/banner01.png" }, { "id": '2', "src": "./static/img/banner02.png" }, { "id": '3', "src": "./static/img/banner03.png" }]
         };
     }
 };
@@ -22936,4 +22939,4 @@ module.exports = __webpack_require__.p + "static/img/banner_cgzx.2f9115e.png";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.737ce009c80466304c54.js.map
+//# sourceMappingURL=app.1b4e4cfa90fd71e71b77.js.map
