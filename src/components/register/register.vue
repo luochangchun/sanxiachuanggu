@@ -246,8 +246,11 @@
                 let url = '/pub/captcha/' + tel
                 api.Post(url, {})
                     .then(res => {
-                        console.log(res);
-                        // alert(res.msg);
+                       if(res['suc'] == true) {
+                            this.$message('短信已发送到您手机');
+                        } else if(res['suc'] == false) {
+                            this.$message(res['msg']);
+                        }
                     });
             },
             sendCaptcha() {
@@ -260,8 +263,11 @@
                 let url = '/pub/captcha/' + tel
                 api.Post(url, {})
                     .then(res => {
-                        console.log(res);
-                        // alert(res.msg);
+                        if(res['suc'] == true) {
+                            this.$message('短信已发送到您手机');
+                        } else if(res['suc'] == false) {
+                            this.$message(res['msg']);
+                        }
                     });
             },
             // 个人注册

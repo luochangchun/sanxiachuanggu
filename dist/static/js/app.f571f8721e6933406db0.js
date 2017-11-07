@@ -15001,6 +15001,8 @@ exports.default = {
             // console.log(tab, event);
         },
         sendSingleCaptcha: function sendSingleCaptcha() {
+            var _this2 = this;
+
             var re = /^1[34578]\d{9}$/;
             var tel = this.personalForm.phone;
             if (this.personalForm.phone === "" || !re.test(tel) || tel.length < 11) {
@@ -15009,11 +15011,16 @@ exports.default = {
             }
             var url = '/pub/captcha/' + tel;
             _api2.default.Post(url, {}).then(function (res) {
-                console.log(res);
-                // alert(res.msg);
+                if (res['suc'] == true) {
+                    _this2.$message('短信已发送到您手机');
+                } else if (res['suc'] == false) {
+                    _this2.$message(res['msg']);
+                }
             });
         },
         sendCaptcha: function sendCaptcha() {
+            var _this3 = this;
+
             var re = /^1[34578]\d{9}$/;
             var tel = this.enterpriseForm.phone;
             if (this.enterpriseForm.phone === "" || !re.test(tel) || tel.length < 11) {
@@ -15022,34 +15029,37 @@ exports.default = {
             }
             var url = '/pub/captcha/' + tel;
             _api2.default.Post(url, {}).then(function (res) {
-                console.log(res);
-                // alert(res.msg);
+                if (res['suc'] == true) {
+                    _this3.$message('短信已发送到您手机');
+                } else if (res['suc'] == false) {
+                    _this3.$message(res['msg']);
+                }
             });
         },
 
         // 个人注册
         personalRegister: function personalRegister(formName) {
-            var _this2 = this;
+            var _this4 = this;
 
             this.$refs[formName].validate(function (valid) {
                 if (valid) {
                     var params = {
-                        "phone": _this2.personalForm.phone,
-                        "captcha": _this2.personalForm.captcha,
-                        "password": _this2.personalForm.pass
+                        "phone": _this4.personalForm.phone,
+                        "captcha": _this4.personalForm.captcha,
+                        "password": _this4.personalForm.pass
                     };
                     _api2.default.Post('/pub/sign/personal', params).then(function (res) {
                         console.log(res);
                         if (res["suc"] == true) {
-                            _this2.$message("注册成功");
+                            _this4.$message("注册成功");
                             var redirect = decodeURIComponent('/login');
-                            _this2.$router.push({
+                            _this4.$router.push({
                                 path: redirect
                             });
                             // window.location.reload();
                         }
                         if (res["suc"] == false) {
-                            _this2.$message(res['msg']);
+                            _this4.$message(res['msg']);
                         }
                     });
                 } else {
@@ -15061,30 +15071,30 @@ exports.default = {
 
         // 企业注册
         enterpriseRegister: function enterpriseRegister(formName) {
-            var _this3 = this;
+            var _this5 = this;
 
             this.$refs[formName].validate(function (valid) {
                 if (valid) {
                     var params = {
-                        "code": _this3.enterpriseForm.code,
-                        "name": _this3.enterpriseForm.name,
-                        "contact": _this3.enterpriseForm.contact,
-                        "phone": _this3.enterpriseForm.phone,
-                        "captcha": _this3.enterpriseForm.captcha,
-                        "password": _this3.enterpriseForm.pass
+                        "code": _this5.enterpriseForm.code,
+                        "name": _this5.enterpriseForm.name,
+                        "contact": _this5.enterpriseForm.contact,
+                        "phone": _this5.enterpriseForm.phone,
+                        "captcha": _this5.enterpriseForm.captcha,
+                        "password": _this5.enterpriseForm.pass
                     };
                     _api2.default.Post('/pub/sign/enterprise', params).then(function (res) {
                         console.log(res);
                         if (res["suc"] == true) {
-                            _this3.$message("注册成功");
+                            _this5.$message("注册成功");
                             var redirect = decodeURIComponent('/index');
-                            _this3.$router.push({
+                            _this5.$router.push({
                                 path: redirect
                             });
                             window.location.reload();
                         }
                         if (res["suc"] == false) {
-                            _this3.$message(res['msg']);
+                            _this5.$message(res['msg']);
                         }
                     });
                 } else {
@@ -23250,4 +23260,4 @@ module.exports = __webpack_require__.p + "static/img/banner_cgzx.2f9115e.png";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.d5d78b26dafcd65a767b.js.map
+//# sourceMappingURL=app.f571f8721e6933406db0.js.map
