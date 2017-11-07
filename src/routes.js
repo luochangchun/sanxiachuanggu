@@ -123,7 +123,10 @@ const routes = [
 	{ path: '/service', component: service, name: 'service' },//创谷企业首页
 	{ path: '/financing', component: financing, name: 'financing' },//投融资库首页
 	{ path: '/research', component: research, name: 'research' },//创谷研究首页
-	{ path: '/station/:id', component: station, name: 'station' },//申请工位表单
+	{
+		path: '/station/:categoryId/:type', component: station, name: 'station', meta: {
+			requireAuth: true,
+		}  },//申请工位表单
 	{ path: '/college', component: college, name: 'college' },//创谷学院首页
 	{ path: '/position', component: position, name: 'position' },//申请职位表单
 	{ path: '/school_detail/:id', component: school_detail, name: 'school_detail' },//学院详情
@@ -133,7 +136,10 @@ const routes = [
 		path: '/enter/:id', component: enter, name: 'enter', meta: {
 			requireAuth: true,
 		} },//申请入驻表单
-	{ path: '/train_Application/:id', component: train_Application, name: 'train_Application' },//活动报名表单
+	{
+		path: '/train_Application/:id', component: train_Application, name: 'train_Application', meta: {
+			requireAuth: true,
+		}  },//活动报名表单
 	{ path: '/provider/:id', component: provider, name: 'provider' },//服务商详情页
 	{ path: '/into/:id', component: into, name: 'into' },//入孵企业详情页
 	{ path: '/need', component: need, name: 'need' },//服务需求
@@ -152,18 +158,23 @@ const routes = [
 	{ path: '/service_provider_more', component: service_provider_more, name: 'service_provider_more' },//服务商(more)
 	{ path: '/financingDetail', component: financingDetail, name: 'financingDetail' },//投资项目详情页
 	//10.29
-	{ path: '/problem/:type', component: problem, name: 'problem' },//发布企业难题表单
-	{ path: '/tutorProblem/:businessId/:id', component: tutorProblem, name: 'tutorProblem' },//向导师发布技术难题表单
+	{
+		path: '/problem/:type', component: problem, name: 'problem', meta: {
+			requireAuth: true,
+		} },//发布企业难题表单
+	{ path: '/tutorProblem/:businessId/:id', component: tutorProblem, name: 'tutorProblem', meta: {
+			requireAuth: true,
+		} },//向导师发布技术难题表单
 	{ path: '/service_needs', component: service_needs, name: 'service_needs' },//服务需求发布表单
 	//10.30
-	{ path: '/attract', component: attract, name: 'attract' },//招商讯息页
-	{ path: '/attract_college', component: attract_college, name: 'attract_college' },//创谷学院招商讯息页
+	{ path: '/attract/:type', component: attract, name: 'attract' },//招商/求租列表页
+	{ path: '/attract_college/:type', component: attract_college, name: 'attract_college' },//创谷学院招商讯息页
 	// { path: '/demand', component: demand, name: 'demand' },//求租讯息页
 	{ path: '/financing_more', component: financing_more, name: 'financing_more' },//融资项目(more)
 	{ path: '/attract_detail/:id', component: attract_detail, name: 'attract_detail' },//招商讯息详情
 	{ path: '/demand_detail', component: demand_detail, name: 'demand_detail' },//求租讯息详情
 	{
-		path: '/attract_list/:id', component: attract_list, name: 'attract_list', meta: {
+		path: '/attract_list/:categoryId/:type', component: attract_list, name: 'attract_list', meta: {
 			requireAuth: true,
 		} },//招商发布表单
 	{ path: '/demand_list', component: demand_list, name: 'demand_list' },//求租发布表单

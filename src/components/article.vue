@@ -1,6 +1,5 @@
 <template>
     <div class="activity_para">
-       
         <div class="padder-v-xxl">
             <div class="container">
                 <el-row :gutter="10">
@@ -8,7 +7,7 @@
                         <div class="padder-v">
                             <div class="content">
                                 <!-- <img style="max-width:600px;" :src="photos" alt=""> -->
-                                <div style="min-height:300px;" class="wrapper" v-html="content || '暂无数据'"></div>
+                                <div style="min-height:300px;border:none" class="wrapper" v-html="content || '暂无数据'"></div>
                             </div>
                         </div>
                     </el-col>

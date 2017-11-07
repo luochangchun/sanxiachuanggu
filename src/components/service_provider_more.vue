@@ -51,10 +51,10 @@
                                 <h1 class="tc">{{item['service']}}</h1>
                             </el-col>
                             <el-col :xs="3" :sm="3" :md="3" :lg="3">
-                                <h2 class="tc">曹总</h2>
+                                <h2 class="tc">{{item['contact'] || '暂无数据'}}</h2>
                             </el-col>
                             <el-col :xs="5" :sm="5" :md="5" :lg="5">
-                                <h2 class="tc">13232658712</h2>
+                                <h2 class="tc">{{item['phone'] || '暂无数据'}}</h2>
                             </el-col>
                         </router-link>
                     </el-row>

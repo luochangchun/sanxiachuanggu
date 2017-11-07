@@ -6,7 +6,7 @@
         </el-breadcrumb>
         <!--企业技术难题及需求-->
         <el-row :gutter="10" class="need_xq">
-            <el-col :lg="10" :md="10" :sm="10" :xs="10">
+            <el-col :lg="12" :md="12" :sm="12" :xs="12">
                 <p>需求</p>
             </el-col>
             <el-col :lg="3" :md="3" :sm="3" :xs="3">
@@ -20,7 +20,7 @@
             </el-col>
         </el-row>
         <el-row :gutter="10" v-for="(item,index) in List" class="need_xq" :key="index">
-            <router-link :to="{ name: 'provider', params: { id: item.id} }">
+            <router-link :to="{ name: 'service_detail', params: { id: item.id} }">
                 <el-col :lg="12" :md="12" :sm="12" :xs="12" class="need_xq_p">
                     <p>{{item['enterprise']}} <span>[{{item['title']}}]</span></p>
                 </el-col>

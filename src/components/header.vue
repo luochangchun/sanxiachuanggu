@@ -30,7 +30,8 @@
                             <router-link to="/map">创谷空间</router-link>
                             <ul>
                                 <li>
-                                    <router-link to="/attract">招商/求租信息</router-link>
+                                    <router-link to="/attract/1">招商信息</router-link>
+                                    <router-link to="/attract/2">求租信息</router-link>
                                 </li>
                             </ul>
                         </li>
@@ -38,7 +39,8 @@
                             <router-link to="/incubators">双创空间</router-link>
                             <ul>
                                 <li>
-                                    <router-link to="/attract_college">招商/求租信息</router-link>
+                                    <router-link to="/attract_college/1">招商信息</router-link>
+                                    <router-link to="/attract_college/2">求租信息</router-link>
                                 </li>
                             </ul>
                         </li>

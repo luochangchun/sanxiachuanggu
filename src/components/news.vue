@@ -19,12 +19,12 @@
                                 <el-tab-pane v-for="(item,index) in category" :key="index" :label="item.name" :name="item.cname" :cid="item.id">
                                     <el-row :gutter="10" class="news-leftlist" v-show="!show_read">
                                         <router-link :to="{ name: 'article', params: { id: item.id} }" class="m-t b-b clea" v-for="(item, index) in newsListData" :key="index">
-                                            <el-col :lg="7" :md="7" :sm="7" :xs="24" class="no-padder">
+                                            <el-col :lg="8" :md="8" :sm="8" :xs="24" class="no-padder">
                                                 <div>
                                                     <img :src="item.icon" class="w-full" @click="show_read=true">
                                                 </div>
                                             </el-col>
-                                            <el-col :lg="16" :md="16" :sm="16" :xs="24" :offset="1" class="pos">
+                                            <el-col :lg="16" :md="16" :sm="16" :xs="24" class="pos">
                                                 <p class="text-md font-bold text-ellipsis">
                                                     <a href="" class="text-dark-lt">{{item['title']}}</a>
                                                 </p>
@@ -335,7 +335,7 @@
         padding: 30px;
     }
     .no-padder img{
-        width:210px;
+        width:200px;
         height:120px;
     }
     @media (max-width: 768px) {

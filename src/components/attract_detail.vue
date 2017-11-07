@@ -19,10 +19,6 @@
                         <p>地址:{{tenancyApply['address']}}</p>
                         <p>联系方式:{{tenancyApply['detail']['contact']}} {{tenancyApply['phone']}}</p>
                         <p>场地面积:{{tenancyApply['area']}}平米</p>
-                        <!-- 跳到孵化器申请表单 -->
-                        <router-link v-if="tenancyApply['type']==2" :to="{ name: 'attract_list', params: { id: tenancyApply.id} }">申请入驻</router-link>
-                        <!-- 跳到工位申请表单 -->
-                        <router-link v-if="tenancyApply['type']==3" :to="{ name: 'station', params: { id: tenancyApply.id} }">申请入驻</router-link>
                     </el-col>
                 </el-row>
                 <el-row :gutter="10" class="incubators_details_text" style="border:1px solid #ddd;background-color: #fff;padding:15px;margin-top:20px;">
@@ -50,7 +46,6 @@
 			getTenancyApply(id) {
 				api.Get('/qb/tenancy/' + id)
 					.then(res => {
-						console.log(res);
 						this.tenancyApply = res['tenancyApply'];
 						this.photos = res['photos']
 						if(!res['tenancyApply']['detail']) {

@@ -247,7 +247,7 @@
                 api.Post(url, {})
                     .then(res => {
                         console.log(res);
-                        alert(res.msg);
+                        // alert(res.msg);
                     });
             },
             sendCaptcha() {
@@ -261,7 +261,7 @@
                 api.Post(url, {})
                     .then(res => {
                         console.log(res);
-                        alert(res.msg);
+                        // alert(res.msg);
                     });
             },
             // 个人注册
@@ -278,11 +278,11 @@
                                 console.log(res);
                                 if (res["suc"] == true) {
                                     this.$message("注册成功");
-                                    let redirect = decodeURIComponent('/index');
+                                    let redirect = decodeURIComponent('/login');
                                     this.$router.push({
                                         path: redirect
                                     })
-                                    window.location.reload();
+                                    // window.location.reload();
                                 }
                                 if (res["suc"] == false) {
                                     this.$message(res['msg']);

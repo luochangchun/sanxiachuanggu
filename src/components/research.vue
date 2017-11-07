@@ -46,7 +46,7 @@
                                 <div>
                                     <h4>指导老师:{{item.name}}</h4>
                                     <h3>{{item.title}}</h3>
-                                    <!-- <p class="text-ellipsis-muti text-ellipsis-2">教师简介:{{item.intro}}</p> -->
+                                    <p class="text-ellipsis-muti text-ellipsis-2">{{item.intro}}</p>
                                 </div>
                                 <div>
                                     <router-link :to="{name:'tutorDetail', params: {id:item.id} }">

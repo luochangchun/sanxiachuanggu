@@ -95,9 +95,9 @@
                         <router-link :to="{ name: 'splendid_list'}" class="r more_plus to"></router-link>
                     </div>
                     <el-row :gutter="10">
-                        <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in teacher" :key="index">
+                        <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in lecture" :key="index">
                             <router-link :to="{name:'train_detail', params: {id:item.id} }" class="research-splendid">
-                                <img :src="item.photo" alt="">
+                                <img :src="item.icon" alt="">
                             </router-link>
                         </el-col>
                     </el-row>

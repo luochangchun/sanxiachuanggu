@@ -6,7 +6,7 @@
                 <el-row :gutter="10">
                     <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" class="provider_header">
                         <div class="provider_login">
-                            <img src="" alt="">
+                            <img :src="financeDetail['icon']" alt="">
                         </div>
                         <div>
                             <p>{{financeDetail['name']}}</p>
@@ -31,26 +31,26 @@
                             </tr>
                             <tr>
                                 <td class="font-bold w-xs">联系人</td>
-                                <td>{{financeDetail['founder']}}</td>
+                                <td>{{financeDetail['name']}}</td>
                                 <td class="font-bold">联系电话</td>
                                 <td>
-                                    <p>15172525978</p>
+                                    <p>{{financeDetail['phone'] || "暂无数据"}}</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="font-bold w-xs">地址</td>
                                 <td colspan="3">
-                                    <p>武汉市洪山区珞狮北路2号樱花大厦A座</p>
+                                    <p>{{financeDetail['address'] || "暂无数据"}}</p>
                                 </td>
                             </tr>
                             <tr style="height:240px;">
                                 <td class="font-bold w-xs h-md">企业简介与优势</td>
-                                <td colspan="3">{{financeDetail['how']}}</td>
+                                <td colspan="3">{{financeDetail['intro'] || "暂无数据"}}</td>
                             </tr>
                             <tr style="height:90px;">
                                 <td class="font-bold w-xs">服务领域</td>
                                 <td colspan="3" class="h-xs">
-                                    <p>{{financeDetail['what']}}</p>
+                                    <!-- <p v-html="financeDetail['detail']['content']"></p> -->
                                 </td>
                             </tr>
                             <tr>
@@ -85,7 +85,7 @@ import api from '../axios/api.js'
        },
        methods: {
            getFinanceItem(id) {
-               api.Get('/finance/' + id)
+               api.Get('/enterprise/' + id)
                    .then(res => {
                        this.financeDetail=res;
                    });
@@ -94,7 +94,7 @@ import api from '../axios/api.js'
    }
 </script>
 
-<style>
+<style scoped>
     /*服务企业login*/
     .provider_header p {
         line-height: 60px;
@@ -104,9 +104,6 @@ import api from '../axios/api.js'
     .provider_header button {
         border: 1px solid #fff;
         background-color: transparent;
-        width: 80px;
-        height:25px;
-        line-height:25px;
         border-radius: 4px;
         color: #fff;
         font-size: 12px;

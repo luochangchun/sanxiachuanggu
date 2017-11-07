@@ -11,7 +11,7 @@
                 </el-col>
                 <el-row>
                     <el-col :xs="24" :sm="12" :md="6" :lg="6" v-for="(item, index) in windowList" :key="index">
-                        <a class="office_item" :href="item.redirect">
+                        <a class="office_item" :href="item.redirect" target="_blank">
                             <img :src="item.icon" alt="">
                             <p class="tc black2" style="margin-top:0">{{item.name}}</p>
                         </a>

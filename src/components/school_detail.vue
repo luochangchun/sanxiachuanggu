@@ -31,7 +31,7 @@
                 </el-row> -->
                 <el-row :gutter="10" class="incubators_details_text" style="border:1px solid #ddd;background-color: #fff;padding:15px;margin-top:20px;">
                     <el-col :lg="19" :md="24" :sm="24" :xs="24">
-                        <p>{{university['intro']}}</p>
+                        <p v-html="university['detail']['content']"></p>
                     </el-col>
                 </el-row>
             </el-col>

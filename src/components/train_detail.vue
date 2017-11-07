@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     </el-col>
-                    <el-col :xs="24" :sm="24" :md="16"  :lg="10">
+                    <el-col :xs="24" :sm="24" :md="24"  :lg="24">
                         <div class="content">
                             <p class="f24">
                                 <span>培训基本信息</span>

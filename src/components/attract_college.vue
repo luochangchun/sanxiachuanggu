@@ -2,37 +2,55 @@
     <div>
         <!-- 双创 -->
         <el-row :gutter="10" style="margin-bottom: 50px;">
-            <el-col :xs="18" :sm="18" :md="18" :lg="18" :offset="3" style="margin-top:15px;">
-                <el-breadcrumb separator="/" class="padder-vx">
+            <el-col :xs="18" :sm="18" :md="18" :lg="18" :offset="3" style="margin-top:10px;position:relative;">
+                <el-breadcrumb separator="/" class="padder-vx bb">
                     <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
                     <el-breadcrumb-item :to="{ path: '/incubators' }">双创空间</el-breadcrumb-item>
-                    <el-breadcrumb-item>招商信息列表</el-breadcrumb-item>
+                    <el-breadcrumb-item v-if="type=='1'">招商信息列表</el-breadcrumb-item>
+                    <el-breadcrumb-item v-if="type=='2'">求租信息列表</el-breadcrumb-item>
                 </el-breadcrumb>
+                <!-- 跳到孵化器申请表单 -->
+                <router-link v-if="type == 1" :to="{ name: 'attract_list', params: {categoryId:'3', type: type}}" class="zs">发布招商</router-link>
+                <router-link v-if="type == 2" :to="{ name: 'attract_list', params: {categoryId:'3', type: type}}" class="zs">发布求租</router-link>
             </el-col>
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" style="margin-top:15px;">
-                <el-row :gutter="10" v-for="(item, index) in investData" :key="index" style="border:1px solid #ddd;margin-bottom: 10px;">
-                    <el-col :xs="8" :sm="8" :md="8" :lg="8">
-                        <div class="incubators_more_img">
-                            <img src="../../static/img/int1.png" alt="" style="margin-left: -5px;">
-                        </div>
-                    </el-col>
-                    <el-col :xs="12" :sm="12" :md="12" :lg="12" :offset="1">
-                        <div class="incubators_more_introduce">
-                            <h2>{{item['title']}}</h2>
-                            <p><span>地址：</span>{{item['address']}}</p>
-                            <p><span>联系方式：</span>{{item['contact']}} &nbsp;&nbsp;{{item['phone']}}
-                                <p><span>在孵企业数：</span>23家</p>
-                                <router-link :to="{name:'attract_detail', params: {id:item['id']}}">
-                                    查看详情>>
-                                </router-link>
-                        </div>
-                    </el-col>
-                    <el-col :xs="3" :sm="3" :md="3" :lg="3">
-                        <div class="incubators_more_area">
-                            <h3>{{item['area']}}平方米</h3>
-                            <p>孵化总面积</p>
-                        </div>
-                    </el-col>
+                 <p v-if="attractFlag" style="text-align:center;">暂无数据</p>
+                <el-row v-if="type=='1' && item['type'] == 1" :gutter="10" v-for="(item, index) in investData" :key="index" style="border-bottom:1px solid #ddd;margin-bottom: 10px;">
+                    <router-link :to="{name:'attract_detail', params: {id:item['id']}}">
+                        <el-col :xs="5" :sm="5" :md="5" :lg="5">
+                            <div class="incubators_more_img">
+                                <img src="../../static/img/int1.png" alt="" style="margin-left: -5px;">
+                            </div>
+                        </el-col>
+                        <el-col :xs="15" :sm="15" :md="15" :lg="15">
+                            <div class="incubators_more_introduce">
+                                <h2>{{item['title']}}</h2>
+                                <p><span>地址：</span>{{item['address']}}</p>
+                                <p><span>联系方式：</span>{{item['contact']}} &nbsp;&nbsp;{{item['phone']}}</p>
+                            </div>
+                        </el-col>
+                        <el-col :xs="3" :sm="3" :md="3" :lg="3">
+                            <div class="incubators_more_area">
+                                <h3 class="b">{{item['price']}}{{item['unit']}}</h3>
+                            </div>
+                        </el-col>
+                    </router-link>
+                </el-row>
+                <el-row v-if="type=='2' && item['type'] == 2" :gutter="10" v-for="(item, index) in investData" :key="index" style="border-bottom:1px solid #ddd;margin-bottom: 10px;">
+                    <router-link :to="{name:'attract_detail', params: {id:item['id']}}">
+                        <el-col :xs="20" :sm="20" :md="20" :lg="20">
+                            <div class="incubators_more_introduce">
+                                <h2>{{item['title']}}</h2>
+                                <p><span>地址：</span>{{item['address']}}</p>
+                                <p><span>联系方式：</span>{{item['contact']}} &nbsp;&nbsp;{{item['phone']}}</p>
+                            </div>
+                        </el-col>
+                        <el-col :xs="3" :sm="3" :md="3" :lg="3">
+                            <div class="incubators_more_area">
+                                <h3 class="b">{{item['price']}}{{item['unit']}}</h3>
+                            </div>
+                        </el-col>
+                    </router-link>
                 </el-row>
             </el-col>
         </el-row>
@@ -47,43 +65,77 @@
         </el-row>
     </div>
 </template>
+
 <script>
     import api from "../axios/api.js";
     export default {
         data() {
             return {
+                type: '',
                 attractFlag: false,
                 investData: "", //招商列表信息
                 totalPages: ''
             };
         },
         created() {
-            let type = this.$route.params.type;
             this.initRent();
+            this.type = this.$route.params.type;
+
         },
         methods: {
-           
             initRent() {
                 let url = "/qb/tenancy/3/" + '10' + '/1';
                 api.Get(url).then(res => {
-                    this.attractFlag = true;
-                    this.investData = res['data'];
+                    if(res['data'].length > 0) {
+                        this.attractFlag = false;
+                        this.investData = res['data'];
+                    } else {
+                        this.attractFlag = true;
+                    }
                     this.totalPages = res['totalPages'] * 10;
                 });
             },
-            // handleCurrentChange(val) {
-            //     //获取到当前分页页码，获取当前页面数据
-            //     var url = '/qb/tenancy/2/' + '10' + '/' + val
-            //     api.Get(url)
-            //         .then(res => {
-            //             this.investData = res['data'];
-            //             this.totalPages = res['totalPages']*10;
-            //         })
-            // }
+            handleCurrentChange(val) {
+                //获取到当前分页页码，获取当前页面数据
+                var url = '/qb/tenancy/3/' + '10' + '/' + val
+                api.Get(url)
+                    .then(res => {
+                        this.investData = res['data'];
+                        this.totalPages = res['totalPages'] * 10;
+                    })
+            }
+        },
+        watch: {
+            '$route' (to, from) {
+                this.initRent();
+                this.attractFlag = false;
+                this.type = this.$route.params.type;
+            }
         }
     };
 </script>
+
 <style>
+    .bb {
+        border-bottom: 3px solid #0089e3;
+        position: relative;
+    }
+    .zs {
+        background-color: #f48100;
+        border: none;
+        color: #fff;
+        border-radius: 4px;
+        width: 80px;
+        height: 26px;
+        text-align: center;
+        line-height: 26px;
+        position: absolute;
+        right: 10px;
+        top: 0;
+    }
+    .incubators_more_img img {
+        width: 80%;
+    }
     .incubators_more_area img {
         width: 100%;
     }
@@ -92,7 +144,6 @@
         font-weight: normal;
         line-height: 30px;
         font-size: 16px;
-        margin-top: 20px;
     }
     .incubators_more_introduce p {
         line-height: 30px;

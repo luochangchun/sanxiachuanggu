@@ -24,27 +24,24 @@
                         </el-col>
                     </el-row>
                     <el-row :gutter="10" v-for="(item, index) in topic" :key="index" class="into_more_list">
-                        <el-col :xs="12" :sm="12" :md="12" :lg="12" class="into_more_img">
-                            <el-row :gutter="10">
-                                <el-col :xs="8" :sm="4" :md="4" :lg="4">
-                                    <div>
-                                        <img :src="item.icon" alt="">
-                                    </div>
-                                </el-col>
-                                <el-col :xs="16" :sm="16" :md="16" :lg="16">
-                                    <h1 class="f16">{{item['title']}}</h1>
-                                    <p class="f14">{{item['title']}}</p>
-                                </el-col>
-                            </el-row>
-                        </el-col>
-                        <el-col :xs="5" :sm="5" :md="5" :lg="5">
-                            <h2 class="f14">{{item['time'] | formatDate}}</h2>
-                        </el-col>
-                        <el-col :xs="5" :sm="5" :md="5" :lg="5">
-                            <router-link :to="{ name: 'ActivityPara', params: { id: item.id}}" style="color:#f48100">
-                                查看新闻
-                            </router-link>
-                        </el-col>
+                        <router-link :to="{ name: 'article', params: { id: item.id}}">
+                            <el-col :xs="19" :sm="19" :md="19" :lg="19" class="into_more_img">
+                                <el-row :gutter="10">
+                                    <el-col :xs="8" :sm="4" :md="4" :lg="4">
+                                        <div>
+                                            <img :src="item.icon" alt="">
+                                        </div>
+                                    </el-col>
+                                    <el-col :xs="16" :sm="16" :md="16" :lg="16">
+                                        <h1 class="f16">{{item['title']}}</h1>
+                                        <p class="f14">{{item['title']}}</p>
+                                    </el-col>
+                                </el-row>
+                            </el-col>
+                            <el-col :xs="5" :sm="5" :md="5" :lg="5">
+                                <h2 class="f14">{{item['time'] | formatDate}}</h2>
+                            </el-col>
+                        </router-link>
                     </el-row>
                 </div>
             </el-col>
@@ -54,7 +51,9 @@
 
 <script>
     import api from '../axios/api.js'
-    import {formatDate} from '../../static/js/date.js'
+    import {
+        formatDate
+    } from '../../static/js/date.js'
     export default {
         data() {
             return {
@@ -95,7 +94,8 @@
         line-height: 40px;
     }
     .into_more_img img {
-        width: 100%;
+        width: 100px;
+        height: 100px;
     }
     .into_more_list {
         border: 1px solid #ddd;

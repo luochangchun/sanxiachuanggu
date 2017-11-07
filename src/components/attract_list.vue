@@ -3,7 +3,7 @@
 		<el-row :gutter="10" style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
 			<el-col :lg="14" :md="10" :sm="10" :xs="10" :offset="5">
 				<el-form :model="tenancyForm" :rules="tenancyRules" ref="tenancyForm" label-width="120px" class="tenancyForm">
-					<el-form-item class="tc f18 b">发布招商信息</el-form-item>
+					<el-form-item class="tc f18 b">发布{{typeFlag}}信息</el-form-item>
 					<el-form-item label="标题" prop="title">
 						<el-input type="text" v-model="tenancyForm.title"></el-input>
 					</el-form-item>
@@ -43,7 +43,7 @@
 					</el-form-item>
 					<el-form-item label="编辑文章" prop="article">
 						<vue-editor v-model="tenancyForm.content" :editorToolbar="customToolbar"></vue-editor>
-					</el-form-item>	
+					</el-form-item>
 					<el-form-item>
 						<el-button type="primary" @click="submitForm('tenancyForm')">发布</el-button>
 					</el-form-item>
@@ -53,203 +53,257 @@
 	</div>
 </template>
 <style scoped>
-	.info {
-		border-radius: 10px;
-		line-height: 20px;
-		padding: 10px;
-		margin: 10px;
-		background-color: #ffffff;
-	}
+.info {
+  border-radius: 10px;
+  line-height: 20px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #ffffff;
+}
 </style>
 
 <script>
-	import { VueEditor } from 'vue2-editor'
-	import api from "../axios/api.js";
-	export default {
-		components: {VueEditor},
-		data() {
-			let validatePhone = (rule, value, callback) => {
-				let re = /^1[34578]\d{9}$/;
-				if (value === "" || !re.test(value) || value.length < 11) {
-					callback(new Error("请输入正确手机号！"));
-				} else {
-					callback();
-				}
-			};
-			let validateName = (rule, value, callback) => {
-				let re = /^[\u4E00-\u9FA5\uf900-\ufa2d]{2,5}$/;
-				if (
-					value === "" ||
-					!re.test(value) ||
-					value.length < 2 ||
-					value.length > 5
-				) {
-					callback(new Error("请输入联系人姓名"));
-				} else {
-					callback();
-				}
-			};
-			return {
-				htmlForEditor: null,
-				options: [{
-						value: "写字楼",
-						label: "写字楼"
-					},
-					{
-						value: "厂房",
-						label: "厂房"
-					}
-				],
-				units: [{
-						value: "元/平米/天",
-						label: "元/平米/天"
-					},
-					{
-						value: "元/平米/月",
-						label: "元/平米/月"
-					},
-					{
-						value: "元/个/天",
-						label: "元/个/天"
-					},
-					{
-						value: "元/个/月",
-						label: "元/个/月"
-					},
-					{
-						value: "元/月",
-						label: "元/月"
-					}
-				],
-				tenancyForm: {
-					title: "",
-					phone: "",
-					building: "",
-					buildingType: "",
-					area: "",
-					address: "",
-					price: "",
-					unit: "",
-					cubicle: "",
-					content: ""
-				},
-				tenancyRules: {
-					title: [{
-						required: true,
-						message: "请输入标题",
-						trigger: "blur"
-					}],
-					contact: [{
-						required: true,
-						validator: validateName,
-						message: "请输入联系人",
-						trigger: "blur"
-					}],
-					phone: [{
-						required: true,
-						validator: validatePhone,
-						message: "请输入正确的手机号",
-						trigger: "blur"
-					}],
-					building: [{
-						required: true,
-						message: "请输入楼盘名称",
-						trigger: "blur"
-					}],
-					area: [{
-						required: true,
-						message: "请输入面积",
-						trigger: "blur"
-					}],
-					address: [{
-						required: true,
-						message: "请输入地址/地段",
-						trigger: "blur"
-					}],
-					price: [{
-						required: true,
-						message: "请输入每平米价格",
-						trigger: "blur"
-					}],
-					unit: [{
-						required: true,
-						message: "请输入单位",
-						trigger: "blur"
-					}],
-					cubicle: [{
-						required: true,
-						message: "请选择工位是否能租赁",
-						trigger: "blur"
-					}],
-					content: [{
-						message: "请输入简介",
-						trigger: "blur"
-					}]
-				}
-			};
-		},
-		methods: {
-			submitForm(formName) {
-				this.$refs[formName].validate(valid => {
-					if (valid) {
-						let url = "/qb/tenancy/apply";
-						var params = {
-							contact: this.tenancyForm.contact,
-							phone: this.tenancyForm.phone,
-							building: this.tenancyForm.building,
-							buildingType: this.tenancyForm.buildingType,
-							area: this.tenancyForm.area,
-							address: this.tenancyForm.address,
-							price: this.tenancyForm.price,
-							unit: this.tenancyForm.unit,
-							cubicle: this.tenancyForm.cubicle,
-							detail: {
-								"title": this.tenancyForm.title,
-								"content": this.tenancyForm.content,
-							}
-						};
-						api.Post("/qb/tenancy/apply", params).then(res => {
-							console.log(res);
-							if (res["suc"] == true) {
-								this.$message("提交成功");
-							} else {
-								this.$message(res["msg"]);
-							}
-						})
-					} else {
-						console.log("error submit!!");
-						return false;
-					}
-				});
-			},
-			resetForm(formName) {
-				this.$refs[formName].resetFields();
-			}
-		}
-	};
+import { VueEditor } from "vue2-editor";
+import api from "../axios/api.js";
+export default {
+  components: {
+    VueEditor
+  },
+  data() {
+    let validatePhone = (rule, value, callback) => {
+      let re = /^1[34578]\d{9}$/;
+      if (value === "" || !re.test(value) || value.length < 11) {
+        callback(new Error("请输入正确手机号！"));
+      } else {
+        callback();
+      }
+    };
+    let validateName = (rule, value, callback) => {
+      let re = /^[\u4E00-\u9FA5\uf900-\ufa2d]{2,5}$/;
+      if (
+        value === "" ||
+        !re.test(value) ||
+        value.length < 2 ||
+        value.length > 5
+      ) {
+        callback(new Error("请输入联系人姓名"));
+      } else {
+        callback();
+      }
+    };
+    return {
+      typeFlag: "",
+      htmlForEditor: null,
+      options: [
+        {
+          value: "写字楼",
+          label: "写字楼"
+        },
+        {
+          value: "厂房",
+          label: "厂房"
+        }
+      ],
+      units: [
+        {
+          value: "元/平米/天",
+          label: "元/平米/天"
+        },
+        {
+          value: "元/平米/月",
+          label: "元/平米/月"
+        },
+        {
+          value: "元/个/天",
+          label: "元/个/天"
+        },
+        {
+          value: "元/个/月",
+          label: "元/个/月"
+        },
+        {
+          value: "元/月",
+          label: "元/月"
+        }
+      ],
+      tenancyForm: {
+        title: "",
+        phone: "",
+        building: "",
+        buildingType: "",
+        area: "",
+        address: "",
+        price: "",
+        unit: "",
+        cubicle: "",
+        content: ""
+      },
+      tenancyRules: {
+        title: [
+          {
+            required: true,
+            message: "请输入标题",
+            trigger: "blur"
+          }
+        ],
+        contact: [
+          {
+            required: true,
+            validator: validateName,
+            message: "请输入联系人",
+            trigger: "blur"
+          }
+        ],
+        phone: [
+          {
+            required: true,
+            validator: validatePhone,
+            message: "请输入正确的手机号",
+            trigger: "blur"
+          }
+        ],
+        building: [
+          {
+            required: true,
+            message: "请输入楼盘名称",
+            trigger: "blur"
+          }
+        ],
+        area: [
+          {
+            required: true,
+            message: "请输入面积",
+            trigger: "blur"
+          }
+        ],
+        address: [
+          {
+            required: true,
+            message: "请输入地址/地段",
+            trigger: "blur"
+          }
+        ],
+        price: [
+          {
+            required: true,
+            message: "请输入每平米价格",
+            trigger: "blur"
+          }
+        ],
+        unit: [
+          {
+            required: true,
+            message: "请输入单位",
+            trigger: "blur"
+          }
+        ],
+        cubicle: [
+          {
+            required: true,
+            message: "请选择工位是否能租赁",
+            trigger: "blur"
+          }
+        ],
+        content: [
+          {
+            message: "请输入简介",
+            trigger: "blur"
+          }
+        ]
+      }
+    };
+  },
+  created() {
+    console.log(this.$route.params.type);
+    if (this.$route.params.type == "1") {
+      this.typeFlag = "招商";
+    } else if (this.$route.params.type == "2") {
+      this.typeFlag = "求租";
+    }
+  },
+  methods: {
+    submitForm(formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          let url = "/qb/tenancy/apply";
+          var params = {
+            categoryId: this.$route.params.categoryId,
+            type: this.$route.params.type,
+            contact: this.tenancyForm.contact,
+            phone: this.tenancyForm.phone,
+            building: this.tenancyForm.building,
+            buildingType: this.tenancyForm.buildingType,
+            area: this.tenancyForm.area,
+            address: this.tenancyForm.address,
+            price: this.tenancyForm.price,
+            unit: this.tenancyForm.unit,
+            cubicle: this.tenancyForm.cubicle,
+            detail: {
+              title: this.tenancyForm.title,
+              content: this.tenancyForm.content
+            }
+          };
+          api.Post("/qb/tenancy/apply", params).then(res => {
+            console.log(res);
+            if (res["suc"] == true) {
+              this.$confirm("提交成功", "提示", {
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
+                type: "success"
+              })
+                .then(() => {
+                  window.history.go(-1);
+                })
+                .catch(() => {
+                  //点击取消
+                });
+            } else {
+              this.$message(res["msg"]);
+            }
+          });
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
+    },
+    resetForm(formName) {
+      this.$refs[formName].resetFields();
+    },
+    watch: {
+      $route(to, from) {
+        if (this.$route.params.type == "1") {
+          this.typeFlag = "招商";
+        } else if (this.$route.params.type == "2") {
+          this.typeFlag = "求租";
+        }
+      }
+    }
+  }
+};
 </script>
 <style>
-	.tenancyForm {
-		width: 600px;
-		background-color: #fff;
-		padding: 30px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.tenancyForm .tc {
-		color: #06affe;
-		border-bottom: 2px solid #06affe;
-	}
-	.tenancyForm .tc .el-form-item__content {
-		margin-left: 0 !important;
-	}
-	h2 {
-		color: #20a0ff;
-		font-size: 16px;
-		font-weight: 600;
-		margin: 20px 10px;
-	}
-	.line {
-		text-align: center;
-	}
+.tenancyForm {
+  width: 600px;
+  background-color: #fff;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tenancyForm .tc {
+  color: #06affe;
+  border-bottom: 2px solid #06affe;
+}
+.tenancyForm .tc .el-form-item__content {
+  margin-left: 0 !important;
+}
+h2 {
+  color: #20a0ff;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px 10px;
+}
+.line {
+  text-align: center;
+}
 </style>

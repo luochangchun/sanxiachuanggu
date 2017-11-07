@@ -11,7 +11,7 @@
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="13">
             <div class="headLine_swiper">
-              <el-carousel :interval="500000" arrow="never" height="355px">
+              <el-carousel :interval="500000" arrow="always" height="355px">
                 <el-carousel-item v-for="(item, index) in topic" :key="index">
                   <div class="item_img_wrap">
                     <router-link :to="{ name: 'article', params: { id: item.id} }">
