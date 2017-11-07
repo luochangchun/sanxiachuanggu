@@ -15,9 +15,10 @@
                         </el-row>
                     </el-col>
                     <el-col :lg="11" :md="11" :sm="24" :xs="24" :offset="1" class="details-text">
-                        <h6>{{tenancyApply['detail']['title']}}</h6>
+                        <h6 v-if="tenancyApply['detail']">{{tenancyApply['detail']['title']}}</h6>
+                        <h6 v-if="!tenancyApply['detail']">暂无标题</h6>
                         <p>地址:{{tenancyApply['address']}}</p>
-                        <p>联系方式:{{tenancyApply['detail']['contact']}} {{tenancyApply['phone']}}</p>
+                        <p>联系方式:{{tenancyApply['contact']}} {{tenancyApply['phone']}}</p>
                         <p>场地面积:{{tenancyApply['area']}}平米</p>
                     </el-col>
                 </el-row>

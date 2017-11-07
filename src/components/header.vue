@@ -8,7 +8,7 @@
                     </el-col>
                     <el-col :xs="12" :sm="12" :md="6" :lg="6" :offset="12">
                         <a v-if="loginFlag" href="javascript:;"  @click="logout" class="text r">退出</a>
-                        <router-link v-if="loginFlag" to="/demand_comm_service01"  class="text r">个人中心</router-link>
+                        <router-link v-if="loginFlag" to="/demand_comm_service/01"  class="text r">个人中心</router-link>
                         <router-link v-if="!loginFlag" to="/register" class="text r">免费注册</router-link>
                         <i class="r hr">&nbsp;&nbsp;|&nbsp;&nbsp;</i>
                         <router-link v-if="!loginFlag" to="/login" class="text cur r">登录</router-link>

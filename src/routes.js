@@ -23,11 +23,11 @@ import splendid_list from '../src/components/splendid_list.vue'//精彩瞬间列
 import service_class from '../src/components/service_class.vue'//服务商分类列表页
 import personalCenter from '../src/components/personalCenter/personalCenter.vue';//个人中心
 import demand_comm_service01 from '../src/components/personalCenter/demand_comm_service01.vue';//个人中心--服务需求
-import demand_comm_service02 from '../src/components/personalCenter/demand_comm_service02.vue';//个人中心--服务需求
-import demand_comm_service03 from '../src/components/personalCenter/demand_comm_service03.vue';//个人中心--服务需求
-import demand_comm_service04 from '../src/components/personalCenter/demand_comm_service04.vue';//个人中心--服务需求
-import demand_comm_service05 from '../src/components/personalCenter/demand_comm_service05.vue';//个人中心--服务需求
-import demand_comm_service06 from '../src/components/personalCenter/demand_comm_service06.vue';//个人中心--服务需求
+// import demand_comm_service02 from '../src/components/personalCenter/demand_comm_service02.vue';//个人中心--服务需求
+// import demand_comm_service03 from '../src/components/personalCenter/demand_comm_service03.vue';//个人中心--服务需求
+// import demand_comm_service04 from '../src/components/personalCenter/demand_comm_service04.vue';//个人中心--服务需求
+// import demand_comm_service05 from '../src/components/personalCenter/demand_comm_service05.vue';//个人中心--服务需求
+// import demand_comm_service06 from '../src/components/personalCenter/demand_comm_service06.vue';//个人中心--服务需求
 import personalInformation from '../src/components/personalCenter/personalInformation.vue';//个人中心--个人资料
 import passwordSetting from '../src/components/personalCenter/passwordSetting.vue';//个人中心--个人资料
 import service_detail from '../src/components/personalCenter/service_detail.vue';//个人中心--个人服务详情
@@ -103,14 +103,14 @@ const routes = [
 	{ path: '/service_class/:id', component: service_class, name: 'service_class' },//服务商分类列表页面
 	{
 		path: '/personalCenter', component: personalCenter, name: 'personalCenter', children: [
-			{ path: '/demand_comm_service01', component: demand_comm_service01, name: 'demand_comm_service01', hidden: true,meta: {
+			{ path: '/demand_comm_service/:type', component: demand_comm_service01, name: 'demand_comm_service01', hidden: true,meta: {
 				requireAuth: true,
 			} },
-			{ path: '/demand_comm_service02', component: demand_comm_service02, name: 'demand_comm_service02' },
-			{ path: '/demand_comm_service03', component: demand_comm_service03, name: 'demand_comm_service03' },
-			{ path: '/demand_comm_service04', component: demand_comm_service04, name: 'demand_comm_service04' },
-			{ path: '/demand_comm_service05', component: demand_comm_service05, name: 'demand_comm_service05' },
-			{ path: '/demand_comm_service06', component: demand_comm_service06, name: 'demand_comm_service06' },
+			// { path: '/demand_comm_service02', component: demand_comm_service02, name: 'demand_comm_service02' },
+			// { path: '/demand_comm_service03', component: demand_comm_service03, name: 'demand_comm_service03' },
+			// { path: '/demand_comm_service04', component: demand_comm_service04, name: 'demand_comm_service04' },
+			// { path: '/demand_comm_service05', component: demand_comm_service05, name: 'demand_comm_service05' },
+			// { path: '/demand_comm_service06', component: demand_comm_service06, name: 'demand_comm_service06' },
 			{ path: '/personalInformation', component: personalInformation, name: 'personalInformation' },
 			{ path: '/passwordSetting', component: passwordSetting, name: 'passwordSetting' },
 			{ path: '/service_detail/:id', component: service_detail, name: 'service_detail' },

@@ -187,38 +187,6 @@ var Component = normalizeComponent(
 
 /***/ }),
 
-/***/ "+gdw":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service03_vue__ = __webpack_require__("fAmP");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service03_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service03_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7ab54d14_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_demand_comm_service03_vue__ = __webpack_require__("stFV");
-var normalizeComponent = __webpack_require__("VU/8")
-/* script */
-
-/* template */
-
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service03_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7ab54d14_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_demand_comm_service03_vue__["a" /* default */],
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-
-/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
-
-
-/***/ }),
-
 /***/ "+mQk":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1373,6 +1341,7 @@ exports.default = {
 //
 //
 //
+//
 
 /** 类型，1出租，2求租，3出售，4求购 */
 
@@ -2196,106 +2165,6 @@ var Component = normalizeComponent(
 
 /* harmony default export */ __webpack_exports__["default"] = (Component.exports);
 
-
-/***/ }),
-
-/***/ "3tUs":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _api = __webpack_require__("c2Ch");
-
-var _api2 = _interopRequireDefault(_api);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
-    data: function data() {
-        return {
-            List: ""
-        };
-    },
-    created: function created() {
-        var userId = window.localStorage.getItem('userId');
-        this.getDand01(userId);
-    },
-
-    methods: {
-        getDand01: function getDand01(id) {
-            var _this = this;
-
-            var url = "/recruit/my/" + '/' + '10' + '/' + '1';
-            _api2.default.Get(url).then(function (res) {
-                _this.List = res['data'];
-                _this.totalPages = res['totalPages'] * 10;
-            });
-        },
-        handleCurrentChange: function handleCurrentChange(val) {
-            var _this2 = this;
-
-            //获取到当前分页页码，获取当前页面数据
-            var url = '/recruit/my/' + '/' + '10' + '/' + val;
-            _api2.default.Get(url).then(function (res) {
-                _this2.List = res['data'];
-                _this2.totalPages = res['totalPages'] * 10;
-            });
-        }
-    }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /***/ }),
 
@@ -3830,10 +3699,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('p', [_vm._v("需求")])]), _vm._v(" "), _c('el-col', {
     attrs: {
-      "lg": 3,
-      "md": 3,
-      "sm": 3,
-      "xs": 3
+      "lg": 6,
+      "md": 6,
+      "sm": 6,
+      "xs": 6
     }
   }, [_c('p', [_vm._v("联系人")])]), _vm._v(" "), _c('el-col', {
     attrs: {
@@ -3842,15 +3711,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "sm": 5,
       "xs": 5
     }
-  }, [_c('p', [_vm._v("联系方式")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 3,
-      "md": 3,
-      "sm": 3,
-      "xs": 3
+  }, [_c('p', [_vm._v("联系方式")])])], 1), _vm._v(" "), (_vm.flag) ? _c('p', {
+    staticStyle: {
+      "padding-left": "5px",
+      "line-height": "30px",
+      "height": "30px",
+      "font-size": "12px"
     }
-  }, [_c('p', [_vm._v("发布时间")])])], 1), _vm._v(" "), _vm._l((_vm.List), function(item, index) {
-    return _c('el-row', {
+  }, [_vm._v("暂无数据")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.List), function(item, index) {
+    return (_vm.type == '01' || _vm.type == '02' || _vm.type == '03') ? _c('el-row', {
       key: index,
       staticClass: "need_xq",
       attrs: {
@@ -3873,12 +3742,16 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "sm": 12,
         "xs": 12
       }
-    }, [_c('p', [_vm._v(_vm._s(item['enterprise']) + " "), _c('span', [_vm._v("[" + _vm._s(item['title']) + "]")])])]), _vm._v(" "), _c('el-col', {
+    }, [_c('p', [(item['enterprise']) ? _c('span', {
+      staticStyle: {
+        "color": "#0089e3"
+      }
+    }, [_vm._v(_vm._s(item['enterprise']) + " ")]) : _vm._e(), _c('span', [_vm._v("[" + _vm._s(item['title']) + "]")])])]), _vm._v(" "), _c('el-col', {
       attrs: {
-        "lg": 3,
-        "md": 3,
-        "sm": 3,
-        "xs": 3
+        "lg": 6,
+        "md": 6,
+        "sm": 6,
+        "xs": 6
       }
     }, [_c('p', [_vm._v(_vm._s(item['contact']))])]), _vm._v(" "), _c('el-col', {
       attrs: {
@@ -3887,16 +3760,96 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "sm": 5,
         "xs": 5
       }
-    }, [_c('p', [_vm._v(_vm._s(item['phone']))])]), _vm._v(" "), _c('el-col', {
+    }, [_c('p', [_vm._v(_vm._s(item['phone']))])])], 1)], 1) : _vm._e()
+  }), _vm._v(" "), _vm._l((_vm.List), function(item, index) {
+    return (_vm.type == '04' && item['type'] == 1) ? _c('el-row', {
+      key: index,
+      staticClass: "need_xq",
       attrs: {
-        "lg": 3,
-        "md": 3,
-        "sm": 3,
-        "xs": 3
+        "gutter": 10
       }
-    }, [_c('p', [_vm._v("2017-10-24")])])], 1)], 1)
+    }, [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'service_detail',
+          params: {
+            id: item.id
+          }
+        }
+      }
+    }, [_c('el-col', {
+      staticClass: "need_xq_p",
+      attrs: {
+        "lg": 12,
+        "md": 12,
+        "sm": 12,
+        "xs": 12
+      }
+    }, [_c('p', [(item['enterprise']) ? _c('span', {
+      staticStyle: {
+        "color": "#0089e3"
+      }
+    }, [_vm._v(_vm._s(item['enterprise']) + " ")]) : _vm._e(), _c('span', [_vm._v("[" + _vm._s(item['title']) + "]")])])]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 6,
+        "md": 6,
+        "sm": 6,
+        "xs": 6
+      }
+    }, [_c('p', [_vm._v(_vm._s(item['contact']))])]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 5,
+        "md": 5,
+        "sm": 5,
+        "xs": 5
+      }
+    }, [_c('p', [_vm._v(_vm._s(item['phone']))])])], 1)], 1) : _vm._e()
+  }), _vm._v(" "), _vm._l((_vm.List), function(item, index) {
+    return (_vm.type == '05' && item['type'] == 2) ? _c('el-row', {
+      key: index,
+      staticClass: "need_xq",
+      attrs: {
+        "gutter": 10
+      }
+    }, [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'service_detail',
+          params: {
+            id: item.id
+          }
+        }
+      }
+    }, [_c('el-col', {
+      staticClass: "need_xq_p",
+      attrs: {
+        "lg": 12,
+        "md": 12,
+        "sm": 12,
+        "xs": 12
+      }
+    }, [_c('p', [(item['enterprise']) ? _c('span', {
+      staticStyle: {
+        "color": "#0089e3"
+      }
+    }, [_vm._v(_vm._s(item['enterprise']) + " ")]) : _vm._e(), _c('span', [_vm._v("[" + _vm._s(item['title']) + "]")])])]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 6,
+        "md": 6,
+        "sm": 6,
+        "xs": 6
+      }
+    }, [_c('p', [_vm._v(_vm._s(item['contact']))])]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 5,
+        "md": 5,
+        "sm": 5,
+        "xs": 5
+      }
+    }, [_c('p', [_vm._v(_vm._s(item['phone']))])])], 1)], 1) : _vm._e()
   }), _vm._v(" "), _c('el-row', {
     staticStyle: {
+      "margin-top": "30px",
       "margin-bottom": "50px"
     },
     attrs: {
@@ -3919,7 +3872,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "layout": "prev, pager, next"
     },
     on: {
-      "size-change": _vm.handleSizeChange,
       "current-change": _vm.handleCurrentChange
     }
   })], 1)])], 1)], 2)
@@ -5817,136 +5769,6 @@ exports.default = {
 
 /***/ }),
 
-/***/ "Cp6g":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-breadcrumb', {
-    staticClass: "padder-vx",
-    attrs: {
-      "separator": "/"
-    }
-  }, [_c('el-breadcrumb-item', {
-    attrs: {
-      "to": {
-        path: '/'
-      }
-    }
-  }, [_vm._v("个人中心")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("求租讯息")])], 1), _vm._v(" "), _c('el-row', {
-    staticClass: "need_xq",
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 12,
-      "md": 12,
-      "sm": 12,
-      "xs": 12
-    }
-  }, [_c('p', [_vm._v("需求")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 3,
-      "md": 3,
-      "sm": 3,
-      "xs": 3
-    }
-  }, [_c('p', [_vm._v("联系人")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 5,
-      "md": 5,
-      "sm": 5,
-      "xs": 5
-    }
-  }, [_c('p', [_vm._v("联系方式")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 3,
-      "md": 3,
-      "sm": 3,
-      "xs": 3
-    }
-  }, [_c('p', [_vm._v("发布时间")])])], 1), _vm._v(" "), _vm._l((_vm.List), function(item, index) {
-    return _c('el-row', {
-      key: index,
-      staticClass: "need_xq",
-      attrs: {
-        "gutter": 10
-      }
-    }, [_c('router-link', {
-      attrs: {
-        "to": {
-          name: 'service_detail',
-          params: {
-            id: item.id
-          }
-        }
-      }
-    }, [_c('el-col', {
-      staticClass: "need_xq_p",
-      attrs: {
-        "lg": 12,
-        "md": 12,
-        "sm": 12,
-        "xs": 12
-      }
-    }, [_c('p', [_vm._v(_vm._s(item['enterprise']) + " "), _c('span', [_vm._v("[" + _vm._s(item['title']) + "]")])])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "lg": 3,
-        "md": 3,
-        "sm": 3,
-        "xs": 3
-      }
-    }, [_c('p', [_vm._v(_vm._s(item['contact']))])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "lg": 5,
-        "md": 5,
-        "sm": 5,
-        "xs": 5
-      }
-    }, [_c('p', [_vm._v(_vm._s(item['phone']))])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "lg": 3,
-        "md": 3,
-        "sm": 3,
-        "xs": 3
-      }
-    }, [_c('p', [_vm._v("2017-10-24")])])], 1)], 1)
-  }), _vm._v(" "), _c('el-row', {
-    staticStyle: {
-      "margin-bottom": "50px"
-    },
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 8,
-      "md": 8,
-      "sm": 24,
-      "xs": 24,
-      "offset": 8
-    }
-  }, [_c('div', {
-    staticClass: "block"
-  }, [_c('el-pagination', {
-    attrs: {
-      "current-page": 1,
-      "total": _vm.totalPages,
-      "layout": "prev, pager, next"
-    },
-    on: {
-      "size-change": _vm.handleSizeChange,
-      "current-change": _vm.handleCurrentChange
-    }
-  })], 1)])], 1)], 2)
-}
-var staticRenderFns = []
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-
 /***/ "Cz8s":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -6504,7 +6326,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('div', {
       staticClass: "incubators_more_introduce"
-    }, [_c('h2', [_vm._v(_vm._s(item['title']))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("地址：")]), _vm._v(_vm._s(item['address']))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("联系方式：")]), _vm._v(_vm._s(item['contact']) + "   " + _vm._s(item['phone']))])])]), _vm._v(" "), _c('el-col', {
+    }, [(!item['title']) ? _c('h2', [_vm._v("招商")]) : _vm._e(), _vm._v(" "), (item['title']) ? _c('h2', [_vm._v(_vm._s(item['title']))]) : _vm._e(), _vm._v(" "), _c('p', [_c('span', [_vm._v("地址：")]), _vm._v(_vm._s(item['address']))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("联系方式：")]), _vm._v(_vm._s(item['contact']) + "   " + _vm._s(item['phone']))])])]), _vm._v(" "), _c('el-col', {
       attrs: {
         "xs": 3,
         "sm": 3,
@@ -6544,7 +6366,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('div', {
       staticClass: "incubators_more_introduce"
-    }, [_c('h2', [_vm._v(_vm._s(item['title']))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("地址：")]), _vm._v(_vm._s(item['address']))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("联系方式：")]), _vm._v(_vm._s(item['contact']) + "   " + _vm._s(item['phone']))])])]), _vm._v(" "), _c('el-col', {
+    }, [(!item['title']) ? _c('h2', [_vm._v("求租")]) : _vm._e(), _vm._v(" "), (item['title']) ? _c('h2', [_vm._v(_vm._s(item['title']))]) : _vm._e(), _vm._v(" "), _c('p', [_c('span', [_vm._v("地址：")]), _vm._v(_vm._s(item['address']))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("联系方式：")]), _vm._v(_vm._s(item['contact']) + "   " + _vm._s(item['phone']))])])]), _vm._v(" "), _c('el-col', {
       attrs: {
         "xs": 3,
         "sm": 3,
@@ -6749,136 +6571,6 @@ var Component = normalizeComponent(
 
 /***/ }),
 
-/***/ "EL1L":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-breadcrumb', {
-    staticClass: "padder-vx",
-    attrs: {
-      "separator": "/"
-    }
-  }, [_c('el-breadcrumb-item', {
-    attrs: {
-      "to": {
-        path: '/'
-      }
-    }
-  }, [_vm._v("个人中心")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("技术难题及需求")])], 1), _vm._v(" "), _c('el-row', {
-    staticClass: "need_xq",
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 12,
-      "md": 12,
-      "sm": 12,
-      "xs": 12
-    }
-  }, [_c('p', [_vm._v("需求")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 3,
-      "md": 3,
-      "sm": 3,
-      "xs": 3
-    }
-  }, [_c('p', [_vm._v("联系人")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 5,
-      "md": 5,
-      "sm": 5,
-      "xs": 5
-    }
-  }, [_c('p', [_vm._v("联系方式")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 3,
-      "md": 3,
-      "sm": 3,
-      "xs": 3
-    }
-  }, [_c('p', [_vm._v("发布时间")])])], 1), _vm._v(" "), _vm._l((_vm.List), function(item, index) {
-    return _c('el-row', {
-      key: index,
-      staticClass: "need_xq",
-      attrs: {
-        "gutter": 10
-      }
-    }, [_c('router-link', {
-      attrs: {
-        "to": {
-          name: 'service_detail',
-          params: {
-            id: item.id
-          }
-        }
-      }
-    }, [_c('el-col', {
-      staticClass: "need_xq_p",
-      attrs: {
-        "lg": 12,
-        "md": 12,
-        "sm": 12,
-        "xs": 12
-      }
-    }, [_c('p', [_vm._v(_vm._s(item['enterprise']) + " "), _c('span', [_vm._v("[" + _vm._s(item['title']) + "]")])])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "lg": 3,
-        "md": 3,
-        "sm": 3,
-        "xs": 3
-      }
-    }, [_c('p', [_vm._v(_vm._s(item['contact']))])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "lg": 5,
-        "md": 5,
-        "sm": 5,
-        "xs": 5
-      }
-    }, [_c('p', [_vm._v(_vm._s(item['phone']))])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "lg": 3,
-        "md": 3,
-        "sm": 3,
-        "xs": 3
-      }
-    }, [_c('p', [_vm._v("2017-10-24")])])], 1)], 1)
-  }), _vm._v(" "), _c('el-row', {
-    staticStyle: {
-      "margin-bottom": "50px"
-    },
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 8,
-      "md": 8,
-      "sm": 24,
-      "xs": 24,
-      "offset": 8
-    }
-  }, [_c('div', {
-    staticClass: "block"
-  }, [_c('el-pagination', {
-    attrs: {
-      "current-page": 1,
-      "total": _vm.totalPages,
-      "layout": "prev, pager, next"
-    },
-    on: {
-      "size-change": _vm.handleSizeChange,
-      "current-change": _vm.handleCurrentChange
-    }
-  })], 1)])], 1)], 2)
-}
-var staticRenderFns = []
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-
 /***/ "EL5i":
 /***/ (function(module, exports) {
 
@@ -6967,38 +6659,6 @@ exports.default = {
 
 /***/ }),
 
-/***/ "EVBh":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service05_vue__ = __webpack_require__("PAVi");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service05_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service05_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7ad17c16_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_demand_comm_service05_vue__ = __webpack_require__("Cp6g");
-var normalizeComponent = __webpack_require__("VU/8")
-/* script */
-
-/* template */
-
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service05_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7ad17c16_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_demand_comm_service05_vue__["a" /* default */],
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-
-/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
-
-
-/***/ }),
-
 /***/ "EWIa":
 /***/ (function(module, exports) {
 
@@ -7038,136 +6698,6 @@ var Component = normalizeComponent(
 
 /* harmony default export */ __webpack_exports__["default"] = (Component.exports);
 
-
-/***/ }),
-
-/***/ "EyeW":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-breadcrumb', {
-    staticClass: "padder-vx",
-    attrs: {
-      "separator": "/"
-    }
-  }, [_c('el-breadcrumb-item', {
-    attrs: {
-      "to": {
-        path: '/'
-      }
-    }
-  }, [_vm._v("个人中心")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("招聘讯息")])], 1), _vm._v(" "), _c('el-row', {
-    staticClass: "need_xq",
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 12,
-      "md": 12,
-      "sm": 12,
-      "xs": 12
-    }
-  }, [_c('p', [_vm._v("需求")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 3,
-      "md": 3,
-      "sm": 3,
-      "xs": 3
-    }
-  }, [_c('p', [_vm._v("联系人")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 5,
-      "md": 5,
-      "sm": 5,
-      "xs": 5
-    }
-  }, [_c('p', [_vm._v("联系方式")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 3,
-      "md": 3,
-      "sm": 3,
-      "xs": 3
-    }
-  }, [_c('p', [_vm._v("发布时间")])])], 1), _vm._v(" "), _vm._l((_vm.List), function(item, index) {
-    return _c('el-row', {
-      key: index,
-      staticClass: "need_xq",
-      attrs: {
-        "gutter": 10
-      }
-    }, [_c('router-link', {
-      attrs: {
-        "to": {
-          name: 'service_detail',
-          params: {
-            id: item.id
-          }
-        }
-      }
-    }, [_c('el-col', {
-      staticClass: "need_xq_p",
-      attrs: {
-        "lg": 12,
-        "md": 12,
-        "sm": 12,
-        "xs": 12
-      }
-    }, [_c('p', [_vm._v(_vm._s(item['enterprise']) + " "), _c('span', [_vm._v("[" + _vm._s(item['title']) + "]")])])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "lg": 3,
-        "md": 3,
-        "sm": 3,
-        "xs": 3
-      }
-    }, [_c('p', [_vm._v(_vm._s(item['contact']))])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "lg": 5,
-        "md": 5,
-        "sm": 5,
-        "xs": 5
-      }
-    }, [_c('p', [_vm._v(_vm._s(item['phone']))])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "lg": 3,
-        "md": 3,
-        "sm": 3,
-        "xs": 3
-      }
-    }, [_c('p', [_vm._v("2017-10-24")])])], 1)], 1)
-  }), _vm._v(" "), _c('el-row', {
-    staticStyle: {
-      "margin-bottom": "50px"
-    },
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 8,
-      "md": 8,
-      "sm": 24,
-      "xs": 24,
-      "offset": 8
-    }
-  }, [_c('div', {
-    staticClass: "block"
-  }, [_c('el-pagination', {
-    attrs: {
-      "current-page": 1,
-      "total": _vm.totalPages,
-      "layout": "prev, pager, next"
-    },
-    on: {
-      "size-change": _vm.handleSizeChange,
-      "current-change": _vm.handleCurrentChange
-    }
-  })], 1)])], 1)], 2)
-}
-var staticRenderFns = []
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
 
 /***/ }),
 
@@ -8613,7 +8143,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("退出")]) : _vm._e(), _vm._v(" "), (_vm.loginFlag) ? _c('router-link', {
     staticClass: "text r",
     attrs: {
-      "to": "/demand_comm_service01"
+      "to": "/demand_comm_service/01"
     }
   }, [_vm._v("个人中心")]) : _vm._e(), _vm._v(" "), (!_vm.loginFlag) ? _c('router-link', {
     staticClass: "text r",
@@ -8835,7 +8365,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "router": "",
       "mode": "vertical",
-      "default-active": "/demand_comm_service01",
+      "default-active": "/demand_comm_service/01",
       "theme": "light"
     }
   }, [_c('el-menu-item-group', {
@@ -8844,31 +8374,31 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-menu-item', {
     attrs: {
-      "index": "/demand_comm_service01"
+      "index": "/demand_comm_service/01"
     }
   }, [_c('p', [_vm._v("服务需求")]), _c('i', {
     staticClass: "el-icon-arrow-right"
   })]), _vm._v(" "), _c('el-menu-item', {
     attrs: {
-      "index": "/demand_comm_service02"
+      "index": "/demand_comm_service/02"
     }
   }, [_c('p', [_vm._v("技术难题及需求")]), _c('i', {
     staticClass: "el-icon-arrow-right"
   })]), _vm._v(" "), _c('el-menu-item', {
     attrs: {
-      "index": "/demand_comm_service03"
+      "index": "/demand_comm_service/03"
     }
   }, [_c('p', [_vm._v("融资需求")]), _c('i', {
     staticClass: "el-icon-arrow-right"
   })]), _vm._v(" "), _c('el-menu-item', {
     attrs: {
-      "index": "/demand_comm_service04"
+      "index": "/demand_comm_service/04"
     }
   }, [_c('p', [_vm._v("招商讯息")]), _c('i', {
     staticClass: "el-icon-arrow-right"
   })]), _vm._v(" "), _c('el-menu-item', {
     attrs: {
-      "index": "/demand_comm_service05"
+      "index": "/demand_comm_service/05"
     }
   }, [_c('p', [_vm._v("求租讯息")]), _c('i', {
     staticClass: "el-icon-arrow-right"
@@ -8944,7 +8474,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": _vm.financeDetail['icon'],
       "alt": ""
     }
-  })]), _vm._v(" "), _c('div', [_c('p', [_vm._v(_vm._s(_vm.financeDetail['name']))]), _vm._v(" "), _c('button', [_vm._v("投资机构")])])])], 1)], 1)], 1), _vm._v(" "), _c('el-row', {
+  })]), _vm._v(" "), _c('div', [_c('p', [_vm._v(_vm._s(_vm.financeDetail['name']))])])])], 1)], 1)], 1), _vm._v(" "), _c('el-row', {
     staticStyle: {
       "margin-top": "50px",
       "margin-bottom": "50px"
@@ -8962,8 +8492,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-row', [_c('el-col', {
     attrs: {
-      "lg": 17,
-      "md": 17,
+      "lg": 24,
+      "md": 24,
       "sm": 24,
       "xs": 24
     }
@@ -8985,13 +8515,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "font-bold w-xs"
   }, [_vm._v("联系人")]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.financeDetail['name']))]), _vm._v(" "), _c('td', {
     staticClass: "font-bold"
-  }, [_vm._v("联系电话")]), _vm._v(" "), _c('td', [_c('p', [_vm._v(_vm._s(_vm.financeDetail['phone'] || "暂无数据"))])])]), _vm._v(" "), _c('tr', [_c('td', {
-    staticClass: "font-bold w-xs"
-  }, [_vm._v("地址")]), _vm._v(" "), _c('td', {
-    attrs: {
-      "colspan": "3"
-    }
-  }, [_c('p', [_vm._v(_vm._s(_vm.financeDetail['address'] || "暂无数据"))])])]), _vm._v(" "), _c('tr', {
+  }, [_vm._v("联系电话")]), _vm._v(" "), _c('td', [_c('p', [_vm._v(_vm._s(_vm.financeDetail['phone'] || "暂无数据"))])])]), _vm._v(" "), _c('tr', {
     staticStyle: {
       "height": "240px"
     }
@@ -9012,26 +8536,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "colspan": "3"
     }
-  })]), _vm._v(" "), _c('tr', [_c('td', {
-    staticClass: "font-bold w-xs"
-  }, [_vm._v("备注")]), _vm._v(" "), _c('td', {
-    attrs: {
-      "colspan": "3"
-    }
-  })])])])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 6,
-      "md": 6,
-      "sm": 24,
-      "xs": 24,
-      "offset": 1
-    }
-  }, [_c('div', [_c('img', {
-    attrs: {
-      "src": __webpack_require__("5ody"),
-      "alt": ""
-    }
-  })])])], 1)], 1)], 1)], 1)
+  })])])])])], 1)], 1)], 1)], 1)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -9084,6 +8589,7 @@ exports.default = {
 		}
 	}
 }; //
+//
 //
 //
 //
@@ -9417,38 +8923,6 @@ exports.default = {
 
 /***/ }),
 
-/***/ "LLWH":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service04_vue__ = __webpack_require__("pCrI");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service04_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service04_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7ac36495_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_demand_comm_service04_vue__ = __webpack_require__("kU7+");
-var normalizeComponent = __webpack_require__("VU/8")
-/* script */
-
-/* template */
-
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service04_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7ac36495_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_demand_comm_service04_vue__["a" /* default */],
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-
-/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
-
-
-/***/ }),
-
 /***/ "Leye":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9486,7 +8960,6 @@ exports.default = {
         }
     }
 }; //
-//
 //
 //
 //
@@ -10447,106 +9920,6 @@ var Component = normalizeComponent(
 
 /***/ }),
 
-/***/ "PAVi":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _api = __webpack_require__("c2Ch");
-
-var _api2 = _interopRequireDefault(_api);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
-    data: function data() {
-        return {
-            List: ""
-        };
-    },
-    created: function created() {
-        var userId = window.localStorage.getItem('userId');
-        this.getDand01(userId);
-    },
-
-    methods: {
-        getDand01: function getDand01(id) {
-            var _this = this;
-
-            var url = "/qb/tenancy/my/" + '/' + '10' + '/' + '1';
-            _api2.default.Get(url).then(function (res) {
-                _this.List = res['data'];
-                _this.totalPages = res['totalPages'] * 10;
-            });
-        },
-        handleCurrentChange: function handleCurrentChange(val) {
-            var _this2 = this;
-
-            //获取到当前分页页码，获取当前页面数据
-            var url = '/qb/tenancy/my/' + '/' + '10' + '/' + val;
-            _api2.default.Get(url).then(function (res) {
-                _this2.List = res['data'];
-                _this2.totalPages = res['totalPages'] * 10;
-            });
-        }
-    }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/***/ }),
-
 /***/ "PB8T":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -10997,36 +10370,110 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = {
     data: function data() {
         return {
-            List: ""
+            List: "",
+            flag: false,
+            totalPages: '',
+            type: ''
         };
     },
     created: function created() {
-        var userId = window.localStorage.getItem('userId');
-        this.getDand01(userId);
+        var type = this.$route.params.type;
+        this.type = type;
+        this.initDand(type);
+        this.flag = false;
     },
 
     methods: {
-        getDand01: function getDand01(id) {
+        initDand: function initDand(type) {
             var _this = this;
 
-            var url = "/enterprise/apply/my/" + '/' + '10' + '/' + '1';
+            if (type == '01') {
+                var url = "/enterprise/apply/my/" + '/' + '10' + '/' + '1';
+            } else if (type == '02') {
+                var url = "/consult/my/" + '/' + '10' + '/' + '1';
+            } else if (type == '03') {
+                var url = "/finance/my/" + '/' + '10' + '/' + '1';
+            } else if (type == '04') {
+                var url = "/qb/tenancy/my/1" + '/' + '10' + '/' + '1';
+            } else if (type == '05') {
+                var url = "/qb/tenancy/my/2" + '/' + '10' + '/' + '1';
+            }
             _api2.default.Get(url).then(function (res) {
-                _this.List = res['data'];
+                console.log(res['data'].length == 0);
+                if (res['data'].length == 0) {
+                    _this.flag = true;
+                    _this.List = [];
+                } else if (res['data'].length > 0) {
+                    _this.flag = false;
+                    _this.List = res['data'];
+                }
                 _this.totalPages = res['totalPages'] * 10;
             });
         },
         handleCurrentChange: function handleCurrentChange(val) {
             var _this2 = this;
 
+            var type = this.$route.params.type;
             //获取到当前分页页码，获取当前页面数据
-            var url = '/enterprise/apply/my/' + '/' + '10' + '/' + val;
+            if (type == '01') {
+                var url = "/enterprise/apply/my/" + '/' + '10' + '/' + val;
+            } else if (type == '02') {
+                var url = "/consult/my/" + '/' + '10' + '/' + val;
+            } else if (type == '03') {
+                var url = "/finance/my/" + '/' + '10' + '/' + val;
+            } else if (type == '04') {
+                var url = "/qb/tenancy/my/" + '/' + '10' + '/' + val;
+            } else if (type == '05') {
+                var url = "/qb/tenancy/my/" + '/' + '10' + '/' + val;
+            }
             _api2.default.Get(url).then(function (res) {
                 _this2.List = res['data'];
                 _this2.totalPages = res['totalPages'] * 10;
             });
         }
+    },
+    watch: {
+        '$route': function $route(to, from) {
+            this.flag = false;
+            var type = this.$route.params.type;
+            this.type = type;
+            this.initDand(type);
+        }
     }
 }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -11652,18 +11099,22 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('h3', [_vm._v("院校：" + _vm._s(_vm.university['name']))]), _vm._v(" "), (_vm.university['id'] == 1) ? _c('a', {
     attrs: {
+      "target": "_blank",
       "href": "http://www.ccnu.edu.cn/kxyj.htm"
     }
   }, [_vm._v("科研机构")]) : _vm._e(), _vm._v(" "), (_vm.university['id'] == 2) ? _c('a', {
     attrs: {
+      "target": "_blank",
       "href": "http://science.ctgu.edu.cn"
     }
   }, [_vm._v("科研机构")]) : _vm._e(), _vm._v(" "), (_vm.university['id'] == 3) ? _c('a', {
     attrs: {
+      "target": "_blank",
       "href": "http://www.scuec.edu.cn/s/1/t/560/p/7/c/6/d/52/list.htm"
     }
   }, [_vm._v("科研机构")]) : _vm._e(), _vm._v(" "), (_vm.university['id'] == 4) ? _c('a', {
     attrs: {
+      "target": "_blank",
       "href": "http://kyc.whpu.edu.cn/"
     }
   }, [_vm._v("科研机构")]) : _vm._e()])], 1), _vm._v(" "), _c('el-row', {
@@ -12023,7 +11474,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('div', {
       staticClass: "incubators_more_introduce"
-    }, [_c('h2', [_vm._v("招商")]), _vm._v(" "), _c('p', [_c('span', [_vm._v("地址：")]), _vm._v(_vm._s(item['address']) + "  " + _vm._s(item['buildingType']) + "  " + _vm._s(item['area']) + "平方米")]), _vm._v(" "), _c('p', [_c('span', [_vm._v("联系方式：")]), _vm._v(_vm._s(item['contact']) + "  " + _vm._s(item['phone']))])])]), _vm._v(" "), _c('el-col', {
+    }, [(!item['title']) ? _c('h2', [_vm._v("招商")]) : _vm._e(), _vm._v(" "), (item['title']) ? _c('h2', [_vm._v(_vm._s(item['title']))]) : _vm._e(), _vm._v(" "), _c('p', [_c('span', [_vm._v("地址：")]), _vm._v(_vm._s(item['address']) + "  " + _vm._s(item['buildingType']) + "  " + _vm._s(item['area']) + "平方米")]), _vm._v(" "), _c('p', [_c('span', [_vm._v("联系方式：")]), _vm._v(_vm._s(item['contact']) + "  " + _vm._s(item['phone']))])])]), _vm._v(" "), _c('el-col', {
       attrs: {
         "xs": 3,
         "sm": 3,
@@ -12063,7 +11514,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('div', {
       staticClass: "incubators_more_introduce"
-    }, [_c('h2', [_vm._v("求租")]), _vm._v(" "), _c('p', [_c('span', [_vm._v("地址：")]), _vm._v(_vm._s(item['address']))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("联系方式：")]), _vm._v(_vm._s(item['contact']) + "   " + _vm._s(item['phone']))])])])], 1), _vm._v(" "), _c('el-col', {
+    }, [(!item['title']) ? _c('h2', [_vm._v("求租")]) : _vm._e(), _vm._v(" "), (item['title']) ? _c('h2', [_vm._v(_vm._s(item['title']))]) : _vm._e(), _vm._v(" "), _c('p', [_c('span', [_vm._v("地址：")]), _vm._v(_vm._s(item['address']))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("联系方式：")]), _vm._v(_vm._s(item['contact']) + "   " + _vm._s(item['phone']))])])])], 1), _vm._v(" "), _c('el-col', {
       attrs: {
         "xs": 3,
         "sm": 3,
@@ -12554,38 +12005,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-
-/***/ "TZYu":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service06_vue__ = __webpack_require__("3tUs");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service06_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service06_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7adf9397_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_demand_comm_service06_vue__ = __webpack_require__("EyeW");
-var normalizeComponent = __webpack_require__("VU/8")
-/* script */
-
-/* template */
-
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service06_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7adf9397_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_demand_comm_service06_vue__["a" /* default */],
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-
-/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
-
 
 /***/ }),
 
@@ -14112,6 +13531,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "gutter": 10
     }
   }, [_c('el-col', {
+    staticStyle: {
+      "margin": "15px 0",
+      "position": "relative"
+    },
     attrs: {
       "xs": 24,
       "sm": 24,
@@ -14129,7 +13552,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         path: '/'
       }
     }
-  }, [_vm._v("投融资库")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("融资项目列表")])], 1)], 1)], 1), _vm._v(" "), _c('el-row', {
+  }, [_vm._v("投融资库")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("融资项目列表")])], 1)], 1), _vm._v(" "), (true) ? _c('router-link', {
+    staticClass: "zs",
+    attrs: {
+      "to": {
+        name: 'attract_list',
+        params: {
+          categoryId: '2',
+          type: _vm.type
+        }
+      }
+    }
+  }, [_vm._v("发布项目")]) : _vm._e()], 1), _vm._v(" "), _c('el-row', {
     staticClass: "tutorList",
     attrs: {
       "gutter": 20
@@ -15280,106 +14714,6 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 //
 //
 
-
-/***/ }),
-
-/***/ "cfgG":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _api = __webpack_require__("c2Ch");
-
-var _api2 = _interopRequireDefault(_api);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
-    data: function data() {
-        return {
-            List: ""
-        };
-    },
-    created: function created() {
-        var userId = window.localStorage.getItem('userId');
-        this.getDand01(userId);
-    },
-
-    methods: {
-        getDand01: function getDand01(id) {
-            var _this = this;
-
-            var url = "/consult/my/" + '/' + '10' + '/' + '1';
-            _api2.default.Get(url).then(function (res) {
-                _this.List = res['data'];
-                _this.totalPages = res['totalPages'] * 10;
-            });
-        },
-        handleCurrentChange: function handleCurrentChange(val) {
-            var _this2 = this;
-
-            //获取到当前分页页码，获取当前页面数据
-            var url = '/consult/my/' + '/' + '10' + '/' + val;
-            _api2.default.Get(url).then(function (res) {
-                _this2.List = res['data'];
-                _this2.totalPages = res['totalPages'] * 10;
-            });
-        }
-    }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /***/ }),
 
@@ -16572,26 +15906,6 @@ var _demand_comm_service = __webpack_require__("iu1a");
 
 var _demand_comm_service2 = _interopRequireDefault(_demand_comm_service);
 
-var _demand_comm_service3 = __webpack_require__("uGr4");
-
-var _demand_comm_service4 = _interopRequireDefault(_demand_comm_service3);
-
-var _demand_comm_service5 = __webpack_require__("+gdw");
-
-var _demand_comm_service6 = _interopRequireDefault(_demand_comm_service5);
-
-var _demand_comm_service7 = __webpack_require__("LLWH");
-
-var _demand_comm_service8 = _interopRequireDefault(_demand_comm_service7);
-
-var _demand_comm_service9 = __webpack_require__("EVBh");
-
-var _demand_comm_service10 = _interopRequireDefault(_demand_comm_service9);
-
-var _demand_comm_service11 = __webpack_require__("TZYu");
-
-var _demand_comm_service12 = _interopRequireDefault(_demand_comm_service11);
-
 var _personalInformation = __webpack_require__("+4HT");
 
 var _personalInformation2 = _interopRequireDefault(_personalInformation);
@@ -16767,29 +16081,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //10.27
 //个人中心--个人资料
 //个人中心--服务需求
-//个人中心--服务需求
-//个人中心--服务需求
-//个人中心
-//精彩瞬间列表页
-//融资项目列表页面
-//
-//创谷人才首页
-//忘记密码
-//注册页面
-//活动详情
-//地图
-_vue2.default.use(_vueRouter2.default);
-//11.2
-
-//10.29
-
-//10.26
-//个人中心--个人服务详情
-//罗长春
-//个人中心--个人资料
-//个人中心--服务需求
-//个人中心--服务需求
-//个人中心--服务需求
+// import demand_comm_service02 from '../src/components/personalCenter/demand_comm_service02.vue';//个人中心--服务需求
+// import demand_comm_service03 from '../src/components/personalCenter/demand_comm_service03.vue';//个人中心--服务需求
+// import demand_comm_service04 from '../src/components/personalCenter/demand_comm_service04.vue';//个人中心--服务需求
+// import demand_comm_service05 from '../src/components/personalCenter/demand_comm_service05.vue';//个人中心--服务需求
+// import demand_comm_service06 from '../src/components/personalCenter/demand_comm_service06.vue';//个人中心--服务需求
 //服务商分类列表页
 //今日头条列表页
 //创谷人才首页
@@ -16799,6 +16095,24 @@ _vue2.default.use(_vueRouter2.default);
 //活动详情
 //活动首页
 //首页
+_vue2.default.use(_vueRouter2.default);
+//11.2
+
+//10.29
+
+//10.26
+//个人中心--个人服务详情
+//罗长春
+//个人中心--个人资料
+//个人中心
+//精彩瞬间列表页
+//融资项目列表页面
+//
+//创谷人才首页
+//忘记密码
+//注册页面
+//活动详情
+//地图
 
 
 var routes = [{
@@ -16812,9 +16126,15 @@ var routes = [{
 { path: '/topicList', component: _topicList2.default, name: 'topicList' }, //融资项目详情
 { path: '/service_class/:id', component: _service_class2.default, name: 'service_class' }, //服务商分类列表页面
 {
-	path: '/personalCenter', component: _personalCenter2.default, name: 'personalCenter', children: [{ path: '/demand_comm_service01', component: _demand_comm_service2.default, name: 'demand_comm_service01', hidden: true, meta: {
+	path: '/personalCenter', component: _personalCenter2.default, name: 'personalCenter', children: [{ path: '/demand_comm_service/:type', component: _demand_comm_service2.default, name: 'demand_comm_service01', hidden: true, meta: {
 			requireAuth: true
-		} }, { path: '/demand_comm_service02', component: _demand_comm_service4.default, name: 'demand_comm_service02' }, { path: '/demand_comm_service03', component: _demand_comm_service6.default, name: 'demand_comm_service03' }, { path: '/demand_comm_service04', component: _demand_comm_service8.default, name: 'demand_comm_service04' }, { path: '/demand_comm_service05', component: _demand_comm_service10.default, name: 'demand_comm_service05' }, { path: '/demand_comm_service06', component: _demand_comm_service12.default, name: 'demand_comm_service06' }, { path: '/personalInformation', component: _personalInformation2.default, name: 'personalInformation' }, { path: '/passwordSetting', component: _passwordSetting2.default, name: 'passwordSetting' }, { path: '/service_detail/:id', component: _service_detail2.default, name: 'service_detail' }]
+		} },
+	// { path: '/demand_comm_service02', component: demand_comm_service02, name: 'demand_comm_service02' },
+	// { path: '/demand_comm_service03', component: demand_comm_service03, name: 'demand_comm_service03' },
+	// { path: '/demand_comm_service04', component: demand_comm_service04, name: 'demand_comm_service04' },
+	// { path: '/demand_comm_service05', component: demand_comm_service05, name: 'demand_comm_service05' },
+	// { path: '/demand_comm_service06', component: demand_comm_service06, name: 'demand_comm_service06' },
+	{ path: '/personalInformation', component: _personalInformation2.default, name: 'personalInformation' }, { path: '/passwordSetting', component: _passwordSetting2.default, name: 'passwordSetting' }, { path: '/service_detail/:id', component: _service_detail2.default, name: 'service_detail' }]
 },
 //个人中心
 //  罗长春
@@ -16933,75 +16253,6 @@ exports.default = router;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _api = __webpack_require__("c2Ch");
-
-var _api2 = _interopRequireDefault(_api);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
-	data: function data() {
-		return {
-			financingDetail: '',
-			financing: '' //融资项目
-		};
-	},
-	created: function created() {
-		this.getTutorList();
-	},
-
-	methods: {
-		getTutorList: function getTutorList(id) {
-			var _this = this;
-
-			_api2.default.Get('/pub/financing').then(function (res) {
-				console.log(res);
-				_this.financing = res['financing'];
-			});
-		}
-	}
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/***/ }),
-
-/***/ "fAmP":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
@@ -17014,55 +16265,25 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = {
     data: function data() {
         return {
-            List: ""
+            financingDetail: '',
+            financing: '' //融资项目
         };
     },
     created: function created() {
-        var userId = window.localStorage.getItem('userId');
-        this.getDand01(userId);
+        this.getTutorList();
     },
 
     methods: {
-        getDand01: function getDand01(id) {
+        getTutorList: function getTutorList(id) {
             var _this = this;
 
-            var url = "/finance/my/" + '/' + '10' + '/' + '1';
-            _api2.default.Get(url).then(function (res) {
-                _this.List = res['data'];
-                _this.totalPages = res['totalPages'] * 10;
-            });
-        },
-        handleCurrentChange: function handleCurrentChange(val) {
-            var _this2 = this;
-
-            //获取到当前分页页码，获取当前页面数据
-            var url = '/finance/my/' + '/' + '10' + '/' + val;
-            _api2.default.Get(url).then(function (res) {
-                _this2.List = res['data'];
-                _this2.totalPages = res['totalPages'] * 10;
+            _api2.default.Get('/pub/financing').then(function (res) {
+                console.log(res);
+                _this.financing = res['financing'];
             });
         }
     }
 }; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -18113,136 +17334,6 @@ var Component = normalizeComponent(
 
 /***/ }),
 
-/***/ "kU7+":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-breadcrumb', {
-    staticClass: "padder-vx",
-    attrs: {
-      "separator": "/"
-    }
-  }, [_c('el-breadcrumb-item', {
-    attrs: {
-      "to": {
-        path: '/'
-      }
-    }
-  }, [_vm._v("个人中心")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("招商讯息")])], 1), _vm._v(" "), _c('el-row', {
-    staticClass: "need_xq",
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 12,
-      "md": 12,
-      "sm": 12,
-      "xs": 12
-    }
-  }, [_c('p', [_vm._v("需求")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 3,
-      "md": 3,
-      "sm": 3,
-      "xs": 3
-    }
-  }, [_c('p', [_vm._v("联系人")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 5,
-      "md": 5,
-      "sm": 5,
-      "xs": 5
-    }
-  }, [_c('p', [_vm._v("联系方式")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 5,
-      "md": 5,
-      "sm": 5,
-      "xs": 5
-    }
-  }, [_c('p', [_vm._v("发布时间")])])], 1), _vm._v(" "), _vm._l((_vm.List), function(item, index) {
-    return _c('el-row', {
-      key: index,
-      staticClass: "need_xq",
-      attrs: {
-        "gutter": 10
-      }
-    }, [_c('router-link', {
-      attrs: {
-        "to": {
-          name: 'service_detail',
-          params: {
-            id: item.id
-          }
-        }
-      }
-    }, [_c('el-col', {
-      staticClass: "need_xq_p",
-      attrs: {
-        "lg": 12,
-        "md": 12,
-        "sm": 12,
-        "xs": 12
-      }
-    }, [_c('p', [_vm._v(_vm._s(item['enterprise']) + " "), _c('span', [_vm._v("[" + _vm._s(item['title']) + "]")])])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "lg": 3,
-        "md": 3,
-        "sm": 3,
-        "xs": 3
-      }
-    }, [_c('p', [_vm._v(_vm._s(item['contact']))])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "lg": 5,
-        "md": 5,
-        "sm": 5,
-        "xs": 5
-      }
-    }, [_c('p', [_vm._v(_vm._s(item['phone']))])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "lg": 3,
-        "md": 3,
-        "sm": 3,
-        "xs": 3
-      }
-    }, [_c('p', [_vm._v("2017-10-24")])])], 1)], 1)
-  }), _vm._v(" "), _c('el-row', {
-    staticStyle: {
-      "margin-bottom": "50px"
-    },
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 8,
-      "md": 8,
-      "sm": 24,
-      "xs": 24,
-      "offset": 8
-    }
-  }, [_c('div', {
-    staticClass: "block"
-  }, [_c('el-pagination', {
-    attrs: {
-      "current-page": 1,
-      "total": _vm.totalPages,
-      "layout": "prev, pager, next"
-    },
-    on: {
-      "size-change": _vm.handleSizeChange,
-      "current-change": _vm.handleCurrentChange
-    }
-  })], 1)])], 1)], 2)
-}
-var staticRenderFns = []
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-
 /***/ "l/F7":
 /***/ (function(module, exports) {
 
@@ -18451,7 +17542,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "xs": 24,
       "offset": 1
     }
-  }, [_c('h6', [_vm._v(_vm._s(_vm.tenancyApply['detail']['title']))]), _vm._v(" "), _c('p', [_vm._v("地址:" + _vm._s(_vm.tenancyApply['address']))]), _vm._v(" "), _c('p', [_vm._v("联系方式:" + _vm._s(_vm.tenancyApply['detail']['contact']) + " " + _vm._s(_vm.tenancyApply['phone']))]), _vm._v(" "), _c('p', [_vm._v("场地面积:" + _vm._s(_vm.tenancyApply['area']) + "平米")])])], 1), _vm._v(" "), _c('el-row', {
+  }, [(_vm.tenancyApply['detail']) ? _c('h6', [_vm._v(_vm._s(_vm.tenancyApply['detail']['title']))]) : _vm._e(), _vm._v(" "), (!_vm.tenancyApply['detail']) ? _c('h6', [_vm._v("暂无标题")]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("地址:" + _vm._s(_vm.tenancyApply['address']))]), _vm._v(" "), _c('p', [_vm._v("联系方式:" + _vm._s(_vm.tenancyApply['contact']) + " " + _vm._s(_vm.tenancyApply['phone']))]), _vm._v(" "), _c('p', [_vm._v("场地面积:" + _vm._s(_vm.tenancyApply['area']) + "平米")])])], 1), _vm._v(" "), _c('el-row', {
     staticClass: "incubators_details_text",
     staticStyle: {
       "border": "1px solid #ddd",
@@ -19735,106 +18826,6 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 /***/ }),
 
-/***/ "pCrI":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _api = __webpack_require__("c2Ch");
-
-var _api2 = _interopRequireDefault(_api);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
-    data: function data() {
-        return {
-            List: ""
-        };
-    },
-    created: function created() {
-        var userId = window.localStorage.getItem('userId');
-        this.getDand01(userId);
-    },
-
-    methods: {
-        getDand01: function getDand01(id) {
-            var _this = this;
-
-            var url = "/qb/tenancy/my/" + '/' + '10' + '/' + '1';
-            _api2.default.Get(url).then(function (res) {
-                _this.List = res['data'];
-                _this.totalPages = res['totalPages'] * 10;
-            });
-        },
-        handleCurrentChange: function handleCurrentChange(val) {
-            var _this2 = this;
-
-            //获取到当前分页页码，获取当前页面数据
-            var url = '/qb/tenancy/my/' + '/' + '10' + '/' + val;
-            _api2.default.Get(url).then(function (res) {
-                _this2.List = res['data'];
-                _this2.totalPages = res['totalPages'] * 10;
-            });
-        }
-    }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/***/ }),
-
 /***/ "pPLN":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -20514,6 +19505,8 @@ exports.default = {
 //
 //
 //
+//
+//
 
 /***/ }),
 
@@ -20678,136 +19671,6 @@ exports.default = {
 //
 //
 //
-
-/***/ }),
-
-/***/ "stFV":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-breadcrumb', {
-    staticClass: "padder-vx",
-    attrs: {
-      "separator": "/"
-    }
-  }, [_c('el-breadcrumb-item', {
-    attrs: {
-      "to": {
-        path: '/'
-      }
-    }
-  }, [_vm._v("个人中心")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("融资需求")])], 1), _vm._v(" "), _c('el-row', {
-    staticClass: "need_xq",
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 12,
-      "md": 12,
-      "sm": 12,
-      "xs": 12
-    }
-  }, [_c('p', [_vm._v("需求")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 3,
-      "md": 3,
-      "sm": 3,
-      "xs": 3
-    }
-  }, [_c('p', [_vm._v("联系人")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 5,
-      "md": 5,
-      "sm": 5,
-      "xs": 5
-    }
-  }, [_c('p', [_vm._v("联系方式")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "lg": 3,
-      "md": 3,
-      "sm": 3,
-      "xs": 3
-    }
-  }, [_c('p', [_vm._v("发布时间")])])], 1), _vm._v(" "), _vm._l((_vm.List), function(item, index) {
-    return _c('el-row', {
-      key: index,
-      staticClass: "need_xq",
-      attrs: {
-        "gutter": 10
-      }
-    }, [_c('router-link', {
-      attrs: {
-        "to": {
-          name: 'service_detail',
-          params: {
-            id: item.id
-          }
-        }
-      }
-    }, [_c('el-col', {
-      staticClass: "need_xq_p",
-      attrs: {
-        "lg": 12,
-        "md": 12,
-        "sm": 12,
-        "xs": 12
-      }
-    }, [_c('p', [_vm._v(_vm._s(item['enterprise']) + " "), _c('span', [_vm._v("[" + _vm._s(item['title']) + "]")])])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "lg": 3,
-        "md": 3,
-        "sm": 3,
-        "xs": 3
-      }
-    }, [_c('p', [_vm._v(_vm._s(item['contact']))])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "lg": 5,
-        "md": 5,
-        "sm": 5,
-        "xs": 5
-      }
-    }, [_c('p', [_vm._v(_vm._s(item['phone']))])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "lg": 3,
-        "md": 3,
-        "sm": 3,
-        "xs": 3
-      }
-    }, [_c('p', [_vm._v("2017-10-24")])])], 1)], 1)
-  }), _vm._v(" "), _c('el-row', {
-    staticStyle: {
-      "margin-bottom": "50px"
-    },
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 8,
-      "md": 8,
-      "sm": 24,
-      "xs": 24,
-      "offset": 8
-    }
-  }, [_c('div', {
-    staticClass: "block"
-  }, [_c('el-pagination', {
-    attrs: {
-      "current-page": 1,
-      "total": _vm.totalPages,
-      "layout": "prev, pager, next"
-    },
-    on: {
-      "size-change": _vm.handleSizeChange,
-      "current-change": _vm.handleCurrentChange
-    }
-  })], 1)])], 1)], 2)
-}
-var staticRenderFns = []
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
 
 /***/ }),
 
@@ -21091,38 +19954,6 @@ var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_train_detail_vue___default.a,
   __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5e4ec35d_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_train_detail_vue__["a" /* default */],
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-
-/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
-
-
-/***/ }),
-
-/***/ "uGr4":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service02_vue__ = __webpack_require__("cfgG");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service02_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service02_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7aa73593_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_demand_comm_service02_vue__ = __webpack_require__("EL1L");
-var normalizeComponent = __webpack_require__("VU/8")
-/* script */
-
-/* template */
-
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_demand_comm_service02_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7aa73593_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_demand_comm_service02_vue__["a" /* default */],
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
@@ -23260,4 +22091,4 @@ module.exports = __webpack_require__.p + "static/img/banner_cgzx.2f9115e.png";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.f571f8721e6933406db0.js.map
+//# sourceMappingURL=app.54ccadc501c01669aabe.js.map

@@ -4,17 +4,17 @@
             <el-row>
                 <el-col :span="24" class="main">
                     <aside class="menu-expanded">
-                        <el-menu router mode="vertical" default-active="/demand_comm_service01" class="el-menu-vertical-demo center_left" theme="light">
+                        <el-menu router mode="vertical" default-active="/demand_comm_service/01" class="el-menu-vertical-demo center_left" theme="light">
                             <el-menu-item-group title="个人中心">
-                                <el-menu-item index='/demand_comm_service01'>
+                                <el-menu-item index='/demand_comm_service/01'>
                                     <p>服务需求</p><i class="el-icon-arrow-right"></i></el-menu-item>
-                                <el-menu-item index="/demand_comm_service02">
+                                <el-menu-item index="/demand_comm_service/02">
                                     <p>技术难题及需求</p><i class="el-icon-arrow-right"></i></el-menu-item>
-                                <el-menu-item index="/demand_comm_service03">
+                                <el-menu-item index="/demand_comm_service/03">
                                     <p>融资需求</p><i class="el-icon-arrow-right"></i></el-menu-item>
-                                <el-menu-item index="/demand_comm_service04">
+                                <el-menu-item index="/demand_comm_service/04">
                                     <p>招商讯息</p><i class="el-icon-arrow-right"></i></el-menu-item>
-                                <el-menu-item index="/demand_comm_service05">
+                                <el-menu-item index="/demand_comm_service/05">
                                     <p>求租讯息</p><i class="el-icon-arrow-right"></i></el-menu-item>
                                 <!-- <el-menu-item index="/demand_comm_service06">
                                     <p>招聘讯息</p><i class="el-icon-arrow-right"></i></el-menu-item> -->

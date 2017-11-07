@@ -10,7 +10,6 @@
                         </div>
                         <div>
                             <p>{{financeDetail['name']}}</p>
-                            <button>投资机构</button>
                         </div>
                     </el-col>
                 </el-row>
@@ -20,7 +19,7 @@
         <el-row :gutter="10" style="margin-top: 50px;margin-bottom: 50px;">
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                 <el-row>
-                    <el-col :lg="17" :md="17" :sm="24" :xs="24">
+                    <el-col :lg="24" :md="24" :sm="24" :xs="24">
                         <table border="1" class="table table-bordered bg-light" style="background-color: #edf1f2">
                             <tbody>
                             <tr>
@@ -37,12 +36,12 @@
                                     <p>{{financeDetail['phone'] || "暂无数据"}}</p>
                                 </td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td class="font-bold w-xs">地址</td>
                                 <td colspan="3">
                                     <p>{{financeDetail['address'] || "暂无数据"}}</p>
                                 </td>
-                            </tr>
+                            </tr> -->
                             <tr style="height:240px;">
                                 <td class="font-bold w-xs h-md">企业简介与优势</td>
                                 <td colspan="3">{{financeDetail['intro'] || "暂无数据"}}</td>
@@ -53,18 +52,18 @@
                                     <!-- <p v-html="financeDetail['detail']['content']"></p> -->
                                 </td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td class="font-bold w-xs">备注</td>
                                 <td colspan="3"></td>
-                            </tr>
+                            </tr> -->
                             </tbody>
                         </table>
                     </el-col>
-                    <el-col :lg="6" :md="6" :sm="24" :xs="24" :offset="1">
+                    <!-- <el-col :lg="6" :md="6" :sm="24" :xs="24" :offset="1">
                         <div>
                             <img src="../../static/img/provider_2.jpg" alt="">
                         </div>
-                    </el-col>
+                    </el-col> -->
                 </el-row>
             </el-col>
         </el-row>

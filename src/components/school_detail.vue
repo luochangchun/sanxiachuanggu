@@ -17,10 +17,10 @@
                     <el-col :lg="11" :md="11" :sm="24" :xs="24" :offset="1" class="details-text">
                         <h3>院校：{{university['name']}}</h3>
                         <!-- <p>地址:湖北省宜昌市西陵区绿萝路43号</p> -->
-                        <a v-if="university['id'] == 1" href="http://www.ccnu.edu.cn/kxyj.htm">科研机构</a>
-                        <a v-if="university['id'] == 2" href="http://science.ctgu.edu.cn">科研机构</a>
-                        <a v-if="university['id'] == 3" href="http://www.scuec.edu.cn/s/1/t/560/p/7/c/6/d/52/list.htm">科研机构</a>
-                        <a v-if="university['id'] == 4" href="http://kyc.whpu.edu.cn/">科研机构</a>
+                        <a target="_blank" v-if="university['id'] == 1" href="http://www.ccnu.edu.cn/kxyj.htm">科研机构</a>
+                        <a target="_blank" v-if="university['id'] == 2" href="http://science.ctgu.edu.cn">科研机构</a>
+                        <a target="_blank" v-if="university['id'] == 3" href="http://www.scuec.edu.cn/s/1/t/560/p/7/c/6/d/52/list.htm">科研机构</a>
+                        <a target="_blank" v-if="university['id'] == 4" href="http://kyc.whpu.edu.cn/">科研机构</a>
                     </el-col>
                 </el-row>
                 <!-- <el-row :gutter="10" style="margin-top: 50px;">

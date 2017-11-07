@@ -25,7 +25,8 @@
                         </el-col>
                         <el-col :xs="15" :sm="15" :md="15" :lg="15">
                             <div class="incubators_more_introduce">
-                                <h2>招商</h2>
+                                <h2 v-if="!item['title']">招商</h2>
+                                <h2 v-if="item['title']">{{item['title']}}</h2>
                                 <p><span>地址：</span>{{item['address']}}&nbsp;&nbsp;{{item['buildingType']}}&nbsp;&nbsp;{{item['area']}}平方米</p>
                                 <p><span>联系方式：</span>{{item['contact']}}&nbsp;&nbsp;{{item['phone']}}</p>
                             </div>
@@ -41,8 +42,8 @@
                     <el-col :xs="20" :sm="20" :md="20" :lg="20">
                         <router-link :to="{name:'attract_detail', params: {id:item['id']}}">
                             <div class="incubators_more_introduce">
-                                <h2>求租</h2>
-                                <!-- <h2>{{item['title']}}</h2> -->
+                                <h2 v-if="!item['title']">求租</h2>
+                                <h2 v-if="item['title']">{{item['title']}}</h2>
                                 <p><span>地址：</span>{{item['address']}}</p>
                                 <p><span>联系方式：</span>{{item['contact']}} &nbsp;&nbsp;{{item['phone']}}</p>
                             </div>
