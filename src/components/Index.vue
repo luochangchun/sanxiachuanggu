@@ -51,7 +51,7 @@
             <router-link to="/map" class="r more_plus"></router-link>
           </el-col>
         </el-row>
-        <el-row :gutter="20">
+        <el-row :gutter="10">
           <el-col :xs="24" :sm="12" :md="12" :lg="6" v-for="(item, index) in incubator" :key="index" class="display_item">
             <div class="gray" @mouseover="show_display(index)">
               <img :src="item['icon']" alt="">

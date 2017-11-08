@@ -1,9 +1,10 @@
 <template>
     <el-row :gutter="0">
         <el-col :xs="24" :sm="24" :md="24" :lg="24">
-            <el-carousel :interval="5000" arrow="always" height="400px">
+            <el-carousel :interval="5000" arrow="always" height="600px">
                 <el-carousel-item v-for="item in imgArrs" :key="item.id">
-                    <img :src="item.src">
+                    <!-- <img :src="item.src"> -->
+                    <div :style="{backgroundImage: 'url(' +item.src+ ')'}" style="margin-bottom:0;height: 600px;background-size: cover;background-repeat: no-repeat;background-position: center center;"></div>
                 </el-carousel-item>
             </el-carousel>
         </el-col>
