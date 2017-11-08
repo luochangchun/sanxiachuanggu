@@ -30,11 +30,11 @@
                             <router-link to="/news">创谷资讯</router-link>
                         </li>
                         <li class='has-sub'>
-                            <router-link to="/#">双创办公室</router-link>
+                            <router-link to="/office_list_policy">双创办公室</router-link>
                             <ul>
                                 <li>
-                                    <router-link to="/attract/1">进入优惠政策</router-link>
-                                    <router-link to="/attract/2">进入服务窗口</router-link>
+                                    <router-link to="/office_list_policy">进入优惠政策</router-link>
+                                    <router-link to="/office_list_window">进入服务窗口</router-link>
                                 </li>
                             </ul>
                         </li>
