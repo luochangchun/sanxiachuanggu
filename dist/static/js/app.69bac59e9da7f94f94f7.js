@@ -14060,8 +14060,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // axios 配置
-// const baseUrl = 'http://192.168.11.222:8080/servant';
-var baseUrl = "http://www.sanxiachuanggu.com/servant";
+var baseUrl = 'http://192.168.11.222:8080/servant';
+// const baseUrl = "http://www.sanxiachuanggu.com/servant";
 _axios2.default.defaults.timeout = 5000;
 _axios2.default.defaults.baseURL = baseUrl;
 _axios2.default.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -14081,8 +14081,10 @@ _axios2.default.interceptors.response.use(function (response) {
 }, function (error) {
   if (error.response) {
     switch (error.response.status) {
-      case 401:
-        // 401 清除token信息并跳转到登录页面
+      case 403:
+        // 403 清除token信息并跳转到登录页面
+        window.localStorage.clear();
+        alert('222222');
         _store2.default.commit(types.LOGOUT);
         _routes2.default.replace({
           path: 'login',
@@ -22091,4 +22093,4 @@ module.exports = __webpack_require__.p + "static/img/banner_cgzx.2f9115e.png";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.54ccadc501c01669aabe.js.map
+//# sourceMappingURL=app.69bac59e9da7f94f94f7.js.map

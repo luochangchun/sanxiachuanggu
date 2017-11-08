@@ -3,8 +3,8 @@ import store from '../components/store/store'
 import * as types from '../components/store/types'
 import router from '../routes.js'
 // axios 配置
-// const baseUrl = 'http://192.168.11.222:8080/servant';
-const baseUrl = "http://www.sanxiachuanggu.com/servant";
+const baseUrl = 'http://192.168.11.222:8080/servant';
+// const baseUrl = "http://www.sanxiachuanggu.com/servant";
 axios.defaults.timeout = 5000;
 axios.defaults.baseURL = baseUrl;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
@@ -26,8 +26,10 @@ axios.interceptors.response.use(
   error => {
     if (error.response) {
       switch (error.response.status) {
-        case 401:
-          // 401 清除token信息并跳转到登录页面
+        case 403:
+          // 403 清除token信息并跳转到登录页面
+          window.localStorage.clear();
+          alert('222222');
           store.commit(types.LOGOUT);
           router.replace({
             path: 'login',
