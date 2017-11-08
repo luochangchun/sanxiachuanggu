@@ -10,6 +10,9 @@
                         </div>
                         <div>
                             <p>{{provider['name']}}</p>
+                            <router-link :to="{ name: 'article'}">
+                                申请成为服务商
+                            </router-link>
                             <!-- <button>贷款</button> -->
                         </div>
                     </el-col>
@@ -128,14 +131,14 @@
     }
 </script>
 
-<style>
+<style scoped>
     /*服务企业login*/
     .provider_header p {
         line-height: 60px;
         color: #fff;
         font-size: 14px;
     }
-    .provider_header button {
+    .provider_header a {
         border: 1px solid #fff;
         background-color: transparent;
         width: 60px;

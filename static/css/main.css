@@ -193,7 +193,9 @@ img {
 
 
 /* 首页--今日头条 */
-
+.index {
+  background-color: #f5f5f5;
+}
 .headLineTitle, .more_plus {
   margin-bottom: 30px;
 }

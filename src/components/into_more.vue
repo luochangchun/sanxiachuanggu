@@ -19,7 +19,7 @@
                         </el-col>
                     </el-row>
                     <el-row :gutter="10" v-for="(item, index) in into_list" :key="index" class="into_more_list">
-                        <router-link :to="{ name: 'provider', params: { id: item.id} }" style="color:#f48100">
+                        <router-link :to="{ name: 'invest_detail', params: { id: item.id} }" style="color:#f48100">
                             <el-col :xs="12" :sm="12" :md="12" :lg="12" class="into_more_img">
                                 <el-row :gutter="10">
                                     <el-col :xs="8" :sm="4" :md="4" :lg="4">
@@ -101,7 +101,7 @@
     };
 </script>
 
-<style>
+<style scoped>
     .into_more_header h2 {
         color: #666;
         background-color: #f1f1f1;
@@ -141,6 +141,5 @@
         color: #666;
         font-size: 16px;
         font-weight: normal;
-        margin-left: 40px;
     }
 </style>

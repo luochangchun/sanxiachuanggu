@@ -23,11 +23,6 @@ import splendid_list from '../src/components/splendid_list.vue'//精彩瞬间列
 import service_class from '../src/components/service_class.vue'//服务商分类列表页
 import personalCenter from '../src/components/personalCenter/personalCenter.vue';//个人中心
 import demand_comm_service01 from '../src/components/personalCenter/demand_comm_service01.vue';//个人中心--服务需求
-// import demand_comm_service02 from '../src/components/personalCenter/demand_comm_service02.vue';//个人中心--服务需求
-// import demand_comm_service03 from '../src/components/personalCenter/demand_comm_service03.vue';//个人中心--服务需求
-// import demand_comm_service04 from '../src/components/personalCenter/demand_comm_service04.vue';//个人中心--服务需求
-// import demand_comm_service05 from '../src/components/personalCenter/demand_comm_service05.vue';//个人中心--服务需求
-// import demand_comm_service06 from '../src/components/personalCenter/demand_comm_service06.vue';//个人中心--服务需求
 import personalInformation from '../src/components/personalCenter/personalInformation.vue';//个人中心--个人资料
 import passwordSetting from '../src/components/personalCenter/passwordSetting.vue';//个人中心--个人资料
 import service_detail from '../src/components/personalCenter/service_detail.vue';//个人中心--个人服务详情
@@ -203,6 +198,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
 	if (to.matched.some(r => r.meta.requireAuth)) {
 		if (store.state.token) {
+			window.scrollTo(0, 0);
 			next();
 		}
 		else {
@@ -213,6 +209,7 @@ router.beforeEach((to, from, next) => {
 		}
 	}
 	else {
+		window.scrollTo(0, 0);
 		next();
 	}
 })

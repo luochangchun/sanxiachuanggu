@@ -29,7 +29,6 @@ axios.interceptors.response.use(
         case 403:
           // 403 清除token信息并跳转到登录页面
           window.localStorage.clear();
-          alert('222222');
           store.commit(types.LOGOUT);
           router.replace({
             path: 'login',

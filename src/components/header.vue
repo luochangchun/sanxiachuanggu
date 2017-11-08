@@ -26,10 +26,23 @@
                         <li>
                             <router-link to="/index">首页</router-link>
                         </li>
+                        <li>
+                            <router-link to="/news">创谷资讯</router-link>
+                        </li>
+                        <li class='has-sub'>
+                            <router-link to="/#">双创办公室</router-link>
+                            <ul>
+                                <li>
+                                    <router-link to="/attract/1">进入优惠政策</router-link>
+                                    <router-link to="/attract/2">进入服务窗口</router-link>
+                                </li>
+                            </ul>
+                        </li>
                         <li class='has-sub'>
                             <router-link to="/map">创谷空间</router-link>
                             <ul>
                                 <li>
+                                    <router-link to="/map">进入创谷空间</router-link>
                                     <router-link to="/attract/1">招商信息</router-link>
                                     <router-link to="/attract/2">求租信息</router-link>
                                 </li>
@@ -39,6 +52,7 @@
                             <router-link to="/incubators">双创空间</router-link>
                             <ul>
                                 <li>
+                                    <router-link to="/incubators">进入双创空间</router-link>
                                     <router-link to="/attract_college/1">招商信息</router-link>
                                     <router-link to="/attract_college/2">求租信息</router-link>
                                 </li>
@@ -47,13 +61,12 @@
                         <li>
                             <router-link to="/college">创谷学院</router-link>
                         </li>
-                        <li>
-                            <router-link to="/news">创谷资讯</router-link>
-                        </li>
+                        
                         <li class='has-sub'>
                             <router-link to="/service">创谷企业</router-link>
                             <ul>
                                 <li class='has-sub'>
+                                    <router-link to="/service">进入创谷企业</router-link>
                                     <router-link to="/need">服务需求</router-link>
                                 </li>
                             </ul>
@@ -62,6 +75,7 @@
                             <router-link to="/research">创谷研究</router-link>
                             <ul>
                                 <li class='has-sub'>
+                                    <router-link to="/research">进入创谷研究</router-link>
                                     <router-link to="/question">技术难题及需求</router-link>
                                 </li>
                             </ul>
@@ -167,6 +181,7 @@ export default {
 .header {
   padding-bottom: 84px;
   border-bottom: 1px solid #dddddd;
+  background-color: #fff;
 }
 
 .top {

@@ -121,7 +121,8 @@
                 <el-row :gutter="10">
                     <el-col :lg="8" :md="8" :sm="12" :xs="24" class="service-show-into" v-for="(item, index) in normal" :key="index" style="border:1px solid #eee;">
                         <router-link :to="{name:'invest_detail', params: {id:item.id}}" style="display:block;padding:5px 0">
-                            <img :src="item.icon" alt="">
+                            <img v-if="item.icon" :src="item.icon" alt="">
+                            <img v-if="!item.icon" src="../../static/img/download.png" alt="">
                             <div class="service-opcity-into">
                                 <h2>{{item.name}}</h2>
                             </div>
@@ -136,7 +137,6 @@
 
 <script>
     import api from '../axios/api.js'
-    import Swiper from '../components/swiper.vue'
     export default {
         data() {
             return {
@@ -163,23 +163,8 @@
                         console.log(res);
                         this.ServiceList = res;
                     })
-            },
-            goProvider(id) {
-                window.location.href = '/provider/' + id;
-            },
-            //入孵企业,如果没图默认一张图
-            picture() {
-                t = document.getElementsByClassName("service-show-into>img");
-                for (i = 0; i < t.length; i++) {
-                    t.item(i).onerror = function() {
-                        this.src = "../../static/img/more.png"
-                    }
-                }
             }
-        },
-        components: {
-            commonSwiper: Swiper
-        },
+        }
     }
 </script>
 
@@ -339,6 +324,9 @@
     }
     .service-show-into {
         margin-bottom:10px;
+    }
+    .service-show-into img {
+        max-height: 192px;
     }
     .service-opcity-into {
         text-align: center;
