@@ -2713,7 +2713,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
     data: function data() {
         return {
-            imgArrs: [{ "id": '1', "src": "../static/img/banner01.jpg" }, { "id": '2', "src": "../static/img/banner02.jpg" }, { "id": '3', "src": "../static/img/banner03.jpg" }]
+            imgArrs: [{ "id": '1', "src": "./static/img/banner01.jpg" }, { "id": '2', "src": "./static/img/banner02.jpg" }, { "id": '3', "src": "./static/img/banner03.jpg" }]
         };
     }
 };
