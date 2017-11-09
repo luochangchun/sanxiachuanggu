@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="container">
     <el-row :gutter="10">
-      <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
+      <el-col :lg="24" :md="24" :sm="24" :xs="24">
         <el-row :gutter="10">
           <el-col :lg="16" :md="24" :sm="24" :xs="24">
             <!--行业分类-->

@@ -1209,6 +1209,10 @@ exports.default = {
 //
 //
 //
+//
+//
+//
+//
 
 /***/ }),
 
@@ -2566,7 +2570,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('div', {
     staticClass: "wrapper",
     staticStyle: {
-      "min-height": "300px",
+      "min-height": "450px",
       "border": "none"
     },
     domProps: {
@@ -2713,7 +2717,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
     data: function data() {
         return {
-            imgArrs: [{ "id": '1', "src": "./static/img/banner01.jpg" }, { "id": '2', "src": "./static/img/banner02.jpg" }, { "id": '3', "src": "./static/img/banner03.jpg" }]
+            imgArrs: [{ "id": '1', "src": "../static/img/banner01.jpg" }, { "id": '2', "src": "../static/img/banner02.jpg" }, { "id": '3', "src": "../static/img/banner03.jpg" }]
         };
     }
 };
@@ -2725,7 +2729,9 @@ exports.default = {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-row', {
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
     staticStyle: {
       "margin-bottom": "50px"
     },
@@ -2734,11 +2740,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('p', {
     staticStyle: {
@@ -2939,7 +2944,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }), _vm._v(" "), _c('router-link', {
     staticClass: "r more_plus",
     attrs: {
-      "to": "/topicList"
+      "to": "/news"
     }
   })], 1), _vm._v(" "), _c('el-col', {
     attrs: {
@@ -3814,6 +3819,13 @@ var Component = normalizeComponent(
 
 /***/ }),
 
+/***/ "70u7":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "7UaQ":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4064,18 +4076,19 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-row', {
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
     attrs: {
       "gutter": 10
     }
   }, [_c('el-col', {
     staticClass: "content_detail",
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('h1', {
     staticClass: "b"
@@ -4106,17 +4119,18 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-row', {
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
     attrs: {
       "gutter": 10
     }
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('el-row', {
     attrs: {
@@ -5152,7 +5166,9 @@ var Component = normalizeComponent(
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-row', {
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
     staticStyle: {
       "margin-bottom": "50px"
     },
@@ -5161,11 +5177,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('p', {
     staticStyle: {
@@ -5346,7 +5361,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": __webpack_require__("kCAA"),
       "alt": ""
     }
-  })])])], 1), _vm._v(" "), _c('el-row', {
+  })])])], 1), _vm._v(" "), _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
     staticStyle: {
       "margin-bottom": "50px"
     },
@@ -5355,11 +5372,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('div', {
     staticClass: "title",
@@ -5402,22 +5418,23 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "alt": ""
       }
     }), _vm._v(" "), _c('div', [_c('h6', [_vm._v(_vm._s(item.name))])])])], 1)
-  }))], 1)], 1), _vm._v(" "), _c('div', {
+  }))], 1)], 1)], 1), _vm._v(" "), _c('div', {
     staticStyle: {
       "background-color": "#eee",
       "padding-bottom": "50px"
     }
+  }, [_c('div', {
+    staticClass: "container"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
     }
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('div', {
     staticClass: "title",
@@ -5463,15 +5480,16 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }
     }, [_vm._v("讲师介绍")])], 1)])]) : _vm._e()
-  }))], 1)], 1)], 1), _vm._v(" "), _c('el-row', {
+  }))], 1)], 1)], 1)]), _vm._v(" "), _c('el-row', {
     staticClass: "activitys"
+  }, [_c('div', {
+    staticClass: "container"
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('div', {
     staticClass: "title",
@@ -5522,22 +5540,23 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_vm._v("进行中")]) : _vm._e(), _vm._v(" "), (item.status == 2) ? _c('p', {
       staticClass: "f16 tc tag"
     }, [_vm._v("已结束")]) : _vm._e()])])], 1)
-  }))], 1)], 1), _vm._v(" "), _c('div', {
+  }))], 1)], 1)]), _vm._v(" "), _c('div', {
     staticStyle: {
       "background-color": "#eee",
       "padding-bottom": "50px"
     }
+  }, [_c('div', {
+    staticClass: "container"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
     }
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('div', {
     staticClass: "title",
@@ -5580,7 +5599,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "alt": ""
       }
     })])], 1)
-  }))], 1)], 1)], 1)], 1)
+  }))], 1)], 1)], 1)])], 1)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -5592,13 +5611,6 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAWlBMVEUAAACZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmb09q6AAAAHnRSTlMAW0obcDwghaOefnl1U2w4NAthTkMTLweplWco0rxInsHzAAAAyUlEQVQY022PSZKEMAwELckLXsE72DP//2YbmmPnMaMiQ2I/AM5HCJxbbehV2kuSC2E2K7/qPFBBueeX0eK7OtSZjUApQf2FeKttB1XgQMkIrlQfJcjjGx4+vmpS7Z2xuCt3xKdl/x1vrUZU16VKvFv2BCdQgJ1EwqW4lFCh1JqCgGF2YctqVZ9XPiTpUPue3VqhK0g9APGkM2vmOdWbI7pENik/EdZD2ZRcGQ5ERmhdW283yLuUzWo/pzfQ2XD8IZhtU5fdO/vBB6qsCyO9qhdxAAAAAElFTkSuQmCC"
-
-/***/ }),
-
-/***/ "B4wz":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -5827,7 +5839,7 @@ var Component = normalizeComponent(
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _api = __webpack_require__("c2Ch");
@@ -5837,27 +5849,31 @@ var _api2 = _interopRequireDefault(_api);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-  data: function data() {
-    return {
-      investor: "", //投资机构
-      financing: "" //融资项目
-    };
-  },
-  created: function created() {
-    this.getFinance();
-  },
+    data: function data() {
+        return {
+            investor: "", //投资机构
+            financing: "" //融资项目
+        };
+    },
+    created: function created() {
+        this.getFinance();
+    },
 
-  methods: {
-    getFinance: function getFinance() {
-      var _this = this;
+    methods: {
+        getFinance: function getFinance() {
+            var _this = this;
 
-      _api2.default.Get("/pub/financing").then(function (res) {
-        _this.investor = res["investor"];
-        _this.financing = res["financing"];
-      });
+            _api2.default.Get("/pub/financing").then(function (res) {
+                _this.investor = res["investor"];
+                _this.financing = res["financing"];
+            });
+        }
     }
-  }
 }; //
+//
+//
+//
+//
 //
 //
 //
@@ -6385,7 +6401,9 @@ var Component = normalizeComponent(
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-row', {
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
     staticStyle: {
       "margin-bottom": "50px"
     },
@@ -6398,11 +6416,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "position": "relative"
     },
     attrs: {
-      "xs": 18,
-      "sm": 18,
-      "md": 18,
-      "lg": 18,
-      "offset": 3
+      "xs": 24,
+      "sm": 24,
+      "md": 24,
+      "lg": 24
     }
   }, [_c('el-breadcrumb', {
     staticClass: "padder-vx bb",
@@ -6448,11 +6465,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "margin-top": "15px"
     },
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [(_vm.attractFlag) ? _c('p', {
     staticStyle: {
@@ -6826,13 +6842,6 @@ exports.default = {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /***/ }),
 
@@ -6917,9 +6926,9 @@ var Component = normalizeComponent(
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_incubators_details_vue__ = __webpack_require__("Qh5I");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_incubators_details_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_incubators_details_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_518c24ec_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_incubators_details_vue__ = __webpack_require__("hgsq");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_518c24ec_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_incubators_details_vue__ = __webpack_require__("wOUw");
 function injectStyle (ssrContext) {
-  __webpack_require__("dMB2")
+  __webpack_require__("bNTv")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -6929,12 +6938,12 @@ var normalizeComponent = __webpack_require__("VU/8")
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-518c24ec"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_incubators_details_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_518c24ec_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_incubators_details_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_518c24ec_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_incubators_details_vue__["a" /* default */],
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
@@ -7350,6 +7359,200 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 /***/ }),
 
+/***/ "G356":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
+    staticStyle: {
+      "margin-bottom": "50px"
+    },
+    attrs: {
+      "gutter": 10
+    }
+  }, [_c('el-col', {
+    attrs: {
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [_c('div', {
+    staticStyle: {
+      "position": "relative"
+    }
+  }, [_c('el-breadcrumb', {
+    staticClass: "padder-vx",
+    attrs: {
+      "separator": ">"
+    }
+  }, [_c('el-breadcrumb-item', {
+    attrs: {
+      "to": {
+        path: '>'
+      }
+    }
+  }, [_vm._v("首页")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("创谷企业")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("服务窗口入口列表")])], 1), _vm._v(" "), _c('router-link', {
+    staticClass: "zs",
+    attrs: {
+      "to": {
+        name: 'financingDetail'
+      }
+    }
+  }, [_vm._v("申请为服务商")])], 1), _vm._v(" "), _c('div', [_c('el-row', {
+    staticClass: "into_more_header",
+    staticStyle: {
+      "margin-bottom": "10px"
+    },
+    attrs: {
+      "gutter": 10
+    }
+  }, [_c('el-col', {
+    attrs: {
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12
+    }
+  }, [_c('h2', [_vm._v("服务商")])]), _vm._v(" "), _c('el-col', {
+    attrs: {
+      "xs": 4,
+      "sm": 4,
+      "md": 4,
+      "lg": 4
+    }
+  }, [_c('h2', {
+    staticClass: "tc"
+  }, [_vm._v("服务类别")])]), _vm._v(" "), _c('el-col', {
+    attrs: {
+      "xs": 3,
+      "sm": 3,
+      "md": 3,
+      "lg": 3
+    }
+  }, [_c('h2', [_vm._v("联系人")])]), _vm._v(" "), _c('el-col', {
+    attrs: {
+      "xs": 5,
+      "sm": 5,
+      "md": 5,
+      "lg": 5
+    }
+  }, [_c('h2', [_vm._v("联系方式")])])], 1), _vm._v(" "), _vm._l((_vm.provider_list), function(item, index) {
+    return _c('el-row', {
+      key: index,
+      staticClass: "into_more_list",
+      attrs: {
+        "gutter": 10
+      }
+    }, [_c('router-link', {
+      staticStyle: {
+        "color": "#f48100"
+      },
+      attrs: {
+        "to": {
+          name: 'provider',
+          params: {
+            id: item.id
+          }
+        }
+      }
+    }, [_c('el-col', {
+      staticClass: "into_more_img",
+      attrs: {
+        "xs": 12,
+        "sm": 12,
+        "md": 12,
+        "lg": 12
+      }
+    }, [_c('el-row', {
+      attrs: {
+        "gutter": 10
+      }
+    }, [_c('el-col', {
+      attrs: {
+        "xs": 8,
+        "sm": 4,
+        "md": 4,
+        "lg": 4
+      }
+    }, [_c('div', [_c('img', {
+      attrs: {
+        "src": item['icon'],
+        "alt": ""
+      }
+    })])]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "xs": 16,
+        "sm": 16,
+        "md": 16,
+        "lg": 16
+      }
+    }, [_c('h1', [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(item['intro']))])])], 1)], 1), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "xs": 4,
+        "sm": 4,
+        "md": 4,
+        "lg": 4
+      }
+    }, [_c('h1', {
+      staticClass: "tc"
+    }, [_vm._v(_vm._s(item['service']))])]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "xs": 3,
+        "sm": 3,
+        "md": 3,
+        "lg": 3
+      }
+    }, [_c('h2', {
+      staticClass: "tc"
+    }, [_vm._v(_vm._s(item['contact'] || '暂无数据'))])]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "xs": 5,
+        "sm": 5,
+        "md": 5,
+        "lg": 5
+      }
+    }, [_c('h2', {
+      staticClass: "tc"
+    }, [_vm._v(_vm._s(item['phone'] || '暂无数据'))])])], 1)], 1)
+  }), _vm._v(" "), _c('el-row', {
+    staticStyle: {
+      "margin-bottom": "50px"
+    },
+    attrs: {
+      "gutter": 10
+    }
+  }, [_c('el-col', {
+    attrs: {
+      "lg": 8,
+      "md": 8,
+      "sm": 24,
+      "xs": 24,
+      "offset": 8
+    }
+  }, [_c('div', {
+    staticClass: "block"
+  }, [_c('el-pagination', {
+    attrs: {
+      "current-page": 1,
+      "total": _vm.totalPages,
+      "layout": "prev, pager, next"
+    },
+    on: {
+      "size-change": _vm.handleSizeChange,
+      "current-change": _vm.handleCurrentChange
+    }
+  })], 1)])], 1)], 2)])], 1)], 1)
+}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
 /***/ "GHzg":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7398,6 +7601,9 @@ exports.default = {
         }
     }
 }; //
+//
+//
+//
 //
 //
 //
@@ -7799,7 +8005,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": __webpack_require__("lUg/"),
       "alt": ""
     }
-  })])])], 1), _vm._v(" "), _c('div', [_c('el-row', {
+  })])])], 1), _vm._v(" "), _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
     staticStyle: {
       "margin-bottom": "50px"
     },
@@ -7808,11 +8016,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('div', {
     staticClass: "title",
@@ -8638,14 +8845,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "gutter": 10
     }
+  }, [_c('div', {
+    staticClass: "container"
   }, [_c('el-col', {
     staticClass: "provider_header",
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('div', {
     staticClass: "provider_login"
@@ -8654,7 +8862,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": _vm.financeDetail['icon'],
       "alt": ""
     }
-  })]), _vm._v(" "), _c('div', [_c('p', [_vm._v(_vm._s(_vm.financeDetail['name']))])])])], 1)], 1)], 1), _vm._v(" "), _c('el-row', {
+  })]), _vm._v(" "), _c('div', [_c('p', [_vm._v(_vm._s(_vm.financeDetail['name']))])])])], 1)])], 1)], 1), _vm._v(" "), _c('el-row', {
     staticStyle: {
       "margin-top": "50px",
       "margin-bottom": "50px"
@@ -8662,13 +8870,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "gutter": 10
     }
+  }, [_c('div', {
+    staticClass: "container"
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('el-row', [_c('el-col', {
     attrs: {
@@ -8716,7 +8925,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "colspan": "3"
     }
-  })])])])])], 1)], 1)], 1)], 1)
+  })])])])])], 1)], 1)], 1)])], 1)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -9214,6 +9423,10 @@ exports.default = {
 //
 //
 //
+//
+//
+//
+//
 
 /***/ }),
 
@@ -9292,17 +9505,18 @@ var Component = normalizeComponent(
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-row', {
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
     attrs: {
       "gutter": 10
     }
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('el-row', {
     attrs: {
@@ -10531,6 +10745,8 @@ exports.default = {
 //
 //
 //
+//
+//
 
 /***/ }),
 
@@ -10727,6 +10943,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "sm": 24,
       "xs": 24
     }
+  }, [_c('div', {
+    staticClass: "container"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
@@ -10734,11 +10952,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('el-col', {
     staticClass: "provider_header",
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('div', {
     staticClass: "provider_login"
@@ -10747,18 +10964,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "src": _vm.provider['icon'],
       "alt": ""
     }
-  })]), _vm._v(" "), _c('div', [_c('p', [_vm._v(_vm._s(_vm.provider['name']))])])])], 1)], 1)], 1), _vm._v(" "), _c('el-row', {
+  })]), _vm._v(" "), _c('div', [_c('p', [_vm._v(_vm._s(_vm.provider['name']))])])])], 1)], 1)])], 1), _vm._v(" "), _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
     attrs: {
       "gutter": 10
     }
   }, [_c('el-col', {
     staticClass: "provider_discounts",
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('h1', [_vm._v("优惠服务")]), _vm._v(" "), _c('el-row', {
     staticClass: "provider_p"
@@ -10795,11 +11013,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "margin-bottom": "30px"
     },
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('h1', [_vm._v("服务详情介绍")]), _vm._v(" "), _c('el-row', {
     staticClass: "provider_p"
@@ -10814,7 +11031,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     domProps: {
       "innerHTML": _vm._s(_vm.content)
     }
-  })])], 1)], 1)], 1)], 1)
+  })])], 1)], 1)], 1)], 1)], 1)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -10924,13 +11141,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "gutter": 10
     }
+  }, [_c('div', {
+    staticClass: "container"
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('el-breadcrumb', {
     staticClass: "padder-vx",
@@ -11014,7 +11232,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "size-change": _vm.handleSizeChange,
       "current-change": _vm.getActivityList
     }
-  })], 1)])], 1)], 1)], 1)], 1)
+  })], 1)])], 1)], 1)], 1)])], 1)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -11333,11 +11551,6 @@ exports.default = {
 //
 //
 //
-//
-//
-//
-//
-//
 
 /***/ }),
 
@@ -11346,7 +11559,9 @@ exports.default = {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-row', {
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
     staticStyle: {
       "margin-bottom": "50px"
     },
@@ -11355,11 +11570,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('el-row', {
     staticStyle: {
@@ -11451,9 +11665,9 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_service_provider_more_vue__ = __webpack_require__("/SUR");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_service_provider_more_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_service_provider_more_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_9bb01d98_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_service_provider_more_vue__ = __webpack_require__("udE8");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_9bb01d98_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_service_provider_more_vue__ = __webpack_require__("G356");
 function injectStyle (ssrContext) {
-  __webpack_require__("B4wz")
+  __webpack_require__("70u7")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -11463,12 +11677,12 @@ var normalizeComponent = __webpack_require__("VU/8")
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-9bb01d98"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_service_provider_more_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_9bb01d98_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_service_provider_more_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_9bb01d98_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_service_provider_more_vue__["a" /* default */],
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
@@ -11538,7 +11752,9 @@ module.exports = __webpack_require__.p + "static/img/banner_cgyj.3c8528b.png";
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-row', {
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
     staticStyle: {
       "margin-bottom": "50px"
     },
@@ -11551,11 +11767,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "position": "relative"
     },
     attrs: {
-      "xs": 18,
-      "sm": 18,
-      "md": 18,
-      "lg": 18,
-      "offset": 3
+      "xs": 24,
+      "sm": 24,
+      "md": 24,
+      "lg": 24
     }
   }, [_c('el-breadcrumb', {
     staticClass: "padder-vx bb",
@@ -11601,11 +11816,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "margin-top": "15px"
     },
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [(_vm.attractFlag) ? _c('p', {
     staticStyle: {
@@ -11760,6 +11974,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "sm": 24,
       "xs": 24
     }
+  }, [_c('div', {
+    staticClass: "container"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
@@ -11769,8 +11985,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "lg": 20,
       "md": 20,
       "sm": 20,
-      "xs": 20,
-      "offset": 2
+      "xs": 20
     }
   }, [_c('el-row', {
     attrs: {
@@ -11889,7 +12104,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         expression: "index>0"
       }]
     }, [_vm._v(_vm._s(item['value']))])])
-  }))], 1)], 1)], 1)], 1)], 1), _vm._v(" "), _c('el-row', {
+  }))], 1)], 1)], 1)], 1)])], 1), _vm._v(" "), _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
     staticStyle: {
       "margin": "30px 0"
     },
@@ -11898,11 +12115,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-col', {
     attrs: {
-      "lg": 20,
-      "md": 20,
-      "sm": 20,
-      "xs": 20,
-      "offset": 2
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('div', {
     staticClass: "title",
@@ -12059,11 +12275,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-col', {
     attrs: {
-      "lg": 20,
-      "md": 20,
-      "sm": 20,
-      "xs": 20,
-      "offset": 2
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('div', {
     staticClass: "title",
@@ -12080,11 +12295,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1)]), _vm._v(" "), _c('el-col', {
     attrs: {
-      "lg": 20,
-      "md": 20,
-      "sm": 20,
-      "xs": 20,
-      "offset": 2
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('el-row', {
     staticClass: "office_wrap"
@@ -12126,11 +12340,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-col', {
     attrs: {
-      "lg": 20,
-      "md": 20,
-      "sm": 20,
-      "xs": 20,
-      "offset": 2
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('div', {
     staticClass: "title",
@@ -12188,7 +12401,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }) : _vm._e(), _vm._v(" "), _c('div', {
       staticClass: "service-opcity-into"
     }, [_c('h2', [_vm._v(_vm._s(item.name))])])])], 1)
-  }))], 1)], 1)], 1)
+  }))], 1)], 1)], 1)], 1)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -12809,13 +13022,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "gutter": 10
     }
+  }, [_c('div', {
+    staticClass: "container"
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('div', {
     staticClass: "title",
@@ -12858,29 +13072,34 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "color": "#666"
       }
     }, [_vm._v(_vm._s(item.name))])])], 1)
-  }))], 1)], 1), _vm._v(" "), _c('div', {
+  }))], 1)], 1)]), _vm._v(" "), _c('div', {
     staticStyle: {
       "padding-bottom": "50px",
       "background-color": "#eee"
     }
+  }, [_c('div', {
+    staticClass: "container"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
     }
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('div', {
     staticClass: "title",
     attrs: {
       "id": "title-teacher"
     }
-  }, [_c('h1', [_vm._v("创业导师团")]), _vm._v(" "), _c('p', [_vm._v("ENTREPRENEURIAL MENTOP")]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('span'), _vm._v(" "), _c('router-link', {
+  }, [_c('h1', [_vm._v("创业导师团")]), _vm._v(" "), _c('p', {
+    staticStyle: {
+      "color": "#fff"
+    }
+  }, [_vm._v("ENTREPRENEURIAL MENTOP")]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('span'), _vm._v(" "), _c('router-link', {
     staticClass: "r more_plus to",
     staticStyle: {
       "margin-top": "-41px"
@@ -12929,8 +13148,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           }
         }
       }
-    }, [_vm._v("\n                                    查看更多>>\n                                ")])], 1)])], 1)
-  }))], 1)], 1)], 1)], 1)
+    }, [_vm._v("\n                                        查看更多>>\n                                    ")])], 1)])], 1)
+  }))], 1)], 1)], 1)])], 1)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -13664,6 +13883,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     data: function data() {
@@ -13805,6 +14032,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "bNTv":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -14250,8 +14484,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // axios 配置
-// const baseUrl = 'http://192.168.11.222:8080/servant';
-var baseUrl = "http://www.sanxiachuanggu.com/servant";
+var baseUrl = 'http://192.168.11.222:8080/servant';
+// const baseUrl = "http://www.sanxiachuanggu.com/servant";
 _axios2.default.defaults.timeout = 5000;
 _axios2.default.defaults.baseURL = baseUrl;
 _axios2.default.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -14811,18 +15045,19 @@ exports.default = {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-row', {
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
     attrs: {
       "gutter": 10
     }
   }, [_c('el-col', {
     staticClass: "header_location",
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('el-col', {
     attrs: {
@@ -14947,13 +15182,6 @@ var Component = normalizeComponent(
 
 /* harmony default export */ __webpack_exports__["default"] = (Component.exports);
 
-
-/***/ }),
-
-/***/ "dMB2":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -15569,6 +15797,8 @@ exports.default = {
 //
 //
 //
+//
+//
 
 /***/ }),
 
@@ -15735,17 +15965,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "width": "100%",
       "background-color": "#ececec"
     }
+  }, [_c('div', {
+    staticClass: "container"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
     }
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('div', {
     staticClass: "object_detail_head"
@@ -15804,7 +16035,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticStyle: {
       "color": "#000"
     }
-  }, [_vm._v(_vm._s(_vm.financeDetail['why']))])])])], 1)], 1)
+  }, [_vm._v(_vm._s(_vm.financeDetail['why']))])])])], 1)], 1)])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -16150,14 +16381,10 @@ var routes = [{
 { path: '/service', component: _service2.default, name: 'service' }, //创谷企业首页
 { path: '/financing', component: _financing2.default, name: 'financing' }, //投融资库首页
 { path: '/research', component: _research2.default, name: 'research' }, //创谷研究首页
-{
-	path: '/station/:categoryId/:type', component: _station2.default, name: 'station', meta: {
-		requireAuth: true
-	} }, //申请工位表单
+{ path: '/station/:id', component: _station2.default, name: 'station', meta: { requireAuth: true } }, //申请工位表单
 { path: '/college', component: _college2.default, name: 'college' }, //创谷学院首页
 { path: '/position', component: _position2.default, name: 'position' }, //申请职位表单
 { path: '/school_detail/:id', component: _school_detail2.default, name: 'school_detail' }, //学院详情
-// {path: '/schoolList', component: schoolList, name: 'schoolList'},//学院列表
 { path: '/incubators_details/:id', component: _incubators_details2.default, name: 'incubators_details' }, //双创空间详情页
 {
 	path: '/enter/:id', component: _enter2.default, name: 'enter', meta: {
@@ -16561,109 +16788,6 @@ exports.default = {
 
 /***/ }),
 
-/***/ "hgsq":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-row', {
-    staticStyle: {
-      "margin-bottom": "50px"
-    },
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
-    }
-  }, [_c('el-row', {
-    staticStyle: {
-      "margin-top": "50px",
-      "border": "1px solid #ddd",
-      "padding": "15px",
-      "background-color": "#fff"
-    },
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 12,
-      "md": 12,
-      "sm": 24,
-      "xs": 24
-    }
-  }, [_c('div', {
-    staticClass: "details-img"
-  }, [_c('el-carousel', {
-    attrs: {
-      "interval": 500000,
-      "arrow": "never",
-      "height": "240px"
-    }
-  }, _vm._l((_vm.photos), function(item, index) {
-    return _c('el-carousel-item', {
-      key: index
-    }, [_c('img', {
-      attrs: {
-        "src": item.uri
-      }
-    })])
-  }))], 1)]), _vm._v(" "), _c('el-col', {
-    staticClass: "details-text",
-    attrs: {
-      "lg": 11,
-      "md": 11,
-      "sm": 24,
-      "xs": 24,
-      "offset": 1
-    }
-  }, [_c('h6', [_vm._v(_vm._s(_vm.incubator['name']))]), _vm._v(" "), _c('p', [_vm._v("地址:" + _vm._s(_vm.incubator['address']))]), _vm._v(" "), _c('p', [_vm._v("级别:" + _vm._s(_vm.incubator['level']))]), _vm._v(" "), _c('p', [_vm._v("联系方式:" + _vm._s(_vm.incubator['contact']) + " " + _vm._s(_vm.incubator['phone']))]), _vm._v(" "), (_vm.incubator['categoryId'] == 2) ? _c('router-link', {
-    attrs: {
-      "to": {
-        name: 'enter',
-        params: {
-          id: _vm.incubator.id
-        }
-      }
-    }
-  }, [_vm._v("申请入驻")]) : _vm._e(), _vm._v(" "), (_vm.incubator['categoryId'] == 3) ? _c('router-link', {
-    attrs: {
-      "to": {
-        name: 'station',
-        params: {
-          id: _vm.incubator.id
-        }
-      }
-    }
-  }, [_vm._v("申请入驻")]) : _vm._e()], 1)], 1), _vm._v(" "), _c('el-row', {
-    staticClass: "incubators_details_text",
-    staticStyle: {
-      "border": "1px solid #ddd",
-      "background-color": "#fff",
-      "padding": "15px",
-      "margin-top": "20px"
-    },
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('p', {
-    domProps: {
-      "innerHTML": _vm._s(_vm.content)
-    }
-  })])], 1)], 1)], 1)
-}
-var staticRenderFns = []
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-
 /***/ "hszG":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -16982,6 +17106,9 @@ exports.default = {
 //
 //
 //
+//
+//
+//
 
 /***/ }),
 
@@ -17132,6 +17259,8 @@ exports.default = {
         }
     }
 }; //
+//
+//
 //
 //
 //
@@ -17479,7 +17608,9 @@ module.exports = __webpack_require__.p + "static/img/banner_sckj.8f17e28.png";
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-row', {
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
     staticStyle: {
       "margin-bottom": "50px"
     },
@@ -17488,11 +17619,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('el-row', {
     staticStyle: {
@@ -18111,13 +18241,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "gutter": 10
     }
+  }, [_c('div', {
+    staticClass: "container"
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('div', {
     staticClass: "title",
@@ -18178,20 +18309,21 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c('i', {
       staticClass: "tag abs white tc f14"
     }, [_vm._v(_vm._s(item.service))])])], 1)
-  }))], 1)], 1)], 1)])], 1), _vm._v(" "), _c('el-row', {
+  }))], 1)], 1)], 1)])], 1)]), _vm._v(" "), _c('el-row', {
     staticStyle: {
       "margin-bottom": "50px"
     },
     attrs: {
       "gutter": 10
     }
+  }, [_c('div', {
+    staticClass: "container"
   }, [_c('el-col', {
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('div', {
     staticClass: "title",
@@ -18279,17 +18411,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       attrs: {
         "type": "primary"
       }
-    }, [_vm._v("行业领域:\n                                "), _c('span', [_vm._v("消费生活")])]), _vm._v(" "), _c('el-tag', {
+    }, [_vm._v("行业领域:\n                                    "), _c('span', [_vm._v("消费生活")])]), _vm._v(" "), _c('el-tag', {
       attrs: {
         "type": "success"
       }
-    }, [_vm._v("已完成融资:\n                                "), _c('span', [_vm._v("未完成融资")])]), _vm._v(" "), _c('p', {
+    }, [_vm._v("已完成融资:\n                                    "), _c('span', [_vm._v("未完成融资")])]), _vm._v(" "), _c('p', {
       staticClass: "f14 pl10",
       staticStyle: {
         "margin-left": "8px"
       }
     }, [_vm._v("发起人:" + _vm._s(item.founder))])], 1)])], 1)
-  }))], 1)], 1)], 1)
+  }))], 1)], 1)])], 1)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -19120,17 +19252,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "gutter": 10
     }
+  }, [_c('div', {
+    staticClass: "container"
   }, [_c('el-col', {
     staticStyle: {
       "background-color": "#fff",
       "padding": "30px 25px 15px 0"
     },
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('p', {
     staticClass: "tc b f20"
@@ -19140,11 +19273,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "padding": "0px 25px 15px 0"
     },
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('el-form', {
     ref: "ruleForm",
@@ -19311,7 +19443,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.submitForm('ruleForm')
       }
     }
-  }, [_vm._v("提交申请")])], 1)], 1)], 1)], 1)], 1)
+  }, [_vm._v("提交申请")])], 1)], 1)], 1)], 1)])], 1)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -19680,6 +19812,8 @@ exports.default = {
 //
 //
 //
+//
+//
 
 /***/ }),
 
@@ -19697,17 +19831,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "gutter": 10
     }
+  }, [_c('div', {
+    staticClass: "container"
   }, [_c('el-col', {
     staticStyle: {
       "background-color": "#fff",
       "padding": "30px 25px 15px 0"
     },
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('p', {
     staticClass: "tc b f20"
@@ -19717,11 +19852,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "padding": "0px 25px 15px 0"
     },
     attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
   }, [_c('el-form', {
     ref: "ruleForm",
@@ -19888,7 +20022,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.submitForm('ruleForm')
       }
     }
-  }, [_vm._v("提交申请")])], 1)], 1)], 1)], 1)], 1)
+  }, [_vm._v("提交申请")])], 1)], 1)], 1)], 1)])], 1)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -19977,199 +20111,6 @@ var Component = normalizeComponent(
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "udE8":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-row', {
-    staticStyle: {
-      "margin-bottom": "50px"
-    },
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 18,
-      "md": 18,
-      "sm": 18,
-      "xs": 18,
-      "offset": 3
-    }
-  }, [_c('div', {
-    staticStyle: {
-      "position": "relative"
-    }
-  }, [_c('el-breadcrumb', {
-    staticClass: "padder-vx",
-    attrs: {
-      "separator": ">"
-    }
-  }, [_c('el-breadcrumb-item', {
-    attrs: {
-      "to": {
-        path: '>'
-      }
-    }
-  }, [_vm._v("首页")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("创谷企业")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("服务窗口入口列表")])], 1), _vm._v(" "), _c('router-link', {
-    staticClass: "zs",
-    attrs: {
-      "to": {
-        name: 'financingDetail'
-      }
-    }
-  }, [_vm._v("申请为服务商")])], 1), _vm._v(" "), _c('div', [_c('el-row', {
-    staticClass: "into_more_header",
-    staticStyle: {
-      "margin-bottom": "10px"
-    },
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "xs": 12,
-      "sm": 12,
-      "md": 12,
-      "lg": 12
-    }
-  }, [_c('h2', [_vm._v("服务商")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "xs": 4,
-      "sm": 4,
-      "md": 4,
-      "lg": 4
-    }
-  }, [_c('h2', {
-    staticClass: "tc"
-  }, [_vm._v("服务类别")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "xs": 3,
-      "sm": 3,
-      "md": 3,
-      "lg": 3
-    }
-  }, [_c('h2', [_vm._v("联系人")])]), _vm._v(" "), _c('el-col', {
-    attrs: {
-      "xs": 5,
-      "sm": 5,
-      "md": 5,
-      "lg": 5
-    }
-  }, [_c('h2', [_vm._v("联系方式")])])], 1), _vm._v(" "), _vm._l((_vm.provider_list), function(item, index) {
-    return _c('el-row', {
-      key: index,
-      staticClass: "into_more_list",
-      attrs: {
-        "gutter": 10
-      }
-    }, [_c('router-link', {
-      staticStyle: {
-        "color": "#f48100"
-      },
-      attrs: {
-        "to": {
-          name: 'provider',
-          params: {
-            id: item.id
-          }
-        }
-      }
-    }, [_c('el-col', {
-      staticClass: "into_more_img",
-      attrs: {
-        "xs": 12,
-        "sm": 12,
-        "md": 12,
-        "lg": 12
-      }
-    }, [_c('el-row', {
-      attrs: {
-        "gutter": 10
-      }
-    }, [_c('el-col', {
-      attrs: {
-        "xs": 8,
-        "sm": 4,
-        "md": 4,
-        "lg": 4
-      }
-    }, [_c('div', [_c('img', {
-      attrs: {
-        "src": item['icon'],
-        "alt": ""
-      }
-    })])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "xs": 16,
-        "sm": 16,
-        "md": 16,
-        "lg": 16
-      }
-    }, [_c('h1', [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(item['intro']))])])], 1)], 1), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "xs": 4,
-        "sm": 4,
-        "md": 4,
-        "lg": 4
-      }
-    }, [_c('h1', {
-      staticClass: "tc"
-    }, [_vm._v(_vm._s(item['service']))])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "xs": 3,
-        "sm": 3,
-        "md": 3,
-        "lg": 3
-      }
-    }, [_c('h2', {
-      staticClass: "tc"
-    }, [_vm._v(_vm._s(item['contact'] || '暂无数据'))])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "xs": 5,
-        "sm": 5,
-        "md": 5,
-        "lg": 5
-      }
-    }, [_c('h2', {
-      staticClass: "tc"
-    }, [_vm._v(_vm._s(item['phone'] || '暂无数据'))])])], 1)], 1)
-  }), _vm._v(" "), _c('el-row', {
-    staticStyle: {
-      "margin-bottom": "50px"
-    },
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 8,
-      "md": 8,
-      "sm": 24,
-      "xs": 24,
-      "offset": 8
-    }
-  }, [_c('div', {
-    staticClass: "block"
-  }, [_c('el-pagination', {
-    attrs: {
-      "current-page": 1,
-      "total": _vm.totalPages,
-      "layout": "prev, pager, next"
-    },
-    on: {
-      "size-change": _vm.handleSizeChange,
-      "current-change": _vm.handleCurrentChange
-    }
-  })], 1)])], 1)], 2)])], 1)], 1)
-}
-var staticRenderFns = []
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
 
 /***/ }),
 
@@ -20524,6 +20465,110 @@ exports.default = {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "wOUw":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
+    staticStyle: {
+      "margin-bottom": "50px"
+    },
+    attrs: {
+      "gutter": 10
+    }
+  }, [_c('el-col', {
+    attrs: {
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [_c('el-row', {
+    staticStyle: {
+      "margin-top": "50px",
+      "border": "1px solid #ddd",
+      "padding": "15px",
+      "background-color": "#fff"
+    },
+    attrs: {
+      "gutter": 10
+    }
+  }, [_c('el-col', {
+    attrs: {
+      "lg": 12,
+      "md": 12,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [_c('div', {
+    staticClass: "details-img"
+  }, [_c('el-carousel', {
+    attrs: {
+      "interval": 500000,
+      "arrow": "never",
+      "height": "240px"
+    }
+  }, _vm._l((_vm.photos), function(item, index) {
+    return _c('el-carousel-item', {
+      key: index
+    }, [_c('img', {
+      attrs: {
+        "src": item.uri
+      }
+    })])
+  }))], 1)]), _vm._v(" "), _c('el-col', {
+    staticClass: "details-text",
+    attrs: {
+      "lg": 11,
+      "md": 11,
+      "sm": 24,
+      "xs": 24,
+      "offset": 1
+    }
+  }, [_c('h6', [_vm._v(_vm._s(_vm.incubator['name']))]), _vm._v(" "), _c('p', [_vm._v("地址:" + _vm._s(_vm.incubator['address']))]), _vm._v(" "), _c('p', [_vm._v("级别:" + _vm._s(_vm.incubator['level']))]), _vm._v(" "), _c('p', [_vm._v("联系方式:" + _vm._s(_vm.incubator['contact']) + " " + _vm._s(_vm.incubator['phone']))]), _vm._v(" "), (_vm.incubator['categoryId'] == 2) ? _c('router-link', {
+    attrs: {
+      "to": {
+        name: 'enter',
+        params: {
+          id: _vm.incubator['id']
+        }
+      }
+    }
+  }, [_vm._v("申请入驻")]) : _vm._e(), _vm._v(" "), (_vm.incubator['categoryId'] == 3) ? _c('router-link', {
+    attrs: {
+      "to": {
+        name: 'station',
+        params: {
+          id: _vm.incubator['id']
+        }
+      }
+    }
+  }, [_vm._v("申请入驻")]) : _vm._e()], 1)], 1), _vm._v(" "), _c('el-row', {
+    staticClass: "incubators_details_text",
+    staticStyle: {
+      "border": "1px solid #ddd",
+      "background-color": "#fff",
+      "padding": "15px",
+      "margin-top": "20px"
+    },
+    attrs: {
+      "gutter": 10
+    }
+  }, [_c('p', {
+    domProps: {
+      "innerHTML": _vm._s(_vm.content)
+    }
+  })])], 1)], 1)], 1)
+}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
 
 /***/ }),
 
@@ -21261,10 +21306,6 @@ exports.default = {
         }
     }
 }; //
-//
-//
-//
-//
 //
 //
 //
@@ -22133,4 +22174,4 @@ module.exports = __webpack_require__.p + "static/img/banner_cgzx.2f9115e.png";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.0747503970d78bb614be.js.map
+//# sourceMappingURL=app.c2dc713b942ac3e6b9d9.js.map

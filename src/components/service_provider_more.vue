@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="container">
         <el-row :gutter="10" style="margin-bottom: 50px;">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
+            <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <div style="position:relative;">
                     <el-breadcrumb separator=">" class="padder-vx">
                         <el-breadcrumb-item :to="{ path: '>' }">首页</el-breadcrumb-item>
@@ -108,7 +108,7 @@
     };
 </script>
 
-<style>
+<style scoped>
     .zs {
         background-color: #f48100;
         border: none;

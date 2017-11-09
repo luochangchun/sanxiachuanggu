@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="container">
         <!--双创空间详情页-->
         <el-row :gutter="10" style="margin-bottom: 50px;">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
+            <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <el-row :gutter="10" style="margin-top: 50px;border:1px solid #ddd;padding:15px;background-color: #fff">
                     <el-col :lg="12" :md="12" :sm="24" :xs="24">
                         <div class="details-img"><img src="../../static/img/id_03.png" alt="" style="min-height:270px;"></div>

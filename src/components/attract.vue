@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="container">
         <!-- 创谷 -->
         <el-row :gutter="10" style="margin-bottom: 50px;">
-            <el-col :xs="18" :sm="18" :md="18" :lg="18" :offset="3" style="margin-top:15px;position:relative;">
+            <el-col :xs="24" :sm="24" :md="24" :lg="24" style="margin-top:15px;position:relative;">
                 <el-breadcrumb separator="/" class="padder-vx bb">
                     <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
                     <el-breadcrumb-item :to="{ path: '/map' }">创谷空间</el-breadcrumb-item>
@@ -14,7 +14,7 @@
                 <router-link v-if="type == 2" :to="{ name: 'attract_list', params: {categoryId:'2' ,type: type}}" class="zs">发布求租</router-link>
             </el-col>
            
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" style="margin-top:15px;">
+            <el-col :lg="24" :md="24" :sm="24" :xs="24" style="margin-top:15px;">
                 <p v-if="attractFlag" style="text-align:center;">暂无数据</p>
                 <el-row :gutter="10" v-for="(item, index) in investData" :key="index" style="border-bottom:1px solid #eee;margin-bottom: 10px;" v-if="type=='1' && item['type'] == 1">
                     <router-link :to="{name:'attract_detail', params: {id:item['id']}}">

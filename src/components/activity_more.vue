@@ -2,7 +2,8 @@
     <div>
         <!--精彩瞬间详情-->
         <el-row :gutter="10" style="margin-bottom: 50px;">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
+            <div class="container">
+                <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <el-breadcrumb separator=">" class="padder-vx">
                     <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
                     <el-breadcrumb-item :to="{ path: '/college' }">创谷学院</el-breadcrumb-item>
@@ -37,6 +38,7 @@
                     </el-col>
                 </el-row>
             </el-col>
+            </div>
         </el-row>
     </div>
 </template>

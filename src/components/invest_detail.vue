@@ -4,93 +4,97 @@
         <el-row :gutter="10">
             <el-col :lg="24" :md="24" :sm="24" :xs="24" style="background-color:#23b7e5">
                 <el-row :gutter="10">
-                    <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" class="provider_header">
-                        <div class="provider_login">
-                            <img :src="financeDetail['icon']" alt="">
-                        </div>
-                        <div>
-                            <p>{{financeDetail['name']}}</p>
-                        </div>
-                    </el-col>
+                    <div class="container">
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24" class="provider_header">
+                            <div class="provider_login">
+                                <img :src="financeDetail['icon']" alt="">
+                            </div>
+                            <div>
+                                <p>{{financeDetail['name']}}</p>
+                            </div>
+                        </el-col>
+                    </div>
                 </el-row>
             </el-col>
         </el-row>
         <!--企业详情-->
         <el-row :gutter="10" style="margin-top: 50px;margin-bottom: 50px;">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
-                <el-row>
-                    <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                        <table border="1" class="table table-bordered bg-light" style="background-color: #edf1f2">
-                            <tbody>
-                            <tr>
-                                <td class="font-bold w-xs">企业名称</td>
-                                <td colspan="3">
-                                    <p>{{financeDetail['name']}}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold w-xs">联系人</td>
-                                <td>{{financeDetail['name']}}</td>
-                                <td class="font-bold">联系电话</td>
-                                <td>
-                                    <p>{{financeDetail['phone'] || "暂无数据"}}</p>
-                                </td>
-                            </tr>
-                            <!-- <tr>
-                                <td class="font-bold w-xs">地址</td>
-                                <td colspan="3">
-                                    <p>{{financeDetail['address'] || "暂无数据"}}</p>
-                                </td>
-                            </tr> -->
-                            <tr style="height:240px;">
-                                <td class="font-bold w-xs h-md">企业简介与优势</td>
-                                <td colspan="3">{{financeDetail['intro'] || "暂无数据"}}</td>
-                            </tr>
-                            <tr style="height:90px;">
-                                <td class="font-bold w-xs">服务领域</td>
-                                <td colspan="3" class="h-xs">
-                                    <!-- <p v-html="financeDetail['detail']['content']"></p> -->
-                                </td>
-                            </tr>
-                            <!-- <tr>
-                                <td class="font-bold w-xs">备注</td>
-                                <td colspan="3"></td>
-                            </tr> -->
-                            </tbody>
-                        </table>
-                    </el-col>
-                    <!-- <el-col :lg="6" :md="6" :sm="24" :xs="24" :offset="1">
-                        <div>
-                            <img src="../../static/img/provider_2.jpg" alt="">
-                        </div>
-                    </el-col> -->
-                </el-row>
-            </el-col>
+            <div class="container">
+                <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                    <el-row>
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                            <table border="1" class="table table-bordered bg-light" style="background-color: #edf1f2">
+                                <tbody>
+                                    <tr>
+                                        <td class="font-bold w-xs">企业名称</td>
+                                        <td colspan="3">
+                                            <p>{{financeDetail['name']}}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold w-xs">联系人</td>
+                                        <td>{{financeDetail['name']}}</td>
+                                        <td class="font-bold">联系电话</td>
+                                        <td>
+                                            <p>{{financeDetail['phone'] || "暂无数据"}}</p>
+                                        </td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td class="font-bold w-xs">地址</td>
+                                        <td colspan="3">
+                                            <p>{{financeDetail['address'] || "暂无数据"}}</p>
+                                        </td>
+                                    </tr> -->
+                                    <tr style="height:240px;">
+                                        <td class="font-bold w-xs h-md">企业简介与优势</td>
+                                        <td colspan="3">{{financeDetail['intro'] || "暂无数据"}}</td>
+                                    </tr>
+                                    <tr style="height:90px;">
+                                        <td class="font-bold w-xs">服务领域</td>
+                                        <td colspan="3" class="h-xs">
+                                            <!-- <p v-html="financeDetail['detail']['content']"></p> -->
+                                        </td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td class="font-bold w-xs">备注</td>
+                                        <td colspan="3"></td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </el-col>
+                        <!-- <el-col :lg="6" :md="6" :sm="24" :xs="24" :offset="1">
+                                <div>
+                                    <img src="../../static/img/provider_2.jpg" alt="">
+                                </div>
+                            </el-col> -->
+                    </el-row>
+                </el-col>
+            </div>
         </el-row>
     </div>
 </template>
 
 <script>
-import api from '../axios/api.js'
-   export default {
-       data() {
+    import api from '../axios/api.js'
+    export default {
+        data() {
             return {
                 financeDetail: '',
             }
         },
-       created() {
-           let id = this.$route.params.id;
-           this.getFinanceItem(id);
-       },
-       methods: {
-           getFinanceItem(id) {
-               api.Get('/enterprise/' + id)
-                   .then(res => {
-                       this.financeDetail=res;
-                   });
-           }
-       }
-   }
+        created() {
+            let id = this.$route.params.id;
+            this.getFinanceItem(id);
+        },
+        methods: {
+            getFinanceItem(id) {
+                api.Get('/enterprise/' + id)
+                    .then(res => {
+                        this.financeDetail = res;
+                    });
+            }
+        }
+    }
 </script>
 
 <style scoped>

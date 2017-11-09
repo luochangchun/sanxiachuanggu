@@ -9,9 +9,9 @@
             </el-col>
         </el-row>
         <!--双创空间展示-->
-        <div>
+        <div class="container">
             <el-row :gutter="10" style="margin-bottom: 50px;">
-                <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
+                <el-col :lg="24" :md="24" :sm="24" :xs="24">
                     <div class="title" id="title-incubators">
                         <h1>双创空间展示</h1>
                         <p>ENTREPRENEURIAL MENTOP</p>

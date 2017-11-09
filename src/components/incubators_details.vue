@@ -1,16 +1,14 @@
 <template>
-    <div>
+    <div class="container">
         <!--双创空间详情页-->
         <el-row :gutter="10" style="margin-bottom: 50px;">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
+            <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <el-row :gutter="10" style="margin-top: 50px;border:1px solid #ddd;padding:15px;background-color: #fff">
                     <el-col :lg="12" :md="12" :sm="24" :xs="24">
                         <div class="details-img">
                             <el-carousel :interval="500000" arrow="never" height="240px">
                                 <el-carousel-item v-for="(item, index) in photos" :key="index">
-                                    
-                                        <img :src="item.uri">
-                                   
+                                    <img :src="item.uri">
                                 </el-carousel-item>
                             </el-carousel>
                         </div>
@@ -20,12 +18,9 @@
                         <p>地址:{{incubator['address']}}</p>
                         <p>级别:{{incubator['level']}}</p>
                         <p>联系方式:{{incubator['contact']}} {{incubator['phone']}}</p>
-                      
-                        <!-- <p>在孵企业数:{{incubator['cubicles']}}家</p> -->
-                        <!-- 跳到孵化器申请表单 -->
-                        <router-link v-if="incubator['categoryId']==2" :to="{ name: 'enter', params: { id: incubator.id} }">申请入驻</router-link>
+                        <router-link v-if="incubator['categoryId']==2" :to="{ name: 'enter', params: { id: incubator['id']}}">申请入驻</router-link>
                         <!-- 跳到工位申请表单 -->
-                        <router-link v-if="incubator['categoryId']==3" :to="{ name: 'station', params: { id: incubator.id} }">申请入驻</router-link>
+                        <router-link v-if="incubator['categoryId']==3" :to="{ name: 'station', params: { id: incubator['id']}}">申请入驻</router-link>
                     </el-col>
                 </el-row>
                 <el-row :gutter="10" class="incubators_details_text" style="border:1px solid #ddd;background-color: #fff;padding:15px;margin-top:20px;">
@@ -67,7 +62,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .details-img img {
         width: 100%;
         height: 100%;

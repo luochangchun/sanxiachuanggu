@@ -1,12 +1,8 @@
 <template>
-    <div>
+    <div class="container">
         <el-row :gutter="10">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" class="content_detail">
+            <el-col :lg="24" :md="24" :sm="24" :xs="24" class="content_detail">
                 <h1 class="b">{{office_detail.name}}</h1>
-                <!-- <div style="">
-                    <p>责任单位:{{ }}</p>
-                    <p>单位地址{{ }}</p>
-                </div> -->
                 <p v-html="content" style="min-height:300px;"></p>
             </el-col>
         </el-row>

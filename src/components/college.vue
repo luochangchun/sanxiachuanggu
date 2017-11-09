@@ -8,104 +8,112 @@
             </el-col>
         </el-row>
         <!--培训-->
-        <el-row :gutter="10" style="margin-bottom: 50px;">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
-                <div class="title" id="title-college">
-                    <h1>培训</h1>
-                    <p>CULTVATE</p>
-                    <hr>
-                    <span></span>
-                    <router-link :to="{ name: 'activity_more'}" class="r more_plus to"></router-link>
-                </div>
-                <el-row :gutter="10">
-                    <el-col :lg="6" :md="6" :sm="12" :xs="24" class="college-show" v-for="(item,index) in lecture" :key="index">
-                        <router-link :to="{name:'train_detail', params: {id:item.id}}">
-                            <img :src="item.icon" alt="">
-                            <div>
-                                <h6>{{item.name}}</h6>
-                                <!-- <p>{{item.detail || '无'}}</p> -->
-                            </div>
-                        </router-link>
-                    </el-col>
-                </el-row>
-            </el-col>
-        </el-row>
-        <!--优秀讲师-->
-        <div style="background-color: #eee;padding-bottom: 50px;">
-            <el-row :gutter="10">
-                <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
-                    <div class="title" id="title-teacher">
-                        <h1>优秀讲师</h1>
-                        <p>GREAT SPEAKERS</p>
+        <div class="container">
+            <el-row :gutter="10" style="margin-bottom: 50px;">
+                <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                    <div class="title" id="title-college">
+                        <h1>培训</h1>
+                        <p>CULTVATE</p>
                         <hr>
                         <span></span>
-                        <router-link :to="{ name: 'trainList'}" class="r more_plus to"></router-link>
-                    </div>
-                    <el-row :gutter="40">
-                        <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in teacher" :key="index" v-if="item['type'] == 4">
-                            <div class="research-teacher">
-                                <img :src="item.photo" alt="">
-                                <div>
-                                    <h4>指导老师:{{item.name}}</h4>
-                                    <h3>{{item.title}}</h3>
-                                    <p class="text-ellipsis-muti text-ellipsis-2">教师简介:{{item.intro}}</p>
-                                </div>
-                                <div>
-                                    <router-link :to="{name:'tutorDetail', params: {id:item.id} }">讲师介绍</router-link>
-                                </div>
-                            </div>
-                        </el-col>
-                    </el-row>
-                </el-col>
-            </el-row>
-        </div>
-        <!--活动专区-->
-        <el-row class="activitys">
-            <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
-                <div class="title" id="title-activitys">
-                    <h1>活动专区</h1>
-                    <p>ACTIVITYZONE </p>
-                    <hr>
-                    <span></span>
-                    <router-link :to="{ name: 'activity_more'}" class="r more_plus to"></router-link>
-                </div>
-                <el-row :gutter="10">
-                    <el-col :xs="8" :sm="8" :md="8" :lg="8" v-for="(item, index) in activity" :key="index">
-                        <router-link :to="{name:'train_detail', params: {id:item.id} }" class="activitys_item">
-                            <img :src="item.icon" alt="">
-                            <div class="process abs">
-                                <p class="white f16 tc text-ellipsis">{{item.name}}</p>
-                                <p v-if="item.status==1" class="f16 tc tag">进行中</p>
-                                <p v-if="item.status==2" class="f16 tc tag">已结束</p>
-                            </div>
-                        </router-link>
-                    </el-col>
-                </el-row>
-            </el-col>
-        </el-row>
-        <!--精彩瞬间-->
-        <div style="background-color: #eee;padding-bottom: 50px;">
-            <el-row :gutter="10">
-                <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
-                    <div class="title" id="title-splendid">
-                        <h1>精彩瞬间</h1>
-                        <p>SPLENDID MOMENT</p>
-                        <hr>
-                        <span></span>
-                        <router-link :to="{ name: 'splendid_list'}" class="r more_plus to"></router-link>
+                        <router-link :to="{ name: 'activity_more'}" class="r more_plus to"></router-link>
                     </div>
                     <el-row :gutter="10">
-                        <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in lecture" :key="index">
-                            <router-link :to="{name:'train_detail', params: {id:item.id} }" class="research-splendid">
+                        <el-col :lg="6" :md="6" :sm="12" :xs="24" class="college-show" v-for="(item,index) in lecture" :key="index">
+                            <router-link :to="{name:'train_detail', params: {id:item.id}}">
                                 <img :src="item.icon" alt="">
+                                <div>
+                                    <h6>{{item.name}}</h6>
+                                    <!-- <p>{{item.detail || '无'}}</p> -->
+                                </div>
                             </router-link>
                         </el-col>
                     </el-row>
                 </el-col>
             </el-row>
+        </div>
+        <!--优秀讲师-->
+        <div style="background-color: #eee;padding-bottom: 50px;">
+            <div class="container">
+                <el-row :gutter="10">
+                    <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                        <div class="title" id="title-teacher">
+                            <h1>优秀讲师</h1>
+                            <p>GREAT SPEAKERS</p>
+                            <hr>
+                            <span></span>
+                            <router-link :to="{ name: 'trainList'}" class="r more_plus to"></router-link>
+                        </div>
+                        <el-row :gutter="40">
+                            <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in teacher" :key="index" v-if="item['type'] == 4">
+                                <div class="research-teacher">
+                                    <img :src="item.photo" alt="">
+                                    <div>
+                                        <h4>指导老师:{{item.name}}</h4>
+                                        <h3>{{item.title}}</h3>
+                                        <p class="text-ellipsis-muti text-ellipsis-2">教师简介:{{item.intro}}</p>
+                                    </div>
+                                    <div>
+                                        <router-link :to="{name:'tutorDetail', params: {id:item.id} }">讲师介绍</router-link>
+                                    </div>
+                                </div>
+                            </el-col>
+                        </el-row>
+                    </el-col>
+                </el-row>
             </div>
-            <!--footer-->
+        </div>
+        <!--活动专区-->
+        <el-row class="activitys">
+            <div class="container">
+                <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                    <div class="title" id="title-activitys">
+                        <h1>活动专区</h1>
+                        <p>ACTIVITYZONE </p>
+                        <hr>
+                        <span></span>
+                        <router-link :to="{ name: 'activity_more'}" class="r more_plus to"></router-link>
+                    </div>
+                    <el-row :gutter="10">
+                        <el-col :xs="8" :sm="8" :md="8" :lg="8" v-for="(item, index) in activity" :key="index">
+                            <router-link :to="{name:'train_detail', params: {id:item.id} }" class="activitys_item">
+                                <img :src="item.icon" alt="">
+                                <div class="process abs">
+                                    <p class="white f16 tc text-ellipsis">{{item.name}}</p>
+                                    <p v-if="item.status==1" class="f16 tc tag">进行中</p>
+                                    <p v-if="item.status==2" class="f16 tc tag">已结束</p>
+                                </div>
+                            </router-link>
+                        </el-col>
+                    </el-row>
+                </el-col>
             </div>
+        </el-row>
+        <!--精彩瞬间-->
+        <div style="background-color: #eee;padding-bottom: 50px;">
+            <div class="container">
+                <el-row :gutter="10">
+                    <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                        <div class="title" id="title-splendid">
+                            <h1>精彩瞬间</h1>
+                            <p>SPLENDID MOMENT</p>
+                            <hr>
+                            <span></span>
+                            <router-link :to="{ name: 'splendid_list'}" class="r more_plus to"></router-link>
+                        </div>
+                        <el-row :gutter="10">
+                            <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in lecture" :key="index">
+                                <router-link :to="{name:'train_detail', params: {id:item.id} }" class="research-splendid">
+                                    <img :src="item.icon" alt="">
+                                </router-link>
+                            </el-col>
+                        </el-row>
+                    </el-col>
+                </el-row>
+            </div>
+        </div>
+        <!--footer-->
+    </div>
 </template>
 
 <script>

@@ -118,14 +118,10 @@ const routes = [
 	{ path: '/service', component: service, name: 'service' },//创谷企业首页
 	{ path: '/financing', component: financing, name: 'financing' },//投融资库首页
 	{ path: '/research', component: research, name: 'research' },//创谷研究首页
-	{
-		path: '/station/:categoryId/:type', component: station, name: 'station', meta: {
-			requireAuth: true,
-		}  },//申请工位表单
+	{path: '/station/:id', component: station, name: 'station', meta: {requireAuth: true,}},//申请工位表单
 	{ path: '/college', component: college, name: 'college' },//创谷学院首页
 	{ path: '/position', component: position, name: 'position' },//申请职位表单
 	{ path: '/school_detail/:id', component: school_detail, name: 'school_detail' },//学院详情
-	// {path: '/schoolList', component: schoolList, name: 'schoolList'},//学院列表
 	{ path: '/incubators_details/:id', component: incubators_details, name: 'incubators_details' },//双创空间详情页
 	{
 		path: '/enter/:id', component: enter, name: 'enter', meta: {

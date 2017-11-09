@@ -7,14 +7,14 @@
         <el-row>
           <el-col :xs="24" :sm="24" :md="24" :lg="24">
             <div class="l headLineTitle"></div>
-            <router-link to="/topicList" class="r more_plus"></router-link>
+            <router-link to="/news" class="r more_plus"></router-link>
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="13">
             <div class="headLine_swiper">
               <el-carousel :interval="500000" arrow="always" height="355px">
                 <el-carousel-item v-for="(item, index) in topic" :key="index">
                   <div class="item_img_wrap">
-                    <router-link :to="{ name: 'article', params: { id: item.id} }">
+                    <router-link :to="{ name: 'article', params: { id: item.id}}">
                       <img :src='item.icon' style="max-height:358px;">
                       <p class="text-ellipsis white abs tc f14">{{item.title}}</p>
                     </router-link>
@@ -25,7 +25,7 @@
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="10" :push="1" class="headLine_news_r">
             <ul class="headLine_news">
-              <router-link :to="{ name: 'article', params: { id: item.id} }" v-for="(item, index) in topic" :key="index" v-if="index<3">
+              <router-link :to="{ name: 'article', params: { id: item.id}}" v-for="(item, index) in topic" :key="index" v-if="index<3">
                 <el-row>
                   <el-col :span="5">
                     <img :src='item.icon' class="top_cube">
