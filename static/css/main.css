@@ -301,7 +301,7 @@ img {
 /* 创谷空间展示 */
 
 .space_display {
-  padding-top: 55px;
+  padding-top: 25px;
   padding-bottom: 50px;
 }
 
@@ -333,6 +333,7 @@ img {
   max-width: 275px;
   display: block;
   position: relative;
+  padding: 0;
   /* margin-bottom: 20px; */
 }
 
@@ -446,14 +447,14 @@ img {
 .process {
   width: 100%;
   height: 100%;
-  /* background-color: rgba(0, 0, 0, .2); */
+  background-color: rgba(0, 0, 0, .1);
   top: 0;
   left: 0;
 }
 
 .process .white {
   width: 90%;
-  margin-top: 20%;
+  margin-top: 30%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -461,7 +462,7 @@ img {
 .process .tag {
   background-color: #1e6494;
   position: absolute;
-  bottom: 0;
+  bottom: 3px;
   right: 0;
   padding: 6px 10px;
   color: #fff;
@@ -751,7 +752,7 @@ img {
 }
 
 .office_item, .service_provider_item {
-  /* padding: 10px 0; */
+  padding: 10px 0;
   border: 1px solid rgba(0, 0, 0, 0.05);
   display: block;
   background-color: #fff;

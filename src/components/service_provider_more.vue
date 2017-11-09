@@ -2,21 +2,14 @@
     <div>
         <el-row :gutter="10" style="margin-bottom: 50px;">
             <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
-                <p style="font-size:14px;color:#666;line-height:40px;">您所在的位置 : <span style="color:#0089e3;">创谷企业</span> > 服务商列表</p>
-                <!--<div>-->
-                <!--<ol>-->
-                <!--<li>服务类型:</li>-->
-                <!--<li>全部</li>-->
-                <!--<li>信息化服务</li>-->
-                <!--<li>物业服务</li>-->
-                <!--<li>设备维修服务</li>-->
-                <!--<li>投融资服务</li>-->
-                <!--<li>项目申报服务</li>-->
-                <!--<li>法律税收服务</li>-->
-                <!--<li>人才招聘/培训服务</li>-->
-                <!--<li>工商注册服务/li>-->
-                <!--</ol>-->
-                <!--</div>-->
+                <div style="position:relative;">
+                    <el-breadcrumb separator=">" class="padder-vx">
+                        <el-breadcrumb-item :to="{ path: '>' }">首页</el-breadcrumb-item>
+                        <el-breadcrumb-item>创谷企业</el-breadcrumb-item>
+                        <el-breadcrumb-item>服务窗口入口列表</el-breadcrumb-item>
+                    </el-breadcrumb>
+                    <router-link class="zs" :to="{ name: 'financingDetail'}">申请为服务商</router-link>
+                </div>
                 <div>
                     <el-row :gutter="10" style="margin-bottom: 10px;" class="into_more_header">
                         <el-col :xs="12" :sm="12" :md="12" :lg="12">
@@ -116,6 +109,19 @@
 </script>
 
 <style>
+    .zs {
+        background-color: #f48100;
+        border: none;
+        color: #fff;
+        border-radius: 4px;
+        width: 100px;
+        height: 26px;
+        text-align: center;
+        line-height: 26px;
+        position: absolute;
+        right: 0px;
+        top: 5px;
+    }
     .into_more_header h2 {
         color: #666;
         background-color: #f1f1f1;

@@ -108,7 +108,7 @@
             };
             //企业用户自定义正则验证
             let validateCode = (rule, value, callback) => {
-                let re = /^[0-9A-Z]{18}$/;
+                let re = /^[0-9a-zA-Z]{18}$/;
                 if (value === "" || !re.test(value)) {
                     callback(new Error("请输入正确的机构代码！"));
                 } else {
@@ -116,8 +116,8 @@
                 }
             };
             let validateName = (rule, value, callback) => {
-                let re = /^[\u4E00-\u9FA5\uf900-\ufa2d]{2,5}$/;
-                if (value === "" || !re.test(value) || value.length < 2 || value.length > 5) {
+                let re = /^[\u4E00-\u9FA5\uf900-\ufa2d]{2,30}$/;
+                if (value === "" || !re.test(value) || value.length < 2 || value.length > 30) {
                     callback(new Error("请输入企业名称!"));
                 } else {
                     callback();
@@ -317,7 +317,7 @@
                                 console.log(res);
                                 if (res["suc"] == true) {
                                     this.$message("注册成功");
-                                    let redirect = decodeURIComponent('/index');
+                                    let redirect = decodeURIComponent('/login');
                                     this.$router.push({
                                         path: redirect
                                     })

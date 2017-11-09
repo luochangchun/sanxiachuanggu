@@ -10,9 +10,9 @@
                         </div>
                         <div>
                             <p>{{provider['name']}}</p>
-                            <router-link :to="{ name: 'article'}">
+                            <!-- <router-link :to="{ name: 'article'}">
                                 申请成为服务商
-                            </router-link>
+                            </router-link> -->
                             <!-- <button>贷款</button> -->
                         </div>
                     </el-col>
@@ -141,7 +141,8 @@
     .provider_header a {
         border: 1px solid #fff;
         background-color: transparent;
-        width: 60px;
+        width: auto;
+        display: inline-block;
         color: #fff;
         font-size: 12px;
         text-align: center;
