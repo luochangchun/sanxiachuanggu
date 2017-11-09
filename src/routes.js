@@ -26,6 +26,7 @@ import demand_comm_service01 from '../src/components/personalCenter/demand_comm_
 import personalInformation from '../src/components/personalCenter/personalInformation.vue';//个人中心--个人资料
 import passwordSetting from '../src/components/personalCenter/passwordSetting.vue';//个人中心--个人资料
 import service_detail from '../src/components/personalCenter/service_detail.vue';//个人中心--个人服务详情
+import service_apply from '../src/components/service_apply.vue';//服务企业入驻申请表
 //罗长春
 import news from '../src/components/news.vue'
 import incubators from '../src/components/incubators.vue'
@@ -72,21 +73,24 @@ import demand_list from '../src/components/demand_list.vue'
 import office_list_window from '../src/components/office_list_window.vue'
 import office_list_policy from '../src/components/office_list_policy.vue'
 import office_list_detail from '../src/components/office_list_detail.vue'
+//11.8
+import talent_detail from '../src/components/talent_detail.vue'
+//11.9
+import employment from '../src/components/employment.vue'
+
 
 Vue.use(VueRouter)
 
 const routes = [
-	{
-		path: '/index', component: Index, name: 'Index'
-	},
-	{
-		path: '/map', component: Map, name: 'Map'},
+	{path: '/index', component: Index, name: 'Index'},
+	{path: '/map', component: Map, name: 'Map'},
 	{ path: '/activitys', component: Activitys, name: 'Activitys' },
 	{ path: '/activityPara/:id', component: ActivityPara, name: 'ActivityPara' },
 	{ path: '/article/:id', component: article, name: 'article' },
 	{ path: '/service', component: service, name: 'service' },
 	{ path: '/register', component: Register, name: 'Register' },
 	{ path: '/login', component: Login, name: 'Login' },
+	{ path: '/service_apply', component: service_apply, name: 'service_apply' },
 	{ path: '/forgetPassword', component: ForgetPassword, name: 'ForgetPassword' },
 	{ path: '/talent', component: Talent, name: 'Talent' },
 	{ path: '/trainList', component: TrainList, name: 'trainList' },//培训讲师列表
@@ -96,21 +100,12 @@ const routes = [
 	{ path: '/financingList', component: FinancingList, name: 'financingList' },//融资项目列表页面
 	{ path: '/topicList', component: TopicList, name: 'topicList' },//融资项目详情
 	{ path: '/service_class/:id', component: service_class, name: 'service_class' },//服务商分类列表页面
-	{
-		path: '/personalCenter', component: personalCenter, name: 'personalCenter', children: [
-			{ path: '/demand_comm_service/:type', component: demand_comm_service01, name: 'demand_comm_service01', hidden: true,meta: {
-				requireAuth: true,
-			} },
-			// { path: '/demand_comm_service02', component: demand_comm_service02, name: 'demand_comm_service02' },
-			// { path: '/demand_comm_service03', component: demand_comm_service03, name: 'demand_comm_service03' },
-			// { path: '/demand_comm_service04', component: demand_comm_service04, name: 'demand_comm_service04' },
-			// { path: '/demand_comm_service05', component: demand_comm_service05, name: 'demand_comm_service05' },
-			// { path: '/demand_comm_service06', component: demand_comm_service06, name: 'demand_comm_service06' },
-			{ path: '/personalInformation', component: personalInformation, name: 'personalInformation' },
-			{ path: '/passwordSetting', component: passwordSetting, name: 'passwordSetting' },
-			{ path: '/service_detail/:id', component: service_detail, name: 'service_detail' },
-		]
-	},
+	{path: '/personalCenter', component: personalCenter, name: 'personalCenter', children: [
+		{ path: '/demand_comm_service/:type', component: demand_comm_service01, name: 'demand_comm_service01', hidden: true,meta: {requireAuth: true,} },
+		{ path: '/personalInformation', component: personalInformation, name: 'personalInformation' },
+		{ path: '/passwordSetting', component: passwordSetting, name: 'passwordSetting' },
+		{ path: '/service_detail/:id', component: service_detail, name: 'service_detail' },
+		]},
 	//个人中心
 	//  罗长春
 	{ path: '/news', component: news, name: 'news' },//创谷资讯首页
@@ -123,14 +118,8 @@ const routes = [
 	{ path: '/position', component: position, name: 'position' },//申请职位表单
 	{ path: '/school_detail/:id', component: school_detail, name: 'school_detail' },//学院详情
 	{ path: '/incubators_details/:id', component: incubators_details, name: 'incubators_details' },//双创空间详情页
-	{
-		path: '/enter/:id', component: enter, name: 'enter', meta: {
-			requireAuth: true,
-		} },//申请入驻表单
-	{
-		path: '/train_Application/:id', component: train_Application, name: 'train_Application', meta: {
-			requireAuth: true,
-		}  },//活动报名表单
+	{path: '/enter/:id', component: enter, name: 'enter', meta: {requireAuth: true,}},//申请入驻表单
+	{path: '/train_Application/:id', component: train_Application, name: 'train_Application', meta: {requireAuth: true,}},//活动报名表单
 	{ path: '/provider/:id', component: provider, name: 'provider' },//服务商详情页
 	{ path: '/into/:id', component: into, name: 'into' },//入孵企业详情页
 	{ path: '/need', component: need, name: 'need' },//服务需求
@@ -149,13 +138,8 @@ const routes = [
 	{ path: '/service_provider_more', component: service_provider_more, name: 'service_provider_more' },//服务商(more)
 	{ path: '/financingDetail', component: financingDetail, name: 'financingDetail' },//投资项目详情页
 	//10.29
-	{
-		path: '/problem/:type', component: problem, name: 'problem', meta: {
-			requireAuth: true,
-		} },//发布企业难题表单
-	{ path: '/tutorProblem/:businessId/:id', component: tutorProblem, name: 'tutorProblem', meta: {
-			requireAuth: true,
-		} },//向导师发布技术难题表单
+	{path: '/problem/:type', component: problem, name: 'problem', meta: {requireAuth: true,} },//发布企业难题表单
+	{ path: '/tutorProblem/:businessId/:id', component: tutorProblem, name: 'tutorProblem', meta: {requireAuth: true,} },//向导师发布技术难题表单
 	{ path: '/service_needs', component: service_needs, name: 'service_needs' },//服务需求发布表单
 	//10.30
 	{ path: '/attract/:type', component: attract, name: 'attract' },//招商/求租列表页
@@ -164,19 +148,18 @@ const routes = [
 	{ path: '/financing_more', component: financing_more, name: 'financing_more' },//融资项目(more)
 	{ path: '/attract_detail/:id', component: attract_detail, name: 'attract_detail' },//招商讯息详情
 	{ path: '/demand_detail', component: demand_detail, name: 'demand_detail' },//求租讯息详情
-	{
-		path: '/attract_list/:categoryId/:type', component: attract_list, name: 'attract_list', meta: {
-			requireAuth: true,
-		} },//招商发布表单
+	{path: '/attract_list/:categoryId/:type', component: attract_list, name: 'attract_list', meta: {requireAuth: true,} },//招商发布表单
 	{ path: '/demand_list', component: demand_list, name: 'demand_list' },//求租发布表单
 	//11.2
 	{ path: '/office_list_window', component: office_list_window, name: 'office_list_window' },//双创办公室服务窗口列表
 	{ path: '/office_list_policy', component: office_list_policy, name: 'office_list_policy' },//双创办公室优惠政策列表
 	{ path: '/office_list_detail/:id', component: office_list_detail, name: 'office_list_detail' },//双创办公室详情
 	// { path: '/financing_needs', component: financing_needs, name: 'financing_needs' },//融资需求表单
-	{path: '*', //其他页面，强制跳转到登录页面
-		redirect: '/index'}
-
+	{path: '*',redirect: '/index'},
+	//11.8
+	{path: '/talent_detail', component: talent_detail, name: 'talent_detail' },//招聘详情
+	//11.9
+	{ path: '/employment', component: employment, name: 'employment' },//招聘表单
 ];
 // 页面刷新时，重新赋值token
 if (window.localStorage.getItem('token')) {
