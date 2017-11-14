@@ -11,7 +11,7 @@
                             <el-col :span="22">
                                 <el-tabs v-model="activeName" @tab-click="handleClick">
                                     <el-tab-pane :label='item.value' :name="item.value" :cid="item.id" v-for="(item, index) in ServiceList" :key="index">
-                                        <p v-show="noData" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
+                                        <!--<p v-show="noData" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>-->
                                         <a>
                                             <el-row v-show="!noData" :gutter="24" class="need_xq">
                                                 <el-col :xs="6" :sm="6" :md="6" :lg="6" v-for="(item,index) in needData" :key="index" @click="openDetail(item.id)">
