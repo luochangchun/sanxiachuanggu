@@ -194,7 +194,7 @@ img {
 
 /* 首页--今日头条 */
 .index {
-  background-color: #fefefe;
+  background-color: #f1f1f1;
 }
 .headLineTitle, .more_plus {
   margin-bottom: 30px;
@@ -328,7 +328,10 @@ img {
   width: 177px;
   background: url(../../static/img/space_display_title.png) no-repeat center 100%;
 }
-
+.double_display_title {
+  width: 177px;
+  background: url(../../static/img/SC.png) no-repeat center 100%;
+}
 .space_display .gray {
   max-width: 275px;
   display: block;
@@ -384,32 +387,44 @@ img {
 
 
 /* 创谷空间展示 */
-
-
 /* *********** */
-
-
 /* 双创办公室 */
 
 .office_title {
   width: 177px;
   background: url(../../static/img/D.png) no-repeat center 100%;
 }
-
-.office_item:hover {
-  transform: translateY(-5px);
-  -webkit-transform: translateY(-5px);
+.office_item {
+  background: url(../../static/img/office_item.png) no-repeat center 100% #fff;
+  background-size: cover;
 }
-
+.office_item .title0 {
+  font-size: 18px;
+  color: #0089e3;
+}
 .office_item p {
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
-
-.office_item img {
-  width: 50%;
+.office_item_mask {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(102, 184, 239, .9);
+  top: 0;
+  left: 0;
+  display: none;
 }
-
-
+.office_item_mask a {
+  width: 30%;
+  font-size: 12px;
+  color: #fff;
+  padding: 5px 10px;
+  border:1px solid #fff;
+  border-radius: 5px;
+  margin:0 auto 10px auto;
+}
+.office_item_mask a:first-child {
+  margin-top: 25px;
+}
 /* 双创办公室 */
 
 
@@ -424,24 +439,28 @@ img {
 }
 
 .activitys_item {
-  margin: 10px 0;
+  height: 200px;
   display: block;
   position: relative;
   overflow: hidden;
+  background: url(../../static/img/activitys_item.png) no-repeat center 100%;
+  background-size: cover;
+  border:2px solid #fff;
 }
 
-.activitys_item img {
-  -moz-transition: all 0.6s;
-  -ms-transition: all 0.6s;
-  -o-transition: all 0.6s;
-  -webkit-transition: all 0.6s;
-  transition: all 0.6s;
+.activitys_item h1 {
+  width: 80%;
+  height: 68px;
+  line-height: 75px;
+  background: url(../../static/img/activitys_t.png) no-repeat center 100%;
+  background-size: contain;
+  margin:36px auto 25px auto;
+  color: #78bdeb;
 }
-
-.activitys_item:hover img {
-  -webkit-transform: scale(1.10);
-  -moz-transform: scale(1.10);
-  transform: scale(1.10);
+.activitys_item p {
+  font-size: 14px;
+  color: #999999;
+  margin-bottom: 8px;
 }
 
 .process {
@@ -738,7 +757,7 @@ img {
 
 /* common */
 
-.more_plus, .headLineTitle, .space_display_title, .office_title, .activitys_title, .service_provider_title, .tutor_title, .Financing_title {
+.more_plus, .headLineTitle, .space_display_title, .double_display_title, .office_title, .activitys_title, .service_provider_title, .tutor_title, .Financing_title {
   height: 30px;
   background-size: contain;
 }
@@ -761,7 +780,9 @@ img {
 .office_item, .service_provider_item p {
   color: #666;
 }
-
+.office_item {
+  padding: 34px 0;
+}
 
 /* 个人中心 */
 

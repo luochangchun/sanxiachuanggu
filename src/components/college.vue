@@ -20,12 +20,10 @@
                     </div>
                     <el-row :gutter="10">
                         <el-col :lg="6" :md="6" :sm="12" :xs="24" class="college-show" v-for="(item,index) in lecture" :key="index">
-                            <router-link :to="{name:'train_detail', params: {id:item.id}}">
-                                <img :src="item.icon" alt="">
-                                <div>
-                                    <h6>{{item.name}}</h6>
-                                    <!-- <p>{{item.detail || '无'}}</p> -->
-                                </div>
+                            <router-link :to="{ name: 'train_detail', params: { id: item.id} }" class="activitys_item">
+                                <h1 class="tc b f20 text-ellipsis">{{item['name']}}</h1>
+                                <p class="tc">活动时间：{{item['startAt'] | formatDate}}</p>
+                                <!-- <p class="tc">邀请嘉宾：2017</p> -->
                             </router-link>
                         </el-col>
                     </el-row>

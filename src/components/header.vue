@@ -29,16 +29,16 @@
             <li>
               <router-link to="/news">创谷资讯</router-link>
             </li>
-            <li class='has-sub'>
+            <li>
               <router-link to="/office_list_policy">双创办公室</router-link>
-              <ul>
+              <!-- <ul>
                 <li>
                   <router-link to="/office_list_policy">优惠政策</router-link>
                 </li>
                 <li>
                   <router-link to="/office_list_window">服务窗口</router-link>
                 </li>
-              </ul>
+              </ul> -->
             </li>
             <li class='has-sub'>
               <router-link to="/map">创谷空间</router-link>

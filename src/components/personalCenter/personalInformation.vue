@@ -106,19 +106,33 @@
         return false // 返回false不会自动上传
       },
       handleAvatarSuccess(res, file) {
-        this.imageUrl = URL.createObjectURL(file.raw);
-        console.log(this.imageUrl);
+        let userinfoStr = window.localStorage.getItem('userinfo');
+        if (userinfoStr) {
+          let user = JSON.parse(userinfoStr);
+          this.imageUrl = res['data']['uri'];
+          let params = {
+            id: user['data']['id'],
+            avatarId: res['data']['id'],
+            avatar: res['data']['uri']
+          }
+          api.Put('/account/update', params)
+            .then(res => {
+              if (res["suc"] == true) {
+                this.$message('上传成功');
+              }
+              if (res["suc"] == false) {
+                this.$message(res['msg']);
+              }
+            });
+        }
       },
       beforeAvatarUpload(file) {
-        const isJPG = file.type === 'image/jpeg';
+        const isJPG = file.type === 'image/*';
         const isLt2M = file.size / 1024 / 1024 < 2;
-        if (!isJPG) {
-          this.$message.error('上传头像图片只能是 JPG 格式!');
-        }
         if (!isLt2M) {
           this.$message.error('上传头像图片大小不能超过 2MB!');
         }
-        return isJPG && isLt2M;
+        return isLt2M;
       },
       modfityName() {
         this.flag = true;
