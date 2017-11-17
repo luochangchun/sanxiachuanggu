@@ -1,7 +1,7 @@
 <template>
     <div>
         <!--header-->
-        <el-row :gutter="10">
+        <el-row :gutter="0">
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <div class="banner_img">
                     <img src="../../static/img/banner_sckj.png" alt="">

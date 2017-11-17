@@ -1,18 +1,15 @@
 <template>
     <div>
         <!--header-->
-        <el-row :gutter="10">
+        <el-row :gutter="0">
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                <div class="banner_img">
-                    <img src="../../static/img/banner_trzk.png" alt="">
-                    <a href="javascript:;" class="invest_detail">
-                        <button>查看详情</button>
-                    </a>
+                <div class="financing_banner">
+                    <router-link :to="{name: 'financing_apply'}" class="financing_Btn db"></router-link>
                 </div>
             </el-col>
         </el-row>
         <!--投资机构-->
-        <el-row :gutter="10" style="margin-bottom: 50px;">
+        <el-row :gutter="0">
             <div class="container">
                 <el-col :lg="24" :md="24" :sm="24" :xs="24">
                     <div class="title" id="title-invest">
@@ -30,7 +27,7 @@
                                         <router-link :to="{ name: 'provider', params: { id: item.id} }" class="service_provider_item rel">
                                             <img :src="item.icon" alt="">
                                             <p class="tc text-ellipsis">{{item.name}}</p>
-                                            <i class="tag abs white tc f14">{{item.service}}</i>
+                                            <!-- <i class="tag abs white tc f14">{{item.service}}</i> -->
                                         </router-link>
                                     </el-col>
                                 </el-row>
@@ -41,7 +38,7 @@
             </div>
         </el-row>
         <!--融资项目-->
-        <el-row :gutter="10" style="margin-bottom: 50px;">
+        <el-row :gutter="0" style="margin-bottom: 50px;">
             <div class="container">
                 <el-col :lg="24" :md="24" :sm="24" :xs="24">
                     <div class="title" id="title-financing">
@@ -112,8 +109,21 @@
 </script>
 
 <style>
-    .banner_img img {
+    .financing_banner {
         width: 100%;
+        height: 400px;
+        background: url(../../static/img/banner_trzk.jpg) no-repeat center 100%;
+        background-size: cover;
+        overflow: hidden;
+    }
+    .financing_Btn {
+        width: 200px;
+        height: 50px;
+        background: url(../../static/img/trzk_btn.png) no-repeat center 100%;
+        background-size: contain;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 280px;
     }
     .invest_detail {
         width: 100%;

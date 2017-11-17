@@ -23,13 +23,13 @@
               </el-carousel>
             </div>
           </el-col>
-          <el-col :xs="24" :sm="24" :md="24" :lg="10" :push="1" class="headLine_news_r">
+          <el-col :xs="24" :sm="24" :md="24" :lg="10" class="headLine_news_r">
             <ul class="headLine_news">
               <router-link :to="{ name: 'article', params: { id: item.id}}" v-for="(item, index) in topic" :key="index" v-if="index<8">
                 <el-row>
                   <!-- <el-col :span="5">
-                      <img :src='item.icon' class="top_cube">
-                    </el-col> -->
+                            <img :src='item.icon' class="top_cube">
+                          </el-col> -->
                   <el-col :span="18">
                     <p class="text-ellipsis">{{item.title}}</p>
                   </el-col>
@@ -55,10 +55,10 @@
         </el-row>
         <el-row :gutter="10">
           <el-col :xs="24" :sm="12" :md="12" :lg="6" v-for="(item, index) in valley" :key="index" class="display_item">
-            <div class="gray" @mouseover="show_display(index)">
+            <div class="gray" @mouseover="show_display(index)" @mouseout="hide_display(index)">
               <img :src="item['icon']" alt="">
-              <p class="word white abs tc f14" :class="{ dn: display_active[index] }">{{item.name}}</p>
-              <div class="cur_mask abs" :class="{ db: display_active[index] }">
+              <p class="word white abs tc f14" :class="{ dn: display_active[index]}">{{item.name}}</p>
+              <div class="cur_mask abs" :class="{ cur_mask_after : display_active[index] }">
                 <h1 class="f20 tc text-ellipsis">{{item.name}}</h1>
                 <p class="f14 white text-ellipsis-muti text-ellipsis-3">{{item.intro}}</p>
                 <router-link :to="{ name: 'incubators_details', params: { id: item.id} }" class="Apply white f14 tc b">
@@ -81,11 +81,11 @@
           </el-col>
         </el-row>
         <el-row :gutter="10">
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" v-for="(item, index) in double" :key="index" class="double_item">
-            <div class="gray" @mouseover="show_double(index)">
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" v-for="(item, index) in double" :key="index" class="double_item" style="overflow:hidden;">
+            <div class="gray" @mouseover="show_double(index)" @mouseout="hide_double(index)">
               <img :src="item['icon']" alt="">
-              <p class="word white abs tc f14" :class="{ dn: double_active[index] }">{{item.name}}</p>
-              <div class="cur_mask abs" :class="{ db: double_active[index] }">
+              <p class="word white abs tc f14" :class="{ dn: double_active[index]}">{{item.name}}</p>
+              <div class="cur_mask abs" :class="{ cur_mask_after : double_active[index] }">
                 <h1 class="f20 tc text-ellipsis">{{item.name}}</h1>
                 <p class="f14 white text-ellipsis-muti text-ellipsis-3">{{item.intro}}</p>
                 <router-link :to="{ name: 'incubators_details', params: { id: item.id} }" class="Apply white f14 tc b">
@@ -108,16 +108,18 @@
           </el-col>
         </el-row>
         <el-row class="office_wrap" :gutter="6">
-          <el-col  :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in office" :key="index" style="position:relative;" class="office_index">
-            <a @mouseover="show_office(index)" class="office_item" :href="item.redirect">
-              <p class="tc black2 title0 b">{{item['name']}}</p>
-              <p class="tc black2">负责人：{{item['contact']}}</p>
-              <p class="tc black2">服务电话：{{item['phone']}}</p>
-            </a>
-            <div class="office_item_mask abs" :class="{ db: office_active[index] }">
-              <router-link to="/" class="tc">办事流程</router-link>
-              <router-link :to="{name:'office_list_detail', params: {id:item['id']} }" class="tc">优惠政策</router-link>
-              <a href="http://www.baidu.com" class="tc" target="_blank">服务窗口</a>
+          <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in office" :key="index" class="office_index">
+            <div style="position:relative;overflow: hidden;" @mouseover="show_office(index)" @mouseout="hide_office(index)">
+              <div class="office_item">
+                <p class="tc black2 title0 b">{{item['name']}}</p>
+                <p class="tc black2">负责人：{{item['contact']}}</p>
+                <p class="tc black2">服务电话：{{item['phone']}}</p>
+              </div>
+              <div class="office_item_mask abs" :class="{ office_item_mask_after: office_active[index] }">
+                <router-link :to="{name:'article', params: {id:item['articleExId']} }" class="tc">办事流程</router-link>
+                <router-link :to="{name:'article', params: {id:item['articleId']} }" class="tc">优惠政策</router-link>
+                <a :href="item.redirect" class="tc" target="_blank">服务窗口</a>
+              </div>
             </div>
           </el-col>
         </el-row>
@@ -125,59 +127,59 @@
     </div>
     <!-- 双创办公室 -->
     <!-- <div class="office">
-        <div class="container">
-          <el-row :gutter="20">
-            <el-col :xs="24" :sm="24" :md="24" :lg="24">
-              <div class="l office_title"></div>
-              <router-link to="/incubators" class="r more_plus"></router-link>
-            </el-col>
-          </el-row>
-          <el-row class="office_wrap"  :gutter="6" style="margin-top: 40px;">
-            <el-col :xs="24" :sm="24" :md="12" :lg="12">
-               <router-link :to="{ name: 'office_list_policy'}" class="office_con">
-                  <img src="static/img/fw1.png" alt="">
-                  <div>
-                    <h3>优惠政策</h3>
-                    <h2>入口>></h2>
-                  </div>
-               </router-link>
-            </el-col>
-            <el-col :xs="24" :sm="24" :md="12" :lg="12">
-              <router-link :to="{ name: 'office_list_window'}" class="office_con">
-                <img src="static/img/fw2.png" alt="">
-                <div>
-                  <h3>服务窗口</h3>
-                  <h2>入口>></h2>
-                </div>
-              </router-link>
-            </el-col>
-          </el-row>
-        </div>
-      </div> -->
+              <div class="container">
+                <el-row :gutter="20">
+                  <el-col :xs="24" :sm="24" :md="24" :lg="24">
+                    <div class="l office_title"></div>
+                    <router-link to="/incubators" class="r more_plus"></router-link>
+                  </el-col>
+                </el-row>
+                <el-row class="office_wrap"  :gutter="6" style="margin-top: 40px;">
+                  <el-col :xs="24" :sm="24" :md="12" :lg="12">
+                     <router-link :to="{ name: 'office_list_policy'}" class="office_con">
+                        <img src="static/img/fw1.png" alt="">
+                        <div>
+                          <h3>优惠政策</h3>
+                          <h2>入口>></h2>
+                        </div>
+                     </router-link>
+                  </el-col>
+                  <el-col :xs="24" :sm="24" :md="12" :lg="12">
+                    <router-link :to="{ name: 'office_list_window'}" class="office_con">
+                      <img src="static/img/fw2.png" alt="">
+                      <div>
+                        <h3>服务窗口</h3>
+                        <h2>入口>></h2>
+                      </div>
+                    </router-link>
+                  </el-col>
+                </el-row>
+              </div>
+            </div> -->
     <!-- 双创办公室 -->
     <!-- 双创办公室 -->
     <!-- 培训活动 -->
     <!-- 培训活动 -->
     <!-- 服务商 -->
     <!-- <div class="service_provider">
-        <div class="container">
-          <el-row :gutter="0">
-            <el-col :xs="24" :sm="24" :md="24" :lg="24">
-              <div class="l service_provider_title"></div>
-              <router-link to="/service_provider_more" class="r more_plus"></router-link>
-            </el-col>
-          </el-row>
-          <el-row class="office_wrap">
-            <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in provider" :key="index" v-if="index<6">
-              <router-link :to="{ name: 'provider', params: { id: item.id} }" class="service_provider_item rel">
-                <img :src="item.icon" alt="">
-                <p class="tc text-ellipsis">{{item.name}}</p>
-                <i class="tag abs white tc f14">{{item.service}}</i>
-              </router-link>
-            </el-col>
-          </el-row>
-        </div>
-      </div> -->
+              <div class="container">
+                <el-row :gutter="0">
+                  <el-col :xs="24" :sm="24" :md="24" :lg="24">
+                    <div class="l service_provider_title"></div>
+                    <router-link to="/service_provider_more" class="r more_plus"></router-link>
+                  </el-col>
+                </el-row>
+                <el-row class="office_wrap">
+                  <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in provider" :key="index" v-if="index<6">
+                    <router-link :to="{ name: 'provider', params: { id: item.id} }" class="service_provider_item rel">
+                      <img :src="item.icon" alt="">
+                      <p class="tc text-ellipsis">{{item.name}}</p>
+                      <i class="tag abs white tc f14">{{item.service}}</i>
+                    </router-link>
+                  </el-col>
+                </el-row>
+              </div>
+            </div> -->
     <!-- 服务商 -->
     <!-- 创业导师 -->
     <div class="tutor">
@@ -203,43 +205,43 @@
     </div>
     <!-- 融资项目 -->
     <!-- <div class="Financing">
-        <div class="container">
-          <el-row :gutter="0">
-            <el-col :xs="24" :sm="24" :md="24" :lg="24">
-              <div class="l Financing_title"></div>
-              <router-link :to="{ name: 'financingList'}" class="r more_plus"></router-link>
-            </el-col>
-          </el-row>
-          <el-row :gutter="20">
-            <el-col :xs="24" :sm="12" :md="12" :lg="12" v-for="(item, index) in financing" :key="index" v-if="index<2">
-                <div :style="{backgroundImage: 'url(' +item.logo+ ')'}" class="bg-cover" style="margin-bottom:0;"></div>
-                <div class="Financing_wrap">
-                  <div class="Financing_info">
-                    <h1 class="f16">{{item.name}}</h1>
-                    <p class="text-ellipsis">{{item.intro}}</p>
-                  </div>
-                  <el-row type="flex" class="Financing_money">
-                    <el-col :span="6">
-                      <p class="f14">{{item.archived}}万<br/>已获得投资意向</p>
-                    </el-col>
-                    <el-col :span="6" :push="12">
-                      <p class="f14 tr">{{item.financing}}万<br/>预融资总额</p>
-                    </el-col>
-                  </el-row>
-                  <el-tag type="primary" style="margin-left:8px">行业领域:
-                    <span>消费生活</span>
-                  </el-tag>
-                  <el-tag type="success">已完成融资:
-                    <span v-if="item.status == 1">未融资</span>
-                    <span v-if="item.status == 2">未完成融资</span>
-                  </el-tag>
-                  <p class="f14 pl10" style="margin-left:8px;">发起人:{{item.founder}}</p>
-                </div>
-              </router-link>
-            </el-col>
-          </el-row>
-        </div>
-      </div> -->
+              <div class="container">
+                <el-row :gutter="0">
+                  <el-col :xs="24" :sm="24" :md="24" :lg="24">
+                    <div class="l Financing_title"></div>
+                    <router-link :to="{ name: 'financingList'}" class="r more_plus"></router-link>
+                  </el-col>
+                </el-row>
+                <el-row :gutter="20">
+                  <el-col :xs="24" :sm="12" :md="12" :lg="12" v-for="(item, index) in financing" :key="index" v-if="index<2">
+                      <div :style="{backgroundImage: 'url(' +item.logo+ ')'}" class="bg-cover" style="margin-bottom:0;"></div>
+                      <div class="Financing_wrap">
+                        <div class="Financing_info">
+                          <h1 class="f16">{{item.name}}</h1>
+                          <p class="text-ellipsis">{{item.intro}}</p>
+                        </div>
+                        <el-row type="flex" class="Financing_money">
+                          <el-col :span="6">
+                            <p class="f14">{{item.archived}}万<br/>已获得投资意向</p>
+                          </el-col>
+                          <el-col :span="6" :push="12">
+                            <p class="f14 tr">{{item.financing}}万<br/>预融资总额</p>
+                          </el-col>
+                        </el-row>
+                        <el-tag type="primary" style="margin-left:8px">行业领域:
+                          <span>消费生活</span>
+                        </el-tag>
+                        <el-tag type="success">已完成融资:
+                          <span v-if="item.status == 1">未融资</span>
+                          <span v-if="item.status == 2">未完成融资</span>
+                        </el-tag>
+                        <p class="f14 pl10" style="margin-left:8px;">发起人:{{item.founder}}</p>
+                      </div>
+                    </router-link>
+                  </el-col>
+                </el-row>
+              </div>
+            </div> -->
     <!-- 融资项目 -->
     <!-- 创业导师 -->
     <div class="activitys">
@@ -253,9 +255,15 @@
         <el-row :gutter="20">
           <el-col :xs="12" :sm="12" :md="6" :lg="6" v-for="(item, index) in activity" :key="index" v-if="index<4">
             <router-link :to="{ name: 'train_detail', params: { id: item.id} }" class="activitys_item">
-              <h1 class="tc b f20 text-ellipsis">{{item['name']}}</h1>
-              <p class="tc">活动时间：{{item['startAt'] | formatDate}}</p>
-              <!-- <p class="tc">邀请嘉宾：2017</p> -->
+              <div @mouseover="show_activity(index)" @mouseout="hide_activity(index)">
+                <h1 class="tc b f20 text-ellipsis">{{item['name']}}</h1>
+                <p class="tc">活动时间：{{item['startAt'] | formatDate}}</p>
+                <!-- <p class="tc">邀请嘉宾：2017</p> -->
+                <div class="top_line" style="width: 0px" :class="{ horizontal_line: activity_active[index] }"></div>
+                <div class="bottom_line" style="width: 0px;" :class="{ horizontal_line: activity_active[index] }"></div>
+                <div class="left_line" style="height: 0px;" :class="{ vertical_line: activity_active[index] }"></div>
+                <div class="right_line" style="height: 0px;" :class="{ vertical_line: activity_active[index] }"></div>
+              </div>
             </router-link>
           </el-col>
         </el-row>
@@ -267,21 +275,20 @@
 <script>
   import api from '../axios/api.js'
   import Swiper from '../components/swiper.vue'
-  import {
-    formatDate
-  } from '../../static/js/date.js'
+  import {formatDate} from '../../static/js/date.js'
   export default {
     data() {
       return {
         selected: undefined,
         display_active: [true, false, false, false],
+        activity_active: [true, false, false, false],
+        office_active: [false, false, false, false, false, false],
         double_active: [true, false, false, false],
-        office_active:[false, false, false, false, false, false],
         topic: '',
         activity: '', //活动
         // financing: '', //融资项目
         valley: '', //孵化器
-        double: '',//双创
+        double: '', //双创
         mentor: '', //创业导师
         office: '', //双创办公室
         provider: '', //服务商
@@ -331,6 +338,12 @@
           }
         }
       },
+      hide_display(index) {
+        var display_item = document.querySelectorAll('.display_item');
+        for (let i = 0; i < display_item.length; i++) {
+          this.$set(this.display_active, i, false)
+        }
+      },
       // 双创空间
       show_double(index) {
         var double_item = document.querySelectorAll('.double_item');
@@ -342,6 +355,12 @@
           }
         }
       },
+      hide_double(index) {
+        var double_item = document.querySelectorAll('.double_item');
+        for (let i = 0; i < double_item.length; i++) {
+          this.$set(this.double_active, i, false)
+        }
+      },
       //双创办公室
       show_office(index) {
         var office_item = document.querySelectorAll('.office_index');
@@ -351,6 +370,28 @@
           } else {
             this.$set(this.office_active, i, true)
           }
+        }
+      },
+      hide_office(index) {
+        var office_item = document.querySelectorAll('.office_index');
+        for (let i = 0; i < office_item.length; i++) {
+          this.$set(this.office_active, i, false)
+        }
+      },
+      show_activity(index) {
+        var activity_item = document.querySelectorAll('.activitys_item');
+        for (let i = 0; i < activity_item.length; i++) {
+          if (activity_item[i] != activity_item[index]) {
+            this.$set(this.activity_active, i, false)
+          } else {
+            this.$set(this.activity_active, i, true)
+          }
+        }
+      },
+      hide_activity(index) {
+        var activity_item = document.querySelectorAll('.activitys_item');
+        for (let i = 0; i < activity_item.length; i++) {
+          this.$set(this.activity_active, i, false)
         }
       },
     }

@@ -1,7 +1,7 @@
 <template>
     <div>
         <!--header-->
-        <el-row :gutter="10">
+        <el-row :gutter="0">
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <div class="banner_img">
                     <img src="../../static/img/banner_cgyj.png" alt="">
@@ -9,7 +9,7 @@
             </el-col>
         </el-row>
         <!--院校展示-->
-        <el-row :gutter="10" style="margin-bottom: 50px;">
+        <el-row :gutter="0" style="margin-bottom: 50px;">
             <div class="container">
                 <el-col :lg="24" :md="24" :sm="24" :xs="24">
                     <div class="title" id="title-school">
@@ -32,7 +32,7 @@
         <!--创业导师团-->
         <div style="padding-bottom: 50px;background-color:#eee">
             <div class="container">
-                <el-row :gutter="10">
+                <el-row :gutter="0">
                     <el-col :lg="24" :md="24" :sm="24" :xs="24">
                         <div class="title" id="title-teacher">
                             <h1>创业导师团</h1>

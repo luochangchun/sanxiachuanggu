@@ -12,7 +12,7 @@
             </el-row>
             <el-row :gutter="10" style="margin:20px 0">
                 <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in tutorList" :key="index">
-                    <div class="research-teacher">
+                    <div class="research-teacher" style="margin-bottom:20px;">
                         <img :src="item.photo" alt="">
                         <div>
                             <h3>{{item.name}}</h3>

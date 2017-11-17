@@ -27,6 +27,7 @@ import personalInformation from '../src/components/personalCenter/personalInform
 import passwordSetting from '../src/components/personalCenter/passwordSetting.vue';//个人中心--个人资料
 import service_detail from '../src/components/personalCenter/service_detail.vue';//个人中心--个人服务详情
 import service_apply from '../src/components/service_apply.vue';//服务企业入驻申请表
+import financing_apply from '../src/components/financing_apply.vue';//融资项目表单
 //罗长春
 import news from '../src/components/news.vue'
 import incubators from '../src/components/incubators.vue'
@@ -77,6 +78,7 @@ import office_list_detail from '../src/components/office_list_detail.vue'
 import talent_detail from '../src/components/talent_detail.vue'
 //11.9
 import employment from '../src/components/employment.vue'
+import intermediary from '../src/components/intermediary.vue'
 
 
 Vue.use(VueRouter)
@@ -98,6 +100,7 @@ const routes = [
 	{ path: '/tutorList', component: TutorList, name: 'tutorList' },//导师列表
 	{ path: '/financingDetail/:id', component: FinancingDetail, name: 'financingDetail' },//融资项目详情
 	{ path: '/financingList', component: FinancingList, name: 'financingList' },//融资项目列表页面
+	{ path: '/financing_apply', component: financing_apply, name: 'financing_apply', meta: { requireAuth: true, } },//融资申请页面
 	{ path: '/topicList', component: TopicList, name: 'topicList' },//融资项目详情
 	{ path: '/service_class/:id', component: service_class, name: 'service_class' },//服务商分类列表页面
 	{path: '/personalCenter', component: personalCenter, name: 'personalCenter', children: [
@@ -160,6 +163,7 @@ const routes = [
 	{path: '/talent_detail', component: talent_detail, name: 'talent_detail' },//招聘详情
 	//11.9
 	{ path: '/employment', component: employment, name: 'employment' },//招聘表单
+	{ path: '/intermediary', component: intermediary, name: 'intermediary' },//中介服务
 ];
 // 页面刷新时，重新赋值token
 if (window.localStorage.getItem('token')) {

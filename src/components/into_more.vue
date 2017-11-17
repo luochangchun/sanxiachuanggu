@@ -61,9 +61,7 @@
 
 <script>
     import api from '../axios/api.js'
-    import {
-        formatDate
-    } from '../../static/js/date.js'
+    import {formatDate} from '../../static/js/date.js'
     export default {
         data() {
             return {

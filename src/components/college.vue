@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-row :gutter="10">
+        <el-row :gutter="0">
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <div class="banner_img">
                     <img src="../../static/img/cg.jpg" alt="">
@@ -21,9 +21,14 @@
                     <el-row :gutter="10">
                         <el-col :lg="6" :md="6" :sm="12" :xs="24" class="college-show" v-for="(item,index) in lecture" :key="index">
                             <router-link :to="{ name: 'train_detail', params: { id: item.id} }" class="activitys_item">
-                                <h1 class="tc b f20 text-ellipsis">{{item['name']}}</h1>
-                                <p class="tc">活动时间：{{item['startAt'] | formatDate}}</p>
-                                <!-- <p class="tc">邀请嘉宾：2017</p> -->
+                                <div @mouseover="show_activity(index)" @mouseout="hide_activity(index)">
+                                    <h1 class="tc b f20 text-ellipsis">{{item['name']}}</h1>
+                                    <p class="tc">培训时间：{{item['startAt'] | formatDate}}</p>
+                                    <div class="top_line" style="width: 0px" :class="{ horizontal_line: activity_active[index] }"></div>
+                                    <div class="bottom_line" style="width: 0px;" :class="{ horizontal_line: activity_active[index] }"></div>
+                                    <div class="left_line" style="height: 0px;" :class="{ vertical_line: activity_active[index] }"></div>
+                                    <div class="right_line" style="height: 0px;" :class="{ vertical_line: activity_active[index] }"></div>
+                                </div>
                             </router-link>
                         </el-col>
                     </el-row>
@@ -73,13 +78,17 @@
                         <router-link :to="{ name: 'activity_more'}" class="r more_plus to"></router-link>
                     </div>
                     <el-row :gutter="10">
-                        <el-col :xs="8" :sm="8" :md="8" :lg="8" v-for="(item, index) in activity" :key="index">
+                        <el-col :xs="6" :sm="6" :md="6" :lg="6" v-for="(item, index) in activity" :key="index">
                             <router-link :to="{name:'train_detail', params: {id:item.id} }" class="activitys_item">
-                                <img :src="item.icon" alt="">
                                 <div class="process abs">
-                                    <p class="white f16 tc text-ellipsis">{{item.name}}</p>
-                                    <p v-if="item.status==1" class="f16 tc tag">进行中</p>
-                                    <p v-if="item.status==2" class="f16 tc tag">已结束</p>
+                                    <div @mouseover="show_activity(index)" @mouseout="hide_activity(index)">
+                                        <h1 class="tc b f20 text-ellipsis">{{item['name']}}</h1>
+                                        <p class="tc">活动时间：{{item['startAt'] | formatDate}}</p>
+                                        <div class="top_line" style="width: 0px" :class="{ horizontal_line: activity_active[index] }"></div>
+                                        <div class="bottom_line" style="width: 0px;" :class="{ horizontal_line: activity_active[index] }"></div>
+                                        <div class="left_line" style="height: 0px;" :class="{ vertical_line: activity_active[index] }"></div>
+                                        <div class="right_line" style="height: 0px;" :class="{ vertical_line: activity_active[index] }"></div>
+                                    </div>
                                 </div>
                             </router-link>
                         </el-col>
@@ -88,7 +97,7 @@
             </div>
         </el-row>
         <!--精彩瞬间-->
-        <div style="background-color: #eee;padding-bottom: 50px;">
+        <!-- <div style="background-color: #eee;padding-bottom: 50px;">
             <div class="container">
                 <el-row :gutter="10">
                     <el-col :lg="24" :md="24" :sm="24" :xs="24">
@@ -109,21 +118,24 @@
                     </el-col>
                 </el-row>
             </div>
-        </div>
+        </div> -->
         <!--footer-->
     </div>
 </template>
 
 <script>
     import api from "../axios/api.js";
-    import Swiper from "../components/swiper.vue";
+    import {
+        formatDate
+    } from '../../static/js/date.js'
     export default {
         data() {
             return {
                 lecture: "", //培训
                 teacher: "", //优秀讲师
                 activity: "", //活动专区
-                highlight: "" //精彩瞬间
+                highlight: "", //精彩瞬间
+                activity_active: [true, false, false, false],
             };
         },
         methods: {
@@ -134,28 +146,45 @@
                     this.activity = res["activity"];
                     this.teacher = res["teacher"];
                 });
+            },
+            show_activity(index) {
+                var activity_item = document.querySelectorAll(".activitys_item");
+                for (let i = 0; i < activity_item.length; i++) {
+                    if (activity_item[i] != activity_item[index]) {
+                        this.$set(this.activity_active, i, false);
+                    } else {
+                        this.$set(this.activity_active, i, true);
+                    }
+                }
+            },
+            hide_activity(index) {
+                var activity_item = document.querySelectorAll(".activitys_item");
+                for (let i = 0; i < activity_item.length; i++) {
+                    this.$set(this.activity_active, i, false);
+                }
             }
         },
         created() {
             this.setTronsApi();
         },
-        components: {
-            // commonHeader: Header,
-            // commonFooter: Footer,
-            commonSwiper: Swiper
-        }
+        filters: {
+            formatDate(time) {
+                let date = new Date(time)
+                return formatDate(date, 'yyyy-MM-dd')
+            }
+        },
     };
 </script>
 
-<style>
+<style scoped>
     /*培训*/
     .college-show img {
         width: 100%;
     }
     .college-show div {
-        box-shadow: 0 0 10px #ddd;
+        /* box-shadow: 0 0 10px #ddd; */
         /* margin-top: -5px; */
-        padding: 5px;
+        /* padding: 5px; */
     }
     .college-show div h6 {
         color: #666;
@@ -250,6 +279,8 @@
         margin-left: -60px;
     }
     .research-teacher div p {
+        width: 60%;
+        margin-left: 30%;
         font-size: 12px;
         font-weight: normal;
         line-height: 20px;

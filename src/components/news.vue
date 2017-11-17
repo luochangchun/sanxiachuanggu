@@ -1,7 +1,7 @@
 <template>
     <div v-loading.fullscreen.lock="fullscreenLoading">
         <!--header-->
-        <el-row :gutter="10">
+        <el-row :gutter="0">
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <div class="banner_img">
                     <img src="../../static/img/banner_cgzx.png" alt="">
@@ -132,6 +132,7 @@ export default {
           if (index == 0) {
             //打开新闻资讯首页，默认加载每日头条第1页
             this.initNewsList(this.category[index]["id"]);
+            window.localStorage.setItem("cid",this.category[index]["id"]);
             this.fullscreenLoading = false;
           }
         });

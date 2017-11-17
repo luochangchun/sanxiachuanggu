@@ -19,7 +19,7 @@
     </div>
     <div class="main">
       <div class="container clear" style="position:relative;display:block;height:auto;overflow: inherit;">
-        <a href="" class="l logo"><img src="static/img/logo.png" alt="" class="padder-vx"></a>
+        <router-link to="/index" class="l logo"><img src="static/img/logo.png" alt="" class="padder-vx"></router-link>
         <div class="nav nav_pc">
           <div id="menu-button">菜单</div>
           <ul>
@@ -32,13 +32,13 @@
             <li>
               <router-link to="/office_list_policy">双创办公室</router-link>
               <!-- <ul>
-                <li>
-                  <router-link to="/office_list_policy">优惠政策</router-link>
-                </li>
-                <li>
-                  <router-link to="/office_list_window">服务窗口</router-link>
-                </li>
-              </ul> -->
+                  <li>
+                    <router-link to="/office_list_policy">优惠政策</router-link>
+                  </li>
+                  <li>
+                    <router-link to="/office_list_window">服务窗口</router-link>
+                  </li>
+                </ul> -->
             </li>
             <li class='has-sub'>
               <router-link to="/map">创谷空间</router-link>
@@ -96,9 +96,9 @@
             <li>
               <router-link to="/financing">投融资库</router-link>
             </li>
-            <!-- <li>
-                                      <router-link to="/talent">创谷人才</router-link>
-                                  </li> -->
+            <li>
+              <router-link to="/intermediary">中介服务</router-link>
+            </li>
           </ul>
         </div>
         <div class="nav nav_mobile r">

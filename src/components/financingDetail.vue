@@ -5,7 +5,7 @@
                 <el-col :lg="24" :md="24" :sm="24" :xs="24">
                     <div class="object_detail_head">
                         <h2>{{financeDetail['name']}}</h2>
-                        <div></div>
+                        <!-- <div></div> -->
                     </div>
                     <div class="column">
                         <div class="column_title">我们是谁？</div>
