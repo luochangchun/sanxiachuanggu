@@ -11,7 +11,7 @@
 							<el-input type="text" v-model="applyForm.founder"></el-input>
 						</el-form-item>
 						<el-form-item label="创始人出生日期" prop="birth">
-							<el-date-picker v-model="applyForm.birth" type="date" placeholder="选择日期时间">
+							<el-date-picker v-model="applyForm.birth" type="date" placeholder="选择日期时间" @change="timeChage(applyForm.birth)">
 							</el-date-picker>
 						</el-form-item>
 						<el-form-item label="学历" prop="edu">
@@ -38,30 +38,34 @@
 						</el-form-item>
 						<el-form-item label="融资状态" prop="status">
 							<el-radio-group v-model="applyForm.status">
-								<el-radio label="未融资"></el-radio>
-								<el-radio label="天使轮"></el-radio>
-								<el-radio label="Pre-A或A轮"></el-radio>
-								<el-radio label="B轮和以上"></el-radio>
+								<el-radio label="1" :key='1'>未融资</el-radio>
+								<el-radio label="2" :key='2'>天使轮</el-radio>
+								<el-radio label="3" :key='3'>Pre-A或A轮</el-radio>
+								<el-radio label="4" :key='4'>B轮和以上</el-radio>
 							</el-radio-group>
 						</el-form-item>
-						<el-form-item label="融资目标" prop="financing">
-							<el-input type="tel" v-model="applyForm.financing"></el-input>
-						</el-form-item>
 						<el-form-item label="已完成融资" prop="archived">
-							<el-input type="tel" v-model="applyForm.archived"></el-input>
+							<el-input type="number" v-model="applyForm.archived"></el-input>
+						</el-form-item>
+						<el-form-item label="融资目标" prop="financing">
+							<el-input type="number" v-model="applyForm.financing"></el-input>
 						</el-form-item>
 						<el-form-item label="融资金额单位" prop="unit">
 							<el-radio-group v-model="applyForm.unit">
-								<el-radio label="万元"></el-radio>
-								<el-radio label="百万元"></el-radio>
-								<el-radio label="千万元"></el-radio>
-								<el-radio label="亿元"></el-radio>
+								<el-radio label="万元" :key='1'></el-radio>
+								<el-radio label="百万元" :key='2'></el-radio>
+								<el-radio label="千万元" :key='3'></el-radio>
+								<el-radio label="亿元" :key='4'></el-radio>
 							</el-radio-group>
 						</el-form-item>
 						<el-form-item label="项目封面图片" prop="logo">
-							<el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" :on-preview="handlePreview" :on-remove="handleRemove" :file-list="fileList2" list-type="picture">
-								<el-button size="small" type="primary">点击上传</el-button>
-								<div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+							<!-- <el-upload class="upload-demo" :headers="headers" action="http://www.sanxiachuanggu.com/servant/file" :on-success="handleAvatarSuccess" :on-preview="handlePreview" :on-remove="handleRemove" :file-list="fileList2" list-type="picture">
+										<el-button size="small" type="primary">点击上传</el-button>
+										<div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+									</el-upload> -->
+							<el-upload :headers="headers" class="avatar-uploader" action="http://www.sanxiachuanggu.com/servant/file" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
+								<img v-if="imageUrl" :src="imageUrl" class="avatar">
+								<i v-else class="el-icon-plus avatar-uploader-icon"></i>
 							</el-upload>
 						</el-form-item>
 						<el-form-item label="项目简介" prop="intro">
@@ -83,9 +87,8 @@
 							<el-input type="textarea" v-model="applyForm.why"></el-input>
 						</el-form-item>
 						<el-form-item label="持股比例(%)" prop="radio">
-							<el-input type="tel" v-model="applyForm.radio"></el-input>
+							<el-input type="number" v-model="applyForm.radio"></el-input>
 						</el-form-item>
-						
 						<el-form-item>
 							<el-button @click="submitForm('applyForm')" style="background-color: #f48100;border:none;color:#fff;">发布</el-button>
 							<el-button @click="resetForm('applyForm')">取消</el-button>
@@ -96,19 +99,16 @@
 		</el-row>
 	</div>
 </template>
-
+<style scoped>
+	.enter-ruleForm {
+		width: 520px;
+		margin: 0 auto;
+	}
+</style>
 <script>
 	import api from '../axios/api.js'
 	export default {
 		data() {
-			let validatePhone = (rule, value, callback) => {
-				let re = /^1[34578]\d{9}$/;
-				if (value === "" || !re.test(value) || value.length < 11) {
-					callback(new Error("请输入正确手机号！"));
-				} else {
-					callback();
-				}
-			};
 			let validateContact = (rule, value, callback) => {
 				let re = /^[\u4E00-\u9FA5\uf900-\ufa2d]{2,5}$/;
 				if (value === "" || !re.test(value) || value.length < 2 || value.length > 5) {
@@ -118,52 +118,57 @@
 				}
 			};
 			return {
+				fileList2: [],
 				category: "",
+				logo: "",
+				logoId: "",
+				birth: "",
+				imageUrl: "",
 				edus: [{
-						'index': 0,
+						'index': '小学',
 						'value': '小学'
 					},
 					{
-						'index': 1,
+						'index': '初中',
 						'value': '初中'
 					},
 					{
-						'index': 2,
+						'index': '高中',
 						'value': '高中'
 					},
 					{
-						'index': 3,
+						'index': '中专',
 						'value': '中专'
 					},
 					{
-						'index': 4,
+						'index': '本科',
 						'value': '本科'
 					},
 					{
-						'index': 5,
+						'index': '学士',
 						'value': '学士'
 					},
 					{
-						'index': 6,
+						'index': '硕士研究生',
 						'value': '硕士研究生'
 					},
 					{
-						'index': 7,
+						'index': '博士研究生',
 						'value': '博士研究生'
 					},
 					{
-						'index': 8,
+						'index': '博士后',
 						'value': '博士后'
 					},
 					{
-						'index': 9,
+						'index': '其他',
 						'value': '其他'
 					},
 				],
 				applyForm: {
 					"founder": "", //创始人姓名
 					"founderIntro": "", //创始人简介
-					"birth": "", //创始人出生日期
+					"birth": '', //创始人出生日期
 					"businessId": "", //行业类别
 					"status": "", //融资状态
 					"financing": "", //融资目标金额
@@ -193,9 +198,10 @@
 						trigger: 'blur'
 					}],
 					birth: [{
+						type: 'date',
 						required: true,
-						message: '请填写创始人出生日期',
-						trigger: 'blur'
+						message: '请选择创始人出生日期',
+						trigger: 'change'
 					}],
 					name: [{
 						required: true,
@@ -203,14 +209,15 @@
 						trigger: 'blur'
 					}],
 					businessId: [{
+						type: 'number',
 						required: true,
 						message: '请选择行业类别',
-						trigger: 'blur'
+						trigger: 'change'
 					}],
 					status: [{
 						required: true,
 						message: '请选择融资状态',
-						trigger: 'blur'
+						trigger: 'change'
 					}],
 					financing: [{
 						required: true,
@@ -225,11 +232,11 @@
 					unit: [{
 						required: true,
 						message: '请填写融资金额单位',
-						trigger: 'blur'
+						trigger: 'change'
 					}],
 					intro: [{
 						required: true,
-						message: '请填写融资金额单位',
+						message: '请填写项目简介',
 						trigger: 'blur'
 					}],
 					scale: [{
@@ -265,7 +272,7 @@
 					edu: [{
 						required: true,
 						message: '请填写学历',
-						trigger: 'blur'
+						trigger: 'change'
 					}],
 					graduate: [{
 						required: true,
@@ -277,29 +284,49 @@
 						message: '请填写专业',
 						trigger: 'blur'
 					}],
-					
 				}
 			};
 		},
 		created() {
 			this.getBusinessClass();
 		},
+		computed: {
+			headers() {
+				let userinfoStr = window.localStorage.getItem('userinfo');
+				if (userinfoStr) {
+					let user = JSON.parse(userinfoStr);
+					return {
+						'Authorization': 'Bearer ' + user['msg']
+					}
+				}
+			}
+		},
 		methods: {
+			timeChage(val) {
+				console.log(val);
+				let d = new Date(val);
+				this.birth = d.getFullYear() + '.' + (d.getMonth()) + '.' + d.getDate();
+			},
 			submitForm(formName) {
 				this.$refs[formName].validate((valid) => {
 					if (valid) {
-						let id = this.$route.params.id;
+						let userinfo = JSON.parse(window.localStorage.getItem('userinfo'));
+						let id = userinfo['data']['id'];
 						var createTime = new Date();
 						var createAt = Number(createTime);
+						if(this.imageUrl == "") {
+							this.$message("请上传项目封面");
+							return false;
+						}
 						var params = {
-							// "incubatorId": id,
+							"id": id,
 							"status": this.applyForm.status,
 							"financing": this.applyForm.financing,
 							"archived": this.applyForm.archived,
 							"unit": this.applyForm.unit,
 							"name": this.applyForm.name,
-							"logoId": '',
-							"logo": '',
+							"logoId": this.logoId,
+							"logo": this.logo,
 							"intro": this.applyForm.intro,
 							"scale": this.applyForm.scale,
 							"businessId": this.applyForm.businessId,
@@ -308,7 +335,7 @@
 							"why": this.applyForm.why,
 							"founder": this.applyForm.founder,
 							"founderIntro": this.applyForm.founderIntro,
-							"birth": this.applyForm.birth,
+							"birth": this.birth,
 							"radio": this.applyForm.radio,
 							"edu": this.applyForm.edu,
 							"graduate": this.applyForm.graduate,
@@ -319,6 +346,7 @@
 							.then(res => {
 								if (res['suc'] == true) {
 									this.$message('申请成功！');
+									window.history.go(-1);
 								} else if (res['suc'] == false) {
 									this.$message('申请失败！');
 								}
@@ -334,13 +362,26 @@
 					this.category = res;
 				});
 			},
+			beforeAvatarUpload(file) {
+				const isJPG = file.type === 'image/*';
+				const isLt2M = file.size / 1024 / 1024 < 2;
+				if (!isLt2M) {
+					this.$message.error('上传头像图片大小不能超过 2MB!');
+				}
+				return isLt2M;
+			},
+			handleAvatarSuccess(res, file) {
+				this.logoId = res['data']['id'];
+				this.logo = res['data']['uri'];
+				this.imageUrl = res['data']['uri'];
+			},
+			handleRemove(file, fileList) {
+				console.log(file, fileList);
+			},
+			handlePreview(file) {
+				console.log(file);
+			}
 		}
 	}
 </script>
 
-<style scoped>
-	.enter-ruleForm {
-		width: 520px;
-		margin: 0 auto;
-	}
-</style>

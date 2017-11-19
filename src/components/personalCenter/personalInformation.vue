@@ -4,7 +4,7 @@
     <el-row style="padding-left:40px;">
       <p class="f16 b" style="width:50%;padding:10px 0;border-bottom:1px solid #eee;margin-bottom:20px;">修改个人资料</p>
       <el-col class="userImg" :lg="24" :md="24" :sm="24" :xs="24">
-        <el-upload :headers="headers" class="avatar-uploader" action="http://192.168.11.222:8080/servant/file" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
+        <el-upload :headers="headers" class="avatar-uploader" action="http://www.sanxiachuanggu.com/servant/file" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
           <img v-if="imageUrl" :src="imageUrl" class="avatar">
           <i v-else class="el-icon-plus avatar-uploader-icon"></i>
         </el-upload>
@@ -29,7 +29,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
   .userImg h1 {
     font-size: 18px;
     font-weight: bold;
@@ -81,10 +81,12 @@
     },
     created() {
       let userinfoStr = window.localStorage.getItem('userinfo');
+      console.log(userinfoStr);
       if (userinfoStr) {
         let user = JSON.parse(userinfoStr);
         this.nickName = user['data']['nickname'];
         this.name = user['data']['name'];
+        this.imageUrl = user['data']['avatar'];
       }
     },
     computed: {
@@ -117,6 +119,7 @@
           }
           api.Put('/account/update', params)
             .then(res => {
+              console.log(res);
               if (res["suc"] == true) {
                 this.$message('上传成功');
               }
@@ -139,12 +142,18 @@
       },
       submitName() {
         this.flag = false;
-        var params = {
-          "id": user['data']['id'],
-          "nickname": this.userForm.nickname,
+        let userinfoStr = window.localStorage.getItem('userinfo');
+        if (userinfoStr) {
+          let user = JSON.parse(userinfoStr);
+          var params = {
+            "id": user['data']['id'],
+            "nickname": this.userForm.nickname,
+          }
+          api.Post('/account/update', params)
+            .then(res => {
+              console.log(res);
+            });
         }
-        api.Post('/account/update', params)
-          .then(res => {});
       }
     }
   }

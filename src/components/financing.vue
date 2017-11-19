@@ -50,10 +50,10 @@
                         <!-- <router-link :to="{ name: 'financingDetail'}" class="r more_plus"></router-link> -->
                     </div>
                     <el-row :gutter="10" style="margin-top: 70px;">
-                        <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in financing" :key="item">
+                        <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in financing" :key="index < 3">
                             <router-link :to="{ name: 'financingDetail', params: { id: item.id} }" class="Financing_item rel">
                                 <div style="max-height:250px;">
-                                    <img :src='item.logo' alt="" style="max-height:220px;">
+                                    <img :src='item.logo' alt="" style="max-height:220px;height:220px;">
                                 </div>
                                 <div class="Financing_wrap">
                                     <div class="Financing_info">

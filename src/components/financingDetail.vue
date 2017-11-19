@@ -13,21 +13,21 @@
                             <div class="creative_main">
                                 <h3>创始人</h3>
                                 <div class="creative_main_info">
-                                    <table>
+                                    <table style="width:100%">
                                         <tbody>
                                             <tr>
                                                 <td><span class="txt">姓名：</span><label>{{financeDetail['founder']}}</label></td>
-                                                <td><span class="txt">出生年月：</span><label>1975-07-10</label></td>
-                                                <td><span class="txt">投股比例：</span><label>80%</label></td>
+                                                <td><span class="txt">出生年月：</span><label>{{financeDetail['birth']}}</label></td>
+                                                <td><span class="txt">投股比例：</span><label>{{financeDetail['ratio']}}%</label></td>
                                             </tr>
                                             <tr>
-                                                <td><span class="txt">最高学历：</span><label>研究生</label></td>
-                                                <td><span class="txt">毕业院校：</span><label>北京交通大学</label></td>
-                                                <td><span class="txt">专业：</span><label>交通信息工程</label></td>
+                                                <td><span class="txt">最高学历：</span><label>{{financeDetail['edu']}}</label></td>
+                                                <td><span class="txt">毕业院校：</span><label>{{financeDetail['graduate']}}</label></td>
+                                                <td><span class="txt">专业：</span><label>{{financeDetail['specialty']}}</label></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3"><span class="txt">个人简历：</span>
-                                                    <div>{{financeDetail['intro']}}</div>
+                                                    <div style="width:100%">{{financeDetail['founderIntro']}}</div>
                                                 </td>
                                             </tr>
                                         </tbody>

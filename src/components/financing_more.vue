@@ -8,13 +8,13 @@
                         <el-breadcrumb-item>融资项目列表</el-breadcrumb-item>
                     </el-breadcrumb>
                 </el-col>
-                <router-link v-if="true" :to="{ name: 'attract_list', params: {categoryId:'2', type: type}}" class="zs">发布项目</router-link>
+                <router-link v-if="true" :to="{ name: 'financing_apply'}" class="zs">发布项目</router-link>
             </el-row>
             <el-row :gutter="20" class="tutorList">
                 <el-col :xs="12" :sm="12" :md="6" :lg="6" v-for="(item, index) in financing" :key="index">
                     <div class="item">
                         <div style="max-height:250px;">
-                            <img :src='item.logo' alt="" style="max-height:220px;">
+                            <img :src='item.logo' alt="" style="max-height:120px;height:120px;">
                         </div>
                         <p class="f16">{{item.name}}</p>
                         <p class="f14 text-ellipsis-muti text-ellipsis-3" style="height:60px;max-height:60px;">{{item.intro}}</p>

@@ -56,87 +56,84 @@
 </template>
 
 <script>
-    import api from '../axios/api.js'
-    import {
-        formatDate
-    } from '../../static/js/date.js'
-    export default {
-        data() {
-            return {
-                train: '',
-            }
-        },
-        created() {
-            let id = this.$route.params.id
-            this.getActivity(id);
-        },
-        methods: {
-            getActivity(id) {
-                api.Get('/activity/' + id)
-                    .then(res => {
-                        this.train = res['activity'];
-                    });
-            }
-        },
-        filters: {
-            formatDate(time) {
-                let date = new Date(time)
-                return formatDate(date, 'yyyy-MM-dd hh:mm')
-            }
-        }
+import api from "../axios/api.js";
+import { formatDate } from "../../static/js/date.js";
+export default {
+  data() {
+    return {
+      train: ""
+    };
+  },
+  created() {
+    let id = this.$route.params.id;
+    this.getActivity(id);
+  },
+  methods: {
+    getActivity(id) {
+      api.Get("/activity/" + id).then(res => {
+        this.train = res["activity"];
+      });
     }
+  },
+  filters: {
+    formatDate(time) {
+      let date = new Date(time);
+      return formatDate(date, "yyyy-MM-dd hh:mm");
+    }
+  }
+};
 </script>
 
 <style scoped>
-    .f24 span {
-        float: left;
-        margin-bottom: 10px;
-    }
-    .f24 a {
-        float: right;
-        background-color: #f48100;
-        border: none;
-        color: #fff;
-        border-radius: 4px;
-        width: 90px;
-        height: 30px;
-        text-align: center;
-        line-height: 30px;
-        font-size: 16px;
-    }
-    .wrapper {
-        clear: both;
-    }
-    .activity_para {
-        height: auto;
-        min-height: 100%;
-    }
-    .bg-info {
-        color: #dcf2f8;
-        background-color: #0089e3;
-    }
-    .activity_para p {
-        margin: 0 0 10px;
-    }
-    .line-w {
-        margin-top: 5px;
-        margin-bottom: 10px;
-        border: 0;
-        border-top: 2px solid #eee;
-        margin-right: 30%;
-    }
-    .padder-v-xx {
-        padding-top: 20px;
-        padding-bottom: 50px;
-    }
-    .wrapper {
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        padding: 15px;
-    }
-    .stamp img {
-        display: block;
-        height: 90px;
-        max-width: 100%;
-        margin-bottom: 50px;
-    }
+.f24 span {
+  float: left;
+  margin-bottom: 10px;
+}
+.f24 a {
+  float: right;
+  background-color: #f48100;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  width: 90px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 16px;
+}
+.wrapper {
+  clear: both;
+}
+.activity_para {
+  height: auto;
+  min-height: 100%;
+}
+.bg-info {
+  color: #dcf2f8;
+  background-color: #0089e3;
+}
+.activity_para p {
+  margin: 0 0 10px;
+}
+.line-w {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 2px solid #eee;
+  margin-right: 30%;
+}
+.padder-v-xx {
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+.wrapper {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 15px;
+}
+.stamp img {
+  display: block;
+  height: 90px;
+  max-width: 100%;
+  margin-bottom: 50px;
+}
 </style>
