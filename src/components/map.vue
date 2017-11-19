@@ -1,6 +1,6 @@
 <template>
-  <iframe ref="container" id="container" src="http://localhost:8888/static/map.html" frameborder="0"></iframe>
-  <!-- <iframe ref="container" id="container" src="http://www.sanxiachuanggu.com/static/map.html" frameborder="0"></iframe> -->
+  <!-- <iframe ref="container" id="container" src="http://localhost:8888/static/map.html" frameborder="0"></iframe> -->
+  <iframe ref="container" id="container" src="http://www.sanxiachuanggu.com/static/map.html" frameborder="0"></iframe>
 </template>
 
 <script>
