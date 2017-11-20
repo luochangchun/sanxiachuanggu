@@ -17,7 +17,8 @@
                                         </el-form-item>
                                     </el-col>
                                     <el-col :xs="6" :sm="6" :md="6" :lg="6">
-                                        <el-button @click="sendCaptcha" type="primary" class="yz">获取验证码</el-button>
+                                        <el-button type="primary" class="yz" @click="sendCaptcha" v-show="show" :disabled="!show">获取验证码</el-button>
+                                        <el-button style="border-bottom:1px solid #c4c4c4;" type="primary" class="yz" v-show="!show" :disabled="!show">{{count}}s</el-button>
                                     </el-col>
                                 </el-row>
                                 <el-form-item class="loginBtn">
@@ -48,6 +49,7 @@
 
 <script>
     import api from '../../axios/api.js'
+    const TIME_COUNT = 60;
     export default {
         data() {
              let validatePhone = (rule, value, callback) => {
@@ -80,6 +82,9 @@
                 }
             };
             return {
+                show: true,
+                count: '',
+                timer: null,
                 nextFlag:false,
                 forgetForm: {
                     captcha: "",
@@ -115,7 +120,20 @@
                     this.$message('请输入正确手机号');
                     return false;
                 }
-                let url = '/pub/captcha/' + tel
+                let url = '/pub/captcha/' + tel;
+                if (!this.timer) {
+                    this.count = TIME_COUNT;
+                    this.show = false;
+                    this.timer = setInterval(() => {
+                        if (this.count > 0 && this.count <= TIME_COUNT) {
+                            this.count--;
+                        } else {
+                            this.show = true;
+                            clearInterval(this.timer);
+                            this.timer = null;
+                        }
+                    }, 1000)
+                }
                 api.Post(url, {})
                     .then(res => {
                        if(res['suc'] == true) {

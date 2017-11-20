@@ -11,7 +11,7 @@
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="13">
             <div class="headLine_swiper">
-              <el-carousel :interval="500000" arrow="always" height="355px">
+              <el-carousel :interval="500000" arrow="always" height="360px">
                 <el-carousel-item v-for="(item, index) in topic" :key="index">
                   <div class="item_img_wrap">
                     <router-link :to="{ name: 'article', params: { id: item.id}}">
@@ -280,10 +280,10 @@
     data() {
       return {
         selected: undefined,
-        display_active: [true, false, false, false],
-        activity_active: [true, false, false, false],
+        display_active: [false, false, false, false],
+        activity_active: [false, false, false, false],
         office_active: [false, false, false, false, false, false],
-        double_active: [true, false, false, false],
+        double_active: [false, false, false, false],
         topic: '',
         activity: '', //活动
         // financing: '', //融资项目

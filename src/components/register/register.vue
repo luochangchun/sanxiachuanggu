@@ -24,7 +24,8 @@
                                     </el-form-item>
                                 </el-col>
                                 <el-col :xs="6" :sm="6" :md="6" :lg="6">
-                                    <el-button type="primary" @click="sendCaptcha">获取验证码</el-button>
+                                    <el-button type="primary" @click="sendCaptcha" v-show="show" :disabled="!show">获取验证码</el-button>
+                                    <el-button type="primary" v-show="!show" :disabled="!show">{{count}}s</el-button>
                                 </el-col>
                             </el-row>
                             <el-form-item label="登录密码:" prop="pass">
@@ -52,7 +53,8 @@
                                     </el-form-item>
                                 </el-col>
                                 <el-col :xs="8" :sm="6" :md="6" :lg="6">
-                                    <el-button type="primary" @click="sendSingleCaptcha">获取验证码</el-button>
+                                    <el-button type="primary" @click="sendSingleCaptcha"  v-show="showSingle" :disabled="!showSingle">获取验证码</el-button>
+                                    <el-button type="primary" v-show="!showSingle" :disabled="!showSingle">{{countSingle}}s</el-button>
                                 </el-col>
                             </el-row>
                             <el-form-item label="登录密码:" prop="pass">
@@ -74,6 +76,7 @@
 
 <script>
     import api from '../../axios/api.js'
+    const TIME_COUNT = 60;
     export default {
         data() {
             // 个人用户注册
@@ -153,6 +156,12 @@
                 }
             };
             return {
+                show: true,
+                count: '',
+                timer: null,
+                showSingle: true,
+                countSingle: '',
+                timerSingle: null,
                 form: {
                     activeName2: "first"
                 },
@@ -183,10 +192,6 @@
                             validator: validatePass,
                             trigger: "blur"
                         }
-                        // {
-                        //     pattern: /^[A-Za-z0-9\!\@\#\$\%\^\&\*\(\)\_\+\`\~\-\=\,\.\;\:\<\>\?\|]{6,16}$/,
-                        //     message: '密码长度为6-16位，可由字母和数字组成，区分大小写'
-                        // }
                     ],
                     checkPass: [{
                         required: true,
@@ -243,12 +248,25 @@
                     alert('请输入正确手机号');
                     return false;
                 }
-                let url = '/pub/captcha/' + tel
+                let url = '/pub/captcha/' + tel;
+                if (!this.timerSingle) {
+                    this.countSingle = TIME_COUNT;
+                    this.showSingle = false;
+                    this.timerSingle = setInterval(() => {
+                        if (this.countSingle > 0 && this.countSingle <= TIME_COUNT) {
+                            this.countSingle--;
+                        } else {
+                            this.showSingle = true;
+                            clearInterval(this.timerSingle);
+                            this.timerSingle = null;
+                        }
+                    }, 1000)
+                }
                 api.Post(url, {})
                     .then(res => {
-                       if(res['suc'] == true) {
+                        if (res['suc'] == true) {
                             this.$message('短信已发送到您手机');
-                        } else if(res['suc'] == false) {
+                        } else if (res['suc'] == false) {
                             this.$message(res['msg']);
                         }
                     });
@@ -260,12 +278,25 @@
                     alert('请输入正确手机号');
                     return false;
                 }
-                let url = '/pub/captcha/' + tel
+                let url = '/pub/captcha/' + tel;
+                if (!this.timer) {
+                    this.count = TIME_COUNT;
+                    this.show = false;
+                    this.timer = setInterval(() => {
+                        if (this.count > 0 && this.count <= TIME_COUNT) {
+                            this.count--;
+                        } else {
+                            this.show = true;
+                            clearInterval(this.timer);
+                            this.timer = null;
+                        }
+                    }, 1000)
+                }
                 api.Post(url, {})
                     .then(res => {
-                        if(res['suc'] == true) {
+                        if (res['suc'] == true) {
                             this.$message('短信已发送到您手机');
-                        } else if(res['suc'] == false) {
+                        } else if (res['suc'] == false) {
                             this.$message(res['msg']);
                         }
                     });
