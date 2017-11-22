@@ -41,6 +41,7 @@
 
 <script>
     import api from "../axios/api.js";
+    import {formatDate} from '../../static/js/date.js'
     export default {
         data() {
             return {
@@ -51,6 +52,12 @@
         },
         created() {
             this.initActivityList();
+        },
+        filters: {
+            formatDate(time) {
+                let date = new Date(time)
+                return formatDate(date, 'yyyy-MM-dd')
+            }
         },
         methods: {
             initActivityList() {

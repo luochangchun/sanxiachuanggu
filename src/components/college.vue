@@ -78,7 +78,7 @@
                         <router-link :to="{ name: 'activity_more'}" class="r more_plus to"></router-link>
                     </div>
                     <el-row :gutter="10">
-                        <el-col :xs="6" :sm="6" :md="6" :lg="6" v-for="(item, index) in activity" :key="index">
+                        <el-col :xs="12" :sm="12" :md="6" :lg="6" v-for="(item, index) in activity" :key="index">
                             <router-link :to="{name:'train_detail', params: {id:item.id} }" class="activitys_item">
                                 <div class="process abs">
                                     <div @mouseover="show_activity(index)" @mouseout="hide_activity(index)">
@@ -135,7 +135,7 @@
                 teacher: "", //优秀讲师
                 activity: "", //活动专区
                 highlight: "", //精彩瞬间
-                activity_active: [true, false, false, false],
+                activity_active: [false, false, false, false],
             };
         },
         methods: {
@@ -196,9 +196,7 @@
         font-size: 12px;
         line-height: 20px;
     }
-    .college-show {
-        margin-bottom: 20px;
-    }
+    
     /*title*/
     .title {
         text-align: center;

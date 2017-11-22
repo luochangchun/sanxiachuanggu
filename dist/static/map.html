@@ -99,15 +99,47 @@
             font: 14px/25px "微软雅黑";
             color: #333
         }
-        *clearfix*/
-        .clearfix:after { clear: both; content: "Matrix"; display: block; font-size: 0; height: 0; visibility: hidden; }
-        *html .clearfix { height: 1%; }
-        *+html .clearfix { height: 1%; }
-        .clearfix { display: inline-block; }
-        .clearfix { display: block; }
-        .clearfix { zoom: 1 }
-        html>body .clearfix { overflow: hidden; }
-        .clear { clear: both; height: 0px; line-height: 0px; font-size: 0px; overflow: hidden; }
+
+        *clearfix*/ .clearfix:after {
+            clear: both;
+            content: "Matrix";
+            display: block;
+            font-size: 0;
+            height: 0;
+            visibility: hidden;
+        }
+
+        *html .clearfix {
+            height: 1%;
+        }
+
+        *+html .clearfix {
+            height: 1%;
+        }
+
+        .clearfix {
+            display: inline-block;
+        }
+
+        .clearfix {
+            display: block;
+        }
+
+        .clearfix {
+            zoom: 1
+        }
+
+        html>body .clearfix {
+            overflow: hidden;
+        }
+
+        .clear {
+            clear: both;
+            height: 0px;
+            line-height: 0px;
+            font-size: 0px;
+            overflow: hidden;
+        }
         /*"Open Sans","Hiragino Sans GB","Microsoft YaHei",STHeiti,"WenQuanYi Micro Hei",SimSun,Arial,sans-serif*/
 
         input,
@@ -142,13 +174,13 @@
             outline: 0
         }
 
-        ::selection {
+         ::selection {
             color: #fff;
             background: #328EFE;
             text-shadow: none
         }
 
-        ::-moz-selection {
+         ::-moz-selection {
             color: #fff;
             background: #328EFE;
             text-shadow: none
@@ -264,7 +296,11 @@
             border-radius: 0 3px 3px 0;
             box-shadow: 2px 0 3px #999;
         }
-        .l {float: left}
+
+        .l {
+            float: left
+        }
+
         #container {
             height: 1000px;
             display: -webkit-box;
@@ -322,6 +358,7 @@
             height: 40px;
             float: left;
             margin-right: 10px;
+            margin-top: 2px;
             border: 1px solid #ddd;
         }
 
@@ -331,17 +368,24 @@
             color: #666;
             line-height: 20px;
         }
-
+        .sh_dlsm dt img {
+            width: 40px;
+            height: 40px;
+            display: block;
+        }
         .sh_dlsm dd p {
             width: 180px;
             font-size: 12px;
         }
+
         .sh_dlsm dd p .s01 {
             width: auto;
         }
+
         .sh_dlsm dd p .s02 {
             width: 136px;
         }
+
         .bm {
             height: 30px;
         }
@@ -577,7 +621,7 @@
         @-moz-keyframes myfirst
         /* Firefox */
 
-            {
+        {
             from {
                 left: 20px;
             }
@@ -589,7 +633,7 @@
         @-webkit-keyframes myfirst
         /* Safari 和 Chrome */
 
-            {
+        {
             from {
                 left: 20px;
             }
@@ -601,7 +645,7 @@
         @-o-keyframes myfirst
         /* Opera */
 
-            {
+        {
             from {
                 left: 20px;
             }
@@ -623,7 +667,7 @@
         @-moz-keyframes myfirst2
         /* Firefox */
 
-            {
+        {
             from {
                 left: -320px;
             }
@@ -635,7 +679,7 @@
         @-webkit-keyframes myfirst2
         /* Safari 和 Chrome */
 
-            {
+        {
             from {
                 left: -320px;
             }
@@ -647,7 +691,7 @@
         @-o-keyframes myfirst2
         /* Opera */
 
-            {
+        {
             from {
                 left: -320px;
             }
@@ -689,6 +733,7 @@
         .C_xread .C_xblack {
             top: 110px;
         }
+
         #zero {
             display: none;
         }
@@ -726,7 +771,7 @@
                 <a href="javascript:;" onclick="cdgo(138)">尾页</a>
             </p>-->
         </div>
-        
+
     </div>
 
     <div id="container" tabindex="0"></div>
@@ -756,15 +801,23 @@
                 return this.data.length;
             };
         };
+
         function temphtml(href, index, name, address) {
-            var html = '<a href=' + href + ' target="_parent">\
+            var html = '<a href=' + href +
+                ' target="_parent">\
                                 <div class="C_boxsmall">\
-                                    <div class="C_linum">'+ index + '</div>\
+                                    <div class="C_linum">' +
+                index +
+                '</div>\
                                     <div class="C_listnv">\
-                                        <h1>'+ name + '</h1>\
+                                        <h1>' +
+                name +
+                '</h1>\
                                         <div class="C_licts">\
                                             <h2>\
-                                                <em class="C_on1"></em>'+ address + '</h2>\
+                                                <em class="C_on1"></em>' +
+                address +
+                '</h2>\
                                         </div>\
                                     </div>\
                                 </div></a>';
@@ -776,7 +829,9 @@
                 $('.C_xread').show();
                 var tpmk = markers.get($(this).attr('data-id'));
                 if (tpmk) {
-                    tpmk.emit('click', { target: tpmk });
+                    tpmk.emit('click', {
+                        target: tpmk
+                    });
                     //alert(map.getZoom());
                     //居中
                     //map.setCenter(tpmk.getPosition());
@@ -816,29 +871,30 @@
             });
 
             $.ajax({
-                url: "http://www.sanxiachuanggu.com/servant/pub/incubators",    //请求的url地址   
-                dataType: "json",   //返回格式为json    
+                url: "http://www.sanxiachuanggu.com/servant/pub/incubators", //请求的url地址   
+                dataType: "json", //返回格式为json    
                 async: true, //请求是否异步，默认为异步，这也是ajax重要特性    
-                data: {},    //参数值    
-                type: "GET",   //请求方式    
+                data: {}, //参数值    
+                type: "GET", //请求方式    
                 success: function (data) {
                     //请求成功时处理
                     var res = data;
                     var list = '';
                     showData(data);
-                    if(res==null || res==undefined) {
+                    if (res == null || res == undefined) {
                         $('#zero').show();
                         $('#total').text('0');
                     } else {
                         $('#total').text(res.length);
                         for (var i = 0; i < res.length; i++) {
                             // var href='javascript:;';
-                            var href = 'http://www.sanxiachuanggu.com/#/incubators_details/' + res[i]['id'];
+                            var href = 'http://www.sanxiachuanggu.com/#/incubators_details/' + res[
+                                i]['id'];
                             var index = i + 1;
                             list += temphtml(href, index, res[i]['name'], res[i]['address']);
                         }
                     }
-                    
+
                     $("#C_liboxs").append(list);
                 },
 
@@ -892,10 +948,11 @@
             html +=
                 "<div class='sh_boxmn'><div class='sh_boxhide' onClick='closeInfoWindow()'>×</div><div class='sh_mation'>";
             html += "<h1>" + data.company_name + "</h1></div>";
-            html += "<dl class='sh_dlsm'>";
+            html += "<dl class='sh_dlsm'><dt><img src=" + data.logo + "></dt>";
             html += "<dd>";
             //        if (data.company) html += "<p>" + data.company + "</p>";
-                   if (data.map_desc) html += "<p class='clearfix'><span class='l s01'>地址：</span><span class='l s02'>" +data.map_desc + "</span></p>";
+            if (data.map_desc) html += "<p class='clearfix'><span class='l s01'>地址：</span><span class='l s02'>" + data.map_desc +
+                "</span></p>";
             if (data.phone) html += "<p>电话：" + data.phone + "</p>";
             html += "</dd></dl>";
             if (data.act_id != '0') {
@@ -912,6 +969,7 @@
         function closeInfoWindow() {
             infoWindow.close();
         }
+
         function showData(input) {
             if (input) {
                 for (var i = 0; i < input.length; i++) {
@@ -936,7 +994,7 @@
                     var desc = mk.address || '暂未收录';
                     //desc = desc.substr(0,20);
                     var phone = mk.phone || '暂未收录';
-                    var logo = mk.logo || '/style/toutiao/img/nologo.jpg';
+                    var logo = mk.icon || '/style/toutiao/img/nologo.jpg';
                     //alert(mk.lng+'--'+mk.lat);
                     var marker = new AMap.Marker({
                         map: map,
@@ -955,17 +1013,18 @@
                             user_nicename: mk.user_nicename
                         }
                     });
-                    if(mk.id == 5) {
+                    if (mk.id == 5) {
                         marker.setLabel({ //label默认蓝框白底左上角显示，样式className为：amap-marker-label
-                        offset: new AMap.Pixel(-100, -20), //修改label相对于maker的位置
-                        content: mk.name})
+                            offset: new AMap.Pixel(-100, -20), //修改label相对于maker的位置
+                            content: mk.name
+                        })
                     } else {
                         marker.setLabel({ //label默认蓝框白底左上角显示，样式className为：amap-marker-label
-                        offset: new AMap.Pixel(0, -20), //修改label相对于maker的位置
-                        content: mk.name
-                    })
+                            offset: new AMap.Pixel(0, -20), //修改label相对于maker的位置
+                            content: mk.name
+                        })
                     }
-                    
+
 
                     //鼠标点击marker弹出自定义的信息窗体
                     AMap.event.addListener(marker, 'click', fnOpenInfoWindow);

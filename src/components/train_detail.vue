@@ -12,7 +12,7 @@
                         <div class="padder-v">
                             <p class="f18 b">{{train['name']}}</p>
                             <hr class="line-w">
-                            <p> 培训时间：{{train['createAt'] | formatDate}}</p>
+                            <p> 时间：{{train['createAt'] | formatDate}}</p>
                             <hr class="line-w">
                             <p> 地点：{{train['location'] || "暂无数据"}} </p>
                             <p> 人数限额：{{train['total'] || "暂无数据"}}人 </p>
@@ -28,8 +28,8 @@
                         <div class="padder-v">
                             <div class="content">
                                 <p class="f24">
-                                    <span>培训内容</span>
-                                    <router-link :to="{ name: 'train_Application', params: { id: train['id']} }">培训申请</router-link>
+                                    <span>内容介绍</span>
+                                    <router-link :to="{ name: 'train_Application', params: { id: train['id']} }">报名申请</router-link>
                                 </p>
                                 <div class="wrapper" v-html="train['detail']['content']">
                                 </div>
@@ -39,13 +39,13 @@
                     <el-col :xs="24" :sm="24" :md="24"  :lg="24">
                         <div class="content">
                             <p class="f24">
-                                <span>培训基本信息</span>
+                                <span>基本信息</span>
                             </p>
                             <div class="wrapper">
                                 <p> 联系人：{{train['name'] || "暂无数据"}} </p>
                                 <p> 手机号码：{{train['phone'] || "暂无数据"}} </p>
-                                <p> 培训时间：{{train['createAt'] | formatDate}} </p>
-                                <p> 培训地点：{{train['location'] || "暂无数据"}} </p>
+                                <p> 时间：{{train['createAt'] | formatDate}} </p>
+                                <p> 地点：{{train['location'] || "暂无数据"}} </p>
                             </div>
                         </div>
                     </el-col>

@@ -124,6 +124,19 @@
         margin-left: auto;
         margin-right: auto;
         margin-top: 280px;
+        -webkit-animation: 0.8s 0s normal 2 pulse;
+        animation: 0.8s 0s normal 2 pulse;
+    }
+    @keyframes pulse {
+        from {
+            transform: scale3d(1, 1, 1);
+        }
+        50% {
+            transform: scale3d(1.05, 1.05, 1.05);
+        }
+        to {
+            transform: scale3d(1, 1, 1);
+        }
     }
     .invest_detail {
         width: 100%;

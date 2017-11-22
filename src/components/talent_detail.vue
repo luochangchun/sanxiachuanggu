@@ -37,7 +37,7 @@
 
 
 
-<script type="text/ecmascript-6">
+<script>
 	import api from '../axios/api.js'
 	export default {
 		data() {
@@ -91,7 +91,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
     .talent_title,.item_con{
         background-color:#fff;
         padding:20px 30px;

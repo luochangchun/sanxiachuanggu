@@ -14,9 +14,9 @@
                     <!--导航切换-->
                     <el-tabs v-model="activeName" @tab-click="handleClick">
                         <el-tab-pane v-for="(item,index) in category" :key="index" :label="item.name" :name="item.cname" :cid="item.id">
-                            <el-row :gutter="10" class="news-leftlist" v-show="!show_read">
+                            <el-row :gutter="10" class="news-leftlist">
                                 <router-link :to="{ name: 'article', params: { id: item.id} }" class="m-t b-b clea" v-for="(item, index) in newsListData" :key="index">
-                                    <el-col :lg="8" :md="8" :sm="16" :xs="16" class="no-padder">
+                                    <el-col :lg="8" :md="8" :sm="8" :xs="8" class="no-padder">
                                         <div>
                                             <img :src="item.icon" class="w-full">
                                         </div>
@@ -57,18 +57,8 @@
                         <el-col :lg="24" :md="24" :sm="24" :xs="24">
                             <div class="news-rightlist">
                                 <div class="news-hot">热门排行</div>
-                                <div class="news-button">
-                                    <button @click="week=true">周排行</button>
-                                    <button @click="week=false">日排行</button>
-                                </div>
-                                <p v-show="noFlag">暂无数据</p>
-                                <ul v-show="!week" style="display:none;">
+                                <ul>
                                     <li v-for="( item,index ) in daily" :key="index">
-                                        <router-link :to="{ name: 'article', params: { id: item.id} }" class="text-ellipsis"><span>{{index+1}}</span>{{item.title}}</router-link>
-                                    </li>
-                                </ul>
-                                <ul v-show="week">
-                                    <li v-for="( item,index ) in weekly" :key="index">
                                         <router-link :to="{ name: 'article', params: { id: item.id} }" class="text-ellipsis"><span>{{index+1}}</span>{{item.title}}</router-link>
                                     </li>
                                 </ul>
@@ -114,12 +104,7 @@ export default {
       var url = "/pub/info/" + 10;
       api.Get(url).then(res => {
         this.daily = res["daily"];
-        if (res["weekly"].length > 0) {
-          this.noFlag = false;
-          this.weekly = res["weekly"];
-        } else {
-          this.noFlag = true;
-        }
+       
         if (res["daily"].length > 0) {
           this.noFlag = false;
           this.weekly = res["weekly"];

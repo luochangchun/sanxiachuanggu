@@ -222,7 +222,7 @@
               console.log(res);
               if (res["suc"] == true) {
                 this.$message('服务需求发布成功');
-                window.history.go(-1);
+                // window.history.go(-1);
               } else {
                 this.$message(res["msg"]);
               }

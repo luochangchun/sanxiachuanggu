@@ -2,27 +2,6 @@
     <div>
         <el-row :gutter="0">
             <el-col :lg="24" :md="24" :sm="24" :xs="24" class="service-banner">
-                <!-- <div class="container">
-                                                                                        <el-row :gutter="10">
-                                                                                            <el-col :lg="20" :md="20" :sm="20" :xs="20">
-                                                                                                <el-row :gutter="10">
-                                                                                                    <el-col :lg="4" :md="6" :sm="8" :xs="24" style="background-color:#f9fafa">
-                                                                                                        <router-link :to="{name:'service_class', params: {id:item.id} }" class="service-nav" v-for='(item, index) in ServiceList' :key='index'>
-                                                                                                            <img src="../../static/img/nav_1.png" v-show='index == 1' style="margin-top: 3px;">
-                                                                                                            <img src="../../static/img/nav_2.png" v-show='index == 2'>
-                                                                                                            <img src="../../static/img/nav_3.png" v-show='index == 3'>
-                                                                                                            <img src="../../static/img/nav_4.png" v-show='index == 4'>
-                                                                                                            <img src="../../static/img/nav_5.png" v-show='index == 5'>
-                                                                                                            <img src="../../static/img/nav_6.png" v-show='index == 6'>
-                                                                                                            <img src="../../static/img/nav_7.png" v-show='index == 7'>
-                                                                                                            <img src="../../static/img/nav_8.png" v-show='index == 8'>
-                                                                                                            <p v-show="index>0">{{item['value']}}</p>
-                                                                                                        </router-link>
-                                                                                                    </el-col>
-                                                                                                </el-row>
-                                                                                            </el-col>
-                                                                                        </el-row>
-                                                                                    </div> -->
             </el-col>
         </el-row>
         <!--热门服务-->
@@ -39,8 +18,40 @@
                         </router-link>
                     </div>
                     <el-row :gutter="10">
-                        <el-tabs v-model="activeName" @tab-click="handleClick">
-                            <el-tab-pane v-for="(item,index) in category" :key="index" :label="item.name" :name="item.cname" :sid="item.id" v-if="index>0">
+                        <!-- <el-tabs v-model="activeName" @tab-click="handleClick">
+                                            <el-tab-pane v-for="(item,index) in category" :key="index" :label="item.name" :name="item.cname" :sid="item.id" v-if="index>0">
+                                                <el-row :gutter="10">
+                                                    <p v-show="nodata" style="margin-left:5px;">暂无数据</p>
+                                                    <el-col v-show="!nodata" :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in serviceBody" :key="index">
+                                                        <router-link :to="{name:'invest_detail', params: {id:item.id}}" style="display:block;">
+                                                            <div class="service-opcity-into">
+                                                                <h2>{{item.name}}</h2>
+                                                            </div>
+                                                        </router-link>
+                                                    </el-col>
+                                                </el-row>
+                                               
+                                                <el-row :gutter="10" style="margin-top: 60px;margin-bottom: 50px;">
+                                                    <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
+                                                        <div class="block">
+                                                            <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                                            </el-pagination>
+                                                        </div>
+                                                    </el-col>
+                                                </el-row>
+                                            </el-tab-pane>
+                                        </el-tabs> -->
+                        <div class="filter">
+                            <div class="filter_top rel">
+                                <dl>
+                                    <!-- <dt>项目阶段</dt> -->
+                                    <dd :class="{ auto : moreFlag }">
+                                        <a href="javascript:;" :class="{ on : display_active[index] }" @click="handleClick(index,item.id)" class="sx_child" v-for="(item,index) in category" :key="index" :sid="item.id" v-if="index>0">{{item['name']}}</a>
+                                    </dd>
+                                </dl>
+                                <a href="javascript:;" class="filter_more abs" @click="filterMore">更多<i class="el-icon-arrow-up" v-show="!moreFlag"></i><i class="el-icon-arrow-down" v-show="moreFlag"></i></a>
+                            </div>
+                            <div class="filter_body" v-loading.body="loading">
                                 <el-row :gutter="10">
                                     <p v-show="nodata" style="margin-left:5px;">暂无数据</p>
                                     <el-col v-show="!nodata" :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in serviceBody" :key="index">
@@ -51,7 +62,6 @@
                                         </router-link>
                                     </el-col>
                                 </el-row>
-                                <!--分页-->
                                 <el-row :gutter="10" style="margin-top: 60px;margin-bottom: 50px;">
                                     <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
                                         <div class="block">
@@ -60,11 +70,13 @@
                                         </div>
                                     </el-col>
                                 </el-row>
-                            </el-tab-pane>
-                        </el-tabs>
+                            </div>
+                            <!-- <div class="filter_bottom">
+                            </div> -->
+                        </div>
                     </el-row>
                 </el-col>
-                <el-col :lg="7" :md="7" :sm="24" :xs="24" :offset="1" style="margin-top: 40px;">
+                <el-col :lg="7" :md="7" :sm="24" :xs="24" :offset="1" class="service_r">
                     <el-row :gutter="10">
                         <el-col :lg="24" :md="24" :sm="24" :xs="24">
                             <div class="news-rightlist">
@@ -90,88 +102,88 @@
                 </el-col>
             </el-row>
             <!-- <el-row :gutter="10" style="margin: 30px 0;">
-                                                                        <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                                                                            <div class="title" id="title-service">
-                                                                                <h1>热门服务</h1>
-                                                                                <p>SERVICE AREA</p>
-                                                                                <hr>
-                                                                                <span></span>
-                                                                                <div class="r more_plus"></div>
-                                                                            </div>
-                                                                            <el-row :gutter="0">
-                                                                                <el-col :lg="12" :md="24" :sm="24" :xs="24" class="service-show">
-                                                                                    <a href="http://www.egowork.com/infomation.html">
-                                                                                        <div class="service-img l"><img src="http://www.egowork.com/themes/egowork/img/logo-1.png" alt=""></div>
-                                                                                        <div class="service-text">
-                                                                                            <p class="f18">企业信息化</p>
-                                                                                            <p class="text-muted">中小企业云服务平台</p>
-                                                                                            <p class="text-muted">一个伴随企业成长的IT服务平台</p>
-                                                                                            <p class="text-muted">一个平台一个账号对企业IT全流程统一管理</p>
-                                                                                        </div>
-                                                                                    </a>
-                                                                                </el-col>
-                                                                                <el-col :lg="12" :md="24" :sm="24" :xs="24" class="service-show">
-                                                                                    <a href="http://www.egowork.com/agri_electricity.html">
-                                                                                        <div class="service-img l"><img src="http://www.egowork.com/themes/egowork/img/logo-2.png" alt=""></div>
-                                                                                        <div class="service-text">
-                                                                                            <p class="f18">农业电商</p>
-                                                                                            <p class="text-muted">中国农特产品全渠道营销服务平台，为中国农村电商的发展探索了新的模式</p>
-                                                                                            <p class="text-muted">专注于为中小企业提供最佳信息化产品，最优质的行业解决方案，助力企业腾飞</p>
-                                                                                        </div>
-                                                                                    </a>
-                                                                                </el-col>
-                                                                            </el-row>
-                                                                            <el-row style="height:255px;overflow:hidden">
-                                                                                <el-col :lg="6" :md="12" :sm="12" :xs="24">
-                                                                                    <a href="http://www.egowork.com/hr.html" class="service-mini">
-                                                                                        <img src="http://www.egowork.com/themes/egowork/img/icon-1.png" class="center-block img-responsive">
-                                                                                        <p class="tc f16">人力资源</p>
-                                                                                    </a>
-                                                                                </el-col>
-                                                                                <el-col :lg="6" :md="12" :sm="12" :xs="24">
-                                                                                    <a href="http://www.egowork.com/fiscal.html" class="service-mini">
-                                                                                        <img src="http://www.egowork.com/themes/egowork/img/icon-3.png" class="center-block img-responsive">
-                                                                                        <p class="tc f16">财税/法务</p>
-                                                                                    </a>
-                                                                                </el-col>
-                                                                                <el-col :lg="6" :md="12" :sm="12" :xs="24">
-                                                                                    <a href="http://www.egowork.com/insurance.html" class="service-mini">
-                                                                                        <img src="http://www.egowork.com/themes/egowork/img/icon-2.png" class="center-block img-responsive">
-                                                                                        <p class="tc f16">团体保险</p>
-                                                                                    </a>
-                                                                                </el-col>
-                                                                                <el-col :lg="6" :md="12" :sm="12" :xs="24">
-                                                                                    <a href="http://www.egowork.com/pro_application.html" class="service-mini">
-                                                                                        <img src="http://www.egowork.com/themes/egowork/img/icon-4.png" class="center-block img-responsive">
-                                                                                        <p class="tc f16">项目申报</p>
-                                                                                    </a>
-                                                                                </el-col>
-                                                                            </el-row>
-                                                                        </el-col>
-                                                                    </el-row> -->
+                                                                                            <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                                                                                                <div class="title" id="title-service">
+                                                                                                    <h1>热门服务</h1>
+                                                                                                    <p>SERVICE AREA</p>
+                                                                                                    <hr>
+                                                                                                    <span></span>
+                                                                                                    <div class="r more_plus"></div>
+                                                                                                </div>
+                                                                                                <el-row :gutter="0">
+                                                                                                    <el-col :lg="12" :md="24" :sm="24" :xs="24" class="service-show">
+                                                                                                        <a href="http://www.egowork.com/infomation.html">
+                                                                                                            <div class="service-img l"><img src="http://www.egowork.com/themes/egowork/img/logo-1.png" alt=""></div>
+                                                                                                            <div class="service-text">
+                                                                                                                <p class="f18">企业信息化</p>
+                                                                                                                <p class="text-muted">中小企业云服务平台</p>
+                                                                                                                <p class="text-muted">一个伴随企业成长的IT服务平台</p>
+                                                                                                                <p class="text-muted">一个平台一个账号对企业IT全流程统一管理</p>
+                                                                                                            </div>
+                                                                                                        </a>
+                                                                                                    </el-col>
+                                                                                                    <el-col :lg="12" :md="24" :sm="24" :xs="24" class="service-show">
+                                                                                                        <a href="http://www.egowork.com/agri_electricity.html">
+                                                                                                            <div class="service-img l"><img src="http://www.egowork.com/themes/egowork/img/logo-2.png" alt=""></div>
+                                                                                                            <div class="service-text">
+                                                                                                                <p class="f18">农业电商</p>
+                                                                                                                <p class="text-muted">中国农特产品全渠道营销服务平台，为中国农村电商的发展探索了新的模式</p>
+                                                                                                                <p class="text-muted">专注于为中小企业提供最佳信息化产品，最优质的行业解决方案，助力企业腾飞</p>
+                                                                                                            </div>
+                                                                                                        </a>
+                                                                                                    </el-col>
+                                                                                                </el-row>
+                                                                                                <el-row style="height:255px;overflow:hidden">
+                                                                                                    <el-col :lg="6" :md="12" :sm="12" :xs="24">
+                                                                                                        <a href="http://www.egowork.com/hr.html" class="service-mini">
+                                                                                                            <img src="http://www.egowork.com/themes/egowork/img/icon-1.png" class="center-block img-responsive">
+                                                                                                            <p class="tc f16">人力资源</p>
+                                                                                                        </a>
+                                                                                                    </el-col>
+                                                                                                    <el-col :lg="6" :md="12" :sm="12" :xs="24">
+                                                                                                        <a href="http://www.egowork.com/fiscal.html" class="service-mini">
+                                                                                                            <img src="http://www.egowork.com/themes/egowork/img/icon-3.png" class="center-block img-responsive">
+                                                                                                            <p class="tc f16">财税/法务</p>
+                                                                                                        </a>
+                                                                                                    </el-col>
+                                                                                                    <el-col :lg="6" :md="12" :sm="12" :xs="24">
+                                                                                                        <a href="http://www.egowork.com/insurance.html" class="service-mini">
+                                                                                                            <img src="http://www.egowork.com/themes/egowork/img/icon-2.png" class="center-block img-responsive">
+                                                                                                            <p class="tc f16">团体保险</p>
+                                                                                                        </a>
+                                                                                                    </el-col>
+                                                                                                    <el-col :lg="6" :md="12" :sm="12" :xs="24">
+                                                                                                        <a href="http://www.egowork.com/pro_application.html" class="service-mini">
+                                                                                                            <img src="http://www.egowork.com/themes/egowork/img/icon-4.png" class="center-block img-responsive">
+                                                                                                            <p class="tc f16">项目申报</p>
+                                                                                                        </a>
+                                                                                                    </el-col>
+                                                                                                </el-row>
+                                                                                            </el-col>
+                                                                                        </el-row> -->
             <!-- 服务商 -->
             <!-- <el-row :gutter="10" style="margin:50px 0;">
-                                                                            <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                                                                                <div class="title" id="title-service">
-                                                                                    <h1>服务商</h1>
-                                                                                    <p>SERVICE</p>
-                                                                                    <hr>
-                                                                                    <span></span>
-                                                                                    <router-link to="/service_provider_more" class="r more_plus" style="margin-top:-41px;"></router-link>
-                                                                                </div>
-                                                                            </el-col>
-                                                                            <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                                                                                <el-row class="office_wrap">
-                                                                                    <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in provider" :key="index">
-                                                                                        <router-link :to="{name:'provider', params: {id:item.id} }" class="service_provider_item rel">
-                                                                                            <img :src="item.icon" alt="">
-                                                                                            <p class="tc">{{item.name}}</p>
-                                                                                            <i class="tag abs white tc f14">{{item.service}}</i>
-                                                                                        </router-link>
-                                                                                    </el-col>
-                                                                                </el-row>
-                                                                            </el-col>
-                                                                        </el-row> -->
+                                                                                                <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                                                                                                    <div class="title" id="title-service">
+                                                                                                        <h1>服务商</h1>
+                                                                                                        <p>SERVICE</p>
+                                                                                                        <hr>
+                                                                                                        <span></span>
+                                                                                                        <router-link to="/service_provider_more" class="r more_plus" style="margin-top:-41px;"></router-link>
+                                                                                                    </div>
+                                                                                                </el-col>
+                                                                                                <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                                                                                                    <el-row class="office_wrap">
+                                                                                                        <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in provider" :key="index">
+                                                                                                            <router-link :to="{name:'provider', params: {id:item.id} }" class="service_provider_item rel">
+                                                                                                                <img :src="item.icon" alt="">
+                                                                                                                <p class="tc">{{item.name}}</p>
+                                                                                                                <i class="tag abs white tc f14">{{item.service}}</i>
+                                                                                                            </router-link>
+                                                                                                        </el-col>
+                                                                                                    </el-row>
+                                                                                                </el-col>
+                                                                                            </el-row> -->
             <!-- footer -->
         </div>
     </div>
@@ -185,7 +197,11 @@
                 // provider: '',
                 // normal: '',
                 // ServiceList: ''
+                loading: false,
+                moreFlag:false,
+                display_active: [false, false, false, false],
                 nodata: false,
+                needData: '',
                 infoData: '',
                 activeName: "tab1",
                 totalPages: "",
@@ -207,25 +223,46 @@
                         this.category = res;
                         this.category.forEach((value, index, array) => {
                             if (index == 1) {
-                                this.category[index]["cname"] = "tab" + index;
+                                this.$set(this.display_active, 1, true)
                                 this.initNewsList(this.category[index]["id"]);
                                 this.fullscreenLoading = false;
                             }
                         });
                     })
             },
-            handleClick(tab, event) {
-                this.initNewsList(tab["$attrs"]["sid"]);
-                window.localStorage.setItem("sid", tab["$attrs"]["sid"]);
+            filterMore() {
+                console.log(this.moreFlag);
+                if(this.moreFlag) {
+                    this.moreFlag = false;
+                } else {
+                    this.moreFlag = true;
+                }
+            },
+            handleClick(index, sid) {
+                var sx_child_item = document.querySelectorAll('.sx_child');
+                for (let i = 1; i <= sx_child_item.length; i++) {
+                    if (sx_child_item[i] != sx_child_item[index]) {
+                        this.$set(this.display_active, i, false)
+                    } else {
+                        this.$set(this.display_active, i, true)
+                        console.log('i=' + i)
+                        console.log('index=' + index)
+                    }
+                }
+                this.initNewsList(sid);
+                window.localStorage.setItem("sid", sid);
             },
             initNewsList(sid) {
+                this.loading = true
                 var url = "/enterprise/" + sid + "/1/" + "9" + "/" + "1";
                 api.Get(url).then(res => {
                     this.serviceBody = res["data"];
                     if (this.serviceBody.length == 0) {
                         this.nodata = true;
+                        this.loading = false;
                     } else {
                         this.nodata = false;
+                        this.loading = false;
                     }
                     this.totalPages = res["totalPages"] * 10;
                 });
@@ -283,7 +320,7 @@
         line-height: 24px;
         border-radius: 4px;
         text-align: center;
-        margin-right:5px;
+        margin-right: 5px;
     }
     /*banner*/
     .service-banner {
@@ -461,8 +498,8 @@
         color: #0089e3;
     }
     /* .service-show-into img:hover {
-                                                                                    width: 101%;
-                                                                                } */
+                                                                                                        width: 101%;
+                                                                                                    } */
     .center-block {
         display: block;
         margin-right: auto;
@@ -478,6 +515,7 @@
         width: 100%;
         padding: 0 10px 20px 20px;
         margin-top: 40px;
+        box-sizing: border-box;
     }
     .news-hot {
         position: relative;

@@ -199,7 +199,7 @@ export default {
         ],
         cubicle: [
           {
-            required: true,
+            // required: true,
             message: "请选择工位是否能租赁",
             trigger: "blur"
           }

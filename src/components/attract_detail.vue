@@ -4,7 +4,7 @@
         <el-row :gutter="10" style="margin-bottom: 50px;">
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <el-row :gutter="10" style="margin-top: 50px;border:1px solid #ddd;padding:15px;background-color: #fff">
-                    <el-col :lg="12" :md="12" :sm="24" :xs="24">
+                    <el-col v-if="tenancyApply['type'] == 1" :lg="12" :md="12" :sm="24" :xs="24">
                         <div class="details-img"><img src="../../static/img/id_03.png" alt="" style="min-height:270px;"></div>
                         <el-row :gutter="10">
                             <el-col :lg="4" :md="4" :sm="4" :xs="4" v-for="(item,index) in 6" :key="item">
@@ -14,7 +14,14 @@
                             </el-col>
                         </el-row>
                     </el-col>
-                    <el-col :lg="11" :md="11" :sm="24" :xs="24" :offset="1" class="details-text">
+                    <el-col v-if="tenancyApply['type'] == 1" :lg="11" :md="11" :sm="24" :xs="24" :offset="1" class="details-text">
+                        <h6 v-if="tenancyApply['detail']">{{tenancyApply['detail']['title']}}</h6>
+                        <h6 v-if="!tenancyApply['detail']">暂无标题</h6>
+                        <p>地址:{{tenancyApply['address']}}</p>
+                        <p>联系方式:{{tenancyApply['contact']}} {{tenancyApply['phone']}}</p>
+                        <p>场地面积:{{tenancyApply['area']}}平米</p>
+                    </el-col>
+                    <el-col v-if="tenancyApply['type'] == 2" :lg="11" :md="11" :sm="24" :xs="24" class="details-text">
                         <h6 v-if="tenancyApply['detail']">{{tenancyApply['detail']['title']}}</h6>
                         <h6 v-if="!tenancyApply['detail']">暂无标题</h6>
                         <p>地址:{{tenancyApply['address']}}</p>
@@ -22,7 +29,9 @@
                         <p>场地面积:{{tenancyApply['area']}}平米</p>
                     </el-col>
                 </el-row>
+               
                 <el-row :gutter="10" class="incubators_details_text" style="border:1px solid #ddd;background-color: #fff;padding:15px;margin-top:20px;">
+                    <h1 style="margin-bottom:10px;">环境介绍</h1>
                     <p v-html="content"></p>
                 </el-row>
             </el-col>

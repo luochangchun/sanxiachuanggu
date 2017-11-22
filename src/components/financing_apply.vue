@@ -305,7 +305,7 @@
 			timeChage(val) {
 				console.log(val);
 				let d = new Date(val);
-				this.birth = d.getFullYear() + '.' + (d.getMonth()) + '.' + d.getDate();
+				this.birth = d.getFullYear() + '.' + (d.getMonth()+1) + '.' + d.getDate();
 			},
 			submitForm(formName) {
 				this.$refs[formName].validate((valid) => {
@@ -319,7 +319,7 @@
 							return false;
 						}
 						var params = {
-							"id": id,
+							// "id": id,
 							"status": this.applyForm.status,
 							"financing": this.applyForm.financing,
 							"archived": this.applyForm.archived,
