@@ -105,9 +105,9 @@ const routes = [
 	{ path: '/service_class/:id', component: service_class, name: 'service_class' },//服务商分类列表页面
 	{path: '/personalCenter', component: personalCenter, name: 'personalCenter', children: [
 		{ path: '/demand_comm_service/:type', component: demand_comm_service01, name: 'demand_comm_service01', hidden: true,meta: {requireAuth: true,} },
-		{ path: '/personalInformation', component: personalInformation, name: 'personalInformation' },
-		{ path: '/passwordSetting', component: passwordSetting, name: 'passwordSetting' },
-		{ path: '/service_detail/:id', component: service_detail, name: 'service_detail' },
+		{ path: '/personalInformation', component: personalInformation, name: 'personalInformation', meta: { requireAuth: true, } },
+		{ path: '/passwordSetting', component: passwordSetting, name: 'passwordSetting', meta: { requireAuth: true, } },
+		{ path: '/service_detail/:id', component: service_detail, name: 'service_detail', meta: { requireAuth: true, } },
 		]},
 	//个人中心
 	//  罗长春

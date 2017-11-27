@@ -12,7 +12,7 @@
                         <div class="padder-v">
                             <p class="f18 b">{{train['name']}}</p>
                             <hr class="line-w">
-                            <p> 时间：{{train['createAt'] | formatDate}}</p>
+                            <p> 时间：{{train['startAt'] | formatDate}}</p>
                             <hr class="line-w">
                             <p> 地点：{{train['location'] || "暂无数据"}} </p>
                             <p> 人数限额：{{train['total'] || "暂无数据"}}人 </p>

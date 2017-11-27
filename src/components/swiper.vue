@@ -2,11 +2,11 @@
   <swiper :options="swiperOption" :not-next-tick="notNextTick" ref="mySwiper">
     <swiper-slide v-for="(item, index) in imgArrs" :key="index" :style="{backgroundImage: 'url(' +item.src+ ')'}" style="margin-bottom:0;height: 400px;background-size: cover;background-repeat: no-repeat;background-position: center center;overflow:hidden;">
       <!-- <p>{{activeIndex}}    {{curIndex}}   {{index}}</p> -->
-      <div class="container rel">
+      <div class="container rel" style="height:100%;overflow:hidden">
         <img :class="curIndex == index ? 'animate_start d1' : 'animate_aft' " :src="item.b1" alt="" style="width:auto;height:auto;margin-top:80px;margin-bottom:30px;">
         <img :class="curIndex == index ? 'animate_start d2' : 'animate_aft' " :src="item.b2" alt="" style="width:auto;height:auto;margin-bottom:30px;">
         <div :class="curIndex == index ? 'animate_start d3' : 'animate_aft' " class="sw_btn">{{item.text}}</div>
-        <img :class="(curIndex == index ? 'animate_start d1' : 'animate_aft') || (curIndex == index ? 'animate_start d1' : 'animate_aft')" :src="item.b0" alt="" style="width:40%;height:auto;position:absolute;top:0;right:0" @mouseover="transForm1()" @mouseout="transForm1()">
+        <img :class="(curIndex == index ? 'animate_start d1' : 'animate_aft')" :src="item.b0" alt="" style="width:46%;height:auto;position:absolute;bottom:25px;right:0">
       </div>
     </swiper-slide>
     <!-- Optional controls -->

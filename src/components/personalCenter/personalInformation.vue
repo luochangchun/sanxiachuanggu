@@ -15,10 +15,11 @@
             <p style="display:inline-block">{{name}}</p>
           </el-form-item>
           <el-form-item label="昵称:" prop="nickname">
-            <el-input v-show="flag" type="tel" v-model="userForm.nickname" auto-complete="off" placeholder="请输入昵称"></el-input>
+            <el-input v-show="flag" type="tel" v-model="userForm.nickname" auto-complete="off" placeholder="请输入昵称" style="width:200px;"></el-input>
             <p v-show="!flag" style="display:inline-block;">{{nickName}}</p>
-            <span v-show="!flag" style="border:1px solid #eee;background-color:#0089e3;padding:2px 5px;border-radius:5px;color:#fff;" @click="modfityName">修改</span>
-            <span v-show="flag" style="border:1px solid #eee;background-color:#0089e3;padding:2px 5px;border-radius:5px;color:#fff;" @click="submitName">确认</span>
+            <span v-show="!flag" style="border:1px solid #eee;background-color:#0089e3;padding:6px 10px;border-radius:5px;color:#fff;" @click="modfityName">修改</span>
+            <span v-show="flag" style="border:1px solid #eee;background-color:#0089e3;padding:6px 10px;border-radius:5px;color:#fff;" @click="submitName">确认</span>
+            <span v-show="flag" style="border:1px solid #eee;background-color:#0089e3;padding:6px 10px;border-radius:5px;color:#fff;" @click="cancelName">取消</span>
           </el-form-item>
           <el-form-item label="手机号:">
             <p>{{name}}</p>
@@ -64,6 +65,8 @@
   export default {
     data() {
       return {
+        nickName: '',
+        name: '',
         imageUrl: '',
         labelPosition: 'left',
         flag: false,
@@ -81,7 +84,6 @@
     },
     created() {
       let userinfoStr = window.localStorage.getItem('userinfo');
-      console.log(userinfoStr);
       if (userinfoStr) {
         let user = JSON.parse(userinfoStr);
         this.nickName = user['data']['nickname'];
@@ -117,11 +119,15 @@
             avatarId: res['data']['id'],
             avatar: res['data']['uri']
           }
+          user['data']['avatar'] = res['data']['uri'];
+          user = JSON.stringify(user);
           api.Put('/account/update', params)
             .then(res => {
-              console.log(res);
               if (res["suc"] == true) {
                 this.$message('上传成功');
+                
+                window.localStorage.setItem('userinfo', user); //将修改后的昵称修改后存到localstorage
+                window.location.reload();
               }
               if (res["suc"] == false) {
                 this.$message(res['msg']);
@@ -140,6 +146,9 @@
       modfityName() {
         this.flag = true;
       },
+      cancelName() {
+        this.flag = false;
+      },
       submitName() {
         this.flag = false;
         let userinfoStr = window.localStorage.getItem('userinfo');
@@ -149,9 +158,18 @@
             "id": user['data']['id'],
             "nickname": this.userForm.nickname,
           }
-          api.Post('/account/update', params)
+          api.Put('/account/update', params)
             .then(res => {
-              console.log(res);
+              if (res['suc'] == true) {
+                let userinfoStr = window.localStorage.getItem('userinfo');
+                if (userinfoStr) {
+                  let user = JSON.parse(userinfoStr);
+                  user['data']['nickname'] = this.userForm.nickname;
+                  user = JSON.stringify(user);
+                  window.localStorage.setItem('userinfo', user); //将修改后的昵称修改后存到localstorage
+                  window.location.reload();
+                }
+              }
             });
         }
       }

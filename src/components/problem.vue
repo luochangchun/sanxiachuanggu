@@ -211,7 +211,7 @@
         this.$refs[formName].validate(valid => {
           if (valid) {
             var params = {
-              businessId: this.serviceForm.businessId,
+              classifyId: this.serviceForm.businessId,
               enterprise: this.serviceForm.enterprise,
               contact: this.serviceForm.contact,
               phone: this.serviceForm.phone,
@@ -222,7 +222,7 @@
               console.log(res);
               if (res["suc"] == true) {
                 this.$message('服务需求发布成功');
-                // window.history.go(-1);
+                window.history.go(-1);
               } else {
                 this.$message(res["msg"]);
               }

@@ -928,36 +928,71 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticStyle: {
       "width": "400px"
     }
-  }, [_vm._v(_vm._s(_vm.tutorDetail['cert'] || "暂无数据"))])]), _vm._v(" "), (_vm.tutorDetail['type'] == 3) ? _c('router-link', {
-    staticClass: "tc white tutorBtn",
+  }, [_vm._v(_vm._s(_vm.tutorDetail['cert'] || "暂无数据"))])])])])], 1), _vm._v(" "), (false) ? _c('el-row', [_c('el-col', {
+    attrs: {
+      "xs": 24,
+      "sm": 24,
+      "md": 10,
+      "lg": 8
+    }
+  }, [_c('div', {
+    staticClass: "padder-v"
+  })]), _vm._v(" "), (_vm.myMsg_flag) ? _c('el-col', {
     staticStyle: {
-      "margin": "0!important"
+      "margin-bottom": "30px"
     },
     attrs: {
-      "to": {
-        name: 'tutorProblem',
-        params: {
-          businessId: _vm.tutorDetail.businessId,
-          id: _vm.tutorDetail.id
+      "xs": 24,
+      "sm": 24,
+      "md": 14,
+      "lg": 10
+    }
+  }, [_c('div', {
+    staticClass: "answer_list_title"
+  }, [_c('p', {
+    staticClass: "tc"
+  }, [_vm._v("留言列表")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer_list_body"
+  }, _vm._l((_vm.guestLists), function(item, index) {
+    return _c('div', {
+      key: index,
+      staticClass: "item clearfix"
+    }, [_c('div', {
+      staticClass: "clearfix"
+    }, [_c('p', {
+      staticClass: "l name text-ellipsis"
+    }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', {
+      staticClass: "r time"
+    }, [_vm._v(_vm._s(_vm._f("formatDate")(item['createAt'])))]), _vm._v(" "), _c('p', {
+      staticClass: "l question"
+    }, [_vm._v(_vm._s(item['content']))]), _vm._v(" "), _c('a', {
+      staticClass: "r more",
+      attrs: {
+        "href": "javascript:;"
+      },
+      on: {
+        "click": function($event) {
+          _vm.open(item['name'], index, item['id'])
         }
       }
-    }
-  }, [_vm._v("\n                        技术咨询\n                    ")]) : _vm._e()], 1)])], 1), _vm._v(" "), (_vm.tutorDetail['type'] == 3) ? _c('el-row', {
-    staticClass: "incubators_details_text",
-    staticStyle: {
-      "background-color": "#fff",
-      "padding": "15px",
-      "margin-top": "20px",
-      "margin-bottom": "50px"
-    },
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('p', {
-    domProps: {
-      "innerHTML": _vm._s(_vm.content)
-    }
-  })]) : _vm._e(), _vm._v(" "), (_vm.tutorDetail['type'] == 4) ? _c('el-row', [_c('el-col', {
+    }, [_vm._v("展开")])]), _vm._v(" "), _c('div', {
+      staticClass: "owner",
+      class: (_vm.guest_active[index] ? 'db' : 'dn')
+    }, _vm._l((_vm.diglogLists), function(item, index) {
+      return _c('div', {
+        key: index
+      }, [_c('p', {
+        staticClass: "name",
+        staticStyle: {
+          "width": "auto"
+        }
+      }, [_vm._v(_vm._s(item['name']) + " "), _c('span', {
+        staticClass: "r"
+      }, [_vm._v(_vm._s(_vm._f("formatDate")(item['createAt'])))])]), _vm._v(" "), _c('p', {
+        staticClass: "replyMess"
+      }, [_vm._v(_vm._s(item['content']))])])
+    }))])
+  }))]) : _vm._e()], 1) : _vm._e(), _vm._v(" "), (false) ? _c('el-row', [_c('el-col', {
     attrs: {
       "xs": 24,
       "sm": 24,
@@ -982,28 +1017,42 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("问题留言:")]), _vm._v(" "), _c('div', {
     staticClass: "padder-v"
   }, [_c('el-form', {
-    ref: "ruleForm",
+    ref: "askForm",
     staticClass: "demo-ruleForm",
     attrs: {
-      "model": _vm.ruleForm,
-      "rules": _vm.rules,
-      "label-width": "0px"
+      "label-width": "0px",
+      "model": _vm.askForm,
+      "rules": _vm.askRules
     }
   }, [_c('el-form-item', {
     attrs: {
       "label": "",
-      "prop": "desc"
+      "prop": "askMess"
     }
   }, [_c('el-input', {
     attrs: {
       "type": "textarea",
       "rows": 7,
       "placeholder": "有什么问题，你在这里提问"
+    },
+    model: {
+      value: (_vm.askForm.askMess),
+      callback: function($$v) {
+        _vm.askForm.askMess = $$v
+      },
+      expression: "askForm.askMess"
     }
   })], 1), _vm._v(" "), _c('el-form-item', [_c('el-button', {
     staticClass: "tutorBtn r",
     attrs: {
       "type": "primary"
+    },
+    on: {
+      "click": function($event) {
+        $event.stopPropagation();
+        $event.preventDefault();
+        _vm.askBtn('askForm')
+      }
     }
   }, [_vm._v("提交问题")])], 1)], 1)], 1)])], 1) : _vm._e()], 1)])
 }
@@ -1727,12 +1776,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "cid": item.id
       }
     }, [_c('el-row', {
-      directives: [{
-        name: "show",
-        rawName: "v-show",
-        value: (!_vm.show_read),
-        expression: "!show_read"
-      }],
       staticClass: "news-leftlist",
       attrs: {
         "gutter": 10
@@ -1845,59 +1888,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "news-rightlist"
   }, [_c('div', {
     staticClass: "news-hot"
-  }, [_vm._v("热门排行")]), _vm._v(" "), _c('div', {
-    staticClass: "news-button"
-  }, [_c('button', {
-    on: {
-      "click": function($event) {
-        _vm.week = true
-      }
-    }
-  }, [_vm._v("周排行")]), _vm._v(" "), _c('button', {
-    on: {
-      "click": function($event) {
-        _vm.week = false
-      }
-    }
-  }, [_vm._v("日排行")])]), _vm._v(" "), _c('p', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.noFlag),
-      expression: "noFlag"
-    }]
-  }, [_vm._v("暂无数据")]), _vm._v(" "), _c('ul', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (!_vm.week),
-      expression: "!week"
-    }],
-    staticStyle: {
-      "display": "none"
-    }
-  }, _vm._l((_vm.daily), function(item, index) {
-    return _c('li', {
-      key: index
-    }, [_c('router-link', {
-      staticClass: "text-ellipsis",
-      attrs: {
-        "to": {
-          name: 'article',
-          params: {
-            id: item.id
-          }
-        }
-      }
-    }, [_c('span', [_vm._v(_vm._s(index + 1))]), _vm._v(_vm._s(item.title))])], 1)
-  })), _vm._v(" "), _c('ul', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.week),
-      expression: "week"
-    }]
-  }, _vm._l((_vm.weekly), function(item, index) {
+  }, [_vm._v("热门排行")]), _vm._v(" "), _c('ul', _vm._l((_vm.daily), function(item, index) {
     return _c('li', {
       key: index
     }, [_c('router-link', {
@@ -2984,7 +2975,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "f18 b"
   }, [_vm._v(_vm._s(_vm.train['name']))]), _vm._v(" "), _c('hr', {
     staticClass: "line-w"
-  }), _vm._v(" "), _c('p', [_vm._v(" 培训时间：" + _vm._s(_vm._f("formatDate")(_vm.train['createAt'])))]), _vm._v(" "), _c('hr', {
+  }), _vm._v(" "), _c('p', [_vm._v(" 时间：" + _vm._s(_vm._f("formatDate")(_vm.train['startAt'])))]), _vm._v(" "), _c('hr', {
     staticClass: "line-w"
   }), _vm._v(" "), _c('p', [_vm._v(" 地点：" + _vm._s(_vm.train['location'] || "暂无数据") + " ")]), _vm._v(" "), _c('p', [_vm._v(" 人数限额：" + _vm._s(_vm.train['total'] || "暂无数据") + "人 ")])])])], 1)], 1)]), _vm._v(" "), _c('div', {
     staticClass: "padder-v-xx"
@@ -3004,7 +2995,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "content"
   }, [_c('p', {
     staticClass: "f24"
-  }, [_c('span', [_vm._v("培训内容")]), _vm._v(" "), _c('router-link', {
+  }, [_c('span', [_vm._v("内容介绍")]), _vm._v(" "), _c('router-link', {
     attrs: {
       "to": {
         name: 'train_Application',
@@ -3013,7 +3004,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }
     }
-  }, [_vm._v("培训申请")])], 1), _vm._v(" "), _c('div', {
+  }, [_vm._v("报名申请")])], 1), _vm._v(" "), _c('div', {
     staticClass: "wrapper",
     domProps: {
       "innerHTML": _vm._s(_vm.train['detail']['content'])
@@ -3029,9 +3020,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "content"
   }, [_c('p', {
     staticClass: "f24"
-  }, [_c('span', [_vm._v("培训基本信息")])]), _vm._v(" "), _c('div', {
+  }, [_c('span', [_vm._v("基本信息")])]), _vm._v(" "), _c('div', {
     staticClass: "wrapper"
-  }, [_c('p', [_vm._v(" 联系人：" + _vm._s(_vm.train['name'] || "暂无数据") + " ")]), _vm._v(" "), _c('p', [_vm._v(" 手机号码：" + _vm._s(_vm.train['phone'] || "暂无数据") + " ")]), _vm._v(" "), _c('p', [_vm._v(" 培训时间：" + _vm._s(_vm._f("formatDate")(_vm.train['createAt'])) + " ")]), _vm._v(" "), _c('p', [_vm._v(" 培训地点：" + _vm._s(_vm.train['location'] || "暂无数据") + " ")])])])])], 1)], 1)])])
+  }, [_c('p', [_vm._v(" 联系人：" + _vm._s(_vm.train['name'] || "暂无数据") + " ")]), _vm._v(" "), _c('p', [_vm._v(" 手机号码：" + _vm._s(_vm.train['phone'] || "暂无数据") + " ")]), _vm._v(" "), _c('p', [_vm._v(" 时间：" + _vm._s(_vm._f("formatDate")(_vm.train['createAt'])) + " ")]), _vm._v(" "), _c('p', [_vm._v(" 地点：" + _vm._s(_vm.train['location'] || "暂无数据") + " ")])])])])], 1)], 1)])])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -3113,13 +3104,6 @@ var Component = normalizeComponent(
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA39pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpiZTc1NmJmMS1jZTk1LWMyNDAtOGFiYi0xYjQxNTlkM2IwZGMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QjJBQjczQkZDODE0MTFFNzhBNTdGQUJGMkFGNUUyQjciIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjJBQjczQkVDODE0MTFFNzhBNTdGQUJGMkFGNUUyQjciIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOmYyZTg1NGEzLTFjYjgtOWQ0My05NjFhLTQ0NzgwOWU0ZmE2YiIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjk3YjhmZWExLWM1YjQtMTFlNy04ZDNjLTg2OTBjZWZjZjU3NSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PmDlteIAAANiSURBVHja7Fn7SxtBEN7ZvbwuamJ9xgqtFG1/UeiD0hZa+n8XChVpoRb8tVD6sjXWaNFoTGKS3ekXL4mpmMtdcneKOJBwudzdfDuPb2b2iJnF1RMLn0KF9ypc1UJSuMrw+HRMzKWlbfWD9bVo3v7WUVoiZ5vX82ok5mYDuZbXETtou8wfd0wfa9VOL0gqcXdMJlS4gIo18eOwqW+vyg0jLOkaW5Bsgl7OqbDtdKJbsICn7grr7J9yI3T3dec8Ub9MbN+AL9o/4VJdkDcdOZuwYiRyTbfOKBK3kpTsYXfjmYys//NXrG7pv1UmD7ig4tmsmh+hN5uNWlcEP59VD8ZlALzVLQtjMh1jL6aySEwkKWXRvYyEgSGa2bZoxu6/JixbkVdYTScuT8qGaZvOFRYucGL26YzS3PyJk7KfPkdKdV7NayzMMQBuH4mJlQmVsnpYC8+M+fQAoPgtD4jFb0VzTm8mTh3vS3E1BGarNHrHVjQSV2I+LZVsenynzEj/c5RxObBQEF/dVk60rBf0/i73pNNIXcbNMO8cu7H8lZIWLPgYDBS2MtuzCqtTEL8cGBSNUFvV43rrAB50r0MtWAcn/G5LIxfCa6Gpq1QjE93ZUS5mZXckRtA+AN/DSWm5wrJQWcfi9PPIHNfZsKAwYcUloYwujtPd0T6pZqEjfTQll7KEvizsIchJrLjyHPLuDf+lEcQlCnnpt/yK6eLrwaTBQcM6qvF6wWwemWEecrYqDgjWZom/HxoTUKKYAJ1I7U4Q9DgwPDBATFImHhwsBwr69+UJObDZ4Ee0plMpCgZWZ/ACSd4ZDTKpfcMC62IyduI0f9wi4EKZP+83YyOToJwdAAWSr/2twxq/39a/Sj1vQYS9yKml7LCWk77CaGPXuGBybLmW15izo3MianlHHyIpkxANczaT4Rg+hTnhX7DGdEpFBAuWcHINnno8LRHm5y74VNAbp8PC8CVf+qIoZ0zFIHVht5RoD9TDb3bKwchKG9cycg06iBtYN7BuYF0rWBi+L3yxEOAmho/iw6JVfFCFdivcPVw4uwTFGgfFqz5gwUJOVUFV/vDHYArttKN0irjcHmLiMkJYtkULY+QU41KdRf3iy1KWuB/4vry7rEwqOAuNaLXHa7W5ND2ZVsPP6P8EGAByX0f+9B2IBQAAAABJRU5ErkJggg=="
-
-/***/ }),
-
-/***/ "45h+":
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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"
 
 /***/ }),
 
@@ -3755,21 +3739,25 @@ exports.default = {
 
     return {
       curIndex: '',
+      activeIndex: '',
       imgArrs: [{
         id: "1",
-        src: "../static/img/banner01.jpg",
+        src: "../static/img/bg.png",
+        b0: "../static/img/b1-1-1.png",
         b1: "../static/img/b1-1.png",
         b2: "../static/img/b1-2.png",
         text: "全域1+6+N新模式"
       }, {
         id: "2",
-        src: "../static/img/banner02.jpg",
+        src: "../static/img/bg.png",
+        b0: "../static/img/b2-1-1.png",
         b1: "../static/img/b2-1.png",
         b2: "../static/img/b2-2.png",
         text: "一站式服务"
       }, {
         id: "3",
-        src: "../static/img/banner03.jpg",
+        src: "../static/img/bg.png",
+        b0: "../static/img/b3-1-1.png",
         b1: "../static/img/b3-1.png",
         b2: "../static/img/b3-2.png",
         text: "建立创业服务生态链"
@@ -3777,29 +3765,36 @@ exports.default = {
       swiperOption: {
         //是一个组件自有属性，如果notNextTick设置为true，组件则不会通过NextTick来实例化swiper，也就意味着你可以在第一时间获取到swiper对象，假如你需要刚加载遍使用获取swiper对象来做什么事，那么这个属性一定要是true
         notNextTick: true,
+        initialSlide: 0, //设定初始化时slide的索引
         pagination: ".swiper-pagination",
-        autoplay: 2000,
         effect: 'fade',
-        freeMode: false,
-        speed: 1000,
-        slidesPerView: "auto",
-        centeredSlides: true,
-        paginationClickable: true,
-        spaceBetween: 0,
+        // loop: true,
+        speed: 600,
+        autoplay: 3000,
+        autoplayDisableOnInteraction: false,
+        paginationClickable: false,
+
         onSlideChangeStart: function onSlideChangeStart(swiper) {
           //这个位置放swiper的回调方法
           _this.curIndex = _this.index = swiper.realIndex;
+          _this.activeIndex = swiper.activeIndex;
+          // console.log(this.activeIndex);
+          // if (this.activeIndex == 4) {
+          //   this.activeIndex = 1;
+          //   this.curIndex = 0;
+          //   swiper.slideTo(1, 1000, false); 
+          // }
         },
         onSlideChangeEnd: function onSlideChangeEnd(swiper) {
           //这个位置放swiper的回调方法
-          _this.page = swiper.realIndex + 1;
-          _this.index = swiper.realIndex;
+          _this.curIndex = swiper.realIndex;
+          _this.activeIndex = swiper.activeIndex;
         }
       }
     };
   },
 
-  //定义这个sweiper对象
+  //定义这个swiper对象
   computed: {
     swiper: function swiper() {
       return this.$refs.mySwiper.swiper;
@@ -3807,7 +3802,6 @@ exports.default = {
   },
   mounted: function mounted() {
     //这边就可以使用swiper这个对象去使用swiper官网中的那些方法
-    // console.log('index', this.swiper.activeIndex)
   }
 }; //
 //
@@ -4530,74 +4524,6 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 /***/ }),
 
-/***/ "5kyZ":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-row', [_c('el-col', {
-    staticStyle: {
-      "background-color": "#eeeeee",
-      "padding": "15px 0"
-    },
-    attrs: {
-      "xs": 24,
-      "sm": 24,
-      "md": 24,
-      "lg": 24
-    }
-  }, [_c('div', {
-    staticClass: "container",
-    staticStyle: {
-      "padding-top": "20px"
-    }
-  }, [_c('div', {
-    staticClass: "talent_title"
-  }, [_c('div', {
-    staticClass: "pos_base_info"
-  }, [_c('h2', [_vm._v(_vm._s(_vm.employment['title']))]), _vm._v(" "), _c('h1', [_vm._v(_vm._s(_vm.employment['salaryMin'])), _c('span', [_vm._v("-")]), _vm._v(_vm._s(_vm.employment['salaryMax'])), _c('span', [_vm._v("元/月")])])]), _vm._v(" "), _c('h3', [_vm._v(_vm._s(_vm.employment['job']))]), _vm._v(" "), _c('div', {
-    staticClass: "pos_base_condition"
-  }, [_c('span', {
-    staticClass: "item_condition pad_left_none"
-  }, [_vm._v(_vm._s(_vm.employment['demand']))]), _vm._v(" "), _c('span', {
-    staticClass: "item_condition"
-  }, [_vm._v(_vm._s(_vm.employment['edu']))]), _vm._v(" "), _c('span', {
-    staticClass: "item_condition border_right_None"
-  }, [_vm._v(_vm._s(_vm.employment['exp']))])]), _vm._v(" "), _c('router-link', {
-    attrs: {
-      "to": {
-        name: 'position',
-        params: {
-          type: 'position'
-        }
-      }
-    }
-  }, [_c('button', [_vm._v("申请职位")])])], 1), _vm._v(" "), _c('div', {
-    staticClass: "item_con"
-  }, [_c('h3', {
-    staticClass: "title"
-  }, [_vm._v("职位描述")]), _vm._v(" "), _c('p', {
-    staticStyle: {
-      "margin-bottom": "10px"
-    }
-  }, [_vm._v("岗位职责:")]), _vm._v(" "), _c('ol', {
-    staticClass: "posDes"
-  }, _vm._l((_vm.detail), function(item, index) {
-    return _c('li', {
-      key: index
-    }, [_vm._v("        " + _vm._s(_vm.detail.description))])
-  }))]), _vm._v(" "), _c('div', {
-    staticClass: "item_con"
-  }, [_c('h3', {
-    staticClass: "title"
-  }, [_vm._v("公司简介:")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.detail.content))])])])])], 1)], 1)
-}
-var staticRenderFns = []
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-
 /***/ "5ody":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4744,6 +4670,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
   components: {
@@ -4767,8 +4700,13 @@ exports.default = {
       }
     };
     return {
+      upLoadData: {
+        guid: null
+      },
+      fileList: [],
       typeFlag: "",
       htmlForEditor: null,
+      form: {},
       options: [{
         value: "写字楼",
         label: "写字楼"
@@ -4848,7 +4786,7 @@ exports.default = {
           trigger: "blur"
         }],
         cubicle: [{
-          required: true,
+          // required: true,
           message: "请选择工位是否能租赁",
           trigger: "blur"
         }],
@@ -4868,7 +4806,32 @@ exports.default = {
     }
   },
 
+  computed: {
+    headers: function headers() {
+      var userinfoStr = window.localStorage.getItem("userinfo");
+      if (userinfoStr) {
+        var user = JSON.parse(userinfoStr);
+        return {
+          Authorization: "Bearer " + user["msg"]
+        };
+      }
+    }
+  },
   methods: {
+    handleRemove: function handleRemove(file, fileList) {
+      var fileId = file["response"]["data"]["id"];
+      var url = "/file/" + fileId;
+      _api2.default.Delete(url, {
+        id: fileId
+      }).then(function (res) {});
+    },
+    handlePreview: function handlePreview(fileList) {
+      console.log(fileList);
+    },
+    handleAvatarSuccess: function handleAvatarSuccess(res, file) {
+      console.log(res["data"]["guid"]);
+      this.upLoadData["guid"] = res["data"]["guid"];
+    },
     submitForm: function submitForm(formName) {
       var _this = this;
 
@@ -4890,7 +4853,8 @@ exports.default = {
             detail: {
               title: _this.tenancyForm.title,
               content: _this.tenancyForm.content
-            }
+            },
+            photos: _this.upLoadData["guid"]
           };
           _api2.default.Post("/qb/tenancy/apply", params).then(function (res) {
             console.log(res);
@@ -5122,7 +5086,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "sm": 12,
       "xs": 12
     }
-  }, [_c('p', [_vm._v("需求")])]), _vm._v(" "), _c('el-col', {
+  }, [_c('p', {
+    staticStyle: {
+      "margin-left": "10px"
+    }
+  }, [_vm._v("标题")])]), _vm._v(" "), _c('el-col', {
     attrs: {
       "lg": 6,
       "md": 6,
@@ -5196,7 +5164,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('router-link', {
       attrs: {
         "to": {
-          name: 'service_detail',
+          name: 'attract_detail',
           params: {
             id: item.id
           }
@@ -5239,7 +5207,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('router-link', {
       attrs: {
         "to": {
-          name: 'service_detail',
+          name: 'attract_detail',
           params: {
             id: item.id
           }
@@ -5848,6 +5816,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = {
   data: function data() {
     return {
+      nickName: '',
+      name: '',
       imageUrl: '',
       labelPosition: 'left',
       flag: false,
@@ -5865,7 +5835,6 @@ exports.default = {
   },
   created: function created() {
     var userinfoStr = window.localStorage.getItem('userinfo');
-    console.log(userinfoStr);
     if (userinfoStr) {
       var user = JSON.parse(userinfoStr);
       this.nickName = user['data']['nickname'];
@@ -5904,10 +5873,14 @@ exports.default = {
           avatarId: res['data']['id'],
           avatar: res['data']['uri']
         };
+        user['data']['avatar'] = res['data']['uri'];
+        user = JSON.stringify(user);
         _api2.default.Put('/account/update', params).then(function (res) {
-          console.log(res);
           if (res["suc"] == true) {
             _this.$message('上传成功');
+
+            window.localStorage.setItem('userinfo', user); //将修改后的昵称修改后存到localstorage
+            window.location.reload();
           }
           if (res["suc"] == false) {
             _this.$message(res['msg']);
@@ -5926,7 +5899,12 @@ exports.default = {
     modfityName: function modfityName() {
       this.flag = true;
     },
+    cancelName: function cancelName() {
+      this.flag = false;
+    },
     submitName: function submitName() {
+      var _this2 = this;
+
       this.flag = false;
       var userinfoStr = window.localStorage.getItem('userinfo');
       if (userinfoStr) {
@@ -5935,13 +5913,23 @@ exports.default = {
           "id": user['data']['id'],
           "nickname": this.userForm.nickname
         };
-        _api2.default.Post('/account/update', params).then(function (res) {
-          console.log(res);
+        _api2.default.Put('/account/update', params).then(function (res) {
+          if (res['suc'] == true) {
+            var _userinfoStr = window.localStorage.getItem('userinfo');
+            if (_userinfoStr) {
+              var _user = JSON.parse(_userinfoStr);
+              _user['data']['nickname'] = _this2.userForm.nickname;
+              _user = JSON.stringify(_user);
+              window.localStorage.setItem('userinfo', _user); //将修改后的昵称修改后存到localstorage
+              window.location.reload();
+            }
+          }
         });
       }
     }
   }
 }; //
+//
 //
 //
 //
@@ -9173,17 +9161,17 @@ exports.default = {
 
 /***/ }),
 
-/***/ "GQb1":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "static/img/id_03.cbe89c2.png";
-
-/***/ }),
-
 /***/ "H/cf":
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA39pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpiZTc1NmJmMS1jZTk1LWMyNDAtOGFiYi0xYjQxNTlkM2IwZGMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QjI5ODVERTBDODE0MTFFNzhBNTdGQUJGMkFGNUUyQjciIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjI5ODVEREZDODE0MTFFNzhBNTdGQUJGMkFGNUUyQjciIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOmYyZTg1NGEzLTFjYjgtOWQ0My05NjFhLTQ0NzgwOWU0ZmE2YiIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjk3YjhmZWExLWM1YjQtMTFlNy04ZDNjLTg2OTBj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"
+
+/***/ }),
+
+/***/ "H1r5":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -10586,6 +10574,14 @@ exports.default = {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 
@@ -10805,16 +10801,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 exports.default = {
   data: function data() {
@@ -10848,12 +10834,7 @@ exports.default = {
       var url = "/pub/info/" + 10;
       _api2.default.Get(url).then(function (res) {
         _this.daily = res["daily"];
-        if (res["weekly"].length > 0) {
-          _this.noFlag = false;
-          _this.weekly = res["weekly"];
-        } else {
-          _this.noFlag = true;
-        }
+
         if (res["daily"].length > 0) {
           _this.noFlag = false;
           _this.weekly = res["weekly"];
@@ -11532,9 +11513,9 @@ var Component = normalizeComponent(
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_talent_detail_vue__ = __webpack_require__("U0pL");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_talent_detail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_talent_detail_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_31633642_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_talent_detail_vue__ = __webpack_require__("5kyZ");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_31633642_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_talent_detail_vue__ = __webpack_require__("bYGU");
 function injectStyle (ssrContext) {
-  __webpack_require__("WpEI")
+  __webpack_require__("H1r5")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -11544,12 +11525,12 @@ var normalizeComponent = __webpack_require__("VU/8")
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-31633642"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_talent_detail_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_31633642_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_talent_detail_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_31633642_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_talent_detail_vue__["a" /* default */],
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
@@ -12140,7 +12121,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "padding-bottom": "50px"
     },
     attrs: {
-      "gutter": 10
+      "gutter": 0
     }
   }, [_c('el-col', {
     attrs: {
@@ -12245,7 +12226,31 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "value": item['value']
       }
     })
-  }))], 1), _vm._v(" "), _c('el-form-item', {
+  }))], 1), _vm._v(" "), (_vm.typeFlag == '招商') ? _c('el-form-item', {
+    attrs: {
+      "label": "环境图片"
+    }
+  }, [_c('el-upload', {
+    ref: "upload",
+    staticClass: "upload-demo",
+    attrs: {
+      "headers": _vm.headers,
+      "data": _vm.upLoadData,
+      "action": "http://192.168.11.222/servant/file/batch",
+      "on-success": _vm.handleAvatarSuccess,
+      "on-remove": _vm.handleRemove,
+      "file-list": _vm.fileList
+    }
+  }, [_c('el-button', {
+    attrs: {
+      "size": "small",
+      "type": "primary"
+    },
+    slot: "trigger"
+  }, [_vm._v("选取文件")]), _vm._v(" "), _c('div', {
+    staticClass: "el-upload__tip",
+    slot: "tip"
+  }, [_vm._v("只能上传jpg/png文件，且不超过500kb")])], 1)], 1) : _vm._e(), _vm._v(" "), _c('el-form-item', {
     attrs: {
       "label": "面积（平米）",
       "prop": "area"
@@ -12341,9 +12346,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "prop": "article"
     }
   }, [_c('vue-editor', {
-    attrs: {
-      "editorToolbar": _vm.customToolbar
-    },
     model: {
       value: (_vm.tenancyForm.content),
       callback: function($$v) {
@@ -12651,9 +12653,6 @@ exports.default = {
         }
     }
 }; //
-//
-//
-//
 //
 //
 //
@@ -16181,6 +16180,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       value: (_vm.flag),
       expression: "flag"
     }],
+    staticStyle: {
+      "width": "200px"
+    },
     attrs: {
       "type": "tel",
       "auto-complete": "off",
@@ -16213,7 +16215,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticStyle: {
       "border": "1px solid #eee",
       "background-color": "#0089e3",
-      "padding": "2px 5px",
+      "padding": "6px 10px",
       "border-radius": "5px",
       "color": "#fff"
     },
@@ -16230,14 +16232,31 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticStyle: {
       "border": "1px solid #eee",
       "background-color": "#0089e3",
-      "padding": "2px 5px",
+      "padding": "6px 10px",
       "border-radius": "5px",
       "color": "#fff"
     },
     on: {
       "click": _vm.submitName
     }
-  }, [_vm._v("确认")])], 1), _vm._v(" "), _c('el-form-item', {
+  }, [_vm._v("确认")]), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.flag),
+      expression: "flag"
+    }],
+    staticStyle: {
+      "border": "1px solid #eee",
+      "background-color": "#0089e3",
+      "padding": "6px 10px",
+      "border-radius": "5px",
+      "color": "#fff"
+    },
+    on: {
+      "click": _vm.cancelName
+    }
+  }, [_vm._v("取消")])], 1), _vm._v(" "), _c('el-form-item', {
     attrs: {
       "label": "手机号:"
     }
@@ -16246,13 +16265,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-
-/***/ "WpEI":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -17121,6 +17133,74 @@ var Component = normalizeComponent(
 
 /* harmony default export */ __webpack_exports__["default"] = (Component.exports);
 
+
+/***/ }),
+
+/***/ "bYGU":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('el-row', [_c('el-col', {
+    staticStyle: {
+      "background-color": "#eeeeee",
+      "padding": "15px 0"
+    },
+    attrs: {
+      "xs": 24,
+      "sm": 24,
+      "md": 24,
+      "lg": 24
+    }
+  }, [_c('div', {
+    staticClass: "container",
+    staticStyle: {
+      "padding-top": "20px"
+    }
+  }, [_c('div', {
+    staticClass: "talent_title"
+  }, [_c('div', {
+    staticClass: "pos_base_info"
+  }, [_c('h2', [_vm._v(_vm._s(_vm.employment['title']))]), _vm._v(" "), _c('h1', [_vm._v(_vm._s(_vm.employment['salaryMin'])), _c('span', [_vm._v("-")]), _vm._v(_vm._s(_vm.employment['salaryMax'])), _c('span', [_vm._v("元/月")])])]), _vm._v(" "), _c('h3', [_vm._v(_vm._s(_vm.employment['job']))]), _vm._v(" "), _c('div', {
+    staticClass: "pos_base_condition"
+  }, [_c('span', {
+    staticClass: "item_condition pad_left_none"
+  }, [_vm._v(_vm._s(_vm.employment['demand']))]), _vm._v(" "), _c('span', {
+    staticClass: "item_condition"
+  }, [_vm._v(_vm._s(_vm.employment['edu']))]), _vm._v(" "), _c('span', {
+    staticClass: "item_condition border_right_None"
+  }, [_vm._v(_vm._s(_vm.employment['exp']))])]), _vm._v(" "), _c('router-link', {
+    attrs: {
+      "to": {
+        name: 'position',
+        params: {
+          type: 'position'
+        }
+      }
+    }
+  }, [_c('button', [_vm._v("申请职位")])])], 1), _vm._v(" "), _c('div', {
+    staticClass: "item_con"
+  }, [_c('h3', {
+    staticClass: "title"
+  }, [_vm._v("职位描述")]), _vm._v(" "), _c('p', {
+    staticStyle: {
+      "margin-bottom": "10px"
+    }
+  }, [_vm._v("岗位职责:")]), _vm._v(" "), _c('ol', {
+    staticClass: "posDes"
+  }, _vm._l((_vm.detail), function(item, index) {
+    return _c('li', {
+      key: index
+    }, [_vm._v("        " + _vm._s(_vm.detail.description))])
+  }))]), _vm._v(" "), _c('div', {
+    staticClass: "item_con"
+  }, [_c('h3', {
+    staticClass: "title"
+  }, [_vm._v("公司简介:")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.detail.content))])])])])], 1)], 1)
+}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
 
 /***/ }),
 
@@ -19422,7 +19502,7 @@ var routes = [{ path: '/index', component: _Index2.default, name: 'Index' }, { p
 { path: '/financing_apply', component: _financing_apply2.default, name: 'financing_apply', meta: { requireAuth: true } }, //融资申请页面
 { path: '/topicList', component: _topicList2.default, name: 'topicList' }, //融资项目详情
 { path: '/service_class/:id', component: _service_class2.default, name: 'service_class' }, //服务商分类列表页面
-{ path: '/personalCenter', component: _personalCenter2.default, name: 'personalCenter', children: [{ path: '/demand_comm_service/:type', component: _demand_comm_service2.default, name: 'demand_comm_service01', hidden: true, meta: { requireAuth: true } }, { path: '/personalInformation', component: _personalInformation2.default, name: 'personalInformation' }, { path: '/passwordSetting', component: _passwordSetting2.default, name: 'passwordSetting' }, { path: '/service_detail/:id', component: _service_detail2.default, name: 'service_detail' }] },
+{ path: '/personalCenter', component: _personalCenter2.default, name: 'personalCenter', children: [{ path: '/demand_comm_service/:type', component: _demand_comm_service2.default, name: 'demand_comm_service01', hidden: true, meta: { requireAuth: true } }, { path: '/personalInformation', component: _personalInformation2.default, name: 'personalInformation', meta: { requireAuth: true } }, { path: '/passwordSetting', component: _passwordSetting2.default, name: 'passwordSetting', meta: { requireAuth: true } }, { path: '/service_detail/:id', component: _service_detail2.default, name: 'service_detail', meta: { requireAuth: true } }] },
 //个人中心
 //  罗长春
 { path: '/news', component: _news2.default, name: 'news' }, //创谷资讯首页
@@ -19932,95 +20012,212 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _api = __webpack_require__("c2Ch");
 
 var _api2 = _interopRequireDefault(_api);
 
+var _date = __webpack_require__("KheU");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 exports.default = {
-    data: function data() {
-        return {
-            tutorDetail: '',
-            content: ''
-        };
-    },
-    created: function created() {
-        var id = this.$route.params.id;
-        this.getTutor(id);
-    },
+  data: function data() {
+    return {
+      id: "",
+      tutorDetail: "",
+      content: "",
+      guest_active: [false, false, false, false],
+      myMsg_flag: false,
+      show_flag: false,
+      guestLists: "", //个人留言列表
+      diglogLists: "", //个人留言列表
+      askForm: {
+        askMess: ""
+      },
+      askRules: {
+        askMess: [{
+          required: true,
+          message: "请填写要咨询的问题",
+          trigger: "blur"
+        }]
+      }
+    };
+  },
+  created: function created() {
+    var id = this.$route.params.id;
+    this.getTutor(id);
+    this.id = id;
+  },
 
-    methods: {
-        getTutor: function getTutor(id) {
-            var _this = this;
-
-            _api2.default.Get('/indie/' + id).then(function (res) {
-                console.log(res);
-                _this.tutorDetail = res;
-                if (!res['detail']) {
-                    _this.content = "暂无数据";
-                } else {
-                    _this.content = res['detail']['content'];
-                }
-            });
-        }
+  filters: {
+    formatDate: function formatDate(time) {
+      var date = new Date(time);
+      return (0, _date.formatDate)(date, "yyyy-MM-dd hh:mm");
     }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+  },
+  methods: {
+    getTutor: function getTutor(id) {
+      var _this = this;
+
+      _api2.default.Get("/indie/" + id).then(function (res) {
+        _this.tutorDetail = res;
+        if (!res["detail"]) {
+          _this.content = "暂无数据";
+        } else {
+          _this.content = res["detail"]["content"];
+        }
+        _this.getMyMsg();
+      });
+    },
+    askBtn: function askBtn(formName) {
+      var _this2 = this;
+
+      this.$refs[formName].validate(function (valid) {
+        if (valid) {
+          var params = {
+            subjectId: _this2.id,
+            type: 3,
+            content: _this2.askForm.askMess
+          };
+          _api2.default.Post("/indie/question", params).then(function (res) {
+            if (res["suc"] == true) {
+              _this2.$message("提交成功!");
+              _this2.getMyMsg();
+            } else if (res["suc"] == false) {
+              _this2.$message(res["msg"]);
+            }
+          });
+        }
+      });
+    },
+    getMyMsg: function getMyMsg() {
+      var _this3 = this;
+
+      var url = "/indie/question/" + "10" + "/" + "1" + "/" + this.$route.params.id;
+      _api2.default.Get(url).then(function (res) {
+        if (res["data"].length > 0) {
+          _this3.myMsg_flag = true;
+          _this3.guestLists = res["data"];
+        } else {
+          _this3.myMsg_flag = false;
+        }
+      });
+    },
+    open: function open(name, index, id) {
+      var _this4 = this;
+
+      var url = "/indie/reply/" + "10" + "/" + "1" + "/" + id;
+      var owner_item = document.querySelectorAll('.item');
+      for (var i = 0; i < owner_item.length; i++) {
+        if (owner_item[i] != owner_item[index]) {
+          this.$set(this.guest_active, i, false);
+        } else {
+          this.$set(this.guest_active, i, true);
+          _api2.default.Get(url).then(function (res) {
+            if (res["data"].length > 0) {
+              // for(var i=0;i<res['data'].length;i++) {
+              //   res['data'][i]['guestName'] = name;
+              // }
+              _this4.diglogLists = res['data'].reverse();
+              // console.log(this.diglogLists);
+            } else {}
+          });
+        }
+      }
+    },
+    close: function close(index) {
+      var owner_item = document.querySelectorAll('.item');
+      for (var i = 0; i < owner_item.length; i++) {
+        this.$set(this.guest_active, i, false);
+      }
+    }
+  }
+};
 
 /***/ }),
 
@@ -20884,7 +21081,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "gutter": 10
     }
-  }, [_c('el-col', {
+  }, [(_vm.tenancyApply['type'] == 1) ? _c('el-col', {
     attrs: {
       "lg": 12,
       "md": 12,
@@ -20893,36 +21090,21 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('div', {
     staticClass: "details-img"
-  }, [_c('img', {
-    staticStyle: {
-      "min-height": "270px"
-    },
+  }, [_c('el-carousel', {
     attrs: {
-      "src": __webpack_require__("GQb1"),
-      "alt": ""
+      "interval": 500000,
+      "arrow": "never",
+      "height": "240px"
     }
-  })]), _vm._v(" "), _c('el-row', {
-    attrs: {
-      "gutter": 10
-    }
-  }, _vm._l((6), function(item, index) {
-    return _c('el-col', {
-      key: item,
-      attrs: {
-        "lg": 4,
-        "md": 4,
-        "sm": 4,
-        "xs": 4
-      }
-    }, [_c('div', {
-      staticClass: "details-title-img"
+  }, _vm._l((_vm.photos), function(item, index) {
+    return _c('el-carousel-item', {
+      key: index
     }, [_c('img', {
       attrs: {
-        "src": __webpack_require__("45h+"),
-        "alt": ""
+        "src": item.uri
       }
-    })])])
-  }))], 1), _vm._v(" "), _c('el-col', {
+    })])
+  }))], 1)]) : _vm._e(), _vm._v(" "), (_vm.tenancyApply['type'] == 1) ? _c('el-col', {
     staticClass: "details-text",
     attrs: {
       "lg": 11,
@@ -20931,7 +21113,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "xs": 24,
       "offset": 1
     }
-  }, [(_vm.tenancyApply['detail']) ? _c('h6', [_vm._v(_vm._s(_vm.tenancyApply['detail']['title']))]) : _vm._e(), _vm._v(" "), (!_vm.tenancyApply['detail']) ? _c('h6', [_vm._v("暂无标题")]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("地址:" + _vm._s(_vm.tenancyApply['address']))]), _vm._v(" "), _c('p', [_vm._v("联系方式:" + _vm._s(_vm.tenancyApply['contact']) + " " + _vm._s(_vm.tenancyApply['phone']))]), _vm._v(" "), _c('p', [_vm._v("场地面积:" + _vm._s(_vm.tenancyApply['area']) + "平米")])])], 1), _vm._v(" "), _c('el-row', {
+  }, [(_vm.tenancyApply['detail']) ? _c('h6', [_vm._v(_vm._s(_vm.tenancyApply['detail']['title']))]) : _vm._e(), _vm._v(" "), (!_vm.tenancyApply['detail']) ? _c('h6', [_vm._v("暂无标题")]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("地址:" + _vm._s(_vm.tenancyApply['address']))]), _vm._v(" "), _c('p', [_vm._v("联系方式:" + _vm._s(_vm.tenancyApply['contact']) + " " + _vm._s(_vm.tenancyApply['phone']))]), _vm._v(" "), _c('p', [_vm._v("场地面积:" + _vm._s(_vm.tenancyApply['area']) + "平米")])]) : _vm._e(), _vm._v(" "), (_vm.tenancyApply['type'] == 2) ? _c('el-col', {
+    staticClass: "details-text",
+    attrs: {
+      "lg": 11,
+      "md": 11,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [(_vm.tenancyApply['detail']) ? _c('h6', [_vm._v(_vm._s(_vm.tenancyApply['detail']['title']))]) : _vm._e(), _vm._v(" "), (!_vm.tenancyApply['detail']) ? _c('h6', [_vm._v("暂无标题")]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("地址:" + _vm._s(_vm.tenancyApply['address']))]), _vm._v(" "), _c('p', [_vm._v("联系方式:" + _vm._s(_vm.tenancyApply['contact']) + " " + _vm._s(_vm.tenancyApply['phone']))]), _vm._v(" "), _c('p', [_vm._v("场地面积:" + _vm._s(_vm.tenancyApply['area']) + "平米")])]) : _vm._e()], 1), _vm._v(" "), _c('el-row', {
     staticClass: "incubators_details_text",
     staticStyle: {
       "border": "1px solid #ddd",
@@ -20942,7 +21132,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "gutter": 10
     }
-  }, [_c('p', {
+  }, [_c('h1', {
+    staticStyle: {
+      "margin-bottom": "10px"
+    }
+  }, [_vm._v("环境介绍")]), _vm._v(" "), _c('p', {
     domProps: {
       "innerHTML": _vm._s(_vm.content)
     }
@@ -25156,7 +25350,7 @@ exports.default = {
       this.$refs[formName].validate(function (valid) {
         if (valid) {
           var params = {
-            businessId: _this.serviceForm.businessId,
+            classifyId: _this.serviceForm.businessId,
             enterprise: _this.serviceForm.enterprise,
             contact: _this.serviceForm.contact,
             phone: _this.serviceForm.phone,
@@ -25409,8 +25603,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       style: ({
         backgroundImage: 'url(' + item.src + ')'
       })
-    }, [_c('p', [_vm._v(_vm._s(_vm.curIndex) + "   " + _vm._s(index))]), _vm._v(" "), _c('div', {
-      staticClass: "container"
+    }, [_c('div', {
+      staticClass: "container rel",
+      staticStyle: {
+        "height": "100%",
+        "overflow": "hidden"
+      }
     }, [_c('img', {
       class: _vm.curIndex == index ? 'animate_start d1' : 'animate_aft',
       staticStyle: {
@@ -25437,19 +25635,23 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }), _vm._v(" "), _c('div', {
       staticClass: "sw_btn",
       class: _vm.curIndex == index ? 'animate_start d3' : 'animate_aft'
-    }, [_vm._v(_vm._s(item.text))])])])
+    }, [_vm._v(_vm._s(item.text))]), _vm._v(" "), _c('img', {
+      class: (_vm.curIndex == index ? 'animate_start d1' : 'animate_aft'),
+      staticStyle: {
+        "width": "46%",
+        "height": "auto",
+        "position": "absolute",
+        "bottom": "25px",
+        "right": "0"
+      },
+      attrs: {
+        "src": item.b0,
+        "alt": ""
+      }
+    })])])
   }), _vm._v(" "), _c('div', {
     staticClass: "swiper-pagination",
     slot: "pagination"
-  }), _vm._v(" "), _c('div', {
-    staticClass: "swiper-button-prev",
-    slot: "button-prev"
-  }), _vm._v(" "), _c('div', {
-    staticClass: "swiper-button-next",
-    slot: "button-next"
-  }), _vm._v(" "), _c('div', {
-    staticClass: "swiper-scrollbar",
-    slot: "scrollbar"
   })], 2)
 }
 var staticRenderFns = []
@@ -25923,4 +26125,4 @@ module.exports = __webpack_require__.p + "static/img/banner_cgzx.2f9115e.png";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.296ae2681e8d8497ff4f.js.map
+//# sourceMappingURL=app.e47200a1f900a0ecec55.js.map

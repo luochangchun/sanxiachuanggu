@@ -1,5 +1,13 @@
 body {
-  font-family: 'PingFang SC', 'Open Sans', Arial, SimHei, '黑体', SimSun, Helvetica, sans-serif;
+  font-family: -apple-system,
+  BlinkMacSystemFont,
+  Helvetica Neue,
+  PingFang SC,
+  Microsoft YaHei,
+  Source Han Sans SC,
+  Noto Sans CJK SC,
+  WenQuanYi Micro Hei,
+  sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -194,8 +202,8 @@ img {
 .swiper-button-prev {
   position: absolute;
   top: 50%;
-  width: 27px;
-  height: 44px;
+  width: 30px;
+  height: 54px;
   margin-top: -22px;
   z-index: 10;
   cursor: pointer;
@@ -205,8 +213,19 @@ img {
   background-position: center;
   background-repeat: no-repeat;
 }
-
-
+.swiper-button-next {
+  right: 10px;
+  left: auto;
+  background: url(../../static/img/next.png) no-repeat center center;
+  background-size: contain;
+}
+.swiper-button-prev {
+  width: 30px;
+  height: 54px;
+  left: 10px;
+  background: url(../../static/img/prev.png) no-repeat center center;
+  background-size: contain;
+}
 /* 从下方淡入 */
 
 @keyframes aft {

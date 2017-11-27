@@ -5,14 +5,13 @@
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <el-row :gutter="10" style="margin-top: 50px;border:1px solid #ddd;padding:15px;background-color: #fff">
                     <el-col v-if="tenancyApply['type'] == 1" :lg="12" :md="12" :sm="24" :xs="24">
-                        <div class="details-img"><img src="../../static/img/id_03.png" alt="" style="min-height:270px;"></div>
-                        <el-row :gutter="10">
-                            <el-col :lg="4" :md="4" :sm="4" :xs="4" v-for="(item,index) in 6" :key="item">
-                                <div class="details-title-img">
-                                    <img src="../../static/img/id_06.png" alt="">
-                                </div>
-                            </el-col>
-                        </el-row>
+                        <div class="details-img">
+                            <el-carousel :interval="500000" arrow="never" height="240px">
+                                <el-carousel-item v-for="(item, index) in photos" :key="index">
+                                    <img :src="item.uri">
+                                </el-carousel-item>
+                            </el-carousel>
+                        </div>
                     </el-col>
                     <el-col v-if="tenancyApply['type'] == 1" :lg="11" :md="11" :sm="24" :xs="24" :offset="1" class="details-text">
                         <h6 v-if="tenancyApply['detail']">{{tenancyApply['detail']['title']}}</h6>
