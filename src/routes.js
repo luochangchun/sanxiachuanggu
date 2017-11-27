@@ -43,6 +43,7 @@ import enter from '../src/components/enter.vue'
 import train_Application from '../src/components/train_Application.vue'
 import into from '../src/components/into.vue'
 import need from '../src/components/need.vue'
+import needDetail from '../src/components/needDetail.vue'
 import provider from '../src/components/provider.vue'
 import question from '../src/components/question.vue'
 //10.26
@@ -126,6 +127,7 @@ const routes = [
 	{ path: '/provider/:id', component: provider, name: 'provider' },//服务商详情页
 	{ path: '/into/:id', component: into, name: 'into' },//入孵企业详情页
 	{ path: '/need', component: need, name: 'need' },//服务需求
+	{ path: '/needDetail/:id', component: needDetail, name: 'needDetail' },//服务需求详情
 	{ path: '/question', component: question, name: 'question' },//答疑解惑页面
 	//10.26
 	{ path: '/train_detail/:id', component: train_detail, name: 'train_detail' },//培训活动详情页

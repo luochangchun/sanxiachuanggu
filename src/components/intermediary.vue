@@ -81,7 +81,7 @@
         data() {
             return {
                 loading: false,
-                moreFlag: false,
+                moreFlag: true,
                 display_active: [false, false, false, false],
                 activeName: "tab1",
                 noData: false,

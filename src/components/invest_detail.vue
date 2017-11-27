@@ -49,12 +49,12 @@
                                         <td class="font-bold w-xs h-md">企业简介与优势</td>
                                         <td colspan="3">{{financeDetail['intro'] || "暂无数据"}}</td>
                                     </tr>
-                                    <tr style="height:90px;">
-                                        <td class="font-bold w-xs">服务领域</td>
-                                        <td colspan="3" class="h-xs">
-                                            <!-- <p v-html="financeDetail['detail']['content']"></p> -->
-                                        </td>
-                                    </tr>
+                                    <!--<tr style="height:90px;">-->
+                                        <!--<td class="font-bold w-xs">服务领域</td>-->
+                                        <!--<td colspan="3" class="h-xs">-->
+                                            <!--&lt;!&ndash; <p v-html="financeDetail['detail']['content']"></p> &ndash;&gt;-->
+                                        <!--</td>-->
+                                    <!--</tr>-->
                                     <!-- <tr>
                                         <td class="font-bold w-xs">备注</td>
                                         <td colspan="3"></td>

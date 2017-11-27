@@ -29,7 +29,7 @@
       <!-- <el-row v-if="tutorDetail['type'] == 3" :gutter="10" class="incubators_details_text" style="background-color: #fff;padding:15px;margin-top:20px;margin-bottom:50px">
         <p v-html="content"></p>
       </el-row> -->
-      <el-row v-if="false">
+      <el-row v-if="true">
         <el-col :xs="24" :sm="24" :md="10" :lg="8">
           <div class="padder-v"></div>
         </el-col>
@@ -43,21 +43,21 @@
                 <p class="l name text-ellipsis">{{item['name']}}</p>
                 <p class="r time">{{item['createAt'] | formatDate}}</p>
                 <p class="l question">{{item['content']}}</p>
-                <a class="r more" href="javascript:;" @click="open(item['name'],index,item['id'])">展开</a>
-                <!-- <a class="r more" style="display:none" href="javascript:;" @click="close(index)">收起</a> -->
+                <a class="r more" href="javascript:;" @click="open(item['name'],index,item['id'])"  :class="(!guest_active[index] ? 'db' : 'dn')">展开<i class="el-icon-arrow-down"></i></a>
+                <a class="r more" href="javascript:;" @click="close"  :class="(guest_active[index] ? 'db' : 'dn')">收起<i class="el-icon-arrow-up"></i></a>
               </div>
               <div class="owner" :class="(guest_active[index] ? 'db' : 'dn')">
                 <div v-for="(item, index) in diglogLists" :key="index">
-                  <p class="name" style="width:auto">{{item['name']}} <span class="r">{{item['createAt'] | formatDate}}</span></p>
+                  <p class="name" style="width:auto;text-indent:2em;">{{item['name']}} <span class="r">{{item['createAt'] | formatDate}}</span></p>
                   <!-- <p v-show="item['mentor'] == false" class="name" style="width:auto">{{item['name']}}<span style="color:#8590a6">&nbsp;回复&nbsp;</span>{{tutorDetail['name']}}</p> -->
-                  <p class="replyMess">{{item['content']}}</p>
+                  <p class="replyMess" style="text-indent:2em;">{{item['content']}}</p>
                 </div>
               </div>
             </div>
           </div>
         </el-col>
       </el-row>
-      <el-row v-if="false">
+      <el-row v-if="true">
         <el-col :xs="24" :sm="24" :md="10" :lg="8">
           <div class="padder-v"></div>
         </el-col>
@@ -95,6 +95,7 @@
         show_flag: false,
         guestLists: "", //个人留言列表
         diglogLists: "", //个人留言列表
+        openText: '展开',
         askForm: {
           askMess: ""
         },
@@ -170,12 +171,10 @@
             this.$set(this.guest_active, i, true);
             api.Get(url).then(res => {
               if (res["data"].length > 0) {
-                // for(var i=0;i<res['data'].length;i++) {
-                //   res['data'][i]['guestName'] = name;
-                // }
                 this.diglogLists = res['data'].reverse();
-                // console.log(this.diglogLists);
               } else {
+                this.$message('导师还未回复');
+                this.$set(this.guest_active, i, false)
               }
             });
           }
@@ -248,7 +247,6 @@
   .answer_list_body {
     margin-top: 18px;
     font-size: 14px;
-    font-weight: bold;
   }
   .answer_list_body .item {
     border-bottom: 1px solid #f0f2f7;
@@ -262,7 +260,8 @@
   }
   .answer_list_body .name{
     width: 70px;
-    color: #262626;
+    color: #0a58ff;
+    margin-top: 5px;
   }
   .answer_list_body .name span {
     color: #8590a6;
@@ -274,6 +273,7 @@
   }
   .answer_list_body .time {
     color: #8590a6;
+    margin-top: 5px;
   }
   .answer_list_body .reply {
     line-height: 24px;
@@ -287,7 +287,17 @@
     padding-top: 5px;
     border-top: 1px solid #f0f2f7;
   }
+  .answer_list_body .owner div:nth-child(2n) p{
+    color: #0a58ff
+  }
+  .answer_list_body .owner div:nth-child(2n+1) p{
+    color: #009999
+  }
   .answer_list_body .owner .replyMess {
     color: #262626 !important;
+  }
+  .el-icon-arrow-down,
+  .el-icon-arrow-up {
+    font-size: 6px;
   }
 </style>

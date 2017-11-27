@@ -928,7 +928,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticStyle: {
       "width": "400px"
     }
-  }, [_vm._v(_vm._s(_vm.tutorDetail['cert'] || "暂无数据"))])])])])], 1), _vm._v(" "), (false) ? _c('el-row', [_c('el-col', {
+  }, [_vm._v(_vm._s(_vm.tutorDetail['cert'] || "暂无数据"))])])])])], 1), _vm._v(" "), (true) ? _c('el-row', [_c('el-col', {
     attrs: {
       "xs": 24,
       "sm": 24,
@@ -967,6 +967,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "l question"
     }, [_vm._v(_vm._s(item['content']))]), _vm._v(" "), _c('a', {
       staticClass: "r more",
+      class: (!_vm.guest_active[index] ? 'db' : 'dn'),
       attrs: {
         "href": "javascript:;"
       },
@@ -975,7 +976,20 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           _vm.open(item['name'], index, item['id'])
         }
       }
-    }, [_vm._v("展开")])]), _vm._v(" "), _c('div', {
+    }, [_vm._v("展开"), _c('i', {
+      staticClass: "el-icon-arrow-down"
+    })]), _vm._v(" "), _c('a', {
+      staticClass: "r more",
+      class: (_vm.guest_active[index] ? 'db' : 'dn'),
+      attrs: {
+        "href": "javascript:;"
+      },
+      on: {
+        "click": _vm.close
+      }
+    }, [_vm._v("收起"), _c('i', {
+      staticClass: "el-icon-arrow-up"
+    })])]), _vm._v(" "), _c('div', {
       staticClass: "owner",
       class: (_vm.guest_active[index] ? 'db' : 'dn')
     }, _vm._l((_vm.diglogLists), function(item, index) {
@@ -984,15 +998,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }, [_c('p', {
         staticClass: "name",
         staticStyle: {
-          "width": "auto"
+          "width": "auto",
+          "text-indent": "2em"
         }
       }, [_vm._v(_vm._s(item['name']) + " "), _c('span', {
         staticClass: "r"
       }, [_vm._v(_vm._s(_vm._f("formatDate")(item['createAt'])))])]), _vm._v(" "), _c('p', {
-        staticClass: "replyMess"
+        staticClass: "replyMess",
+        staticStyle: {
+          "text-indent": "2em"
+        }
       }, [_vm._v(_vm._s(item['content']))])])
     }))])
-  }))]) : _vm._e()], 1) : _vm._e(), _vm._v(" "), (false) ? _c('el-row', [_c('el-col', {
+  }))]) : _vm._e()], 1) : _vm._e(), _vm._v(" "), (true) ? _c('el-row', [_c('el-col', {
     attrs: {
       "xs": 24,
       "sm": 24,
@@ -1692,6 +1710,247 @@ exports.default = {
 		}
 	}
 };
+
+/***/ }),
+
+/***/ "10qP":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "activity_para"
+  }, [_c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
+    attrs: {
+      "gutter": 10
+    }
+  }, [_c('el-col', {
+    attrs: {
+      "xs": 24,
+      "sm": 24,
+      "md": 24,
+      "lg": 24
+    }
+  }, [_c('el-breadcrumb', {
+    staticClass: "padder-vx",
+    attrs: {
+      "separator": "/"
+    }
+  }, [_c('el-breadcrumb-item', {
+    attrs: {
+      "to": {
+        path: '/'
+      }
+    }
+  }, [_vm._v("创谷学院")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("优秀讲师")])], 1)], 1), _vm._v(" "), _c('el-col', {
+    attrs: {
+      "xs": 24,
+      "sm": 24,
+      "md": 10,
+      "lg": 8
+    }
+  }, [_c('div', {
+    staticClass: "padder-v"
+  })]), _vm._v(" "), _c('el-col', {
+    attrs: {
+      "xs": 24,
+      "sm": 24,
+      "md": 14,
+      "lg": 10
+    }
+  }, [_c('div', {
+    staticClass: "padder-v"
+  }, [_c('p', {
+    staticClass: "f18 b"
+  }, [_vm._v(_vm._s(_vm.tutorDetail['name'] || "暂无数据"))]), _vm._v(" "), _c('hr', {
+    staticClass: "line-w"
+  }), _vm._v(" "), _c('p', {
+    staticClass: "clearfix"
+  }, [_c('span', {
+    staticClass: "l",
+    staticStyle: {
+      "width": "70px"
+    }
+  }, [_vm._v("个人简介：")]), _c('span', {
+    staticClass: "l",
+    staticStyle: {
+      "width": "400px"
+    }
+  }, [_vm._v(_vm._s(_vm.tutorDetail['intro'] || "暂无数据") + " ")])]), _vm._v(" "), _c('p', {
+    staticClass: "clearfix"
+  }, [_c('span', {
+    staticClass: "l",
+    staticStyle: {
+      "width": "70px"
+    }
+  }, [_vm._v("关注领域：")]), _c('span', {
+    staticClass: "l",
+    staticStyle: {
+      "width": "400px"
+    }
+  }, [_vm._v(_vm._s(_vm.tutorDetail['talent'] || "暂无数据") + " ")])]), _vm._v(" "), _c('p', {
+    staticClass: "clearfix"
+  }, [_c('span', {
+    staticClass: "l",
+    staticStyle: {
+      "width": "70px"
+    }
+  }, [_vm._v("所获荣誉：")]), _c('span', {
+    staticClass: "l",
+    staticStyle: {
+      "width": "400px"
+    }
+  }, [_vm._v(_vm._s(_vm.tutorDetail['cert'] || "暂无数据"))])])])])], 1), _vm._v(" "), (true) ? _c('el-row', [_c('el-col', {
+    attrs: {
+      "xs": 24,
+      "sm": 24,
+      "md": 10,
+      "lg": 8
+    }
+  }, [_c('div', {
+    staticClass: "padder-v"
+  })]), _vm._v(" "), (_vm.myMsg_flag) ? _c('el-col', {
+    staticStyle: {
+      "margin-bottom": "30px"
+    },
+    attrs: {
+      "xs": 24,
+      "sm": 24,
+      "md": 14,
+      "lg": 10
+    }
+  }, [_c('div', {
+    staticClass: "answer_list_title"
+  }, [_c('p', {
+    staticClass: "tc"
+  }, [_vm._v("留言列表")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer_list_body"
+  }, _vm._l((_vm.guestLists), function(item, index) {
+    return _c('div', {
+      key: index,
+      staticClass: "item clearfix"
+    }, [_c('div', {
+      staticClass: "clearfix"
+    }, [_c('p', {
+      staticClass: "l name text-ellipsis"
+    }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', {
+      staticClass: "r time"
+    }, [_vm._v(_vm._s(_vm._f("formatDate")(item['createAt'])))]), _vm._v(" "), _c('p', {
+      staticClass: "l question"
+    }, [_vm._v(_vm._s(item['content']))]), _vm._v(" "), _c('a', {
+      staticClass: "r more",
+      class: (!_vm.guest_active[index] ? 'db' : 'dn'),
+      attrs: {
+        "href": "javascript:;"
+      },
+      on: {
+        "click": function($event) {
+          _vm.open(item['name'], index, item['id'])
+        }
+      }
+    }, [_vm._v("展开"), _c('i', {
+      staticClass: "el-icon-arrow-down"
+    })]), _vm._v(" "), _c('a', {
+      staticClass: "r more",
+      class: (_vm.guest_active[index] ? 'db' : 'dn'),
+      attrs: {
+        "href": "javascript:;"
+      },
+      on: {
+        "click": _vm.close
+      }
+    }, [_vm._v("收起"), _c('i', {
+      staticClass: "el-icon-arrow-up"
+    })])]), _vm._v(" "), _c('div', {
+      staticClass: "owner",
+      class: (_vm.guest_active[index] ? 'db' : 'dn')
+    }, _vm._l((_vm.diglogLists), function(item, index) {
+      return _c('div', {
+        key: index
+      }, [_c('p', {
+        staticClass: "name",
+        staticStyle: {
+          "width": "auto",
+          "text-indent": "2em"
+        }
+      }, [_vm._v(_vm._s(item['name']) + " "), _c('span', {
+        staticClass: "r"
+      }, [_vm._v(_vm._s(_vm._f("formatDate")(item['createAt'])))])]), _vm._v(" "), _c('p', {
+        staticClass: "replyMess",
+        staticStyle: {
+          "text-indent": "2em"
+        }
+      }, [_vm._v(_vm._s(item['content']))])])
+    }))])
+  }))]) : _vm._e()], 1) : _vm._e(), _vm._v(" "), (true) ? _c('el-row', [_c('el-col', {
+    attrs: {
+      "xs": 24,
+      "sm": 24,
+      "md": 10,
+      "lg": 8
+    }
+  }, [_c('div', {
+    staticClass: "padder-v"
+  })]), _vm._v(" "), _c('el-col', {
+    staticStyle: {
+      "padding-top": "20px",
+      "border-top": "1px solid #dddddd"
+    },
+    attrs: {
+      "xs": 24,
+      "sm": 24,
+      "md": 14,
+      "lg": 10
+    }
+  }, [_c('h1', {
+    staticClass: "f20"
+  }, [_vm._v("问题留言:")]), _vm._v(" "), _c('div', {
+    staticClass: "padder-v"
+  }, [_c('el-form', {
+    ref: "askForm",
+    staticClass: "demo-ruleForm",
+    attrs: {
+      "label-width": "0px",
+      "model": _vm.askForm,
+      "rules": _vm.askRules
+    }
+  }, [_c('el-form-item', {
+    attrs: {
+      "label": "",
+      "prop": "askMess"
+    }
+  }, [_c('el-input', {
+    attrs: {
+      "type": "textarea",
+      "rows": 7,
+      "placeholder": "有什么问题，你在这里提问"
+    },
+    model: {
+      value: (_vm.askForm.askMess),
+      callback: function($$v) {
+        _vm.askForm.askMess = $$v
+      },
+      expression: "askForm.askMess"
+    }
+  })], 1), _vm._v(" "), _c('el-form-item', [_c('el-button', {
+    staticClass: "tutorBtn r",
+    attrs: {
+      "type": "primary"
+    },
+    on: {
+      "click": function($event) {
+        $event.stopPropagation();
+        $event.preventDefault();
+        _vm.askBtn('askForm')
+      }
+    }
+  }, [_vm._v("提交问题")])], 1)], 1)], 1)])], 1) : _vm._e()], 1)])
+}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
 
 /***/ }),
 
@@ -3769,8 +4028,8 @@ exports.default = {
         pagination: ".swiper-pagination",
         effect: 'fade',
         // loop: true,
-        speed: 600,
-        autoplay: 3000,
+        speed: 1000,
+        autoplay: 6000,
         autoplayDisableOnInteraction: false,
         paginationClickable: false,
 
@@ -3871,7 +4130,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "md": 12,
       "lg": 12
     }
-  }, [_c('h2', [_vm._v("服务商")])]), _vm._v(" "), _c('el-col', {
+  }, [_c('h2', [_vm._v("公司名称")])]), _vm._v(" "), _c('el-col', {
     attrs: {
       "xs": 4,
       "sm": 4,
@@ -3880,7 +4139,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('h2', {
     staticClass: "tc"
-  }, [_vm._v("服务类别")])]), _vm._v(" "), _c('el-col', {
+  }, [_vm._v("所属孵化器")])]), _vm._v(" "), _c('el-col', {
     attrs: {
       "xs": 3,
       "sm": 3,
@@ -3918,7 +4177,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }
     }, [_c('el-col', {
-      staticClass: "into_more_img",
       attrs: {
         "xs": 12,
         "sm": 12,
@@ -3930,18 +4188,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "gutter": 10
       }
     }, [_c('el-col', {
-      attrs: {
-        "xs": 8,
-        "sm": 4,
-        "md": 4,
-        "lg": 4
-      }
-    }, [_c('div', [_c('img', {
-      attrs: {
-        "src": item['icon'],
-        "alt": ""
-      }
-    })])]), _vm._v(" "), _c('el-col', {
       attrs: {
         "xs": 16,
         "sm": 16,
@@ -3959,7 +4205,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('h1', {
       staticClass: "tc"
-    }, [_vm._v("项目申报")])]), _vm._v(" "), _c('el-col', {
+    }, [_vm._v(_vm._s(item['incubator'] || '暂无数据'))])]), _vm._v(" "), _c('el-col', {
       attrs: {
         "xs": 3,
         "sm": 3,
@@ -6789,6 +7035,227 @@ exports.default = {
 
 /***/ }),
 
+/***/ "BYL9":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _api = __webpack_require__("c2Ch");
+
+var _api2 = _interopRequireDefault(_api);
+
+var _date = __webpack_require__("KheU");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+  data: function data() {
+    return {
+      id: "",
+      tutorDetail: "",
+      content: "",
+      guest_active: [false, false, false, false],
+      myMsg_flag: false,
+      show_flag: false,
+      guestLists: "", //个人留言列表
+      diglogLists: "", //个人留言列表
+      openText: '展开',
+      askForm: {
+        askMess: ""
+      },
+      askRules: {
+        askMess: [{
+          required: true,
+          message: "请填写要咨询的问题",
+          trigger: "blur"
+        }]
+      }
+    };
+  },
+  created: function created() {
+    var id = this.$route.params.id;
+    this.getTutor(id);
+    this.id = id;
+  },
+
+  filters: {
+    formatDate: function formatDate(time) {
+      var date = new Date(time);
+      return (0, _date.formatDate)(date, "yyyy-MM-dd hh:mm");
+    }
+  },
+  methods: {
+    getTutor: function getTutor(id) {
+      var _this = this;
+
+      _api2.default.Get("/indie/" + id).then(function (res) {
+        _this.tutorDetail = res;
+        if (!res["detail"]) {
+          _this.content = "暂无数据";
+        } else {
+          _this.content = res["detail"]["content"];
+        }
+        _this.getMyMsg();
+      });
+    },
+    askBtn: function askBtn(formName) {
+      var _this2 = this;
+
+      this.$refs[formName].validate(function (valid) {
+        if (valid) {
+          var params = {
+            subjectId: _this2.id,
+            type: 3,
+            content: _this2.askForm.askMess
+          };
+          _api2.default.Post("/indie/question", params).then(function (res) {
+            if (res["suc"] == true) {
+              _this2.$message("提交成功!");
+              _this2.getMyMsg();
+            } else if (res["suc"] == false) {
+              _this2.$message(res["msg"]);
+            }
+          });
+        }
+      });
+    },
+    getMyMsg: function getMyMsg() {
+      var _this3 = this;
+
+      var url = "/indie/question/" + "10" + "/" + "1" + "/" + this.$route.params.id;
+      _api2.default.Get(url).then(function (res) {
+        if (res["data"].length > 0) {
+          _this3.myMsg_flag = true;
+          _this3.guestLists = res["data"];
+        } else {
+          _this3.myMsg_flag = false;
+        }
+      });
+    },
+    open: function open(name, index, id) {
+      var _this4 = this;
+
+      var url = "/indie/reply/" + "10" + "/" + "1" + "/" + id;
+      var owner_item = document.querySelectorAll('.item');
+
+      var _loop = function _loop(i) {
+        if (owner_item[i] != owner_item[index]) {
+          _this4.$set(_this4.guest_active, i, false);
+        } else {
+          _this4.$set(_this4.guest_active, i, true);
+          _api2.default.Get(url).then(function (res) {
+            if (res["data"].length > 0) {
+              _this4.diglogLists = res['data'].reverse();
+            } else {
+              _this4.$message('导师还未回复');
+              _this4.$set(_this4.guest_active, i, false);
+            }
+          });
+        }
+      };
+
+      for (var i = 0; i < owner_item.length; i++) {
+        _loop(i);
+      }
+    },
+    close: function close(index) {
+      var owner_item = document.querySelectorAll('.item');
+      for (var i = 0; i < owner_item.length; i++) {
+        this.$set(this.guest_active, i, false);
+      }
+    }
+  }
+};
+
+/***/ }),
+
 /***/ "Bf5F":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8864,7 +9331,7 @@ exports.default = {
             // normal: '',
             // ServiceList: ''
             loading: false,
-            moreFlag: false,
+            moreFlag: true,
             display_active: [false, false, false, false],
             nodata: false,
             needData: '',
@@ -8924,7 +9391,7 @@ exports.default = {
             var _this2 = this;
 
             this.loading = true;
-            var url = "/enterprise/" + sid + "/1/" + "9" + "/" + "1";
+            var url = "/enterprise/" + sid + "/1/" + "12" + "/" + "1";
             _api2.default.Get(url).then(function (res) {
                 _this2.serviceBody = res["data"];
                 if (_this2.serviceBody.length == 0) {
@@ -8952,7 +9419,7 @@ exports.default = {
 
             //获取到当前分页页码，获取当前页面数据
             var sid = window.localStorage.getItem("sid");
-            var url = "/enterprise/" + sid + "/1/" + "6" + "/" + val;
+            var url = "/enterprise/" + sid + "/1/" + "12" + "/" + val;
             _api2.default.Get(url).then(function (res) {
                 _this3.serviceBody = res["data"];
                 _this3.totalPages = res["totalPages"] * 10;
@@ -10480,18 +10947,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "colspan": "3"
     }
-  }, [_vm._v(_vm._s(_vm.financeDetail['intro'] || "暂无数据"))])]), _vm._v(" "), _c('tr', {
-    staticStyle: {
-      "height": "90px"
-    }
-  }, [_c('td', {
-    staticClass: "font-bold w-xs"
-  }, [_vm._v("服务领域")]), _vm._v(" "), _c('td', {
-    staticClass: "h-xs",
-    attrs: {
-      "colspan": "3"
-    }
-  })])])])])], 1)], 1)], 1)])], 1)
+  }, [_vm._v(_vm._s(_vm.financeDetail['intro'] || "暂无数据"))])])])])])], 1)], 1)], 1)])], 1)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -10544,6 +11000,12 @@ exports.default = {
 		}
 	}
 }; //
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -14082,7 +14544,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "current-page": 1,
       "total": _vm.totalPages,
-      "layout": "prev, pager, next"
+      "layout": "prev, pager, next",
+      "page-size": 12
     },
     on: {
       "current-change": _vm.handleCurrentChange
@@ -19340,6 +19803,10 @@ var _need = __webpack_require__("0byj");
 
 var _need2 = _interopRequireDefault(_need);
 
+var _needDetail = __webpack_require__("sY4i");
+
+var _needDetail2 = _interopRequireDefault(_needDetail);
+
 var _provider = __webpack_require__("dvmc");
 
 var _provider2 = _interopRequireDefault(_provider);
@@ -19459,6 +19926,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //10.29
 
 //10.26
+//服务企业入驻申请表
+//个人中心--个人资料
+//个人中心--服务需求
+//服务商分类列表页
+//今日头条列表页
+//创谷人才首页
+//创谷学院讲师列表
+//创谷人才首页
+//登录页面
+//活动详情
+//活动首页
+//首页
+_vue2.default.use(_vueRouter2.default);
+//11.8
+
+// import demand from '../src/components/demand.vue'
+
+//10.30
+
+//10.27
 //融资项目表单
 //罗长春
 //个人中心--个人服务详情
@@ -19472,26 +19959,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //注册页面
 //活动详情
 //地图
-_vue2.default.use(_vueRouter2.default);
-//11.8
-
-// import demand from '../src/components/demand.vue'
-
-//10.30
-
-//10.27
-//服务企业入驻申请表
-//个人中心--个人资料
-//个人中心--服务需求
-//服务商分类列表页
-//今日头条列表页
-//创谷人才首页
-//创谷学院讲师列表
-//创谷人才首页
-//登录页面
-//活动详情
-//活动首页
-//首页
 
 
 var routes = [{ path: '/index', component: _Index2.default, name: 'Index' }, { path: '/map', component: _Map2.default, name: 'Map' }, { path: '/activitys', component: _Activitys2.default, name: 'Activitys' }, { path: '/activityPara/:id', component: _ActivityPara2.default, name: 'ActivityPara' }, { path: '/article/:id', component: _article2.default, name: 'article' }, { path: '/service', component: _service2.default, name: 'service' }, { path: '/register', component: _register2.default, name: 'Register' }, { path: '/login', component: _login2.default, name: 'Login' }, { path: '/service_apply', component: _service_apply2.default, name: 'service_apply' }, { path: '/forgetPassword', component: _forgetPassword2.default, name: 'ForgetPassword' }, { path: '/talent', component: _talent2.default, name: 'Talent' }, { path: '/trainList', component: _trainList2.default, name: 'trainList' }, //培训讲师列表
@@ -19520,6 +19987,7 @@ var routes = [{ path: '/index', component: _Index2.default, name: 'Index' }, { p
 { path: '/provider/:id', component: _provider2.default, name: 'provider' }, //服务商详情页
 { path: '/into/:id', component: _into2.default, name: 'into' }, //入孵企业详情页
 { path: '/need', component: _need2.default, name: 'need' }, //服务需求
+{ path: '/needDetail/:id', component: _needDetail2.default, name: 'needDetail' }, //服务需求详情
 { path: '/question', component: _question2.default, name: 'question' }, //答疑解惑页面
 //10.26
 { path: '/train_detail/:id', component: _train_detail2.default, name: 'train_detail' }, //培训活动详情页
@@ -20116,6 +20584,7 @@ exports.default = {
       show_flag: false,
       guestLists: "", //个人留言列表
       diglogLists: "", //个人留言列表
+      openText: '展开',
       askForm: {
         askMess: ""
       },
@@ -20193,21 +20662,25 @@ exports.default = {
 
       var url = "/indie/reply/" + "10" + "/" + "1" + "/" + id;
       var owner_item = document.querySelectorAll('.item');
-      for (var i = 0; i < owner_item.length; i++) {
+
+      var _loop = function _loop(i) {
         if (owner_item[i] != owner_item[index]) {
-          this.$set(this.guest_active, i, false);
+          _this4.$set(_this4.guest_active, i, false);
         } else {
-          this.$set(this.guest_active, i, true);
+          _this4.$set(_this4.guest_active, i, true);
           _api2.default.Get(url).then(function (res) {
             if (res["data"].length > 0) {
-              // for(var i=0;i<res['data'].length;i++) {
-              //   res['data'][i]['guestName'] = name;
-              // }
               _this4.diglogLists = res['data'].reverse();
-              // console.log(this.diglogLists);
-            } else {}
+            } else {
+              _this4.$message('导师还未回复');
+              _this4.$set(_this4.guest_active, i, false);
+            }
           });
         }
+      };
+
+      for (var i = 0; i < owner_item.length; i++) {
+        _loop(i);
       }
     },
     close: function close(index) {
@@ -20410,6 +20883,13 @@ var Component = normalizeComponent(
 
 /* harmony default export */ __webpack_exports__["default"] = (Component.exports);
 
+
+/***/ }),
+
+/***/ "j/UH":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -21055,7 +21535,12 @@ module.exports = __webpack_require__.p + "static/img/banner_sckj.8f17e28.png";
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  return _c('div', [_c('div', {
+    staticStyle: {
+      "width": "100%",
+      "background-color": "#f2f5f4"
+    }
+  }, [_c('div', {
     staticClass: "container"
   }, [_c('el-row', {
     staticStyle: {
@@ -21074,9 +21559,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('el-row', {
     staticStyle: {
       "margin-top": "50px",
-      "border": "1px solid #ddd",
       "padding": "15px",
-      "background-color": "#fff"
+      "background-color": "#f2f5f4"
     },
     attrs: {
       "gutter": 10
@@ -21114,17 +21598,22 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "offset": 1
     }
   }, [(_vm.tenancyApply['detail']) ? _c('h6', [_vm._v(_vm._s(_vm.tenancyApply['detail']['title']))]) : _vm._e(), _vm._v(" "), (!_vm.tenancyApply['detail']) ? _c('h6', [_vm._v("暂无标题")]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("地址:" + _vm._s(_vm.tenancyApply['address']))]), _vm._v(" "), _c('p', [_vm._v("联系方式:" + _vm._s(_vm.tenancyApply['contact']) + " " + _vm._s(_vm.tenancyApply['phone']))]), _vm._v(" "), _c('p', [_vm._v("场地面积:" + _vm._s(_vm.tenancyApply['area']) + "平米")])]) : _vm._e(), _vm._v(" "), (_vm.tenancyApply['type'] == 2) ? _c('el-col', {
-    staticClass: "details-text",
+    staticClass: "details-text wanted",
     attrs: {
       "lg": 11,
       "md": 11,
       "sm": 24,
       "xs": 24
     }
-  }, [(_vm.tenancyApply['detail']) ? _c('h6', [_vm._v(_vm._s(_vm.tenancyApply['detail']['title']))]) : _vm._e(), _vm._v(" "), (!_vm.tenancyApply['detail']) ? _c('h6', [_vm._v("暂无标题")]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("地址:" + _vm._s(_vm.tenancyApply['address']))]), _vm._v(" "), _c('p', [_vm._v("联系方式:" + _vm._s(_vm.tenancyApply['contact']) + " " + _vm._s(_vm.tenancyApply['phone']))]), _vm._v(" "), _c('p', [_vm._v("场地面积:" + _vm._s(_vm.tenancyApply['area']) + "平米")])]) : _vm._e()], 1), _vm._v(" "), _c('el-row', {
-    staticClass: "incubators_details_text",
+  }, [(_vm.tenancyApply['detail']) ? _c('h6', [_vm._v(_vm._s(_vm.tenancyApply['detail']['title']))]) : _vm._e(), _vm._v(" "), (!_vm.tenancyApply['detail']) ? _c('h6', [_vm._v("暂无标题")]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("地址:" + _vm._s(_vm.tenancyApply['address']))]), _vm._v(" "), _c('p', [_vm._v("联系方式:" + _vm._s(_vm.tenancyApply['contact']) + " " + _vm._s(_vm.tenancyApply['phone']))]), _vm._v(" "), _c('p', [_vm._v("场地面积:" + _vm._s(_vm.tenancyApply['area']) + "平米")]), _vm._v(" "), _c('p', {
     staticStyle: {
-      "border": "1px solid #ddd",
+      "margin-bottom": "40px"
+    }
+  }, [_vm._v("期望价格:" + _vm._s(_vm.tenancyApply['price']) + _vm._s(_vm.tenancyApply['unit']))])]) : _vm._e()], 1)], 1)], 1)], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "container"
+  }, [_c('el-row', {
+    staticClass: "incubators_details_text wanted1",
+    staticStyle: {
       "background-color": "#fff",
       "padding": "15px",
       "margin-top": "20px"
@@ -21134,13 +21623,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('h1', {
     staticStyle: {
-      "margin-bottom": "10px"
+      "margin-bottom": "25px",
+      "font-size": "16px"
     }
-  }, [_vm._v("环境介绍")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("求租说明:")]), _vm._v(" "), _c('p', {
+    staticClass: "wanted2",
     domProps: {
       "innerHTML": _vm._s(_vm.content)
     }
-  })])], 1)], 1)], 1)
+  })])], 1)])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -23202,6 +23693,41 @@ exports.default = {
 
 /***/ }),
 
+/***/ "sY4i":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_needDetail_vue__ = __webpack_require__("BYL9");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_needDetail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_needDetail_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_9750ed88_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_needDetail_vue__ = __webpack_require__("10qP");
+function injectStyle (ssrContext) {
+  __webpack_require__("j/UH")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-9750ed88"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_needDetail_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_9750ed88_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_needDetail_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
 /***/ "svpA":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -23938,7 +24464,7 @@ exports.default = {
     data: function data() {
         return {
             loading: false,
-            moreFlag: false,
+            moreFlag: true,
             display_active: [false, false, false, false],
             activeName: "tab1",
             noData: false,
@@ -26125,4 +26651,4 @@ module.exports = __webpack_require__.p + "static/img/banner_cgzx.2f9115e.png";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.e47200a1f900a0ecec55.js.map
+//# sourceMappingURL=app.e76f4c2ae7b8f28e8a97.js.map

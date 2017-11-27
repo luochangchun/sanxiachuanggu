@@ -63,8 +63,8 @@
           pagination: ".swiper-pagination",
           effect: 'fade',
           // loop: true,
-          speed: 600,
-          autoplay: 3000,
+          speed: 1000,
+          autoplay: 6000,
           autoplayDisableOnInteraction: false,
           paginationClickable: false,
          

@@ -65,7 +65,7 @@
                                 <el-row :gutter="10" style="margin-top: 60px;margin-bottom: 50px;">
                                     <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
                                         <div class="block">
-                                            <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                            <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next" :page-size="12">
                                             </el-pagination>
                                         </div>
                                     </el-col>
@@ -198,7 +198,7 @@
                 // normal: '',
                 // ServiceList: ''
                 loading: false,
-                moreFlag:false,
+                moreFlag:true,
                 display_active: [false, false, false, false],
                 nodata: false,
                 needData: '',
@@ -254,7 +254,7 @@
             },
             initNewsList(sid) {
                 this.loading = true
-                var url = "/enterprise/" + sid + "/1/" + "9" + "/" + "1";
+                var url = "/enterprise/" + sid + "/1/" + "12" + "/" + "1";
                 api.Get(url).then(res => {
                     this.serviceBody = res["data"];
                     if (this.serviceBody.length == 0) {
@@ -280,7 +280,7 @@
             handleCurrentChange(val) {
                 //获取到当前分页页码，获取当前页面数据
                 let sid = window.localStorage.getItem("sid");
-                var url = "/enterprise/" + sid + "/1/" + "6" + "/" + val;
+                var url = "/enterprise/" + sid + "/1/" + "12" + "/" + val;
                 api.Get(url).then(res => {
                     this.serviceBody = res["data"];
                     this.totalPages = res["totalPages"] * 10;
