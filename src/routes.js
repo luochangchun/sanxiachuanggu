@@ -46,6 +46,7 @@ import need from '../src/components/need.vue'
 import needDetail from '../src/components/needDetail.vue'
 import provider from '../src/components/provider.vue'
 import question from '../src/components/question.vue'
+import consultDetail from '../src/components/consultDetail.vue'
 //10.26
 import train_detail from '../src/components/train_detail.vue'
 import splendid_detail from '../src/components/splendid_detail.vue'
@@ -129,6 +130,7 @@ const routes = [
 	{ path: '/need', component: need, name: 'need' },//服务需求
 	{ path: '/needDetail/:id', component: needDetail, name: 'needDetail' },//服务需求详情
 	{ path: '/question', component: question, name: 'question' },//答疑解惑页面
+	{ path: '/consultDetail/:id', component: consultDetail, name: 'consultDetail' },//答疑解惑页面
 	//10.26
 	{ path: '/train_detail/:id', component: train_detail, name: 'train_detail' },//培训活动详情页
 	{ path: '/splendid_detail/:id', component: splendid_detail, name: 'splendid_detail' },//精彩瞬间详情页

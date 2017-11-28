@@ -36,7 +36,7 @@
                         </el-col>
                       </el-row>
                       <p v-show="noData" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
-                      <a v-for="(item,index) in needData" :key="index" @click="openDetail(item.id)">
+                      <router-link :to="{ name: 'needDetail', params: { id: item.id} }" v-for="(item,index) in needData" :key="index">
                         <el-row v-show="!noData" :gutter="0" class="need_xq">
                           <el-col :lg="10" :md="10" :sm="10" :xs="10" class="need_xq_p">
                             <p class="text-ellipsis">{{item['title']}}</span>
@@ -52,7 +52,7 @@
                             <p>{{item['createAt'] | formatDate}}</p>
                           </el-col>
                         </el-row>
-                      </a>
+                      </router-link>
                       <!--分页-->
                       <el-row :gutter="10" style="margin: 50px 0;">
                         <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
@@ -65,8 +65,8 @@
                   </el-tabs>
                 </el-col>
                 <!-- <el-col :lg="2" :md="2" :sm="2" :xs="2">
-                    
-                  </el-col> -->
+                      
+                    </el-col> -->
               </el-row>
               <!--导航切换-->
             </div>
@@ -93,8 +93,8 @@
                 <div class="news-rightlist">
                   <div class="news-hot">热门排行</div>
                   <ul>
-                    <li v-for="( item,index ) in rankData" :key="index" @click="openDetail(item['id'])">
-                      <p><span>{{index+1}}</span>{{item['title']}}</p>
+                    <li v-for="( item,index ) in rankData" :key="index">
+                      <router-link :to="{ name: 'needDetail', params: { id: item.id} }"><span>{{index+1}}</span>{{item['title']}}</router-link>
                     </li>
                   </ul>
                 </div>
@@ -143,6 +143,7 @@
         openFlag: false,
         openData: "",
         msg: "",
+        totalPages: "",
         rankData: "",
         recommend: '', //导师推荐
         recommendFlag: false //导师有无数据标记
@@ -338,7 +339,7 @@
     color: #666;
     margin-top: 15px;
   }
-  .show_need button{
+  .show_need button {
     border: none;
     background-color: #f48100;
     color: #fff;
@@ -358,7 +359,7 @@
     width: 70px;
     height: 28px;
     line-height: 28px;
-    border-radius: 4px; 
+    border-radius: 4px;
     text-align: center;
   }
   /*行业分类*/
@@ -467,7 +468,7 @@
     border-radius: 4px;
     margin-bottom: 10px;
   }
-  .news-rightlist ul li {
+  .news-rightlist ul li, .news-rightlist ul a {
     clear: both;
     line-height: 30px;
     color: #a1a1a1;
@@ -496,9 +497,7 @@
     line-height: 30px;
     font-size: 14px;
   }
-  .need_teacher div p:first-child {
-    /* margin-top: 25px; */
-  }
+ 
   .need_teacher div button {
     border: none;
     background-color: #f48100;

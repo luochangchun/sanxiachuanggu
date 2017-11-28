@@ -36,7 +36,7 @@
                         </el-col>
                       </el-row>
                       <p v-show="noData" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
-                      <a v-for="(item,index) in needData" :key="index" @click="openDetail(item.id)">
+                      <router-link :to="{ name: 'consultDetail', params: { id: item.id} }" v-for="(item,index) in needData" :key="index" @click="openDetail(item.id)">
                         <el-row v-show="!noData" :gutter="10" class="need_xq">
                           <el-col :lg="10" :md="10" :sm="10" :xs="10" class="need_xq_p">
                             <p class="text-ellipsis">{{item['title']}}</p>
@@ -51,7 +51,7 @@
                             <p>{{item['createAt'] | formatDate}}</p>
                           </el-col>
                         </el-row>
-                      </a>
+                      </router-link>
                       <!--分页-->
                       <el-row :gutter="10" style="margin: 50px 0;">
                         <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
@@ -64,8 +64,8 @@
                   </el-tabs>
                 </el-col>
                 <!-- <el-col :lg="4" :md="4" :sm="2" :xs="2">
-                      
-                    </el-col> -->
+                        
+                      </el-col> -->
               </el-row>
               <!--导航切换-->
             </div>
@@ -92,7 +92,7 @@
                   <div class="news-hot">热门排行</div>
                   <ul>
                     <li v-for="( item,index ) in rankData" :key="index" @click="openDetail(item['id'])">
-                      <p><span>{{index+1}}</span>{{item['title']}}</p>
+                      <router-link :to="{ name: 'consultDetail', params: { id: item.id} }"><span>{{index+1}}</span>{{item['title']}}</router-link>
                     </li>
                   </ul>
                 </div>
@@ -466,7 +466,7 @@
     border-radius: 4px;
     margin-bottom: 10px;
   }
-  .news-rightlist ul li {
+  .news-rightlist ul li, .news-rightlist ul a {
     clear: both;
     line-height: 30px;
     color: #a1a1a1;

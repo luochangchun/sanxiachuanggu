@@ -96,6 +96,7 @@
         guestLists: "", //个人留言列表
         diglogLists: "", //个人留言列表
         openText: '展开',
+        tutorType:"",
         askForm: {
           askMess: ""
         },
@@ -126,6 +127,7 @@
           if (!res["detail"]) {
             this.content = "暂无数据";
           } else {
+            this.tutorType = res["type"];
             this.content = res["detail"]["content"];
           }
           this.getMyMsg();
@@ -136,7 +138,7 @@
           if (valid) {
             var params = {
               subjectId: this.id,
-              type: 3,
+              type: this.tutorType,
               content: this.askForm.askMess
             };
             api.Post("/indie/question", params).then(res => {
