@@ -12,85 +12,89 @@
         <el-row :gutter="0" style="margin-bottom: 50px;">
             <div class="container">
                 <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                    <div class="title" id="title-school">
-                        <h1>院校展示</h1>
-                        <p>ENTREPRENEURIAL MENTOP</p>
-                        <hr>
-                        <span></span>
+                    <div class="common_title">
+                        <h1 class="tc">全面完善的服务商体系</h1>
+                        <h1 class="tc">高效解决企业发展所需的各类服务</h1>
                     </div>
-                    <el-row :gutter="10">
-                        <router-link :to="{name:'school_detail', params: {id:item['id']} }" v-for="(item, index) in university" :key="index">
-                            <el-col :lg="6" :md="6" :sm="12" :xs="24" class="schoolList">
-                                <img :src="item.icon" alt="" style="border:1px solid #ddd;">
-                                <p style="color:#666;">{{item.name}}</p>
-                            </el-col>
-                        </router-link>
-                    </el-row>
                 </el-col>
-            </div>
-        </el-row>
-        <!--创业导师团-->
-        <div style="padding-bottom: 50px;background-color:#eee">
-            <div class="container">
                 <el-row :gutter="0">
-                    <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                        <div class="title" id="title-teacher">
-                            <h1>创业导师团</h1>
-                            <p style="color:#fff;">ENTREPRENEURIAL MENTOP</p>
-                            <hr>
-                            <span></span>
-                            <router-link :to="{ name: 'tutorList'}" class="r more_plus to" style="margin-top: -41px;"></router-link>
+                    <el-col :lg="12" :md="24" :sm="24" :xs="24" class="pl0">
+                        <div class="InvestmentAgency clearfix">
+                            <h2 class="common_sub_title">
+                                <p class="tc white">大学院校</p>
+                                <div class="line"></div>
+                            </h2>
+                            <div class="InvestmentList CollegeList">
+                                <router-link :to="{ name: 'school_detail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in university" :key="index">
+                                    <el-col :lg="4" :md="24" :sm="24" :xs="24">
+                                        <img :src="item['icon']">
+                                    </el-col>
+                                    <el-col :lg="20" :md="24" :sm="24" :xs="24">
+                                        <h1 class="text-ellipsis">{{item['name']}}</h1>
+                                        <p class="text-ellipsis-muti text-ellipsis-2">{{item['intro']}}</p>
+                                    </el-col>
+                                </router-link>
+                                <!-- <div class="pageNo clearfix">
+                                    <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
+                                        <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                        </el-pagination>
+                                    </el-col>
+                                </div> -->
+                            </div>
                         </div>
-                        <el-row :gutter="40">
-                            <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in mentor" :key="index">
-                                <router-link :to="{name:'tutorDetail', params: {id:item.id} }" class="research-teacher">
-                                    <img :src="item.photo" alt="">
-                                    <div>
-                                        <h4>指导老师:{{item.name}}</h4>
-                                        <h3>{{item.title}}</h3>
-                                        <p class="text-ellipsis-muti text-ellipsis-2">{{item.intro}}</p>
-                                    </div>
-                                    <div>
-                                        <router-link :to="{name:'tutorDetail', params: {id:item.id} }">
-                                            查看更多>>
-                                        </router-link>
+                        <div class="InvestmentAgency clearfix ExpertTeam">
+                            <h2 class="common_sub_title">
+                                <p class="tc white">专家团队</p>
+                                <div class="line"></div>
+                            </h2>
+                            <div class="InvestmentList CollegeList">
+                                <router-link :to="{ name: 'tutorDetail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in mentor" :key="index">
+                                    <el-col :lg="4" :md="24" :sm="24" :xs="24">
+                                        <img :src="item['photo']">
+                                    </el-col>
+                                    <el-col :lg="20" :md="24" :sm="24" :xs="24">
+                                        <h1 class="text-ellipsis">{{item['name']}}</h1>
+                                        <p class="text-ellipsis">{{item['intro']}}</p>
+                                        <el-tag type="danger" style="margin-top: 5px;">行业领域：消费生活</el-tag>
+                                    </el-col>
+                                </router-link>
+                                <!-- <div class="pageNo clearfix">
+                                    <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
+                                        <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                        </el-pagination>
+                                    </el-col>
+                                </div> -->
+                            </div>
+                        </div>
+                    </el-col>
+                    <el-col :lg="12" :md="24" :sm="24" :xs="24" class="pl1">
+                        <div class="FinancingNeeds clearfix BusinessNeeds">
+                            <h2 class="common_sub_title">
+                                <p class="tc white">技术难题及需求</p>
+                                <div class="line"></div>
+                            </h2>
+                            <div class="needList clearfix">
+                                <p v-show="noData" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
+                                <router-link :to="{ name: 'consultDetail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in needData" :key="index">
+                                    <h1 class="f14">{{item['title']}}</h1>
+                                    <p class="text-ellipsis">企业名称：{{item['enterprise']}}</p>
+                                    <div class="info">
+                                        <p class="pw270">联系人：<span style="margin-right:150px;">{{item['contact']}}</span></p>
+                                        <p>联系方式：<span>13972576207</span></p>
                                     </div>
                                 </router-link>
+                            </div>
+                            <el-col :lg="16" :md="16" :sm="24" :xs="24" :offset="8">
+                                <div class="block">
+                                    <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                    </el-pagination>
+                                </div>
                             </el-col>
-                        </el-row>
+                        </div>
                     </el-col>
                 </el-row>
             </div>
-        </div>
-        <!--校园人才-->
-        <!-- <el-row :gutter="10">
-                        <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
-                            <div class="title" id="title-talents">
-                                <h1>校园人才</h1>
-                                <p>ENTREPRENEURIAL MENTOP</p>
-                                <hr>
-                                <span></span>
-                                <div class="r more_plus"></div>
-                            </div>
-                            <el-row :gutter="10" style="margin-bottom: 50px;">
-                                <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in talented" :key="index" style="margin-bottom: 20px;">
-                                    <el-row>
-                                        <el-col :lg="6" :md="6" :sm="6" :xs="24">
-                                            <div class="research-teacher-img">
-                                                <img :src="item.photo" alt="">
-                                            </div>
-                                        </el-col>
-                                        <el-col :lg="17" :md="17" :sm="17" :xs="24" :offset="1">
-                                            <p class="research-name">{{item.name}}</p>
-                                            <p class="research-school">{{item.university}}</p>
-                                            <p class="research-text">{{item.title}}</p>
-                                        </el-col>
-                                    </el-row>
-                                </el-col>
-                            </el-row>
-                        </el-col>
-                    </el-row> -->
-        <!-- footer -->
+        </el-row>
     </div>
 </template>
 
@@ -102,10 +106,14 @@
                 university: '', //院校
                 mentor: '', //导师
                 talented: '', //校园人才
+                needData: "", //融资需求
+                noData: false,
+                totalPages: "",
             }
         },
         created() {
             this.researchApi()
+            this.initServicesList()
         },
         methods: {
             researchApi() {
@@ -113,182 +121,49 @@
                     .then(res => {
                         this.university = res['university'];
                         this.mentor = res['mentor'];
-                        this.talented = res['talented'];
-                        if (res['talented'].length == 0) {}
                     })
-            }
+            },
+            initServicesList() {
+                var url = "/consult/" + "10" + "/" + "1";
+                api.Get(url).then(res => {
+                    this.needData = res["page"]["data"];
+                    if (this.needData.length == 0) {
+                        this.noData = true;
+                    } else if (this.needData.length > 0) {
+                        this.noData = false;
+                        this.needData = res["page"]["data"];
+                        this.totalPages = res["page"]["totalPages"] * 10;
+                    }
+                });
+            },
+            handleCurrentChange(val) {
+                //获取到当前分页页码，获取当前页面数据
+                var url = "/consult/" + "10" + "/" + val;
+                api.Get(url).then(res => {
+                    this.needData = res["page"]["data"];
+                    this.totalPages = res["page"]["totalPages"] * 10;
+                });
+            },
         },
     }
 </script>
 
 <style scoped>
-    /*院校展示*/
-    .schoolList {
-        position: relative;
+    .CollegeList {
+        background-color: #fafafa;
     }
-    .schoolList p {
-        position: absolute;
-        bottom: 20px;
-        font-size: 14px;
-        text-align: center;
-        width: 100%;
-        color: #000;
-    }
-    .schoolList img {
-        padding: 20px 0;
-        height: 232px;
-    }
-    /*定位*/
-    #title-school {
-        position: relative;
-    }
-    #title-school span {
-        position: absolute;
-        top: 48px;
-        left: 45%;
-    }
-    /***********************title****************************/
-    .title {
-        text-align: center;
-        margin-top: 25px;
-        margin-bottom: 25px;
-    }
-    .title h1 {
-        color: #0089e3;
-        font-size: 18px;
-        font-weight: 600;
-    }
-    .title p {
-        color: #ddd;
-        font-size: 10px;
-    }
-    .title hr {
-        width: 30%;
-        border: 1px solid #454b60;
-    }
-    .title span {
-        display: block;
-        border: 2px solid #0089e3;
-        width: 10%;
-    }
-    .title div {
-        margin-top: -42px;
-    }
-    /*定位*/
-    #title-teacher {
-        position: relative;
-    }
-    #title-teacher span {
-        position: absolute;
-        top: 48px;
-        left: 45%;
-    }
-    /*优秀讲师*/
-    #title-teacher {
-        position: relative;
-    }
-    #title-teacher span {
-        position: absolute;
-        top: 48px;
-        left: 45%;
-    }
-    .research-teacher {
-        background-color: #0068b7;
-        padding-top: 20px;
-        margin-top: 50px;
-        position: relative;
-        min-height: 220px;
-    }
-    .research-teacher img {
-        width: 30%;
-        margin-right: auto;
-        margin-left: auto;
-        display: block;
-        position: absolute;
-        top: -28px;
-        left: -28px;
-    }
-    .research-teacher div {
-        margin-left: 30px;
-        margin-right: 30px;
-        text-align: center;
-        color: #fff;
-        margin-top: 25px;
-    }
-    .research-teacher div h4 {
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 30px;
-        margin-left: -70px;
-    }
-    .research-teacher div h3 {
-        font-size: 14px;
-        font-weight: normal;
-        line-height: 30px;
-        margin-left: -60px;
-    }
-    .research-teacher div p {
-        font-size: 12px;
-        font-weight: normal;
-        line-height: 20px;
-        margin-top: 10px;
-        height: 40px;
-    }
-    .research-teacher a {
-        width: 100px;
-        line-height: 26px;
-        border-radius: 12px;
-        background-color: #f53436;
-        color: #fff;
-        font-size: 14px;
+    .InvestmentList img {
+        border-radius: 0px;
         border: none;
-        margin: 20px auto;
+        margin-left: auto;
     }
-    /*校园人才*/
-    .research-teacher-img img {
-        border-radius: 50%;
-        width: 100px;
+    .BusinessNeeds {
+        margin-top: 0;
     }
-    .research-name {
-        font-size: 16px;
-        color: #666;
-        line-height: 30px;
+    .ExpertTeam {
+        margin-top: 40px;
     }
-    .research-school {
-        font-size: 14px;
-        color: #666;
-        line-height: 20px;
-    }
-    .research-text {
-        font-size: 12px;
-        color: #999;
-        line-height: 20px;
-    }
-    /*定位*/
-    #title-talents {
-        position: relative;
-    }
-    #title-talents span {
-        position: absolute;
-        top: 48px;
-        left: 45%;
-    }
-    @media screen and (min-width: 992px) {
-        .right div {
-            float: right;
-            height: 60px;
-            width: 50px;
-        }
-    }
-    @media screen and (max-width: 768px) {
-        .arrows-splendid div {
-            overflow: hidden;
-            margin-top: 20%;
-        }
-        .right div {
-            float: right;
-            height: 60px;
-            width: 28px;
-        }
+    .ExpertTeam img {
+        padding: 1px;
     }
 </style>

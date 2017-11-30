@@ -1,13 +1,5 @@
 body {
-  font-family: -apple-system,
-  BlinkMacSystemFont,
-  Helvetica Neue,
-  PingFang SC,
-  Microsoft YaHei,
-  Source Han Sans SC,
-  Noto Sans CJK SC,
-  WenQuanYi Micro Hei,
-  sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -106,6 +98,46 @@ img {
   margin-right: auto;
   margin-left: auto;
   vertical-align: middle;
+}
+
+
+/* 公共内页title */
+
+.common_title {
+  color: #0089e3;
+  font-size: 26px;
+  margin: 55px 0 65px 0;
+}
+
+.common_sub_title {
+  height: 38px;
+  position: relative;
+  overflow: hidden;
+}
+
+.common_sub_title .line {
+  width: 100%;
+  height: 2px;
+  background-color: #095f8b;
+  position: absolute;
+  bottom: 0px;
+  left: 4px;
+  box-sizing: border-box;
+}
+
+.common_sub_title p {
+  width: 140px;
+  line-height: 38px;
+  border-radius: 6px;
+  font-size: 18px;
+  background-image: linear-gradient(0deg, #006699 0%, #66ccff 100%), linear-gradient( #333333, #333333);
+  background-blend-mode: normal, normal;
+}
+
+.pageNo {
+  width: 100%;
+  background-color: #fafafa;
+  padding-bottom: 20px;
 }
 
 
@@ -213,12 +245,14 @@ img {
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .swiper-button-next {
   right: 10px;
   left: auto;
   background: url(../../static/img/next.png) no-repeat center center;
   background-size: contain;
 }
+
 .swiper-button-prev {
   width: 30px;
   height: 54px;
@@ -226,6 +260,8 @@ img {
   background: url(../../static/img/prev.png) no-repeat center center;
   background-size: contain;
 }
+
+
 /* 从下方淡入 */
 
 @keyframes aft {
@@ -1225,9 +1261,11 @@ img {
   line-height: 30px;
   overflow: hidden;
 }
+
 .filter dl dd.auto {
   height: auto;
 }
+
 .filter dl dd a {
   margin-right: 10px;
   margin-bottom: 10px;
@@ -1254,6 +1292,109 @@ img {
 }
 
 
+/* 投资机构 */
+
+.InvestmentList .item,
+.FinancingProject .item,
+.needList .item {
+  padding: 20px 0;
+  border-bottom: 1px dashed #cccccc;
+  cursor: pointer;
+  color: #000;
+  margin: 0 5px;
+}
+
+.InvestmentList .item p,
+.FinancingProject .item p,
+.needList .item p {
+  color: #666666;
+}
+
+.InvestmentList img {
+  width: 82px;
+  height: 82px;
+  max-height: 82px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  margin-left: 0;
+}
+
+.InvestmentList .item h1 {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.InvestmentList .item p {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.pl0,
+.pl1 {
+  box-sizing: border-box;
+}
+
+.pl0 {
+  padding-right: 28px;
+}
+
+.pl1 {
+  border-left: 1px solid #ededed;
+  padding-left: 28px;
+}
+
+.pw270 {
+  width: 270px;
+}
+
+
+/* 投资机构 */
+
+
+/* 融资项目 */
+
+.ProjectList {
+  margin-bottom: 40px;
+}
+
+.FinancingProject .item h1 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.FinancingProject .item p {
+  margin-bottom: 5px;
+  color: #666666;
+}
+
+.FinancingProject .info p,
+.needList .item p {
+  display: inline-block;
+}
+
+.FinancingProject .item span.red {
+  color: #ff0000;
+  margin-right: 150px;
+}
+
+
+/* 融资需求 */
+
+.FinancingNeeds {
+  margin-top: 40px;
+}
+
+.needList {
+  margin-bottom: 40px;
+}
+
+.needList .item h1 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+
 /* 个人中心 */
 
 @media (max-width: 768px) {
@@ -1275,6 +1416,18 @@ img {
   .college-show {
     margin-bottom: 10px;
   }
+  /* 投融资首页 */
+  .InvestmentList {
+    margin-bottom: 40px;
+  }
+  .InvestmentList img {
+    margin-bottom: 5px;
+  }
+  .pl1 {
+    border-left: none !important;
+    padding-left: 0 !important;
+  }
+  /* 投融资首页 */
 }
 
 @media (min-width: 768px) {
@@ -1296,6 +1449,14 @@ img {
   .college-show {
     margin-bottom: 10px;
   }
+  /* 投融资首页 */
+  .InvestmentList {
+    margin-bottom: 40px;
+  }
+  .InvestmentList img {
+    margin-bottom: 5px;
+  }
+  /* 投融资首页 */
 }
 
 @media (min-width: 992px) {
@@ -1321,6 +1482,14 @@ img {
   .college-show {
     margin-bottom: 10px;
   }
+  /* 投融资首页 */
+  .InvestmentList {
+    margin-bottom: 40px;
+  }
+  .InvestmentList img {
+    margin-bottom: 5px;
+  }
+  /* 投融资首页 */
 }
 
 @media (min-width: 1200px) {

@@ -9,77 +9,90 @@
             </el-col>
         </el-row>
         <!--投资机构-->
-        <el-row :gutter="0">
+        <el-row :gutter="0" style="margin-bottom:120px;">
             <div class="container">
                 <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                    <div class="title" id="title-invest">
-                        <h1>投资机构</h1>
-                        <p>INVESTMENT ORGANIZATION</p>
-                        <hr>
-                        <span></span>
-                        <router-link :to="{ name: 'invest_more'}" class="r more_plus" style="margin-top:-41px"></router-link>
+                    <div class="common_title">
+                        <h1 class="tc">全面完善的服务商体系</h1>
+                        <h1 class="tc">高效解决企业发展所需的各类服务</h1>
                     </div>
-                    <div class="service_provider">
-                        <el-row :gutter="10">
-                            <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                                <el-row class="office_wrap">
-                                    <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in investor" :key="item">
-                                        <router-link :to="{ name: 'provider', params: { id: item.id} }" class="service_provider_item rel">
-                                            <img :src="item.icon" alt="">
-                                            <p class="tc text-ellipsis">{{item.name}}</p>
-                                            <!-- <i class="tag abs white tc f14">{{item.service}}</i> -->
-                                        </router-link>
+                </el-col>
+                <el-row :gutter="0">
+                    <el-col :lg="12" :md="24" :sm="24" :xs="24" class="pl0">
+                        <div class="InvestmentAgency clearfix">
+                            <h2 class="common_sub_title">
+                                <p class="tc white">投资机构</p>
+                                <div class="line"></div>
+                            </h2>
+                            <div class="InvestmentList">
+                                <router-link :to="{ name: 'provider', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in investor" :key="index">
+                                    <el-col :lg="4" :md="24" :sm="24" :xs="24">
+                                        <img :src="item['icon']">
                                     </el-col>
-                                </el-row>
-                            </el-col>
-                        </el-row>
-                    </div>
-                </el-col>
-            </div>
-        </el-row>
-        <!--融资项目-->
-        <el-row :gutter="0" style="margin-bottom: 50px;">
-            <div class="container">
-                <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                    <div class="title" id="title-financing">
-                        <h1>融资项目</h1>
-                        <p>INVESTMENT ORGANIZATION</p>
-                        <hr>
-                        <span></span>
-                        <router-link :to="{ name: 'financing_more'}" class="r more_plus" style="margin-top:-41px"></router-link>
-                        <!-- <router-link :to="{ name: 'financingDetail'}" class="r more_plus"></router-link> -->
-                    </div>
-                    <el-row :gutter="10" style="margin-top: 70px;">
-                        <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in financing" :key="index < 3">
-                            <router-link :to="{ name: 'financingDetail', params: { id: item.id} }" class="Financing_item rel">
-                                <div style="max-height:250px;">
-                                    <img :src='item.logo' alt="" style="max-height:220px;height:220px;">
-                                </div>
-                                <div class="Financing_wrap">
-                                    <div class="Financing_info">
-                                        <h1 class="f16">{{item.name}}</h1>
-                                        <p class="text-ellipsis">{{item.intro}}</p>
+                                    <el-col :lg="20" :md="24" :sm="24" :xs="24">
+                                        <h1 class="text-ellipsis">{{item['name']}}</h1>
+                                        <p class="text-ellipsis-muti text-ellipsis-2">{{item['intro']}}</p>
+                                    </el-col>
+                                </router-link>
+                            </div>
+                            <!-- <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
+                                                    <div class="block">
+                                                        <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                                        </el-pagination>
+                                                    </div>
+                                                </el-col> -->
+                        </div>
+                    </el-col>
+                    <el-col :lg="12" :md="24" :sm="24" :xs="24" class="pl1">
+                        <div class="FinancingProject clearfix">
+                            <h2 class="common_sub_title">
+                                <p class="tc white">融资项目</p>
+                                <div class="line"></div>
+                            </h2>
+                            <div class="ProjectList">
+                                <router-link :to="{ name: 'financingDetail', params: { id: item.id} }" v-for="(item, index) in financing" :key="index" class="item clearfix">
+                                    <h1 class="f14">{{item['name']}}</h1>
+                                    <p class="text-ellipsis">{{item['intro']}}</p>
+                                    <div class="info">
+                                        <p class="pw270">融资金额：<span class="red b">{{item['financing']}}{{item['unit']}}</span></p>
+                                        <p>发起人：<span>{{item['founder']}}</span></p>
                                     </div>
-                                    <el-row type="flex" class="Financing_money">
-                                        <el-col :span="6">
-                                            <p class="f14">{{item.archived}}万<br/>已获得投资意向</p>
-                                        </el-col>
-                                        <el-col :span="6" :push="12">
-                                            <p class="f14 tr">{{item.financing}}万<br/>预融资总额</p>
-                                        </el-col>
-                                    </el-row>
-                                    <el-tag type="primary" style="margin-left:8px">行业领域:
-                                        <span>消费生活</span>
-                                    </el-tag>
-                                    <el-tag type="success">已完成融资:
-                                        <span>未完成融资</span>
-                                    </el-tag>
-                                    <p class="f14 pl10" style="margin-left:8px;">发起人:{{item.founder}}</p>
+                                    <el-tag type="primary">行业领域：消费生活</el-tag>
+                                    <el-tag type="success">已完成融资：未完成融资</el-tag>
+                                </router-link>
+                            </div>
+                            <!-- <el-col :lg="16" :md="16" :sm="24" :xs="24" :offset="8">
+                                                    <div class="block">
+                                                        <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                                        </el-pagination>
+                                                    </div>
+                                                </el-col> -->
+                        </div>
+                        <div class="FinancingNeeds">
+                            <h2 class="common_sub_title">
+                                <p class="tc white">融资需求</p>
+                                <div class="line"></div>
+                            </h2>
+                            <div class="needList clearfix">
+                                <p v-show="noData" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
+                                <router-link :to="{ name: 'needDetail', params: { id: item.id} }" v-for="(item, index) in needData" :key="index" class="item clearfix">
+                                    <h1 class="f14">{{item['needs']}}</h1>
+                                    <p class="text-ellipsis">企业名称：{{item['enterprise']}}</p>
+                                    <div class="info">
+                                        <p class="pw270">联系人：<span style="margin-right:150px;">{{item['contact']}}</span></p>
+                                        <p>联系方式：<span>13972576207</span></p>
+                                    </div>
+                                </router-link>
+                            </div>
+                            <el-col :lg="16" :md="16" :sm="24" :xs="24" :offset="8">
+                                <div class="block">
+                                    <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                    </el-pagination>
                                 </div>
-                            </router-link>
-                        </el-col>
-                    </el-row>
-                </el-col>
+                            </el-col>
+                        </div>
+                    </el-col>
+                </el-row>
             </div>
         </el-row>
     </div>
@@ -91,11 +104,16 @@
         data() {
             return {
                 investor: "", //投资机构
-                financing: "" //融资项目
+                financing: "", //融资项目
+                needData: "", //融资需求
+                noData: false,
+                totalPages: "",
             };
         },
         created() {
             this.getFinance();
+            let cid = 57;
+            this.initServicesList(cid);
         },
         methods: {
             getFinance() {
@@ -103,12 +121,33 @@
                     this.investor = res["investor"];
                     this.financing = res["financing"];
                 });
-            }
+            },
+            initServicesList(cid) {
+                var url = "/enterprise/apply/" + "10" + "/" + "1" + "?cid=" + cid;
+                api.Get(url).then(res => {
+                    this.needData = res["page"]["data"];
+                    if (this.needData.length == 0) {
+                        this.noData = true;
+                    } else if (this.needData.length > 0) {
+                        this.noData = false;
+                        this.needData = res["page"]["data"];
+                        this.totalPages = res["page"]["totalPages"] * 10;
+                    }
+                });
+            },
+            handleCurrentChange(val) {
+                //获取到当前分页页码，获取当前页面数据
+                var url = "/enterprise/apply/" + "10" + "/" + val + "/" + + "?cid=" + "57";
+                api.Get(url).then(res => {
+                    this.needData = res["page"]["data"];
+                    this.totalPages = res["page"]["totalPages"] * 10;
+                });
+            },
         }
     };
 </script>
 
-<style>
+<style scoped>
     .financing_banner {
         width: 100%;
         height: 400px;
@@ -154,52 +193,5 @@
         height: 25px;
         line-height: 25px;
         width: 80px;
-    }
-    /*title*/
-    .title {
-        text-align: center;
-        margin-top: 25px;
-        margin-bottom: 25px;
-    }
-    .title h1 {
-        color: #0089e3;
-        font-size: 18px;
-        font-weight: 600;
-    }
-    .title p {
-        color: #ddd;
-        font-size: 10px;
-    }
-    .title hr {
-        width: 30%;
-        border: 1px solid #454b60;
-    }
-    .title span {
-        display: block;
-        border: 2px solid #0089e3;
-        width: 10%;
-    }
-    .title div {
-        margin-top: -42px;
-    }
-    /*投资机构*/
-    #title-invest {
-        position: relative;
-        margin-top: 50px;
-    }
-    #title-invest span {
-        position: absolute;
-        top: 48px;
-        left: 45%;
-    }
-    /*融资项目*/
-    #title-financing {
-        position: relative;
-        /*margin-top: 50px;*/
-    }
-    #title-financing span {
-        position: absolute;
-        top: 48px;
-        left: 45%;
     }
 </style>
