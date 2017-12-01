@@ -1881,13 +1881,6 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 /***/ }),
 
-/***/ "1E8S":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "1EUx":
 /***/ (function(module, exports) {
 
@@ -2752,156 +2745,65 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "alt": ""
     }
   })])])], 1), _vm._v(" "), _c('div', {
-    staticClass: "container"
-  }, [_c('el-row', {
+    staticClass: "container",
     staticStyle: {
-      "margin-bottom": "50px"
+      "margin-bottom": "20px"
+    }
+  }, [_c('el-col', {
+    attrs: {
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [_c('div', {
+    staticClass: "common_title"
+  }, [_c('h1', {
+    staticClass: "tc"
+  }, [_vm._v("全面完善的服务商体系")]), _vm._v(" "), _c('h1', {
+    staticClass: "tc"
+  }, [_vm._v("高效解决企业发展所需的各类服务")])])]), _vm._v(" "), _c('el-row', {
+    attrs: {
+      "gutter": 10
+    }
+  }, [_c('el-col', {
+    staticStyle: {
+      "padding-right": "20px"
     },
     attrs: {
-      "gutter": 10
+      "lg": 12,
+      "md": 12,
+      "sm": 24,
+      "xs": 24
     }
-  }, [_c('el-col', {
+  }, [_c('el-row', [_c('el-col', {
     attrs: {
       "lg": 24,
       "md": 24,
       "sm": 24,
       "xs": 24
     }
-  }, [_c('div', {
-    staticClass: "title",
-    attrs: {
-      "id": "title-college"
-    }
-  }, [_c('h1', [_vm._v("培训")]), _vm._v(" "), _c('p', [_vm._v("CULTVATE")]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('span'), _vm._v(" "), _c('router-link', {
-    staticClass: "r more_plus to",
-    attrs: {
-      "to": {
-        name: 'activity_more'
-      }
-    }
-  })], 1), _vm._v(" "), _c('el-row', {
-    attrs: {
-      "gutter": 10
-    }
-  }, _vm._l((_vm.lecture), function(item, index) {
-    return _c('el-col', {
-      key: index,
-      staticClass: "college-show",
-      attrs: {
-        "lg": 6,
-        "md": 6,
-        "sm": 12,
-        "xs": 24
-      }
-    }, [_c('router-link', {
-      staticClass: "activitys_item",
-      attrs: {
-        "to": {
-          name: 'train_detail',
-          params: {
-            id: item.id
-          }
-        }
-      }
-    }, [_c('div', {
-      on: {
-        "mouseover": function($event) {
-          _vm.show_activity(index)
-        },
-        "mouseout": function($event) {
-          _vm.hide_activity(index)
-        }
-      }
-    }, [_c('h1', {
-      staticClass: "tc b f20 text-ellipsis"
-    }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', {
-      staticClass: "tc"
-    }, [_vm._v("培训时间：" + _vm._s(_vm._f("formatDate")(item['startAt'])))]), _vm._v(" "), _c('div', {
-      staticClass: "top_line",
-      class: {
-        horizontal_line: _vm.activity_active[index]
-      },
-      staticStyle: {
-        "width": "0px"
-      }
-    }), _vm._v(" "), _c('div', {
-      staticClass: "bottom_line",
-      class: {
-        horizontal_line: _vm.activity_active[index]
-      },
-      staticStyle: {
-        "width": "0px"
-      }
-    }), _vm._v(" "), _c('div', {
-      staticClass: "left_line",
-      class: {
-        vertical_line: _vm.activity_active[index]
-      },
-      staticStyle: {
-        "height": "0px"
-      }
-    }), _vm._v(" "), _c('div', {
-      staticClass: "right_line",
-      class: {
-        vertical_line: _vm.activity_active[index]
-      },
-      staticStyle: {
-        "height": "0px"
-      }
-    })])])], 1)
-  }))], 1)], 1)], 1), _vm._v(" "), _c('div', {
+  }, [_c('h2', {
+    staticClass: "common_sub_title"
+  }, [_c('p', {
+    staticClass: "tc white"
+  }, [_vm._v("创业导师")]), _vm._v(" "), _c('div', {
+    staticClass: "line"
+  })])])], 1), _vm._v(" "), _c('el-row', [_c('el-col', {
     staticStyle: {
-      "background-color": "#eee",
-      "padding-bottom": "50px"
-    }
-  }, [_c('div', {
-    staticClass: "container"
-  }, [_c('el-row', {
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
+      "background-color": "#f1f1f1"
+    },
     attrs: {
       "lg": 24,
       "md": 24,
       "sm": 24,
       "xs": 24
     }
-  }, [_c('div', {
-    staticClass: "title",
-    attrs: {
-      "id": "title-teacher"
-    }
-  }, [_c('h1', [_vm._v("优秀讲师")]), _vm._v(" "), _c('p', [_vm._v("GREAT SPEAKERS")]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('span'), _vm._v(" "), _c('router-link', {
-    staticClass: "r more_plus to",
-    attrs: {
-      "to": {
-        name: 'trainList'
-      }
-    }
-  })], 1), _vm._v(" "), _c('el-row', {
-    attrs: {
-      "gutter": 40
-    }
-  }, _vm._l((_vm.teacher), function(item, index) {
-    return (item['type'] == 4) ? _c('el-col', {
+  }, _vm._l((_vm.tutorList), function(item, index) {
+    return _c('div', {
       key: index,
-      attrs: {
-        "lg": 12,
-        "md": 12,
-        "sm": 12,
-        "xs": 24
-      }
-    }, [_c('div', {
-      staticClass: "research-teacher"
-    }, [_c('img', {
-      attrs: {
-        "src": item.photo,
-        "alt": ""
-      }
-    }), _vm._v(" "), _c('div', [_c('h4', [_vm._v("指导老师:" + _vm._s(item.name))]), _vm._v(" "), _c('h3', [_vm._v(_vm._s(item.title))]), _vm._v(" "), _c('p', {
-      staticClass: "text-ellipsis-muti text-ellipsis-2"
-    }, [_vm._v("教师简介:" + _vm._s(item.intro))])]), _vm._v(" "), _c('div', [_c('router-link', {
+      staticClass: "s_teacher_list"
+    }, [_c('el-row', {}, [_c('router-link', {
       attrs: {
         "to": {
           name: 'tutorDetail',
@@ -2910,45 +2812,93 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           }
         }
       }
-    }, [_vm._v("讲师介绍")])], 1)])]) : _vm._e()
-  }))], 1)], 1)], 1)]), _vm._v(" "), _c('el-row', {
-    staticClass: "activitys"
-  }, [_c('div', {
-    staticClass: "container"
+    }, [_c('el-col', {
+      attrs: {
+        "lg": 6,
+        "md": 6,
+        "sm": 6,
+        "xs": 6
+      }
+    }, [_c('div', {
+      staticClass: "teacher_img"
+    }, [_c('img', {
+      attrs: {
+        "src": item.photo,
+        "alt": ""
+      }
+    })])]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 18,
+        "md": 18,
+        "sm": 18,
+        "xs": 18
+      }
+    }, [_c('h1', [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c('p', [_vm._v("简介:" + _vm._s(item.intro))]), _vm._v(" "), _c('p', [_vm._v("工作单位:" + _vm._s(item.university))]), _vm._v(" "), _c('div', {
+      staticClass: "teacher_float_p"
+    }, [_c('p', [_vm._v("职称:" + _vm._s(item.title))]), _vm._v(" "), _c('p', [_vm._v("关注领域:" + _vm._s(item.field))])])])], 1)], 1)], 1)
+  }))], 1), _vm._v(" "), _c('el-row', {
+    staticStyle: {
+      "margin-bottom": "50px",
+      "margin-top": "50px"
+    },
+    attrs: {
+      "gutter": 10
+    }
   }, [_c('el-col', {
+    attrs: {
+      "lg": 8,
+      "md": 8,
+      "sm": 24,
+      "xs": 24,
+      "offset": 8
+    }
+  }, [_c('div', {
+    staticClass: "block"
+  }, [_c('el-pagination', {
+    attrs: {
+      "current-page": 1,
+      "total": _vm.totalPages,
+      "layout": "prev, pager, next"
+    },
+    on: {
+      "current-change": _vm.handleCurrentChange
+    }
+  })], 1)])], 1)], 1), _vm._v(" "), _c('el-col', {
+    staticStyle: {
+      "padding-left": "10px",
+      "border-left": "1px solid #ccc"
+    },
+    attrs: {
+      "lg": 12,
+      "md": 12,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [_c('el-row', [_c('el-col', {
     attrs: {
       "lg": 24,
       "md": 24,
       "sm": 24,
       "xs": 24
     }
-  }, [_c('div', {
-    staticClass: "title",
+  }, [_c('h2', {
+    staticClass: "common_sub_title"
+  }, [_c('p', {
+    staticClass: "tc white"
+  }, [_vm._v("培训")]), _vm._v(" "), _c('div', {
+    staticClass: "line"
+  })])])], 1), _vm._v(" "), _c('el-row', [_c('el-col', {
     attrs: {
-      "id": "title-activitys"
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
     }
-  }, [_c('h1', [_vm._v("活动专区")]), _vm._v(" "), _c('p', [_vm._v("ACTIVITYZONE ")]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('span'), _vm._v(" "), _c('router-link', {
-    staticClass: "r more_plus to",
-    attrs: {
-      "to": {
-        name: 'activity_more'
-      }
-    }
-  })], 1), _vm._v(" "), _c('el-row', {
-    attrs: {
-      "gutter": 10
-    }
-  }, _vm._l((_vm.activity), function(item, index) {
-    return _c('el-col', {
+  }, _vm._l((_vm.lecture), function(item, index) {
+    return _c('div', {
       key: index,
-      attrs: {
-        "xs": 12,
-        "sm": 12,
-        "md": 6,
-        "lg": 6
-      }
-    }, [_c('router-link', {
-      staticClass: "activitys_item",
+      staticClass: "s_teacher_list"
+    }, [_c('el-row', {}, [_c('router-link', {
       attrs: {
         "to": {
           name: 'train_detail',
@@ -2957,55 +2907,243 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           }
         }
       }
+    }, [_c('el-col', {
+      attrs: {
+        "lg": 4,
+        "md": 4,
+        "sm": 4,
+        "xs": 4
+      }
     }, [_c('div', {
-      staticClass: "process abs"
+      staticClass: "train_img"
+    }, [_c('img', {
+      attrs: {
+        "src": item.icon,
+        "alt": ""
+      }
+    })])]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 20,
+        "md": 20,
+        "sm": 20,
+        "xs": 20
+      }
     }, [_c('div', {
-      on: {
-        "mouseover": function($event) {
-          _vm.show_activity(index)
-        },
-        "mouseout": function($event) {
-          _vm.hide_activity(index)
+      staticClass: "train_float_btn clearfix"
+    }, [_c('h1', [_vm._v(_vm._s(item.name))]), _vm._v(" "), (item.status == 2) ? _c('button', {
+      staticClass: "activity_button btn1"
+    }, [_vm._v("进行中")]) : _vm._e(), _vm._v(" "), (item.status == 3) ? _c('button', {
+      staticClass: "activity_button btn2"
+    }, [_vm._v("已结束")]) : _vm._e()]), _vm._v(" "), _c('div', {
+      staticClass: "teacher_float_p "
+    }, [_c('p', [_vm._v("时间 : " + _vm._s(_vm._f("formatDate")(item['startAt'])))]), _vm._v(" "), _c('p', [_vm._v("地点 : " + _vm._s(item.location))])]), _vm._v(" "), _c('p', {
+      staticStyle: {
+        "clear": "both"
+      }
+    }, [_vm._v("人数限额 : " + _vm._s(item.total))])])], 1)], 1)], 1)
+  }))], 1), _vm._v(" "), _c('el-row', {
+    staticStyle: {
+      "margin-top": "50px"
+    },
+    attrs: {
+      "gutter": 10
+    }
+  }, [_c('el-col', {
+    attrs: {
+      "lg": 8,
+      "md": 8,
+      "sm": 24,
+      "xs": 24,
+      "offset": 8
+    }
+  }, [_c('div', {
+    staticClass: "block"
+  }, [_c('el-pagination', {
+    attrs: {
+      "current-page": 1,
+      "total": _vm.totalPages,
+      "layout": "prev, pager, next"
+    },
+    on: {
+      "current-change": _vm.getTrainList
+    }
+  })], 1)])], 1), _vm._v(" "), _c('el-row', {
+    staticStyle: {
+      "margin-top": "60px"
+    }
+  }, [_c('el-col', {
+    attrs: {
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [_c('h2', {
+    staticClass: "common_sub_title"
+  }, [_c('p', {
+    staticClass: "tc white"
+  }, [_vm._v("活动")]), _vm._v(" "), _c('div', {
+    staticClass: "line"
+  })])])], 1), _vm._v(" "), _c('el-row', [_c('el-col', {
+    attrs: {
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
+    }
+  }, _vm._l((_vm.activity), function(item, index) {
+    return _c('div', {
+      key: index,
+      staticClass: "s_teacher_list"
+    }, [_c('el-row', {}, [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'train_detail',
+          params: {
+            id: item.id
+          }
         }
       }
-    }, [_c('h1', {
-      staticClass: "tc b f20 text-ellipsis"
-    }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', {
-      staticClass: "tc"
-    }, [_vm._v("活动时间：" + _vm._s(_vm._f("formatDate")(item['startAt'])))]), _vm._v(" "), _c('div', {
-      staticClass: "top_line",
-      class: {
-        horizontal_line: _vm.activity_active[index]
-      },
-      staticStyle: {
-        "width": "0px"
+    }, [_c('el-col', {
+      attrs: {
+        "lg": 4,
+        "md": 4,
+        "sm": 4,
+        "xs": 4
       }
-    }), _vm._v(" "), _c('div', {
-      staticClass: "bottom_line",
-      class: {
-        horizontal_line: _vm.activity_active[index]
-      },
-      staticStyle: {
-        "width": "0px"
+    }, [_c('div', {
+      staticClass: "train_img"
+    }, [_c('img', {
+      attrs: {
+        "src": item.icon,
+        "alt": ""
       }
-    }), _vm._v(" "), _c('div', {
-      staticClass: "left_line",
-      class: {
-        vertical_line: _vm.activity_active[index]
-      },
-      staticStyle: {
-        "height": "0px"
+    })])]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 20,
+        "md": 20,
+        "sm": 20,
+        "xs": 20
       }
-    }), _vm._v(" "), _c('div', {
-      staticClass: "right_line",
-      class: {
-        vertical_line: _vm.activity_active[index]
-      },
+    }, [_c('div', {
+      staticClass: "train_float_btn clearfix"
+    }, [_c('h1', [_vm._v(_vm._s(item.name))]), _vm._v(" "), (item.status == 2) ? _c('button', {
+      staticClass: "activity_button btn1"
+    }, [_vm._v("进行中")]) : _vm._e(), _vm._v(" "), (item.status == 3) ? _c('button', {
+      staticClass: "activity_button btn2"
+    }, [_vm._v("已结束")]) : _vm._e()]), _vm._v(" "), _c('div', {
+      staticClass: "teacher_float_p"
+    }, [_c('p', [_vm._v("时间 : " + _vm._s(_vm._f("formatDate")(item['startAt'])))]), _vm._v(" "), _c('p', [_vm._v("地点 : " + _vm._s(item.location))])]), _vm._v(" "), _c('p', {
       staticStyle: {
-        "height": "0px"
+        "clear": "both"
       }
-    })])])])], 1)
-  }))], 1)], 1)])], 1)
+    }, [_vm._v("人数限额 : " + _vm._s(item.total))])])], 1)], 1)], 1)
+  }))], 1), _vm._v(" "), _c('el-row', {
+    staticStyle: {
+      "margin-top": "50px"
+    },
+    attrs: {
+      "gutter": 10
+    }
+  }, [_c('el-col', {
+    attrs: {
+      "lg": 8,
+      "md": 8,
+      "sm": 24,
+      "xs": 24,
+      "offset": 8
+    }
+  }, [_c('div', {
+    staticClass: "block"
+  }, [_c('el-pagination', {
+    attrs: {
+      "current-page": 1,
+      "total": _vm.totalPages,
+      "layout": "prev, pager, next"
+    },
+    on: {
+      "current-change": _vm.getActivityList
+    }
+  })], 1)])], 1), _vm._v(" "), _c('el-row', {
+    staticStyle: {
+      "margin-top": "60px"
+    }
+  }, [_c('el-col', {
+    attrs: {
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [_c('h2', {
+    staticClass: "common_sub_title"
+  }, [_c('p', {
+    staticClass: "tc white"
+  }, [_vm._v("招聘/培训需求")]), _vm._v(" "), _c('div', {
+    staticClass: "line"
+  })])])], 1), _vm._v(" "), _c('el-row', [_c('el-col', {
+    attrs: {
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
+    }
+  }, _vm._l((_vm.service), function(item, index) {
+    return _c('div', {
+      key: index,
+      staticClass: "s_teacher_list"
+    }, [_c('el-row', {}, [_c('el-col', {
+      attrs: {
+        "lg": 24,
+        "md": 24,
+        "sm": 24,
+        "xs": 24
+      }
+    }, [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'needDetail',
+          params: {
+            id: item.id
+          }
+        }
+      }
+    }, [_c('div', {
+      staticClass: "train_float_btn clearfix"
+    }, [_c('h1', [_vm._v(_vm._s(item['title']))])]), _vm._v(" "), _c('p', {
+      staticStyle: {
+        "clear": "both"
+      }
+    }, [_vm._v("企业名称 : " + _vm._s(item['enterprise']))]), _vm._v(" "), _c('div', {
+      staticClass: "teacher_float_p"
+    }, [_c('p', [_vm._v("联系人 : " + _vm._s(item['contact']))]), _vm._v(" "), _c('p', [_vm._v("联系方式 : " + _vm._s(item['phone']))])])])], 1)], 1)], 1)
+  }))], 1), _vm._v(" "), _c('el-row', {
+    staticStyle: {
+      "margin-top": "50px"
+    },
+    attrs: {
+      "gutter": 10
+    }
+  }, [_c('el-col', {
+    attrs: {
+      "lg": 8,
+      "md": 8,
+      "sm": 24,
+      "xs": 24,
+      "offset": 8
+    }
+  }, [_c('div', {
+    staticClass: "block"
+  }, [_c('el-pagination', {
+    attrs: {
+      "current-page": 1,
+      "total": _vm.totalPages,
+      "layout": "prev, pager, next"
+    },
+    on: {
+      "current-change": _vm.getInviteList
+    }
+  })], 1)])], 1)], 1)], 1)], 1)], 1)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -7285,11 +7423,16 @@ exports.default = {
     data: function data() {
         return {
             investor: "", //投资机构
-            financing: "" //融资项目
+            financing: "", //融资项目
+            needData: "", //融资需求
+            noData: false,
+            totalPages: ""
         };
     },
     created: function created() {
         this.getFinance();
+        var cid = 57;
+        this.initServicesList(cid);
     },
 
     methods: {
@@ -7300,9 +7443,47 @@ exports.default = {
                 _this.investor = res["investor"];
                 _this.financing = res["financing"];
             });
+        },
+        initServicesList: function initServicesList(cid) {
+            var _this2 = this;
+
+            var url = "/enterprise/apply/" + "10" + "/" + "1" + "?cid=" + cid;
+            _api2.default.Get(url).then(function (res) {
+                _this2.needData = res["page"]["data"];
+                if (_this2.needData.length == 0) {
+                    _this2.noData = true;
+                } else if (_this2.needData.length > 0) {
+                    _this2.noData = false;
+                    _this2.needData = res["page"]["data"];
+                    _this2.totalPages = res["page"]["totalPages"] * 10;
+                }
+            });
+        },
+        handleCurrentChange: function handleCurrentChange(val) {
+            var _this3 = this;
+
+            //获取到当前分页页码，获取当前页面数据
+            var url = "/enterprise/apply/" + "10" + "/" + val + "/" + +"?cid=" + "57";
+            _api2.default.Get(url).then(function (res) {
+                _this3.needData = res["page"]["data"];
+                _this3.totalPages = res["page"]["totalPages"] * 10;
+            });
         }
     }
 }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -9241,51 +9422,88 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = {
     data: function data() {
         return {
-            // provider: '',
-            // normal: '',
-            // ServiceList: ''
+            category: "",
+            ServiceList: '',
             loading: false,
             moreFlag: true,
-            display_active: [false, false, false, false],
-            nodata: false,
             needData: '',
-            infoData: '',
+            noData: false,
+            noDate: false,
+            serviceBody: '',
+            display_active: [false, false, false, false],
             activeName: "tab1",
+            serviceEight: '',
+            value1: 4, //星级评分
             totalPages: "",
-            category: '',
-            serviceBody: ''
+            totalArr: ['51', '52', '53', '54', '55', '56', '57', '58'],
+            other: [],
+            curPage: 1
         };
     },
     created: function created() {
-        // this.getServiceList()
-        // this.researchApi()
+        this.getServiceList();
         this.getQb();
+        this.getServiceEight();
         this.initServicesList();
     },
 
     methods: {
-        getQb: function getQb() {
+        // 服务商机构value
+        getServiceList: function getServiceList() {
             var _this = this;
 
-            _api2.default.Get('/qb').then(function (res) {
-                console.log(res);
-                _this.category = res;
-                _this.category.forEach(function (value, index, array) {
+            this.fullscreenLoading = true;
+            _api2.default.Get('/dict/service').then(function (res) {
+                _this.ServiceList = res;
+                _this.ServiceList.forEach(function (value, index, array) {
                     if (index == 1) {
-                        _this.$set(_this.display_active, 1, true);
-                        _this.initNewsList(_this.category[index]["id"]);
-                        _this.fullscreenLoading = false;
+                        _this.initNewsList(_this.ServiceList[index]["id"]);
                     }
                 });
             });
         },
-        filterMore: function filterMore() {
-            console.log(this.moreFlag);
-            if (this.moreFlag) {
-                this.moreFlag = false;
-            } else {
-                this.moreFlag = true;
-            }
+
+        //服务商机构内容
+        getProviderClass: function getProviderClass(id) {
+            var _this2 = this;
+
+            var url = '/enterprise/' + id + '/' + '2' + '/' + '10' + '/' + '1';
+            _api2.default.Get(url).then(function (res) {
+                _this2.needData = res['data'];
+                if (_this2.needData.length == 0) {
+                    _this2.nodata = true;
+                } else {
+                    _this2.nodata = false;
+                }
+                _this2.totalPages = res['totalPages'] * 10;
+            });
+        },
+        initServicesList: function initServicesList() {
+            var _this3 = this;
+
+            var url = "/enterprise/apply/" + "4" + "/" + "1" + "?cid=" + 0;
+            _api2.default.Get(url).then(function (res) {
+                _this3.needData = res["page"]["data"];
+            });
+        },
+
+        // 享受服务企业name
+        getQb: function getQb() {
+            var _this4 = this;
+
+            _api2.default.Get('/qb').then(function (res) {
+                _this4.category = res;
+                _this4.category.forEach(function (value, index, array) {
+                    if (index == 1) {
+                        _this4.$set(_this4.display_active, 1, true);
+                        _this4.initNewsList(_this4.category[index]["id"]);
+                        _this4.fullscreenLoading = false;
+                        window.localStorage.setItem("seid", _this4.category[index]["id"]);
+                    }
+                    // this.totalArr.push(this.category[index]['categoryId'].toString());
+                });
+                // console.log(this.totalArr);
+            });
         },
         handleClick: function handleClick(index, sid) {
             var sx_child_item = document.querySelectorAll('.sx_child');
@@ -9294,32 +9512,36 @@ exports.default = {
                     this.$set(this.display_active, i, false);
                 } else {
                     this.$set(this.display_active, i, true);
-                    console.log('i=' + i);
-                    console.log('index=' + index);
                 }
             }
+            this.curPage = 1;
             this.initNewsList(sid);
-            window.localStorage.setItem("sid", sid);
+            window.localStorage.setItem("seid", sid);
         },
         initNewsList: function initNewsList(sid) {
-            var _this2 = this;
+            var _this5 = this;
 
             this.loading = true;
-            var url = "/enterprise/" + sid + "/1/" + "12" + "/" + "1";
+            var url = "/enterprise/normal/" + "10" + "/" + "1?sid=" + sid;
             _api2.default.Get(url).then(function (res) {
-                _this2.serviceBody = res["data"];
-                if (_this2.serviceBody.length == 0) {
-                    _this2.nodata = true;
-                    _this2.loading = false;
+                _this5.serviceBody = res["data"];
+                if (_this5.serviceBody.length == 0) {
+                    _this5.nodata = true;
+                    _this5.loading = false;
                 } else {
-                    _this2.nodata = false;
-                    _this2.loading = false;
+                    _this5.nodata = false;
+                    _this5.loading = false;
+                    for (var i = 0; i < _this5.serviceBody.length; i++) {
+                        _this5.serviceBody[i]['labels'] = _this5.serviceBody[i]['labels'].split(",");
+                        var tempArr = _this5.serviceBody[i]['labels'].concat(_this5.serviceBody[i]['serviceIds']);
+                        _this5.serviceBody[i]['others'] = _this5.filterOter(_this5.totalArr, tempArr);
+                    }
                 }
-                _this2.totalPages = res["totalPages"] * 10;
+                _this5.totalPages = res["totalPages"] * 10;
             });
             var info = "/pub/info/22" + "/" + "10" + "/1";
             _api2.default.Get(info).then(function (res) {
-                _this2.infoData = res["data"];
+                _this5.infoData = res["data"];
                 // if (this.infoData.length == 0) {
                 //     this.nodata = true;
                 // } else {
@@ -9329,80 +9551,47 @@ exports.default = {
             });
         },
         handleCurrentChange: function handleCurrentChange(val) {
-            var _this3 = this;
+            var _this6 = this;
 
             //获取到当前分页页码，获取当前页面数据
-            var sid = window.localStorage.getItem("sid");
-            var url = "/enterprise/" + sid + "/1/" + "12" + "/" + val;
+            var sid = window.localStorage.getItem("seid");
+            var url = "/enterprise/normal/" + "10" + "/" + val + "/?sid=" + sid;
             _api2.default.Get(url).then(function (res) {
-                _this3.serviceBody = res["data"];
-                _this3.totalPages = res["totalPages"] * 10;
+                _this6.serviceBody = res["data"];
+                for (var i = 0; i < _this6.serviceBody.length; i++) {
+                    _this6.serviceBody[i]['labels'] = _this6.serviceBody[i]['labels'].split(",");
+                    var tempArr = _this6.serviceBody[i]['labels'].concat(_this6.serviceBody[i]['serviceIds']);
+                    _this6.serviceBody[i]['others'] = _this6.filterOter(_this6.totalArr, tempArr);
+                }
+                _this6.totalPages = res["totalPages"] * 10;
             });
         },
-        initServicesList: function initServicesList() {
-            var _this4 = this;
 
-            var url = "/enterprise/apply/" + "10" + "/" + "1" + "?cid=" + 0;
-            _api2.default.Get(url).then(function (res) {
-                _this4.needData = res["page"]["data"];
+        // 已享受服务,有需求服务,未享受服务
+        getServiceEight: function getServiceEight() {
+            var _this7 = this;
+
+            _api2.default.Get('/pub/enterprises').then(function (res) {
+                _this7.serviceEight = res;
             });
+        },
+        filterOter: function filterOter(ar1, ar2) {
+            var arr1 = ar1; //数组A 
+            var arr2 = ar2; //数组B 
+            var temp = []; //临时数组1 
+            var temparray = []; //临时数组2 
+            for (var i = 0; i < arr2.length; i++) {
+                temp[arr2[i]] = true; //巧妙地方：把数组B的值当成临时数组1的键并赋值为真 
+            };
+            for (var i = 0; i < arr1.length; i++) {
+                if (!temp[arr1[i]]) {
+                    temparray.push(arr1[i]); //巧妙地方：同时把数组A的值当成临时数组1的键并判断是否为真，如果不为真说明没重复，就合并到一个新数组里，这样就可以得到一个全新并无重复的数组 
+                };
+            };
+            return temparray;
         }
     }
 }; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -10579,11 +10768,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "to": "/financing"
     }
-  }, [_vm._v("投融资库")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": "/intermediary"
-    }
-  }, [_vm._v("中介服务")])], 1)])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("投融资库")])], 1)])]), _vm._v(" "), _c('div', {
     staticClass: "nav nav_mobile r"
   }, [_c('div', {
     attrs: {
@@ -10675,6 +10860,232 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "Jrs3":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('el-row', {
+    attrs: {
+      "gutter": 0
+    }
+  }, [_c('el-col', {
+    attrs: {
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [_c('div', {
+    staticClass: "financing_banner"
+  }, [_c('router-link', {
+    staticClass: "financing_Btn db",
+    attrs: {
+      "to": {
+        name: 'financing_apply'
+      }
+    }
+  })], 1)])], 1), _vm._v(" "), _c('el-row', {
+    staticStyle: {
+      "margin-bottom": "120px"
+    },
+    attrs: {
+      "gutter": 0
+    }
+  }, [_c('div', {
+    staticClass: "container"
+  }, [_c('el-col', {
+    attrs: {
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [_c('div', {
+    staticClass: "common_title"
+  }, [_c('h1', {
+    staticClass: "tc"
+  }, [_vm._v("全面完善的服务商体系")]), _vm._v(" "), _c('h1', {
+    staticClass: "tc"
+  }, [_vm._v("高效解决企业发展所需的各类服务")])])]), _vm._v(" "), _c('el-row', {
+    attrs: {
+      "gutter": 0
+    }
+  }, [_c('el-col', {
+    staticClass: "pl0",
+    attrs: {
+      "lg": 12,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [_c('div', {
+    staticClass: "InvestmentAgency clearfix"
+  }, [_c('h2', {
+    staticClass: "common_sub_title"
+  }, [_c('p', {
+    staticClass: "tc white"
+  }, [_vm._v("投资机构")]), _vm._v(" "), _c('div', {
+    staticClass: "line"
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "InvestmentList"
+  }, _vm._l((_vm.investor), function(item, index) {
+    return _c('router-link', {
+      key: index,
+      staticClass: "item clearfix",
+      attrs: {
+        "to": {
+          name: 'provider',
+          params: {
+            id: item.id
+          }
+        }
+      }
+    }, [_c('el-col', {
+      attrs: {
+        "lg": 4,
+        "md": 24,
+        "sm": 24,
+        "xs": 24
+      }
+    }, [_c('img', {
+      attrs: {
+        "src": item['icon']
+      }
+    })]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 20,
+        "md": 24,
+        "sm": 24,
+        "xs": 24
+      }
+    }, [_c('h1', {
+      staticClass: "text-ellipsis"
+    }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', {
+      staticClass: "text-ellipsis-muti text-ellipsis-2"
+    }, [_vm._v(_vm._s(item['intro']))])])], 1)
+  }))])]), _vm._v(" "), _c('el-col', {
+    staticClass: "pl1",
+    attrs: {
+      "lg": 12,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [_c('div', {
+    staticClass: "FinancingProject clearfix"
+  }, [_c('h2', {
+    staticClass: "common_sub_title"
+  }, [_c('p', {
+    staticClass: "tc white"
+  }, [_vm._v("融资项目")]), _vm._v(" "), _c('div', {
+    staticClass: "line"
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "ProjectList"
+  }, _vm._l((_vm.financing), function(item, index) {
+    return _c('router-link', {
+      key: index,
+      staticClass: "item clearfix",
+      attrs: {
+        "to": {
+          name: 'financingDetail',
+          params: {
+            id: item.id
+          }
+        }
+      }
+    }, [_c('h1', {
+      staticClass: "f14"
+    }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', {
+      staticClass: "text-ellipsis"
+    }, [_vm._v(_vm._s(item['intro']))]), _vm._v(" "), _c('div', {
+      staticClass: "info"
+    }, [_c('p', {
+      staticClass: "pw270"
+    }, [_vm._v("融资金额："), _c('span', {
+      staticClass: "red b"
+    }, [_vm._v(_vm._s(item['financing']) + _vm._s(item['unit']))])]), _vm._v(" "), _c('p', [_vm._v("发起人："), _c('span', [_vm._v(_vm._s(item['founder']))])])]), _vm._v(" "), _c('el-tag', {
+      attrs: {
+        "type": "primary"
+      }
+    }, [_vm._v("行业领域：消费生活")]), _vm._v(" "), _c('el-tag', {
+      attrs: {
+        "type": "success"
+      }
+    }, [_vm._v("已完成融资：未完成融资")])], 1)
+  }))]), _vm._v(" "), _c('div', {
+    staticClass: "FinancingNeeds"
+  }, [_c('h2', {
+    staticClass: "common_sub_title"
+  }, [_c('p', {
+    staticClass: "tc white"
+  }, [_vm._v("融资需求")]), _vm._v(" "), _c('div', {
+    staticClass: "line"
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "needList clearfix"
+  }, [_c('p', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.noData),
+      expression: "noData"
+    }],
+    staticStyle: {
+      "font-size": "12px",
+      "line-height": "30px"
+    }
+  }, [_vm._v("此栏目暂无数据")]), _vm._v(" "), _vm._l((_vm.needData), function(item, index) {
+    return _c('router-link', {
+      key: index,
+      staticClass: "item clearfix",
+      attrs: {
+        "to": {
+          name: 'needDetail',
+          params: {
+            id: item.id
+          }
+        }
+      }
+    }, [_c('h1', {
+      staticClass: "f14"
+    }, [_vm._v(_vm._s(item['needs']))]), _vm._v(" "), _c('p', {
+      staticClass: "text-ellipsis"
+    }, [_vm._v("企业名称：" + _vm._s(item['enterprise']))]), _vm._v(" "), _c('div', {
+      staticClass: "info"
+    }, [_c('p', {
+      staticClass: "pw270"
+    }, [_vm._v("联系人："), _c('span', {
+      staticStyle: {
+        "margin-right": "150px"
+      }
+    }, [_vm._v(_vm._s(item['contact']))])]), _vm._v(" "), _c('p', [_vm._v("联系方式："), _c('span', [_vm._v("13972576207")])])])])
+  })], 2), _vm._v(" "), _c('el-col', {
+    attrs: {
+      "lg": 16,
+      "md": 16,
+      "sm": 24,
+      "xs": 24,
+      "offset": 8
+    }
+  }, [_c('div', {
+    staticClass: "block"
+  }, [_c('el-pagination', {
+    attrs: {
+      "current-page": 1,
+      "total": _vm.totalPages,
+      "layout": "prev, pager, next"
+    },
+    on: {
+      "current-change": _vm.handleCurrentChange
+    }
+  })], 1)])], 1)])], 1)], 1)])], 1)
+}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
 
 /***/ }),
 
@@ -11075,6 +11486,13 @@ function formatDate(date, fmt) {
 function padLeftZero(str) {
     return ('00' + str).substr(str.length);
 }
+
+/***/ }),
+
+/***/ "Kr1b":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -13636,6 +14054,30 @@ exports.default = {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 
@@ -14289,63 +14731,153 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "xs": 24
     }
   })], 1), _vm._v(" "), _c('div', {
-    staticClass: "container"
-  }, [_c('el-row', {
-    attrs: {
-      "gutter": 10
+    staticClass: "container",
+    staticStyle: {
+      "margin-bottom": "20px"
     }
   }, [_c('el-col', {
     attrs: {
-      "lg": 16,
-      "md": 16,
+      "lg": 24,
+      "md": 24,
       "sm": 24,
       "xs": 24
     }
   }, [_c('div', {
-    staticClass: "title",
-    staticStyle: {
-      "margin-top": "70px",
-      "margin-bottom": "15px"
-    },
-    attrs: {
-      "id": "title-company"
-    }
+    staticClass: "common_title"
   }, [_c('h1', {
-    staticClass: "tl"
-  }, [_vm._v("入孵企业专区")]), _vm._v(" "), _c('p', {
-    staticClass: "tl"
-  }, [_vm._v("SERVICE AREA")]), _vm._v(" "), _c('router-link', {
-    staticClass: "r more_plus",
-    staticStyle: {
-      "margin-top": "-41px"
-    },
-    attrs: {
-      "to": "/into_more"
-    }
-  }), _vm._v(" "), _c('router-link', {
-    staticClass: "r show_need_btn",
-    staticStyle: {
-      "margin-top": "-38px"
-    },
-    attrs: {
-      "to": {
-        name: 'problem',
-        params: {
-          type: 'enterprise'
-        }
-      }
-    }
-  }, [_vm._v("\n                        发布问题\n                    ")])], 1), _vm._v(" "), _c('el-row', {
+    staticClass: "tc"
+  }, [_vm._v("全面完善的服务商体系")]), _vm._v(" "), _c('h1', {
+    staticClass: "tc"
+  }, [_vm._v("高效解决企业发展所需的各类服务")])])]), _vm._v(" "), _c('el-row', {
     attrs: {
       "gutter": 10
     }
+  }, [_c('el-col', {
+    staticStyle: {
+      "border-right": "1px solid #ccc",
+      "padding-right": "20px"
+    },
+    attrs: {
+      "lg": 12,
+      "md": 12,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [_c('el-row', [_c('el-col', {
+    attrs: {
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [_c('h2', {
+    staticClass: "common_sub_title"
+  }, [_c('p', {
+    staticClass: "tc white"
+  }, [_vm._v("服务商机构")]), _vm._v(" "), _c('div', {
+    staticClass: "line"
+  })])])], 1), _vm._v(" "), _c('el-row', {
+    staticStyle: {
+      "margin-top": "40px"
+    }
+  }, [_c('el-col', {
+    attrs: {
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
+    }
+  }, _vm._l((_vm.ServiceList), function(item, index) {
+    return _c('div', {
+      key: index,
+      staticClass: "s_service_list clearfix"
+    }, [_c('h2', [_vm._v(_vm._s(item['value']))]), _vm._v(" "), _c('el-row', [_c('p', {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: (_vm.noData),
+        expression: "noData"
+      }],
+      staticStyle: {
+        "margin-left": "15px",
+        "font-size": "12px",
+        "margin-bottom": "10px",
+        "line-height": "36px"
+      }
+    }, [_vm._v("暂无数据")]), _vm._v(" "), _vm._l((_vm.needData), function(item, index) {
+      return _c('el-col', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (!_vm.noData),
+          expression: "!noData"
+        }],
+        key: index,
+        attrs: {
+          "lg": 6,
+          "md": 6,
+          "sm": 6,
+          "xs": 6
+        }
+      }, [_c('div', {
+        staticClass: "c1"
+      }, [_c('div', {
+        staticClass: "c2"
+      }, [_c('h3', {
+        staticClass: "text-ellipsis-muti text-ellipsis-2"
+      }, [_vm._v(_vm._s(item['enterprise']))]), _vm._v(" "), _c('p', [_vm._v("电话:" + _vm._s(item['phone']))]), _vm._v(" "), _c('div', {
+        staticClass: "block"
+      }, [_c('el-rate', {
+        model: {
+          value: (_vm.value1),
+          callback: function($$v) {
+            _vm.value1 = $$v
+          },
+          expression: "value1"
+        }
+      })], 1)])])])
+    })], 2)], 1)
+  }))], 1)], 1), _vm._v(" "), _c('el-col', {
+    attrs: {
+      "lg": 12,
+      "md": 12,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [_c('el-row', [_c('el-col', {
+    attrs: {
+      "lg": 24,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [_c('h2', {
+    staticClass: "common_sub_title"
+  }, [_c('p', {
+    staticClass: "tc white"
+  }, [_vm._v("享受服务企业")]), _vm._v(" "), _c('div', {
+    staticClass: "line"
+  })])])], 1), _vm._v(" "), _c('el-row', [_c('el-col', [_c('div', {
+    staticStyle: {
+      "padding-left": "13px"
+    }
   }, [_c('div', {
-    staticClass: "filter"
+    staticClass: "s_header_img"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "s_intermediary_list"
   }, [_c('div', {
-    staticClass: "filter_top rel"
+    staticClass: "filte",
+    staticStyle: {
+      "margin-top": "20px"
+    }
+  }, [_c('div', {
+    staticClass: "filte_top rel"
   }, [_c('dl', [_c('dd', {
     class: {
       auto: _vm.moreFlag
+    },
+    staticStyle: {
+      "width": "93%"
     }
   }, _vm._l((_vm.category), function(item, index) {
     return (index > 0) ? _c('a', {
@@ -14364,31 +14896,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }
     }, [_vm._v(_vm._s(item['name']))]) : _vm._e()
-  }))]), _vm._v(" "), _c('a', {
-    staticClass: "filter_more abs",
-    attrs: {
-      "href": "javascript:;"
-    },
-    on: {
-      "click": _vm.filterMore
-    }
-  }, [_vm._v("更多"), _c('i', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (!_vm.moreFlag),
-      expression: "!moreFlag"
-    }],
-    staticClass: "el-icon-arrow-up"
-  }), _c('i', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.moreFlag),
-      expression: "moreFlag"
-    }],
-    staticClass: "el-icon-arrow-down"
-  })])]), _vm._v(" "), _c('div', {
+  }))])]), _vm._v(" "), _c('div', {
     directives: [{
       name: "loading",
       rawName: "v-loading.body",
@@ -14398,7 +14906,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "body": true
       }
     }],
-    staticClass: "filter_body"
+    staticClass: "filte_body"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
@@ -14407,8 +14915,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: (_vm.nodata),
-      expression: "nodata"
+      value: (_vm.noDate),
+      expression: "noDate"
     }],
     staticStyle: {
       "margin-left": "5px"
@@ -14418,20 +14926,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       directives: [{
         name: "show",
         rawName: "v-show",
-        value: (!_vm.nodata),
-        expression: "!nodata"
+        value: (!_vm.noDate),
+        expression: "!noDate"
       }],
       key: index,
+      staticClass: "gh",
       attrs: {
-        "lg": 6,
-        "md": 6,
-        "sm": 12,
-        "xs": 24
+        "xs": 24,
+        "sm": 24,
+        "md": 24,
+        "lg": 24
       }
     }, [_c('router-link', {
-      staticStyle: {
-        "display": "block"
-      },
       attrs: {
         "to": {
           name: 'invest_detail',
@@ -14441,17 +14947,137 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }
     }, [_c('div', {
-      staticClass: "service-opcity-into"
-    }, [_c('h2', [_vm._v(_vm._s(item.name))])])])], 1)
-  })], 2), _vm._v(" "), _c('el-row', {
+      staticClass: "intermediary_list"
+    }, [_c('h1', [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('div', {
+      staticClass: "c3"
+    }, [_c('p', [_vm._v("地址:" + _vm._s(item['address']))]), _vm._v(" "), _c('p', [_vm._v("电话:" + _vm._s(item['phone']))])]), _vm._v(" "), _c('ul', {
+      staticClass: "clearfix"
+    }, [_vm._l((item['labels']), function(item, index) {
+      return (item == '51') ? _c('li', {
+        key: index,
+        staticClass: "green"
+      }, [_vm._v("信息化")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['labels']), function(item, index) {
+      return (item == '52') ? _c('li', {
+        key: index,
+        staticClass: "green"
+      }, [_vm._v("知识产权")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['labels']), function(item, index) {
+      return (item == '53') ? _c('li', {
+        key: index,
+        staticClass: "green"
+      }, [_vm._v("科技转化")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['labels']), function(item, index) {
+      return (item == '54') ? _c('li', {
+        key: index,
+        staticClass: "green"
+      }, [_vm._v("金融服务")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['labels']), function(item, index) {
+      return (item == '55') ? _c('li', {
+        key: index,
+        staticClass: "green"
+      }, [_vm._v("电子商务")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['labels']), function(item, index) {
+      return (item == '56') ? _c('li', {
+        key: index,
+        staticClass: "green"
+      }, [_vm._v("财税/法务")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['labels']), function(item, index) {
+      return (item == '57') ? _c('li', {
+        key: index,
+        staticClass: "green"
+      }, [_vm._v("招聘/培训")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['labels']), function(item, index) {
+      return (item == '58') ? _c('li', {
+        key: index,
+        staticClass: "green"
+      }, [_vm._v("物业服务")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
+      return (item == '51') ? _c('li', {
+        key: index,
+        staticClass: "yellow"
+      }, [_vm._v("信息化")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
+      return (item == '52') ? _c('li', {
+        key: index,
+        staticClass: "yellow"
+      }, [_vm._v("知识产权")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
+      return (item == '53') ? _c('li', {
+        key: index,
+        staticClass: "yellow"
+      }, [_vm._v("科技转化")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
+      return (item == '54') ? _c('li', {
+        key: index,
+        staticClass: "yellow"
+      }, [_vm._v("金融服务")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
+      return (item == '55') ? _c('li', {
+        key: index,
+        staticClass: "yellow"
+      }, [_vm._v("电子商务")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
+      return (item == '56') ? _c('li', {
+        key: index,
+        staticClass: "yellow"
+      }, [_vm._v("财税/法务")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
+      return (item == '57') ? _c('li', {
+        key: index,
+        staticClass: "yellow"
+      }, [_vm._v("招聘/培训")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
+      return (item == '58') ? _c('li', {
+        key: index,
+        staticClass: "yellow"
+      }, [_vm._v("物业服务")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
+      return (item == '51') ? _c('li', {
+        key: index,
+        staticClass: "gray"
+      }, [_vm._v("信息化")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
+      return (item == '52') ? _c('li', {
+        key: index,
+        staticClass: "gray"
+      }, [_vm._v("知识产权")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
+      return (item == '53') ? _c('li', {
+        key: index,
+        staticClass: "gray"
+      }, [_vm._v("科技转化")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
+      return (item == '54') ? _c('li', {
+        key: index,
+        staticClass: "gray"
+      }, [_vm._v("金融服务")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
+      return (item == '55') ? _c('li', {
+        key: index,
+        staticClass: "gray"
+      }, [_vm._v("电子商务")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
+      return (item == '56') ? _c('li', {
+        key: index,
+        staticClass: "gray"
+      }, [_vm._v("财税/法务")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
+      return (item == '57') ? _c('li', {
+        key: index,
+        staticClass: "gray"
+      }, [_vm._v("招聘/培训")]) : _vm._e()
+    }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
+      return (item == '58') ? _c('li', {
+        key: index,
+        staticClass: "gray"
+      }, [_vm._v("物业服务")]) : _vm._e()
+    })], 2)])])], 1)
+  }), _vm._v(" "), _c('el-col', {
     staticStyle: {
-      "margin-top": "60px",
-      "margin-bottom": "50px"
+      "margin-bottom": "50px",
+      "margin-top": "50px"
     },
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
     attrs: {
       "lg": 8,
       "md": 8,
@@ -14463,74 +15089,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "block"
   }, [_c('el-pagination', {
     attrs: {
-      "current-page": 1,
+      "current-page": _vm.curPage,
       "total": _vm.totalPages,
-      "layout": "prev, pager, next",
-      "page-size": 12
+      "layout": "prev, pager, next"
     },
     on: {
       "current-change": _vm.handleCurrentChange
     }
-  })], 1)])], 1)], 1)])])], 1), _vm._v(" "), _c('el-col', {
-    staticClass: "service_r",
-    attrs: {
-      "lg": 7,
-      "md": 7,
-      "sm": 24,
-      "xs": 24,
-      "offset": 1
-    }
-  }, [_c('el-row', {
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 24,
-      "md": 24,
-      "sm": 24,
-      "xs": 24
-    }
-  }, [_c('div', {
-    staticClass: "news-rightlist"
-  }, [_c('div', {
-    staticClass: "news-hot"
-  }, [_vm._v("服务需求")]), _vm._v(" "), _c('ul', _vm._l((_vm.needData), function(item, index) {
-    return _c('li', {
-      key: index,
-      on: {
-        "click": function($event) {
-          _vm.openDetail(item['id'])
-        }
-      }
-    }, [_c('p', [_c('span', [_vm._v(_vm._s(index + 1))]), _vm._v(_vm._s(item['title']))])])
-  }))])]), _vm._v(" "), _c('el-col', {
-    staticStyle: {
-      "margin-bottom": "50px"
-    },
-    attrs: {
-      "lg": 24,
-      "md": 24,
-      "sm": 24,
-      "xs": 24
-    }
-  }, [_c('div', {
-    staticClass: "news-rightlist"
-  }, [_c('div', {
-    staticClass: "news-hot"
-  }, [_vm._v("企业资讯")]), _vm._v(" "), _c('ul', _vm._l((_vm.infoData), function(item, index) {
-    return _c('router-link', {
-      key: index,
-      attrs: {
-        "to": {
-          name: 'article',
-          params: {
-            id: item.id
-          }
-        }
-      }
-    }, [_c('p', [_c('span', [_vm._v(_vm._s(index + 1))]), _vm._v(_vm._s(item['title']))])])
-  }))])])], 1)], 1)], 1)], 1)], 1)
+  })], 1)])], 2)], 1)])])])])], 1)], 1)], 1)], 1)], 1)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -15711,114 +16277,82 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "xs": 24
     }
   }, [_c('div', {
-    staticClass: "title",
-    attrs: {
-      "id": "title-school"
-    }
-  }, [_c('h1', [_vm._v("院校展示")]), _vm._v(" "), _c('p', [_vm._v("ENTREPRENEURIAL MENTOP")]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('span')]), _vm._v(" "), _c('el-row', {
-    attrs: {
-      "gutter": 10
-    }
-  }, _vm._l((_vm.university), function(item, index) {
-    return _c('router-link', {
-      key: index,
-      attrs: {
-        "to": {
-          name: 'school_detail',
-          params: {
-            id: item['id']
-          }
-        }
-      }
-    }, [_c('el-col', {
-      staticClass: "schoolList",
-      attrs: {
-        "lg": 6,
-        "md": 6,
-        "sm": 12,
-        "xs": 24
-      }
-    }, [_c('img', {
-      staticStyle: {
-        "border": "1px solid #ddd"
-      },
-      attrs: {
-        "src": item.icon,
-        "alt": ""
-      }
-    }), _vm._v(" "), _c('p', {
-      staticStyle: {
-        "color": "#666"
-      }
-    }, [_vm._v(_vm._s(item.name))])])], 1)
-  }))], 1)], 1)]), _vm._v(" "), _c('div', {
-    staticStyle: {
-      "padding-bottom": "50px",
-      "background-color": "#eee"
-    }
-  }, [_c('div', {
-    staticClass: "container"
-  }, [_c('el-row', {
+    staticClass: "common_title"
+  }, [_c('h1', {
+    staticClass: "tc"
+  }, [_vm._v("全面完善的服务商体系")]), _vm._v(" "), _c('h1', {
+    staticClass: "tc"
+  }, [_vm._v("高效解决企业发展所需的各类服务")])])]), _vm._v(" "), _c('el-row', {
     attrs: {
       "gutter": 0
     }
   }, [_c('el-col', {
+    staticClass: "pl0",
     attrs: {
-      "lg": 24,
+      "lg": 12,
       "md": 24,
       "sm": 24,
       "xs": 24
     }
   }, [_c('div', {
-    staticClass: "title",
-    attrs: {
-      "id": "title-teacher"
-    }
-  }, [_c('h1', [_vm._v("创业导师团")]), _vm._v(" "), _c('p', {
-    staticStyle: {
-      "color": "#fff"
-    }
-  }, [_vm._v("ENTREPRENEURIAL MENTOP")]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('span'), _vm._v(" "), _c('router-link', {
-    staticClass: "r more_plus to",
-    staticStyle: {
-      "margin-top": "-41px"
-    },
-    attrs: {
-      "to": {
-        name: 'tutorList'
-      }
-    }
-  })], 1), _vm._v(" "), _c('el-row', {
-    attrs: {
-      "gutter": 40
-    }
-  }, _vm._l((_vm.mentor), function(item, index) {
-    return _c('el-col', {
+    staticClass: "InvestmentAgency clearfix"
+  }, [_c('h2', {
+    staticClass: "common_sub_title"
+  }, [_c('p', {
+    staticClass: "tc white"
+  }, [_vm._v("大学院校")]), _vm._v(" "), _c('div', {
+    staticClass: "line"
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "InvestmentList CollegeList"
+  }, _vm._l((_vm.university), function(item, index) {
+    return _c('router-link', {
       key: index,
-      attrs: {
-        "lg": 12,
-        "md": 12,
-        "sm": 12,
-        "xs": 24
-      }
-    }, [_c('router-link', {
-      staticClass: "research-teacher",
+      staticClass: "item clearfix",
       attrs: {
         "to": {
-          name: 'tutorDetail',
+          name: 'school_detail',
           params: {
             id: item.id
           }
         }
+      }
+    }, [_c('el-col', {
+      attrs: {
+        "lg": 4,
+        "md": 24,
+        "sm": 24,
+        "xs": 24
       }
     }, [_c('img', {
       attrs: {
-        "src": item.photo,
-        "alt": ""
+        "src": item['icon']
       }
-    }), _vm._v(" "), _c('div', [_c('h4', [_vm._v("指导老师:" + _vm._s(item.name))]), _vm._v(" "), _c('h3', [_vm._v(_vm._s(item.title))]), _vm._v(" "), _c('p', {
+    })]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 20,
+        "md": 24,
+        "sm": 24,
+        "xs": 24
+      }
+    }, [_c('h1', {
+      staticClass: "text-ellipsis"
+    }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', {
       staticClass: "text-ellipsis-muti text-ellipsis-2"
-    }, [_vm._v(_vm._s(item.intro))])]), _vm._v(" "), _c('div', [_c('router-link', {
+    }, [_vm._v(_vm._s(item['intro']))])])], 1)
+  }))]), _vm._v(" "), _c('div', {
+    staticClass: "InvestmentAgency clearfix ExpertTeam"
+  }, [_c('h2', {
+    staticClass: "common_sub_title"
+  }, [_c('p', {
+    staticClass: "tc white"
+  }, [_vm._v("专家团队")]), _vm._v(" "), _c('div', {
+    staticClass: "line"
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "InvestmentList CollegeList"
+  }, _vm._l((_vm.Exeprt), function(item, index) {
+    return _c('div', {
+      key: index,
+      staticClass: "item clearfix",
       attrs: {
         "to": {
           name: 'tutorDetail',
@@ -15827,8 +16361,162 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           }
         }
       }
-    }, [_vm._v("\n                                        查看更多>>\n                                    ")])], 1)])], 1)
-  }))], 1)], 1)], 1)])], 1)
+    }, [_c('el-col', {
+      attrs: {
+        "lg": 4,
+        "md": 24,
+        "sm": 24,
+        "xs": 24
+      }
+    }, [_c('img', {
+      attrs: {
+        "src": item['photo']
+      }
+    })]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 20,
+        "md": 24,
+        "sm": 24,
+        "xs": 24
+      }
+    }, [_c('h1', {
+      staticClass: "text-ellipsis"
+    }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', {
+      staticClass: "text-ellipsis"
+    }, [_vm._v(_vm._s(item['intro']))]), _vm._v(" "), _c('el-tag', {
+      staticStyle: {
+        "margin-top": "5px"
+      },
+      attrs: {
+        "type": "danger"
+      }
+    }, [_vm._v("行业领域：消费生活")])], 1)], 1)
+  }))]), _vm._v(" "), _c('div', {
+    staticClass: "InvestmentAgency clearfix ResearchInstitute"
+  }, [_c('h2', {
+    staticClass: "common_sub_title"
+  }, [_c('p', {
+    staticClass: "tc white"
+  }, [_vm._v("研究机构")]), _vm._v(" "), _c('div', {
+    staticClass: "line"
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "InvestmentList CollegeList"
+  }, _vm._l((_vm.ResearchInstitute), function(item, index) {
+    return _c('div', {
+      key: index,
+      staticClass: "item clearfix",
+      attrs: {
+        "to": {
+          name: 'tutorDetail',
+          params: {
+            id: item.id
+          }
+        }
+      }
+    }, [_c('el-col', {
+      attrs: {
+        "lg": 4,
+        "md": 24,
+        "sm": 24,
+        "xs": 24
+      }
+    }, [_c('img', {
+      attrs: {
+        "src": item['photo']
+      }
+    })]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 20,
+        "md": 24,
+        "sm": 24,
+        "xs": 24
+      }
+    }, [_c('h1', {
+      staticClass: "text-ellipsis"
+    }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', {
+      staticClass: "text-ellipsis"
+    }, [_vm._v(_vm._s(item['intro']))]), _vm._v(" "), _c('el-tag', {
+      staticStyle: {
+        "margin-top": "5px"
+      },
+      attrs: {
+        "type": "danger"
+      }
+    }, [_vm._v("行业领域：消费生活")])], 1)], 1)
+  }))])]), _vm._v(" "), _c('el-col', {
+    staticClass: "pl1",
+    attrs: {
+      "lg": 12,
+      "md": 24,
+      "sm": 24,
+      "xs": 24
+    }
+  }, [_c('div', {
+    staticClass: "FinancingNeeds clearfix BusinessNeeds"
+  }, [_c('h2', {
+    staticClass: "common_sub_title"
+  }, [_c('p', {
+    staticClass: "tc white"
+  }, [_vm._v("技术难题及需求")]), _vm._v(" "), _c('div', {
+    staticClass: "line"
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "needList clearfix"
+  }, [_c('p', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.noData),
+      expression: "noData"
+    }],
+    staticStyle: {
+      "font-size": "12px",
+      "line-height": "30px"
+    }
+  }, [_vm._v("此栏目暂无数据")]), _vm._v(" "), _vm._l((_vm.needData), function(item, index) {
+    return _c('router-link', {
+      key: index,
+      staticClass: "item clearfix",
+      attrs: {
+        "to": {
+          name: 'consultDetail',
+          params: {
+            id: item.id
+          }
+        }
+      }
+    }, [_c('h1', {
+      staticClass: "f14"
+    }, [_vm._v(_vm._s(item['title']))]), _vm._v(" "), _c('p', {
+      staticClass: "text-ellipsis"
+    }, [_vm._v("企业名称：" + _vm._s(item['enterprise']))]), _vm._v(" "), _c('div', {
+      staticClass: "info"
+    }, [_c('p', {
+      staticClass: "pw270"
+    }, [_vm._v("联系人："), _c('span', {
+      staticStyle: {
+        "margin-right": "150px"
+      }
+    }, [_vm._v(_vm._s(item['contact']))])]), _vm._v(" "), _c('p', [_vm._v("联系方式："), _c('span', [_vm._v("13972576207")])])])])
+  })], 2), _vm._v(" "), _c('el-col', {
+    attrs: {
+      "lg": 16,
+      "md": 16,
+      "sm": 24,
+      "xs": 24,
+      "offset": 8
+    }
+  }, [_c('div', {
+    staticClass: "block"
+  }, [_c('el-pagination', {
+    attrs: {
+      "current-page": 1,
+      "total": _vm.totalPages,
+      "layout": "prev, pager, next"
+    },
+    on: {
+      "current-change": _vm.handleCurrentChange
+    }
+  })], 1)])], 1)])], 1)], 1)])], 1)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -17222,50 +17910,166 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     data: function data() {
         return {
+            tutorList: "", //导师
             lecture: "", //培训
-            teacher: "", //优秀讲师
-            activity: "", //活动专区
-            highlight: "", //精彩瞬间
-            activity_active: [false, false, false, false]
+            activity: "", //活动
+            service: "", //招聘/培训需求
+            totalPages: ""
         };
     },
-
-    methods: {
-        setTronsApi: function setTronsApi() {
-            var _this = this;
-
-            _api2.default.Get("/pub/colleges").then(function (res) {
-                _this.lecture = res["lecture"];
-                _this.highlight = res["highlight"];
-                _this.activity = res["activity"];
-                _this.teacher = res["teacher"];
-            });
-        },
-        show_activity: function show_activity(index) {
-            var activity_item = document.querySelectorAll(".activitys_item");
-            for (var i = 0; i < activity_item.length; i++) {
-                if (activity_item[i] != activity_item[index]) {
-                    this.$set(this.activity_active, i, false);
-                } else {
-                    this.$set(this.activity_active, i, true);
-                }
-            }
-        },
-        hide_activity: function hide_activity(index) {
-            var activity_item = document.querySelectorAll(".activitys_item");
-            for (var i = 0; i < activity_item.length; i++) {
-                this.$set(this.activity_active, i, false);
-            }
-        }
-    },
     created: function created() {
+        this.initTutorList();
         this.setTronsApi();
     },
 
+    methods: {
+        //导师
+        initTutorList: function initTutorList() {
+            var _this = this;
+
+            var url = '/indie/' + '3' + '/' + '8' + '/' + '1';
+            _api2.default.Get(url).then(function (res) {
+                _this.tutorList = res['data'];
+                _this.totalPages = res['totalPages'] * 10;
+            });
+        },
+        handleCurrentChange: function handleCurrentChange(val) {
+            var _this2 = this;
+
+            //获取到当前分页页码，获取当前页面数据
+            var url = '/enterprise/' + '3' + '/' + '8' + '/' + val;
+            _api2.default.Get(url).then(function (res) {
+                _this2.tutorList = res['data'];
+                _this2.totalPages = res['totalPages'] * 10;
+            });
+        },
+
+        //培训与活动
+        setTronsApi: function setTronsApi() {
+            var _this3 = this;
+
+            _api2.default.Get("/pub/colleges").then(function (res) {
+                _this3.lecture = res["lecture"];
+                _this3.activity = res["activity"];
+                _this3.service = res["service"];
+            });
+        },
+        getTrainList: function getTrainList(val) {
+            var _this4 = this;
+
+            //获取到当前分页页码，获取当前页面数据
+            var url = "/activity/" + "2" + "/" + "10" + "/" + val;
+            _api2.default.Get(url).then(function (res) {
+                _this4.activityList = res["data"];
+                _this4.totalPages = res["totalPages"] * 10;
+            });
+        },
+        getActivityList: function getActivityList(val) {
+            var _this5 = this;
+
+            //获取到当前分页页码，获取当前页面数据
+            var url = "/activity/" + "2" + "/" + "10" + "/" + val;
+            _api2.default.Get(url).then(function (res) {
+                _this5.activityList = res["data"];
+                _this5.totalPages = res["totalPages"] * 10;
+            });
+        },
+
+        //招聘/培训需求
+        //            initServicesList() {
+        //                var url = "/enterprise/apply/" + "4" + "/" + "1" + "?cid=" + 0;
+        //                api.Get(url).then(res => {
+        //                    this.needData = res["page"]["data"];
+        //                });
+        //            },
+        getInviteList: function getInviteList(val) {
+            var _this6 = this;
+
+            //获取到当前分页页码，获取当前页面数据
+            var url = "/enterprise/apply/" + "4" + "/" + "1" + "/" + val;
+            _api2.default.Get(url).then(function (res) {
+                _this6.needData = res['data'];
+                _this6.totalPages = res['totalPages'] * 10;
+            });
+        }
+    },
     filters: {
         formatDate: function formatDate(time) {
             var date = new Date(time);
@@ -20901,11 +21705,19 @@ exports.default = {
         return {
             university: '', //院校
             mentor: '', //导师
-            talented: '' //校园人才
+            talented: '', //校园人才
+            needData: "", //融资需求
+            noData: false,
+            totalPages: "",
+            Exeprt: "", //专家团队
+            ResearchInstitute: "" //研究机构
         };
     },
     created: function created() {
         this.researchApi();
+        this.initServicesList();
+        this.initExeprt();
+        this.initResearch();
     },
 
     methods: {
@@ -20915,12 +21727,95 @@ exports.default = {
             _api2.default.Get('/pub/research').then(function (res) {
                 _this.university = res['university'];
                 _this.mentor = res['mentor'];
-                _this.talented = res['talented'];
-                if (res['talented'].length == 0) {}
+            });
+        },
+        initServicesList: function initServicesList() {
+            var _this2 = this;
+
+            var url = "/consult/" + "10" + "/" + "1";
+            _api2.default.Get(url).then(function (res) {
+                _this2.needData = res["page"]["data"];
+                if (_this2.needData.length == 0) {
+                    _this2.noData = true;
+                } else if (_this2.needData.length > 0) {
+                    _this2.noData = false;
+                    _this2.needData = res["page"]["data"];
+                    _this2.totalPages = res["page"]["totalPages"] * 10;
+                }
+            });
+        },
+        handleCurrentChange: function handleCurrentChange(val) {
+            var _this3 = this;
+
+            //获取到当前分页页码，获取当前页面数据
+            var url = "/consult/" + "10" + "/" + val;
+            _api2.default.Get(url).then(function (res) {
+                _this3.needData = res["page"]["data"];
+                _this3.totalPages = res["page"]["totalPages"] * 10;
+            });
+        },
+        initExeprt: function initExeprt() {
+            var _this4 = this;
+
+            //专家团队
+            var url = "/indie/2/" + "10" + "/" + "1";
+            _api2.default.Get(url).then(function (res) {
+                _this4.Exeprt = res["data"];
+                if (_this4.Exeprt.length == 0) {
+                    _this4.noData = true;
+                } else if (_this4.Exeprt.length > 0) {
+                    _this4.noData = false;
+                    _this4.Exeprt = res["data"];
+                    _this4.totalPages = res["totalPages"] * 10;
+                }
+            });
+        },
+        initResearch: function initResearch() {
+            var _this5 = this;
+
+            //研究机构
+            var url = "/indie/5/" + "10" + "/" + "1";
+            _api2.default.Get(url).then(function (res) {
+                _this5.ResearchInstitute = res["data"];
+                if (_this5.ResearchInstitute.length == 0) {
+                    _this5.noData = true;
+                } else if (_this5.ResearchInstitute.length > 0) {
+                    _this5.noData = false;
+                    _this5.ResearchInstitute = res["data"];
+                    _this5.totalPages = res["totalPages"] * 10;
+                }
             });
         }
     }
 }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -21351,9 +22246,9 @@ module.exports = __webpack_require__.p + "static/img/cg.8902e8c.jpg";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_financing_vue__ = __webpack_require__("BpzZ");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_financing_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_financing_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_001fd7f2_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_financing_vue__ = __webpack_require__("oC0U");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_001fd7f2_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_financing_vue__ = __webpack_require__("Jrs3");
 function injectStyle (ssrContext) {
-  __webpack_require__("1E8S")
+  __webpack_require__("Kr1b")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -21363,12 +22258,12 @@ var normalizeComponent = __webpack_require__("VU/8")
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-001fd7f2"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_financing_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_001fd7f2_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_financing_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_001fd7f2_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_financing_vue__["a" /* default */],
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
@@ -21987,222 +22882,6 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAS1BMVEX///+a1Pqz3/v5/P/i8/6e1vr7/f+h1/rD5vzl9P7U7f234fur2/vx+f7t+P7G5/yo2vvY7/3O6v30+/+74vyl2fvn9f6u3fvc8P11WuKgAAACK0lEQVRIx82U3ZKDMAiFc9ImaaxG4+++/5OuCsiO0fF2c9FpYT4OpzAYfu8AAB9z8WYL9/FFODrY2BNTpgB8X6fwe42tdSqgNeeUw7fZPvwpzFUq1dGG7YtrluErJkpqrWqVifSrYCQlsPgpNMUPl8Yy8A/1k8RHqfNeCy+om3PtUXw0Y6+M+PBDh1p1sM8HSER0WIwy5GMtNtTokjBwm2SNvXhaq6W/fo7WG2VewIZkoNrjU9rynhgH7BpUjf34L/9/HyALUQX28yFCmWHVsHDpSE9UpwIIiR2UID+DtwjRGGWYaL2OgB/7Wb4Ib420QCbitECqswBOCfaTZYSxJIxffUhXyohGdCXxIh8FY3WVSkJ9/PXj8oUPmof4KHUqM18QL/Jxw7ThwUfZGy594G3uXsSlD6C9JW66am/u2/08ZlOVzMM8Lu/b0zwudeLDPArmaa9K5nmv1I92Nd776Htf6lhgLjW6KCsxFL35DnISlaA0LWvppwmY0KUTAVdtGkT4g8lkHl2UU6U+WiB7JhrLt6pHzexi0sSnV+fxgbNM1LB88wE2ONIZbXQeZIP62MolSY2Gbn8vp1fnwUzm+0rE2nDie/NjuFgj89D7RqXYIiiVAtJxeuMoeyU6QRr29ig2Ixj+NgGyV8p0Q7FAGdb79NOPSw0cYWVcFh9HqkdtA/YXaqsa6qdSH3pbEZaxzbG5uVV9ZA1x0PZ5Tl4DJVM0/PhyjTGZ//9+AbObF7AMwh5rAAAAAElFTkSuQmCC"
-
-/***/ }),
-
-/***/ "oC0U":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('el-row', {
-    attrs: {
-      "gutter": 0
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 24,
-      "md": 24,
-      "sm": 24,
-      "xs": 24
-    }
-  }, [_c('div', {
-    staticClass: "financing_banner"
-  }, [_c('router-link', {
-    staticClass: "financing_Btn db",
-    attrs: {
-      "to": {
-        name: 'financing_apply'
-      }
-    }
-  })], 1)])], 1), _vm._v(" "), _c('el-row', {
-    attrs: {
-      "gutter": 0
-    }
-  }, [_c('div', {
-    staticClass: "container"
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 24,
-      "md": 24,
-      "sm": 24,
-      "xs": 24
-    }
-  }, [_c('div', {
-    staticClass: "title",
-    attrs: {
-      "id": "title-invest"
-    }
-  }, [_c('h1', [_vm._v("投资机构")]), _vm._v(" "), _c('p', [_vm._v("INVESTMENT ORGANIZATION")]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('span'), _vm._v(" "), _c('router-link', {
-    staticClass: "r more_plus",
-    staticStyle: {
-      "margin-top": "-41px"
-    },
-    attrs: {
-      "to": {
-        name: 'invest_more'
-      }
-    }
-  })], 1), _vm._v(" "), _c('div', {
-    staticClass: "service_provider"
-  }, [_c('el-row', {
-    attrs: {
-      "gutter": 10
-    }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 24,
-      "md": 24,
-      "sm": 24,
-      "xs": 24
-    }
-  }, [_c('el-row', {
-    staticClass: "office_wrap"
-  }, _vm._l((_vm.investor), function(item, index) {
-    return _c('el-col', {
-      key: item,
-      attrs: {
-        "xs": 12,
-        "sm": 8,
-        "md": 8,
-        "lg": 4
-      }
-    }, [_c('router-link', {
-      staticClass: "service_provider_item rel",
-      attrs: {
-        "to": {
-          name: 'provider',
-          params: {
-            id: item.id
-          }
-        }
-      }
-    }, [_c('img', {
-      attrs: {
-        "src": item.icon,
-        "alt": ""
-      }
-    }), _vm._v(" "), _c('p', {
-      staticClass: "tc text-ellipsis"
-    }, [_vm._v(_vm._s(item.name))])])], 1)
-  }))], 1)], 1)], 1)])], 1)]), _vm._v(" "), _c('el-row', {
-    staticStyle: {
-      "margin-bottom": "50px"
-    },
-    attrs: {
-      "gutter": 0
-    }
-  }, [_c('div', {
-    staticClass: "container"
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 24,
-      "md": 24,
-      "sm": 24,
-      "xs": 24
-    }
-  }, [_c('div', {
-    staticClass: "title",
-    attrs: {
-      "id": "title-financing"
-    }
-  }, [_c('h1', [_vm._v("融资项目")]), _vm._v(" "), _c('p', [_vm._v("INVESTMENT ORGANIZATION")]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('span'), _vm._v(" "), _c('router-link', {
-    staticClass: "r more_plus",
-    staticStyle: {
-      "margin-top": "-41px"
-    },
-    attrs: {
-      "to": {
-        name: 'financing_more'
-      }
-    }
-  })], 1), _vm._v(" "), _c('el-row', {
-    staticStyle: {
-      "margin-top": "70px"
-    },
-    attrs: {
-      "gutter": 10
-    }
-  }, _vm._l((_vm.financing), function(item, index) {
-    return _c('el-col', {
-      key: index < 3,
-      attrs: {
-        "lg": 12,
-        "md": 12,
-        "sm": 12,
-        "xs": 24
-      }
-    }, [_c('router-link', {
-      staticClass: "Financing_item rel",
-      attrs: {
-        "to": {
-          name: 'financingDetail',
-          params: {
-            id: item.id
-          }
-        }
-      }
-    }, [_c('div', {
-      staticStyle: {
-        "max-height": "250px"
-      }
-    }, [_c('img', {
-      staticStyle: {
-        "max-height": "220px",
-        "height": "220px"
-      },
-      attrs: {
-        "src": item.logo,
-        "alt": ""
-      }
-    })]), _vm._v(" "), _c('div', {
-      staticClass: "Financing_wrap"
-    }, [_c('div', {
-      staticClass: "Financing_info"
-    }, [_c('h1', {
-      staticClass: "f16"
-    }, [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c('p', {
-      staticClass: "text-ellipsis"
-    }, [_vm._v(_vm._s(item.intro))])]), _vm._v(" "), _c('el-row', {
-      staticClass: "Financing_money",
-      attrs: {
-        "type": "flex"
-      }
-    }, [_c('el-col', {
-      attrs: {
-        "span": 6
-      }
-    }, [_c('p', {
-      staticClass: "f14"
-    }, [_vm._v(_vm._s(item.archived) + "万"), _c('br'), _vm._v("已获得投资意向")])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "span": 6,
-        "push": 12
-      }
-    }, [_c('p', {
-      staticClass: "f14 tr"
-    }, [_vm._v(_vm._s(item.financing) + "万"), _c('br'), _vm._v("预融资总额")])])], 1), _vm._v(" "), _c('el-tag', {
-      staticStyle: {
-        "margin-left": "8px"
-      },
-      attrs: {
-        "type": "primary"
-      }
-    }, [_vm._v("行业领域:\n                                    "), _c('span', [_vm._v("消费生活")])]), _vm._v(" "), _c('el-tag', {
-      attrs: {
-        "type": "success"
-      }
-    }, [_vm._v("已完成融资:\n                                    "), _c('span', [_vm._v("未完成融资")])]), _vm._v(" "), _c('p', {
-      staticClass: "f14 pl10",
-      staticStyle: {
-        "margin-left": "8px"
-      }
-    }, [_vm._v("发起人:" + _vm._s(item.founder))])], 1)])], 1)
-  }))], 1)], 1)])], 1)
-}
-var staticRenderFns = []
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
 
 /***/ }),
 
@@ -24999,10 +25678,12 @@ exports.default = {
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
+    staticClass: "incubators_details"
+  }, [_c('div', {
     staticClass: "container"
   }, [_c('el-row', {
     staticStyle: {
-      "margin-bottom": "50px"
+      "padding-bottom": "50px"
     },
     attrs: {
       "gutter": 10
@@ -25016,7 +25697,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-row', {
     staticStyle: {
-      "margin-top": "50px",
       "border": "1px solid #ddd",
       "padding": "15px",
       "background-color": "#fff"
@@ -25076,20 +25756,58 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("申请入驻")]) : _vm._e()], 1)], 1), _vm._v(" "), _c('el-row', {
     staticClass: "incubators_details_text",
-    staticStyle: {
-      "border": "1px solid #ddd",
-      "background-color": "#fff",
-      "padding": "15px",
-      "margin-top": "20px"
-    },
     attrs: {
-      "gutter": 10
+      "gutter": 20
     }
+  }, [_c('div', {
+    staticClass: "i01"
+  }, [_c('h1', {
+    staticClass: "i_tit i01_tit"
+  }, [_vm._v("空间展示")]), _vm._v(" "), _c('div', {
+    staticClass: "incubators_img clearfix"
+  }, _vm._l((_vm.photos), function(item, index) {
+    return (index < 3) ? _c('el-col', {
+      key: index,
+      attrs: {
+        "lg": 8,
+        "md": 8,
+        "sm": 24,
+        "xs": 24
+      }
+    }, [_c('img', {
+      attrs: {
+        "src": item.uri
+      }
+    })]) : _vm._e()
+  }))]), _vm._v(" "), _c('div', {
+    staticClass: "i02"
+  }, [_c('h1', {
+    staticClass: "i_tit i02_tit"
+  }, [_vm._v("空间招商")]), _vm._v(" "), _c('div', {
+    staticClass: "incubators_intro clearfix"
+  }, [_c('p', {
+    staticClass: "mr130"
+  }, [_c('span', {
+    staticClass: "b"
+  }, [_vm._v("园区面积：")]), _vm._v("24000m2 ")]), _vm._v(" "), _c('p', {
+    staticClass: "mr130"
+  }, [_c('span', {
+    staticClass: "b"
+  }, [_vm._v("已使用面积：")]), _vm._v("24000m2 ")]), _vm._v(" "), _c('p', [_c('span', {
+    staticClass: "b"
+  }, [_vm._v("待招商面积：")]), _vm._v("24000m2 ")]), _vm._v(" "), _c('p', [_c('span', {
+    staticClass: "b"
+  }, [_vm._v("园区特色：")]), _vm._v("孵化器通过提供研发、试制、经营的场地和共享设施，以及政策、法律、财务、投融资、企业管理、人力资源、市场推广和加速成长等方面的孵企速成长。")])])]), _vm._v(" "), _c('div', {
+    staticClass: "i03"
+  }, [_c('h1', {
+    staticClass: "i_tit i03_tit"
+  }, [_vm._v("空间简介")]), _vm._v(" "), _c('div', {
+    staticClass: "incubators_detail clearfix"
   }, [_c('p', {
     domProps: {
       "innerHTML": _vm._s(_vm.content)
     }
-  })])], 1)], 1)], 1)
+  })])])])], 1)], 1)], 1)])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -27018,4 +27736,4 @@ module.exports = __webpack_require__.p + "static/img/banner_cgzx.3700b27.png";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.5dc556a1ac1cd0eaf7f2.js.map
+//# sourceMappingURL=app.08fc3bd9fac88eed1e96.js.map
