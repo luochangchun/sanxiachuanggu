@@ -11,7 +11,9 @@ body {
 a {
   display: block;
 }
-
+.el-rate__icon {
+  margin-right:2px
+}
 .text-ellipsis {
   overflow: hidden;
   display: block;

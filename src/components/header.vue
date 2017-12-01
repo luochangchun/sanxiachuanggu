@@ -96,9 +96,9 @@
             <li>
               <router-link to="/financing">投融资库</router-link>
             </li>
-            <li>
+            <!-- <li>
               <router-link to="/intermediary">中介服务</router-link>
-            </li>
+            </li> -->
           </ul>
         </div>
         <div class="nav nav_mobile r">

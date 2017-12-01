@@ -4,186 +4,132 @@
             <el-col :lg="24" :md="24" :sm="24" :xs="24" class="service-banner">
             </el-col>
         </el-row>
-        <!--热门服务-->
-        <div class="container">
-            <!--入孵企业专区-->
+        <!--title-->
+        <div class="container" style="margin-bottom:20px;">
+            <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                <div class="common_title">
+                    <h1 class="tc">全面完善的服务商体系</h1>
+                    <h1 class="tc">高效解决企业发展所需的各类服务</h1>
+                </div>
+            </el-col>
             <el-row :gutter="10">
-                <el-col :lg="16" :md="16" :sm="24" :xs="24">
-                    <div class="title" id="title-company" style="margin-top: 70px;margin-bottom:15px;">
-                        <h1 class="tl">入孵企业专区</h1>
-                        <p class="tl">SERVICE AREA</p>
-                        <router-link to="/into_more" class="r more_plus" style="margin-top:-41px;"></router-link>
-                        <router-link :to="{name:'problem', params: {type:'enterprise'}}" style="margin-top:-38px;" class="r show_need_btn">
-                            发布问题
-                        </router-link>
-                    </div>
-                    <el-row :gutter="10">
-                        <!-- <el-tabs v-model="activeName" @tab-click="handleClick">
-                                            <el-tab-pane v-for="(item,index) in category" :key="index" :label="item.name" :name="item.cname" :sid="item.id" v-if="index>0">
-                                                <el-row :gutter="10">
-                                                    <p v-show="nodata" style="margin-left:5px;">暂无数据</p>
-                                                    <el-col v-show="!nodata" :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in serviceBody" :key="index">
-                                                        <router-link :to="{name:'invest_detail', params: {id:item.id}}" style="display:block;">
-                                                            <div class="service-opcity-into">
-                                                                <h2>{{item.name}}</h2>
-                                                            </div>
-                                                        </router-link>
-                                                    </el-col>
-                                                </el-row>
-                                               
-                                                <el-row :gutter="10" style="margin-top: 60px;margin-bottom: 50px;">
-                                                    <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
-                                                        <div class="block">
-                                                            <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
-                                                            </el-pagination>
-                                                        </div>
-                                                    </el-col>
-                                                </el-row>
-                                            </el-tab-pane>
-                                        </el-tabs> -->
-                        <div class="filter">
-                            <div class="filter_top rel">
-                                <dl>
-                                    <!-- <dt>项目阶段</dt> -->
-                                    <dd :class="{ auto : moreFlag }">
-                                        <a href="javascript:;" :class="{ on : display_active[index] }" @click="handleClick(index,item.id)" class="sx_child" v-for="(item,index) in category" :key="index" :sid="item.id" v-if="index>0">{{item['name']}}</a>
-                                    </dd>
-                                </dl>
-                                <a href="javascript:;" class="filter_more abs" @click="filterMore">更多<i class="el-icon-arrow-up" v-show="!moreFlag"></i><i class="el-icon-arrow-down" v-show="moreFlag"></i></a>
-                            </div>
-                            <div class="filter_body" v-loading.body="loading">
-                                <el-row :gutter="10">
-                                    <p v-show="nodata" style="margin-left:5px;">暂无数据</p>
-                                    <el-col v-show="!nodata" :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in serviceBody" :key="index">
-                                        <router-link :to="{name:'invest_detail', params: {id:item.id}}" style="display:block;">
-                                            <div class="service-opcity-into">
-                                                <h2>{{item.name}}</h2>
+                <!--服务商列表-->
+                <el-col :lg="12" :md="12" :sm="24" :xs="24" style="border-right:1px solid #ccc;padding-right:20px;">
+                    <el-row>
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                            <h2 class="common_sub_title">
+                                <p class="tc white">服务商机构</p>
+                                <div class="line"></div>
+                            </h2>
+                        </el-col>
+                    </el-row>
+                    <el-row style="margin-top:40px;">
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                            <div class="s_service_list clearfix" v-for="(item , index) in ServiceList" :key="index">
+                                <h2>{{ item['value']}}</h2>
+                                <el-row>
+                                    <p v-show="noData" style="margin-left:15px;font-size:12px;margin-bottom: 10px;line-height:36px;">暂无数据</p>
+                                    <el-col v-show="!noData" :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in needData" :key="index">
+                                        <div class="c1">
+                                            <div class="c2">
+                                                <h3 class="text-ellipsis-muti text-ellipsis-2">{{item['enterprise']}}</h3>
+                                                <p>电话:{{item['phone']}}</p>
+                                                <div class="block">
+                                                    <el-rate v-model="value1"></el-rate>
+                                                </div>
                                             </div>
-                                        </router-link>
-                                    </el-col>
-                                </el-row>
-                                <el-row :gutter="10" style="margin-top: 60px;margin-bottom: 50px;">
-                                    <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
-                                        <div class="block">
-                                            <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next" :page-size="12">
-                                            </el-pagination>
                                         </div>
                                     </el-col>
                                 </el-row>
                             </div>
-                            <!-- <div class="filter_bottom">
-                            </div> -->
-                        </div>
+                        </el-col>
                     </el-row>
                 </el-col>
-                <el-col :lg="7" :md="7" :sm="24" :xs="24" :offset="1" class="service_r">
-                    <el-row :gutter="10">
+                <!--被服务企业列表-->
+                <el-col :lg="12" :md="12" :sm="24" :xs="24">
+                    <el-row>
                         <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                            <div class="news-rightlist">
-                                <div class="news-hot">服务需求</div>
-                                <ul>
-                                    <li v-for="( item,index ) in needData" :key="index" @click="openDetail(item['id'])">
-                                        <p><span>{{index+1}}</span>{{item['title']}}</p>
-                                    </li>
-                                </ul>
-                            </div>
+                            <h2 class="common_sub_title">
+                                <p class="tc white">享受服务企业</p>
+                                <div class="line"></div>
+                            </h2>
                         </el-col>
-                        <el-col :lg="24" :md="24" :sm="24" :xs="24" style="margin-bottom: 50px;">
-                            <div class="news-rightlist">
-                                <div class="news-hot">企业资讯</div>
-                                <ul>
-                                    <router-link v-for="( item,index ) in infoData" :to="{ name: 'article', params: { id: item.id} }" :key="index">
-                                        <p><span>{{index+1}}</span>{{item['title']}}</p>
-                                    </router-link>
-                                </ul>
+                    </el-row>
+                    <el-row>
+                        <el-col>
+                            <div style="padding-left:13px;">
+                                <div class="s_header_img">
+                                    <!-- <img src="../../static/img/02z.png" alt=""> -->
+                                </div>
+                                <div class="s_intermediary_list">
+                                    <div class="filte" style="margin-top:20px">
+                                        <div class="filte_top rel">
+                                            <dl>
+                                                <!-- <dt>项目阶段</dt> -->
+                                                <dd style="width: 93%;" :class="{ auto : moreFlag }">
+                                                    <a href="javascript:;" :class="{ on : display_active[index] }" @click="handleClick(index,item.id)" class="sx_child" v-for="(item , index) in category" :key="index" :sid="item.id" v-if="index>0">{{ item['name']}}</a>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                        <div class="filte_body" v-loading.body="loading">
+                                            <el-row :gutter="10">
+                                                <p v-show="noDate" style="margin-left:5px;">暂无数据</p>
+                                                <el-col v-show="!noDate" class="gh" :xs="24" :sm="24" :md="24" :lg="24" v-for="(item,index) in serviceBody" :key="index">
+                                                    <router-link :to="{name:'invest_detail', params: {id:item.id}}">
+                                                        <div class="intermediary_list">
+                                                            <h1>{{item['name']}}</h1>
+                                                            <div class="c3">
+                                                                <p>地址:{{ item['address']}}</p>
+                                                                <p>电话:{{ item['phone']}}</p>
+                                                            </div>
+                                                            <ul class="clearfix">
+                                                                <li v-if="item == '51'" class="green" v-for="(item,index) in item['labels']" :key="index">信息化</li>
+                                                                <li v-if="item == '52'" class="green" v-for="(item,index) in item['labels']" :key="index">知识产权</li>
+                                                                <li v-if="item == '53'" class="green" v-for="(item,index) in item['labels']" :key="index">科技转化</li>
+                                                                <li v-if="item == '54'" class="green" v-for="(item,index) in item['labels']" :key="index">金融服务</li>
+                                                                <li v-if="item == '55'" class="green" v-for="(item,index) in item['labels']" :key="index">电子商务</li>
+                                                                <li v-if="item == '56'" class="green" v-for="(item,index) in item['labels']" :key="index">财税/法务</li>
+                                                                <li v-if="item == '57'" class="green" v-for="(item,index) in item['labels']" :key="index">招聘/培训</li>
+                                                                <li v-if="item == '58'" class="green" v-for="(item,index) in item['labels']" :key="index">物业服务</li>
+                                                                <li v-if="item == '51'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="index">信息化</li>
+                                                                <li v-if="item == '52'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="index">知识产权</li>
+                                                                <li v-if="item == '53'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="index">科技转化</li>
+                                                                <li v-if="item == '54'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="index">金融服务</li>
+                                                                <li v-if="item == '55'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="index">电子商务</li>
+                                                                <li v-if="item == '56'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="index">财税/法务</li>
+                                                                <li v-if="item == '57'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="index">招聘/培训</li>
+                                                                <li v-if="item == '58'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="index">物业服务</li>
+                                                                <li v-if="item == '51'" class="gray" v-for="(item,index) in item['others']" :key="index">信息化</li>
+                                                                <li v-if="item == '52'" class="gray" v-for="(item,index) in item['others']" :key="index">知识产权</li>
+                                                                <li v-if="item == '53'" class="gray" v-for="(item,index) in item['others']" :key="index">科技转化</li>
+                                                                <li v-if="item == '54'" class="gray" v-for="(item,index) in item['others']" :key="index">金融服务</li>
+                                                                <li v-if="item == '55'" class="gray" v-for="(item,index) in item['others']" :key="index">电子商务</li>
+                                                                <li v-if="item == '56'" class="gray" v-for="(item,index) in item['others']" :key="index">财税/法务</li>
+                                                                <li v-if="item == '57'" class="gray" v-for="(item,index) in item['others']" :key="index">招聘/培训</li>
+                                                                <li v-if="item == '58'" class="gray" v-for="(item,index) in item['others']" :key="index">物业服务</li>
+                                                            </ul>
+                                                        </div>
+                                                    </router-link>
+                                                </el-col>
+                                                <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="margin-bottom: 50px;margin-top:50px;">
+                                                    <div class="block">
+                                                        <el-pagination :current-page="curPage" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                                        </el-pagination>
+                                                    </div>
+                                                </el-col>
+                                            </el-row>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--分页-->
+                                <!-- <el-row :gutter="10" style="margin-bottom: 50px;margin-top:50px;">
+                                            
+                                        </el-row> -->
                             </div>
                         </el-col>
                     </el-row>
                 </el-col>
             </el-row>
-            <!-- <el-row :gutter="10" style="margin: 30px 0;">
-                                                                                            <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                                                                                                <div class="title" id="title-service">
-                                                                                                    <h1>热门服务</h1>
-                                                                                                    <p>SERVICE AREA</p>
-                                                                                                    <hr>
-                                                                                                    <span></span>
-                                                                                                    <div class="r more_plus"></div>
-                                                                                                </div>
-                                                                                                <el-row :gutter="0">
-                                                                                                    <el-col :lg="12" :md="24" :sm="24" :xs="24" class="service-show">
-                                                                                                        <a href="http://www.egowork.com/infomation.html">
-                                                                                                            <div class="service-img l"><img src="http://www.egowork.com/themes/egowork/img/logo-1.png" alt=""></div>
-                                                                                                            <div class="service-text">
-                                                                                                                <p class="f18">企业信息化</p>
-                                                                                                                <p class="text-muted">中小企业云服务平台</p>
-                                                                                                                <p class="text-muted">一个伴随企业成长的IT服务平台</p>
-                                                                                                                <p class="text-muted">一个平台一个账号对企业IT全流程统一管理</p>
-                                                                                                            </div>
-                                                                                                        </a>
-                                                                                                    </el-col>
-                                                                                                    <el-col :lg="12" :md="24" :sm="24" :xs="24" class="service-show">
-                                                                                                        <a href="http://www.egowork.com/agri_electricity.html">
-                                                                                                            <div class="service-img l"><img src="http://www.egowork.com/themes/egowork/img/logo-2.png" alt=""></div>
-                                                                                                            <div class="service-text">
-                                                                                                                <p class="f18">农业电商</p>
-                                                                                                                <p class="text-muted">中国农特产品全渠道营销服务平台，为中国农村电商的发展探索了新的模式</p>
-                                                                                                                <p class="text-muted">专注于为中小企业提供最佳信息化产品，最优质的行业解决方案，助力企业腾飞</p>
-                                                                                                            </div>
-                                                                                                        </a>
-                                                                                                    </el-col>
-                                                                                                </el-row>
-                                                                                                <el-row style="height:255px;overflow:hidden">
-                                                                                                    <el-col :lg="6" :md="12" :sm="12" :xs="24">
-                                                                                                        <a href="http://www.egowork.com/hr.html" class="service-mini">
-                                                                                                            <img src="http://www.egowork.com/themes/egowork/img/icon-1.png" class="center-block img-responsive">
-                                                                                                            <p class="tc f16">人力资源</p>
-                                                                                                        </a>
-                                                                                                    </el-col>
-                                                                                                    <el-col :lg="6" :md="12" :sm="12" :xs="24">
-                                                                                                        <a href="http://www.egowork.com/fiscal.html" class="service-mini">
-                                                                                                            <img src="http://www.egowork.com/themes/egowork/img/icon-3.png" class="center-block img-responsive">
-                                                                                                            <p class="tc f16">财税/法务</p>
-                                                                                                        </a>
-                                                                                                    </el-col>
-                                                                                                    <el-col :lg="6" :md="12" :sm="12" :xs="24">
-                                                                                                        <a href="http://www.egowork.com/insurance.html" class="service-mini">
-                                                                                                            <img src="http://www.egowork.com/themes/egowork/img/icon-2.png" class="center-block img-responsive">
-                                                                                                            <p class="tc f16">团体保险</p>
-                                                                                                        </a>
-                                                                                                    </el-col>
-                                                                                                    <el-col :lg="6" :md="12" :sm="12" :xs="24">
-                                                                                                        <a href="http://www.egowork.com/pro_application.html" class="service-mini">
-                                                                                                            <img src="http://www.egowork.com/themes/egowork/img/icon-4.png" class="center-block img-responsive">
-                                                                                                            <p class="tc f16">项目申报</p>
-                                                                                                        </a>
-                                                                                                    </el-col>
-                                                                                                </el-row>
-                                                                                            </el-col>
-                                                                                        </el-row> -->
-            <!-- 服务商 -->
-            <!-- <el-row :gutter="10" style="margin:50px 0;">
-                                                                                                <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                                                                                                    <div class="title" id="title-service">
-                                                                                                        <h1>服务商</h1>
-                                                                                                        <p>SERVICE</p>
-                                                                                                        <hr>
-                                                                                                        <span></span>
-                                                                                                        <router-link to="/service_provider_more" class="r more_plus" style="margin-top:-41px;"></router-link>
-                                                                                                    </div>
-                                                                                                </el-col>
-                                                                                                <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                                                                                                    <el-row class="office_wrap">
-                                                                                                        <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in provider" :key="index">
-                                                                                                            <router-link :to="{name:'provider', params: {id:item.id} }" class="service_provider_item rel">
-                                                                                                                <img :src="item.icon" alt="">
-                                                                                                                <p class="tc">{{item.name}}</p>
-                                                                                                                <i class="tag abs white tc f14">{{item.service}}</i>
-                                                                                                            </router-link>
-                                                                                                        </el-col>
-                                                                                                    </el-row>
-                                                                                                </el-col>
-                                                                                            </el-row> -->
             <!-- footer -->
         </div>
     </div>
@@ -194,49 +140,79 @@
     export default {
         data() {
             return {
-                // provider: '',
-                // normal: '',
-                // ServiceList: ''
+                category: "",
+                ServiceList: '',
                 loading: false,
-                moreFlag:true,
-                display_active: [false, false, false, false],
-                nodata: false,
+                moreFlag: true,
                 needData: '',
-                infoData: '',
+                noData: false,
+                noDate: false,
+                serviceBody: '',
+                display_active: [false, false, false, false],
                 activeName: "tab1",
+                serviceEight: '',
+                value1: 4, //星级评分
                 totalPages: "",
-                category: '',
-                serviceBody: ''
+                totalArr: ['51', '52', '53', '54', '55', '56', '57', '58'],
+                other: [],
+                curPage: 1
             }
         },
         created() {
-            // this.getServiceList()
-            // this.researchApi()
+            this.getServiceList();
             this.getQb();
-            this.initServicesList()
+            this.getServiceEight();
+            this.initServicesList();
         },
         methods: {
+            // 服务商机构value
+            getServiceList() {
+                this.fullscreenLoading = true;
+                api.Get('/dict/service').then(res => {
+                    this.ServiceList = res;
+                    this.ServiceList.forEach((value, index, array) => {
+                        if (index == 1) {
+                            this.initNewsList(this.ServiceList[index]["id"]);
+                        }
+                    });
+                });
+            },
+            //服务商机构内容
+            getProviderClass(id) {
+                let url = '/enterprise/' + id + '/' + '2' + '/' + '10' + '/' + '1';
+                api.Get(url)
+                    .then(res => {
+                        this.needData = res['data'];
+                        if (this.needData.length == 0) {
+                            this.nodata = true;
+                        } else {
+                            this.nodata = false;
+                        }
+                        this.totalPages = res['totalPages'] * 10;
+                    });
+            },
+            initServicesList() {
+                var url = "/enterprise/apply/" + "4" + "/" + "1" + "?cid=" + 0;
+                api.Get(url).then(res => {
+                    this.needData = res["page"]["data"];
+                });
+            },
+            // 享受服务企业name
             getQb() {
                 api.Get('/qb')
                     .then(res => {
-                        console.log(res);
                         this.category = res;
                         this.category.forEach((value, index, array) => {
                             if (index == 1) {
                                 this.$set(this.display_active, 1, true)
                                 this.initNewsList(this.category[index]["id"]);
                                 this.fullscreenLoading = false;
+                                window.localStorage.setItem("seid", this.category[index]["id"]);
                             }
+                            // this.totalArr.push(this.category[index]['categoryId'].toString());
                         });
+                        // console.log(this.totalArr);
                     })
-            },
-            filterMore() {
-                console.log(this.moreFlag);
-                if(this.moreFlag) {
-                    this.moreFlag = false;
-                } else {
-                    this.moreFlag = true;
-                }
             },
             handleClick(index, sid) {
                 var sx_child_item = document.querySelectorAll('.sx_child');
@@ -245,16 +221,15 @@
                         this.$set(this.display_active, i, false)
                     } else {
                         this.$set(this.display_active, i, true)
-                        console.log('i=' + i)
-                        console.log('index=' + index)
                     }
                 }
+                this.curPage = 1;
                 this.initNewsList(sid);
-                window.localStorage.setItem("sid", sid);
+                window.localStorage.setItem("seid", sid);
             },
             initNewsList(sid) {
                 this.loading = true
-                var url = "/enterprise/" + sid + "/1/" + "12" + "/" + "1";
+                var url = "/enterprise/normal/" + "10" + "/" + "1?sid=" + sid;
                 api.Get(url).then(res => {
                     this.serviceBody = res["data"];
                     if (this.serviceBody.length == 0) {
@@ -263,6 +238,11 @@
                     } else {
                         this.nodata = false;
                         this.loading = false;
+                        for (var i = 0; i < this.serviceBody.length; i++) {
+                            this.serviceBody[i]['labels'] = this.serviceBody[i]['labels'].split(",");
+                            let tempArr = this.serviceBody[i]['labels'].concat(this.serviceBody[i]['serviceIds']);
+                            this.serviceBody[i]['others'] = this.filterOter(this.totalArr, tempArr);
+                        }
                     }
                     this.totalPages = res["totalPages"] * 10;
                 });
@@ -279,37 +259,218 @@
             },
             handleCurrentChange(val) {
                 //获取到当前分页页码，获取当前页面数据
-                let sid = window.localStorage.getItem("sid");
-                var url = "/enterprise/" + sid + "/1/" + "12" + "/" + val;
+                let sid = window.localStorage.getItem("seid");
+                var url = "/enterprise/normal/" + "10" + "/" + val + "/?sid=" + sid;
                 api.Get(url).then(res => {
                     this.serviceBody = res["data"];
+                    for (var i = 0; i < this.serviceBody.length; i++) {
+                        this.serviceBody[i]['labels'] = this.serviceBody[i]['labels'].split(",");
+                        let tempArr = this.serviceBody[i]['labels'].concat(this.serviceBody[i]['serviceIds']);
+                        this.serviceBody[i]['others'] = this.filterOter(this.totalArr, tempArr);
+                    }
                     this.totalPages = res["totalPages"] * 10;
                 });
             },
-            initServicesList() {
-                var url = "/enterprise/apply/" + "10" + "/" + "1" + "?cid=" + 0;
-                api.Get(url).then(res => {
-                    this.needData = res["page"]["data"];
-                });
+            // 已享受服务,有需求服务,未享受服务
+            getServiceEight() {
+                api.Get('/pub/enterprises')
+                    .then(res => {
+                        this.serviceEight = res;
+                    })
             },
-            // researchApi() {
-            //     api.Get('/pub/enterprises')
-            //         .then(res => {
-            //             this.provider = res['provider'];
-            //             this.normal = res['normal'];
-            //         })
-            // },
-            // getServiceList() {
-            //     api.Get('/dict/service')
-            //         .then(res => {
-            //             this.ServiceList = res;
-            //         })
-            // }
+            filterOter(ar1, ar2) {
+                var arr1 = ar1; //数组A 
+                var arr2 = ar2; //数组B 
+                var temp = []; //临时数组1 
+                var temparray = []; //临时数组2 
+                for (var i = 0; i < arr2.length; i++) {
+                    temp[arr2[i]] = true; //巧妙地方：把数组B的值当成临时数组1的键并赋值为真 
+                };
+                for (var i = 0; i < arr1.length; i++) {
+                    if (!temp[arr1[i]]) {
+                        temparray.push(arr1[i]); //巧妙地方：同时把数组A的值当成临时数组1的键并判断是否为真，如果不为真说明没重复，就合并到一个新数组里，这样就可以得到一个全新并无重复的数组 
+                    };
+                };
+                return temparray;
+            }
         }
     }
 </script>
 
 <style scoped>
+    /*01/服务商机构*/
+    .s_center_title {
+        text-align: center;
+        color: #0089e3;
+        font-size: 24px;
+        margin-top: 40px;
+        margin-bottom: 60px;
+    }
+    .s_center_title h1 {
+        line-height: 45px;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+    .s_header_img img {
+        width: 25%;
+        float: left;
+        margin-bottom: 40px;
+    }
+    .s_service_list h2 {
+        color: #e38000;
+        font-size: 13px;
+        font-weight: 600;
+        border: 1px solid #e38000;
+        height: 30px;
+        width: 120px;
+        border-radius: 10px;
+        line-height: 30px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .c1 {
+        background-color: #f1f1f1;
+        /*height:100px;*/
+        margin-bottom: 20px;
+        padding: 15px 10px;
+    }
+    .c2 {
+        border-left: 1px solid rgba(204, 204, 204, 0.43);
+        margin: 10px 3px;
+    }
+    .c1:last-child {
+        padding-right: 0;
+    }
+    .c2 h3 {
+        color: #666;
+        height: 44px;
+        font-size: 11px;
+        text-align: center;
+        margin-left: 5px;
+        margin-right: 5px;
+        line-height: 22px;
+    }
+    .c2 p {
+        color: #999;
+        font-size: 9px;
+        text-align: center;
+        line-height: 30px;
+    }
+    .block {
+        margin-left: 10px;
+        margin-right: 5px;
+    }
+    /*02/享受服务企业*/
+    /*tab切换*/
+    .filte dl {
+        position: relative;
+        margin-bottom: 0;
+    }
+    .filte dl:after {
+        content: "";
+        display: block;
+        clear: both
+    }
+    .c3 p {
+        color: #999;
+        font-size: 9px;
+        text-align: center;
+        line-height: 30px;
+    }
+    .filte dl dd {
+        padding: 0 5px;
+        /*border-bottom: 1px solid #d1dbe5;*/
+        height: 30px;
+        line-height: 30px;
+        overflow: hidden;
+    }
+    .filte dl dd.auto {
+        height: auto;
+    }
+    .filte dl dd a {
+        margin-right: 10px;
+        margin-bottom: 10px;
+        display: inline-block;
+        color: #8391a5;
+        font-size: 14px;
+    }
+    .filte dl dd a.on {
+        color: #e38000;
+        font-size: 13px;
+        font-weight: 600;
+        border: 1px solid #e38000;
+    }
+    /*tab切换*/
+    .s_intermediary_list {
+        clear: both;
+        margin-top: 50px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    .intermediary_list {
+        border-bottom: 1px dashed #ccc;
+        padding: 5px 10px;
+        margin-top: 15px;
+    }
+    .intermediary_list:hover {
+        background-color: #f1f1f1;
+    }
+    .s_intermediary_list>.filte dd a {
+        float: left;
+        margin-right: 2%;
+        font-size: 13px;
+        font-weight: 600;
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+        height: 30px;
+        width: 76px;
+        border-radius: 10px;
+        line-height: 30px;
+        overflow: hidden;
+        text-align: center;
+        margin-bottom: 10px;
+        /* color: #e38000; */
+        color: #999;
+        /* border: 1px solid #e38000; */
+        border: 1px solid #999;
+    }
+    .intermediary_list div p {
+        float: left;
+    }
+    .intermediary_list div p:first-child {
+        margin-right: 12%;
+    }
+    .intermediary_list ul li {
+        float: left;
+        line-height: 20px;
+        width: 60px;
+        height: 20px;
+        font-size: 12px;
+        color: #fff;
+        text-align: center;
+        margin-right: 9px;
+        margin-bottom: 5px;
+    }
+    .intermediary_list h1 {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+        line-height: 30px;
+    }
+    .intermediary_list ul {
+        margin-top: 30px;
+    }
+    .intermediary_list ul li.green {
+        background-color: #88d8a3;
+    }
+    .intermediary_list ul li.yellow {
+        background-color: red;
+    }
+    .intermediary_list ul li.gray {
+        background-color: #ccc;
+    }
+    /*banner*/
     .show_need_btn {
         border: none;
         background-color: #f48100;
@@ -348,211 +509,5 @@
         line-height: 40px;
         display: inline-block;
         font-size: 14px;
-    }
-    /*服务商专区*/
-    .title {
-        text-align: center;
-        margin-top: 25px;
-        /* margin-bottom: 25px; */
-    }
-    .title h1 {
-        color: #0089e3;
-        font-size: 18px;
-        font-weight: 600;
-    }
-    .title p {
-        color: #ddd;
-        font-size: 10px;
-    }
-    .title hr {
-        width: 30%;
-        border: 1px solid #454b60;
-    }
-    .title span {
-        display: block;
-        border: 2px solid #0089e3;
-        width: 10%;
-    }
-    .title div {
-        margin-top: -42px;
-    }
-    #title-service {
-        position: relative;
-        /* margin-top: 50px; */
-    }
-    #title-service span {
-        position: absolute;
-        top: 48px;
-        left: 45%;
-    }
-    .service-show {
-        -webkit-transition: all 0.3s;
-        -moz-transition: all 0.3s;
-        -ms-transition: all 0.3s;
-        -o-transition: all 0.3s;
-        transition: all 0.3s;
-    }
-    .service-show a {
-        height: 200px;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-    }
-    .service-img {
-        padding-top: 70px;
-        padding-bottom: 60px;
-        padding-right: 20px;
-        padding-left: 20px;
-    }
-    .service-text {
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
-    .service-text p {
-        display: block;
-        padding-bottom: 10px;
-        color: #58666e;
-    }
-    .service-text p.text-muted {
-        color: #98a6ad !important;
-    }
-    .service-mini {
-        padding: 22px 0;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        -webkit-transition: all 0.3s;
-        -moz-transition: all 0.3s;
-        -ms-transition: all 0.3s;
-        -o-transition: all 0.3s;
-        transition: all 0.3s;
-    }
-    .service-mini:hover,
-    .service-show:hover {
-        box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.1);
-    }
-    .service-mini img {
-        width: 50%;
-    }
-    .service-mini p {
-        padding: 10px 0;
-        color: #98a6ad;
-    }
-    /*图片上阴影字*/
-    .service-opcity {
-        width: 70%;
-        background: rgba(255, 255, 255, 0.5);
-        height: 70%;
-    }
-    .service-opcity h2 {
-        text-align: center;
-        margin-top: 5%;
-        color: #000;
-    }
-    .service-opcity p {
-        margin: 0 6px;
-        text-align: center;
-        margin-top: 3%;
-        color: #000;
-        height: 58%;
-        overflow: hidden;
-    }
-    .service-show img {
-        width: 100%;
-    }
-    /*服务商*/
-    .service_provider_item img {
-        height: 100px;
-        width: 100px;
-    }
-    .service_provider_item p {
-        overflow: hidden;
-        word-break: break-all;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
-    /*入孵企业专区*/
-    #title-company {
-        position: relative;
-    }
-    #title-company span {
-        position: absolute;
-        top: 48px;
-        left: 45%;
-    }
-    .service-show-into {
-        margin-bottom: 10px;
-    }
-    .service-show-into img {
-        max-height: 192px;
-    }
-    .service-opcity-into {
-        text-align: center;
-        padding: 50px 0;
-        background: url(../../static/img/service_area.png) no-repeat center center;
-        background-size: cover;
-        border: 1px solid #eee;
-        margin: 5px 0;
-    }
-    .service-opcity-into h2 {
-        width: 100%;
-        height: 30px;
-        line-height: 30px;
-        /* margin-top: -60px; */
-        color: #0089e3;
-    }
-    /* .service-show-into img:hover {
-                                                                                                        width: 101%;
-                                                                                                    } */
-    .center-block {
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
-    }
-    .img-responsive {
-        max-width: 100%;
-        height: auto;
-    }
-    /*热门排行*/
-    .news-rightlist {
-        box-shadow: 0 0 10px #ddd;
-        width: 100%;
-        padding: 0 10px 20px 20px;
-        margin-top: 40px;
-        box-sizing: border-box;
-    }
-    .news-hot {
-        position: relative;
-        top: -11px;
-        left: 20px;
-        background-color: #fff;
-        width: 30%;
-        text-align: center;
-        color: #0089e3;
-        font-weight: 600;
-        font-size: 16px;
-    }
-    .news-button button {
-        border: none;
-        background-color: #ff0000;
-        float: right;
-        margin-right: 10px;
-        border-radius: 4px;
-        margin-bottom: 10px;
-    }
-    .news-rightlist ul li,
-    .news-rightlist ul a {
-        clear: both;
-        line-height: 30px;
-        color: #a1a1a1;
-        font-size: 14px;
-        letter-spacing: 1px;
-    }
-    .news-rightlist ul li span,
-    .news-rightlist ul a span {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        background-color: #0089e3;
-        color: #fff;
-        text-align: center;
-        line-height: 20px;
-        margin-right: 10px;
     }
 </style>

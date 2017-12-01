@@ -7,119 +7,192 @@
                 </div>
             </el-col>
         </el-row>
-        <!--培训-->
-        <div class="container">
-            <el-row :gutter="10" style="margin-bottom: 50px;">
-                <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                    <div class="title" id="title-college">
-                        <h1>培训</h1>
-                        <p>CULTVATE</p>
-                        <hr>
-                        <span></span>
-                        <router-link :to="{ name: 'activity_more'}" class="r more_plus to"></router-link>
-                    </div>
-                    <el-row :gutter="10">
-                        <el-col :lg="6" :md="6" :sm="12" :xs="24" class="college-show" v-for="(item,index) in lecture" :key="index">
-                            <router-link :to="{ name: 'train_detail', params: { id: item.id} }" class="activitys_item">
-                                <div @mouseover="show_activity(index)" @mouseout="hide_activity(index)">
-                                    <h1 class="tc b f20 text-ellipsis">{{item['name']}}</h1>
-                                    <p class="tc">培训时间：{{item['startAt'] | formatDate}}</p>
-                                    <div class="top_line" style="width: 0px" :class="{ horizontal_line: activity_active[index] }"></div>
-                                    <div class="bottom_line" style="width: 0px;" :class="{ horizontal_line: activity_active[index] }"></div>
-                                    <div class="left_line" style="height: 0px;" :class="{ vertical_line: activity_active[index] }"></div>
-                                    <div class="right_line" style="height: 0px;" :class="{ vertical_line: activity_active[index] }"></div>
-                                </div>
-                            </router-link>
+        <!--title-->
+        <div class="container" style="margin-bottom:20px;">
+            <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                <div class="common_title">
+                    <h1 class="tc">全面完善的服务商体系</h1>
+                    <h1 class="tc">高效解决企业发展所需的各类服务</h1>
+                </div>
+            </el-col>
+            <el-row :gutter="10">
+                <!--左部分导师-->
+                <el-col :lg="12" :md="12" :sm="24" :xs="24" style="padding-right:20px;">
+                    <el-row>
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                            <h2 class="common_sub_title">
+                                <p class="tc white">创业导师</p>
+                                <div class="line"></div>
+                            </h2>
+                        </el-col>
+                    </el-row>
+                    <el-row>
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24" style="background-color: #f1f1f1;">
+                            <div class="s_teacher_list" v-for="(item , index) in tutorList" :key="index">
+                                <el-row style="">
+                                    <router-link :to="{ name: 'tutorDetail', params: { id: item.id} }">
+                                        <el-col :lg="6" :md="6" :sm="6" :xs="6">
+                                            <div class="teacher_img">
+                                                <img :src="item.photo" alt="">
+                                            </div>
+                                        </el-col>
+                                        <el-col :lg="18" :md="18" :sm="18" :xs="18">
+                                            <h1>{{item.name}}</h1>
+                                            <p>简介:{{item.intro}}</p>
+                                            <p>工作单位:{{item.university}}</p>
+                                            <div class="teacher_float_p">
+                                                <p>职称:{{item.title}}</p>
+                                                <p>关注领域:{{item.field}}</p>
+                                            </div>
+                                        </el-col>
+                                    </router-link>
+                                </el-row>
+                            </div>
+                        </el-col>
+                    </el-row>
+                    <!--分页-->
+                    <el-row :gutter="10" style="margin-bottom: 50px;margin-top:50px;">
+                        <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
+                            <div class="block">
+                                <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                </el-pagination>
+                            </div>
+                        </el-col>
+                    </el-row>
+                </el-col>
+                <!--右部分-->
+                <el-col :lg="12" :md="12" :sm="24" :xs="24" style="padding-left:10px;border-left:1px solid #ccc">
+                    <el-row>
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                            <h2 class="common_sub_title">
+                                <p class="tc white">培训</p>
+                                <div class="line"></div>
+                            </h2>
+                        </el-col>
+                    </el-row>
+                    <!--培训-->
+                    <el-row>
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                            <div class="s_teacher_list" v-for="(item , index) in lecture" :key="index">
+                                <el-row style="">
+                                    <router-link :to="{ name: 'train_detail', params: { id: item.id} }">
+                                        <el-col :lg="4" :md="4" :sm="4" :xs="4">
+                                            <div class="train_img">
+                                                <img :src="item.icon" alt="">
+                                            </div>
+                                        </el-col>
+                                        <el-col :lg="20" :md="20" :sm="20" :xs="20">
+                                            <div class="train_float_btn clearfix">
+                                                <h1>{{item.name}}</h1>
+                                                <button v-if="item.status==2" class="activity_button btn1">进行中</button>
+                                                <button v-if="item.status==3" class="activity_button btn2">已结束</button>
+                                            </div>
+                                            <div class="teacher_float_p ">
+                                                <p>时间 : {{item['startAt'] | formatDate}}</p>
+                                                <p>地点 : {{item.location}}</p>
+                                            </div>
+                                            <p style="clear: both">人数限额 : {{item.total}}</p>
+                                        </el-col>
+                                    </router-link>
+                                </el-row>
+                            </div>
+                        </el-col>
+                    </el-row>
+                    <!--分页-->
+                    <el-row :gutter="10" style="margin-top:50px;">
+                        <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
+                            <div class="block">
+                                <el-pagination :current-page="1" :total="totalPages" @current-change="getTrainList" layout="prev, pager, next">
+                                </el-pagination>
+                            </div>
+                        </el-col>
+                    </el-row>
+                    <!--活动-->
+                    <el-row style="margin-top:60px;">
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                            <h2 class="common_sub_title">
+                                <p class="tc white">活动</p>
+                                <div class="line"></div>
+                            </h2>
+                        </el-col>
+                    </el-row>
+                    <el-row>
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                            <div class="s_teacher_list" v-for="(item , index) in activity" :key="index">
+                                <el-row style="">
+                                    <router-link :to="{name:'train_detail', params: {id:item.id} }">
+                                        <el-col :lg="4" :md="4" :sm="4" :xs="4">
+                                            <div class="train_img">
+                                                <img :src="item.icon" alt="">
+                                            </div>
+                                        </el-col>
+                                        <el-col :lg="20" :md="20" :sm="20" :xs="20">
+                                            <div class="train_float_btn clearfix">
+                                                <h1>{{item.name}}</h1>
+                                                <button v-if="item.status==2" class="activity_button btn1">进行中</button>
+                                                <button v-if="item.status==3" class="activity_button btn2">已结束</button>
+                                            </div>
+                                            <div class="teacher_float_p">
+                                                <p>时间 : {{item['startAt'] | formatDate}}</p>
+                                                <p>地点 : {{item.location}}</p>
+                                            </div>
+                                            <p style="clear: both">人数限额 : {{item.total}}</p>
+                                        </el-col>
+                                    </router-link>
+                                </el-row>
+                            </div>
+                        </el-col>
+                    </el-row>
+                    <!--分页-->
+                    <el-row :gutter="10" style="margin-top:50px;">
+                        <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
+                            <div class="block">
+                                <el-pagination :current-page="1" :total="totalPages" @current-change="getActivityList" layout="prev, pager, next">
+                                </el-pagination>
+                            </div>
+                        </el-col>
+                    </el-row>
+                    <!--招聘/培训需求-->
+                    <el-row style="margin-top: 60px;">
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                            <h2 class="common_sub_title">
+                                <p class="tc white">招聘/培训需求</p>
+                                <div class="line"></div>
+                            </h2>
+                        </el-col>
+                    </el-row>
+                    <el-row>
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                            <div class="s_teacher_list" v-for="(item , index) in service" :key="index">
+                                <el-row style="">
+                                    <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                                        <router-link :to="{ name: 'needDetail', params: { id: item.id} }">
+                                            <div class="train_float_btn clearfix">
+                                                <h1>{{item['title']}}</h1>
+                                            </div>
+                                            <p style="clear: both">企业名称 : {{item['enterprise']}}</p>
+                                            <div class="teacher_float_p">
+                                                <p>联系人 : {{item['contact']}}</p>
+                                                <p>联系方式 : {{item['phone']}}</p>
+                                            </div>
+                                        </router-link>
+                                    </el-col>
+                                </el-row>
+                            </div>
+                        </el-col>
+                    </el-row>
+                    <!--分页-->
+                    <el-row :gutter="10" style="margin-top:50px;">
+                        <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
+                            <div class="block">
+                                <el-pagination :current-page="1" :total="totalPages" @current-change="getInviteList" layout="prev, pager, next">
+                                </el-pagination>
+                            </div>
                         </el-col>
                     </el-row>
                 </el-col>
             </el-row>
         </div>
-        <!--优秀讲师-->
-        <div style="background-color: #eee;padding-bottom: 50px;">
-            <div class="container">
-                <el-row :gutter="10">
-                    <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                        <div class="title" id="title-teacher">
-                            <h1>优秀讲师</h1>
-                            <p>GREAT SPEAKERS</p>
-                            <hr>
-                            <span></span>
-                            <router-link :to="{ name: 'trainList'}" class="r more_plus to"></router-link>
-                        </div>
-                        <el-row :gutter="40">
-                            <el-col :lg="12" :md="12" :sm="12" :xs="24" v-for="(item, index) in teacher" :key="index" v-if="item['type'] == 4">
-                                <div class="research-teacher">
-                                    <img :src="item.photo" alt="">
-                                    <div>
-                                        <h4>指导老师:{{item.name}}</h4>
-                                        <h3>{{item.title}}</h3>
-                                        <p class="text-ellipsis-muti text-ellipsis-2">教师简介:{{item.intro}}</p>
-                                    </div>
-                                    <div>
-                                        <router-link :to="{name:'tutorDetail', params: {id:item.id} }">讲师介绍</router-link>
-                                    </div>
-                                </div>
-                            </el-col>
-                        </el-row>
-                    </el-col>
-                </el-row>
-            </div>
-        </div>
-        <!--活动专区-->
-        <el-row class="activitys">
-            <div class="container">
-                <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                    <div class="title" id="title-activitys">
-                        <h1>活动专区</h1>
-                        <p>ACTIVITYZONE </p>
-                        <hr>
-                        <span></span>
-                        <router-link :to="{ name: 'activity_more'}" class="r more_plus to"></router-link>
-                    </div>
-                    <el-row :gutter="10">
-                        <el-col :xs="12" :sm="12" :md="6" :lg="6" v-for="(item, index) in activity" :key="index">
-                            <router-link :to="{name:'train_detail', params: {id:item.id} }" class="activitys_item">
-                                <div class="process abs">
-                                    <div @mouseover="show_activity(index)" @mouseout="hide_activity(index)">
-                                        <h1 class="tc b f20 text-ellipsis">{{item['name']}}</h1>
-                                        <p class="tc">活动时间：{{item['startAt'] | formatDate}}</p>
-                                        <div class="top_line" style="width: 0px" :class="{ horizontal_line: activity_active[index] }"></div>
-                                        <div class="bottom_line" style="width: 0px;" :class="{ horizontal_line: activity_active[index] }"></div>
-                                        <div class="left_line" style="height: 0px;" :class="{ vertical_line: activity_active[index] }"></div>
-                                        <div class="right_line" style="height: 0px;" :class="{ vertical_line: activity_active[index] }"></div>
-                                    </div>
-                                </div>
-                            </router-link>
-                        </el-col>
-                    </el-row>
-                </el-col>
-            </div>
-        </el-row>
-        <!--精彩瞬间-->
-        <!-- <div style="background-color: #eee;padding-bottom: 50px;">
-            <div class="container">
-                <el-row :gutter="10">
-                    <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                        <div class="title" id="title-splendid">
-                            <h1>精彩瞬间</h1>
-                            <p>SPLENDID MOMENT</p>
-                            <hr>
-                            <span></span>
-                            <router-link :to="{ name: 'splendid_list'}" class="r more_plus to"></router-link>
-                        </div>
-                        <el-row :gutter="10">
-                            <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in lecture" :key="index">
-                                <router-link :to="{name:'train_detail', params: {id:item.id} }" class="research-splendid">
-                                    <img :src="item.icon" alt="">
-                                </router-link>
-                            </el-col>
-                        </el-row>
-                    </el-col>
-                </el-row>
-            </div>
-        </div> -->
-        <!--footer-->
     </div>
 </template>
 
@@ -131,41 +204,76 @@
     export default {
         data() {
             return {
+                tutorList: "", //导师
                 lecture: "", //培训
-                teacher: "", //优秀讲师
-                activity: "", //活动专区
-                highlight: "", //精彩瞬间
-                activity_active: [false, false, false, false],
+                activity: "", //活动
+                service: "", //招聘/培训需求
+                totalPages: "",
             };
         },
+        created() {
+            this.initTutorList();
+            this.setTronsApi();
+        },
         methods: {
+            //导师
+            initTutorList() {
+                let url = '/indie/' + '3' + '/' + '8' + '/' + '1'
+                api.Get(url)
+                    .then(res => {
+                        this.tutorList = res['data'];
+                        this.totalPages = res['totalPages'] * 10;
+                    });
+            },
+            handleCurrentChange(val) {
+                //获取到当前分页页码，获取当前页面数据
+                var url = '/enterprise/' + '3' + '/' + '8' + '/' + val
+                api.Get(url)
+                    .then(res => {
+                        this.tutorList = res['data'];
+                        this.totalPages = res['totalPages'] * 10;
+                    })
+            },
+            //培训与活动
             setTronsApi() {
                 api.Get("/pub/colleges").then(res => {
                     this.lecture = res["lecture"];
-                    this.highlight = res["highlight"];
                     this.activity = res["activity"];
-                    this.teacher = res["teacher"];
+                    this.service = res["service"];
                 });
             },
-            show_activity(index) {
-                var activity_item = document.querySelectorAll(".activitys_item");
-                for (let i = 0; i < activity_item.length; i++) {
-                    if (activity_item[i] != activity_item[index]) {
-                        this.$set(this.activity_active, i, false);
-                    } else {
-                        this.$set(this.activity_active, i, true);
-                    }
-                }
+            getTrainList(val) {
+                //获取到当前分页页码，获取当前页面数据
+                var url = "/activity/" + "2" + "/" + "10" + "/" + val;
+                api.Get(url).then(res => {
+                    this.activityList = res["data"];
+                    this.totalPages = res["totalPages"] * 10;
+                });
             },
-            hide_activity(index) {
-                var activity_item = document.querySelectorAll(".activitys_item");
-                for (let i = 0; i < activity_item.length; i++) {
-                    this.$set(this.activity_active, i, false);
-                }
+            getActivityList(val) {
+                //获取到当前分页页码，获取当前页面数据
+                var url = "/activity/" + "2" + "/" + "10" + "/" + val;
+                api.Get(url).then(res => {
+                    this.activityList = res["data"];
+                    this.totalPages = res["totalPages"] * 10;
+                });
+            },
+            //招聘/培训需求
+            //            initServicesList() {
+            //                var url = "/enterprise/apply/" + "4" + "/" + "1" + "?cid=" + 0;
+            //                api.Get(url).then(res => {
+            //                    this.needData = res["page"]["data"];
+            //                });
+            //            },
+            getInviteList(val) {
+                //获取到当前分页页码，获取当前页面数据
+                var url = "/enterprise/apply/" + "4" + "/" + "1" + "/" + val;
+                api.Get(url)
+                    .then(res => {
+                        this.needData = res['data'];
+                        this.totalPages = res['totalPages'] * 10;
+                    })
             }
-        },
-        created() {
-            this.setTronsApi();
         },
         filters: {
             formatDate(time) {
@@ -177,174 +285,65 @@
 </script>
 
 <style scoped>
-    /*培训*/
-    .college-show img {
-        width: 100%;
+    /*导师*/
+    .s_teacher_list {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px dashed #ccc;
+        margin-left: 10px;
+        margin-right: 10px;
     }
-    .college-show div {
-        /* box-shadow: 0 0 10px #ddd; */
-        /* margin-top: -5px; */
-        /* padding: 5px; */
+    .teacher_img img {
+        width: 120px;
+        height: 120px;
+        margin-right: 20px;
     }
-    .college-show div h6 {
+    .teacher_float_p p:first-child {
+        margin-right: 100px;
+    }
+    .teacher_float_p p {
+        float: left;
+    }
+    .s_teacher_list p {
         color: #666;
         font-size: 14px;
+        line-height: 22px;
+        font-weight: 400;
+    }
+    .s_teacher_list h1 {
+        color: #333;
+        font-size: 16px;
         line-height: 30px;
-    }
-    .college-show div p {
-        color: #999;
-        font-size: 12px;
-        line-height: 20px;
-    }
-    
-    /*title*/
-    .title {
-        text-align: center;
-        margin-top: 25px;
-        margin-bottom: 25px;
-    }
-    .title h1 {
-        color: #0089e3;
-        font-size: 18px;
         font-weight: 600;
     }
-    .title p {
-        color: #ddd;
-        font-size: 10px;
-    }
-    .title hr {
-        width: 30%;
-        border: 1px solid #454b60;
-    }
-    .title span {
-        display: block;
-        border: 2px solid #0089e3;
-        width: 10%;
-    }
-    .title a.to {
-        margin-top: -41px;
-    }
-    #title-college {
-        position: relative;
-    }
-    #title-college span {
-        position: absolute;
-        top: 48px;
-        left: 45%;
-    }
-    /*优秀讲师*/
-    #title-teacher {
-        position: relative;
-    }
-    #title-teacher span {
-        position: absolute;
-        top: 48px;
-        left: 45%;
-    }
-    .research-teacher {
-        background-color: #0068b7;
-        padding-top: 20px;
-        margin-top: 50px;
-        position: relative;
-        min-height: 220px;
-    }
-    .research-teacher img {
-        width: 30%;
-        margin-right: auto;
-        margin-left: auto;
-        display: block;
-        position: absolute;
-        top: -28px;
-        left: -28px;
-    }
-    .research-teacher div {
-        margin-left: 30px;
+    /*培训*/
+    .train_img img {
+        width: 80px;
+        height: 80px;
         margin-right: 30px;
-        text-align: center;
-        color: #fff;
-        margin-top: 25px;
+        border-radius: 4px;
     }
-    .research-teacher div h4 {
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 30px;
-        margin-left: -70px;
+    .train_float_btn h1 {
+        float: left;
     }
-    .research-teacher div h3 {
-        font-size: 14px;
-        font-weight: normal;
-        line-height: 30px;
-        margin-left: -60px;
-    }
-    .research-teacher div p {
-        width: 60%;
-        margin-left: 30%;
-        font-size: 12px;
-        font-weight: normal;
+    .train_float_btn button {
+        width: 80px;
+        height: 20px;
         line-height: 20px;
-        margin-top: 10px;
-        height: 40px;
-    }
-    .research-teacher a {
-        width: 100px;
-        line-height: 26px;
-        border-radius: 12px;
-        background-color: #f53436;
-        color: #fff;
+        border-radius: 10px;
         font-size: 14px;
         border: none;
-        margin: 20px auto;
+        float: right;
+        margin-top: 6px;
+    }
+    .btn1 {
+        background-color: #23b4f8;
+        color: #fff;
+    }
+    .btn2 {
+        background-color: #ccc;
+        color: #999;
     }
     /*活动专区*/
-    #title-activitys {
-        position: relative;
-    }
-    #title-activitys span {
-        position: absolute;
-        top: 48px;
-        left: 45%;
-    }
-    .activitys_item img {
-        width: 100%;
-    }
     /*精彩瞬间*/
-    #title-splendid {
-        position: relative;
-    }
-    #title-splendid span {
-        position: absolute;
-        top: 48px;
-        left: 45%;
-    }
-    .research-splendid {
-        -webkit-transition: all 0.3s;
-        -moz-transition: all 0.3s;
-        -ms-transition: all 0.3s;
-        -o-transition: all 0.3s;
-        transition: all 0.3s;
-    }
-    .research-splendid:hover {
-        box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.1);
-    }
-    .research-splendid img {
-        width: 100%;
-    }
-    @media screen and (min-width: 992px) {
-        .right div {
-            float: right;
-            height: 60px;
-            width: 50px;
-        }
-    }
-    @media screen and (max-width: 768px) {
-        .arrows-splendid div {
-            overflow: hidden;
-            margin-top: 20%;
-        }
-        .right div {
-            float: right;
-            height: 60px;
-            width: 28px;
-        }
-    }
 </style>

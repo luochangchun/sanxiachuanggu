@@ -35,11 +35,11 @@
                                     </el-col>
                                 </router-link>
                                 <!-- <div class="pageNo clearfix">
-                                    <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
-                                        <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
-                                        </el-pagination>
-                                    </el-col>
-                                </div> -->
+                                                <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
+                                                    <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                                    </el-pagination>
+                                                </el-col>
+                                            </div> -->
                             </div>
                         </div>
                         <div class="InvestmentAgency clearfix ExpertTeam">
@@ -48,7 +48,7 @@
                                 <div class="line"></div>
                             </h2>
                             <div class="InvestmentList CollegeList">
-                                <router-link :to="{ name: 'tutorDetail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in mentor" :key="index">
+                                <div :to="{ name: 'tutorDetail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in Exeprt" :key="index">
                                     <el-col :lg="4" :md="24" :sm="24" :xs="24">
                                         <img :src="item['photo']">
                                     </el-col>
@@ -57,7 +57,31 @@
                                         <p class="text-ellipsis">{{item['intro']}}</p>
                                         <el-tag type="danger" style="margin-top: 5px;">行业领域：消费生活</el-tag>
                                     </el-col>
-                                </router-link>
+                                </div>
+                                <!-- <div class="pageNo clearfix">
+                                    <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
+                                        <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                        </el-pagination>
+                                    </el-col>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="InvestmentAgency clearfix ResearchInstitute">
+                            <h2 class="common_sub_title">
+                                <p class="tc white">研究机构</p>
+                                <div class="line"></div>
+                            </h2>
+                            <div class="InvestmentList CollegeList">
+                                <div :to="{ name: 'tutorDetail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in ResearchInstitute" :key="index">
+                                    <el-col :lg="4" :md="24" :sm="24" :xs="24">
+                                        <img :src="item['photo']">
+                                    </el-col>
+                                    <el-col :lg="20" :md="24" :sm="24" :xs="24">
+                                        <h1 class="text-ellipsis">{{item['name']}}</h1>
+                                        <p class="text-ellipsis">{{item['intro']}}</p>
+                                        <el-tag type="danger" style="margin-top: 5px;">行业领域：消费生活</el-tag>
+                                    </el-col>
+                                </div>
                                 <!-- <div class="pageNo clearfix">
                                     <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
                                         <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
@@ -109,11 +133,15 @@
                 needData: "", //融资需求
                 noData: false,
                 totalPages: "",
+                Exeprt: "", //专家团队
+                ResearchInstitute: "", //研究机构
             }
         },
         created() {
             this.researchApi()
             this.initServicesList()
+            this.initExeprt()
+            this.initResearch()
         },
         methods: {
             researchApi() {
@@ -144,7 +172,35 @@
                     this.totalPages = res["page"]["totalPages"] * 10;
                 });
             },
-        },
+            initExeprt() {
+                //专家团队
+                var url = "/indie/2/" + "10" + "/" + "1";
+                api.Get(url).then(res => {
+                    this.Exeprt = res["data"];
+                    if (this.Exeprt.length == 0) {
+                        this.noData = true;
+                    } else if (this.Exeprt.length > 0) {
+                        this.noData = false;
+                        this.Exeprt = res["data"];
+                        this.totalPages = res["totalPages"] * 10;
+                    }
+                });
+            },
+            initResearch() {
+                //研究机构
+                var url = "/indie/5/" + "10" + "/" + "1";
+                api.Get(url).then(res => {
+                    this.ResearchInstitute = res["data"];
+                    if (this.ResearchInstitute.length == 0) {
+                        this.noData = true;
+                    } else if (this.ResearchInstitute.length > 0) {
+                        this.noData = false;
+                        this.ResearchInstitute = res["data"];
+                        this.totalPages = res["totalPages"] * 10;
+                    }
+                });
+            },
+        }
     }
 </script>
 
