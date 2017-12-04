@@ -48,6 +48,7 @@
                                 <div class="line"></div>
                             </h2>
                             <div class="InvestmentList CollegeList">
+                                <p v-show="noData2" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
                                 <div :to="{ name: 'tutorDetail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in Exeprt" :key="index">
                                     <el-col :lg="4" :md="24" :sm="24" :xs="24">
                                         <img :src="item['photo']">
@@ -72,6 +73,7 @@
                                 <div class="line"></div>
                             </h2>
                             <div class="InvestmentList CollegeList">
+                                <p v-show="noData5" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
                                 <div :to="{ name: 'tutorDetail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in ResearchInstitute" :key="index">
                                     <el-col :lg="4" :md="24" :sm="24" :xs="24">
                                         <img :src="item['photo']">
@@ -132,6 +134,8 @@
                 talented: '', //校园人才
                 needData: "", //融资需求
                 noData: false,
+                noData2: false,
+                noData5: false,
                 totalPages: "",
                 Exeprt: "", //专家团队
                 ResearchInstitute: "", //研究机构
@@ -178,9 +182,9 @@
                 api.Get(url).then(res => {
                     this.Exeprt = res["data"];
                     if (this.Exeprt.length == 0) {
-                        this.noData = true;
+                        this.noData2 = true;
                     } else if (this.Exeprt.length > 0) {
-                        this.noData = false;
+                        this.noData2 = false;
                         this.Exeprt = res["data"];
                         this.totalPages = res["totalPages"] * 10;
                     }
@@ -192,9 +196,9 @@
                 api.Get(url).then(res => {
                     this.ResearchInstitute = res["data"];
                     if (this.ResearchInstitute.length == 0) {
-                        this.noData = true;
+                        this.noData5 = true;
                     } else if (this.ResearchInstitute.length > 0) {
-                        this.noData = false;
+                        this.noData5 = false;
                         this.ResearchInstitute = res["data"];
                         this.totalPages = res["totalPages"] * 10;
                     }

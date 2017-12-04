@@ -69,6 +69,7 @@
             }
         },
         mounted() {
+            console.log(this.$store);
             this.$store.commit(types.TITLE, 'Login');
             this.$store.commit(types.TITLE, 'userinfo');
         },

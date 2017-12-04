@@ -3,7 +3,7 @@
 		<el-row :gutter="10" style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
 			<div class="container">
 				<el-col :lg="24" :md="24" :sm="24" :xs="24" style="background-color:#fff;padding:30px 25px 15px 0">
-					<p class="tc b f20">工位申请表</p>
+					<p class="tc b f20">入驻申请</p>
 				</el-col>
 				<el-col :lg="24" :md="24" :sm="24" :xs="24" style="background-color:#fff;padding:0px 25px 15px 0">
 					<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="enter-ruleForm">

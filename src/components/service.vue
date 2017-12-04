@@ -67,7 +67,7 @@
                                             <dl>
                                                 <!-- <dt>项目阶段</dt> -->
                                                 <dd style="width: 93%;" :class="{ auto : moreFlag }">
-                                                    <a href="javascript:;" :class="{ on : display_active[index] }" @click="handleClick(index,item.id)" class="sx_child" v-for="(item , index) in category" :key="index" :sid="item.id" v-if="index>0">{{ item['name']}}</a>
+                                                    <a href="javascript:;" :class="{ on : display_active[index] }" @click="handleClick(index,item.id)" class="sx_child" v-for="(item , index) in category" :key="index" :seid="item.id" v-if="index>0">{{ item['name']}}</a>
                                                 </dd>
                                             </dl>
                                         </div>
@@ -83,30 +83,30 @@
                                                                 <p>电话:{{ item['phone']}}</p>
                                                             </div>
                                                             <ul class="clearfix">
-                                                                <li v-if="item == '51'" class="green" v-for="(item,index) in item['labels']" :key="index">信息化</li>
-                                                                <li v-if="item == '52'" class="green" v-for="(item,index) in item['labels']" :key="index">知识产权</li>
-                                                                <li v-if="item == '53'" class="green" v-for="(item,index) in item['labels']" :key="index">科技转化</li>
-                                                                <li v-if="item == '54'" class="green" v-for="(item,index) in item['labels']" :key="index">金融服务</li>
-                                                                <li v-if="item == '55'" class="green" v-for="(item,index) in item['labels']" :key="index">电子商务</li>
-                                                                <li v-if="item == '56'" class="green" v-for="(item,index) in item['labels']" :key="index">财税/法务</li>
-                                                                <li v-if="item == '57'" class="green" v-for="(item,index) in item['labels']" :key="index">招聘/培训</li>
-                                                                <li v-if="item == '58'" class="green" v-for="(item,index) in item['labels']" :key="index">物业服务</li>
-                                                                <li v-if="item == '51'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="index">信息化</li>
-                                                                <li v-if="item == '52'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="index">知识产权</li>
-                                                                <li v-if="item == '53'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="index">科技转化</li>
-                                                                <li v-if="item == '54'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="index">金融服务</li>
-                                                                <li v-if="item == '55'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="index">电子商务</li>
-                                                                <li v-if="item == '56'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="index">财税/法务</li>
-                                                                <li v-if="item == '57'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="index">招聘/培训</li>
-                                                                <li v-if="item == '58'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="index">物业服务</li>
-                                                                <li v-if="item == '51'" class="gray" v-for="(item,index) in item['others']" :key="index">信息化</li>
-                                                                <li v-if="item == '52'" class="gray" v-for="(item,index) in item['others']" :key="index">知识产权</li>
-                                                                <li v-if="item == '53'" class="gray" v-for="(item,index) in item['others']" :key="index">科技转化</li>
-                                                                <li v-if="item == '54'" class="gray" v-for="(item,index) in item['others']" :key="index">金融服务</li>
-                                                                <li v-if="item == '55'" class="gray" v-for="(item,index) in item['others']" :key="index">电子商务</li>
-                                                                <li v-if="item == '56'" class="gray" v-for="(item,index) in item['others']" :key="index">财税/法务</li>
-                                                                <li v-if="item == '57'" class="gray" v-for="(item,index) in item['others']" :key="index">招聘/培训</li>
-                                                                <li v-if="item == '58'" class="gray" v-for="(item,index) in item['others']" :key="index">物业服务</li>
+                                                                <li v-show="item == '51'" class="green" v-for="(item,index) in item['labels']" :key="item.id">{{item.id}}信息化</li>
+                                                                <li v-show="item == '52'" class="green" v-for="(item,index) in item['labels']" :key="item.id">知识产权</li>
+                                                                <li v-show="item == '53'" class="green" v-for="(item,index) in item['labels']" :key="item.id">科技转化</li>
+                                                                <li v-show="item == '54'" class="green" v-for="(item,index) in item['labels']" :key="item.id">金融服务</li>
+                                                                <li v-show="item == '55'" class="green" v-for="(item,index) in item['labels']" :key="item.id">电子商务</li>
+                                                                <li v-show="item == '56'" class="green" v-for="(item,index) in item['labels']" :key="item.id">财税/法务</li>
+                                                                <li v-show="item == '57'" class="green" v-for="(item,index) in item['labels']" :key="item.id">招聘/培训</li>
+                                                                <li v-show="item == '58'" class="green" v-for="(item,index) in item['labels']" :key="item.id">物业服务</li>
+                                                                <li v-show="item == '51'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">{{item.id}}信息化</li>
+                                                                <li v-show="item == '52'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">知识产权</li>
+                                                                <li v-show="item == '53'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">科技转化</li>
+                                                                <li v-show="item == '54'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">金融服务</li>
+                                                                <li v-show="item == '55'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">电子商务</li>
+                                                                <li v-show="item == '56'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">财税/法务</li>
+                                                                <li v-show="item == '57'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">招聘/培训</li>
+                                                                <li v-show="item == '58'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">物业服务</li>
+                                                                <li v-show="item == '51'" class="gray" v-for="(item,index) in item['others']" :key="item.id">{{item.id}}信息化</li>
+                                                                <li v-show="item == '52'" class="gray" v-for="(item,index) in item['others']" :key="item.id">知识产权</li>
+                                                                <li v-show="item == '53'" class="gray" v-for="(item,index) in item['others']" :key="item.id">{{item.id}}科技转化</li>
+                                                                <li v-show="item == '54'" class="gray" v-for="(item,index) in item['others']" :key="item.id">金融服务</li>
+                                                                <li v-show="item == '55'" class="gray" v-for="(item,index) in item['others']" :key="item.id">电子商务</li>
+                                                                <li v-show="item == '56'" class="gray" v-for="(item,index) in item['others']" :key="item.id">财税/法务</li>
+                                                                <li v-show="item == '57'" class="gray" v-for="(item,index) in item['others']" :key="item.id">招聘/培训</li>
+                                                                <li v-show="item == '58'" class="gray" v-for="(item,index) in item['others']" :key="item.id">物业服务</li>
                                                             </ul>
                                                         </div>
                                                     </router-link>
@@ -121,10 +121,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--分页-->
-                                <!-- <el-row :gutter="10" style="margin-bottom: 50px;margin-top:50px;">
-                                            
-                                        </el-row> -->
                             </div>
                         </el-col>
                     </el-row>
@@ -155,7 +151,8 @@
                 totalPages: "",
                 totalArr: ['51', '52', '53', '54', '55', '56', '57', '58'],
                 other: [],
-                curPage: 1
+                curPage: 1,
+                seid : ''
             }
         },
         created() {
@@ -170,11 +167,12 @@
                 this.fullscreenLoading = true;
                 api.Get('/dict/service').then(res => {
                     this.ServiceList = res;
-                    this.ServiceList.forEach((value, index, array) => {
-                        if (index == 1) {
-                            this.initNewsList(this.ServiceList[index]["id"]);
-                        }
-                    });
+                });
+            },
+            initServicesList() {
+                var url = "/enterprise/apply/" + "4" + "/" + "1" + "?cid=" + 0;
+                api.Get(url).then(res => {
+                    this.needData = res["page"]["data"];
                 });
             },
             //服务商机构内容
@@ -191,12 +189,6 @@
                         this.totalPages = res['totalPages'] * 10;
                     });
             },
-            initServicesList() {
-                var url = "/enterprise/apply/" + "4" + "/" + "1" + "?cid=" + 0;
-                api.Get(url).then(res => {
-                    this.needData = res["page"]["data"];
-                });
-            },
             // 享受服务企业name
             getQb() {
                 api.Get('/qb')
@@ -209,12 +201,10 @@
                                 this.fullscreenLoading = false;
                                 window.localStorage.setItem("seid", this.category[index]["id"]);
                             }
-                            // this.totalArr.push(this.category[index]['categoryId'].toString());
                         });
-                        // console.log(this.totalArr);
                     })
             },
-            handleClick(index, sid) {
+            handleClick(index, seid) {
                 var sx_child_item = document.querySelectorAll('.sx_child');
                 for (let i = 1; i <= sx_child_item.length; i++) {
                     if (sx_child_item[i] != sx_child_item[index]) {
@@ -224,12 +214,13 @@
                     }
                 }
                 this.curPage = 1;
-                this.initNewsList(sid);
-                window.localStorage.setItem("seid", sid);
+                this.seid = seid;
+                this.initNewsList(seid);
+                window.localStorage.setItem("seid", seid);
             },
-            initNewsList(sid) {
+            initNewsList(seid) {
                 this.loading = true
-                var url = "/enterprise/normal/" + "10" + "/" + "1?sid=" + sid;
+                var url = "/enterprise/normal/" + "10" + "/" + "1?sid=" + seid;
                 api.Get(url).then(res => {
                     this.serviceBody = res["data"];
                     if (this.serviceBody.length == 0) {
@@ -239,9 +230,16 @@
                         this.nodata = false;
                         this.loading = false;
                         for (var i = 0; i < this.serviceBody.length; i++) {
-                            this.serviceBody[i]['labels'] = this.serviceBody[i]['labels'].split(",");
-                            let tempArr = this.serviceBody[i]['labels'].concat(this.serviceBody[i]['serviceIds']);
-                            this.serviceBody[i]['others'] = this.filterOter(this.totalArr, tempArr);
+                            if (this.serviceBody[i]['labels']) {
+                                this.serviceBody[i]['labels'] = this.serviceBody[i]['labels'].split(",");
+                                let tempArr = this.serviceBody[i]['labels'].concat(this.serviceBody[i]['serviceIds']);
+                                this.serviceBody[i]['others'] = this.filterOter(this.totalArr, tempArr);
+                            } else {
+                                // 当labels为空时
+                                this.serviceBody[i]['labels'] = [];
+                                let tempArr = this.serviceBody[i]['labels'].concat(this.serviceBody[i]['serviceIds']);
+                                this.serviceBody[i]['others'] = this.filterOter(this.totalArr, tempArr);
+                            }
                         }
                     }
                     this.totalPages = res["totalPages"] * 10;
@@ -249,25 +247,29 @@
                 var info = "/pub/info/22" + "/" + "10" + "/1";
                 api.Get(info).then(res => {
                     this.infoData = res["data"];
-                    // if (this.infoData.length == 0) {
-                    //     this.nodata = true;
-                    // } else {
-                    //     this.nodata = false;
-                    // }
-                    // this.totalPages = res["totalPages"] * 10;
                 });
             },
             handleCurrentChange(val) {
+                console.log(val);
                 //获取到当前分页页码，获取当前页面数据
-                let sid = window.localStorage.getItem("seid");
-                var url = "/enterprise/normal/" + "10" + "/" + val + "/?sid=" + sid;
+                let seid = window.localStorage.getItem("seid");
+                this.seid = seid;
+                var url = "/enterprise/normal/" + "10" + "/" + val + "/?sid=" + seid;
                 api.Get(url).then(res => {
                     this.serviceBody = res["data"];
                     for (var i = 0; i < this.serviceBody.length; i++) {
-                        this.serviceBody[i]['labels'] = this.serviceBody[i]['labels'].split(",");
-                        let tempArr = this.serviceBody[i]['labels'].concat(this.serviceBody[i]['serviceIds']);
-                        this.serviceBody[i]['others'] = this.filterOter(this.totalArr, tempArr);
+                        if (this.serviceBody[i]['labels']) {
+                            this.serviceBody[i]['labels'] = this.serviceBody[i]['labels'].split(",");
+                            let tempArr = this.serviceBody[i]['labels'].concat(this.serviceBody[i]['serviceIds']);
+                            this.serviceBody[i]['others'] = this.filterOter(this.totalArr, tempArr);
+                        } else {
+                            // 当labels为空时
+                            this.serviceBody[i]['labels'] = [];
+                            let tempArr = this.serviceBody[i]['labels'].concat(this.serviceBody[i]['serviceIds']);
+                            this.serviceBody[i]['others'] = this.filterOter(this.totalArr, tempArr);
+                        }
                     }
+                    this.curPage = res['currentPageNo'];
                     this.totalPages = res["totalPages"] * 10;
                 });
             },
@@ -329,7 +331,7 @@
         margin-bottom: 10px;
     }
     .c1 {
-        background-color: #f1f1f1;
+        background-color: rgb(250,250,250);
         /*height:100px;*/
         margin-bottom: 20px;
         padding: 15px 10px;
@@ -410,10 +412,10 @@
     .intermediary_list {
         border-bottom: 1px dashed #ccc;
         padding: 5px 10px;
-        margin-top: 15px;
+        /* margin-top: 15px; */
     }
     .intermediary_list:hover {
-        background-color: #f1f1f1;
+        background-color: rgb(250,250,250);
     }
     .s_intermediary_list>.filte dd a {
         float: left;
@@ -430,9 +432,7 @@
         overflow: hidden;
         text-align: center;
         margin-bottom: 10px;
-        /* color: #e38000; */
         color: #999;
-        /* border: 1px solid #e38000; */
         border: 1px solid #999;
     }
     .intermediary_list div p {

@@ -27,7 +27,7 @@
                         </el-col>
                     </el-row>
                     <el-row>
-                        <el-col :lg="24" :md="24" :sm="24" :xs="24" style="background-color: #f1f1f1;">
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24" style="background-color: rgb(250,250,250);">
                             <div class="s_teacher_list" v-for="(item , index) in tutorList" :key="index">
                                 <el-row style="">
                                     <router-link :to="{ name: 'tutorDetail', params: { id: item.id} }">
@@ -294,8 +294,8 @@
         margin-right: 10px;
     }
     .teacher_img img {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
         margin-right: 20px;
     }
     .teacher_float_p p:first-child {

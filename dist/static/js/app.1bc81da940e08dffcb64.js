@@ -1395,7 +1395,8 @@ exports.default = {
     data: function data() {
         return {
             type: '',
-            attractFlag: false,
+            attractFlag1: [],
+            attractFlag2: [],
             investData: "", //招商列表信息
             totalPages: ''
         };
@@ -1412,10 +1413,16 @@ exports.default = {
             var url = "/qb/tenancy/2/" + '10' + '/1';
             _api2.default.Get(url).then(function (res) {
                 if (res['data'].length > 0) {
-                    _this.attractFlag = false;
                     _this.investData = res['data'];
-                } else {
-                    _this.attractFlag = true;
+                    for (var i = 0; i < res['data'].length; i++) {
+                        console.log(res['data'][i]['type']);
+                        if (res['data'][i]['type'] == 1) {
+                            _this.attractFlag1.push(res['data'][i]['type']);
+                        }
+                        if (res['data'][i]['type'] == 2) {
+                            _this.attractFlag2.push(res['data'][i]['type']);
+                        }
+                    }
                 }
                 _this.totalPages = res['totalPages'] * 10;
             });
@@ -1439,6 +1446,8 @@ exports.default = {
         }
     }
 }; //
+//
+//
 //
 //
 //
@@ -2791,7 +2800,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "line"
   })])])], 1), _vm._v(" "), _c('el-row', [_c('el-col', {
     staticStyle: {
-      "background-color": "#f1f1f1"
+      "background-color": "rgb(250,250,250)"
     },
     attrs: {
       "lg": 24,
@@ -8167,25 +8176,40 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }
   }, [_vm._v("发布求租")]) : _vm._e()], 1), _vm._v(" "), _c('el-col', {
-    staticStyle: {
-      "margin-top": "15px"
-    },
     attrs: {
       "lg": 24,
       "md": 24,
       "sm": 24,
       "xs": 24
     }
-  }, [(_vm.attractFlag) ? _c('p', {
+  }, [_c('p', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.attractFlag1.length == 0 && _vm.type == '1'),
+      expression: "attractFlag1.length==0 && type == '1'"
+    }],
     staticStyle: {
-      "text-align": "center"
+      "text-align": "center",
+      "margin-top": "15px"
     }
-  }, [_vm._v("暂无数据")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.investData), function(item, index) {
+  }, [_vm._v("暂无数据")]), _vm._v(" "), _c('p', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.attractFlag2.length == 0 && _vm.type == '2'),
+      expression: "attractFlag2.length==0 && type == '2'"
+    }],
+    staticStyle: {
+      "text-align": "center",
+      "margin-top": "15px"
+    }
+  }, [_vm._v("暂无数据")]), _vm._v(" "), _vm._l((_vm.investData), function(item, index) {
     return (_vm.type == '1' && item['type'] == 1) ? _c('el-row', {
       key: index,
       staticStyle: {
         "border-bottom": "1px solid #ddd",
-        "margin-bottom": "10px"
+        "padding": "10px 0"
       },
       attrs: {
         "gutter": 10
@@ -8208,15 +8232,25 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('div', {
       staticClass: "incubators_more_img"
-    }, [_c('img', {
+    }, [(item['icon']) ? _c('img', {
       staticStyle: {
-        "margin-left": "-5px"
+        "margin-left": "-5px",
+        "max-height": "200px"
       },
       attrs: {
-        "src": __webpack_require__("4DqM"),
+        "src": item['icon'],
         "alt": ""
       }
-    })])]), _vm._v(" "), _c('el-col', {
+    }) : _vm._e(), _vm._v(" "), (!item['icon']) ? _c('img', {
+      staticStyle: {
+        "margin-left": "-5px",
+        "max-height": "200px"
+      },
+      attrs: {
+        "src": __webpack_require__("ZBJ4"),
+        "alt": ""
+      }
+    }) : _vm._e()])]), _vm._v(" "), _c('el-col', {
       attrs: {
         "xs": 15,
         "sm": 15,
@@ -8277,7 +8311,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('h3', {
       staticClass: "b"
     }, [_vm._v(_vm._s(item['price']) + _vm._s(item['unit']))])])])], 1)], 1) : _vm._e()
-  })], 2)], 1), _vm._v(" "), (_vm.attractFlag) ? _c('el-row', {
+  })], 2)], 1), _vm._v(" "), _c('el-row', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.attractFlag1.length > 0 || _vm.attractFlag2.length > 0),
+      expression: "attractFlag1.length>0 || attractFlag2.length>0"
+    }],
     staticStyle: {
       "margin-bottom": "50px"
     },
@@ -8303,7 +8343,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "current-change": _vm.handleCurrentChange
     }
-  })], 1)])], 1) : _vm._e()], 1)
+  })], 1)])], 1)], 1)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -9437,7 +9477,8 @@ exports.default = {
             totalPages: "",
             totalArr: ['51', '52', '53', '54', '55', '56', '57', '58'],
             other: [],
-            curPage: 1
+            curPage: 1,
+            seid: ''
         };
     },
     created: function created() {
@@ -9455,35 +9496,30 @@ exports.default = {
             this.fullscreenLoading = true;
             _api2.default.Get('/dict/service').then(function (res) {
                 _this.ServiceList = res;
-                _this.ServiceList.forEach(function (value, index, array) {
-                    if (index == 1) {
-                        _this.initNewsList(_this.ServiceList[index]["id"]);
-                    }
-                });
+            });
+        },
+        initServicesList: function initServicesList() {
+            var _this2 = this;
+
+            var url = "/enterprise/apply/" + "4" + "/" + "1" + "?cid=" + 0;
+            _api2.default.Get(url).then(function (res) {
+                _this2.needData = res["page"]["data"];
             });
         },
 
         //服务商机构内容
         getProviderClass: function getProviderClass(id) {
-            var _this2 = this;
+            var _this3 = this;
 
             var url = '/enterprise/' + id + '/' + '2' + '/' + '10' + '/' + '1';
             _api2.default.Get(url).then(function (res) {
-                _this2.needData = res['data'];
-                if (_this2.needData.length == 0) {
-                    _this2.nodata = true;
+                _this3.needData = res['data'];
+                if (_this3.needData.length == 0) {
+                    _this3.nodata = true;
                 } else {
-                    _this2.nodata = false;
+                    _this3.nodata = false;
                 }
-                _this2.totalPages = res['totalPages'] * 10;
-            });
-        },
-        initServicesList: function initServicesList() {
-            var _this3 = this;
-
-            var url = "/enterprise/apply/" + "4" + "/" + "1" + "?cid=" + 0;
-            _api2.default.Get(url).then(function (res) {
-                _this3.needData = res["page"]["data"];
+                _this3.totalPages = res['totalPages'] * 10;
             });
         },
 
@@ -9500,12 +9536,10 @@ exports.default = {
                         _this4.fullscreenLoading = false;
                         window.localStorage.setItem("seid", _this4.category[index]["id"]);
                     }
-                    // this.totalArr.push(this.category[index]['categoryId'].toString());
                 });
-                // console.log(this.totalArr);
             });
         },
-        handleClick: function handleClick(index, sid) {
+        handleClick: function handleClick(index, seid) {
             var sx_child_item = document.querySelectorAll('.sx_child');
             for (var i = 1; i <= sx_child_item.length; i++) {
                 if (sx_child_item[i] != sx_child_item[index]) {
@@ -9515,14 +9549,15 @@ exports.default = {
                 }
             }
             this.curPage = 1;
-            this.initNewsList(sid);
-            window.localStorage.setItem("seid", sid);
+            this.seid = seid;
+            this.initNewsList(seid);
+            window.localStorage.setItem("seid", seid);
         },
-        initNewsList: function initNewsList(sid) {
+        initNewsList: function initNewsList(seid) {
             var _this5 = this;
 
             this.loading = true;
-            var url = "/enterprise/normal/" + "10" + "/" + "1?sid=" + sid;
+            var url = "/enterprise/normal/" + "10" + "/" + "1?sid=" + seid;
             _api2.default.Get(url).then(function (res) {
                 _this5.serviceBody = res["data"];
                 if (_this5.serviceBody.length == 0) {
@@ -9532,9 +9567,16 @@ exports.default = {
                     _this5.nodata = false;
                     _this5.loading = false;
                     for (var i = 0; i < _this5.serviceBody.length; i++) {
-                        _this5.serviceBody[i]['labels'] = _this5.serviceBody[i]['labels'].split(",");
-                        var tempArr = _this5.serviceBody[i]['labels'].concat(_this5.serviceBody[i]['serviceIds']);
-                        _this5.serviceBody[i]['others'] = _this5.filterOter(_this5.totalArr, tempArr);
+                        if (_this5.serviceBody[i]['labels']) {
+                            _this5.serviceBody[i]['labels'] = _this5.serviceBody[i]['labels'].split(",");
+                            var tempArr = _this5.serviceBody[i]['labels'].concat(_this5.serviceBody[i]['serviceIds']);
+                            _this5.serviceBody[i]['others'] = _this5.filterOter(_this5.totalArr, tempArr);
+                        } else {
+                            // 当labels为空时
+                            _this5.serviceBody[i]['labels'] = [];
+                            var _tempArr = _this5.serviceBody[i]['labels'].concat(_this5.serviceBody[i]['serviceIds']);
+                            _this5.serviceBody[i]['others'] = _this5.filterOter(_this5.totalArr, _tempArr);
+                        }
                     }
                 }
                 _this5.totalPages = res["totalPages"] * 10;
@@ -9542,27 +9584,31 @@ exports.default = {
             var info = "/pub/info/22" + "/" + "10" + "/1";
             _api2.default.Get(info).then(function (res) {
                 _this5.infoData = res["data"];
-                // if (this.infoData.length == 0) {
-                //     this.nodata = true;
-                // } else {
-                //     this.nodata = false;
-                // }
-                // this.totalPages = res["totalPages"] * 10;
             });
         },
         handleCurrentChange: function handleCurrentChange(val) {
             var _this6 = this;
 
+            console.log(val);
             //获取到当前分页页码，获取当前页面数据
-            var sid = window.localStorage.getItem("seid");
-            var url = "/enterprise/normal/" + "10" + "/" + val + "/?sid=" + sid;
+            var seid = window.localStorage.getItem("seid");
+            this.seid = seid;
+            var url = "/enterprise/normal/" + "10" + "/" + val + "/?sid=" + seid;
             _api2.default.Get(url).then(function (res) {
                 _this6.serviceBody = res["data"];
                 for (var i = 0; i < _this6.serviceBody.length; i++) {
-                    _this6.serviceBody[i]['labels'] = _this6.serviceBody[i]['labels'].split(",");
-                    var tempArr = _this6.serviceBody[i]['labels'].concat(_this6.serviceBody[i]['serviceIds']);
-                    _this6.serviceBody[i]['others'] = _this6.filterOter(_this6.totalArr, tempArr);
+                    if (_this6.serviceBody[i]['labels']) {
+                        _this6.serviceBody[i]['labels'] = _this6.serviceBody[i]['labels'].split(",");
+                        var tempArr = _this6.serviceBody[i]['labels'].concat(_this6.serviceBody[i]['serviceIds']);
+                        _this6.serviceBody[i]['others'] = _this6.filterOter(_this6.totalArr, tempArr);
+                    } else {
+                        // 当labels为空时
+                        _this6.serviceBody[i]['labels'] = [];
+                        var _tempArr2 = _this6.serviceBody[i]['labels'].concat(_this6.serviceBody[i]['serviceIds']);
+                        _this6.serviceBody[i]['others'] = _this6.filterOter(_this6.totalArr, _tempArr2);
+                    }
                 }
+                _this6.curPage = res['currentPageNo'];
                 _this6.totalPages = res["totalPages"] * 10;
             });
         },
@@ -9592,10 +9638,6 @@ exports.default = {
         }
     }
 }; //
-//
-//
-//
-//
 //
 //
 //
@@ -14568,25 +14610,40 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }
   }, [_vm._v("发布求租")]) : _vm._e()], 1), _vm._v(" "), _c('el-col', {
-    staticStyle: {
-      "margin-top": "15px"
-    },
     attrs: {
       "lg": 24,
       "md": 24,
       "sm": 24,
       "xs": 24
     }
-  }, [(_vm.attractFlag) ? _c('p', {
+  }, [_c('p', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.attractFlag1.length == 0 && _vm.type == '1'),
+      expression: "attractFlag1.length==0 && type == '1'"
+    }],
     staticStyle: {
-      "text-align": "center"
+      "text-align": "center",
+      "margin-top": "15px"
     }
-  }, [_vm._v("暂无数据")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.investData), function(item, index) {
+  }, [_vm._v(_vm._s(_vm.attractFlag1.length) + "暂无数据")]), _vm._v(" "), _c('p', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.attractFlag2.length == 0 && _vm.type == '2'),
+      expression: "attractFlag2.length==0 && type == '2'"
+    }],
+    staticStyle: {
+      "text-align": "center",
+      "margin-top": "15px"
+    }
+  }, [_vm._v(_vm._s(_vm.attractFlag2) + "暂无数据")]), _vm._v(" "), _vm._l((_vm.investData), function(item, index) {
     return (_vm.type == '1' && item['type'] == 1) ? _c('el-row', {
       key: index,
       staticStyle: {
         "border-bottom": "1px solid #eee",
-        "margin-bottom": "10px"
+        "padding": "10px 0"
       },
       attrs: {
         "gutter": 10
@@ -14609,16 +14666,25 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('div', {
       staticClass: "incubators_more_img"
-    }, [_c('img', {
+    }, [(item['icon']) ? _c('img', {
       staticStyle: {
         "margin-left": "-5px",
         "max-height": "200px"
       },
       attrs: {
-        "src": __webpack_require__("4DqM"),
+        "src": item['icon'],
         "alt": ""
       }
-    })])]), _vm._v(" "), _c('el-col', {
+    }) : _vm._e(), _vm._v(" "), (!item['icon']) ? _c('img', {
+      staticStyle: {
+        "margin-left": "-5px",
+        "max-height": "200px"
+      },
+      attrs: {
+        "src": __webpack_require__("ZBJ4"),
+        "alt": ""
+      }
+    }) : _vm._e()])]), _vm._v(" "), _c('el-col', {
       attrs: {
         "xs": 15,
         "sm": 15,
@@ -14644,7 +14710,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       key: index,
       staticStyle: {
         "border-bottom": "1px solid #eee",
-        "margin-bottom": "10px"
+        "padding": "10px 0"
       },
       attrs: {
         "gutter": 10
@@ -14680,6 +14746,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "b"
     }, [_vm._v(_vm._s(item['price']) + _vm._s(item['unit']))])])])], 1) : _vm._e()
   })], 2)], 1), _vm._v(" "), _c('el-row', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.attractFlag1.length > 0 || _vm.attractFlag2.length > 0),
+      expression: "attractFlag1.length>0 || attractFlag2.length>0"
+    }],
     staticStyle: {
       "margin-bottom": "50px"
     },
@@ -14888,7 +14960,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       },
       attrs: {
         "href": "javascript:;",
-        "sid": item.id
+        "seid": item.id
       },
       on: {
         "click": function($event) {
@@ -14953,125 +15025,269 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('p', [_vm._v("地址:" + _vm._s(item['address']))]), _vm._v(" "), _c('p', [_vm._v("电话:" + _vm._s(item['phone']))])]), _vm._v(" "), _c('ul', {
       staticClass: "clearfix"
     }, [_vm._l((item['labels']), function(item, index) {
-      return (item == '51') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '51'),
+          expression: "item == '51'"
+        }],
+        key: item.id,
         staticClass: "green"
-      }, [_vm._v("信息化")]) : _vm._e()
+      }, [_vm._v(_vm._s(item.id) + "信息化")])
     }), _vm._v(" "), _vm._l((item['labels']), function(item, index) {
-      return (item == '52') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '52'),
+          expression: "item == '52'"
+        }],
+        key: item.id,
         staticClass: "green"
-      }, [_vm._v("知识产权")]) : _vm._e()
+      }, [_vm._v("知识产权")])
     }), _vm._v(" "), _vm._l((item['labels']), function(item, index) {
-      return (item == '53') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '53'),
+          expression: "item == '53'"
+        }],
+        key: item.id,
         staticClass: "green"
-      }, [_vm._v("科技转化")]) : _vm._e()
+      }, [_vm._v("科技转化")])
     }), _vm._v(" "), _vm._l((item['labels']), function(item, index) {
-      return (item == '54') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '54'),
+          expression: "item == '54'"
+        }],
+        key: item.id,
         staticClass: "green"
-      }, [_vm._v("金融服务")]) : _vm._e()
+      }, [_vm._v("金融服务")])
     }), _vm._v(" "), _vm._l((item['labels']), function(item, index) {
-      return (item == '55') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '55'),
+          expression: "item == '55'"
+        }],
+        key: item.id,
         staticClass: "green"
-      }, [_vm._v("电子商务")]) : _vm._e()
+      }, [_vm._v("电子商务")])
     }), _vm._v(" "), _vm._l((item['labels']), function(item, index) {
-      return (item == '56') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '56'),
+          expression: "item == '56'"
+        }],
+        key: item.id,
         staticClass: "green"
-      }, [_vm._v("财税/法务")]) : _vm._e()
+      }, [_vm._v("财税/法务")])
     }), _vm._v(" "), _vm._l((item['labels']), function(item, index) {
-      return (item == '57') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '57'),
+          expression: "item == '57'"
+        }],
+        key: item.id,
         staticClass: "green"
-      }, [_vm._v("招聘/培训")]) : _vm._e()
+      }, [_vm._v("招聘/培训")])
     }), _vm._v(" "), _vm._l((item['labels']), function(item, index) {
-      return (item == '58') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '58'),
+          expression: "item == '58'"
+        }],
+        key: item.id,
         staticClass: "green"
-      }, [_vm._v("物业服务")]) : _vm._e()
+      }, [_vm._v("物业服务")])
     }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
-      return (item == '51') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '51'),
+          expression: "item == '51'"
+        }],
+        key: item.id,
         staticClass: "yellow"
-      }, [_vm._v("信息化")]) : _vm._e()
+      }, [_vm._v(_vm._s(item.id) + "信息化")])
     }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
-      return (item == '52') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '52'),
+          expression: "item == '52'"
+        }],
+        key: item.id,
         staticClass: "yellow"
-      }, [_vm._v("知识产权")]) : _vm._e()
+      }, [_vm._v("知识产权")])
     }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
-      return (item == '53') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '53'),
+          expression: "item == '53'"
+        }],
+        key: item.id,
         staticClass: "yellow"
-      }, [_vm._v("科技转化")]) : _vm._e()
+      }, [_vm._v("科技转化")])
     }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
-      return (item == '54') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '54'),
+          expression: "item == '54'"
+        }],
+        key: item.id,
         staticClass: "yellow"
-      }, [_vm._v("金融服务")]) : _vm._e()
+      }, [_vm._v("金融服务")])
     }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
-      return (item == '55') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '55'),
+          expression: "item == '55'"
+        }],
+        key: item.id,
         staticClass: "yellow"
-      }, [_vm._v("电子商务")]) : _vm._e()
+      }, [_vm._v("电子商务")])
     }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
-      return (item == '56') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '56'),
+          expression: "item == '56'"
+        }],
+        key: item.id,
         staticClass: "yellow"
-      }, [_vm._v("财税/法务")]) : _vm._e()
+      }, [_vm._v("财税/法务")])
     }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
-      return (item == '57') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '57'),
+          expression: "item == '57'"
+        }],
+        key: item.id,
         staticClass: "yellow"
-      }, [_vm._v("招聘/培训")]) : _vm._e()
+      }, [_vm._v("招聘/培训")])
     }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
-      return (item == '58') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '58'),
+          expression: "item == '58'"
+        }],
+        key: item.id,
         staticClass: "yellow"
-      }, [_vm._v("物业服务")]) : _vm._e()
+      }, [_vm._v("物业服务")])
     }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
-      return (item == '51') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '51'),
+          expression: "item == '51'"
+        }],
+        key: item.id,
         staticClass: "gray"
-      }, [_vm._v("信息化")]) : _vm._e()
+      }, [_vm._v(_vm._s(item.id) + "信息化")])
     }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
-      return (item == '52') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '52'),
+          expression: "item == '52'"
+        }],
+        key: item.id,
         staticClass: "gray"
-      }, [_vm._v("知识产权")]) : _vm._e()
+      }, [_vm._v("知识产权")])
     }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
-      return (item == '53') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '53'),
+          expression: "item == '53'"
+        }],
+        key: item.id,
         staticClass: "gray"
-      }, [_vm._v("科技转化")]) : _vm._e()
+      }, [_vm._v(_vm._s(item.id) + "科技转化")])
     }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
-      return (item == '54') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '54'),
+          expression: "item == '54'"
+        }],
+        key: item.id,
         staticClass: "gray"
-      }, [_vm._v("金融服务")]) : _vm._e()
+      }, [_vm._v("金融服务")])
     }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
-      return (item == '55') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '55'),
+          expression: "item == '55'"
+        }],
+        key: item.id,
         staticClass: "gray"
-      }, [_vm._v("电子商务")]) : _vm._e()
+      }, [_vm._v("电子商务")])
     }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
-      return (item == '56') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '56'),
+          expression: "item == '56'"
+        }],
+        key: item.id,
         staticClass: "gray"
-      }, [_vm._v("财税/法务")]) : _vm._e()
+      }, [_vm._v("财税/法务")])
     }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
-      return (item == '57') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '57'),
+          expression: "item == '57'"
+        }],
+        key: item.id,
         staticClass: "gray"
-      }, [_vm._v("招聘/培训")]) : _vm._e()
+      }, [_vm._v("招聘/培训")])
     }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
-      return (item == '58') ? _c('li', {
-        key: index,
+      return _c('li', {
+        directives: [{
+          name: "show",
+          rawName: "v-show",
+          value: (item == '58'),
+          expression: "item == '58'"
+        }],
+        key: item.id,
         staticClass: "gray"
-      }, [_vm._v("物业服务")]) : _vm._e()
+      }, [_vm._v("物业服务")])
     })], 2)])])], 1)
   }), _vm._v(" "), _c('el-col', {
     staticStyle: {
@@ -16349,7 +16565,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "line"
   })]), _vm._v(" "), _c('div', {
     staticClass: "InvestmentList CollegeList"
-  }, _vm._l((_vm.Exeprt), function(item, index) {
+  }, [_c('p', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.noData2),
+      expression: "noData2"
+    }],
+    staticStyle: {
+      "font-size": "12px",
+      "line-height": "30px"
+    }
+  }, [_vm._v("此栏目暂无数据")]), _vm._v(" "), _vm._l((_vm.Exeprt), function(item, index) {
     return _c('div', {
       key: index,
       staticClass: "item clearfix",
@@ -16391,7 +16618,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "type": "danger"
       }
     }, [_vm._v("行业领域：消费生活")])], 1)], 1)
-  }))]), _vm._v(" "), _c('div', {
+  })], 2)]), _vm._v(" "), _c('div', {
     staticClass: "InvestmentAgency clearfix ResearchInstitute"
   }, [_c('h2', {
     staticClass: "common_sub_title"
@@ -16401,7 +16628,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "line"
   })]), _vm._v(" "), _c('div', {
     staticClass: "InvestmentList CollegeList"
-  }, _vm._l((_vm.ResearchInstitute), function(item, index) {
+  }, [_c('p', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.noData5),
+      expression: "noData5"
+    }],
+    staticStyle: {
+      "font-size": "12px",
+      "line-height": "30px"
+    }
+  }, [_vm._v("此栏目暂无数据")]), _vm._v(" "), _vm._l((_vm.ResearchInstitute), function(item, index) {
     return _c('div', {
       key: index,
       staticClass: "item clearfix",
@@ -16443,7 +16681,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "type": "danger"
       }
     }, [_vm._v("行业领域：消费生活")])], 1)], 1)
-  }))])]), _vm._v(" "), _c('el-col', {
+  })], 2)])]), _vm._v(" "), _c('el-col', {
     staticClass: "pl1",
     attrs: {
       "lg": 12,
@@ -17750,6 +17988,13 @@ var Component = normalizeComponent(
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "ZBJ4":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
 
 /***/ }),
 
@@ -21708,6 +21953,8 @@ exports.default = {
             talented: '', //校园人才
             needData: "", //融资需求
             noData: false,
+            noData2: false,
+            noData5: false,
             totalPages: "",
             Exeprt: "", //专家团队
             ResearchInstitute: "" //研究机构
@@ -21762,9 +22009,9 @@ exports.default = {
             _api2.default.Get(url).then(function (res) {
                 _this4.Exeprt = res["data"];
                 if (_this4.Exeprt.length == 0) {
-                    _this4.noData = true;
+                    _this4.noData2 = true;
                 } else if (_this4.Exeprt.length > 0) {
-                    _this4.noData = false;
+                    _this4.noData2 = false;
                     _this4.Exeprt = res["data"];
                     _this4.totalPages = res["totalPages"] * 10;
                 }
@@ -21778,9 +22025,9 @@ exports.default = {
             _api2.default.Get(url).then(function (res) {
                 _this5.ResearchInstitute = res["data"];
                 if (_this5.ResearchInstitute.length == 0) {
-                    _this5.noData = true;
+                    _this5.noData5 = true;
                 } else if (_this5.ResearchInstitute.length > 0) {
-                    _this5.noData = false;
+                    _this5.noData5 = false;
                     _this5.ResearchInstitute = res["data"];
                     _this5.totalPages = res["totalPages"] * 10;
                 }
@@ -21788,6 +22035,8 @@ exports.default = {
         }
     }
 }; //
+//
+//
 //
 //
 //
@@ -22976,6 +23225,7 @@ exports.default = {
         };
     },
     mounted: function mounted() {
+        console.log(this.$store);
         this.$store.commit(types.TITLE, 'Login');
         this.$store.commit(types.TITLE, 'userinfo');
     },
@@ -24227,7 +24477,8 @@ exports.default = {
     data: function data() {
         return {
             type: '',
-            attractFlag: false,
+            attractFlag1: [],
+            attractFlag2: [],
             investData: "", //招商列表信息
             totalPages: ''
         };
@@ -24244,11 +24495,16 @@ exports.default = {
             var url = "/qb/tenancy/3/" + '10' + '/1';
             _api2.default.Get(url).then(function (res) {
                 if (res['data'].length > 0) {
-                    _this.attractFlag = false;
                     _this.investData = res['data'];
-                } else {
-                    _this.attractFlag = true;
-                }
+                    for (var i = 0; i < res['data'].length; i++) {
+                        if (res['data'][i]['type'] == 1) {
+                            _this.attractFlag1.push(res['data'][i]['type']);
+                        }
+                        if (res['data'][i]['type'] == 2) {
+                            _this.attractFlag2.push(res['data'][i]['type']);
+                        }
+                    }
+                } else {}
                 _this.totalPages = res['totalPages'] * 10;
             });
         },
@@ -24271,6 +24527,9 @@ exports.default = {
         }
     }
 }; //
+//
+//
+//
 //
 //
 //
@@ -24596,7 +24855,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('p', {
     staticClass: "tc b f20"
-  }, [_vm._v("工位申请表")])]), _vm._v(" "), _c('el-col', {
+  }, [_vm._v("入驻申请")])]), _vm._v(" "), _c('el-col', {
     staticStyle: {
       "background-color": "#fff",
       "padding": "0px 25px 15px 0"
@@ -27736,4 +27995,4 @@ module.exports = __webpack_require__.p + "static/img/banner_cgzx.3700b27.png";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.08fc3bd9fac88eed1e96.js.map
+//# sourceMappingURL=app.1bc81da940e08dffcb64.js.map
