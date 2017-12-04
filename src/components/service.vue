@@ -27,13 +27,12 @@
                                 <el-row>
                                     <p v-show="noData" style="margin-left:15px;font-size:12px;margin-bottom: 10px;line-height:36px;">暂无数据</p>
                                     <el-col v-show="!noData" :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in needData" :key="index">
-                                        <div class="c1">
+                                       <div class="c1">
                                             <div class="c2">
                                                 <h3>{{item['enterprise']}}</h3>
                                                 <p>电话:{{item['phone']}}</p>
-                                                <div class="block">
-                                                    <el-rate v-model="value1"></el-rate>
-                                                </div>
+                                                <el-rate v-model="value1" disabled show-score text-color="#ff9900" score-template="{value}">
+                                                </el-rate>
                                             </div>
                                         </div>
                                     </el-col>
@@ -64,16 +63,18 @@
                                             <el-row :gutter="10">
                                                 <p v-show="noDate" style="margin-left:5px;">暂无数据</p>
                                                 <el-col v-show="!noDate" class="gh" :xs="24" :sm="24" :md="24" :lg="24" v-for="(item,index) in serviceBody" :key="index">
-                                                    <div class="intermediary_list">
-                                                        <h1>{{item['name']}}</h1>
-                                                        <div>
-                                                            <p>地址:{{ item['address']}}</p>
-                                                            <p>电话:{{ item['phone']}}</p>
+                                                    <router-link :to="{name:'invest_detail', params: {id:item.id}}" >
+                                                        <div class="intermediary_list">
+                                                            <h1>{{item['name']}}</h1>
+                                                            <div class="c3">
+                                                                <p>地址:{{ item['address']}}</p>
+                                                                <p>电话:{{ item['phone']}}</p>
+                                                            </div>
+                                                            <ul style="clear:both;height:30px;">
+                                                                <li>{{ item['labels']}}</li>
+                                                            </ul>
                                                         </div>
-                                                        <ul style="clear:both;height:30px;">
-                                                            <li>{{ item['labels']}}</li>
-                                                        </ul>
-                                                    </div>
+                                                    </router-link>
                                                 </el-col>
                                             </el-row>
                                         </div>
@@ -230,7 +231,6 @@
 
         }
     }
-
 </script>
 
 <style scoped>
@@ -265,7 +265,7 @@
     margin-bottom:10px;
 }
 .c1{
-    background-color:#f1f1f1;
+    background-color:rgb(250,250,250);
     /*height:100px;*/
     margin-bottom:20px;
     padding:15px 10px;
@@ -315,7 +315,12 @@
     display: block;
     clear: both
 }
-
+.c3 p{
+    color: #999;
+    font-size: 9px;
+    text-align: center;
+    line-height: 30px;
+}
 
 .filte dl dd {
     padding: 0 5px;
@@ -356,7 +361,7 @@
     margin-top: 15px;
 }
 .intermediary_list:hover{
-    background-color:#f1f1f1;
+    background-color:rgb(250,250,250);
 }
 
 .s_intermediary_list>.filte dd a{

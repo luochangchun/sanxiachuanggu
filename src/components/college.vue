@@ -14,29 +14,32 @@
                 <el-col :lg="12" :md="12" :sm="24" :xs="24" style="padding-right:20px;">
                     <el-row>
                         <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                            <!--<div class="s_header_img">-->
-                                <!--<img src="../../static/img/01c.png" alt="">-->
-                            <!--</div>-->
+                            <h2 class="common_sub_title">
+                                <p class="tc white">创业导师</p>
+                                <div class="line"></div>
+                            </h2>
                         </el-col>
                     </el-row>
                     <el-row>
-                        <el-col :lg="24" :md="24" :sm="24" :xs="24" style="margin-top: 60px; background-color: #f1f1f1;">
+                        <el-col :lg="24" :md="24" :sm="24" :xs="24" style="margin-top: 60px; background-color:rgb(250,250,250);">
                             <div class="s_teacher_list" v-for="(item , index) in tutorList" :key="index">
                                 <el-row style="">
-                                    <el-col :lg="6" :md="6" :sm="6" :xs="6">
+                                    <router-link :to="{ name: 'tutorDetail', params: { id: item.id} }">
+                                        <el-col :lg="6" :md="6" :sm="6" :xs="6">
                                         <div class="teacher_img">
                                             <img :src="item.photo" alt="">
                                         </div>
                                     </el-col>
-                                    <el-col :lg="18" :md="18" :sm="18" :xs="18">
-                                        <h1>{{item.name}}</h1>
-                                        <p>简介:{{item.intro}}</p>
-                                        <p>工作单位:{{item.university}}</p>
-                                        <div class="teacher_float_p">
-                                            <p>职称:{{item.title}}</p>
-                                            <p>关注领域:{{item.field}}</p>
-                                        </div>
-                                    </el-col>
+                                        <el-col :lg="18" :md="18" :sm="18" :xs="18">
+                                            <h1>{{item.name}}</h1>
+                                            <p>简介:{{item.intro}}</p>
+                                            <p>工作单位:{{item.university}}</p>
+                                            <div class="teacher_float_p">
+                                                <p>职称:{{item.title}}</p>
+                                                <p>关注领域:{{item.field}}</p>
+                                            </div>
+                                        </el-col>
+                                    </router-link>
                                 </el-row>
                             </div>
                         </el-col>
@@ -65,24 +68,26 @@
                         <el-col :lg="24" :md="24" :sm="24" :xs="24" style="margin-top: 60px;">
                             <div class="s_teacher_list" v-for="(item , index) in lecture" :key="index">
                                 <el-row style="">
-                                    <el-col :lg="4" :md="4" :sm="4" :xs="4">
-                                        <div class="train_img">
-                                            <img :src="item.icon" alt="">
-                                        </div>
-                                    </el-col>
-                                    <el-col :lg="20" :md="20" :sm="20" :xs="20">
-                                        <div class="train_float_btn clearfix">
-                                            <h1>{{item.name}}</h1>
-                                            <button v-if="item.status==2" class="activity_button btn1">进行中</button>
-                                            <button v-if="item.status==3" class="activity_button btn2">已结束</button>
-                                        </div>
+                                    <router-link :to="{ name: 'train_detail', params: { id: item.id} }">
+                                        <el-col :lg="4" :md="4" :sm="4" :xs="4">
+                                            <div class="train_img">
+                                                <img :src="item.icon" alt="">
+                                            </div>
+                                        </el-col>
+                                        <el-col :lg="20" :md="20" :sm="20" :xs="20">
+                                            <div class="train_float_btn clearfix">
+                                                <h1>{{item.name}}</h1>
+                                                <button v-if="item.status==2" class="activity_button btn1">进行中</button>
+                                                <button v-if="item.status==3" class="activity_button btn2">已结束</button>
+                                            </div>
 
-                                        <div class="teacher_float_p ">
-                                            <p>时间 : {{item['startAt'] | formatDate}}</p>
-                                            <p>地点 : {{item.location}}</p>
-                                        </div>
-                                        <p style="clear: both">人数限额 : {{item.total}}</p>
-                                    </el-col>
+                                            <div class="teacher_float_p ">
+                                                <p>时间 : {{item['startAt'] | formatDate}}</p>
+                                                <p>地点 : {{item.location}}</p>
+                                            </div>
+                                            <p style="clear: both">人数限额 : {{item.total}}</p>
+                                        </el-col>
+                                    </router-link>
                                 </el-row>
                             </div>
                         </el-col>
@@ -101,24 +106,26 @@
                         <el-col :lg="24" :md="24" :sm="24" :xs="24" style="margin-top:60px;">
                             <div class="s_teacher_list" v-for="(item , index) in activity" :key="index">
                                 <el-row style="">
-                                    <el-col :lg="4" :md="4" :sm="4" :xs="4">
-                                        <div class="train_img">
-                                            <img :src="item.icon" alt="">
-                                        </div>
-                                    </el-col>
-                                    <el-col :lg="20" :md="20" :sm="20" :xs="20">
-                                        <div class="train_float_btn clearfix">
-                                            <h1>{{item.name}}</h1>
-                                            <button v-if="item.status==2" class="activity_button btn1">进行中</button>
-                                            <button v-if="item.status==3" class="activity_button btn2">已结束</button>
-                                        </div>
+                                    <router-link :to="{name:'train_detail', params: {id:item.id} }">
+                                        <el-col :lg="4" :md="4" :sm="4" :xs="4">
+                                            <div class="train_img">
+                                                <img :src="item.icon" alt="">
+                                            </div>
+                                        </el-col>
+                                        <el-col :lg="20" :md="20" :sm="20" :xs="20">
+                                            <div class="train_float_btn clearfix">
+                                                <h1>{{item.name}}</h1>
+                                                <button v-if="item.status==2" class="activity_button btn1">进行中</button>
+                                                <button v-if="item.status==3" class="activity_button btn2">已结束</button>
+                                            </div>
 
-                                        <div class="teacher_float_p">
-                                            <p>时间 : {{item['startAt'] | formatDate}}</p>
-                                            <p>地点 : {{item.location}}</p>
-                                        </div>
-                                        <p style="clear: both">人数限额 : {{item.total}}</p>
-                                    </el-col>
+                                            <div class="teacher_float_p">
+                                                <p>时间 : {{item['startAt'] | formatDate}}</p>
+                                                <p>地点 : {{item.location}}</p>
+                                            </div>
+                                            <p style="clear: both">人数限额 : {{item.total}}</p>
+                                        </el-col>
+                                    </router-link>
                                 </el-row>
                             </div>
                         </el-col>
@@ -138,14 +145,16 @@
                             <div class="s_teacher_list" v-for="(item , index) in service" :key="index">
                                 <el-row style="">
                                     <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                                        <div class="train_float_btn clearfix">
-                                            <h1>{{item['title']}}</h1>
-                                        </div>
-                                        <p style="clear: both">企业名称 : {{item['enterprise']}}</p>
-                                        <div class="teacher_float_p">
-                                            <p>联系人 : {{item['contact']}}</p>
-                                            <p>联系方式 : {{item['phone']}}</p>
-                                        </div>
+                                        <router-link :to="{ name: 'needDetail', params: { id: item.id} }">
+                                            <div class="train_float_btn clearfix">
+                                                <h1>{{item['title']}}</h1>
+                                            </div>
+                                            <p style="clear: both">企业名称 : {{item['enterprise']}}</p>
+                                            <div class="teacher_float_p">
+                                                <p>联系人 : {{item['contact']}}</p>
+                                                <p>联系方式 : {{item['phone']}}</p>
+                                            </div>
+                                        </router-link>
                                     </el-col>
                                 </el-row>
                             </div>
@@ -228,13 +237,6 @@
                     this.totalPages = res["totalPages"] * 10;
                 });
             },
-//招聘/培训需求
-//            initServicesList() {
-//                var url = "/enterprise/apply/" + "4" + "/" + "1" + "?cid=" + 0;
-//                api.Get(url).then(res => {
-//                    this.needData = res["page"]["data"];
-//                });
-//            },
             getInviteList(val) {
                 //获取到当前分页页码，获取当前页面数据
                 var url = "/enterprise/apply/" + "4" + "/" + "1" + "/" + val;
@@ -265,8 +267,8 @@
         margin-right:10px;
     }
     .teacher_img img{
-        width:120px;
-        height:120px;
+        width:100px;
+        height:100px;
         margin-right:20px;
     }
     .teacher_float_p p:first-child{
