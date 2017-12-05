@@ -19344,8 +19344,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // axios 配置
-var baseUrl = 'http://192.168.11.222/servant';
-// const baseUrl = "http://www.sanxiachuanggu.com/servant";
+// const baseUrl = 'http://192.168.11.222/servant';
+var baseUrl = "http://www.sanxiachuanggu.com/servant";
 _axios2.default.defaults.timeout = 5000;
 _axios2.default.defaults.baseURL = baseUrl;
 _axios2.default.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -28363,4 +28363,4 @@ module.exports = __webpack_require__.p + "static/img/banner_cgzx.3700b27.png";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.b4958c1d2722c4d7d942.js.map
+//# sourceMappingURL=app.07f4741271d28b7c5e51.js.map
