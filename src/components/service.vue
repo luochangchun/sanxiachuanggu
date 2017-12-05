@@ -27,15 +27,113 @@
                         <el-col :lg="24" :md="24" :sm="24" :xs="24">
                             <div class="s_service_list clearfix" v-for="(item , index) in ServiceList" :key="index">
                                 <h2>{{ item['value']}}</h2>
-                                <el-row>
-                                    <p v-show="noData" style="margin-left:15px;font-size:12px;margin-bottom: 10px;line-height:36px;">暂无数据</p>
-                                    <el-col v-show="!noData" :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in needData" :key="index">
+                                <el-row v-if="item.id == 51">
+                                    <p v-if="needData51.length == 0" style="margin-left:5px;">暂无数据</p>
+                                    <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in needData51" :key="index">
                                         <div class="c1">
                                             <div class="c2">
-                                                <h3 class="text-ellipsis-muti text-ellipsis-2">{{item['enterprise']}}</h3>
+                                                <h3 class="text-ellipsis-muti text-ellipsis-2">{{item['name']}}</h3>
                                                 <p>电话:{{item['phone']}}</p>
                                                 <div class="block">
-                                                    <el-rate v-model="value1"></el-rate>
+                                                    <el-rate disabled v-model="value1"></el-rate>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </el-col>
+                                </el-row>
+                                <el-row v-if="item.id == 52">
+                                    <p v-if="needData52.length == 0" style="margin-left:5px;">暂无数据</p>
+                                    <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in needData52" :key="index">
+                                        <div class="c1">
+                                            <div class="c2">
+                                                <h3 class="text-ellipsis-muti text-ellipsis-2">{{item['name']}}</h3>
+                                                <p>电话:{{item['phone']}}</p>
+                                                <div class="block">
+                                                    <el-rate disabled v-model="value1"></el-rate>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </el-col>
+                                </el-row>
+                                <el-row v-if="item.id == 53">
+                                    <p v-if="needData53.length == 0" style="margin-left:5px;">暂无数据</p>
+                                    <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in needData53" :key="index">
+                                        <div class="c1">
+                                            <div class="c2">
+                                                <h3 class="text-ellipsis-muti text-ellipsis-2">{{item['name']}}</h3>
+                                                <p>电话:{{item['phone']}}</p>
+                                                <div class="block">
+                                                    <el-rate disabled v-model="value1"></el-rate>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </el-col>
+                                </el-row>
+                                <el-row v-if="item.id == 54">
+                                    <p v-if="needData54.length == 0" style="margin-left:5px;">暂无数据</p>
+                                    <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in needData54" :key="index">
+                                        <div class="c1">
+                                            <div class="c2">
+                                                <h3 class="text-ellipsis-muti text-ellipsis-2">{{item['name']}}</h3>
+                                                <p>电话:{{item['phone']}}</p>
+                                                <div class="block">
+                                                    <el-rate disabled v-model="value1"></el-rate>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </el-col>
+                                </el-row>
+                                <el-row v-if="item.id == 55">
+                                    <p v-if="needData55.length == 0" style="margin-left:5px;">暂无数据</p>
+                                    <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in needData55" :key="index">
+                                        <div class="c1">
+                                            <div class="c2">
+                                                <h3 class="text-ellipsis-muti text-ellipsis-2">{{item['name']}}</h3>
+                                                <p>电话:{{item['phone']}}</p>
+                                                <div class="block">
+                                                    <el-rate disabled v-model="value1"></el-rate>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </el-col>
+                                </el-row>
+                                <el-row v-if="item.id == 56">
+                                    <p v-if="needData56.length == 0" style="margin-left:5px;">暂无数据</p>
+                                    <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in needData56" :key="index">
+                                        <div class="c1">
+                                            <div class="c2">
+                                                <h3 class="text-ellipsis-muti text-ellipsis-2">{{item['name']}}</h3>
+                                                <p>电话:{{item['phone']}}</p>
+                                                <div class="block">
+                                                    <el-rate disabled v-model="value1"></el-rate>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </el-col>
+                                </el-row>
+                                <el-row v-if="item.id == 57">
+                                    <p v-if="needData57.length == 0" style="margin-left:5px;">暂无数据</p>
+                                    <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in needData57" :key="index">
+                                        <div class="c1">
+                                            <div class="c2">
+                                                <h3 class="text-ellipsis-muti text-ellipsis-2">{{item['name']}}</h3>
+                                                <p>电话:{{item['phone']}}</p>
+                                                <div class="block">
+                                                    <el-rate disabled v-model="value1"></el-rate>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </el-col>
+                                </el-row>
+                                <el-row v-if="item.id == 58">
+                                    <p v-if="needData58.length == 0" style="margin-left:5px;">暂无数据</p>
+                                    <el-col :lg="6" :md="6" :sm="6" :xs="6" v-for="(item, index) in needData58" :key="index">
+                                        <div class="c1">
+                                            <div class="c2">
+                                                <h3 class="text-ellipsis-muti text-ellipsis-2">{{item['name']}}</h3>
+                                                <p>电话:{{item['phone']}}</p>
+                                                <div class="block">
+                                                    <el-rate disabled v-model="value1"></el-rate>
                                                 </div>
                                             </div>
                                         </div>
@@ -149,17 +247,24 @@
                 serviceEight: '',
                 value1: 4, //星级评分
                 totalPages: "",
+                needData51: [],
+                needData52: [],
+                needData53: [],
+                needData54: [],
+                needData55: [],
+                needData56: [],
+                needData57: [],
+                needData58: [],
                 totalArr: ['51', '52', '53', '54', '55', '56', '57', '58'],
                 other: [],
                 curPage: 1,
-                seid : ''
+                seid: ''
             }
         },
         created() {
             this.getServiceList();
             this.getQb();
             this.getServiceEight();
-            this.initServicesList();
         },
         methods: {
             // 服务商机构value
@@ -167,26 +272,46 @@
                 this.fullscreenLoading = true;
                 api.Get('/dict/service').then(res => {
                     this.ServiceList = res;
-                });
-            },
-            initServicesList() {
-                var url = "/enterprise/apply/" + "4" + "/" + "1" + "?cid=" + 0;
-                api.Get(url).then(res => {
-                    this.needData = res["page"]["data"];
+                    for (var i = 0; i < this.ServiceList.length; i++) {
+                        this.getProviderClass(this.ServiceList[i]['id'])
+                    }
                 });
             },
             //服务商机构内容
             getProviderClass(id) {
-                let url = '/enterprise/' + id + '/' + '2' + '/' + '10' + '/' + '1';
+                console.log(id);
+                var url = '/enterprise/' + id + '/' + '2' + '/' + '4' + '/' + '1';
                 api.Get(url)
                     .then(res => {
-                        this.needData = res['data'];
-                        if (this.needData.length == 0) {
-                            this.nodata = true;
-                        } else {
-                            this.nodata = false;
+                        switch (id) {
+                            case 51:
+                                this.needData51 = res['data'];
+                                break;
+                            case 52:
+                                this.needData52 = res['data'];
+                                break;
+                            case 53:
+                                this.needData53 = res['data'];
+                                break;
+                            case 54:
+                                this.needData54 = res['data'];
+                                break;
+                            case 55:
+                                this.needData55 = res['data'];
+                                break;
+                            case 56:
+                                this.needData56 = res['data'];
+                                break;
+                            case 57:
+                                this.needData57 = res['data'];
+                                break;
+                            case 58:
+                                this.needData58 = res['data'];
+                                break;
+                            default:
+                                this.needData58 = res['data'];
+                                break;
                         }
-                        this.totalPages = res['totalPages'] * 10;
                     });
             },
             // 享受服务企业name
@@ -220,7 +345,7 @@
             },
             initNewsList(seid) {
                 this.loading = true
-                var url = "/enterprise/normal/" + "10" + "/" + "1?sid=" + seid;
+                var url = "/enterprise/normal/" + "13" + "/" + "1?sid=" + seid;
                 api.Get(url).then(res => {
                     this.serviceBody = res["data"];
                     if (this.serviceBody.length == 0) {
@@ -254,7 +379,7 @@
                 //获取到当前分页页码，获取当前页面数据
                 let seid = window.localStorage.getItem("seid");
                 this.seid = seid;
-                var url = "/enterprise/normal/" + "10" + "/" + val + "/?sid=" + seid;
+                var url = "/enterprise/normal/" + "13" + "/" + val + "/?sid=" + seid;
                 api.Get(url).then(res => {
                     this.serviceBody = res["data"];
                     for (var i = 0; i < this.serviceBody.length; i++) {
@@ -331,7 +456,7 @@
         margin-bottom: 10px;
     }
     .c1 {
-        background-color: rgb(250,250,250);
+        background-color: rgb(250, 250, 250);
         /*height:100px;*/
         margin-bottom: 20px;
         padding: 15px 10px;
@@ -415,7 +540,7 @@
         /* margin-top: 15px; */
     }
     .intermediary_list:hover {
-        background-color: rgb(250,250,250);
+        background-color: rgb(250, 250, 250);
     }
     .s_intermediary_list>.filte dd a {
         float: left;

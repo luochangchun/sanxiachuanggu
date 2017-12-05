@@ -111,7 +111,7 @@
                           <p class="text-ellipsis">{{item['intro']}}</p>
                         </el-col>
                         <el-col :lg="8" :md="8" :sm="8" :xs="8">
-                          <button>提问</button>
+                          <router-link :to="{ name: 'tutorDetail', params: { id: item.id} }">查看</router-link>
                         </el-col>
                       </el-row>
                     </li>
@@ -495,7 +495,7 @@
   .need_teacher div p:first-child {
     margin-top: 25px;
   }
-  .need_teacher div button {
+  .need_teacher div a {
     border: none;
     background-color: #f48100;
     color: #fff;
@@ -504,5 +504,6 @@
     height: 28px;
     border-radius: 4px;
     margin-top: 40px;
+    text-align: center;
   }
 </style>

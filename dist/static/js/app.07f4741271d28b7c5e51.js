@@ -2866,7 +2866,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('el-pagination', {
     attrs: {
       "current-page": 1,
-      "total": _vm.totalPages,
+      "total": _vm.TutorPages,
       "layout": "prev, pager, next"
     },
     on: {
@@ -2874,7 +2874,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1)])], 1)], 1), _vm._v(" "), _c('el-col', {
     staticStyle: {
-      "padding-left": "10px",
+      "padding-left": "20px",
       "border-left": "1px solid #ccc"
     },
     attrs: {
@@ -2903,7 +2903,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "sm": 24,
       "xs": 24
     }
-  }, _vm._l((_vm.lecture), function(item, index) {
+  }, _vm._l((_vm.TrainList), function(item, index) {
     return _c('div', {
       key: index,
       staticClass: "s_teacher_list"
@@ -2970,7 +2970,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('el-pagination', {
     attrs: {
       "current-page": 1,
-      "total": _vm.totalPages,
+      "total": _vm.TrainPages,
       "layout": "prev, pager, next"
     },
     on: {
@@ -3000,7 +3000,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "sm": 24,
       "xs": 24
     }
-  }, _vm._l((_vm.activity), function(item, index) {
+  }, _vm._l((_vm.activityList), function(item, index) {
     return _c('div', {
       key: index,
       staticClass: "s_teacher_list"
@@ -3067,7 +3067,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('el-pagination', {
     attrs: {
       "current-page": 1,
-      "total": _vm.totalPages,
+      "total": _vm.activityPages,
       "layout": "prev, pager, next"
     },
     on: {
@@ -3097,11 +3097,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "sm": 24,
       "xs": 24
     }
-  }, _vm._l((_vm.service), function(item, index) {
+  }, _vm._l((_vm.needData), function(item, index) {
     return _c('div', {
       key: index,
       staticClass: "s_teacher_list"
-    }, [_c('el-row', {}, [_c('el-col', {
+    }, [_c('el-row', [_c('el-col', {
       attrs: {
         "lg": 24,
         "md": 24,
@@ -3734,7 +3734,7 @@ exports.default = {
 				"what": "", //项目说明
 				"how": "", //项目展示
 				"why": "", //投资理由
-				"radio": "", //持股比例
+				"ratio": "", //持股比例
 				"edu": "", //学历
 				"graduate": "", //毕业院校
 				"specialty": "" //专业
@@ -3892,7 +3892,7 @@ exports.default = {
 						"founder": _this.applyForm.founder,
 						"founderIntro": _this.applyForm.founderIntro,
 						"birth": _this.birth,
-						"radio": _this.applyForm.radio,
+						"ratio": _this.applyForm.ratio,
 						"edu": _this.applyForm.edu,
 						"graduate": _this.applyForm.graduate,
 						"specialty": _this.applyForm.specialty,
@@ -6949,18 +6949,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   })], 1), _vm._v(" "), _c('el-form-item', {
     attrs: {
       "label": "持股比例(%)",
-      "prop": "radio"
+      "prop": "ratio"
     }
   }, [_c('el-input', {
     attrs: {
       "type": "number"
     },
     model: {
-      value: (_vm.applyForm.radio),
+      value: (_vm.applyForm.ratio),
       callback: function($$v) {
-        _vm.applyForm.radio = $$v
+        _vm.applyForm.ratio = $$v
       },
-      expression: "applyForm.radio"
+      expression: "applyForm.ratio"
     }
   })], 1), _vm._v(" "), _c('el-form-item', [_c('el-button', {
     staticStyle: {
@@ -9475,6 +9475,14 @@ exports.default = {
             serviceEight: '',
             value1: 4, //星级评分
             totalPages: "",
+            needData51: [],
+            needData52: [],
+            needData53: [],
+            needData54: [],
+            needData55: [],
+            needData56: [],
+            needData57: [],
+            needData58: [],
             totalArr: ['51', '52', '53', '54', '55', '56', '57', '58'],
             other: [],
             curPage: 1,
@@ -9485,7 +9493,6 @@ exports.default = {
         this.getServiceList();
         this.getQb();
         this.getServiceEight();
-        this.initServicesList();
     },
 
     methods: {
@@ -9496,45 +9503,63 @@ exports.default = {
             this.fullscreenLoading = true;
             _api2.default.Get('/dict/service').then(function (res) {
                 _this.ServiceList = res;
-            });
-        },
-        initServicesList: function initServicesList() {
-            var _this2 = this;
-
-            var url = "/enterprise/apply/" + "4" + "/" + "1" + "?cid=" + 0;
-            _api2.default.Get(url).then(function (res) {
-                _this2.needData = res["page"]["data"];
+                for (var i = 0; i < _this.ServiceList.length; i++) {
+                    _this.getProviderClass(_this.ServiceList[i]['id']);
+                }
             });
         },
 
         //服务商机构内容
         getProviderClass: function getProviderClass(id) {
-            var _this3 = this;
+            var _this2 = this;
 
-            var url = '/enterprise/' + id + '/' + '2' + '/' + '10' + '/' + '1';
+            console.log(id);
+            var url = '/enterprise/' + id + '/' + '2' + '/' + '4' + '/' + '1';
             _api2.default.Get(url).then(function (res) {
-                _this3.needData = res['data'];
-                if (_this3.needData.length == 0) {
-                    _this3.nodata = true;
-                } else {
-                    _this3.nodata = false;
+                switch (id) {
+                    case 51:
+                        _this2.needData51 = res['data'];
+                        break;
+                    case 52:
+                        _this2.needData52 = res['data'];
+                        break;
+                    case 53:
+                        _this2.needData53 = res['data'];
+                        break;
+                    case 54:
+                        _this2.needData54 = res['data'];
+                        break;
+                    case 55:
+                        _this2.needData55 = res['data'];
+                        break;
+                    case 56:
+                        _this2.needData56 = res['data'];
+                        break;
+                    case 57:
+                        _this2.needData57 = res['data'];
+                        break;
+                    case 58:
+                        _this2.needData58 = res['data'];
+                        break;
+                    default:
+                        _this2.needData58 = res['data'];
+                        break;
                 }
-                _this3.totalPages = res['totalPages'] * 10;
             });
         },
 
         // 享受服务企业name
         getQb: function getQb() {
-            var _this4 = this;
+            var _this3 = this;
 
             _api2.default.Get('/qb').then(function (res) {
-                _this4.category = res;
-                _this4.category.forEach(function (value, index, array) {
+                _this3.category = res;
+                _this3.category.forEach(function (value, index, array) {
                     if (index == 1) {
-                        _this4.$set(_this4.display_active, 1, true);
-                        _this4.initNewsList(_this4.category[index]["id"]);
-                        _this4.fullscreenLoading = false;
-                        window.localStorage.setItem("seid", _this4.category[index]["id"]);
+                        _this3.$set(_this3.display_active, 1, true);
+                        _this3.initNewsList(_this3.category[index]["id"]);
+                        _this3.fullscreenLoading = false;
+                        window.localStorage.setItem("seid", _this3.category[index]["id"]);
                     }
                 });
             });
@@ -9554,71 +9579,71 @@ exports.default = {
             window.localStorage.setItem("seid", seid);
         },
         initNewsList: function initNewsList(seid) {
-            var _this5 = this;
+            var _this4 = this;
 
             this.loading = true;
-            var url = "/enterprise/normal/" + "10" + "/" + "1?sid=" + seid;
+            var url = "/enterprise/normal/" + "13" + "/" + "1?sid=" + seid;
             _api2.default.Get(url).then(function (res) {
-                _this5.serviceBody = res["data"];
-                if (_this5.serviceBody.length == 0) {
-                    _this5.nodata = true;
-                    _this5.loading = false;
+                _this4.serviceBody = res["data"];
+                if (_this4.serviceBody.length == 0) {
+                    _this4.nodata = true;
+                    _this4.loading = false;
                 } else {
-                    _this5.nodata = false;
-                    _this5.loading = false;
-                    for (var i = 0; i < _this5.serviceBody.length; i++) {
-                        if (_this5.serviceBody[i]['labels']) {
-                            _this5.serviceBody[i]['labels'] = _this5.serviceBody[i]['labels'].split(",");
-                            var tempArr = _this5.serviceBody[i]['labels'].concat(_this5.serviceBody[i]['serviceIds']);
-                            _this5.serviceBody[i]['others'] = _this5.filterOter(_this5.totalArr, tempArr);
+                    _this4.nodata = false;
+                    _this4.loading = false;
+                    for (var i = 0; i < _this4.serviceBody.length; i++) {
+                        if (_this4.serviceBody[i]['labels']) {
+                            _this4.serviceBody[i]['labels'] = _this4.serviceBody[i]['labels'].split(",");
+                            var tempArr = _this4.serviceBody[i]['labels'].concat(_this4.serviceBody[i]['serviceIds']);
+                            _this4.serviceBody[i]['others'] = _this4.filterOter(_this4.totalArr, tempArr);
                         } else {
                             // 当labels为空时
-                            _this5.serviceBody[i]['labels'] = [];
-                            var _tempArr = _this5.serviceBody[i]['labels'].concat(_this5.serviceBody[i]['serviceIds']);
-                            _this5.serviceBody[i]['others'] = _this5.filterOter(_this5.totalArr, _tempArr);
+                            _this4.serviceBody[i]['labels'] = [];
+                            var _tempArr = _this4.serviceBody[i]['labels'].concat(_this4.serviceBody[i]['serviceIds']);
+                            _this4.serviceBody[i]['others'] = _this4.filterOter(_this4.totalArr, _tempArr);
                         }
                     }
                 }
-                _this5.totalPages = res["totalPages"] * 10;
+                _this4.totalPages = res["totalPages"] * 10;
             });
             var info = "/pub/info/22" + "/" + "10" + "/1";
             _api2.default.Get(info).then(function (res) {
-                _this5.infoData = res["data"];
+                _this4.infoData = res["data"];
             });
         },
         handleCurrentChange: function handleCurrentChange(val) {
-            var _this6 = this;
+            var _this5 = this;
 
             console.log(val);
             //获取到当前分页页码，获取当前页面数据
             var seid = window.localStorage.getItem("seid");
             this.seid = seid;
-            var url = "/enterprise/normal/" + "10" + "/" + val + "/?sid=" + seid;
+            var url = "/enterprise/normal/" + "13" + "/" + val + "/?sid=" + seid;
             _api2.default.Get(url).then(function (res) {
-                _this6.serviceBody = res["data"];
-                for (var i = 0; i < _this6.serviceBody.length; i++) {
-                    if (_this6.serviceBody[i]['labels']) {
-                        _this6.serviceBody[i]['labels'] = _this6.serviceBody[i]['labels'].split(",");
-                        var tempArr = _this6.serviceBody[i]['labels'].concat(_this6.serviceBody[i]['serviceIds']);
-                        _this6.serviceBody[i]['others'] = _this6.filterOter(_this6.totalArr, tempArr);
+                _this5.serviceBody = res["data"];
+                for (var i = 0; i < _this5.serviceBody.length; i++) {
+                    if (_this5.serviceBody[i]['labels']) {
+                        _this5.serviceBody[i]['labels'] = _this5.serviceBody[i]['labels'].split(",");
+                        var tempArr = _this5.serviceBody[i]['labels'].concat(_this5.serviceBody[i]['serviceIds']);
+                        _this5.serviceBody[i]['others'] = _this5.filterOter(_this5.totalArr, tempArr);
                     } else {
                         // 当labels为空时
-                        _this6.serviceBody[i]['labels'] = [];
-                        var _tempArr2 = _this6.serviceBody[i]['labels'].concat(_this6.serviceBody[i]['serviceIds']);
-                        _this6.serviceBody[i]['others'] = _this6.filterOter(_this6.totalArr, _tempArr2);
+                        _this5.serviceBody[i]['labels'] = [];
+                        var _tempArr2 = _this5.serviceBody[i]['labels'].concat(_this5.serviceBody[i]['serviceIds']);
+                        _this5.serviceBody[i]['others'] = _this5.filterOter(_this5.totalArr, _tempArr2);
                     }
                 }
-                _this6.curPage = res['currentPageNo'];
-                _this6.totalPages = res["totalPages"] * 10;
+                _this5.curPage = res['currentPageNo'];
+                _this5.totalPages = res["totalPages"] * 10;
             });
         },
 
         // 已享受服务,有需求服务,未享受服务
         getServiceEight: function getServiceEight() {
-            var _this7 = this;
+            var _this6 = this;
 
             _api2.default.Get('/pub/enterprises').then(function (res) {
-                _this7.serviceEight = res;
+                _this6.serviceEight = res;
             });
         },
         filterOter: function filterOter(ar1, ar2) {
@@ -9638,6 +9663,104 @@ exports.default = {
         }
     }
 }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -11057,7 +11180,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       attrs: {
         "type": "success"
       }
-    }, [_vm._v("已完成融资：未完成融资")])], 1)
+    }, [_vm._v("融资状态：未完成融资")])], 1)
   }))]), _vm._v(" "), _c('div', {
     staticClass: "FinancingNeeds"
   }, [_c('h2', {
@@ -11092,7 +11215,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }
     }, [_c('h1', {
-      staticClass: "f14"
+      staticClass: "f14 text-ellipsis"
     }, [_vm._v(_vm._s(item['needs']))]), _vm._v(" "), _c('p', {
       staticClass: "text-ellipsis"
     }, [_vm._v("企业名称：" + _vm._s(item['enterprise']))]), _vm._v(" "), _c('div', {
@@ -14863,27 +14986,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     return _c('div', {
       key: index,
       staticClass: "s_service_list clearfix"
-    }, [_c('h2', [_vm._v(_vm._s(item['value']))]), _vm._v(" "), _c('el-row', [_c('p', {
-      directives: [{
-        name: "show",
-        rawName: "v-show",
-        value: (_vm.noData),
-        expression: "noData"
-      }],
+    }, [_c('h2', [_vm._v(_vm._s(item['value']))]), _vm._v(" "), (item.id == 51) ? _c('el-row', [(_vm.needData51.length == 0) ? _c('p', {
       staticStyle: {
-        "margin-left": "15px",
-        "font-size": "12px",
-        "margin-bottom": "10px",
-        "line-height": "36px"
+        "margin-left": "5px"
       }
-    }, [_vm._v("暂无数据")]), _vm._v(" "), _vm._l((_vm.needData), function(item, index) {
+    }, [_vm._v("暂无数据")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.needData51), function(item, index) {
       return _c('el-col', {
-        directives: [{
-          name: "show",
-          rawName: "v-show",
-          value: (!_vm.noData),
-          expression: "!noData"
-        }],
         key: index,
         attrs: {
           "lg": 6,
@@ -14897,9 +15005,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         staticClass: "c2"
       }, [_c('h3', {
         staticClass: "text-ellipsis-muti text-ellipsis-2"
-      }, [_vm._v(_vm._s(item['enterprise']))]), _vm._v(" "), _c('p', [_vm._v("电话:" + _vm._s(item['phone']))]), _vm._v(" "), _c('div', {
+      }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', [_vm._v("电话:" + _vm._s(item['phone']))]), _vm._v(" "), _c('div', {
         staticClass: "block"
       }, [_c('el-rate', {
+        attrs: {
+          "disabled": ""
+        },
         model: {
           value: (_vm.value1),
           callback: function($$v) {
@@ -14908,7 +15019,238 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           expression: "value1"
         }
       })], 1)])])])
-    })], 2)], 1)
+    })], 2) : _vm._e(), _vm._v(" "), (item.id == 52) ? _c('el-row', [(_vm.needData52.length == 0) ? _c('p', {
+      staticStyle: {
+        "margin-left": "5px"
+      }
+    }, [_vm._v("暂无数据")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.needData52), function(item, index) {
+      return _c('el-col', {
+        key: index,
+        attrs: {
+          "lg": 6,
+          "md": 6,
+          "sm": 6,
+          "xs": 6
+        }
+      }, [_c('div', {
+        staticClass: "c1"
+      }, [_c('div', {
+        staticClass: "c2"
+      }, [_c('h3', {
+        staticClass: "text-ellipsis-muti text-ellipsis-2"
+      }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', [_vm._v("电话:" + _vm._s(item['phone']))]), _vm._v(" "), _c('div', {
+        staticClass: "block"
+      }, [_c('el-rate', {
+        attrs: {
+          "disabled": ""
+        },
+        model: {
+          value: (_vm.value1),
+          callback: function($$v) {
+            _vm.value1 = $$v
+          },
+          expression: "value1"
+        }
+      })], 1)])])])
+    })], 2) : _vm._e(), _vm._v(" "), (item.id == 53) ? _c('el-row', [(_vm.needData53.length == 0) ? _c('p', {
+      staticStyle: {
+        "margin-left": "5px"
+      }
+    }, [_vm._v("暂无数据")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.needData53), function(item, index) {
+      return _c('el-col', {
+        key: index,
+        attrs: {
+          "lg": 6,
+          "md": 6,
+          "sm": 6,
+          "xs": 6
+        }
+      }, [_c('div', {
+        staticClass: "c1"
+      }, [_c('div', {
+        staticClass: "c2"
+      }, [_c('h3', {
+        staticClass: "text-ellipsis-muti text-ellipsis-2"
+      }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', [_vm._v("电话:" + _vm._s(item['phone']))]), _vm._v(" "), _c('div', {
+        staticClass: "block"
+      }, [_c('el-rate', {
+        attrs: {
+          "disabled": ""
+        },
+        model: {
+          value: (_vm.value1),
+          callback: function($$v) {
+            _vm.value1 = $$v
+          },
+          expression: "value1"
+        }
+      })], 1)])])])
+    })], 2) : _vm._e(), _vm._v(" "), (item.id == 54) ? _c('el-row', [(_vm.needData54.length == 0) ? _c('p', {
+      staticStyle: {
+        "margin-left": "5px"
+      }
+    }, [_vm._v("暂无数据")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.needData54), function(item, index) {
+      return _c('el-col', {
+        key: index,
+        attrs: {
+          "lg": 6,
+          "md": 6,
+          "sm": 6,
+          "xs": 6
+        }
+      }, [_c('div', {
+        staticClass: "c1"
+      }, [_c('div', {
+        staticClass: "c2"
+      }, [_c('h3', {
+        staticClass: "text-ellipsis-muti text-ellipsis-2"
+      }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', [_vm._v("电话:" + _vm._s(item['phone']))]), _vm._v(" "), _c('div', {
+        staticClass: "block"
+      }, [_c('el-rate', {
+        attrs: {
+          "disabled": ""
+        },
+        model: {
+          value: (_vm.value1),
+          callback: function($$v) {
+            _vm.value1 = $$v
+          },
+          expression: "value1"
+        }
+      })], 1)])])])
+    })], 2) : _vm._e(), _vm._v(" "), (item.id == 55) ? _c('el-row', [(_vm.needData55.length == 0) ? _c('p', {
+      staticStyle: {
+        "margin-left": "5px"
+      }
+    }, [_vm._v("暂无数据")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.needData55), function(item, index) {
+      return _c('el-col', {
+        key: index,
+        attrs: {
+          "lg": 6,
+          "md": 6,
+          "sm": 6,
+          "xs": 6
+        }
+      }, [_c('div', {
+        staticClass: "c1"
+      }, [_c('div', {
+        staticClass: "c2"
+      }, [_c('h3', {
+        staticClass: "text-ellipsis-muti text-ellipsis-2"
+      }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', [_vm._v("电话:" + _vm._s(item['phone']))]), _vm._v(" "), _c('div', {
+        staticClass: "block"
+      }, [_c('el-rate', {
+        attrs: {
+          "disabled": ""
+        },
+        model: {
+          value: (_vm.value1),
+          callback: function($$v) {
+            _vm.value1 = $$v
+          },
+          expression: "value1"
+        }
+      })], 1)])])])
+    })], 2) : _vm._e(), _vm._v(" "), (item.id == 56) ? _c('el-row', [(_vm.needData56.length == 0) ? _c('p', {
+      staticStyle: {
+        "margin-left": "5px"
+      }
+    }, [_vm._v("暂无数据")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.needData56), function(item, index) {
+      return _c('el-col', {
+        key: index,
+        attrs: {
+          "lg": 6,
+          "md": 6,
+          "sm": 6,
+          "xs": 6
+        }
+      }, [_c('div', {
+        staticClass: "c1"
+      }, [_c('div', {
+        staticClass: "c2"
+      }, [_c('h3', {
+        staticClass: "text-ellipsis-muti text-ellipsis-2"
+      }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', [_vm._v("电话:" + _vm._s(item['phone']))]), _vm._v(" "), _c('div', {
+        staticClass: "block"
+      }, [_c('el-rate', {
+        attrs: {
+          "disabled": ""
+        },
+        model: {
+          value: (_vm.value1),
+          callback: function($$v) {
+            _vm.value1 = $$v
+          },
+          expression: "value1"
+        }
+      })], 1)])])])
+    })], 2) : _vm._e(), _vm._v(" "), (item.id == 57) ? _c('el-row', [(_vm.needData57.length == 0) ? _c('p', {
+      staticStyle: {
+        "margin-left": "5px"
+      }
+    }, [_vm._v("暂无数据")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.needData57), function(item, index) {
+      return _c('el-col', {
+        key: index,
+        attrs: {
+          "lg": 6,
+          "md": 6,
+          "sm": 6,
+          "xs": 6
+        }
+      }, [_c('div', {
+        staticClass: "c1"
+      }, [_c('div', {
+        staticClass: "c2"
+      }, [_c('h3', {
+        staticClass: "text-ellipsis-muti text-ellipsis-2"
+      }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', [_vm._v("电话:" + _vm._s(item['phone']))]), _vm._v(" "), _c('div', {
+        staticClass: "block"
+      }, [_c('el-rate', {
+        attrs: {
+          "disabled": ""
+        },
+        model: {
+          value: (_vm.value1),
+          callback: function($$v) {
+            _vm.value1 = $$v
+          },
+          expression: "value1"
+        }
+      })], 1)])])])
+    })], 2) : _vm._e(), _vm._v(" "), (item.id == 58) ? _c('el-row', [(_vm.needData58.length == 0) ? _c('p', {
+      staticStyle: {
+        "margin-left": "5px"
+      }
+    }, [_vm._v("暂无数据")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.needData58), function(item, index) {
+      return _c('el-col', {
+        key: index,
+        attrs: {
+          "lg": 6,
+          "md": 6,
+          "sm": 6,
+          "xs": 6
+        }
+      }, [_c('div', {
+        staticClass: "c1"
+      }, [_c('div', {
+        staticClass: "c2"
+      }, [_c('h3', {
+        staticClass: "text-ellipsis-muti text-ellipsis-2"
+      }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', [_vm._v("电话:" + _vm._s(item['phone']))]), _vm._v(" "), _c('div', {
+        staticClass: "block"
+      }, [_c('el-rate', {
+        attrs: {
+          "disabled": ""
+        },
+        model: {
+          value: (_vm.value1),
+          callback: function($$v) {
+            _vm.value1 = $$v
+          },
+          expression: "value1"
+        }
+      })], 1)])])])
+    })], 2) : _vm._e()], 1)
   }))], 1)], 1), _vm._v(" "), _c('el-col', {
     attrs: {
       "lg": 12,
@@ -16052,7 +16394,16 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "sm": 8,
         "xs": 8
       }
-    }, [_c('button', [_vm._v("提问")])])], 1)], 1)
+    }, [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'tutorDetail',
+          params: {
+            id: item.id
+          }
+        }
+      }
+    }, [_vm._v("查看")])], 1)], 1)], 1)
   })], 2)])])], 1)], 1)], 1)], 1)], 1)], 1)
 }
 var staticRenderFns = []
@@ -16521,7 +16872,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   })]), _vm._v(" "), _c('div', {
     staticClass: "InvestmentList CollegeList"
   }, _vm._l((_vm.university), function(item, index) {
-    return _c('router-link', {
+    return (index < 4) ? _c('router-link', {
       key: index,
       staticClass: "item clearfix",
       attrs: {
@@ -16554,7 +16905,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "text-ellipsis"
     }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', {
       staticClass: "text-ellipsis-muti text-ellipsis-2"
-    }, [_vm._v(_vm._s(item['intro']))])])], 1)
+    }, [_vm._v(_vm._s(item['intro']))])])], 1) : _vm._e()
   }))]), _vm._v(" "), _c('div', {
     staticClass: "InvestmentAgency clearfix ExpertTeam"
   }, [_c('h2', {
@@ -16748,7 +17099,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('el-pagination', {
     attrs: {
       "current-page": 1,
-      "total": _vm.totalPages,
+      "total": _vm.consultPages,
       "layout": "prev, pager, next"
     },
     on: {
@@ -18019,7 +18370,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABACAMAAACp
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _api = __webpack_require__("c2Ch");
@@ -18230,97 +18581,111 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 
 exports.default = {
-    data: function data() {
-        return {
-            tutorList: "", //导师
-            lecture: "", //培训
-            activity: "", //活动
-            service: "", //招聘/培训需求
-            totalPages: ""
-        };
+  data: function data() {
+    return {
+      tutorList: "", //导师
+      TrainList: "", //培训
+      activityList: "", //活动
+      needData: "", //招聘/培训需求
+      totalPages: "",
+      TutorPages: "",
+      TrainPages: "",
+      activityPages: ""
+    };
+  },
+  created: function created() {
+    this.initTutorList();
+    this.setTronsApi();
+    this.initServicesList();
+  },
+
+  methods: {
+    //导师
+    initTutorList: function initTutorList() {
+      var _this = this;
+
+      var url = "/indie/" + "3" + "/" + "12" + "/" + "1";
+      _api2.default.Get(url).then(function (res) {
+        _this.tutorList = res["data"];
+        _this.TutorPages = res["totalPages"] * 10;
+      });
     },
-    created: function created() {
-        this.initTutorList();
-        this.setTronsApi();
+
+    // 导师分页
+    handleCurrentChange: function handleCurrentChange(val) {
+      var _this2 = this;
+
+      //获取到当前分页页码，获取当前页面数据
+      var url = "/indie/" + "3" + "/" + "12" + "/" + val;
+      _api2.default.Get(url).then(function (res) {
+        _this2.tutorList = res["data"];
+        _this2.TutorPages = res["totalPages"] * 10;
+      });
     },
 
-    methods: {
-        //导师
-        initTutorList: function initTutorList() {
-            var _this = this;
+    //培训与活动
+    setTronsApi: function setTronsApi() {
+      var _this3 = this;
 
-            var url = '/indie/' + '3' + '/' + '8' + '/' + '1';
-            _api2.default.Get(url).then(function (res) {
-                _this.tutorList = res['data'];
-                _this.totalPages = res['totalPages'] * 10;
-            });
-        },
-        handleCurrentChange: function handleCurrentChange(val) {
-            var _this2 = this;
-
-            //获取到当前分页页码，获取当前页面数据
-            var url = '/enterprise/' + '3' + '/' + '8' + '/' + val;
-            _api2.default.Get(url).then(function (res) {
-                _this2.tutorList = res['data'];
-                _this2.totalPages = res['totalPages'] * 10;
-            });
-        },
-
-        //培训与活动
-        setTronsApi: function setTronsApi() {
-            var _this3 = this;
-
-            _api2.default.Get("/pub/colleges").then(function (res) {
-                _this3.lecture = res["lecture"];
-                _this3.activity = res["activity"];
-                _this3.service = res["service"];
-            });
-        },
-        getTrainList: function getTrainList(val) {
-            var _this4 = this;
-
-            //获取到当前分页页码，获取当前页面数据
-            var url = "/activity/" + "2" + "/" + "10" + "/" + val;
-            _api2.default.Get(url).then(function (res) {
-                _this4.activityList = res["data"];
-                _this4.totalPages = res["totalPages"] * 10;
-            });
-        },
-        getActivityList: function getActivityList(val) {
-            var _this5 = this;
-
-            //获取到当前分页页码，获取当前页面数据
-            var url = "/activity/" + "2" + "/" + "10" + "/" + val;
-            _api2.default.Get(url).then(function (res) {
-                _this5.activityList = res["data"];
-                _this5.totalPages = res["totalPages"] * 10;
-            });
-        },
-
-        //招聘/培训需求
-        //            initServicesList() {
-        //                var url = "/enterprise/apply/" + "4" + "/" + "1" + "?cid=" + 0;
-        //                api.Get(url).then(res => {
-        //                    this.needData = res["page"]["data"];
-        //                });
-        //            },
-        getInviteList: function getInviteList(val) {
-            var _this6 = this;
-
-            //获取到当前分页页码，获取当前页面数据
-            var url = "/enterprise/apply/" + "4" + "/" + "1" + "/" + val;
-            _api2.default.Get(url).then(function (res) {
-                _this6.needData = res['data'];
-                _this6.totalPages = res['totalPages'] * 10;
-            });
-        }
+      var url2 = "/activity/" + "2" + "/" + "4" + "/" + "1";
+      _api2.default.Get(url2).then(function (res) {
+        _this3.TrainList = res["data"];
+        _this3.TrainPages = res["totalPages"] * 10;
+      });
+      var url1 = "/activity/" + "1" + "/" + "4" + "/" + "1";
+      _api2.default.Get(url1).then(function (res) {
+        _this3.activityList = res["data"];
+        _this3.activityPages = res["totalPages"] * 10;
+      });
     },
-    filters: {
-        formatDate: function formatDate(time) {
-            var date = new Date(time);
-            return (0, _date.formatDate)(date, 'yyyy-MM-dd');
-        }
+    getTrainList: function getTrainList(val) {
+      var _this4 = this;
+
+      //获取到当前分页页码，获取当前页面数据
+      var url = "/activity/" + "2" + "/" + "4" + "/" + val;
+      _api2.default.Get(url).then(function (res) {
+        _this4.TrainList = res["data"];
+        _this4.TrainPages = res["totalPages"] * 10;
+      });
+    },
+    getActivityList: function getActivityList(val) {
+      var _this5 = this;
+
+      //获取到当前分页页码，获取当前页面数据
+      var url = "/activity/" + "1" + "/" + "4" + "/" + val;
+      _api2.default.Get(url).then(function (res) {
+        _this5.activityList = res["data"];
+        _this5.activityPages = res["totalPages"] * 10;
+      });
+    },
+
+    //招聘/培训需求
+    initServicesList: function initServicesList() {
+      var _this6 = this;
+
+      var url = "/enterprise/apply/" + "4" + "/" + "1" + "?cid=57";
+      _api2.default.Get(url).then(function (res) {
+        _this6.needData = res["page"]["data"];
+        _this6.totalPages = res["page"]["totalPages"] * 10;
+      });
+    },
+    getInviteList: function getInviteList(val) {
+      var _this7 = this;
+
+      //获取到当前分页页码，获取当前页面数据
+      var url = "/enterprise/apply/" + "4" + "/" + "1" + "/" + val;
+      _api2.default.Get(url).then(function (res) {
+        _this7.needData = res["page"]["data"];
+        _this7.totalPages = res["page"]["totalPages"] * 10;
+      });
     }
+  },
+  filters: {
+    formatDate: function formatDate(time) {
+      var date = new Date(time);
+      return (0, _date.formatDate)(date, "yyyy-MM-dd");
+    }
+  }
 };
 
 /***/ }),
@@ -19005,7 +19370,7 @@ _axios2.default.interceptors.response.use(function (response) {
         window.localStorage.clear();
         _store2.default.commit(types.LOGOUT);
         _routes2.default.replace({
-          path: 'login',
+          path: '/login',
           query: { redirect: _routes2.default.currentRoute.fullPath }
         });
     }
@@ -20967,7 +21332,9 @@ var routes = [{ path: '/index', component: _Index2.default, name: 'Index' }, { p
 { path: '/financing_apply', component: _financing_apply2.default, name: 'financing_apply', meta: { requireAuth: true } }, //融资申请页面
 { path: '/topicList', component: _topicList2.default, name: 'topicList' }, //融资项目详情
 { path: '/service_class/:id', component: _service_class2.default, name: 'service_class' }, //服务商分类列表页面
-{ path: '/personalCenter', component: _personalCenter2.default, name: 'personalCenter', children: [{ path: '/demand_comm_service/:type', component: _demand_comm_service2.default, name: 'demand_comm_service01', hidden: true, meta: { requireAuth: true } }, { path: '/personalInformation', component: _personalInformation2.default, name: 'personalInformation', meta: { requireAuth: true } }, { path: '/passwordSetting', component: _passwordSetting2.default, name: 'passwordSetting', meta: { requireAuth: true } }, { path: '/service_detail/:id', component: _service_detail2.default, name: 'service_detail', meta: { requireAuth: true } }] },
+{
+	path: '/personalCenter', component: _personalCenter2.default, name: 'personalCenter', children: [{ path: '/demand_comm_service/:type', component: _demand_comm_service2.default, name: 'demand_comm_service01', hidden: true, meta: { requireAuth: true } }, { path: '/personalInformation', component: _personalInformation2.default, name: 'personalInformation', meta: { requireAuth: true } }, { path: '/passwordSetting', component: _passwordSetting2.default, name: 'passwordSetting', meta: { requireAuth: true } }, { path: '/service_detail/:id', component: _service_detail2.default, name: 'service_detail', meta: { requireAuth: true } }]
+},
 //个人中心
 //  罗长春
 { path: '/news', component: _news2.default, name: 'news' }, //创谷资讯首页
@@ -21048,7 +21415,7 @@ router.beforeEach(function (to, from, next) {
 		} else {
 			next({
 				path: '/login',
-				query: { redirect: to.fullPath }
+				query: { redirect: to.currentRoute.fullPath }
 			});
 		}
 	} else {
@@ -21956,6 +22323,7 @@ exports.default = {
             noData2: false,
             noData5: false,
             totalPages: "",
+            consultPages: "",
             Exeprt: "", //专家团队
             ResearchInstitute: "" //研究机构
         };
@@ -21979,7 +22347,7 @@ exports.default = {
         initServicesList: function initServicesList() {
             var _this2 = this;
 
-            var url = "/consult/" + "10" + "/" + "1";
+            var url = "/consult/" + "15" + "/" + "1";
             _api2.default.Get(url).then(function (res) {
                 _this2.needData = res["page"]["data"];
                 if (_this2.needData.length == 0) {
@@ -21987,7 +22355,7 @@ exports.default = {
                 } else if (_this2.needData.length > 0) {
                     _this2.noData = false;
                     _this2.needData = res["page"]["data"];
-                    _this2.totalPages = res["page"]["totalPages"] * 10;
+                    _this2.consultPages = res["page"]["totalPages"] * 10;
                 }
             });
         },
@@ -21995,17 +22363,17 @@ exports.default = {
             var _this3 = this;
 
             //获取到当前分页页码，获取当前页面数据
-            var url = "/consult/" + "10" + "/" + val;
+            var url = "/consult/" + "15" + "/" + val;
             _api2.default.Get(url).then(function (res) {
                 _this3.needData = res["page"]["data"];
-                _this3.totalPages = res["page"]["totalPages"] * 10;
+                _this3.consultPages = res["page"]["totalPages"] * 10;
             });
         },
         initExeprt: function initExeprt() {
             var _this4 = this;
 
             //专家团队
-            var url = "/indie/2/" + "10" + "/" + "1";
+            var url = "/indie/2/" + "4" + "/" + "1";
             _api2.default.Get(url).then(function (res) {
                 _this4.Exeprt = res["data"];
                 if (_this4.Exeprt.length == 0) {
@@ -22021,7 +22389,7 @@ exports.default = {
             var _this5 = this;
 
             //研究机构
-            var url = "/indie/5/" + "10" + "/" + "1";
+            var url = "/indie/5/" + "4" + "/" + "1";
             _api2.default.Get(url).then(function (res) {
                 _this5.ResearchInstitute = res["data"];
                 if (_this5.ResearchInstitute.length == 0) {
@@ -27995,4 +28363,4 @@ module.exports = __webpack_require__.p + "static/img/banner_cgzx.3700b27.png";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.1bc81da940e08dffcb64.js.map
+//# sourceMappingURL=app.07f4741271d28b7c5e51.js.map

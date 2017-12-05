@@ -58,7 +58,7 @@
                                         <p>发起人：<span>{{item['founder']}}</span></p>
                                     </div>
                                     <el-tag type="primary">行业领域：消费生活</el-tag>
-                                    <el-tag type="success">已完成融资：未完成融资</el-tag>
+                                    <el-tag type="success">融资状态：未完成融资</el-tag>
                                 </router-link>
                             </div>
                             <!-- <el-col :lg="16" :md="16" :sm="24" :xs="24" :offset="8">
@@ -76,7 +76,7 @@
                             <div class="needList clearfix">
                                 <p v-show="noData" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
                                 <router-link :to="{ name: 'needDetail', params: { id: item.id} }" v-for="(item, index) in needData" :key="index" class="item clearfix">
-                                    <h1 class="f14">{{item['needs']}}</h1>
+                                    <h1 class="f14 text-ellipsis">{{item['needs']}}</h1>
                                     <p class="text-ellipsis">企业名称：{{item['enterprise']}}</p>
                                     <div class="info">
                                         <p class="pw270">联系人：<span style="margin-right:150px;">{{item['contact']}}</span></p>

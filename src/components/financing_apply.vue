@@ -86,8 +86,8 @@
 						<el-form-item label="投资理由" prop="why">
 							<el-input type="textarea" v-model="applyForm.why"></el-input>
 						</el-form-item>
-						<el-form-item label="持股比例(%)" prop="radio">
-							<el-input type="number" v-model="applyForm.radio"></el-input>
+						<el-form-item label="持股比例(%)" prop="ratio">
+							<el-input type="number" v-model="applyForm.ratio"></el-input>
 						</el-form-item>
 						<el-form-item>
 							<el-button @click="submitForm('applyForm')" style="background-color: #f48100;border:none;color:#fff;">发布</el-button>
@@ -181,7 +181,7 @@
 					"what": "", //项目说明
 					"how": "", //项目展示
 					"why": "", //投资理由
-					"radio": "", //持股比例
+					"ratio": "", //持股比例
 					"edu": "", //学历
 					"graduate": "", //毕业院校
 					"specialty": "", //专业
@@ -336,7 +336,7 @@
 							"founder": this.applyForm.founder,
 							"founderIntro": this.applyForm.founderIntro,
 							"birth": this.birth,
-							"radio": this.applyForm.radio,
+							"ratio": this.applyForm.ratio,
 							"edu": this.applyForm.edu,
 							"graduate": this.applyForm.graduate,
 							"specialty": this.applyForm.specialty,

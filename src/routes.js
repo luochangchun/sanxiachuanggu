@@ -86,8 +86,8 @@ import intermediary from '../src/components/intermediary.vue'
 Vue.use(VueRouter)
 
 const routes = [
-	{path: '/index', component: Index, name: 'Index'},
-	{path: '/map', component: Map, name: 'Map'},
+	{ path: '/index', component: Index, name: 'Index' },
+	{ path: '/map', component: Map, name: 'Map' },
 	{ path: '/activitys', component: Activitys, name: 'Activitys' },
 	{ path: '/activityPara/:id', component: ActivityPara, name: 'ActivityPara' },
 	{ path: '/article/:id', component: article, name: 'article' },
@@ -105,12 +105,14 @@ const routes = [
 	{ path: '/financing_apply', component: financing_apply, name: 'financing_apply', meta: { requireAuth: true, } },//融资申请页面
 	{ path: '/topicList', component: TopicList, name: 'topicList' },//融资项目详情
 	{ path: '/service_class/:id', component: service_class, name: 'service_class' },//服务商分类列表页面
-	{path: '/personalCenter', component: personalCenter, name: 'personalCenter', children: [
-		{ path: '/demand_comm_service/:type', component: demand_comm_service01, name: 'demand_comm_service01', hidden: true,meta: {requireAuth: true,} },
-		{ path: '/personalInformation', component: personalInformation, name: 'personalInformation', meta: { requireAuth: true, } },
-		{ path: '/passwordSetting', component: passwordSetting, name: 'passwordSetting', meta: { requireAuth: true, } },
-		{ path: '/service_detail/:id', component: service_detail, name: 'service_detail', meta: { requireAuth: true, } },
-		]},
+	{
+		path: '/personalCenter', component: personalCenter, name: 'personalCenter', children: [
+			{ path: '/demand_comm_service/:type', component: demand_comm_service01, name: 'demand_comm_service01', hidden: true, meta: { requireAuth: true, } },
+			{ path: '/personalInformation', component: personalInformation, name: 'personalInformation', meta: { requireAuth: true, } },
+			{ path: '/passwordSetting', component: passwordSetting, name: 'passwordSetting', meta: { requireAuth: true, } },
+			{ path: '/service_detail/:id', component: service_detail, name: 'service_detail', meta: { requireAuth: true, } },
+		]
+	},
 	//个人中心
 	//  罗长春
 	{ path: '/news', component: news, name: 'news' },//创谷资讯首页
@@ -118,13 +120,13 @@ const routes = [
 	{ path: '/service', component: service, name: 'service' },//创谷企业首页
 	{ path: '/financing', component: financing, name: 'financing' },//投融资库首页
 	{ path: '/research', component: research, name: 'research' },//创谷研究首页
-	{path: '/station/:id', component: station, name: 'station', meta: {requireAuth: true,}},//申请工位表单
+	{ path: '/station/:id', component: station, name: 'station', meta: { requireAuth: true, } },//申请工位表单
 	{ path: '/college', component: college, name: 'college' },//创谷学院首页
 	{ path: '/position', component: position, name: 'position' },//申请职位表单
 	{ path: '/school_detail/:id', component: school_detail, name: 'school_detail' },//学院详情
 	{ path: '/incubators_details/:id', component: incubators_details, name: 'incubators_details' },//双创空间详情页
-	{path: '/enter/:id', component: enter, name: 'enter', meta: {requireAuth: true,}},//申请入驻表单
-	{path: '/train_Application/:id', component: train_Application, name: 'train_Application', meta: {requireAuth: true,}},//活动报名表单
+	{ path: '/enter/:id', component: enter, name: 'enter', meta: { requireAuth: true, } },//申请入驻表单
+	{ path: '/train_Application/:id', component: train_Application, name: 'train_Application', meta: { requireAuth: true, } },//活动报名表单
 	{ path: '/provider/:id', component: provider, name: 'provider' },//服务商详情页
 	{ path: '/into/:id', component: into, name: 'into' },//入孵企业详情页
 	{ path: '/need', component: need, name: 'need' },//服务需求
@@ -145,8 +147,8 @@ const routes = [
 	{ path: '/service_provider_more', component: service_provider_more, name: 'service_provider_more' },//服务商(more)
 	{ path: '/financingDetail', component: financingDetail, name: 'financingDetail' },//投资项目详情页
 	//10.29
-	{path: '/problem/:type', component: problem, name: 'problem', meta: {requireAuth: true,} },//发布企业难题表单
-	{ path: '/tutorProblem/:businessId/:id', component: tutorProblem, name: 'tutorProblem', meta: {requireAuth: true,} },//向导师发布技术难题表单
+	{ path: '/problem/:type', component: problem, name: 'problem', meta: { requireAuth: true, } },//发布企业难题表单
+	{ path: '/tutorProblem/:businessId/:id', component: tutorProblem, name: 'tutorProblem', meta: { requireAuth: true, } },//向导师发布技术难题表单
 	{ path: '/service_needs', component: service_needs, name: 'service_needs' },//服务需求发布表单
 	//10.30
 	{ path: '/attract/:type', component: attract, name: 'attract' },//招商/求租列表页
@@ -155,16 +157,16 @@ const routes = [
 	{ path: '/financing_more', component: financing_more, name: 'financing_more' },//融资项目(more)
 	{ path: '/attract_detail/:id', component: attract_detail, name: 'attract_detail' },//招商讯息详情
 	{ path: '/demand_detail', component: demand_detail, name: 'demand_detail' },//求租讯息详情
-	{path: '/attract_list/:categoryId/:type', component: attract_list, name: 'attract_list', meta: {requireAuth: true,} },//招商发布表单
+	{ path: '/attract_list/:categoryId/:type', component: attract_list, name: 'attract_list', meta: { requireAuth: true, } },//招商发布表单
 	{ path: '/demand_list', component: demand_list, name: 'demand_list' },//求租发布表单
 	//11.2
 	{ path: '/office_list_window', component: office_list_window, name: 'office_list_window' },//双创办公室服务窗口列表
 	{ path: '/office_list_policy', component: office_list_policy, name: 'office_list_policy' },//双创办公室优惠政策列表
 	{ path: '/office_list_detail/:id', component: office_list_detail, name: 'office_list_detail' },//双创办公室详情
 	// { path: '/financing_needs', component: financing_needs, name: 'financing_needs' },//融资需求表单
-	{path: '*',redirect: '/index'},
+	{ path: '*', redirect: '/index' },
 	//11.8
-	{path: '/talent_detail', component: talent_detail, name: 'talent_detail' },//招聘详情
+	{ path: '/talent_detail', component: talent_detail, name: 'talent_detail' },//招聘详情
 	//11.9
 	{ path: '/employment', component: employment, name: 'employment' },//招聘表单
 	{ path: '/intermediary', component: intermediary, name: 'intermediary' },//中介服务
@@ -191,7 +193,7 @@ router.beforeEach((to, from, next) => {
 		else {
 			next({
 				path: '/login',
-				query: { redirect: to.fullPath }
+				query: { redirect: to.currentRoute.fullPath }
 			})
 		}
 	}

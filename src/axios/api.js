@@ -31,7 +31,7 @@ axios.interceptors.response.use(
           window.localStorage.clear();
           store.commit(types.LOGOUT);
           router.replace({
-            path: 'login',
+            path: '/login',
             query: { redirect: router.currentRoute.fullPath }
           })
       }

@@ -25,7 +25,7 @@
                                 <div class="line"></div>
                             </h2>
                             <div class="InvestmentList CollegeList">
-                                <router-link :to="{ name: 'school_detail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in university" :key="index">
+                                <router-link :to="{ name: 'school_detail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in university" :key="index" v-if="index<4">
                                     <el-col :lg="4" :md="24" :sm="24" :xs="24">
                                         <img :src="item['icon']">
                                     </el-col>
@@ -112,7 +112,7 @@
                             </div>
                             <el-col :lg="16" :md="16" :sm="24" :xs="24" :offset="8">
                                 <div class="block">
-                                    <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                    <el-pagination :current-page="1" :total="consultPages" @current-change="handleCurrentChange" layout="prev, pager, next">
                                     </el-pagination>
                                 </div>
                             </el-col>
@@ -137,6 +137,7 @@
                 noData2: false,
                 noData5: false,
                 totalPages: "",
+                consultPages: "",
                 Exeprt: "", //专家团队
                 ResearchInstitute: "", //研究机构
             }
@@ -156,7 +157,7 @@
                     })
             },
             initServicesList() {
-                var url = "/consult/" + "10" + "/" + "1";
+                var url = "/consult/" + "15" + "/" + "1";
                 api.Get(url).then(res => {
                     this.needData = res["page"]["data"];
                     if (this.needData.length == 0) {
@@ -164,21 +165,21 @@
                     } else if (this.needData.length > 0) {
                         this.noData = false;
                         this.needData = res["page"]["data"];
-                        this.totalPages = res["page"]["totalPages"] * 10;
+                        this.consultPages = res["page"]["totalPages"] * 10;
                     }
                 });
             },
             handleCurrentChange(val) {
                 //获取到当前分页页码，获取当前页面数据
-                var url = "/consult/" + "10" + "/" + val;
+                var url = "/consult/" + "15" + "/" + val;
                 api.Get(url).then(res => {
                     this.needData = res["page"]["data"];
-                    this.totalPages = res["page"]["totalPages"] * 10;
+                    this.consultPages = res["page"]["totalPages"] * 10;
                 });
             },
             initExeprt() {
                 //专家团队
-                var url = "/indie/2/" + "10" + "/" + "1";
+                var url = "/indie/2/" + "4" + "/" + "1";
                 api.Get(url).then(res => {
                     this.Exeprt = res["data"];
                     if (this.Exeprt.length == 0) {
@@ -192,7 +193,7 @@
             },
             initResearch() {
                 //研究机构
-                var url = "/indie/5/" + "10" + "/" + "1";
+                var url = "/indie/5/" + "4" + "/" + "1";
                 api.Get(url).then(res => {
                     this.ResearchInstitute = res["data"];
                     if (this.ResearchInstitute.length == 0) {
