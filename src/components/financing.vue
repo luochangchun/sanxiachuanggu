@@ -112,7 +112,7 @@
         },
         created() {
             this.getFinance();
-            let cid = 57;
+            let cid = 54;
             this.initServicesList(cid);
         },
         methods: {
@@ -137,7 +137,7 @@
             },
             handleCurrentChange(val) {
                 //获取到当前分页页码，获取当前页面数据
-                var url = "/enterprise/apply/" + "10" + "/" + val + "/" + + "?cid=" + "57";
+                var url = "/enterprise/apply/" + "10" + "/" + val + "/" + + "?cid=" + "54";
                 api.Get(url).then(res => {
                     this.needData = res["page"]["data"];
                     this.totalPages = res["page"]["totalPages"] * 10;
