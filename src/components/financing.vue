@@ -3,20 +3,20 @@
         <!--header-->
         <el-row :gutter="0">
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                <div class="financing_banner">
+                <div class="banner_img" style="backgroundImage: url(../static/img/banner_trzk.jpg)">
                     <router-link :to="{name: 'financing_apply'}" class="financing_Btn db"></router-link>
                 </div>
             </el-col>
         </el-row>
         <!--投资机构-->
-        <el-row :gutter="0" style="margin-bottom:120px;">
+        <el-row :gutter="0" style="margin-top:40px;margin-bottom:40px;">
             <div class="container">
-                <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                <!-- <el-col :lg="24" :md="24" :sm="24" :xs="24">
                     <div class="common_title">
                         <h1 class="tc">全面完善的服务商体系</h1>
                         <h1 class="tc">高效解决企业发展所需的各类服务</h1>
                     </div>
-                </el-col>
+                </el-col> -->
                 <el-row :gutter="0">
                     <el-col :lg="12" :md="24" :sm="24" :xs="24" class="pl0">
                         <div class="InvestmentAgency clearfix">
@@ -148,13 +148,13 @@
 </script>
 
 <style scoped>
-    .financing_banner {
+    /* .financing_banner {
         width: 100%;
         height: 400px;
         background: url(../../static/img/banner_trzk.jpg) no-repeat center 100%;
         background-size: cover;
         overflow: hidden;
-    }
+    } */
     .financing_Btn {
         width: 200px;
         height: 50px;
@@ -162,7 +162,7 @@
         background-size: contain;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 280px;
+        margin-top: 200px;
         -webkit-animation: 0.8s 0s normal 2 pulse;
         animation: 0.8s 0s normal 2 pulse;
     }

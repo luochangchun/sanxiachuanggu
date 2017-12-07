@@ -10,7 +10,7 @@
 						<el-form-item label="企业名称" prop="enterprise">
 							<el-input type="text" v-model="applyForm.enterprise"></el-input>
 						</el-form-item>
-                        <el-form-item label="联系人" prop="contact">
+						<el-form-item label="联系人" prop="contact">
 							<el-input type="text" v-model="applyForm.contact"></el-input>
 						</el-form-item>
 						<el-form-item label="联系电话" prop="phone">
@@ -19,13 +19,13 @@
 						<el-form-item label="服务类型" prop="serviceId">
 							<el-input type="text" v-model="applyForm.serviceId"></el-input>
 						</el-form-item>
-                        <el-form-item label="企业资质" prop="certId">
+						<el-form-item label="企业资质" prop="certId">
 							<el-input type="tel" v-model="applyForm.certId"></el-input>
 						</el-form-item>
-                        <el-form-item label="优秀案例" prop="caseId">
+						<el-form-item label="优秀案例" prop="caseId">
 							<el-input type="tel" v-model="applyForm.caseId"></el-input>
 						</el-form-item>
-                        <el-form-item label="注册资金(万元)" prop="capital">
+						<el-form-item label="注册资金(万元)" prop="capital">
 							<el-input type="tel" v-model="applyForm.capital"></el-input>
 						</el-form-item>
 						<el-form-item>
@@ -43,9 +43,9 @@
 	export default {
 		data() {
 			let validatePhone = (rule, value, callback) => {
-				let re = /^1[34578]\d{9}$/;
-				if (value === "" || !re.test(value) || value.length < 11) {
-					callback(new Error("请输入正确手机号！"));
+				let re = /(^1[34578]\d{9}$)|(^0\d{2,3}-\d{7,8}$)|(^\d{7,8}$)/;
+				if (value === "" || !re.test(value) || value.length < 7) {
+					callback(new Error("请输入联系方式！"));
 				} else {
 					callback();
 				}
@@ -67,7 +67,7 @@
 					"employees": "", //团队人数
 					"area": "", //所需办公面积/工位数
 					"contact": "", //联系人姓名
-					"phone": "", //联系人手机号
+					"phone": "", //联系方式
 				},
 				rules: {
 					enterprise: [{
@@ -109,7 +109,7 @@
 					phone: [{
 						required: true,
 						validator: validatePhone,
-						message: '请输入正确手机号',
+						message: '请输入联系方式',
 						trigger: 'blur'
 					}]
 				}

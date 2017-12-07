@@ -6,8 +6,8 @@
 					<el-form-item label="姓名" prop="name">
 						<el-input v-model="trainForm.name" placeholder="请输入联系人姓名"></el-input>
 					</el-form-item>
-					<el-form-item label="手机号" prop="phone">
-						<el-input v-model="trainForm.phone" placeholder="请输入联系人手机号码"></el-input>
+					<el-form-item label="联系方式" prop="phone">
+						<el-input v-model="trainForm.phone" placeholder="请输入联系方式"></el-input>
 					</el-form-item>
 					<el-form-item>
 						<el-button @click="submitForm('trainForm')" style="background-color: #f48100;border:none;color:#fff;">确定</el-button>
@@ -24,9 +24,9 @@
 		data() {
 			//输入电话号码
 			let validatePhone = (rule, value, callback) => {
-				let re = /^1[34578]\d{9}$/;
-				if (value === "" || !re.test(value) || value.length < 11) {
-					callback(new Error("请输入正确手机号！"));
+				let re = /(^1[34578]\d{9}$)|(^0\d{2,3}-\d{7,8}$)|(^\d{7,8}$)/;
+				if (value === "" || !re.test(value) || value.length < 7) {
+					callback(new Error("请输入联系方式！"));
 				} else {
 					callback();
 				}
@@ -49,7 +49,7 @@
 					phone: [{
 						required: true,
 						validator: validatePhone,
-						message: '请输入正确手机号',
+						message: '请输入联系方式',
 						trigger: 'blur'
 					}],
 					name: [{

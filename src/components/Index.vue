@@ -253,16 +253,16 @@
           </el-col>
         </el-row>
         <el-row :gutter="20">
-          <el-col :xs="12" :sm="12" :md="6" :lg="6" v-for="(item, index) in activity" :key="index" v-if="index<4">
+          <el-col :xs="12" :sm="12" :md="6" :lg="6" v-for="(item, index) in activityList" :key="index" v-if="index<4">
             <router-link :to="{ name: 'train_detail', params: { id: item.id} }" class="activitys_item">
               <div @mouseover="show_activity(index)" @mouseout="hide_activity(index)">
                 <h1 class="tc b f20 text-ellipsis">{{item['name']}}</h1>
                 <p class="tc">活动时间：{{item['startAt'] | formatDate}}</p>
                 <!-- <p class="tc">邀请嘉宾：2017</p> -->
-                <div class="top_line" style="width: 0px" :class="{ horizontal_line: activity_active[index] }"></div>
-                <div class="bottom_line" style="width: 0px;" :class="{ horizontal_line: activity_active[index] }"></div>
-                <div class="left_line" style="height: 0px;" :class="{ vertical_line: activity_active[index] }"></div>
-                <div class="right_line" style="height: 0px;" :class="{ vertical_line: activity_active[index] }"></div>
+                <div class="top_line" style="width: 0px" :class="{ horizontal_line: activity_active[index]}"></div>
+                <div class="bottom_line" style="width: 0px;" :class="{ horizontal_line: activity_active[index]}"></div>
+                <div class="left_line" style="height: 0px;" :class="{ vertical_line: activity_active[index]}"></div>
+                <div class="right_line" style="height: 0px;" :class="{ vertical_line: activity_active[index]}"></div>
               </div>
             </router-link>
           </el-col>
@@ -286,6 +286,7 @@
         double_active: [false, false, false, false],
         topic: '',
         activity: '', //活动
+        activityList: [],
         // financing: '', //融资项目
         valley: '', //孵化器
         double: '', //双创
@@ -317,13 +318,19 @@
         api.Get('/pub/index')
           .then(res => {
             this.topic = res['topic']; //今日头条接口数据
-            this.activity = res['activity']; //活动接口数据
+            for(var i=0;i<res['activity'].length;i++) {
+              if(res['activity'][i]['type'] == 2) {
+                this.activityList.push(res['activity'][i]);
+              }
+            }
+            // this.activity = res['activity']; //活动接口数据
             this.financing = res['financing']; //融资项目
             this.valley = res['valley']; //创谷空间展示
             this.double = res['double']; //双创空间展示
             this.mentor = res['mentor']; //创业导师
             this.office = res['office']; //双创办公室
             this.provider = res['provider']; //服务商接口数据
+
             this.fullscreenLoading = false;
           });
       },
@@ -385,6 +392,7 @@
             this.$set(this.activity_active, i, false)
           } else {
             this.$set(this.activity_active, i, true)
+
           }
         }
       },

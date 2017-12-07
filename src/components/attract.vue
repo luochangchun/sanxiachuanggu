@@ -2,7 +2,7 @@
     <div class="container">
         <!-- 创谷 -->
         <el-row :gutter="10" style="margin-bottom: 50px;">
-            <el-col :xs="24" :sm="24" :md="24" :lg="24" style="margin-top:15px;position:relative;">
+            <el-col :xs="24" :sm="24" :md="24" :lg="24" style="position:relative;">
                 <el-breadcrumb separator="/" class="padder-vx bb">
                     <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
                     <el-breadcrumb-item :to="{ path: '/map' }">创谷空间</el-breadcrumb-item>
@@ -21,8 +21,8 @@
                     <router-link :to="{name:'attract_detail', params: {id:item['id']}}">
                         <el-col :xs="5" :sm="5" :md="5" :lg="5">
                             <div class="incubators_more_img">
-                                <img v-if="item['icon']" :src="item['icon']" alt="" style="margin-left: -5px;max-height:200px;">
-                                <img v-if="!item['icon']" src="../../static/img/logo.png" alt="" style="margin-left: -5px;max-height:200px;">
+                                <img v-if="item['icon']" :src="item['icon']" alt="" style="margin-left: -5px;height:150px;">
+                                <img v-if="!item['icon']" src="../../static/img/logo.png" alt="" style="border:1px solid #eee;width:50%;padding:10%;margin-left: 0;height:80px;">
                             </div>
                         </el-col>
                         <el-col :xs="15" :sm="15" :md="15" :lg="15">
@@ -141,7 +141,7 @@
         line-height: 26px;
         position: absolute;
         right: 10px;
-        top: 0;
+        top: 5px;
     }
     .incubators_more_img{
         overflow: hidden;
@@ -156,6 +156,7 @@
         color: #0089e3;
         line-height: 26px;
         font-size: 20px;
+        margin: 10px 0;
     }
     .incubators_more_introduce p {
         line-height: 26px;

@@ -3,20 +3,20 @@
         <!--header-->
         <el-row :gutter="0">
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                <div class="banner_img">
-                    <img src="../../static/img/banner_cgyj.png" alt="">
+                <div class="banner_img"  style="backgroundImage: url(../static/img/banner_cgyj.jpg)">
+                    <!-- <img src="../../static/img/banner_cgyj.jpg" alt=""> -->
                 </div>
             </el-col>
         </el-row>
         <!--院校展示-->
-        <el-row :gutter="0" style="margin-bottom: 50px;">
+        <el-row :gutter="0" style="margin-top:40px;margin-bottom:40px;">
             <div class="container">
-                <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                <!-- <el-col :lg="24" :md="24" :sm="24" :xs="24">
                     <div class="common_title">
                         <h1 class="tc">全面完善的服务商体系</h1>
                         <h1 class="tc">高效解决企业发展所需的各类服务</h1>
                     </div>
-                </el-col>
+                </el-col> -->
                 <el-row :gutter="0">
                     <el-col :lg="12" :md="24" :sm="24" :xs="24" class="pl0">
                         <div class="InvestmentAgency clearfix">
@@ -35,11 +35,11 @@
                                     </el-col>
                                 </router-link>
                                 <!-- <div class="pageNo clearfix">
-                                                <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
-                                                    <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
-                                                    </el-pagination>
-                                                </el-col>
-                                            </div> -->
+                                                    <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
+                                                        <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                                        </el-pagination>
+                                                    </el-col>
+                                                </div> -->
                             </div>
                         </div>
                         <div class="InvestmentAgency clearfix ExpertTeam">
@@ -56,15 +56,15 @@
                                     <el-col :lg="20" :md="24" :sm="24" :xs="24">
                                         <h1 class="text-ellipsis">{{item['name']}}</h1>
                                         <p class="text-ellipsis">{{item['intro']}}</p>
-                                        <el-tag type="danger" style="margin-top: 5px;">行业领域：消费生活</el-tag>
+                                        <el-tag type="danger" style="margin-top: 5px;">行业领域：{{item['field'] | filterStr}}</el-tag>
                                     </el-col>
                                 </div>
                                 <!-- <div class="pageNo clearfix">
-                                    <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
-                                        <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
-                                        </el-pagination>
-                                    </el-col>
-                                </div> -->
+                                        <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
+                                            <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                            </el-pagination>
+                                        </el-col>
+                                    </div> -->
                             </div>
                         </div>
                         <div class="InvestmentAgency clearfix ResearchInstitute">
@@ -81,15 +81,15 @@
                                     <el-col :lg="20" :md="24" :sm="24" :xs="24">
                                         <h1 class="text-ellipsis">{{item['name']}}</h1>
                                         <p class="text-ellipsis">{{item['intro']}}</p>
-                                        <el-tag type="danger" style="margin-top: 5px;">行业领域：消费生活</el-tag>
+                                        <el-tag type="danger" style="margin-top: 5px;">研究方向：{{item['field'] | filterStr}}</el-tag>
                                     </el-col>
                                 </div>
                                 <!-- <div class="pageNo clearfix">
-                                    <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
-                                        <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
-                                        </el-pagination>
-                                    </el-col>
-                                </div> -->
+                                        <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
+                                            <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                            </el-pagination>
+                                        </el-col>
+                                    </div> -->
                             </div>
                         </div>
                     </el-col>
@@ -147,6 +147,20 @@
             this.initServicesList()
             this.initExeprt()
             this.initResearch()
+        },
+        filters: {
+            filterStr(input) {
+                console.log(!input);
+                if (!input) {
+                    return ''
+                } else {
+                    if(input.length > 20 ) {
+                        return input.substring(0, 20)+ "...";
+                    } else {
+                        return input;
+                    }
+                }
+            }
         },
         methods: {
             researchApi() {

@@ -14,7 +14,7 @@
               <h3 style="margin-bottom:10px;">{{openData['title']}}</h3>
               <p>企业名称: {{openData['enterprise']}} | 需求类型: {{openData['title']}} | 联系人: {{openData['contact']}} | 联系方式: {{openData['phone']}} | <span>发布时间：{{openData['createAt'] | formatDate}}</span> | <span v-if="openData.status == 1">审核通过</span></p>
               <h1 v-if="openData.status == 3"></h1>
-              <p>需求留言: {{openData['content']}}</p>
+              <p>需求描述: {{openData['content']}}</p>
             </div>
           </div>
           <el-row>

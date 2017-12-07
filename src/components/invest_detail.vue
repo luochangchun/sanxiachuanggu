@@ -33,7 +33,7 @@
                                     </tr>
                                     <tr>
                                         <td class="font-bold w-xs">联系人</td>
-                                        <td>{{financeDetail['name']}}</td>
+                                        <td>{{financeDetail['contact']}}</td>
                                         <td class="font-bold">联系电话</td>
                                         <td>
                                             <p>{{financeDetail['phone'] || "暂无数据"}}</p>

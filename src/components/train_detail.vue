@@ -43,7 +43,7 @@
                             </p>
                             <div class="wrapper">
                                 <p> 联系人：{{train['name'] || "暂无数据"}} </p>
-                                <p> 手机号码：{{train['phone'] || "暂无数据"}} </p>
+                                <p> 联系方式：{{train['phone'] || "暂无数据"}} </p>
                                 <p> 时间：{{train['createAt'] | formatDate}} </p>
                                 <p> 地点：{{train['location'] || "暂无数据"}} </p>
                             </div>

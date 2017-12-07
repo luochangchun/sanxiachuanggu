@@ -5,8 +5,8 @@
                 <!--双创空间详情页-->
                 <el-row :gutter="10" style="margin-bottom: 50px;">
                     <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                        <el-row :gutter="10" style="margin-top: 50px;padding:15px;background-color: #f2f5f4;">
-                            <el-col v-if="tenancyApply['type'] == 1" :lg="12" :md="12" :sm="24" :xs="24">
+                        <el-row :gutter="10" style="padding:15px;background-color: #f2f5f4;">
+                            <el-col v-if="tenancyApply['type'] == 1" :lg="6" :md="6" :sm="24" :xs="24">
                                 <div class="details-img">
                                     <el-carousel :interval="500000" arrow="never" height="240px">
                                         <el-carousel-item v-for="(item, index) in photos" :key="index">
@@ -37,7 +37,8 @@
         </div>
         <div class="container">
             <el-row :gutter="10" class="incubators_details_text wanted1" style="background-color: #fff;padding:15px;margin-top:20px;">
-                <h1 style="margin-bottom:25px;font-size:16px;">求租说明:</h1>
+                <h1 style="margin-bottom:25px;font-size:16px;" v-if="tenancyApply['type'] == 1">招商说明:</h1>
+                <h1 style="margin-bottom:25px;font-size:16px;" v-if="tenancyApply['type'] == 2">求租说明:</h1>
                 <p v-html="content" class="wanted2"></p>
             </el-row>
         </div>
@@ -49,7 +50,7 @@
 		data() {
 			return {
 				tenancyApply: '',
-				photos: '',
+				photos: [],
 				content:''
 			}
 		},
@@ -61,8 +62,14 @@
 			getTenancyApply(id) {
 				api.Get('/qb/tenancy/' + id)
 					.then(res => {
+                        this.photos = res['photos'];
+                        let defaultImg = {uri:"../../static/img/logo.png"}
 						this.tenancyApply = res['tenancyApply'];
-						this.photos = res['photos']
+                        if(res['photos'].length > 0) {
+                            this.photos = res['photos'];
+                        } else {
+                            this.photos.push(defaultImg);
+                        }
 						if(!res['tenancyApply']['detail']) {
 							this.content="暂无数据"
 						} else {
@@ -90,6 +97,7 @@
 
     .details-img img {
         width: 100%;
+        height: 100%;
     }
     .details-title-img img {
         width: 100%;

@@ -47,7 +47,7 @@
               <el-radio label="false">否</el-radio>
             </el-radio-group>
           </el-form-item>
-          <el-form-item label="编辑文章" prop="article">
+          <el-form-item label="编辑文章" prop="content">
             <vue-editor v-model="tenancyForm.content"></vue-editor>
           </el-form-item>
           <el-form-item>
@@ -80,9 +80,10 @@
     },
     data() {
       let validatePhone = (rule, value, callback) => {
-        let re = /^1[34578]\d{9}$/;
-        if (value === "" || !re.test(value) || value.length < 11) {
-          callback(new Error("请输入正确手机号！"));
+        let re = /(^1[34578]\d{9}$)|(^0\d{2,3}-\d{7,8}$)|(^\d{7,8}$)/;
+        if (value === "" || !re.test(value) || value.length < 7) {
+          console.log(value);
+          callback(new Error("请输入正确联系方式！"));
         } else {
           callback();
         }
@@ -165,7 +166,7 @@
           phone: [{
             required: true,
             validator: validatePhone,
-            message: "请输入正确的手机号",
+            message: "请输入正确联系方式",
             trigger: "blur"
           }],
           building: [{
@@ -199,6 +200,7 @@
             trigger: "blur"
           }],
           content: [{
+            required: true,
             message: "请输入简介",
             trigger: "blur"
           }]

@@ -3,8 +3,8 @@
         <!--header-->
         <el-row :gutter="0">
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                <div class="banner_img">
-                    <img src="../../static/img/banner_cgzx.png" alt="">
+                <div class="banner_img"  style="backgroundImage: url(../static/img/banner_cgzx.png)">
+                    <!-- <img src="../../static/img/banner_cgzx.png" alt=""> -->
                 </div>
             </el-col>
         </el-row>

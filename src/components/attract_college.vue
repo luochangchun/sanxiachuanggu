@@ -2,7 +2,7 @@
     <div class="container">
         <!-- 双创 -->
         <el-row :gutter="10" style="margin-bottom: 50px;">
-            <el-col :xs="24" :sm="24" :md="24" :lg="24" style="margin-top:10px;position:relative;">
+            <el-col :xs="24" :sm="24" :md="24" :lg="24" style="position:relative;">
                 <el-breadcrumb separator="/" class="padder-vx bb">
                     <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
                     <el-breadcrumb-item :to="{ path: '/incubators' }">双创空间</el-breadcrumb-item>
@@ -20,8 +20,8 @@
                     <router-link :to="{name:'attract_detail', params: {id:item['id']}}">
                         <el-col :xs="5" :sm="5" :md="5" :lg="5">
                             <div class="incubators_more_img">
-                                <img v-if="item['icon']" :src="item['icon']" alt="" style="margin-left: -5px;max-height:200px;">
-                                <img v-if="!item['icon']" src="../../static/img/logo.png" alt="" style="margin-left: -5px;max-height:200px;">
+                                <img v-if="item['icon']" :src="item['icon']" alt="" style="margin-left: -5px;height:150px;">
+                                <img v-if="!item['icon']" src="../../static/img/logo.png" alt="" style="border:1px solid #eee;width:50%;padding:10%;margin-left: 0;height:80px;">
                             </div>
                         </el-col>
                         <el-col :xs="15" :sm="15" :md="15" :lg="15">
@@ -39,7 +39,7 @@
                         </el-col>
                     </router-link>
                 </el-row>
-                <el-row v-if="type=='2' && item['type'] == 2" :gutter="10" v-for="(item, index) in investData" :key="index" style="border-bottom:1px solid #ddd;margin-bottom: 10px;">
+                <el-row v-if="type=='2' && item['type'] == 2" :gutter="10" v-for="(item, index) in investData" :key="index" style="border-bottom:1px solid #ddd;padding: 10px 0;">
                     <router-link :to="{name:'attract_detail', params: {id:item['id']}}">
                         <el-col :xs="20" :sm="20" :md="20" :lg="20">
                             <div class="incubators_more_introduce">
@@ -143,7 +143,7 @@
         line-height: 26px;
         position: absolute;
         right: 10px;
-        top: 0;
+        top: 5px;
     }
     .incubators_more_img {
         overflow: hidden;
@@ -156,17 +156,17 @@
     }
     .incubators_more_introduce h2 {
         color: #0089e3;
-        font-weight: normal;
-        line-height: 30px;
-        font-size: 16px;
+        line-height: 26px;
+        font-size: 20px;
+        margin:10px  0;
     }
     .incubators_more_introduce p {
-        line-height: 30px;
+        line-height: 26px;
         color: #666;
     }
     .incubators_more_introduce a {
         width: 100px;
-        line-height: 30px;
+        line-height: 26px;
         border-radius: 4px;
         background-color: #f48100;
         color: #fff;

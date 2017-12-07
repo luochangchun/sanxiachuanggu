@@ -70,21 +70,6 @@
               </el-row>
               <!--导航切换-->
             </div>
-            <!--需求详情-->
-            <div v-show="openFlag" class="show_need_mask" @click="closeDetail"></div>
-            <div v-show="openFlag" class="show_need">
-              <div class="need_import">
-                <h3>{{openData['needs']}}</h3>
-                <p>企业名称: {{openData['enterprise']}} | 需求类型: {{openData['title']}} | 联系人: {{openData['contact']}} | 联系方式: {{openData['phone']}} | <span>{{openData['createAt'] | formatDate}}</span> | <span v-if="openData.status == 1">审核通过</span></p>
-                <h1 v-if="openData.status == 3"></h1>
-                <p>需求留言: {{openData['needs']}}</p>
-              </div>
-              <h1>请输入留言</h1>
-              <el-input type="textarea" :rows="4" placeholder="请输入内容" v-model="msg">
-              </el-input>
-              <button @click.stop.prevent="enterpriseMsg(openData['id'])">留言</button>
-              <button @click.stop.prevent="closeDetail">取消</button>
-            </div>
           </el-col>
           <!--热门排行-->
           <el-col :lg="8" :md="24" :sm="24" :xs="24">
@@ -157,6 +142,8 @@
       getServiceClass() {
         api.Get("/dict/service").then(res => {
           this.category = res;
+          let obj0={id: 0, idx: 0, name: "服务类型", value: "全部", type: "service"};//手动添加全部选项
+          this.category.unshift(obj0);
           this.category.forEach((value, index, array) => {
             this.category[index]["cname"] = "tab" + (index + 1);
             if (index == 0) {

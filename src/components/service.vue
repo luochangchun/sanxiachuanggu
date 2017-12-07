@@ -1,17 +1,17 @@
 <template>
     <div>
         <el-row :gutter="0">
-            <el-col :lg="24" :md="24" :sm="24" :xs="24" class="service-banner">
+            <el-col :lg="24" :md="24" :sm="24" :xs="24" class="banner_img"  style="backgroundImage: url(../static/img/service02.jpg)">
             </el-col>
         </el-row>
         <!--title-->
-        <div class="container" style="margin-bottom:20px;">
-            <el-col :lg="24" :md="24" :sm="24" :xs="24">
+        <div class="container" style="margin-top:40px;margin-bottom:40px;">
+            <!-- <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <div class="common_title">
                     <h1 class="tc">全面完善的服务商体系</h1>
                     <h1 class="tc">高效解决企业发展所需的各类服务</h1>
                 </div>
-            </el-col>
+            </el-col> -->
             <el-row :gutter="10">
                 <!--服务商列表-->
                 <el-col :lg="12" :md="12" :sm="24" :xs="24" style="border-right:1px solid #ccc;padding-right:20px;">
@@ -609,12 +609,12 @@
         margin-right: 5px;
     }
     /*banner*/
-    .service-banner {
-        background: url(../../static/img/service02.png) no-repeat center center;
+    /* .service-banner {
+        background: url(../../static/img/service02.jpg) no-repeat center center;
         background-size: cover;
         width: 100%;
         height: 260px;
-    }
+    } */
     .service-nav {
         border-bottom: 1px solid #ddd;
         color: #333;

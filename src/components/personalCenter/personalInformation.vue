@@ -21,7 +21,7 @@
             <span v-show="flag" style="border:1px solid #eee;background-color:#0089e3;padding:6px 10px;border-radius:5px;color:#fff;" @click="submitName">确认</span>
             <span v-show="flag" style="border:1px solid #eee;background-color:#0089e3;padding:6px 10px;border-radius:5px;color:#fff;" @click="cancelName">取消</span>
           </el-form-item>
-          <el-form-item label="手机号:">
+          <el-form-item label="联系方式:">
             <p>{{name}}</p>
           </el-form-item>
         </el-form>

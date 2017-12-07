@@ -13,7 +13,7 @@
                     <el-col :xs="24" :sm="8" :md="8" :lg="4" v-for="(item, index) in policyList" :key="index" style="position:relative;overflow:hidden;">
                         <div style="position:relative;overflow: hidden;margin-bottom:5px;" @mouseover="show_office(index)" @mouseout="hide_office(index)">
                             <div class="office_item">
-                                <p @mouseover="show_office()" class="tc black2 title0 b" style="margin-top:0">{{item.name}}</p>
+                                <p @mouseover="show_office()" class="tc black2 title0 b text-ellipsis" style="margin-top:0">{{item.name}}</p>
                                 <p class="tc black2">负责人：{{item['contact']}}</p>
                                 <p class="tc black2">服务电话：{{item['phone']}}</p>
                             </div>

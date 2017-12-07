@@ -2,19 +2,19 @@
     <div>
         <el-row :gutter="0">
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                <div class="banner_img">
-                    <img src="../../static/img/cg.jpg" alt="">
+                <div class="banner_img" style="backgroundImage: url(../static/img/cg.jpg)">
+                    <!-- <img src="../../static/img/cg.jpg" alt=""> -->
                 </div>
             </el-col>
         </el-row>
         <!--title-->
-        <div class="container" style="margin-bottom:20px;">
-            <el-col :lg="24" :md="24" :sm="24" :xs="24">
+        <div class="container" style="margin-top:40px;margin-bottom:40px;">
+            <!-- <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <div class="common_title">
                     <h1 class="tc">全面完善的服务商体系</h1>
                     <h1 class="tc">高效解决企业发展所需的各类服务</h1>
                 </div>
-            </el-col>
+            </el-col> -->
             <el-row :gutter="10">
                 <!--左部分导师-->
                 <el-col :lg="12" :md="12" :sm="24" :xs="24" style="padding-right:20px;">
@@ -274,7 +274,7 @@ export default {
     },
     getInviteList(val) {
       //获取到当前分页页码，获取当前页面数据
-      var url = "/enterprise/apply/" + "4" + "/" + "1" + "/" + val;
+      var url = "/enterprise/apply/" + "4" + "/" + val + "?cid=57";
       api.Get(url).then(res => {
         this.needData = res["page"]["data"];
         this.totalPages = res["page"]["totalPages"] * 10;

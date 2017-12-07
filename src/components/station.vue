@@ -54,9 +54,9 @@
 	export default {
 		data() {
 			let validatePhone = (rule, value, callback) => {
-				let re = /^1[34578]\d{9}$/;
-				if (value === "" || !re.test(value) || value.length < 11) {
-					callback(new Error("请输入正确手机号！"));
+				let re = /(^1[34578]\d{9}$)|(^0\d{2,3}-\d{7,8}$)|(^\d{7,8}$)/;
+				if (value === "" || !re.test(value) || value.length < 7) {
+					callback(new Error("请输入联系方式！"));
 				} else {
 					callback();
 				}
@@ -78,7 +78,7 @@
 					"employees": "", //团队人数
 					"area": "", //所需办公面积/工位数
 					"contact": "", //联系人姓名
-					"phone": "", //联系人手机号
+					"phone": "", //联系方式
 				},
 				rules: {
 					enterprise: [{
@@ -120,7 +120,7 @@
 					phone: [{
 						required: true,
 						validator: validatePhone,
-						message: '请输入正确手机号',
+						message: '请输入联系方式',
 						trigger: 'blur'
 					}]
 				}

@@ -3,8 +3,8 @@
         <!--header-->
         <el-row :gutter="0">
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                <div class="banner_img">
-                    <img src="../../static/img/banner_sckj.png" alt="">
+                <div class="banner_img"   style="backgroundImage: url(../static/img/banner_sckj.png)">
+                    <!-- <img src="../../static/img/banner_sckj.png" alt=""> -->
                 </div>
             </el-col>
         </el-row>
@@ -144,6 +144,7 @@
     }
     .incubators-show img {
         width: 100%;
+        height: 225px;
     }
     .incubators-show img:hover{
         box-shadow: 0 0 10px #999;

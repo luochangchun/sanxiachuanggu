@@ -11,9 +11,11 @@ body {
 a {
   display: block;
 }
+
 .el-rate__icon {
-  margin-right:2px
+  margin-right: 2px
 }
+
 .text-ellipsis {
   overflow: hidden;
   display: block;
@@ -102,7 +104,6 @@ img {
   vertical-align: middle;
 }
 
-
 /* 公共内页title */
 
 .common_title {
@@ -142,11 +143,9 @@ img {
   padding-bottom: 20px;
 }
 
-
 /* 首页轮播 */
 
-.swiper-container,
-.swiper-container img {
+.swiper-container, .swiper-container img {
   width: 100%;
   height: 400px;
   margin-left: 0;
@@ -159,8 +158,7 @@ img {
   z-index: 1;
 }
 
-.swiper-container-android .swiper-slide,
-.swiper-wrapper {
+.swiper-container-android .swiper-slide, .swiper-wrapper {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -o-transform: translate(0, 0);
@@ -232,8 +230,7 @@ img {
   background: #007aff;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
+.swiper-button-next, .swiper-button-prev {
   position: absolute;
   top: 50%;
   width: 30px;
@@ -262,7 +259,6 @@ img {
   background: url(../../static/img/prev.png) no-repeat center center;
   background-size: contain;
 }
-
 
 /* 从下方淡入 */
 
@@ -351,9 +347,7 @@ img {
   opacity: 1
 }
 
-
 /* 首页轮播 */
-
 
 /* 注册 */
 
@@ -380,15 +374,13 @@ img {
   margin-right: auto;
 }
 
-.register_form .el-button--primary,
-.login_form .el-button--primary {
+.register_form .el-button--primary, .login_form .el-button--primary {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-.register_form,
-.settingPassword_form {
+.register_form, .settingPassword_form {
   padding-top: 40px;
 }
 
@@ -396,9 +388,7 @@ img {
   width: 440px;
 }
 
-
 /* 注册 */
-
 
 /* 登录 */
 
@@ -427,8 +417,7 @@ img {
   border-bottom: 2px solid #06affe;
 }
 
-.login_form .tc .el-form-item__content,
-.login_form .loginBtn {
+.login_form .tc .el-form-item__content, .login_form .loginBtn {
   margin-left: 0!important;
   margin-bottom: 0!important;
 }
@@ -448,9 +437,7 @@ img {
   border-radius: 0;
 }
 
-
 /* 登录 */
-
 
 /* 首页--今日头条 */
 
@@ -458,8 +445,7 @@ img {
   background-color: #f1f1f1;
 }
 
-.headLineTitle,
-.more_plus {
+.headLineTitle, .more_plus {
   margin-bottom: 30px;
 }
 
@@ -521,9 +507,7 @@ img {
   margin-left: 2%;
 }
 
-
 /* 今日头条 */
-
 
 /* 创谷空间展示 */
 
@@ -532,8 +516,7 @@ img {
   padding-bottom: 50px;
 }
 
-.display_item,
-.double_item {
+.display_item, .double_item {
   max-width: 285px;
   background-color: #fff;
   padding: 5px 0;
@@ -573,8 +556,7 @@ img {
   /* margin-bottom: 20px; */
 }
 
-.space_display .gray .word,
-.headLine_swiper p {
+.space_display .gray .word, .headLine_swiper p {
   width: 100%;
   height: 40px;
   line-height: 40px;
@@ -630,12 +612,9 @@ img {
   border-radius: 5px;
 }
 
-
 /* 创谷空间展示 */
 
-
 /* *********** */
-
 
 /* 双创办公室 */
 
@@ -685,12 +664,9 @@ img {
   margin-top: 25px;
 }
 
-
 /* 双创办公室 */
 
-
 /* ********* */
-
 
 /* 培训活动 */
 
@@ -717,10 +693,7 @@ img {
   height: 100% !important;
 }
 
-.top_line,
-.bottom_line,
-.left_line,
-.right_line {
+.top_line, .bottom_line, .left_line, .right_line {
   transition: all .4s cubic-bezier(.4, 0, .2, 1);
   background: #78bdeb;
   position: absolute;
@@ -794,9 +767,7 @@ img {
   color: #fff;
 }
 
-
 /* 培训活动 */
-
 
 /* 服务商 */
 
@@ -837,9 +808,7 @@ img {
   margin-top: 40px;
 }
 
-
 /* 服务商 */
-
 
 /* 创业导师 */
 
@@ -864,8 +833,7 @@ img {
   border-radius: 5px;
 }
 
-.tutor_img,
-.tutor_img img {
+.tutor_img, .tutor_img img {
   border-radius: 50%;
 }
 
@@ -899,9 +867,7 @@ img {
   height: 48px;
 }
 
-
 /* 创业导师 */
-
 
 /* 融资项目 */
 
@@ -960,9 +926,7 @@ img {
   color: #666;
 }
 
-
 /* 融资项目 */
-
 
 /* 创谷人才 */
 
@@ -972,8 +936,7 @@ img {
   margin-right: auto;
 }
 
-.talent_form .el-input__inner,
-.talent_form .el-button--primary {
+.talent_form .el-input__inner, .talent_form .el-button--primary {
   border-radius: 0;
 }
 
@@ -1031,8 +994,7 @@ img {
   color: #0089e3;
 }
 
-.talent_list,
-.mb35 {
+.talent_list, .mb35 {
   margin-bottom: 35px;
 }
 
@@ -1065,30 +1027,16 @@ img {
   color: #f48100;
 }
 
-
 /* 创谷人才 */
-
 
 /* common */
 
-.more_plus,
-.headLineTitle,
-.space_display_title,
-.double_display_title,
-.office_title,
-.activitys_title,
-.service_provider_title,
-.tutor_title,
-.Financing_title {
+.more_plus, .headLineTitle, .space_display_title, .double_display_title, .office_title, .activitys_title, .service_provider_title, .tutor_title, .Financing_title {
   height: 30px;
   background-size: contain;
 }
 
-.office,
-.activitys,
-.service_provider,
-.tutor,
-.Financing {
+.office, .activitys, .service_provider, .tutor, .Financing {
   padding-bottom: 50px;
 }
 
@@ -1096,23 +1044,20 @@ img {
   border-left: 1px solid #dddddd;
 }
 
-.office_item,
-.service_provider_item {
+.office_item, .service_provider_item {
   padding: 10px 0;
   border: 1px solid rgba(0, 0, 0, 0.05);
   display: block;
   background-color: #fff;
 }
 
-.office_item,
-.service_provider_item p {
+.office_item, .service_provider_item p {
   color: #666;
 }
 
 .office_item {
   padding: 34px 0;
 }
-
 
 /* 个人中心 */
 
@@ -1180,7 +1125,6 @@ img {
   color: #4e4e4e;
 }
 
-
 /*企业技术难题及需求*/
 
 .need_xq {
@@ -1234,7 +1178,6 @@ img {
   display: block;
 }
 
-
 /* 过滤，筛选条件 */
 
 .filter dl {
@@ -1247,7 +1190,6 @@ img {
   display: block;
   clear: both
 }
-
 
 /* .filter dl dt {
   position: absolute;
@@ -1293,12 +1235,9 @@ img {
   font-size: 12px;
 }
 
-
 /* 投资机构 */
 
-.InvestmentList .item,
-.FinancingProject .item,
-.needList .item {
+.InvestmentList .item, .FinancingProject .item, .needList .item {
   padding: 20px 0;
   border-bottom: 1px dashed #cccccc;
   cursor: pointer;
@@ -1306,9 +1245,7 @@ img {
   margin: 0 5px;
 }
 
-.InvestmentList .item p,
-.FinancingProject .item p,
-.needList .item p {
+.InvestmentList .item p, .FinancingProject .item p, .needList .item p {
   color: #666666;
 }
 
@@ -1332,8 +1269,7 @@ img {
   line-height: 20px;
 }
 
-.pl0,
-.pl1 {
+.pl0, .pl1 {
   box-sizing: border-box;
 }
 
@@ -1350,9 +1286,7 @@ img {
   width: 270px;
 }
 
-
 /* 投资机构 */
-
 
 /* 融资项目 */
 
@@ -1370,8 +1304,7 @@ img {
   color: #666666;
 }
 
-.FinancingProject .info p,
-.needList .item p {
+.FinancingProject .info p, .needList .item p {
   display: inline-block;
 }
 
@@ -1379,7 +1312,6 @@ img {
   color: #ff0000;
   margin-right: 150px;
 }
-
 
 /* 融资需求 */
 
@@ -1396,6 +1328,14 @@ img {
   margin-bottom: 10px;
 }
 
+.banner_img {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 300px;
+  overflow: hidden;
+}
 
 /* 个人中心 */
 
@@ -1410,12 +1350,7 @@ img {
     left: 0;
     margin-left: 0;
   }
-  .display_item,
-  .double_item,
-  .office_index,
-  .activitys_item,
-  .incubators-show,
-  .college-show {
+  .display_item, .double_item, .office_index, .activitys_item, .incubators-show, .college-show {
     margin-bottom: 10px;
   }
   /* 投融资首页 */
@@ -1443,12 +1378,7 @@ img {
     left: 0;
     margin-left: 0;
   }
-  .display_item,
-  .double_item,
-  .office_index,
-  .activitys_item,
-  .incubators-show,
-  .college-show {
+  .display_item, .double_item, .office_index, .activitys_item, .incubators-show, .college-show {
     margin-bottom: 10px;
   }
   /* 投融资首页 */
@@ -1476,12 +1406,7 @@ img {
     padding-left: 10px;
     padding-right: 10px;
   }
-  .display_item,
-  .double_item,
-  .office_index,
-  .activitys_item,
-  .incubators-show,
-  .college-show {
+  .display_item, .double_item, .office_index, .activitys_item, .incubators-show, .college-show {
     margin-bottom: 10px;
   }
   /* 投融资首页 */

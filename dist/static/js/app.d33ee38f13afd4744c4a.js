@@ -354,9 +354,9 @@ exports.default = {
 		};
 		//手机号
 		var validatePhone = function validatePhone(rule, value, callback) {
-			var re = /^1[34578]\d{9}$/;
-			if (value === "" || !re.test(value) || value.length < 11) {
-				callback(new Error("请输入正确手机号！"));
+			var re = /(^1[34578]\d{9}$)|(^0\d{2,3}-\d{7,8}$)|(^\d{7,8}$)/;
+			if (value === "" || !re.test(value) || value.length < 7) {
+				callback(new Error("请输入联系方式！"));
 			} else {
 				callback();
 			}
@@ -395,7 +395,7 @@ exports.default = {
 				phone: [{
 					required: true,
 					validator: validatePhone,
-					message: '请输入手机号',
+					message: '请输入联系方式',
 					trigger: 'blur'
 				}]
 			}
@@ -433,13 +433,6 @@ exports.default = {
 		}
 	}
 }; //
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -1768,7 +1761,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticStyle: {
       "margin-bottom": "10px"
     }
-  }, [_vm._v(_vm._s(_vm.openData['title']))]), _vm._v(" "), _c('p', [_vm._v("企业名称: " + _vm._s(_vm.openData['enterprise']) + " | 需求类型: " + _vm._s(_vm.openData['title']) + " | 联系人: " + _vm._s(_vm.openData['contact']) + " | 联系方式: " + _vm._s(_vm.openData['phone']) + " | "), _c('span', [_vm._v("发布时间：" + _vm._s(_vm._f("formatDate")(_vm.openData['createAt'])))]), _vm._v(" | "), (_vm.openData.status == 1) ? _c('span', [_vm._v("审核通过")]) : _vm._e()]), _vm._v(" "), (_vm.openData.status == 3) ? _c('h1') : _vm._e(), _vm._v(" "), _c('p', [_vm._v("需求留言: " + _vm._s(_vm.openData['needs']))])])]), _vm._v(" "), _c('el-row', [_c('el-col', {
+  }, [_vm._v(_vm._s(_vm.openData['title']))]), _vm._v(" "), _c('p', [_vm._v("企业名称: " + _vm._s(_vm.openData['enterprise']) + " | 需求类型: " + _vm._s(_vm.openData['title']) + " | 联系人: " + _vm._s(_vm.openData['contact']) + " | 联系方式: " + _vm._s(_vm.openData['phone']) + " | "), _c('span', [_vm._v("发布时间：" + _vm._s(_vm._f("formatDate")(_vm.openData['createAt'])))]), _vm._v(" | "), (_vm.openData.status == 1) ? _c('span', [_vm._v("审核通过")]) : _vm._e()]), _vm._v(" "), (_vm.openData.status == 3) ? _c('h1') : _vm._e(), _vm._v(" "), _c('p', [_vm._v("需求描述: " + _vm._s(_vm.openData['needs']))])])]), _vm._v(" "), _c('el-row', [_c('el-col', {
     staticStyle: {
       "padding-top": "20px",
       "border-top": "1px solid #dddddd"
@@ -1925,13 +1918,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "xs": 24
     }
   }, [_c('div', {
-    staticClass: "banner_img"
-  }, [_c('img', {
-    attrs: {
-      "src": __webpack_require__("ztvR"),
-      "alt": ""
+    staticClass: "banner_img",
+    staticStyle: {
+      "backgroundImage": "url(../static/img/banner_cgzx.png)"
     }
-  })])])], 1), _vm._v(" "), _c('div', {
+  })])], 1), _vm._v(" "), _c('div', {
     staticClass: "container"
   }, [_c('el-row', {
     attrs: {
@@ -2747,31 +2738,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "xs": 24
     }
   }, [_c('div', {
-    staticClass: "banner_img"
-  }, [_c('img', {
-    attrs: {
-      "src": __webpack_require__("kCAA"),
-      "alt": ""
+    staticClass: "banner_img",
+    staticStyle: {
+      "backgroundImage": "url(../static/img/cg.jpg)"
     }
-  })])])], 1), _vm._v(" "), _c('div', {
+  })])], 1), _vm._v(" "), _c('div', {
     staticClass: "container",
     staticStyle: {
-      "margin-bottom": "20px"
+      "margin-top": "40px",
+      "margin-bottom": "40px"
     }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 24,
-      "md": 24,
-      "sm": 24,
-      "xs": 24
-    }
-  }, [_c('div', {
-    staticClass: "common_title"
-  }, [_c('h1', {
-    staticClass: "tc"
-  }, [_vm._v("全面完善的服务商体系")]), _vm._v(" "), _c('h1', {
-    staticClass: "tc"
-  }, [_vm._v("高效解决企业发展所需的各类服务")])])]), _vm._v(" "), _c('el-row', {
+  }, [_c('el-row', {
     attrs: {
       "gutter": 10
     }
@@ -3355,7 +3332,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "f24"
   }, [_c('span', [_vm._v("基本信息")])]), _vm._v(" "), _c('div', {
     staticClass: "wrapper"
-  }, [_c('p', [_vm._v(" 联系人：" + _vm._s(_vm.train['name'] || "暂无数据") + " ")]), _vm._v(" "), _c('p', [_vm._v(" 手机号码：" + _vm._s(_vm.train['phone'] || "暂无数据") + " ")]), _vm._v(" "), _c('p', [_vm._v(" 时间：" + _vm._s(_vm._f("formatDate")(_vm.train['createAt'])) + " ")]), _vm._v(" "), _c('p', [_vm._v(" 地点：" + _vm._s(_vm.train['location'] || "暂无数据") + " ")])])])])], 1)], 1)])])
+  }, [_c('p', [_vm._v(" 联系人：" + _vm._s(_vm.train['name'] || "暂无数据") + " ")]), _vm._v(" "), _c('p', [_vm._v(" 联系方式：" + _vm._s(_vm.train['phone'] || "暂无数据") + " ")]), _vm._v(" "), _c('p', [_vm._v(" 时间：" + _vm._s(_vm._f("formatDate")(_vm.train['createAt'])) + " ")]), _vm._v(" "), _c('p', [_vm._v(" 地点：" + _vm._s(_vm.train['location'] || "暂无数据") + " ")])])])])], 1)], 1)])])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -3488,7 +3465,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     ref: "container",
     attrs: {
       "id": "container",
-      "src": "http://192.168.11.222/static/map.html",
+      "src": "http://www.sanxiachuanggu.com/static/map.html",
       "frameborder": "0"
     }
   })
@@ -4771,7 +4748,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "gutter": 20
     }
-  }, _vm._l((_vm.activity), function(item, index) {
+  }, _vm._l((_vm.activityList), function(item, index) {
     return (index < 4) ? _c('el-col', {
       key: index,
       attrs: {
@@ -5004,9 +4981,10 @@ exports.default = {
   },
   data: function data() {
     var validatePhone = function validatePhone(rule, value, callback) {
-      var re = /^1[34578]\d{9}$/;
-      if (value === "" || !re.test(value) || value.length < 11) {
-        callback(new Error("请输入正确手机号！"));
+      var re = /(^1[34578]\d{9}$)|(^0\d{2,3}-\d{7,8}$)|(^\d{7,8}$)/;
+      if (value === "" || !re.test(value) || value.length < 7) {
+        console.log(value);
+        callback(new Error("请输入正确联系方式！"));
       } else {
         callback();
       }
@@ -5077,7 +5055,7 @@ exports.default = {
         phone: [{
           required: true,
           validator: validatePhone,
-          message: "请输入正确的手机号",
+          message: "请输入正确联系方式",
           trigger: "blur"
         }],
         building: [{
@@ -5111,6 +5089,7 @@ exports.default = {
           trigger: "blur"
         }],
         content: [{
+          required: true,
           message: "请输入简介",
           trigger: "blur"
         }]
@@ -7649,6 +7628,7 @@ exports.default = {
       double_active: [false, false, false, false],
       topic: '',
       activity: '', //活动
+      activityList: [],
       // financing: '', //融资项目
       valley: '', //孵化器
       double: '', //双创
@@ -7683,13 +7663,19 @@ exports.default = {
       this.fullscreenLoading = true;
       _api2.default.Get('/pub/index').then(function (res) {
         _this.topic = res['topic']; //今日头条接口数据
-        _this.activity = res['activity']; //活动接口数据
+        for (var i = 0; i < res['activity'].length; i++) {
+          if (res['activity'][i]['type'] == 2) {
+            _this.activityList.push(res['activity'][i]);
+          }
+        }
+        // this.activity = res['activity']; //活动接口数据
         _this.financing = res['financing']; //融资项目
         _this.valley = res['valley']; //创谷空间展示
         _this.double = res['double']; //双创空间展示
         _this.mentor = res['mentor']; //创业导师
         _this.office = res['office']; //双创办公室
         _this.provider = res['provider']; //服务商接口数据
+
         _this.fullscreenLoading = false;
       });
     },
@@ -8127,7 +8113,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-col', {
     staticStyle: {
-      "margin-top": "10px",
       "position": "relative"
     },
     attrs: {
@@ -8235,7 +8220,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [(item['icon']) ? _c('img', {
       staticStyle: {
         "margin-left": "-5px",
-        "max-height": "200px"
+        "height": "150px"
       },
       attrs: {
         "src": item['icon'],
@@ -8243,8 +8228,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }) : _vm._e(), _vm._v(" "), (!item['icon']) ? _c('img', {
       staticStyle: {
-        "margin-left": "-5px",
-        "max-height": "200px"
+        "border": "1px solid #eee",
+        "width": "50%",
+        "padding": "10%",
+        "margin-left": "0",
+        "height": "80px"
       },
       attrs: {
         "src": __webpack_require__("ZBJ4"),
@@ -8276,7 +8264,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       key: index,
       staticStyle: {
         "border-bottom": "1px solid #ddd",
-        "margin-bottom": "10px"
+        "padding": "10px 0"
       },
       attrs: {
         "gutter": 10
@@ -8377,10 +8365,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "xs": 10,
       "offset": 7
     }
-  }, [_vm._v("\" label-width=\"100px\" class=\"demo-ruleForm\">\n                "), _c('el-form-item', {
+  }, [_vm._v(" \" label-width=\"100px \" class=\"demo-ruleForm \">\n                    "), _c('el-form-item', {
     attrs: {
-      "label": "姓名",
-      "prop": "name"
+      "label": "姓名 ",
+      "prop": "name "
     }
   }, [_c('el-input', {
     model: {
@@ -8388,12 +8376,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       callback: function($$v) {
         _vm.employForm.name = $$v
       },
-      expression: "employForm.name"
+      expression: "employForm.name "
     }
   })], 1), _vm._v(" "), _c('el-form-item', {
     attrs: {
-      "label": "手机号",
-      "prop": "phone"
+      "label": "联系方式 ",
+      "prop": "phone "
     }
   }, [_c('el-input', {
     model: {
@@ -8401,12 +8389,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       callback: function($$v) {
         _vm.employForm.phone = $$v
       },
-      expression: "employForm.phone"
+      expression: "employForm.phone "
     }
   })], 1), _vm._v(" "), _c('el-form-item', {
     attrs: {
-      "label": "邮箱",
-      "prop": "email"
+      "label": "邮箱 ",
+      "prop": "email "
     }
   }, [_c('el-input', {
     model: {
@@ -8414,12 +8402,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       callback: function($$v) {
         _vm.employForm.email = $$v
       },
-      expression: "employForm.email"
+      expression: "employForm.email "
     }
   })], 1), _vm._v(" "), _c('el-form-item', {
     attrs: {
-      "label": "性别",
-      "prop": "gender"
+      "label": "性别 ",
+      "prop": "gender "
     }
   }, [_c('el-radio-group', {
     staticStyle: {
@@ -8430,19 +8418,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       callback: function($$v) {
         _vm.employForm.gender = $$v
       },
-      expression: "employForm.gender"
+      expression: "employForm.gender "
     }
   }, [_c('el-radio', {
     attrs: {
-      "label": "女"
+      "label": "女 "
     }
   }), _vm._v(" "), _c('el-radio', {
     attrs: {
-      "label": "男"
+      "label": "男 "
     }
   }), _vm._v(" "), _c('el-radio', {
     attrs: {
-      "label": "无"
+      "label": "无 "
     }
   })], 1)], 1), _vm._v(" "), _c('el-form-item', [_c('el-button', {
     staticStyle: {
@@ -8970,21 +8958,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 exports.default = {
   data: function data() {
@@ -9016,6 +8989,8 @@ exports.default = {
 
       _api2.default.Get("/dict/service").then(function (res) {
         _this.category = res;
+        var obj0 = { id: 0, idx: 0, name: "服务类型", value: "全部", type: "service" }; //手动添加全部选项
+        _this.category.unshift(obj0);
         _this.category.forEach(function (value, index, array) {
           _this.category[index]["cname"] = "tab" + (index + 1);
           if (index == 0) {
@@ -9209,12 +9184,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1), _vm._v(" "), _c('el-form-item', {
     attrs: {
-      "label": "手机号",
+      "label": "联系方式",
       "prop": "phone"
     }
   }, [_c('el-input', {
     attrs: {
-      "placeholder": "请输入联系人手机号码"
+      "placeholder": "请输入联系方式"
     },
     model: {
       value: (_vm.trainForm.phone),
@@ -10215,13 +10190,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "xs": 24
     }
   }, [_c('div', {
-    staticClass: "banner_img"
-  }, [_c('img', {
-    attrs: {
-      "src": __webpack_require__("lUg/"),
-      "alt": ""
+    staticClass: "banner_img",
+    staticStyle: {
+      "backgroundImage": "url(../static/img/banner_sckj.png)"
     }
-  })])])], 1), _vm._v(" "), _c('div', {
+  })])], 1), _vm._v(" "), _c('div', {
     staticClass: "container"
   }, [_c('el-row', {
     staticStyle: {
@@ -10700,7 +10673,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('div', {
       staticClass: "office_item"
     }, [_c('p', {
-      staticClass: "tc black2 title0 b",
+      staticClass: "tc black2 title0 b text-ellipsis",
       staticStyle: {
         "margin-top": "0"
       },
@@ -11045,7 +11018,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "xs": 24
     }
   }, [_c('div', {
-    staticClass: "financing_banner"
+    staticClass: "banner_img",
+    staticStyle: {
+      "backgroundImage": "url(../static/img/banner_trzk.jpg)"
+    }
   }, [_c('router-link', {
     staticClass: "financing_Btn db",
     attrs: {
@@ -11055,27 +11031,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1)])], 1), _vm._v(" "), _c('el-row', {
     staticStyle: {
-      "margin-bottom": "120px"
+      "margin-top": "40px",
+      "margin-bottom": "40px"
     },
     attrs: {
       "gutter": 0
     }
   }, [_c('div', {
     staticClass: "container"
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 24,
-      "md": 24,
-      "sm": 24,
-      "xs": 24
-    }
-  }, [_c('div', {
-    staticClass: "common_title"
-  }, [_c('h1', {
-    staticClass: "tc"
-  }, [_vm._v("全面完善的服务商体系")]), _vm._v(" "), _c('h1', {
-    staticClass: "tc"
-  }, [_vm._v("高效解决企业发展所需的各类服务")])])]), _vm._v(" "), _c('el-row', {
+  }, [_c('el-row', {
     attrs: {
       "gutter": 0
     }
@@ -11425,7 +11389,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('p', [_vm._v(_vm._s(_vm.financeDetail['name']))])])]), _vm._v(" "), _c('tr', [_c('td', {
     staticClass: "font-bold w-xs"
-  }, [_vm._v("联系人")]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.financeDetail['name']))]), _vm._v(" "), _c('td', {
+  }, [_vm._v("联系人")]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.financeDetail['contact']))]), _vm._v(" "), _c('td', {
     staticClass: "font-bold"
   }, [_vm._v("联系电话")]), _vm._v(" "), _c('td', [_c('p', [_vm._v(_vm._s(_vm.financeDetail['phone'] || "暂无数据"))])])]), _vm._v(" "), _c('tr', {
     staticStyle: {
@@ -11465,7 +11429,7 @@ exports.default = {
 	data: function data() {
 		return {
 			tenancyApply: '',
-			photos: '',
+			photos: [],
 			content: ''
 		};
 	},
@@ -11479,8 +11443,14 @@ exports.default = {
 			var _this = this;
 
 			_api2.default.Get('/qb/tenancy/' + id).then(function (res) {
-				_this.tenancyApply = res['tenancyApply'];
 				_this.photos = res['photos'];
+				var defaultImg = { uri: "../../static/img/logo.png" };
+				_this.tenancyApply = res['tenancyApply'];
+				if (res['photos'].length > 0) {
+					_this.photos = res['photos'];
+				} else {
+					_this.photos.push(defaultImg);
+				}
 				if (!res['tenancyApply']['detail']) {
 					_this.content = "暂无数据";
 				} else {
@@ -11490,6 +11460,7 @@ exports.default = {
 		}
 	}
 }; //
+//
 //
 //
 //
@@ -12286,57 +12257,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "current-change": _vm.handleCurrentChange
       }
     })], 1)])], 1)], 2)
-  }))], 1)], 1)], 1), _vm._v(" "), _c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.openFlag),
-      expression: "openFlag"
-    }],
-    staticClass: "show_need_mask",
-    on: {
-      "click": _vm.closeDetail
-    }
-  }), _vm._v(" "), _c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.openFlag),
-      expression: "openFlag"
-    }],
-    staticClass: "show_need"
-  }, [_c('div', {
-    staticClass: "need_import"
-  }, [_c('h3', [_vm._v(_vm._s(_vm.openData['needs']))]), _vm._v(" "), _c('p', [_vm._v("企业名称: " + _vm._s(_vm.openData['enterprise']) + " | 需求类型: " + _vm._s(_vm.openData['title']) + " | 联系人: " + _vm._s(_vm.openData['contact']) + " | 联系方式: " + _vm._s(_vm.openData['phone']) + " | "), _c('span', [_vm._v(_vm._s(_vm._f("formatDate")(_vm.openData['createAt'])))]), _vm._v(" | "), (_vm.openData.status == 1) ? _c('span', [_vm._v("审核通过")]) : _vm._e()]), _vm._v(" "), (_vm.openData.status == 3) ? _c('h1') : _vm._e(), _vm._v(" "), _c('p', [_vm._v("需求留言: " + _vm._s(_vm.openData['needs']))])]), _vm._v(" "), _c('h1', [_vm._v("请输入留言")]), _vm._v(" "), _c('el-input', {
-    attrs: {
-      "type": "textarea",
-      "rows": 4,
-      "placeholder": "请输入内容"
-    },
-    model: {
-      value: (_vm.msg),
-      callback: function($$v) {
-        _vm.msg = $$v
-      },
-      expression: "msg"
-    }
-  }), _vm._v(" "), _c('button', {
-    on: {
-      "click": function($event) {
-        $event.stopPropagation();
-        $event.preventDefault();
-        _vm.enterpriseMsg(_vm.openData['id'])
-      }
-    }
-  }, [_vm._v("留言")]), _vm._v(" "), _c('button', {
-    on: {
-      "click": function($event) {
-        $event.stopPropagation();
-        $event.preventDefault();
-        _vm.closeDetail($event)
-      }
-    }
-  }, [_vm._v("取消")])], 1)]), _vm._v(" "), _c('el-col', {
+  }))], 1)], 1)], 1)]), _vm._v(" "), _c('el-col', {
     attrs: {
       "lg": 8,
       "md": 24,
@@ -12899,9 +12820,9 @@ exports.default = {
         };
         //手机号
         var validatePhone = function validatePhone(rule, value, callback) {
-            var re = /^1[34578]\d{9}$/;
-            if (value === "" || !re.test(value) || value.length < 11) {
-                callback(new Error("请输入正确手机号！"));
+            var re = /(^1[34578]\d{9}$)|(^0\d{2,3}-\d{7,8}$)|(^\d{7,8}$)/;
+            if (value === "" || !re.test(value) || value.length < 7) {
+                callback(new Error("请输入联系方式！"));
             } else {
                 callback();
             }
@@ -12932,7 +12853,7 @@ exports.default = {
                 phone: [{
                     required: true,
                     validator: validatePhone,
-                    message: "请输入手机号",
+                    message: "请输入联系方式",
                     trigger: "blur"
                 }],
                 title: [{
@@ -12962,7 +12883,6 @@ exports.default = {
                 var id = _this.$route.params.id;
                 var businessId = _this.$route.params.businessId;
                 if (valid) {
-
                     var params = {
                         businessId: businessId,
                         enterprise: _this.cosnultForm.enterprise,
@@ -13309,7 +13229,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("否")])], 1)], 1), _vm._v(" "), _c('el-form-item', {
     attrs: {
       "label": "编辑文章",
-      "prop": "article"
+      "prop": "content"
     }
   }, [_c('vue-editor', {
     model: {
@@ -13343,7 +13263,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 
 var _api = __webpack_require__("c2Ch");
@@ -13353,128 +13273,128 @@ var _api2 = _interopRequireDefault(_api);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-	data: function data() {
-		var validatePhone = function validatePhone(rule, value, callback) {
-			var re = /^1[34578]\d{9}$/;
-			if (value === "" || !re.test(value) || value.length < 11) {
-				callback(new Error("请输入正确手机号！"));
-			} else {
-				callback();
-			}
-		};
-		var validateContact = function validateContact(rule, value, callback) {
-			var re = /^[\u4E00-\u9FA5\uf900-\ufa2d]{2,5}$/;
-			if (value === "" || !re.test(value) || value.length < 2 || value.length > 5) {
-				callback(new Error("请输入联系人姓名！"));
-			} else {
-				callback();
-			}
-		};
-		return {
-			ruleForm: {
-				"enterprise": "", //企业名称
-				"scope": "", //经营范围
-				"period": "", //成立情况
-				"fresh": "", //是否三年内毕业大学生
-				"employees": "", //团队人数
-				"area": "", //所需办公面积/工位数
-				"contact": "", //联系人姓名
-				"phone": "" //联系人手机号
-			},
-			rules: {
-				enterprise: [{
-					required: true,
-					message: '请填写公司名称',
-					trigger: 'blur'
-				}],
-				scope: [{
-					required: true,
-					message: '请填写公司经营范围',
-					trigger: 'blur'
-				}],
-				period: [{
-					required: true,
-					message: '请填写成立情况',
-					trigger: 'blur'
-				}],
-				fresh: [{
-					required: true,
-					message: '请选择是否三年内毕业大学生',
-					trigger: 'blur'
-				}],
-				employees: [{
-					required: true,
-					message: '请输入团队人数',
-					trigger: 'blur'
-				}],
-				area: [{
-					required: true,
-					message: '请输入所需办公面积/工位数',
-					trigger: 'blur'
-				}],
-				contact: [{
-					required: true,
-					message: '请输入联系人姓名',
-					validator: validateContact,
-					trigger: 'blur'
-				}],
-				phone: [{
-					required: true,
-					validator: validatePhone,
-					message: '请输入正确手机号',
-					trigger: 'blur'
-				}]
-			}
-		};
-	},
+  data: function data() {
+    var validatePhone = function validatePhone(rule, value, callback) {
+      var re = /(^1[34578]\d{9}$)|(^0\d{2,3}-\d{7,8}$)|(^\d{7,8}$)/;
+      if (value === "" || !re.test(value) || value.length < 7) {
+        callback(new Error("请输入正确联系方式！"));
+      } else {
+        callback();
+      }
+    };
+    var validateContact = function validateContact(rule, value, callback) {
+      var re = /^[\u4E00-\u9FA5\uf900-\ufa2d]{2,5}$/;
+      if (value === "" || !re.test(value) || value.length < 2 || value.length > 5) {
+        callback(new Error("请输入联系人姓名！"));
+      } else {
+        callback();
+      }
+    };
+    return {
+      ruleForm: {
+        enterprise: "", //企业名称
+        scope: "", //经营范围
+        period: "", //成立情况
+        fresh: "", //是否三年内毕业大学生
+        employees: "", //团队人数
+        area: "", //所需办公面积/工位数
+        contact: "", //联系人姓名
+        phone: "" //联系人联系方式
+      },
+      rules: {
+        enterprise: [{
+          required: true,
+          message: "请填写公司名称",
+          trigger: "blur"
+        }],
+        scope: [{
+          required: true,
+          message: "请填写公司经营范围",
+          trigger: "blur"
+        }],
+        period: [{
+          required: true,
+          message: "请填写成立情况",
+          trigger: "blur"
+        }],
+        fresh: [{
+          required: true,
+          message: "请选择是否三年内毕业大学生",
+          trigger: "blur"
+        }],
+        employees: [{
+          required: true,
+          message: "请输入团队人数",
+          trigger: "blur"
+        }],
+        area: [{
+          required: true,
+          message: "请输入所需办公面积/工位数",
+          trigger: "blur"
+        }],
+        contact: [{
+          required: true,
+          message: "请输入联系人姓名",
+          validator: validateContact,
+          trigger: "blur"
+        }],
+        phone: [{
+          required: true,
+          validator: validatePhone,
+          message: "请输入正确联系方式",
+          trigger: "blur"
+        }]
+      }
+    };
+  },
 
-	methods: {
-		submitForm: function submitForm(formName) {
-			var _this = this;
+  methods: {
+    submitForm: function submitForm(formName) {
+      var _this = this;
 
-			this.$refs[formName].validate(function (valid) {
-				if (valid) {
-					var id = _this.$route.params.id;
-					var createTime = new Date();
-					var createAt = Number(createTime);
-					var params = {
-						"incubatorId": id,
-						"enterprise": _this.ruleForm.enterprise,
-						"scope": _this.ruleForm.scope,
-						"period": _this.ruleForm.period,
-						"fresh": _this.ruleForm.fresh,
-						"employees": _this.ruleForm.employees,
-						"area": _this.ruleForm.area,
-						"contact": _this.ruleForm.contact,
-						"phone": _this.ruleForm.phone,
-						"createAt": createAt
-					};
-					_api2.default.Post('/qb/apply', params).then(function (res) {
-						if (res['suc'] == true) {
-							_this.$confirm('登录成功', '提示', {
-								confirmButtonText: '确定',
-								cancelButtonText: '取消',
-								type: 'success'
-							}).then(function () {
-								var id = _this.$route.params.id;
-								var redirect = decodeURIComponent('/incubators_details/');
-								_this.$router.push({
-									path: redirect + id
-								});
-							}).catch(function () {
-								//点击取消
-							});
-						} else if (res['suc'] == false) {
-							alert(res['msg']);
-						}
-					});
-				} else {
-					console.log('error submit!!');
-					return false;
-				}
-			});
-		}
-	}
+      this.$refs[formName].validate(function (valid) {
+        if (valid) {
+          var id = _this.$route.params.id;
+          var createTime = new Date();
+          var createAt = Number(createTime);
+          var params = {
+            incubatorId: id,
+            enterprise: _this.ruleForm.enterprise,
+            scope: _this.ruleForm.scope,
+            period: _this.ruleForm.period,
+            fresh: _this.ruleForm.fresh,
+            employees: _this.ruleForm.employees,
+            area: _this.ruleForm.area,
+            contact: _this.ruleForm.contact,
+            phone: _this.ruleForm.phone,
+            createAt: createAt
+          };
+          _api2.default.Post("/qb/apply", params).then(function (res) {
+            if (res["suc"] == true) {
+              _this.$confirm("登录成功", "提示", {
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
+                type: "success"
+              }).then(function () {
+                var id = _this.$route.params.id;
+                var redirect = decodeURIComponent("/incubators_details/");
+                _this.$router.push({
+                  path: redirect + id
+                });
+              }).catch(function () {
+                //点击取消
+              });
+            } else if (res["suc"] == false) {
+              alert(res["msg"]);
+            }
+          });
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
+    }
+  }
 }; //
 //
 //
@@ -14425,13 +14345,6 @@ var Component = normalizeComponent(
 
 /***/ }),
 
-/***/ "RkCC":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "static/img/banner_cgyj.5161528.png";
-
-/***/ }),
-
 /***/ "SA7G":
 /***/ (function(module, exports) {
 
@@ -14684,7 +14597,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-col', {
     staticStyle: {
-      "margin-top": "15px",
       "position": "relative"
     },
     attrs: {
@@ -14792,7 +14704,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [(item['icon']) ? _c('img', {
       staticStyle: {
         "margin-left": "-5px",
-        "max-height": "200px"
+        "height": "150px"
       },
       attrs: {
         "src": item['icon'],
@@ -14800,8 +14712,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }) : _vm._e(), _vm._v(" "), (!item['icon']) ? _c('img', {
       staticStyle: {
-        "margin-left": "-5px",
-        "max-height": "200px"
+        "border": "1px solid #eee",
+        "width": "50%",
+        "padding": "10%",
+        "margin-left": "0",
+        "height": "80px"
       },
       attrs: {
         "src": __webpack_require__("ZBJ4"),
@@ -14918,7 +14833,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "gutter": 0
     }
   }, [_c('el-col', {
-    staticClass: "service-banner",
+    staticClass: "banner_img",
+    staticStyle: {
+      "backgroundImage": "url(../static/img/service02.jpg)"
+    },
     attrs: {
       "lg": 24,
       "md": 24,
@@ -14928,22 +14846,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   })], 1), _vm._v(" "), _c('div', {
     staticClass: "container",
     staticStyle: {
-      "margin-bottom": "20px"
+      "margin-top": "40px",
+      "margin-bottom": "40px"
     }
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 24,
-      "md": 24,
-      "sm": 24,
-      "xs": 24
-    }
-  }, [_c('div', {
-    staticClass: "common_title"
-  }, [_c('h1', {
-    staticClass: "tc"
-  }, [_vm._v("全面完善的服务商体系")]), _vm._v(" "), _c('h1', {
-    staticClass: "tc"
-  }, [_vm._v("高效解决企业发展所需的各类服务")])])]), _vm._v(" "), _c('el-row', {
+  }, [_c('el-row', {
     attrs: {
       "gutter": 10
     }
@@ -16821,35 +16727,21 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "xs": 24
     }
   }, [_c('div', {
-    staticClass: "banner_img"
-  }, [_c('img', {
-    attrs: {
-      "src": __webpack_require__("RkCC"),
-      "alt": ""
-    }
-  })])])], 1), _vm._v(" "), _c('el-row', {
+    staticClass: "banner_img",
     staticStyle: {
-      "margin-bottom": "50px"
+      "backgroundImage": "url(../static/img/banner_cgyj.jpg)"
+    }
+  })])], 1), _vm._v(" "), _c('el-row', {
+    staticStyle: {
+      "margin-top": "40px",
+      "margin-bottom": "40px"
     },
     attrs: {
       "gutter": 0
     }
   }, [_c('div', {
     staticClass: "container"
-  }, [_c('el-col', {
-    attrs: {
-      "lg": 24,
-      "md": 24,
-      "sm": 24,
-      "xs": 24
-    }
-  }, [_c('div', {
-    staticClass: "common_title"
-  }, [_c('h1', {
-    staticClass: "tc"
-  }, [_vm._v("全面完善的服务商体系")]), _vm._v(" "), _c('h1', {
-    staticClass: "tc"
-  }, [_vm._v("高效解决企业发展所需的各类服务")])])]), _vm._v(" "), _c('el-row', {
+  }, [_c('el-row', {
     attrs: {
       "gutter": 0
     }
@@ -16968,7 +16860,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       attrs: {
         "type": "danger"
       }
-    }, [_vm._v("行业领域：消费生活")])], 1)], 1)
+    }, [_vm._v("行业领域：" + _vm._s(_vm._f("filterStr")(item['field'])))])], 1)], 1)
   })], 2)]), _vm._v(" "), _c('div', {
     staticClass: "InvestmentAgency clearfix ResearchInstitute"
   }, [_c('h2', {
@@ -17031,7 +16923,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       attrs: {
         "type": "danger"
       }
-    }, [_vm._v("行业领域：消费生活")])], 1)], 1)
+    }, [_vm._v("研究方向：" + _vm._s(_vm._f("filterStr")(item['field'])))])], 1)], 1)
   })], 2)])]), _vm._v(" "), _c('el-col', {
     staticClass: "pl1",
     attrs: {
@@ -17943,7 +17835,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("取消")])], 1), _vm._v(" "), _c('el-form-item', {
     attrs: {
-      "label": "手机号:"
+      "label": "联系方式:"
     }
   }, [_c('p', [_vm._v(_vm._s(_vm.name))])])], 1)], 1)], 1)], 1)
 }
@@ -18673,7 +18565,7 @@ exports.default = {
       var _this7 = this;
 
       //获取到当前分页页码，获取当前页面数据
-      var url = "/enterprise/apply/" + "4" + "/" + "1" + "/" + val;
+      var url = "/enterprise/apply/" + "4" + "/" + val + "?cid=57";
       _api2.default.Get(url).then(function (res) {
         _this7.needData = res["page"]["data"];
         _this7.totalPages = res["page"]["totalPages"] * 10;
@@ -19270,12 +19162,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1), _vm._v(" "), _c('el-form-item', {
     attrs: {
-      "label": "手机号",
+      "label": "联系方式",
       "prop": "phone"
     }
   }, [_c('el-input', {
     attrs: {
-      "placeholder": "请输入联系人手机号码"
+      "placeholder": "请输入联系方式"
     },
     model: {
       value: (_vm.serviceNeedsForm.phone),
@@ -19344,8 +19236,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // axios 配置
-var baseUrl = 'http://192.168.11.222/servant';
-// const baseUrl = "http://www.sanxiachuanggu.com/servant";
+// const baseUrl = 'http://192.168.11.222/servant';
+var baseUrl = "http://www.sanxiachuanggu.com/servant";
 _axios2.default.defaults.timeout = 5000;
 _axios2.default.defaults.baseURL = baseUrl;
 _axios2.default.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -20251,12 +20143,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1), _vm._v(" "), _c('el-form-item', {
     attrs: {
-      "label": "手机号",
+      "label": "联系方式",
       "prop": "phone"
     }
   }, [_c('el-input', {
     attrs: {
-      "placeholder": "请输入联系人手机号码"
+      "placeholder": "请输入联系方式"
     },
     model: {
       value: (_vm.serviceForm.phone),
@@ -20423,12 +20315,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1), _vm._v(" "), _c('el-form-item', {
     attrs: {
-      "label": "手机号",
+      "label": "联系方式",
       "prop": "phone"
     }
   }, [_c('el-input', {
     attrs: {
-      "placeholder": "请输入联系人手机号码"
+      "placeholder": "请输入联系方式"
     },
     model: {
       value: (_vm.cosnultForm.phone),
@@ -20569,9 +20461,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = {
 	data: function data() {
 		var validatePhone = function validatePhone(rule, value, callback) {
-			var re = /^1[34578]\d{9}$/;
-			if (value === "" || !re.test(value) || value.length < 11) {
-				callback(new Error("请输入正确手机号！"));
+			var re = /(^1[34578]\d{9}$)|(^0\d{2,3}-\d{7,8}$)|(^\d{7,8}$)/;
+			if (value === "" || !re.test(value) || value.length < 7) {
+				callback(new Error("请输入联系方式！"));
 			} else {
 				callback();
 			}
@@ -20593,7 +20485,7 @@ exports.default = {
 				"employees": "", //团队人数
 				"area": "", //所需办公面积/工位数
 				"contact": "", //联系人姓名
-				"phone": "" //联系人手机号
+				"phone": "" //联系方式
 			},
 			rules: {
 				enterprise: [{
@@ -20635,7 +20527,7 @@ exports.default = {
 				phone: [{
 					required: true,
 					validator: validatePhone,
-					message: '请输入正确手机号',
+					message: '请输入联系方式',
 					trigger: 'blur'
 				}]
 			}
@@ -21711,9 +21603,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = {
 	data: function data() {
 		var validatePhone = function validatePhone(rule, value, callback) {
-			var re = /^1[34578]\d{9}$/;
-			if (value === "" || !re.test(value) || value.length < 11) {
-				callback(new Error("请输入正确手机号！"));
+			var re = /(^1[34578]\d{9}$)|(^0\d{2,3}-\d{7,8}$)|(^\d{7,8}$)/;
+			if (value === "" || !re.test(value) || value.length < 7) {
+				callback(new Error("请输入联系方式！"));
 			} else {
 				callback();
 			}
@@ -21735,7 +21627,7 @@ exports.default = {
 				"employees": "", //团队人数
 				"area": "", //所需办公面积/工位数
 				"contact": "", //联系人姓名
-				"phone": "" //联系人手机号
+				"phone": "" //联系方式
 			},
 			rules: {
 				enterprise: [{
@@ -21777,7 +21669,7 @@ exports.default = {
 				phone: [{
 					required: true,
 					validator: validatePhone,
-					message: '请输入正确手机号',
+					message: '请输入联系方式',
 					trigger: 'blur'
 				}]
 			}
@@ -22335,6 +22227,20 @@ exports.default = {
         this.initResearch();
     },
 
+    filters: {
+        filterStr: function filterStr(input) {
+            console.log(!input);
+            if (!input) {
+                return '';
+            } else {
+                if (input.length > 20) {
+                    return input.substring(0, 20) + "...";
+                } else {
+                    return input;
+                }
+            }
+        }
+    },
     methods: {
         researchApi: function researchApi() {
             var _this = this;
@@ -22849,13 +22755,6 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp
 
 /***/ }),
 
-/***/ "kCAA":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "static/img/cg.8902e8c.jpg";
-
-/***/ }),
-
 /***/ "kKNt":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -23022,13 +22921,6 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 /***/ }),
 
-/***/ "lUg/":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "static/img/banner_sckj.8f17e28.png";
-
-/***/ }),
-
 /***/ "lbbh":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -23057,7 +22949,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-row', {
     staticStyle: {
-      "margin-top": "50px",
       "padding": "15px",
       "background-color": "#f2f5f4"
     },
@@ -23066,8 +22957,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [(_vm.tenancyApply['type'] == 1) ? _c('el-col', {
     attrs: {
-      "lg": 12,
-      "md": 12,
+      "lg": 6,
+      "md": 6,
       "sm": 24,
       "xs": 24
     }
@@ -23120,12 +23011,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "gutter": 10
     }
-  }, [_c('h1', {
+  }, [(_vm.tenancyApply['type'] == 1) ? _c('h1', {
     staticStyle: {
       "margin-bottom": "25px",
       "font-size": "16px"
     }
-  }, [_vm._v("求租说明:")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("招商说明:")]) : _vm._e(), _vm._v(" "), (_vm.tenancyApply['type'] == 2) ? _c('h1', {
+    staticStyle: {
+      "margin-bottom": "25px",
+      "font-size": "16px"
+    }
+  }, [_vm._v("求租说明:")]) : _vm._e(), _vm._v(" "), _c('p', {
     staticClass: "wanted2",
     domProps: {
       "innerHTML": _vm._s(_vm.content)
@@ -23776,12 +23672,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1), _vm._v(" "), _c('el-form-item', {
     attrs: {
-      "label": "手机号",
+      "label": "联系方式",
       "prop": "phone"
     }
   }, [_c('el-input', {
     attrs: {
-      "placeholder": "请输入联系人手机号码"
+      "placeholder": "请输入联系方式"
     },
     model: {
       value: (_vm.cosnultForm.phone),
@@ -23882,7 +23778,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticStyle: {
       "margin-bottom": "10px"
     }
-  }, [_vm._v(_vm._s(_vm.openData['title']))]), _vm._v(" "), _c('p', [_vm._v("企业名称: " + _vm._s(_vm.openData['enterprise']) + " | 需求类型: " + _vm._s(_vm.openData['title']) + " | 联系人: " + _vm._s(_vm.openData['contact']) + " | 联系方式: " + _vm._s(_vm.openData['phone']) + " | "), _c('span', [_vm._v("发布时间：" + _vm._s(_vm._f("formatDate")(_vm.openData['createAt'])))]), _vm._v(" | "), (_vm.openData.status == 1) ? _c('span', [_vm._v("审核通过")]) : _vm._e()]), _vm._v(" "), (_vm.openData.status == 3) ? _c('h1') : _vm._e(), _vm._v(" "), _c('p', [_vm._v("需求留言: " + _vm._s(_vm.openData['content']))])])]), _vm._v(" "), _c('el-row', [_c('el-col', {
+  }, [_vm._v(_vm._s(_vm.openData['title']))]), _vm._v(" "), _c('p', [_vm._v("企业名称: " + _vm._s(_vm.openData['enterprise']) + " | 需求类型: " + _vm._s(_vm.openData['title']) + " | 联系人: " + _vm._s(_vm.openData['contact']) + " | 联系方式: " + _vm._s(_vm.openData['phone']) + " | "), _c('span', [_vm._v("发布时间：" + _vm._s(_vm._f("formatDate")(_vm.openData['createAt'])))]), _vm._v(" | "), (_vm.openData.status == 1) ? _c('span', [_vm._v("审核通过")]) : _vm._e()]), _vm._v(" "), (_vm.openData.status == 3) ? _c('h1') : _vm._e(), _vm._v(" "), _c('p', [_vm._v("需求描述: " + _vm._s(_vm.openData['content']))])])]), _vm._v(" "), _c('el-row', [_c('el-col', {
     staticStyle: {
       "padding-top": "20px",
       "border-top": "1px solid #dddddd"
@@ -24324,9 +24220,9 @@ exports.default = {
 	data: function data() {
 		//输入电话号码
 		var validatePhone = function validatePhone(rule, value, callback) {
-			var re = /^1[34578]\d{9}$/;
-			if (value === "" || !re.test(value) || value.length < 11) {
-				callback(new Error("请输入正确手机号！"));
+			var re = /(^1[34578]\d{9}$)|(^0\d{2,3}-\d{7,8}$)|(^\d{7,8}$)/;
+			if (value === "" || !re.test(value) || value.length < 7) {
+				callback(new Error("请输入联系方式！"));
 			} else {
 				callback();
 			}
@@ -24349,7 +24245,7 @@ exports.default = {
 				phone: [{
 					required: true,
 					validator: validatePhone,
-					message: '请输入正确手机号',
+					message: '请输入联系方式',
 					trigger: 'blur'
 				}],
 				name: [{
@@ -25723,11 +25619,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = {
 	data: function data() {
-		//手机号
+		//联系方式
 		var validatePhone = function validatePhone(rule, value, callback) {
-			var re = /^1[34578]\d{9}$/;
-			if (value === "" || !re.test(value) || value.length < 11) {
-				callback(new Error("请输入正确手机号！"));
+			var re = /(^1[34578]\d{9}$)|(^0\d{2,3}-\d{7,8}$)|(^\d{7,8}$)/;
+			if (value === "" || !re.test(value) || value.length < 7) {
+				callback(new Error("请输入正确联系方式！"));
 			} else {
 				callback();
 			}
@@ -25758,7 +25654,7 @@ exports.default = {
 				phone: [{
 					required: true,
 					validator: validatePhone,
-					message: '请输入正确手机号',
+					message: '请输入正确联系方式',
 					trigger: 'blur'
 				}],
 				email: [{
@@ -25806,10 +25702,6 @@ exports.default = {
 		}
 	}
 }; //
-//
-//
-//
-//
 //
 //
 //
@@ -26650,7 +26542,7 @@ exports.default = {
       }).catch(function () {
         _this.$message({
           type: 'info',
-          message: '已取消删除'
+          message: '已取消'
         });
       });
     }
@@ -27459,11 +27351,12 @@ exports.default = {
         callback();
       }
     };
-    //手机号
+    //联系方式
     var validatePhone = function validatePhone(rule, value, callback) {
-      var re = /^1[34578]\d{9}$/;
-      if (value === "" || !re.test(value) || value.length < 11) {
-        callback(new Error("请输入正确手机号！"));
+      var re = /(^1[34578]\d{9}$)|(^0\d{2,3}-\d{7,8}$)|(^\d{7,8}$)/;
+      if (value === "" || !re.test(value) || value.length < 7) {
+        console.log(value);
+        callback(new Error("请输入正确联系方式！"));
       } else {
         callback();
       }
@@ -27515,7 +27408,7 @@ exports.default = {
         phone: [{
           required: true,
           validator: validatePhone,
-          message: "请输入手机号",
+          message: "请输入联系方式",
           trigger: "blur"
         }]
       },
@@ -27549,7 +27442,7 @@ exports.default = {
         phone: [{
           required: true,
           validator: validatePhone,
-          message: "请输入手机号",
+          message: "请输入正确联系方式",
           trigger: "blur"
         }],
         title: [{
@@ -27598,7 +27491,7 @@ exports.default = {
           _api2.default.Post("/enterprise/apply", params).then(function (res) {
             console.log(res);
             if (res["suc"] == true) {
-              _this.$message('服务需求发布成功');
+              _this.$message("服务需求发布成功");
               window.history.go(-1);
             } else {
               _this.$message(res["msg"]);
@@ -27628,7 +27521,7 @@ exports.default = {
           _api2.default.Post("/consult", params).then(function (res) {
             console.log(res);
             if (res["suc"] == true) {
-              _this2.$message('服务需求发布成功');
+              _this2.$message("服务需求发布成功");
               window.history.go(-1);
             } else {
               _this2.$message(res["msg"]);
@@ -28353,14 +28246,7 @@ var Component = normalizeComponent(
 
 // removed by extract-text-webpack-plugin
 
-/***/ }),
-
-/***/ "ztvR":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "static/img/banner_cgzx.3700b27.png";
-
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.3ba3ec741ab6c1c9cba3.js.map
+//# sourceMappingURL=app.d33ee38f13afd4744c4a.js.map
