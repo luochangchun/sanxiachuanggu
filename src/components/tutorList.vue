@@ -63,7 +63,7 @@
             },
             handleCurrentChange(val) {
                 //获取到当前分页页码，获取当前页面数据
-                var url = '/enterprise/' + '3' + '/' + '8' + '/' + val
+                var url = '/indie/' + '3' + '/' + '8' + '/' + val
                 api.Get(url)
                     .then(res => {
                         this.tutorList = res['data'];

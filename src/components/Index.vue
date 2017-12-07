@@ -77,7 +77,7 @@
         <el-row :gutter="0">
           <el-col :xs="24" :sm="24" :md="24" :lg="24">
             <div class="l double_display_title"></div>
-            <router-link to="/map" class="r more_plus"></router-link>
+            <router-link to="/incubators" class="r more_plus"></router-link>
           </el-col>
         </el-row>
         <el-row :gutter="10">

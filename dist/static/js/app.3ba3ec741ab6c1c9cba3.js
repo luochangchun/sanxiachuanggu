@@ -3488,7 +3488,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     ref: "container",
     attrs: {
       "id": "container",
-      "src": "http://www.sanxiachuanggu.com/static/map.html",
+      "src": "http://192.168.11.222/static/map.html",
       "frameborder": "0"
     }
   })
@@ -4536,7 +4536,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }), _vm._v(" "), _c('router-link', {
     staticClass: "r more_plus",
     attrs: {
-      "to": "/map"
+      "to": "/incubators"
     }
   })], 1)], 1), _vm._v(" "), _c('el-row', {
     attrs: {
@@ -7440,7 +7440,7 @@ exports.default = {
     },
     created: function created() {
         this.getFinance();
-        var cid = 57;
+        var cid = 54;
         this.initServicesList(cid);
     },
 
@@ -7472,7 +7472,7 @@ exports.default = {
             var _this3 = this;
 
             //获取到当前分页页码，获取当前页面数据
-            var url = "/enterprise/apply/" + "10" + "/" + val + "/" + +"?cid=" + "57";
+            var url = "/enterprise/apply/" + "10" + "/" + val + "/" + +"?cid=" + "54";
             _api2.default.Get(url).then(function (res) {
                 _this3.needData = res["page"]["data"];
                 _this3.totalPages = res["page"]["totalPages"] * 10;
@@ -16460,7 +16460,7 @@ exports.default = {
             var _this2 = this;
 
             //获取到当前分页页码，获取当前页面数据
-            var url = '/enterprise/' + '3' + '/' + '8' + '/' + val;
+            var url = '/indie/' + '3' + '/' + '8' + '/' + val;
             _api2.default.Get(url).then(function (res) {
                 _this2.tutorList = res['data'];
                 _this2.totalPages = res['totalPages'] * 10;
@@ -19344,8 +19344,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // axios 配置
-// const baseUrl = 'http://192.168.11.222/servant';
-var baseUrl = "http://www.sanxiachuanggu.com/servant";
+var baseUrl = 'http://192.168.11.222/servant';
+// const baseUrl = "http://www.sanxiachuanggu.com/servant";
 _axios2.default.defaults.timeout = 5000;
 _axios2.default.defaults.baseURL = baseUrl;
 _axios2.default.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -21415,7 +21415,7 @@ router.beforeEach(function (to, from, next) {
 		} else {
 			next({
 				path: '/login',
-				query: { redirect: to.currentRoute.fullPath }
+				query: { redirect: to.fullPath }
 			});
 		}
 	} else {
@@ -23882,7 +23882,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticStyle: {
       "margin-bottom": "10px"
     }
-  }, [_vm._v(_vm._s(_vm.openData['title']))]), _vm._v(" "), _c('p', [_vm._v("企业名称: " + _vm._s(_vm.openData['enterprise']) + " | 需求类型: " + _vm._s(_vm.openData['title']) + " | 联系人: " + _vm._s(_vm.openData['contact']) + " | 联系方式: " + _vm._s(_vm.openData['phone']) + " | "), _c('span', [_vm._v("发布时间：" + _vm._s(_vm._f("formatDate")(_vm.openData['createAt'])))]), _vm._v(" | "), (_vm.openData.status == 1) ? _c('span', [_vm._v("审核通过")]) : _vm._e()]), _vm._v(" "), (_vm.openData.status == 3) ? _c('h1') : _vm._e(), _vm._v(" "), _c('p', [_vm._v("需求留言: " + _vm._s(_vm.openData['needs']))])])]), _vm._v(" "), _c('el-row', [_c('el-col', {
+  }, [_vm._v(_vm._s(_vm.openData['title']))]), _vm._v(" "), _c('p', [_vm._v("企业名称: " + _vm._s(_vm.openData['enterprise']) + " | 需求类型: " + _vm._s(_vm.openData['title']) + " | 联系人: " + _vm._s(_vm.openData['contact']) + " | 联系方式: " + _vm._s(_vm.openData['phone']) + " | "), _c('span', [_vm._v("发布时间：" + _vm._s(_vm._f("formatDate")(_vm.openData['createAt'])))]), _vm._v(" | "), (_vm.openData.status == 1) ? _c('span', [_vm._v("审核通过")]) : _vm._e()]), _vm._v(" "), (_vm.openData.status == 3) ? _c('h1') : _vm._e(), _vm._v(" "), _c('p', [_vm._v("需求留言: " + _vm._s(_vm.openData['content']))])])]), _vm._v(" "), _c('el-row', [_c('el-col', {
     staticStyle: {
       "padding-top": "20px",
       "border-top": "1px solid #dddddd"
@@ -28363,4 +28363,4 @@ module.exports = __webpack_require__.p + "static/img/banner_cgzx.3700b27.png";
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.07f4741271d28b7c5e51.js.map
+//# sourceMappingURL=app.3ba3ec741ab6c1c9cba3.js.map

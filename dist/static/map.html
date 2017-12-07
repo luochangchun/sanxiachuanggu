@@ -871,7 +871,7 @@
             });
 
             $.ajax({
-                url: "http://www.sanxiachuanggu.com/servant/pub/incubators", //请求的url地址   
+                url: "http://192.168.11.222/servant/pub/incubators", //请求的url地址   
                 dataType: "json", //返回格式为json    
                 async: true, //请求是否异步，默认为异步，这也是ajax重要特性    
                 data: {}, //参数值    
@@ -888,7 +888,7 @@
                         $('#total').text(res.length);
                         for (var i = 0; i < res.length; i++) {
                             // var href='javascript:;';
-                            var href = 'http://www.sanxiachuanggu.com/#/incubators_details/' + res[
+                            var href = 'http://192.168.11.222/#/incubators_details/' + res[
                                 i]['id'];
                             var index = i + 1;
                             list += temphtml(href, index, res[i]['name'], res[i]['address']);
@@ -943,7 +943,7 @@
             var url = '';
             //alert(data.act_id);
             console.log(data);
-            url = 'http://www.sanxiachuanggu.com/#/incubators_details/' + data.id;
+            url = 'http://192.168.11.222/#/incubators_details/' + data.id;
             var html = "";
             html +=
                 "<div class='sh_boxmn'><div class='sh_boxhide' onClick='closeInfoWindow()'>×</div><div class='sh_mation'>";
