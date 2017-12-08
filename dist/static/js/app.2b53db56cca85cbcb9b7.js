@@ -1403,7 +1403,13 @@ exports.default = {
         initInvest: function initInvest() {
             var _this = this;
 
-            var url = "/qb/tenancy/2/" + '10' + '/1';
+            var url = "";
+            this.type = this.$route.params.type;
+            if (this.type == 1) {
+                url = "/qb/tenancy/2/1/" + '10' + '/1';
+            } else if (this.type == 2) {
+                url = "/qb/tenancy/2/2/" + '10' + '/1';
+            }
             _api2.default.Get(url).then(function (res) {
                 if (res['data'].length > 0) {
                     _this.investData = res['data'];
@@ -1424,7 +1430,14 @@ exports.default = {
             var _this2 = this;
 
             //获取到当前分页页码，获取当前页面数据
-            var url = '/qb/tenancy/2/' + '10' + '/' + val;
+            var url = "";
+            this.type = this.$route.params.type;
+            if (this.type == 1) {
+                url = "/qb/tenancy/2/1/" + '10' + val;
+            } else if (this.type == 2) {
+                url = "/qb/tenancy/2/2/" + '10' + val;
+            }
+            // var url = '/qb/tenancy/2/' + '10' + '/' + val
             _api2.default.Get(url).then(function (res) {
                 _this2.investData = res['data'];
                 _this2.totalPages = res['totalPages'] * 10;
@@ -1439,8 +1452,6 @@ exports.default = {
         }
     }
 }; //
-//
-//
 //
 //
 //
@@ -1547,6 +1558,13 @@ var Component = normalizeComponent(
 
 /* harmony default export */ __webpack_exports__["default"] = (Component.exports);
 
+
+/***/ }),
+
+/***/ "0db8":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/img/incubatorBg.53085cc.jpeg";
 
 /***/ }),
 
@@ -1761,7 +1779,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticStyle: {
       "margin-bottom": "10px"
     }
-  }, [_vm._v(_vm._s(_vm.openData['title']))]), _vm._v(" "), _c('p', [_vm._v("企业名称: " + _vm._s(_vm.openData['enterprise']) + " | 需求类型: " + _vm._s(_vm.openData['title']) + " | 联系人: " + _vm._s(_vm.openData['contact']) + " | 联系方式: " + _vm._s(_vm.openData['phone']) + " | "), _c('span', [_vm._v("发布时间：" + _vm._s(_vm._f("formatDate")(_vm.openData['createAt'])))]), _vm._v(" | "), (_vm.openData.status == 1) ? _c('span', [_vm._v("审核通过")]) : _vm._e()]), _vm._v(" "), (_vm.openData.status == 3) ? _c('h1') : _vm._e(), _vm._v(" "), _c('p', [_vm._v("需求描述: " + _vm._s(_vm.openData['needs']))])])]), _vm._v(" "), _c('el-row', [_c('el-col', {
+  }, [_vm._v(_vm._s(_vm.openData['title']))]), _vm._v(" "), _c('p', [_vm._v("企业名称: " + _vm._s(_vm.openData['enterprise']) + " | 需求类型: " + _vm._s(_vm.openData['classifyId']) + " | 联系人: " + _vm._s(_vm.openData['contact']) + " | 联系方式: " + _vm._s(_vm.openData['phone']) + " | "), _c('span', [_vm._v("发布时间：" + _vm._s(_vm._f("formatDate")(_vm.openData['createAt'])))]), _vm._v(" | "), (_vm.openData.status == 1) ? _c('span', [_vm._v("审核通过")]) : _vm._e()]), _vm._v(" "), (_vm.openData.status == 3) ? _c('h1') : _vm._e(), _vm._v(" "), _c('p', [_vm._v("需求描述: " + _vm._s(_vm.openData['needs']))])])]), _vm._v(" "), _c('el-row', [_c('el-col', {
     staticStyle: {
       "padding-top": "20px",
       "border-top": "1px solid #dddddd"
@@ -2232,9 +2250,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
 
 exports.default = {
   data: function data() {
@@ -2251,7 +2266,8 @@ exports.default = {
       msg: "",
       rankData: "",
       recommend: "", //导师推荐
-      recommendFlag: false //导师有无数据标记
+      recommendFlag: false, //导师有无数据标记
+      totalPages: ''
     };
   },
   created: function created() {
@@ -2289,10 +2305,11 @@ exports.default = {
         _this2.recommend = res["recommend"];
         if (_this2.needData.length == 0) {
           _this2.noData = true;
+          _this2.totalPages = 1 * 10;
         } else if (_this2.needData.length > 0) {
           _this2.noData = false;
           _this2.needData = res["page"]["data"];
-          _this2.totalPages = res["totalPages"] * 10;
+          _this2.totalPages = res["page"]["totalPages"] * 10;
         }
         // 导师推荐
         if (_this2.recommend.length == 0) {
@@ -2319,8 +2336,7 @@ exports.default = {
         } else if (_this3.needData.length > 0) {
           _this3.noData = false;
           _this3.needData = res["page"]["data"];
-          console.log(_this3.needData);
-          _this3.totalPages = res["totalPages"] * 10;
+          _this3.totalPages = res["page"]["totalPages"] * 10;
         }
         // 导师推荐
         if (_this3.recommend.length == 0) {
@@ -2338,7 +2354,7 @@ exports.default = {
       var url = "/consult/" + "10" + "/" + val;
       _api2.default.Get(url).then(function (res) {
         _this4.needData = res["page"]["data"];
-        _this4.totalPages = res["totalPages"] * 10;
+        _this4.totalPages = res["page"]["totalPages"] * 10;
       });
     },
 
@@ -2433,7 +2449,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("服务需求列表")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("需求详情")])], 1), _vm._v(" "), _c('div', {
     staticClass: "need_import"
-  }, [_c('h3', [_vm._v(_vm._s(_vm.data['title']))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.data['enterprise']) + " | 需求类型: " + _vm._s(_vm.data['title']) + " | 联系人: " + _vm._s(_vm.data['contact']) + " | 联系方式: " + _vm._s(_vm.data['phone']) + " | 2017-10-24 | 已解决")]), _vm._v(" "), _c('p', {
+  }, [_c('h3', [_vm._v(_vm._s(_vm.data['title']))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.data['enterprise']) + " | 需求类型: " + _vm._s(_vm.data['title']) + " | 联系人: " + _vm._s(_vm.data['contact']) + " | 联系方式: " + _vm._s(_vm.data['phone']) + " | 2017-10-24 | "), (_vm.data['status'] == 1) ? _c('span', [_vm._v("待解决")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 2) ? _c('span', [_vm._v("进行中")]) : _vm._e(), (_vm.data['status'] == 3) ? _c('span', [_vm._v("已解决")]) : _vm._e()]), _vm._v(" "), _c('p', {
     staticStyle: {
       "border-bottom": "none",
       "margin-top": "30px"
@@ -2807,19 +2823,28 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('div', {
       staticClass: "teacher_img"
-    }, [_c('img', {
+    }, [(item.photo !== '') ? _c('img', {
       attrs: {
         "src": item.photo,
         "alt": ""
       }
-    })])]), _vm._v(" "), _c('el-col', {
+    }) : _vm._e(), _vm._v(" "), (item.photo == '') ? _c('img', {
+      attrs: {
+        "src": __webpack_require__("EAwx"),
+        "alt": ""
+      }
+    }) : _vm._e()])]), _vm._v(" "), _c('el-col', {
       attrs: {
         "lg": 18,
         "md": 18,
         "sm": 18,
         "xs": 18
       }
-    }, [_c('h1', [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c('p', [_vm._v("简介:" + _vm._s(item.intro))]), _vm._v(" "), _c('p', [_vm._v("工作单位:" + _vm._s(item.university))]), _vm._v(" "), _c('div', {
+    }, [_c('h1', [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c('p', {
+      staticClass: "text-ellipsis"
+    }, [_vm._v("简介:" + _vm._s(item.intro))]), _vm._v(" "), _c('p', {
+      staticClass: "text-ellipsis"
+    }, [_vm._v("工作单位:" + _vm._s(item.university))]), _vm._v(" "), _c('div', {
       staticClass: "teacher_float_p"
     }, [_c('p', [_vm._v("职称:" + _vm._s(item.title))]), _vm._v(" "), _c('p', [_vm._v("关注领域:" + _vm._s(item.field))])])])], 1)], 1)], 1)
   }))], 1), _vm._v(" "), _c('el-row', {
@@ -2902,12 +2927,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('div', {
       staticClass: "train_img"
-    }, [_c('img', {
+    }, [(item.icon !== '') ? _c('img', {
       attrs: {
         "src": item.icon,
         "alt": ""
       }
-    })])]), _vm._v(" "), _c('el-col', {
+    }) : _vm._e(), _vm._v(" "), (item.icon == '') ? _c('img', {
+      attrs: {
+        "src": __webpack_require__("EAwx"),
+        "alt": ""
+      }
+    }) : _vm._e()])]), _vm._v(" "), _c('el-col', {
       attrs: {
         "lg": 20,
         "md": 20,
@@ -2999,12 +3029,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('div', {
       staticClass: "train_img"
-    }, [_c('img', {
+    }, [(item.icon !== '') ? _c('img', {
       attrs: {
         "src": item.icon,
         "alt": ""
       }
-    })])]), _vm._v(" "), _c('el-col', {
+    }) : _vm._e(), _vm._v(" "), (item.icon == '') ? _c('img', {
+      attrs: {
+        "src": __webpack_require__("EAwx"),
+        "alt": ""
+      }
+    }) : _vm._e()])]), _vm._v(" "), _c('el-col', {
       attrs: {
         "lg": 20,
         "md": 20,
@@ -3868,6 +3903,7 @@ exports.default = {
 						"why": _this.applyForm.why,
 						"founder": _this.applyForm.founder,
 						"founderIntro": _this.applyForm.founderIntro,
+						"progress": _this.applyForm.progress,
 						"birth": _this.birth,
 						"ratio": _this.applyForm.ratio,
 						"edu": _this.applyForm.edu,
@@ -4710,8 +4746,29 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('div', {
       staticClass: "tutor_img"
     }, [_c('img', {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: (item.photo !== ''),
+        expression: "item.photo !== ''"
+      }],
       attrs: {
         "src": item.photo,
+        "alt": ""
+      }
+    }), _vm._v(" "), _c('img', {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: (item.photo == ''),
+        expression: "item.photo == ''"
+      }],
+      staticStyle: {
+        "width": "164px",
+        "height": "164px"
+      },
+      attrs: {
+        "src": __webpack_require__("YZ8I"),
         "alt": ""
       }
     })]), _vm._v(" "), _c('p', {
@@ -4974,6 +5031,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
 
 exports.default = {
   components: {
@@ -5063,6 +5123,11 @@ exports.default = {
           message: "请输入楼盘名称",
           trigger: "blur"
         }],
+        district: [{
+          // required: true,
+          message: "请输入求租区域",
+          trigger: "blur"
+        }],
         area: [{
           required: true,
           message: "请输入面积",
@@ -5142,6 +5207,7 @@ exports.default = {
             type: _this.$route.params.type,
             contact: _this.tenancyForm.contact,
             phone: _this.tenancyForm.phone,
+            district: _this.tenancyForm.district,
             building: _this.tenancyForm.building,
             buildingType: _this.tenancyForm.buildingType,
             area: _this.tenancyForm.area,
@@ -5417,7 +5483,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       attrs: {
         "gutter": 10
       }
-    }, [_c('router-link', {
+    }, [(item.status == 1 || item.status == 2 || item.status == 3) ? _c('router-link', {
       attrs: {
         "to": {
           name: 'service_detail',
@@ -5452,7 +5518,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "sm": 5,
         "xs": 5
       }
-    }, [_c('p', [_vm._v(_vm._s(item['phone']))])])], 1)], 1) : _vm._e()
+    }, [_c('p', [_vm._v(_vm._s(item['phone']))])])], 1) : _vm._e()], 1) : _vm._e()
   }), _vm._v(" "), _vm._l((_vm.List), function(item, index) {
     return (_vm.type == '04' && item['type'] == 1) ? _c('el-row', {
       key: index,
@@ -6852,7 +6918,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-input', {
     attrs: {
-      "type": "tel"
+      "type": "number"
     },
     model: {
       value: (_vm.applyForm.scale),
@@ -7191,6 +7257,7 @@ exports.default = {
       replyList: "",
       rankData: "",
       noData: false,
+      searchService: "",
       askForm: {
         askMess: ""
       },
@@ -7199,6 +7266,11 @@ exports.default = {
           required: true,
           message: "请写下你的留言",
           trigger: "blur"
+        }, {
+          min: 1,
+          max: 249,
+          message: '最多输入249个字',
+          trigger: 'blur'
         }]
       },
       replyForm: {
@@ -7208,14 +7280,20 @@ exports.default = {
         replyMess: [{
           message: "请写下你的评论",
           trigger: "blur"
+        }, {
+          min: 1,
+          max: 249,
+          message: '最多输入249个字',
+          trigger: 'blur'
         }]
       }
     };
   },
   created: function created() {
     var id = this.$route.params.id;
-    this.getService(id);
+    // this.getService(id);
     this.id = id;
+    this.service();
     this.getReplyList();
   },
 
@@ -7226,16 +7304,31 @@ exports.default = {
     }
   },
   methods: {
-    getService: function getService(id) {
+    service: function service() {
       var _this = this;
+
+      var url = "/dict/service";
+      _api2.default.Get(url).then(function (res) {
+        _this.searchService = res;
+        var id = _this.$route.params.id;
+        _this.getService(id);
+      });
+    },
+    getService: function getService(id) {
+      var _this2 = this;
 
       var userinfoStr = window.localStorage.getItem("userinfo");
       if (userinfoStr) {
         this.openFlag = true;
         var url = "/enterprise/apply/" + id;
         _api2.default.Get(url).then(function (res) {
-          _this.openData = res;
-          _this.initRank();
+          _this2.openData = res;
+          for (var i = 0; i < _this2.searchService.length; i++) {
+            if (_this2.openData['classifyId'] == _this2.searchService[i]['id']) {
+              _this2.openData['classifyId'] = _this2.searchService[i]['value'];
+            }
+          }
+          _this2.initRank();
         });
       } else {
         var redirect = decodeURIComponent("/login");
@@ -7245,44 +7338,44 @@ exports.default = {
       }
     },
     askBtn: function askBtn(formName) {
-      var _this2 = this;
+      var _this3 = this;
 
       this.$refs[formName].validate(function (valid) {
         if (valid) {
           var params = {
-            subjectId: _this2.id,
-            content: _this2.askForm.askMess
+            subjectId: _this3.id,
+            content: _this3.askForm.askMess
           };
           _api2.default.Post("/enterprise/apply/msg", params).then(function (res) {
             if (res["suc"] == true) {
-              _this2.$message("提交成功!");
-              _this2.getReplyList();
+              _this3.$message("提交成功!");
+              _this3.getReplyList();
             } else if (res["suc"] == false) {
-              _this2.$message(res["msg"]);
+              _this3.$message(res["msg"]);
             }
           });
         }
       });
     },
     getReplyList: function getReplyList() {
-      var _this3 = this;
+      var _this4 = this;
 
       var url = "/enterprise/apply/msg/" + this.$route.params.id + "/" + "10" + "/" + "1";
       _api2.default.Get(url).then(function (res) {
         if (res["data"].length > 0) {
-          _this3.replyList = res["data"];
-          _this3.noData = true;
+          _this4.replyList = res["data"];
+          _this4.noData = true;
         } else {
-          _this3.noData = false;
+          _this4.noData = false;
         }
       });
     },
     initRank: function initRank() {
-      var _this4 = this;
+      var _this5 = this;
 
       var url = "/enterprise/apply/rank/10";
       _api2.default.Get(url).then(function (res) {
-        _this4.rankData = res;
+        _this5.rankData = res;
       });
     }
   },
@@ -7414,54 +7507,95 @@ exports.default = {
             financing: "", //融资项目
             needData: "", //融资需求
             noData: false,
-            totalPages: ""
+            totalPages: "",
+            InvestPages: "", //投资机构分页
+            FinancePages: "", //融资项目分页
+            service: "" //分页字典
         };
     },
     created: function created() {
-        this.getFinance();
+        this.getInvest(); //投资机构
+        this.getFinance(); //融资需求
         var cid = 54;
         this.initServicesList(cid);
+        this.getService();
     },
 
     methods: {
-        getFinance: function getFinance() {
+        getService: function getService() {
             var _this = this;
 
-            _api2.default.Get("/pub/financing").then(function (res) {
-                _this.investor = res["investor"];
-                _this.financing = res["financing"];
+            _api2.default.Get("/dict/business").then(function (res) {
+                _this.service = res;
+            });
+        },
+
+        //获取投资机构
+        getInvest: function getInvest() {
+            var _this2 = this;
+
+            var url = '/enterprise/3' + '/' + '12' + '/' + '1';
+            _api2.default.Get(url).then(function (res) {
+                _this2.investor = res["data"];
+                _this2.InvestPages = res['totalPages'] * 10;
+            });
+        },
+        hanleInvest: function hanleInvest(val) {
+            var _this3 = this;
+
+            var url = '/enterprise/3' + '/' + '12' + '/' + val;
+            _api2.default.Get(url).then(function (res) {
+                _this3.investor = res["data"];
+                _this3.InvestPages = res['totalPages'] * 10;
+            });
+        },
+
+        // 获取融资项目
+        getFinance: function getFinance() {
+            var _this4 = this;
+
+            var url = '/finance' + '/' + '5' + '/' + '1';
+            _api2.default.Get(url).then(function (res) {
+                _this4.financing = res["data"];
+                _this4.FinancePages = res['totalPages'] * 10;
+            });
+        },
+        hanleFiance: function hanleFiance(val) {
+            var _this5 = this;
+
+            var url = '/finance' + '/' + '5' + '/' + val;
+            _api2.default.Get(url).then(function (res) {
+                _this5.financing = res["data"];
+                _this5.FinancePages = res['totalPages'] * 10;
             });
         },
         initServicesList: function initServicesList(cid) {
-            var _this2 = this;
+            var _this6 = this;
 
-            var url = "/enterprise/apply/" + "10" + "/" + "1" + "?cid=" + cid;
+            var url = "/enterprise/apply/" + "5" + "/" + "1" + "?cid=" + cid;
             _api2.default.Get(url).then(function (res) {
-                _this2.needData = res["page"]["data"];
-                if (_this2.needData.length == 0) {
-                    _this2.noData = true;
-                } else if (_this2.needData.length > 0) {
-                    _this2.noData = false;
-                    _this2.needData = res["page"]["data"];
-                    _this2.totalPages = res["page"]["totalPages"] * 10;
+                _this6.needData = res["page"]["data"];
+                if (_this6.needData.length == 0) {
+                    _this6.noData = true;
+                } else if (_this6.needData.length > 0) {
+                    _this6.noData = false;
+                    _this6.needData = res["page"]["data"];
+                    _this6.totalPages = res["page"]["totalPages"] * 10;
                 }
             });
         },
         handleCurrentChange: function handleCurrentChange(val) {
-            var _this3 = this;
+            var _this7 = this;
 
             //获取到当前分页页码，获取当前页面数据
-            var url = "/enterprise/apply/" + "10" + "/" + val + "/" + +"?cid=" + "54";
+            var url = "/enterprise/apply/" + "5" + "/" + val + "/" + +"?cid=" + "54";
             _api2.default.Get(url).then(function (res) {
-                _this3.needData = res["page"]["data"];
-                _this3.totalPages = res["page"]["totalPages"] * 10;
+                _this7.needData = res["page"]["data"];
+                _this7.totalPages = res["page"]["totalPages"] * 10;
             });
         }
     }
 }; //
-//
-//
-//
 //
 //
 //
@@ -7972,58 +8106,6 @@ exports.default = {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /***/ }),
 
@@ -8106,7 +8188,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "container"
   }, [_c('el-row', {
     staticStyle: {
-      "margin-bottom": "50px"
+      "margin-bottom": "50px",
+      "min-height": "500px"
     },
     attrs: {
       "gutter": 10
@@ -8209,17 +8292,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }
     }, [_c('el-col', {
+      staticClass: "clearfix",
       attrs: {
-        "xs": 5,
-        "sm": 5,
-        "md": 5,
-        "lg": 5
+        "xs": 21,
+        "sm": 21,
+        "md": 21,
+        "lg": 21
       }
     }, [_c('div', {
-      staticClass: "incubators_more_img"
+      staticClass: "incubators_more_img l"
     }, [(item['icon']) ? _c('img', {
       staticStyle: {
         "margin-left": "-5px",
+        "width": "212px",
         "height": "150px"
       },
       attrs: {
@@ -8228,25 +8313,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }) : _vm._e(), _vm._v(" "), (!item['icon']) ? _c('img', {
       staticStyle: {
-        "border": "1px solid #eee",
-        "width": "50%",
-        "padding": "10%",
-        "margin-left": "0",
-        "height": "80px"
+        "width": "100%",
+        "height": "80px",
+        "margin-top": "12px"
       },
       attrs: {
-        "src": __webpack_require__("ZBJ4"),
+        "src": __webpack_require__("YZ8I"),
         "alt": ""
       }
-    }) : _vm._e()])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "xs": 15,
-        "sm": 15,
-        "md": 15,
-        "lg": 15
+    }) : _vm._e()]), _vm._v(" "), _c('div', {
+      staticClass: "incubators_more_introduce l",
+      staticStyle: {
+        "margin-left": "10px"
       }
-    }, [_c('div', {
-      staticClass: "incubators_more_introduce"
     }, [(!item['title']) ? _c('h2', [_vm._v("招商")]) : _vm._e(), _vm._v(" "), (item['title']) ? _c('h2', [_vm._v(_vm._s(item['title']))]) : _vm._e(), _vm._v(" "), _c('p', [_c('span', [_vm._v("地址：")]), _vm._v(_vm._s(item['address']))]), _vm._v(" "), _c('p', [_c('span', [_vm._v("联系方式：")]), _vm._v(_vm._s(item['contact']) + "   " + _vm._s(item['phone']))])])]), _vm._v(" "), _c('el-col', {
       attrs: {
         "xs": 3,
@@ -8257,7 +8336,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('div', {
       staticClass: "incubators_more_area"
     }, [_c('h3', {
-      staticClass: "b"
+      staticClass: "b tr"
     }, [_vm._v(_vm._s(item['price']) + _vm._s(item['unit']))])])])], 1)], 1) : _vm._e()
   }), _vm._v(" "), _vm._l((_vm.investData), function(item, index) {
     return (_vm.type == '2' && item['type'] == 2) ? _c('el-row', {
@@ -8280,10 +8359,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('el-col', {
       attrs: {
-        "xs": 20,
-        "sm": 20,
-        "md": 20,
-        "lg": 20
+        "xs": 21,
+        "sm": 21,
+        "md": 21,
+        "lg": 21
       }
     }, [_c('div', {
       staticClass: "incubators_more_introduce"
@@ -8297,7 +8376,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('div', {
       staticClass: "incubators_more_area"
     }, [_c('h3', {
-      staticClass: "b"
+      staticClass: "b tr"
     }, [_vm._v(_vm._s(item['price']) + _vm._s(item['unit']))])])])], 1)], 1) : _vm._e()
   })], 2)], 1), _vm._v(" "), _c('el-row', {
     directives: [{
@@ -8628,6 +8707,13 @@ var Component = normalizeComponent(
 
 /* harmony default export */ __webpack_exports__["default"] = (Component.exports);
 
+
+/***/ }),
+
+/***/ "EAwx":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
 
 /***/ }),
 
@@ -9015,6 +9101,7 @@ exports.default = {
         _this2.recommend = res["recommend"];
         if (_this2.needData.length == 0) {
           _this2.noData = true;
+          _this2.totalPages = 1 * 10;
         } else if (_this2.needData.length > 0) {
           _this2.noData = false;
           _this2.needData = res["page"]["data"];
@@ -9563,6 +9650,7 @@ exports.default = {
                 if (_this4.serviceBody.length == 0) {
                     _this4.nodata = true;
                     _this4.loading = false;
+                    _this4.totalPages = 1 * 10;
                 } else {
                     _this4.nodata = false;
                     _this4.loading = false;
@@ -9578,8 +9666,8 @@ exports.default = {
                             _this4.serviceBody[i]['others'] = _this4.filterOter(_this4.totalArr, _tempArr);
                         }
                     }
+                    _this4.totalPages = res["totalPages"] * 10;
                 }
-                _this4.totalPages = res["totalPages"] * 10;
             });
             var info = "/pub/info/22" + "/" + "10" + "/1";
             _api2.default.Get(info).then(function (res) {
@@ -9638,12 +9726,6 @@ exports.default = {
         }
     }
 }; //
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -10241,12 +10323,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           }
         }
       }
-    }, [_c('img', {
+    }, [(item['icon'] !== '') ? _c('img', {
       attrs: {
         "src": item['icon'],
         "alt": ""
       }
-    }), _vm._v(" "), _c('p', [_vm._v(_vm._s(item.name))])])], 1)
+    }) : _vm._e(), _vm._v(" "), (item['icon'] == '') ? _c('img', {
+      attrs: {
+        "src": __webpack_require__("0db8"),
+        "alt": ""
+      }
+    }) : _vm._e(), _vm._v(" "), _c('p', [_vm._v(_vm._s(item.name))])])], 1)
   }))], 1)], 1), _vm._v(" "), (false) ? _c('div', {
     staticStyle: {
       "background-color": "#eee",
@@ -11080,11 +11167,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "sm": 24,
         "xs": 24
       }
-    }, [_c('img', {
+    }, [(item['icon'] !== '') ? _c('img', {
       attrs: {
-        "src": item['icon']
+        "src": item['icon'],
+        "alt": ""
       }
-    })]), _vm._v(" "), _c('el-col', {
+    }) : _vm._e(), _vm._v(" "), (item['icon'] == '') ? _c('img', {
+      attrs: {
+        "src": __webpack_require__("0db8"),
+        "alt": ""
+      }
+    }) : _vm._e()]), _vm._v(" "), _c('el-col', {
       attrs: {
         "lg": 20,
         "md": 24,
@@ -11096,7 +11189,26 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', {
       staticClass: "text-ellipsis-muti text-ellipsis-2"
     }, [_vm._v(_vm._s(item['intro']))])])], 1)
-  }))])]), _vm._v(" "), _c('el-col', {
+  })), _vm._v(" "), _c('el-col', {
+    attrs: {
+      "lg": 8,
+      "md": 8,
+      "sm": 24,
+      "xs": 24,
+      "offset": 8
+    }
+  }, [_c('div', {
+    staticClass: "block"
+  }, [_c('el-pagination', {
+    attrs: {
+      "current-page": 1,
+      "total": _vm.InvestPages,
+      "layout": "prev, pager, next"
+    },
+    on: {
+      "current-change": _vm.hanleInvest
+    }
+  })], 1)])], 1)]), _vm._v(" "), _c('el-col', {
     staticClass: "pl1",
     attrs: {
       "lg": 12,
@@ -11114,7 +11226,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "line"
   })]), _vm._v(" "), _c('div', {
     staticClass: "ProjectList"
-  }, _vm._l((_vm.financing), function(item, index) {
+  }, [_c('p', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.financing.length == 0),
+      expression: "financing.length == 0"
+    }],
+    staticStyle: {
+      "font-size": "12px",
+      "line-height": "30px"
+    }
+  }, [_vm._v("此栏目暂无数据")]), _vm._v(" "), _vm._l((_vm.financing), function(item, index) {
     return _c('router-link', {
       key: index,
       staticClass: "item clearfix",
@@ -11136,16 +11259,48 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "pw270"
     }, [_vm._v("融资金额："), _c('span', {
       staticClass: "red b"
-    }, [_vm._v(_vm._s(item['financing']) + _vm._s(item['unit']))])]), _vm._v(" "), _c('p', [_vm._v("发起人："), _c('span', [_vm._v(_vm._s(item['founder']))])])]), _vm._v(" "), _c('el-tag', {
-      attrs: {
-        "type": "primary"
-      }
-    }, [_vm._v("行业领域：消费生活")]), _vm._v(" "), _c('el-tag', {
+    }, [_vm._v(_vm._s(item['financing']) + _vm._s(item['unit']))])]), _vm._v(" "), _c('p', [_vm._v("发起人："), _c('span', [_vm._v(_vm._s(item['founder']))])])]), _vm._v(" "), _vm._l((_vm.service), function(n) {
+      return (n['id'] == item['businessId']) ? _c('el-tag', {
+        key: n,
+        attrs: {
+          "type": "primary"
+        }
+      }, [_vm._v("行业领域：" + _vm._s(n['value']))]) : _vm._e()
+    }), _vm._v(" "), (item['archived'] < item['financing']) ? _c('el-tag', {
       attrs: {
         "type": "success"
       }
-    }, [_vm._v("融资状态：未完成融资")])], 1)
-  }))]), _vm._v(" "), _c('div', {
+    }, [_vm._v("融资状态：未完成融资")]) : _vm._e(), _vm._v(" "), (item['archived'] >= item['financing']) ? _c('el-tag', {
+      attrs: {
+        "type": "success"
+      }
+    }, [_vm._v("融资状态：已完成融资")]) : _vm._e()], 2)
+  })], 2), _vm._v(" "), _c('el-col', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.financing.length !== 0),
+      expression: "financing.length !== 0"
+    }],
+    attrs: {
+      "lg": 16,
+      "md": 16,
+      "sm": 24,
+      "xs": 24,
+      "offset": 8
+    }
+  }, [_c('div', {
+    staticClass: "block"
+  }, [_c('el-pagination', {
+    attrs: {
+      "current-page": 1,
+      "total": _vm.FinancePages,
+      "layout": "prev, pager, next"
+    },
+    on: {
+      "current-change": _vm.hanleFiance
+    }
+  })], 1)])], 1), _vm._v(" "), _c('div', {
     staticClass: "FinancingNeeds"
   }, [_c('h2', {
     staticClass: "common_sub_title"
@@ -11159,8 +11314,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: (_vm.noData),
-      expression: "noData"
+      value: (_vm.needData.length == 0),
+      expression: "needData.length == 0"
     }],
     staticStyle: {
       "font-size": "12px",
@@ -11192,6 +11347,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_vm._v(_vm._s(item['contact']))])]), _vm._v(" "), _c('p', [_vm._v("联系方式："), _c('span', [_vm._v("13972576207")])])])])
   })], 2), _vm._v(" "), _c('el-col', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.needData.length !== 0),
+      expression: "needData.length !== 0"
+    }],
     attrs: {
       "lg": 16,
       "md": 16,
@@ -11460,6 +11621,7 @@ exports.default = {
 		}
 	}
 }; //
+//
 //
 //
 //
@@ -12231,6 +12393,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }, [_c('p', [_vm._v(_vm._s(_vm._f("formatDate")(item['createAt'])))])])], 1)], 1)
     }), _vm._v(" "), _c('el-row', {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: (!_vm.noData),
+        expression: "!noData"
+      }],
       staticStyle: {
         "margin": "50px 0"
       },
@@ -13077,6 +13245,22 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1), _vm._v(" "), _c('el-form-item', {
     attrs: {
+      "label": "区域",
+      "prop": "district"
+    }
+  }, [_c('el-input', {
+    attrs: {
+      "type": "text"
+    },
+    model: {
+      value: (_vm.tenancyForm.district),
+      callback: function($$v) {
+        _vm.tenancyForm.district = $$v
+      },
+      expression: "tenancyForm.district"
+    }
+  })], 1), _vm._v(" "), _c('el-form-item', {
+    attrs: {
       "label": "楼盘名称",
       "prop": "building"
     }
@@ -13143,7 +13327,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-input', {
     attrs: {
-      "type": "tel"
+      "type": "number"
     },
     model: {
       value: (_vm.tenancyForm.area),
@@ -13175,7 +13359,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-input', {
     attrs: {
-      "type": "tel"
+      "type": "number"
     },
     model: {
       value: (_vm.tenancyForm.price),
@@ -13539,15 +13723,6 @@ exports.default = {
         }
     }
 }; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -14590,7 +14765,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "container"
   }, [_c('el-row', {
     staticStyle: {
-      "margin-bottom": "50px"
+      "margin-bottom": "50px",
+      "min-height": "500px"
     },
     attrs: {
       "gutter": 10
@@ -14662,7 +14838,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "text-align": "center",
       "margin-top": "15px"
     }
-  }, [_vm._v(_vm._s(_vm.attractFlag1.length) + "暂无数据")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("暂无数据")]), _vm._v(" "), _c('p', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -14673,7 +14849,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "text-align": "center",
       "margin-top": "15px"
     }
-  }, [_vm._v(_vm._s(_vm.attractFlag2) + "暂无数据")]), _vm._v(" "), _vm._l((_vm.investData), function(item, index) {
+  }, [_vm._v("暂无数据")]), _vm._v(" "), _vm._l((_vm.investData), function(item, index) {
     return (_vm.type == '1' && item['type'] == 1) ? _c('el-row', {
       key: index,
       staticStyle: {
@@ -14693,17 +14869,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }
     }, [_c('el-col', {
+      staticClass: "clearfix",
       attrs: {
-        "xs": 5,
-        "sm": 5,
-        "md": 5,
-        "lg": 5
+        "xs": 21,
+        "sm": 21,
+        "md": 21,
+        "lg": 21
       }
     }, [_c('div', {
-      staticClass: "incubators_more_img"
+      staticClass: "incubators_more_img l"
     }, [(item['icon']) ? _c('img', {
       staticStyle: {
         "margin-left": "-5px",
+        "width": "212px",
         "height": "150px"
       },
       attrs: {
@@ -14712,25 +14890,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }) : _vm._e(), _vm._v(" "), (!item['icon']) ? _c('img', {
       staticStyle: {
-        "border": "1px solid #eee",
-        "width": "50%",
-        "padding": "10%",
-        "margin-left": "0",
-        "height": "80px"
+        "width": "100%",
+        "height": "80px",
+        "margin-top": "12px"
       },
       attrs: {
-        "src": __webpack_require__("ZBJ4"),
+        "src": __webpack_require__("YZ8I"),
         "alt": ""
       }
-    }) : _vm._e()])]), _vm._v(" "), _c('el-col', {
-      attrs: {
-        "xs": 15,
-        "sm": 15,
-        "md": 15,
-        "lg": 15
+    }) : _vm._e()]), _vm._v(" "), _c('div', {
+      staticClass: "incubators_more_introduce l",
+      staticStyle: {
+        "margin-left": "10px"
       }
-    }, [_c('div', {
-      staticClass: "incubators_more_introduce"
     }, [(!item['title']) ? _c('h2', [_vm._v("招商")]) : _vm._e(), _vm._v(" "), (item['title']) ? _c('h2', [_vm._v(_vm._s(item['title']))]) : _vm._e(), _vm._v(" "), _c('p', [_c('span', [_vm._v("地址：")]), _vm._v(_vm._s(item['address']) + "  " + _vm._s(item['buildingType']) + "  " + _vm._s(item['area']) + "平方米")]), _vm._v(" "), _c('p', [_c('span', [_vm._v("联系方式：")]), _vm._v(_vm._s(item['contact']) + "  " + _vm._s(item['phone']))])])]), _vm._v(" "), _c('el-col', {
       attrs: {
         "xs": 3,
@@ -14741,7 +14913,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('div', {
       staticClass: "incubators_more_area"
     }, [_c('h3', {
-      staticClass: "b"
+      staticClass: "b tr"
     }, [_vm._v(_vm._s(item['price']) + _vm._s(item['unit']))])])])], 1)], 1) : _vm._e()
   }), _vm._v(" "), _vm._l((_vm.investData), function(item, index) {
     return (_vm.type == '2' && item['type'] == 2) ? _c('el-row', {
@@ -14755,10 +14927,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('el-col', {
       attrs: {
-        "xs": 20,
-        "sm": 20,
-        "md": 20,
-        "lg": 20
+        "xs": 21,
+        "sm": 21,
+        "md": 21,
+        "lg": 21
       }
     }, [_c('router-link', {
       attrs: {
@@ -14781,7 +14953,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('div', {
       staticClass: "incubators_more_area"
     }, [_c('h3', {
-      staticClass: "b"
+      staticClass: "b tr"
     }, [_vm._v(_vm._s(item['price']) + _vm._s(item['unit']))])])])], 1) : _vm._e()
   })], 2)], 1), _vm._v(" "), _c('el-row', {
     directives: [{
@@ -15158,6 +15330,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       })], 1)])])])
     })], 2) : _vm._e()], 1)
   }))], 1)], 1), _vm._v(" "), _c('el-col', {
+    staticStyle: {
+      "padding-left": "20px"
+    },
     attrs: {
       "lg": 12,
       "md": 12,
@@ -15177,11 +15352,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "tc white"
   }, [_vm._v("享受服务企业")]), _vm._v(" "), _c('div', {
     staticClass: "line"
-  })])])], 1), _vm._v(" "), _c('el-row', [_c('el-col', [_c('div', {
-    staticStyle: {
-      "padding-left": "13px"
-    }
-  }, [_c('div', {
+  })])])], 1), _vm._v(" "), _c('el-row', [_c('el-col', [_c('div', [_c('div', {
     staticClass: "s_header_img"
   }), _vm._v(" "), _c('div', {
     staticClass: "s_intermediary_list"
@@ -15235,19 +15406,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: (_vm.noDate),
-      expression: "noDate"
+      value: (_vm.nodata),
+      expression: "nodata"
     }],
     staticStyle: {
-      "margin-left": "5px"
+      "margin-left": "15px"
     }
   }, [_vm._v("暂无数据")]), _vm._v(" "), _vm._l((_vm.serviceBody), function(item, index) {
     return _c('el-col', {
       directives: [{
         name: "show",
         rawName: "v-show",
-        value: (!_vm.noDate),
-        expression: "!noDate"
+        value: (!_vm.nodata),
+        expression: "!nodata"
       }],
       key: index,
       staticClass: "gh",
@@ -15538,6 +15709,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }, [_vm._v("物业服务")])
     })], 2)])])], 1)
   }), _vm._v(" "), _c('el-col', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (!_vm.nodata),
+      expression: "!nodata"
+    }],
     staticStyle: {
       "margin-bottom": "50px",
       "margin-top": "50px"
@@ -15992,14 +16169,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }), _vm._v(" "), _c('el-tab-pane', {
       attrs: {
-        "label": "未处理",
+        "label": "待解决",
         "name": "second",
         "cid": item.id,
         "st": 1
       }
     }), _vm._v(" "), _c('el-tab-pane', {
       attrs: {
-        "label": "待解决",
+        "label": "处理中",
         "name": "third",
         "cid": item.id,
         "st": 2
@@ -16133,6 +16310,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }, [_c('p', [_vm._v(_vm._s(_vm._f("formatDate")(item['createAt'])))])])], 1)], 1)
     }), _vm._v(" "), _c('el-row', {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: (!_vm.noData),
+        expression: "!noData"
+      }],
       staticStyle: {
         "margin": "50px 0"
       },
@@ -16763,7 +16946,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "line"
   })]), _vm._v(" "), _c('div', {
     staticClass: "InvestmentList CollegeList"
-  }, _vm._l((_vm.university), function(item, index) {
+  }, [_vm._l((_vm.university), function(item, index) {
     return (index < 4) ? _c('router-link', {
       key: index,
       staticClass: "item clearfix",
@@ -16782,11 +16965,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "sm": 24,
         "xs": 24
       }
-    }, [_c('img', {
+    }, [(item.icon !== '') ? _c('img', {
       attrs: {
-        "src": item['icon']
+        "src": item.icon,
+        "alt": ""
       }
-    })]), _vm._v(" "), _c('el-col', {
+    }) : _vm._e(), _vm._v(" "), (item.icon == '') ? _c('img', {
+      attrs: {
+        "src": __webpack_require__("EAwx"),
+        "alt": ""
+      }
+    }) : _vm._e()]), _vm._v(" "), _c('el-col', {
       attrs: {
         "lg": 20,
         "md": 24,
@@ -16798,7 +16987,29 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', {
       staticClass: "text-ellipsis-muti text-ellipsis-2"
     }, [_vm._v(_vm._s(item['intro']))])])], 1) : _vm._e()
-  }))]), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), _c('div', {
+    staticClass: "pageNo clearfix"
+  }, [_c('el-col', {
+    staticStyle: {
+      "padding-top": "20px"
+    },
+    attrs: {
+      "lg": 8,
+      "md": 8,
+      "sm": 24,
+      "xs": 24,
+      "offset": 8
+    }
+  }, [_c('el-pagination', {
+    attrs: {
+      "current-page": 1,
+      "total": _vm.universityPage,
+      "layout": "prev, pager, next"
+    },
+    on: {
+      "current-change": _vm.handleuniversity
+    }
+  })], 1)], 1)], 2)]), _vm._v(" "), _c('div', {
     staticClass: "InvestmentAgency clearfix ExpertTeam"
   }, [_c('h2', {
     staticClass: "common_sub_title"
@@ -16838,11 +17049,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "sm": 24,
         "xs": 24
       }
-    }, [_c('img', {
+    }, [(item.photo !== '') ? _c('img', {
       attrs: {
-        "src": item['photo']
+        "src": item.photo,
+        "alt": ""
       }
-    })]), _vm._v(" "), _c('el-col', {
+    }) : _vm._e(), _vm._v(" "), (item.photo == '') ? _c('img', {
+      attrs: {
+        "src": __webpack_require__("EAwx"),
+        "alt": ""
+      }
+    }) : _vm._e()]), _vm._v(" "), _c('el-col', {
       attrs: {
         "lg": 20,
         "md": 24,
@@ -16901,11 +17118,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "sm": 24,
         "xs": 24
       }
-    }, [_c('img', {
+    }, [(item.photo !== '') ? _c('img', {
       attrs: {
-        "src": item['photo']
+        "src": item.photo,
+        "alt": ""
       }
-    })]), _vm._v(" "), _c('el-col', {
+    }) : _vm._e(), _vm._v(" "), (item.photo == '') ? _c('img', {
+      attrs: {
+        "src": __webpack_require__("EAwx"),
+        "alt": ""
+      }
+    }) : _vm._e()]), _vm._v(" "), _c('el-col', {
       attrs: {
         "lg": 20,
         "md": 24,
@@ -18125,6 +18348,13 @@ var Component = normalizeComponent(
 
 /***/ }),
 
+/***/ "YZ8I":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
 /***/ "YnDd":
 /***/ (function(module, exports) {
 
@@ -18234,13 +18464,6 @@ var Component = normalizeComponent(
 
 /***/ }),
 
-/***/ "ZBJ4":
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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"
-
-/***/ }),
-
 /***/ "ZbIQ":
 /***/ (function(module, exports) {
 
@@ -18273,9 +18496,6 @@ var _date = __webpack_require__("KheU");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//
-//
-//
 //
 //
 //
@@ -20558,6 +20778,11 @@ exports.default = {
 					_api2.default.Post('/qb/apply', params).then(function (res) {
 						if (res['suc'] == true) {
 							_this.$message('申请成功！');
+							var _id = _this.$route.params.id;
+							var redirect = decodeURIComponent('/incubators_details/');
+							_this.$router.push({
+								path: redirect + _id
+							});
 						} else if (res['suc'] == false) {
 							_this.$message('申请失败！');
 						}
@@ -21446,6 +21671,7 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
 
 exports.default = {
   mounted: function mounted() {
@@ -22208,6 +22434,7 @@ exports.default = {
     data: function data() {
         return {
             university: '', //院校
+            universityPage: "", //院校分页
             mentor: '', //导师
             talented: '', //校园人才
             needData: "", //融资需求
@@ -22246,70 +22473,80 @@ exports.default = {
             var _this = this;
 
             _api2.default.Get('/pub/research').then(function (res) {
-                _this.university = res['university'];
                 _this.mentor = res['mentor'];
+            });
+            _api2.default.Get('/university/4/1').then(function (res) {
+                _this.university = res['data'];
+                _this.universityPage = res["totalPages"] * 10;
+            });
+        },
+        handleuniversity: function handleuniversity(val) {
+            var _this2 = this;
+
+            _api2.default.Get('/university/4/' + val).then(function (res) {
+                _this2.university = res['data'];
+                _this2.universityPage = res["totalPages"] * 10;
             });
         },
         initServicesList: function initServicesList() {
-            var _this2 = this;
+            var _this3 = this;
 
             var url = "/consult/" + "15" + "/" + "1";
             _api2.default.Get(url).then(function (res) {
-                _this2.needData = res["page"]["data"];
-                if (_this2.needData.length == 0) {
-                    _this2.noData = true;
-                } else if (_this2.needData.length > 0) {
-                    _this2.noData = false;
-                    _this2.needData = res["page"]["data"];
-                    _this2.consultPages = res["page"]["totalPages"] * 10;
+                _this3.needData = res["page"]["data"];
+                if (_this3.needData.length == 0) {
+                    _this3.noData = true;
+                } else if (_this3.needData.length > 0) {
+                    _this3.noData = false;
+                    _this3.needData = res["page"]["data"];
+                    _this3.consultPages = res["page"]["totalPages"] * 10;
                 }
             });
         },
         handleCurrentChange: function handleCurrentChange(val) {
-            var _this3 = this;
+            var _this4 = this;
 
             //获取到当前分页页码，获取当前页面数据
             var url = "/consult/" + "15" + "/" + val;
             _api2.default.Get(url).then(function (res) {
-                _this3.needData = res["page"]["data"];
-                _this3.consultPages = res["page"]["totalPages"] * 10;
+                _this4.needData = res["page"]["data"];
+                _this4.consultPages = res["page"]["totalPages"] * 10;
             });
         },
         initExeprt: function initExeprt() {
-            var _this4 = this;
+            var _this5 = this;
 
             //专家团队
             var url = "/indie/2/" + "4" + "/" + "1";
             _api2.default.Get(url).then(function (res) {
-                _this4.Exeprt = res["data"];
-                if (_this4.Exeprt.length == 0) {
-                    _this4.noData2 = true;
-                } else if (_this4.Exeprt.length > 0) {
-                    _this4.noData2 = false;
-                    _this4.Exeprt = res["data"];
-                    _this4.totalPages = res["totalPages"] * 10;
+                _this5.Exeprt = res["data"];
+                if (_this5.Exeprt.length == 0) {
+                    _this5.noData2 = true;
+                } else if (_this5.Exeprt.length > 0) {
+                    _this5.noData2 = false;
+                    _this5.Exeprt = res["data"];
+                    _this5.totalPages = res["totalPages"] * 10;
                 }
             });
         },
         initResearch: function initResearch() {
-            var _this5 = this;
+            var _this6 = this;
 
             //研究机构
             var url = "/indie/5/" + "4" + "/" + "1";
             _api2.default.Get(url).then(function (res) {
-                _this5.ResearchInstitute = res["data"];
-                if (_this5.ResearchInstitute.length == 0) {
-                    _this5.noData5 = true;
-                } else if (_this5.ResearchInstitute.length > 0) {
-                    _this5.noData5 = false;
-                    _this5.ResearchInstitute = res["data"];
-                    _this5.totalPages = res["totalPages"] * 10;
+                _this6.ResearchInstitute = res["data"];
+                if (_this6.ResearchInstitute.length == 0) {
+                    _this6.noData5 = true;
+                } else if (_this6.ResearchInstitute.length > 0) {
+                    _this6.noData5 = false;
+                    _this6.ResearchInstitute = res["data"];
+                    _this6.totalPages = res["totalPages"] * 10;
                 }
             });
         }
     }
 }; //
-//
 //
 //
 //
@@ -22979,7 +23216,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     })])
   }))], 1)]) : _vm._e(), _vm._v(" "), (_vm.tenancyApply['type'] == 1) ? _c('el-col', {
-    staticClass: "details-text",
+    staticClass: "details-text clearfix",
     attrs: {
       "lg": 11,
       "md": 11,
@@ -22987,19 +23224,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "xs": 24,
       "offset": 1
     }
-  }, [(_vm.tenancyApply['detail']) ? _c('h6', [_vm._v(_vm._s(_vm.tenancyApply['detail']['title']))]) : _vm._e(), _vm._v(" "), (!_vm.tenancyApply['detail']) ? _c('h6', [_vm._v("暂无标题")]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("地址:" + _vm._s(_vm.tenancyApply['address']))]), _vm._v(" "), _c('p', [_vm._v("联系方式:" + _vm._s(_vm.tenancyApply['contact']) + " " + _vm._s(_vm.tenancyApply['phone']))]), _vm._v(" "), _c('p', [_vm._v("场地面积:" + _vm._s(_vm.tenancyApply['area']) + "平米")])]) : _vm._e(), _vm._v(" "), (_vm.tenancyApply['type'] == 2) ? _c('el-col', {
-    staticClass: "details-text wanted",
+  }, [(_vm.tenancyApply['detail']) ? _c('h6', [_vm._v(_vm._s(_vm.tenancyApply['detail']['title']))]) : _vm._e(), _vm._v(" "), (!_vm.tenancyApply['detail']) ? _c('h6', [_vm._v("暂无标题")]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("地址：" + _vm._s(_vm.tenancyApply['address']))]), _vm._v(" "), _c('p', [_vm._v("联系方式：" + _vm._s(_vm.tenancyApply['contact']) + " " + _vm._s(_vm.tenancyApply['phone']))]), _vm._v(" "), _c('p', [_vm._v("场地面积：" + _vm._s(_vm.tenancyApply['area']) + "平米")])]) : _vm._e(), _vm._v(" "), (_vm.tenancyApply['type'] == 2) ? _c('el-col', {
+    staticClass: "details-text wanted clearfix",
     attrs: {
       "lg": 11,
       "md": 11,
       "sm": 24,
       "xs": 24
     }
-  }, [(_vm.tenancyApply['detail']) ? _c('h6', [_vm._v(_vm._s(_vm.tenancyApply['detail']['title']))]) : _vm._e(), _vm._v(" "), (!_vm.tenancyApply['detail']) ? _c('h6', [_vm._v("暂无标题")]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("地址:" + _vm._s(_vm.tenancyApply['address']))]), _vm._v(" "), _c('p', [_vm._v("联系方式:" + _vm._s(_vm.tenancyApply['contact']) + " " + _vm._s(_vm.tenancyApply['phone']))]), _vm._v(" "), _c('p', [_vm._v("场地面积:" + _vm._s(_vm.tenancyApply['area']) + "平米")]), _vm._v(" "), _c('p', {
+  }, [(_vm.tenancyApply['detail']) ? _c('h6', [_vm._v(_vm._s(_vm.tenancyApply['detail']['title']))]) : _vm._e(), _vm._v(" "), (!_vm.tenancyApply['detail']) ? _c('h6', [_vm._v("暂无标题")]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("地址：" + _vm._s(_vm.tenancyApply['address']))]), _vm._v(" "), (_vm.tenancyApply['district']) ? _c('p', [_c('span', [_vm._v("区域：")]), _vm._v(_vm._s(_vm.tenancyApply['district']))]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("联系方式：" + _vm._s(_vm.tenancyApply['contact']) + " " + _vm._s(_vm.tenancyApply['phone']))]), _vm._v(" "), _c('p', [_vm._v("场地面积：" + _vm._s(_vm.tenancyApply['area']) + "平米")]), _vm._v(" "), _c('p', {
     staticStyle: {
       "margin-bottom": "40px"
     }
-  }, [_vm._v("期望价格:" + _vm._s(_vm.tenancyApply['price']) + _vm._s(_vm.tenancyApply['unit']))])]) : _vm._e()], 1)], 1)], 1)], 1)]), _vm._v(" "), _c('div', {
+  }, [_vm._v("期望价格：" + _vm._s(_vm.tenancyApply['price']) + _vm._s(_vm.tenancyApply['unit']))])]) : _vm._e()], 1)], 1)], 1)], 1)]), _vm._v(" "), _c('div', {
     staticClass: "container"
   }, [_c('el-row', {
     staticClass: "incubators_details_text wanted1",
@@ -23760,10 +23997,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('el-breadcrumb-item', {
     attrs: {
       "to": {
-        path: '/need'
+        path: '/question'
       }
     }
-  }, [_vm._v("服务需求列表")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("需求详情")])], 1)], 1), _vm._v(" "), _c('el-col', {
+  }, [_vm._v("技术难题及需求列表")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("需求详情")])], 1)], 1), _vm._v(" "), _c('el-col', {
     attrs: {
       "xs": 24,
       "sm": 24,
@@ -23778,7 +24015,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticStyle: {
       "margin-bottom": "10px"
     }
-  }, [_vm._v(_vm._s(_vm.openData['title']))]), _vm._v(" "), _c('p', [_vm._v("企业名称: " + _vm._s(_vm.openData['enterprise']) + " | 需求类型: " + _vm._s(_vm.openData['title']) + " | 联系人: " + _vm._s(_vm.openData['contact']) + " | 联系方式: " + _vm._s(_vm.openData['phone']) + " | "), _c('span', [_vm._v("发布时间：" + _vm._s(_vm._f("formatDate")(_vm.openData['createAt'])))]), _vm._v(" | "), (_vm.openData.status == 1) ? _c('span', [_vm._v("审核通过")]) : _vm._e()]), _vm._v(" "), (_vm.openData.status == 3) ? _c('h1') : _vm._e(), _vm._v(" "), _c('p', [_vm._v("需求描述: " + _vm._s(_vm.openData['content']))])])]), _vm._v(" "), _c('el-row', [_c('el-col', {
+  }, [_vm._v(_vm._s(_vm.openData['title']))]), _vm._v(" "), _c('p', [_vm._v("企业名称: " + _vm._s(_vm.openData['enterprise']) + " | 需求类型: " + _vm._s(_vm.openData['businessId']) + " | 联系人: " + _vm._s(_vm.openData['contact']) + " | 联系方式: " + _vm._s(_vm.openData['phone']) + " | "), _c('span', [_vm._v("发布时间：" + _vm._s(_vm._f("formatDate")(_vm.openData['createAt'])))]), _vm._v(" | "), (_vm.openData.status == 1) ? _c('span', [_vm._v("审核通过")]) : _vm._e()]), _vm._v(" "), (_vm.openData.status == 3) ? _c('h1') : _vm._e(), _vm._v(" "), _c('p', [_vm._v("需求描述: " + _vm._s(_vm.openData['content']))])])]), _vm._v(" "), _c('el-row', [_c('el-col', {
     staticStyle: {
       "padding-top": "20px",
       "border-top": "1px solid #dddddd"
@@ -24409,6 +24646,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 
 exports.default = {
     data: function data() {
@@ -24756,7 +24994,14 @@ exports.default = {
         initRent: function initRent() {
             var _this = this;
 
-            var url = "/qb/tenancy/3/" + '10' + '/1';
+            var url = "";
+            this.type = this.$route.params.type;
+            if (this.type == 1) {
+                url = "/qb/tenancy/3/1/" + '10' + '/1';
+            } else if (this.type == 2) {
+                url = "/qb/tenancy/3/2/" + '10' + '/1';
+            }
+            // let url = "/qb/tenancy/3/" + '10' + '/1';
             _api2.default.Get(url).then(function (res) {
                 if (res['data'].length > 0) {
                     _this.investData = res['data'];
@@ -24776,7 +25021,14 @@ exports.default = {
             var _this2 = this;
 
             //获取到当前分页页码，获取当前页面数据
-            var url = '/qb/tenancy/3/' + '10' + '/' + val;
+            var url = "";
+            this.type = this.$route.params.type;
+            if (this.type == 1) {
+                url = "/qb/tenancy/3/1/" + '10' + val;
+            } else if (this.type == 2) {
+                url = "/qb/tenancy/3/2/" + '10' + val;
+            }
+            // var url = '/qb/tenancy/3/' + '10' + '/' + val
             _api2.default.Get(url).then(function (res) {
                 _this2.investData = res['data'];
                 _this2.totalPages = res['totalPages'] * 10;
@@ -24791,6 +25043,7 @@ exports.default = {
         }
     }
 }; //
+//
 //
 //
 //
@@ -25102,7 +25355,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "padding-bottom": "50px"
     },
     attrs: {
-      "gutter": 10
+      "gutter": 0
     }
   }, [_c('div', {
     staticClass: "container"
@@ -25136,7 +25389,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "model": _vm.ruleForm,
       "rules": _vm.rules,
-      "label-width": "100px"
+      "label-width": "160px"
     }
   }, [_c('el-form-item', {
     attrs: {
@@ -25455,6 +25708,7 @@ exports.default = {
       replyList: "",
       rankData: "",
       noData: false,
+      searchBusiness: "",
       askForm: {
         askMess: ""
       },
@@ -25463,6 +25717,11 @@ exports.default = {
           required: true,
           message: "请写下你的留言",
           trigger: "blur"
+        }, {
+          min: 1,
+          max: 249,
+          message: '最多输入249个字',
+          trigger: 'blur'
         }]
       },
       replyForm: {
@@ -25472,13 +25731,17 @@ exports.default = {
         replyMess: [{
           message: "请写下你的评论",
           trigger: "blur"
+        }, {
+          min: 1,
+          max: 249,
+          message: '最多输入249个字',
+          trigger: 'blur'
         }]
       }
     };
   },
   created: function created() {
-    var id = this.$route.params.id;
-    this.getService(id);
+    this.Business();
     this.id = id;
     this.getReplyList();
   },
@@ -25487,19 +25750,42 @@ exports.default = {
     formatDate: function formatDate(time) {
       var date = new Date(time);
       return (0, _date.formatDate)(date, "yyyy-MM-dd hh:mm");
+    },
+    search: function search(input) {
+      for (var i = 0; i < this.searchBusiness; i++) {
+        if (input == this.searchBusiness[i]['idx']) {
+          return this.searchBusiness[i]['value'];
+        }
+      }
     }
   },
   methods: {
-    getService: function getService(id) {
+    Business: function Business() {
       var _this = this;
+
+      var url = "/dict/business";
+      _api2.default.Get(url).then(function (res) {
+        _this.searchBusiness = res;
+        var id = _this.$route.params.id;
+        _this.getService(id);
+      });
+    },
+    getService: function getService(id) {
+      var _this2 = this;
 
       var userinfoStr = window.localStorage.getItem("userinfo");
       if (userinfoStr) {
         this.openFlag = true;
         var url = "/consult/" + id;
         _api2.default.Get(url).then(function (res) {
-          _this.openData = res;
-          _this.initRank();
+          _this2.openData = res;
+          for (var i = 0; i < _this2.searchBusiness.length; i++) {
+            if (_this2.openData['businessId'] == _this2.searchBusiness[i]['idx']) {
+              _this2.openData['businessId'] = _this2.searchBusiness[i]['value'];
+              console.log(_this2.searchBusiness[i]['idx']);
+            }
+          }
+          _this2.initRank();
         });
       } else {
         var redirect = decodeURIComponent("/login");
@@ -25509,44 +25795,44 @@ exports.default = {
       }
     },
     askBtn: function askBtn(formName) {
-      var _this2 = this;
+      var _this3 = this;
 
       this.$refs[formName].validate(function (valid) {
         if (valid) {
           var params = {
-            subjectId: _this2.id,
-            content: _this2.askForm.askMess
+            subjectId: _this3.id,
+            content: _this3.askForm.askMess
           };
-          _api2.default.Post("/enterprise/apply/msg", params).then(function (res) {
+          _api2.default.Post("/consult/msg", params).then(function (res) {
             if (res["suc"] == true) {
-              _this2.$message("提交成功!");
-              _this2.getReplyList();
+              _this3.$message("提交成功!");
+              _this3.getReplyList();
             } else if (res["suc"] == false) {
-              _this2.$message(res["msg"]);
+              _this3.$message(res["msg"]);
             }
           });
         }
       });
     },
     getReplyList: function getReplyList() {
-      var _this3 = this;
+      var _this4 = this;
 
       var url = "/consult/msg/" + this.$route.params.id + "/" + "10" + "/" + "1";
       _api2.default.Get(url).then(function (res) {
         if (res["data"].length > 0) {
-          _this3.replyList = res["data"];
-          _this3.noData = true;
+          _this4.replyList = res["data"];
+          _this4.noData = true;
         } else {
-          _this3.noData = false;
+          _this4.noData = false;
         }
       });
     },
     initRank: function initRank() {
-      var _this4 = this;
+      var _this5 = this;
 
       var url = "/consult/rank/10";
       _api2.default.Get(url).then(function (res) {
-        _this4.rankData = res;
+        _this5.rankData = res;
       });
     }
   },
@@ -26308,15 +26594,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "mr130"
   }, [_c('span', {
     staticClass: "b"
-  }, [_vm._v("园区面积：")]), _vm._v("24000m2 ")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("园区面积：")]), _vm._v(_vm._s(_vm.incubator['offerArea']) + "㎡ ")]), _vm._v(" "), _c('p', {
     staticClass: "mr130"
   }, [_c('span', {
     staticClass: "b"
-  }, [_vm._v("已使用面积：")]), _vm._v("24000m2 ")]), _vm._v(" "), _c('p', [_c('span', {
+  }, [_vm._v("已使用面积：")]), _vm._v(_vm._s(_vm.incubator['usedArea']) + "㎡ ")]), _vm._v(" "), _c('p', [_c('span', {
     staticClass: "b"
-  }, [_vm._v("待招商面积：")]), _vm._v("24000m2 ")]), _vm._v(" "), _c('p', [_c('span', {
+  }, [_vm._v("待招商面积：")]), _vm._v(_vm._s(_vm.incubator['offerArea'] - _vm.incubator['usedArea']) + "㎡ ")]), _vm._v(" "), _c('p', [_c('span', {
     staticClass: "b"
-  }, [_vm._v("园区特色：")]), _vm._v("孵化器通过提供研发、试制、经营的场地和共享设施，以及政策、法律、财务、投融资、企业管理、人力资源、市场推广和加速成长等方面的孵企速成长。")])])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("园区特色：")]), _vm._v(_vm._s(_vm.incubator['intro']))])])]), _vm._v(" "), _c('div', {
     staticClass: "i03"
   }, [_c('h1', {
     staticClass: "i_tit i03_tit"
@@ -28249,4 +28535,4 @@ var Component = normalizeComponent(
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.d33ee38f13afd4744c4a.js.map
+//# sourceMappingURL=app.2b53db56cca85cbcb9b7.js.map

@@ -9,12 +9,6 @@
         </el-row>
         <!--title-->
         <div class="container" style="margin-top:40px;margin-bottom:40px;">
-            <!-- <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                <div class="common_title">
-                    <h1 class="tc">全面完善的服务商体系</h1>
-                    <h1 class="tc">高效解决企业发展所需的各类服务</h1>
-                </div>
-            </el-col> -->
             <el-row :gutter="10">
                 <!--左部分导师-->
                 <el-col :lg="12" :md="12" :sm="24" :xs="24" style="padding-right:20px;">
@@ -33,13 +27,14 @@
                                     <router-link :to="{ name: 'tutorDetail', params: { id: item.id} }">
                                         <el-col :lg="6" :md="6" :sm="6" :xs="6">
                                             <div class="teacher_img">
-                                                <img :src="item.photo" alt="">
+                                                <img v-if="item.photo !== ''" :src="item.photo" alt="">
+                                                <img v-if="item.photo == ''" src="../../static/img/timgBg.png" alt="">
                                             </div>
                                         </el-col>
                                         <el-col :lg="18" :md="18" :sm="18" :xs="18">
                                             <h1>{{item.name}}</h1>
-                                            <p>简介:{{item.intro}}</p>
-                                            <p>工作单位:{{item.university}}</p>
+                                            <p class="text-ellipsis">简介:{{item.intro}}</p>
+                                            <p class="text-ellipsis">工作单位:{{item.university}}</p>
                                             <div class="teacher_float_p">
                                                 <p>职称:{{item.title}}</p>
                                                 <p>关注领域:{{item.field}}</p>
@@ -78,7 +73,8 @@
                                     <router-link :to="{ name: 'train_detail', params: { id: item.id} }">
                                         <el-col :lg="4" :md="4" :sm="4" :xs="4">
                                             <div class="train_img">
-                                                <img :src="item.icon" alt="">
+                                                <img v-if="item.icon !== ''" :src="item.icon" alt="">
+                                                <img v-if="item.icon == ''" src="../../static/img/timgBg.png" alt="">
                                             </div>
                                         </el-col>
                                         <el-col :lg="20" :md="20" :sm="20" :xs="20">
@@ -123,7 +119,8 @@
                                     <router-link :to="{name:'train_detail', params: {id:item.id} }">
                                         <el-col :lg="4" :md="4" :sm="4" :xs="4">
                                             <div class="train_img">
-                                                <img :src="item.icon" alt="">
+                                                <img v-if="item.icon !== ''" :src="item.icon" alt="">
+                                                <img v-if="item.icon == ''" src="../../static/img/timgBg.png" alt="">
                                             </div>
                                         </el-col>
                                         <el-col :lg="20" :md="20" :sm="20" :xs="20">

@@ -12,7 +12,7 @@
           <div class="padder-v">
             <div class="need_import">
               <h3 style="margin-bottom:10px;">{{openData['title']}}</h3>
-              <p>企业名称: {{openData['enterprise']}} | 需求类型: {{openData['title']}} | 联系人: {{openData['contact']}} | 联系方式: {{openData['phone']}} | <span>发布时间：{{openData['createAt'] | formatDate}}</span> | <span v-if="openData.status == 1">审核通过</span></p>
+              <p>企业名称: {{openData['enterprise']}} | 需求类型: {{openData['classifyId']}} | 联系人: {{openData['contact']}} | 联系方式: {{openData['phone']}} | <span>发布时间：{{openData['createAt'] | formatDate}}</span> | <span v-if="openData.status == 1">审核通过</span></p>
               <h1 v-if="openData.status == 3"></h1>
               <p>需求描述: {{openData['needs']}}</p>
             </div>
@@ -87,6 +87,7 @@
         replyList: "",
         rankData: "",
         noData: false,
+        searchService: "",
         askForm: {
           askMess: ""
         },
@@ -95,6 +96,11 @@
             required: true,
             message: "请写下你的留言",
             trigger: "blur"
+          }, {
+            min: 1,
+            max: 249,
+            message: '最多输入249个字',
+            trigger: 'blur'
           }]
         },
         replyForm: {
@@ -104,14 +110,20 @@
           replyMess: [{
             message: "请写下你的评论",
             trigger: "blur"
+          }, {
+            min: 1,
+            max: 249,
+            message: '最多输入249个字',
+            trigger: 'blur'
           }]
         }
       };
     },
     created() {
       let id = this.$route.params.id;
-      this.getService(id);
+      // this.getService(id);
       this.id = id;
+      this.service()
       this.getReplyList();
     },
     filters: {
@@ -121,6 +133,14 @@
       }
     },
     methods: {
+      service() {
+        var url = "/dict/service";
+        api.Get(url).then(res => {
+          this.searchService = res;
+          let id = this.$route.params.id;
+          this.getService(id);
+        });
+      },
       getService(id) {
         let userinfoStr = window.localStorage.getItem("userinfo");
         if (userinfoStr) {
@@ -128,6 +148,11 @@
           var url = "/enterprise/apply/" + id;
           api.Get(url).then(res => {
             this.openData = res;
+            for (var i = 0; i < this.searchService.length; i++) {
+              if (this.openData['classifyId'] == this.searchService[i]['id']) {
+                this.openData['classifyId'] = this.searchService[i]['value'];
+              }
+            }
             this.initRank();
           });
         } else {

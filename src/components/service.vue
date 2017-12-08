@@ -6,12 +6,6 @@
         </el-row>
         <!--title-->
         <div class="container" style="margin-top:40px;margin-bottom:40px;">
-            <!-- <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                <div class="common_title">
-                    <h1 class="tc">全面完善的服务商体系</h1>
-                    <h1 class="tc">高效解决企业发展所需的各类服务</h1>
-                </div>
-            </el-col> -->
             <el-row :gutter="10">
                 <!--服务商列表-->
                 <el-col :lg="12" :md="12" :sm="24" :xs="24" style="border-right:1px solid #ccc;padding-right:20px;">
@@ -144,7 +138,7 @@
                     </el-row>
                 </el-col>
                 <!--被服务企业列表-->
-                <el-col :lg="12" :md="12" :sm="24" :xs="24">
+                <el-col :lg="12" :md="12" :sm="24" :xs="24" style="padding-left:20px">
                     <el-row>
                         <el-col :lg="24" :md="24" :sm="24" :xs="24">
                             <h2 class="common_sub_title">
@@ -155,7 +149,7 @@
                     </el-row>
                     <el-row>
                         <el-col>
-                            <div style="padding-left:13px;">
+                            <div>
                                 <div class="s_header_img">
                                     <!-- <img src="../../static/img/02z.png" alt=""> -->
                                 </div>
@@ -171,8 +165,8 @@
                                         </div>
                                         <div class="filte_body" v-loading.body="loading">
                                             <el-row :gutter="10">
-                                                <p v-show="noDate" style="margin-left:5px;">暂无数据</p>
-                                                <el-col v-show="!noDate" class="gh" :xs="24" :sm="24" :md="24" :lg="24" v-for="(item,index) in serviceBody" :key="index">
+                                                <p v-show="nodata" style="margin-left:15px;">暂无数据</p>
+                                                <el-col v-show="!nodata" class="gh" :xs="24" :sm="24" :md="24" :lg="24" v-for="(item,index) in serviceBody" :key="index">
                                                     <router-link :to="{name:'invest_detail', params: {id:item.id}}">
                                                         <div class="intermediary_list">
                                                             <h1>{{item['name']}}</h1>
@@ -209,7 +203,7 @@
                                                         </div>
                                                     </router-link>
                                                 </el-col>
-                                                <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="margin-bottom: 50px;margin-top:50px;">
+                                                <el-col v-show="!nodata" :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="margin-bottom: 50px;margin-top:50px;">
                                                     <div class="block">
                                                         <el-pagination :current-page="curPage" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
                                                         </el-pagination>
@@ -351,6 +345,7 @@
                     if (this.serviceBody.length == 0) {
                         this.nodata = true;
                         this.loading = false;
+                        this.totalPages = 1 * 10;
                     } else {
                         this.nodata = false;
                         this.loading = false;
@@ -366,8 +361,9 @@
                                 this.serviceBody[i]['others'] = this.filterOter(this.totalArr, tempArr);
                             }
                         }
+                        this.totalPages = res["totalPages"] * 10;
                     }
-                    this.totalPages = res["totalPages"] * 10;
+                    
                 });
                 var info = "/pub/info/22" + "/" + "10" + "/1";
                 api.Get(info).then(res => {

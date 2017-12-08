@@ -125,61 +125,6 @@
         </el-row>
       </div>
     </div>
-    <!-- 双创办公室 -->
-    <!-- <div class="office">
-              <div class="container">
-                <el-row :gutter="20">
-                  <el-col :xs="24" :sm="24" :md="24" :lg="24">
-                    <div class="l office_title"></div>
-                    <router-link to="/incubators" class="r more_plus"></router-link>
-                  </el-col>
-                </el-row>
-                <el-row class="office_wrap"  :gutter="6" style="margin-top: 40px;">
-                  <el-col :xs="24" :sm="24" :md="12" :lg="12">
-                     <router-link :to="{ name: 'office_list_policy'}" class="office_con">
-                        <img src="static/img/fw1.png" alt="">
-                        <div>
-                          <h3>优惠政策</h3>
-                          <h2>入口>></h2>
-                        </div>
-                     </router-link>
-                  </el-col>
-                  <el-col :xs="24" :sm="24" :md="12" :lg="12">
-                    <router-link :to="{ name: 'office_list_window'}" class="office_con">
-                      <img src="static/img/fw2.png" alt="">
-                      <div>
-                        <h3>服务窗口</h3>
-                        <h2>入口>></h2>
-                      </div>
-                    </router-link>
-                  </el-col>
-                </el-row>
-              </div>
-            </div> -->
-    <!-- 双创办公室 -->
-    <!-- 双创办公室 -->
-    <!-- 培训活动 -->
-    <!-- 培训活动 -->
-    <!-- 服务商 -->
-    <!-- <div class="service_provider">
-              <div class="container">
-                <el-row :gutter="0">
-                  <el-col :xs="24" :sm="24" :md="24" :lg="24">
-                    <div class="l service_provider_title"></div>
-                    <router-link to="/service_provider_more" class="r more_plus"></router-link>
-                  </el-col>
-                </el-row>
-                <el-row class="office_wrap">
-                  <el-col :xs="12" :sm="8" :md="8" :lg="4" v-for="(item, index) in provider" :key="index" v-if="index<6">
-                    <router-link :to="{ name: 'provider', params: { id: item.id} }" class="service_provider_item rel">
-                      <img :src="item.icon" alt="">
-                      <p class="tc text-ellipsis">{{item.name}}</p>
-                      <i class="tag abs white tc f14">{{item.service}}</i>
-                    </router-link>
-                  </el-col>
-                </el-row>
-              </div>
-            </div> -->
     <!-- 服务商 -->
     <!-- 创业导师 -->
     <div class="tutor">
@@ -193,7 +138,10 @@
         <el-row :gutter="20">
           <el-col :xs="12" :sm="12" :md="6" :lg="6" v-for="(item, index) in mentor" :key="index" v-if="index<4">
             <router-link :to="{ name: 'tutorDetail', params: { id: item.id} }" class="tutor_item rel">
-              <div class="tutor_img"><img :src="item.photo" alt=""></div>
+              <div class="tutor_img">
+                <img v-show="item.photo !== ''"  :src="item.photo" alt="">
+                <img v-show="item.photo == ''" src="../../static/img/zs.png" alt="" style="width:164px;height:164px;">
+              </div>
               <p class="tc f14">{{item.name}}
                 <i>&nbsp;&nbsp;{{item.title}}</i>
               </p>

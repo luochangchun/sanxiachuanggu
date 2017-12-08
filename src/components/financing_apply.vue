@@ -72,7 +72,7 @@
 							<el-input type="textarea" v-model="applyForm.intro"></el-input>
 						</el-form-item>
 						<el-form-item label="团队规模" prop="scale">
-							<el-input type="tel" v-model="applyForm.scale"></el-input>
+							<el-input type="number" v-model="applyForm.scale"></el-input>
 						</el-form-item>
 						<el-form-item label="项目进度情况" prop="progress">
 							<el-input type="textarea" v-model="applyForm.progress"></el-input>
@@ -335,6 +335,7 @@
 							"why": this.applyForm.why,
 							"founder": this.applyForm.founder,
 							"founderIntro": this.applyForm.founderIntro,
+							"progress": this.applyForm.progress,
 							"birth": this.birth,
 							"ratio": this.applyForm.ratio,
 							"edu": this.applyForm.edu,

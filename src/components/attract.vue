@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <!-- 创谷 -->
-        <el-row :gutter="10" style="margin-bottom: 50px;">
+        <el-row :gutter="10" style="margin-bottom: 50px;min-height:500px;">
             <el-col :xs="24" :sm="24" :md="24" :lg="24" style="position:relative;">
                 <el-breadcrumb separator="/" class="padder-vx bb">
                     <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
@@ -15,18 +15,16 @@
             </el-col>
            
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                <p v-show="attractFlag1.length==0 && type == '1'" style="text-align:center;margin-top:15px;">{{attractFlag1.length}}暂无数据</p>
-                <p v-show="attractFlag2.length==0 && type == '2'" style="text-align:center;margin-top:15px;">{{attractFlag2}}暂无数据</p>
+                <p v-show="attractFlag1.length==0 && type == '1'" style="text-align:center;margin-top:15px;">暂无数据</p>
+                <p v-show="attractFlag2.length==0 && type == '2'" style="text-align:center;margin-top:15px;">暂无数据</p>
                 <el-row :gutter="10" v-for="(item, index) in investData" :key="index" style="border-bottom:1px solid #eee;padding: 10px 0;" v-if="type=='1' && item['type'] == 1">
                     <router-link :to="{name:'attract_detail', params: {id:item['id']}}">
-                        <el-col :xs="5" :sm="5" :md="5" :lg="5">
-                            <div class="incubators_more_img">
-                                <img v-if="item['icon']" :src="item['icon']" alt="" style="margin-left: -5px;height:150px;">
-                                <img v-if="!item['icon']" src="../../static/img/logo.png" alt="" style="border:1px solid #eee;width:50%;padding:10%;margin-left: 0;height:80px;">
+                        <el-col :xs="21" :sm="21" :md="21" :lg="21" class="clearfix">
+                            <div class="incubators_more_img l">
+                                <img v-if="item['icon']" :src="item['icon']" alt="" style="margin-left: -5px;width:212px;height:150px;">
+                                <img v-if="!item['icon']" src="../../static/img/zs.png" alt="" style="width:100%;height:80px;margin-top: 12px;">
                             </div>
-                        </el-col>
-                        <el-col :xs="15" :sm="15" :md="15" :lg="15">
-                            <div class="incubators_more_introduce">
+                            <div class="incubators_more_introduce l" style="margin-left: 10px;">
                                 <h2 v-if="!item['title']">招商</h2>
                                 <h2 v-if="item['title']">{{item['title']}}</h2>
                                 <p><span>地址：</span>{{item['address']}}&nbsp;&nbsp;{{item['buildingType']}}&nbsp;&nbsp;{{item['area']}}平方米</p>
@@ -35,13 +33,13 @@
                         </el-col>
                         <el-col :xs="3" :sm="3" :md="3" :lg="3">
                             <div class="incubators_more_area">
-                                <h3 class="b">{{item['price']}}{{item['unit']}}</h3>
+                                <h3 class="b tr">{{item['price']}}{{item['unit']}}</h3>
                             </div>
                         </el-col>
                     </router-link>
                 </el-row>
                 <el-row :gutter="10" v-for="(item, index) in investData" :key="index" v-if="type=='2' && item['type'] == 2" style="border-bottom:1px solid #eee;padding: 10px 0;">
-                    <el-col :xs="20" :sm="20" :md="20" :lg="20">
+                    <el-col :xs="21" :sm="21" :md="21" :lg="21">
                         <router-link :to="{name:'attract_detail', params: {id:item['id']}}">
                             <div class="incubators_more_introduce">
                                 <h2 v-if="!item['title']">求租</h2>
@@ -53,7 +51,7 @@
                     </el-col>
                     <el-col :xs="3" :sm="3" :md="3" :lg="3">
                         <div class="incubators_more_area">
-                            <h3 class="b">{{item['price']}}{{item['unit']}}</h3>
+                            <h3 class="b tr">{{item['price']}}{{item['unit']}}</h3>
                         </div>
                     </el-col>
                 </el-row>
@@ -89,7 +87,13 @@
         },
         methods: {
             initInvest() {
-                let url = "/qb/tenancy/2/" + '10' + '/1';
+                var  url = "";
+                this.type = this.$route.params.type;
+                if(this.type == 1) {
+                    url = "/qb/tenancy/2/1/" + '10' + '/1';
+                } else if(this.type == 2){
+                    url = "/qb/tenancy/2/2/" + '10' + '/1';
+                }
                 api.Get(url).then(res => {
                     if(res['data'].length > 0) {
                         this.investData = res['data'];
@@ -108,7 +112,14 @@
             },
             handleCurrentChange(val) {
                 //获取到当前分页页码，获取当前页面数据
-                var url = '/qb/tenancy/2/' + '10' + '/' + val
+                var  url = "";
+                this.type = this.$route.params.type;
+                if(this.type == 1) {
+                    url = "/qb/tenancy/2/1/" + '10'+ val;
+                } else if(this.type == 2){
+                    url = "/qb/tenancy/2/2/" + '10'+ val;
+                }
+                // var url = '/qb/tenancy/2/' + '10' + '/' + val
                 api.Get(url)
                     .then(res => {
                         this.investData = res['data'];

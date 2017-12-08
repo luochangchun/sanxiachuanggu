@@ -13,6 +13,9 @@
           <el-form-item label="联系电话" prop="phone">
             <el-input type="tel" v-model="tenancyForm.phone"></el-input>
           </el-form-item>
+          <el-form-item label="区域" prop="district">
+            <el-input type="text" v-model="tenancyForm.district"></el-input>
+          </el-form-item>
           <el-form-item label="楼盘名称" prop="building">
             <el-input type="text" v-model="tenancyForm.building"></el-input>
           </el-form-item>
@@ -28,13 +31,13 @@
             </el-upload>
           </el-form-item>
           <el-form-item label="面积（平米）" prop="area">
-            <el-input type="tel" v-model="tenancyForm.area"></el-input>
+            <el-input type="number" v-model="tenancyForm.area"></el-input>
           </el-form-item>
           <el-form-item label="地址" prop="address">
             <el-input type="text" v-model="tenancyForm.address"></el-input>
           </el-form-item>
           <el-form-item label="价格" prop="area">
-            <el-input type="tel" v-model="tenancyForm.price"></el-input>
+            <el-input type="number" v-model="tenancyForm.price"></el-input>
           </el-form-item>
           <el-form-item label="单位" prop="unit">
             <el-select v-model="tenancyForm.unit">
@@ -174,6 +177,11 @@
             message: "请输入楼盘名称",
             trigger: "blur"
           }],
+          district: [{
+            // required: true,
+            message: "请输入求租区域",
+            trigger: "blur"
+          }],
           area: [{
             required: true,
             message: "请输入面积",
@@ -250,6 +258,7 @@
               type: this.$route.params.type,
               contact: this.tenancyForm.contact,
               phone: this.tenancyForm.phone,
+              district: this.tenancyForm.district,
               building: this.tenancyForm.building,
               buildingType: this.tenancyForm.buildingType,
               area: this.tenancyForm.area,

@@ -1,12 +1,12 @@
 <template>
 	<div>
-		<el-row :gutter="10" style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
+		<el-row :gutter="0" style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
 			<div class="container">
 				<el-col :lg="24" :md="24" :sm="24" :xs="24" style="background-color:#fff;padding:30px 25px 15px 0">
 					<p class="tc b f20">入驻申请</p>
 				</el-col>
 				<el-col :lg="24" :md="24" :sm="24" :xs="24" style="background-color:#fff;padding:0px 25px 15px 0">
-					<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="enter-ruleForm">
+					<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="160px" class="enter-ruleForm">
 						<el-form-item label="公司名称" prop="enterprise">
 							<el-input type="text" v-model="ruleForm.enterprise"></el-input>
 						</el-form-item>
@@ -149,6 +149,11 @@
 							.then(res => {
 								if (res['suc'] == true) {
 									this.$message('申请成功！');
+									let id = this.$route.params.id;
+									let redirect = decodeURIComponent('/incubators_details/');
+									this.$router.push({
+										path: redirect + id
+									})
 								} else if (res['suc'] == false) {
 									this.$message('申请失败！');
 								}
@@ -165,7 +170,7 @@
 
 <style scoped>
 	.enter-ruleForm {
-		width: 440px;
+		width: 460px;
 		margin: 0 auto;
 	}
 </style>

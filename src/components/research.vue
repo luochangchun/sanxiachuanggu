@@ -3,7 +3,7 @@
         <!--header-->
         <el-row :gutter="0">
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                <div class="banner_img"  style="backgroundImage: url(../static/img/banner_cgyj.jpg)">
+                <div class="banner_img" style="backgroundImage: url(../static/img/banner_cgyj.jpg)">
                     <!-- <img src="../../static/img/banner_cgyj.jpg" alt=""> -->
                 </div>
             </el-col>
@@ -11,12 +11,6 @@
         <!--院校展示-->
         <el-row :gutter="0" style="margin-top:40px;margin-bottom:40px;">
             <div class="container">
-                <!-- <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                    <div class="common_title">
-                        <h1 class="tc">全面完善的服务商体系</h1>
-                        <h1 class="tc">高效解决企业发展所需的各类服务</h1>
-                    </div>
-                </el-col> -->
                 <el-row :gutter="0">
                     <el-col :lg="12" :md="24" :sm="24" :xs="24" class="pl0">
                         <div class="InvestmentAgency clearfix">
@@ -27,19 +21,21 @@
                             <div class="InvestmentList CollegeList">
                                 <router-link :to="{ name: 'school_detail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in university" :key="index" v-if="index<4">
                                     <el-col :lg="4" :md="24" :sm="24" :xs="24">
-                                        <img :src="item['icon']">
+                                        <!-- <img :src="item['icon']"> -->
+                                        <img v-if="item.icon !== ''" :src="item.icon" alt="">
+                                        <img v-if="item.icon == ''" src="../../static/img/timgBg.png" alt="">
                                     </el-col>
                                     <el-col :lg="20" :md="24" :sm="24" :xs="24">
                                         <h1 class="text-ellipsis">{{item['name']}}</h1>
                                         <p class="text-ellipsis-muti text-ellipsis-2">{{item['intro']}}</p>
                                     </el-col>
                                 </router-link>
-                                <!-- <div class="pageNo clearfix">
-                                                    <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
-                                                        <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
-                                                        </el-pagination>
-                                                    </el-col>
-                                                </div> -->
+                                <div class="pageNo clearfix">
+                                    <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
+                                        <el-pagination :current-page="1" :total="universityPage" @current-change="handleuniversity" layout="prev, pager, next">
+                                        </el-pagination>
+                                    </el-col>
+                                </div>
                             </div>
                         </div>
                         <div class="InvestmentAgency clearfix ExpertTeam">
@@ -51,7 +47,9 @@
                                 <p v-show="noData2" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
                                 <div :to="{ name: 'tutorDetail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in Exeprt" :key="index">
                                     <el-col :lg="4" :md="24" :sm="24" :xs="24">
-                                        <img :src="item['photo']">
+                                        <!-- <img :src="item['photo']"> -->
+                                        <img v-if="item.photo !== ''" :src="item.photo" alt="">
+                                        <img v-if="item.photo == ''" src="../../static/img/timgBg.png" alt="">
                                     </el-col>
                                     <el-col :lg="20" :md="24" :sm="24" :xs="24">
                                         <h1 class="text-ellipsis">{{item['name']}}</h1>
@@ -60,11 +58,11 @@
                                     </el-col>
                                 </div>
                                 <!-- <div class="pageNo clearfix">
-                                        <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
-                                            <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
-                                            </el-pagination>
-                                        </el-col>
-                                    </div> -->
+                                                        <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
+                                                            <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                                            </el-pagination>
+                                                        </el-col>
+                                                    </div> -->
                             </div>
                         </div>
                         <div class="InvestmentAgency clearfix ResearchInstitute">
@@ -76,7 +74,8 @@
                                 <p v-show="noData5" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
                                 <div :to="{ name: 'tutorDetail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in ResearchInstitute" :key="index">
                                     <el-col :lg="4" :md="24" :sm="24" :xs="24">
-                                        <img :src="item['photo']">
+                                        <img v-if="item.photo !== ''" :src="item.photo" alt="">
+                                        <img v-if="item.photo == ''" src="../../static/img/timgBg.png" alt="">
                                     </el-col>
                                     <el-col :lg="20" :md="24" :sm="24" :xs="24">
                                         <h1 class="text-ellipsis">{{item['name']}}</h1>
@@ -85,11 +84,11 @@
                                     </el-col>
                                 </div>
                                 <!-- <div class="pageNo clearfix">
-                                        <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
-                                            <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
-                                            </el-pagination>
-                                        </el-col>
-                                    </div> -->
+                                                        <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
+                                                            <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+                                                            </el-pagination>
+                                                        </el-col>
+                                                    </div> -->
                             </div>
                         </div>
                     </el-col>
@@ -130,6 +129,7 @@
         data() {
             return {
                 university: '', //院校
+                universityPage: "", //院校分页
                 mentor: '', //导师
                 talented: '', //校园人才
                 needData: "", //融资需求
@@ -154,8 +154,8 @@
                 if (!input) {
                     return ''
                 } else {
-                    if(input.length > 20 ) {
-                        return input.substring(0, 20)+ "...";
+                    if (input.length > 20) {
+                        return input.substring(0, 20) + "...";
                     } else {
                         return input;
                     }
@@ -166,8 +166,19 @@
             researchApi() {
                 api.Get('/pub/research')
                     .then(res => {
-                        this.university = res['university'];
                         this.mentor = res['mentor'];
+                    })
+                api.Get('/university/4/1')
+                    .then(res => {
+                        this.university = res['data'];
+                        this.universityPage = res["totalPages"] * 10;
+                    })
+            },
+            handleuniversity(val) {
+                api.Get('/university/4/' + val)
+                    .then(res => {
+                        this.university = res['data'];
+                        this.universityPage = res["totalPages"] * 10;
                     })
             },
             initServicesList() {

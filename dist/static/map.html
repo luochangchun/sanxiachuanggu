@@ -826,6 +826,7 @@
         $(function () {
             //显示详情
             $('.C_liboxs').on('click', 'a', function () {
+                // alert(1);
                 $('.C_xread').show();
                 var tpmk = markers.get($(this).attr('data-id'));
                 if (tpmk) {
@@ -837,6 +838,7 @@
                     //map.setCenter(tpmk.getPosition());
                     map.setZoomAndCenter(15, tpmk.getPosition());
                 }
+                // return false;
                 // $('.C_xbigcs').load('/ajax_new/ajax_action.php?action=com_detail&id=' + $(this).attr('data-id'));
                 //$('.C_xread').scrollTop(0);
                 // $('#J_mapleft').hide();
@@ -941,14 +943,16 @@
             var data = this.getExtData();
             var type = data.company_type;
             var url = '';
-            //alert(data.act_id);
-            console.log(data);
+            
+            // console.log(data);
+            // return false;
             url = 'http://www.sanxiachuanggu.com/#/incubators_details/' + data.id;
             var html = "";
             html +=
                 "<div class='sh_boxmn'><div class='sh_boxhide' onClick='closeInfoWindow()'>×</div><div class='sh_mation'>";
-            html += "<h1>" + data.company_name + "</h1></div>";
-            html += "<dl class='sh_dlsm'><dt><img src=" + data.logo + "></dt>";
+            html += "<h1></h1></div>";
+            //  html += "<dl class='sh_dlsm'><dt><img src=" + data.logo + "></dt>";
+            html += "<dl class='sh_dlsm'><dt></dt>";
             html += "<dd>";
             //        if (data.company) html += "<p>" + data.company + "</p>";
             if (data.map_desc) html += "<p class='clearfix'><span class='l s01'>地址：</span><span class='l s02'>" + data.map_desc +

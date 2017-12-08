@@ -54,7 +54,7 @@
                         </el-row>
                       </router-link>
                       <!--分页-->
-                      <el-row :gutter="10" style="margin: 50px 0;">
+                      <el-row :gutter="10" style="margin: 50px 0;" v-show="!noData">
                         <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
                           <div class="block">
                             <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next"></el-pagination>
@@ -166,6 +166,7 @@
           this.recommend = res["recommend"];
           if (this.needData.length == 0) {
             this.noData = true;
+            this.totalPages = 1 * 10;
           } else if (this.needData.length > 0) {
             this.noData = false;
             this.needData = res["page"]["data"];

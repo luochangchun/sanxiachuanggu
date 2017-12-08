@@ -15,20 +15,21 @@
                                     </el-carousel>
                                 </div>
                             </el-col>
-                            <el-col v-if="tenancyApply['type'] == 1" :lg="11" :md="11" :sm="24" :xs="24" :offset="1" class="details-text">
+                            <el-col v-if="tenancyApply['type'] == 1" :lg="11" :md="11" :sm="24" :xs="24" :offset="1" class="details-text clearfix">
                                 <h6 v-if="tenancyApply['detail']">{{tenancyApply['detail']['title']}}</h6>
                                 <h6 v-if="!tenancyApply['detail']">暂无标题</h6>
-                                <p>地址:{{tenancyApply['address']}}</p>
-                                <p>联系方式:{{tenancyApply['contact']}} {{tenancyApply['phone']}}</p>
-                                <p>场地面积:{{tenancyApply['area']}}平米</p>
+                                <p>地址：{{tenancyApply['address']}}</p>
+                                <p>联系方式：{{tenancyApply['contact']}} {{tenancyApply['phone']}}</p>
+                                <p>场地面积：{{tenancyApply['area']}}平米</p>
                             </el-col>
-                            <el-col v-if="tenancyApply['type'] == 2" :lg="11" :md="11" :sm="24" :xs="24" class="details-text wanted">
+                            <el-col v-if="tenancyApply['type'] == 2" :lg="11" :md="11" :sm="24" :xs="24" class="details-text wanted clearfix">
                                 <h6 v-if="tenancyApply['detail']">{{tenancyApply['detail']['title']}}</h6>
                                 <h6 v-if="!tenancyApply['detail']">暂无标题</h6>
-                                <p>地址:{{tenancyApply['address']}}</p>
-                                <p>联系方式:{{tenancyApply['contact']}} {{tenancyApply['phone']}}</p>
-                                <p>场地面积:{{tenancyApply['area']}}平米</p>
-                                <p style="margin-bottom:40px;">期望价格:{{tenancyApply['price']}}{{tenancyApply['unit']}}</p>
+                                <p>地址：{{tenancyApply['address']}}</p>
+                                <p v-if="tenancyApply['district']"><span>区域：</span>{{tenancyApply['district']}}</p>
+                                <p>联系方式：{{tenancyApply['contact']}} {{tenancyApply['phone']}}</p>
+                                <p>场地面积：{{tenancyApply['area']}}平米</p>
+                                <p style="margin-bottom:40px;">期望价格：{{tenancyApply['price']}}{{tenancyApply['unit']}}</p>
                             </el-col>
                         </el-row>
                     </el-col>
@@ -83,14 +84,6 @@
 
 <style>
     /**求租样式*/
-    .wanted h6:first-child{
-        margin-top:-20px;
-    }
-
-    .wanted1 h1:first-child{
-        margin-top: -30px;
-    }
-
     .wanted2{
         margin-bottom:30px;
     }

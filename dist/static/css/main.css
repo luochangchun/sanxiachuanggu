@@ -7,7 +7,10 @@ body {
   color: #333;
   background-color: transparent;
 }
-
+p {
+  word-break: break-all;
+  word-break: break-word;
+}
 a {
   display: block;
 }

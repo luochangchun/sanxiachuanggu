@@ -4,7 +4,7 @@
       <el-row :gutter="10">
         <el-col :xs="24" :sm="24" :md="24" :lg="24">
           <el-breadcrumb separator="/" class="padder-vx">
-            <el-breadcrumb-item :to="{ path: '/need' }">服务需求列表</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/question' }">技术难题及需求列表</el-breadcrumb-item>
             <el-breadcrumb-item>需求详情</el-breadcrumb-item>
           </el-breadcrumb>
         </el-col>
@@ -12,7 +12,7 @@
           <div class="padder-v">
             <div class="need_import">
               <h3 style="margin-bottom:10px;">{{openData['title']}}</h3>
-              <p>企业名称: {{openData['enterprise']}} | 需求类型: {{openData['title']}} | 联系人: {{openData['contact']}} | 联系方式: {{openData['phone']}} | <span>发布时间：{{openData['createAt'] | formatDate}}</span> | <span v-if="openData.status == 1">审核通过</span></p>
+              <p>企业名称: {{openData['enterprise']}} | 需求类型: {{openData['businessId']}} | 联系人: {{openData['contact']}} | 联系方式: {{openData['phone']}} | <span>发布时间：{{openData['createAt'] | formatDate}}</span> | <span v-if="openData.status == 1">审核通过</span></p>
               <h1 v-if="openData.status == 3"></h1>
               <p>需求描述: {{openData['content']}}</p>
             </div>
@@ -42,15 +42,15 @@
                   <p class="huifu">{{item['content']}}</p>
                 </div>
                 <!-- <div class="huifuSubmit">
-                  <el-form label-width="0px" class="demo-Form" :model="replyForm" :rules="replyRules" ref="replyForm">
-                    <el-form-item label="" prop="replyMess">
-                      <el-input type="textarea" v-model="replyForm.replyMess" :rows="2" placeholder="写下你的评论"></el-input>
-                    </el-form-item>
-                    <el-form-item>
-                      <el-button type="primary" class="tutorBtn r" @click.stop.prevent="replyBtn('replyForm')">评论</el-button>
-                    </el-form-item>
-                  </el-form>
-                </div> -->
+                        <el-form label-width="0px" class="demo-Form" :model="replyForm" :rules="replyRules" ref="replyForm">
+                          <el-form-item label="" prop="replyMess">
+                            <el-input type="textarea" v-model="replyForm.replyMess" :rows="2" placeholder="写下你的评论"></el-input>
+                          </el-form-item>
+                          <el-form-item>
+                            <el-button type="primary" class="tutorBtn r" @click.stop.prevent="replyBtn('replyForm')">评论</el-button>
+                          </el-form-item>
+                        </el-form>
+                      </div> -->
               </div>
             </el-col>
           </el-row>
@@ -87,6 +87,7 @@
         replyList: "",
         rankData: "",
         noData: false,
+        searchBusiness: "",
         askForm: {
           askMess: ""
         },
@@ -95,6 +96,11 @@
             required: true,
             message: "请写下你的留言",
             trigger: "blur"
+          }, {
+            min: 1,
+            max: 249,
+            message: '最多输入249个字',
+            trigger: 'blur'
           }]
         },
         replyForm: {
@@ -104,23 +110,43 @@
           replyMess: [{
             message: "请写下你的评论",
             trigger: "blur"
+          }, {
+            min: 1,
+            max: 249,
+            message: '最多输入249个字',
+            trigger: 'blur'
           }]
         }
       };
     },
     created() {
-      let id = this.$route.params.id;
-      this.getService(id);
+      this.Business();
       this.id = id;
       this.getReplyList();
+      
     },
     filters: {
       formatDate(time) {
         let date = new Date(time);
         return formatDate(date, "yyyy-MM-dd hh:mm");
+      },
+      search(input) {
+        for (var i = 0; i < this.searchBusiness; i++) {
+          if (input == this.searchBusiness[i]['idx']) {
+            return this.searchBusiness[i]['value'];
+          }
+        }
       }
     },
     methods: {
+      Business() {
+        var url = "/dict/business";
+        api.Get(url).then(res => {
+          this.searchBusiness = res;
+          let id = this.$route.params.id;
+          this.getService(id);
+        });
+      },
       getService(id) {
         let userinfoStr = window.localStorage.getItem("userinfo");
         if (userinfoStr) {
@@ -128,6 +154,12 @@
           var url = "/consult/" + id;
           api.Get(url).then(res => {
             this.openData = res;
+            for (var i = 0; i < this.searchBusiness.length; i++) {
+              if (this.openData['businessId'] == this.searchBusiness[i]['idx']) {
+                this.openData['businessId'] = this.searchBusiness[i]['value'];
+                console.log(this.searchBusiness[i]['idx']);
+              }
+            }
             this.initRank();
           });
         } else {
@@ -144,7 +176,7 @@
               subjectId: this.id,
               content: this.askForm.askMess
             };
-            api.Post("/enterprise/apply/msg", params).then(res => {
+            api.Post("/consult/msg", params).then(res => {
               if (res["suc"] == true) {
                 this.$message("提交成功!");
                 this.getReplyList();
@@ -175,7 +207,7 @@
     },
     watch: {
       '$route' (to, from) {
-       window.location.reload();
+        window.location.reload();
       }
     }
   };
@@ -286,7 +318,8 @@
     border-radius: 4px;
     margin-bottom: 10px;
   }
-  .news-rightlist ul li,.news-rightlist ul a {
+  .news-rightlist ul li,
+  .news-rightlist ul a {
     clear: both;
     line-height: 30px;
     color: #a1a1a1;

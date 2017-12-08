@@ -22,7 +22,8 @@
                     <el-row :gutter="10">
                         <el-col :lg="6" :md="6" :sm="12" :xs="24" class="incubators-show" v-for="(item,index) in incubator" :key="index">
                             <router-link :to="{ name: 'incubators_details', params: { id: item.id} }" style="position: relative">
-                                <img :src="item['icon']" alt="">
+                                <img v-if="item['icon'] !== ''"  :src="item['icon']" alt="">
+                                <img v-if="item['icon'] == ''" src="../../static/img/incubatorBg.jpeg" alt="">
                                 <!-- <div class="img" :style="{backgroundImage: 'url('+'http://'+ item['icon'] + ')'}"  :key="index"></div> -->
                                 <p>{{item.name}}</p>
                             </router-link>

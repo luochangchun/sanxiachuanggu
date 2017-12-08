@@ -18,7 +18,7 @@
         </el-row>
         <p v-if='flag' style="padding-left:5px;line-height:30px;height:30px;font-size:12px;">暂无数据</p>
         <el-row :gutter="10" v-for="(item,index) in List" class="need_xq" :key="index" v-if="type=='01' || type=='02' || type=='03'">
-            <router-link :to="{ name: 'service_detail', params: { id: item.id} }">
+            <router-link :to="{ name: 'service_detail', params: { id: item.id} }" v-if="item.status == 1 || item.status == 2 || item.status == 3">
                 <el-col :lg="12" :md="12" :sm="12" :xs="12" class="need_xq_p">
                     <p><span style="color:#0089e3" v-if="item['enterprise']">{{item['enterprise']}} </span><span>[{{item['title']}}]</span></p>
                 </el-col>
@@ -28,9 +28,6 @@
                 <el-col :lg="5" :md="5" :sm="5" :xs="5">
                     <p>{{item['phone']}}</p>
                 </el-col>
-                <!-- <el-col :lg="3" :md="3" :sm="3" :xs="3">
-                    <p>2017-10-24</p>
-                </el-col> -->
             </router-link>
         </el-row>
         <el-row :gutter="10" v-for="(item,index) in List" class="need_xq" :key="index" v-if="type=='04' && item['type']==1">
@@ -44,9 +41,6 @@
                 <el-col :lg="5" :md="5" :sm="5" :xs="5">
                     <p>{{item['phone']}}</p>
                 </el-col>
-                <!-- <el-col :lg="3" :md="3" :sm="3" :xs="3">
-                    <p>2017-10-24</p>
-                </el-col> -->
             </router-link>
         </el-row>
         <el-row :gutter="10" v-for="(item,index) in List" class="need_xq" :key="index" v-if="type=='05' && item['type']==2">
@@ -60,9 +54,6 @@
                 <el-col :lg="5" :md="5" :sm="5" :xs="5">
                     <p>{{item['phone']}}</p>
                 </el-col>
-                <!-- <el-col :lg="3" :md="3" :sm="3" :xs="3">
-                    <p>2017-10-24</p>
-                </el-col> -->
             </router-link>
         </el-row>
         <!--分页-->
