@@ -17,8 +17,8 @@
                     <el-tab-pane :label='item.value' :name="item.cname" :cid="item.id" v-for="(item, index) in category" :key="index">
                       <el-tabs type="card" v-model="activeName2" @tab-click="handleClick2">
                         <el-tab-pane label="全部需求" name="first" :cid="item.id" :st="0"></el-tab-pane>
-                        <el-tab-pane label="未处理" name="second" :cid="item.id" :st="1"></el-tab-pane>
-                        <el-tab-pane label="待解决" name="third" :cid="item.id" :st="2"></el-tab-pane>
+                        <el-tab-pane label="待解决" name="second" :cid="item.id" :st="1"></el-tab-pane>
+                        <el-tab-pane label="处理中" name="third" :cid="item.id" :st="2"></el-tab-pane>
                         <el-tab-pane label="已解决" name="fourth" :cid="item.id" :st="3"></el-tab-pane>
                       </el-tabs>
                       <el-row class="need_xq" style="background-color:#eee;">
@@ -53,7 +53,7 @@
                         </el-row>
                       </router-link>
                       <!--分页-->
-                      <el-row :gutter="10" style="margin: 50px 0;">
+                      <el-row :gutter="10" style="margin: 50px 0;" v-show="!noData">
                         <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8">
                           <div class="block">
                             <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next"></el-pagination>
@@ -63,9 +63,6 @@
                     </el-tab-pane>
                   </el-tabs>
                 </el-col>
-                <!-- <el-col :lg="4" :md="4" :sm="2" :xs="2">
-                        
-                      </el-col> -->
               </el-row>
               <!--导航切换-->
             </div>
@@ -146,7 +143,8 @@
         msg: "",
         rankData: "",
         recommend: "", //导师推荐
-        recommendFlag: false //导师有无数据标记
+        recommendFlag: false, //导师有无数据标记
+        totalPages: ''
       };
     },
     created() {
@@ -179,10 +177,11 @@
           this.recommend = res["recommend"];
           if (this.needData.length == 0) {
             this.noData = true;
+            this.totalPages = 1 * 10;
           } else if (this.needData.length > 0) {
             this.noData = false;
             this.needData = res["page"]["data"];
-            this.totalPages = res["totalPages"] * 10;
+            this.totalPages = res["page"]["totalPages"] * 10;
           }
           // 导师推荐
           if (this.recommend.length == 0) {
@@ -207,8 +206,7 @@
           } else if (this.needData.length > 0) {
             this.noData = false;
             this.needData = res["page"]["data"];
-            console.log(this.needData);
-            this.totalPages = res["totalPages"] * 10;
+            this.totalPages = res["page"]["totalPages"] * 10;
           }
           // 导师推荐
           if (this.recommend.length == 0) {
@@ -224,7 +222,7 @@
         var url = "/consult/" + "10" + "/" + val;
         api.Get(url).then(res => {
           this.needData = res["page"]["data"];
-          this.totalPages = res["totalPages"] * 10;
+          this.totalPages = res["page"]["totalPages"] * 10;
         });
       },
       //打开服务需求详情
