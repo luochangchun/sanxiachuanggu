@@ -159,13 +159,15 @@
             required: true,
             message: "请输入标题",
             trigger: "blur"
-          }],
+          },
+          { min: 1, max: 80, message: '最多 80 个字符', trigger: 'blur' }],
           contact: [{
             required: true,
             validator: validateName,
             message: "请输入联系人",
             trigger: "blur"
-          }],
+          },
+          { min: 1, max: 10, message: '最多 10 个字符', trigger: 'blur' }],
           phone: [{
             required: true,
             validator: validatePhone,
@@ -176,27 +178,32 @@
             required: true,
             message: "请输入楼盘名称",
             trigger: "blur"
-          }],
+          },
+          { min: 1, max: 30, message: '最多 30 个字符', trigger: 'blur' }],
           district: [{
             // required: true,
             message: "请输入求租区域",
             trigger: "blur"
-          }],
+          },
+          { min: 1, max: 45, message: '最多 45 个字符', trigger: 'blur' }],
           area: [{
             required: true,
             message: "请输入面积",
             trigger: "blur"
-          }],
+          },
+          { min: 1, max: 30, message: '最多 30 个字符', trigger: 'blur' }],
           address: [{
             required: true,
             message: "请输入地址/地段",
             trigger: "blur"
-          }],
+          },
+          { min: 1, max: 100, message: '最多 100 个字符', trigger: 'blur' }],
           price: [{
             required: true,
             message: "请输入每平米价格",
             trigger: "blur"
-          }],
+          },
+          { min: 1, max: 30, message: '最多 30 个字符', trigger: 'blur' }],
           unit: [{
             required: true,
             message: "请输入单位",
@@ -275,7 +282,7 @@
             api.Post("/qb/tenancy/apply", params).then(res => {
               console.log(res);
               if (res["suc"] == true) {
-                this.$confirm("提交成功", "提示", {
+                this.$confirm("提交成功", "提示", { 
                     confirmButtonText: "确定",
                     cancelButtonText: "取消",
                     type: "success"

@@ -13,7 +13,7 @@
             <el-input v-model="serviceForm.title" placeholder="请输入你的需求标题"></el-input>
           </el-form-item>
           <el-form-item label="需求描述" prop="needs">
-            <el-input type="textarea" :rows="5" v-model="serviceForm.needs" placeholder="请输入你的需求描述（350字内）"></el-input>
+            <el-input type="textarea" :rows="5" v-model="serviceForm.needs" placeholder="请输入你的需求描述（250字内）"></el-input>
           </el-form-item>
           <el-form-item label="企业名称" prop="enterprise">
             <el-input v-model="serviceForm.enterprise" placeholder="请输入企业名称"></el-input>
@@ -44,7 +44,7 @@
             <el-input v-model="cosnultForm.title" placeholder="请输入你的技术难题标题"></el-input>
           </el-form-item>
           <el-form-item label="难题及需求描述" prop="content">
-            <el-input type="textarea" :rows="5" v-model="cosnultForm.content" placeholder="请描述你的技术难题（350字内）"></el-input>
+            <el-input type="textarea" :rows="5" v-model="cosnultForm.content" placeholder="请描述你的技术难题（250字内）"></el-input>
           </el-form-item>
           <el-form-item label="企业名称" prop="enterprise">
             <el-input v-model="cosnultForm.enterprise" placeholder="请输入企业名称"></el-input>
@@ -105,7 +105,8 @@ export default {
         enterprise: "", //企业名称
         contact: "", //联系人姓名
         product: "", //产品与项目
-        phone: "" //联系电话
+        phone: "", //联系电话
+        needs: "", //服务需求
       },
       serviceRules: {
         businessId: [
@@ -143,6 +144,14 @@ export default {
             message: "请输入联系人姓名",
             trigger: "blur"
           }
+        ],
+        needs: [
+          {
+            required: true,
+            message: "请输入服务需求描述",
+            trigger: "blur"
+          },
+          { min: 2, max: 250, message: '最多250个字符', trigger: 'blur' }
         ],
         product: [
           {
@@ -183,7 +192,8 @@ export default {
             required: true,
             message: "请输入企业名称",
             trigger: "blur"
-          }
+          },
+          { min: 1, max: 20, message: "最多 20 个字符", trigger: "blur" }
         ],
         contact: [
           {
@@ -191,7 +201,8 @@ export default {
             validator: validateContact,
             message: "请输入联系人姓名",
             trigger: "blur"
-          }
+          },
+          { min: 1, max: 10, message: "最多 10 个字符", trigger: "blur" }
         ],
         phone: [
           {
@@ -206,14 +217,16 @@ export default {
             required: true,
             message: "请输入难题及需求标题",
             trigger: "blur"
-          }
+          },
+          { min: 1, max: 40, message: "最多 40 个字符", trigger: "blur" }
         ],
         content: [
           {
             required: true,
             message: "请输入咨询内容",
             trigger: "blur"
-          }
+          },
+          { min: 2, max: 250, message: '最多250个字符', trigger: 'blur' }
         ],
         product: [
           {

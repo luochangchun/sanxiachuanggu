@@ -211,13 +211,13 @@
                         validator: validateName,
                         message: '请输入企业名称',
                         trigger: 'blur'
-                    }],
+                    },{ min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
                     contact: [{
                         required: true,
                         validator: validateContact,
                         message: '请输入联系人姓名！',
                         trigger: 'blur'
-                    }],
+                    },{ min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
                     phone: [{
                         required: true,
                         validator: validatePhone,

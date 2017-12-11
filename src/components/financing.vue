@@ -77,7 +77,7 @@
                                     <p class="text-ellipsis">企业名称：{{item['enterprise']}}</p>
                                     <div class="info">
                                         <p class="pw270">联系人：<span style="margin-right:150px;">{{item['contact']}}</span></p>
-                                        <p>联系方式：<span>13972576207</span></p>
+                                        <p>联系方式：<span>{{item['phone']}}</span></p>
                                     </div>
                                 </router-link>
                             </div>

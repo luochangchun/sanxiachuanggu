@@ -28,7 +28,7 @@
                                         <el-col :lg="6" :md="6" :sm="6" :xs="6">
                                             <div class="teacher_img">
                                                 <img v-if="item.photo !== ''" :src="item.photo" alt="">
-                                                <img v-if="item.photo == ''" src="../../static/img/timgBg.png" alt="">
+                                                <img v-if="item.photo == ''" src="../../static/img/moren.png" alt="">
                                             </div>
                                         </el-col>
                                         <el-col :lg="18" :md="18" :sm="18" :xs="18">
@@ -74,7 +74,7 @@
                                         <el-col :lg="4" :md="4" :sm="4" :xs="4">
                                             <div class="train_img">
                                                 <img v-if="item.icon !== ''" :src="item.icon" alt="">
-                                                <img v-if="item.icon == ''" src="../../static/img/timgBg.png" alt="">
+                                                <img v-if="item.icon == ''" src="../../static/img/moren.png" alt="">
                                             </div>
                                         </el-col>
                                         <el-col :lg="20" :md="20" :sm="20" :xs="20">
@@ -120,7 +120,7 @@
                                         <el-col :lg="4" :md="4" :sm="4" :xs="4">
                                             <div class="train_img">
                                                 <img v-if="item.icon !== ''" :src="item.icon" alt="">
-                                                <img v-if="item.icon == ''" src="../../static/img/timgBg.png" alt="">
+                                                <img v-if="item.icon == ''" src="../../static/img/moren.png" alt="">
                                             </div>
                                         </el-col>
                                         <el-col :lg="20" :md="20" :sm="20" :xs="20">

@@ -191,12 +191,12 @@
 						required: true,
 						message: '请填写创始人姓名',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
 					founderIntro: [{
 						required: true,
 						message: '请填写创始人简介',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 250, message: '最多 250 个字符', trigger: 'blur' }],
 					birth: [{
 						type: 'date',
 						required: true,
@@ -207,7 +207,7 @@
 						required: true,
 						message: '请填写项目名称',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
 					businessId: [{
 						type: 'number',
 						required: true,
@@ -238,17 +238,17 @@
 						required: true,
 						message: '请填写项目简介',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 140, message: '最多 140 个字符', trigger: 'blur' }],
 					scale: [{
 						required: true,
 						message: '请填写团队规模',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 45, message: '最多 45 个字符', trigger: 'blur' }],
 					progress: [{
 						required: true,
 						message: '请填写项目进度情况',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 45, message: '最多 45 个字符', trigger: 'blur' }],
 					what: [{
 						required: true,
 						message: '请填写项目说明',
@@ -268,7 +268,7 @@
 						required: true,
 						message: '请填写持股比例',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 3, message: '最多 3 个字符', trigger: 'blur' }],
 					edu: [{
 						required: true,
 						message: '请填写学历',
@@ -278,12 +278,12 @@
 						required: true,
 						message: '请填写毕业院校',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 25, message: '最多 25 个字符', trigger: 'blur' }],
 					specialty: [{
 						required: true,
 						message: '请填写专业',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 25, message: '最多 25 个字符', trigger: 'blur' }],
 				}
 			};
 		},

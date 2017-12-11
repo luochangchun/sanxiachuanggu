@@ -98,8 +98,8 @@
             trigger: "blur"
           }, {
             min: 1,
-            max: 249,
-            message: '最多输入249个字',
+            max: 250,
+            message: '最多输入250个字',
             trigger: 'blur'
           }]
         },
@@ -112,8 +112,8 @@
             trigger: "blur"
           }, {
             min: 1,
-            max: 249,
-            message: '最多输入249个字',
+            max: 250,
+            message: '最多输入250个字',
             trigger: 'blur'
           }]
         }
@@ -140,7 +140,7 @@
     },
     methods: {
       Business() {
-        var url = "/dict/business";
+        var url = "/dict/consult";
         api.Get(url).then(res => {
           this.searchBusiness = res;
           let id = this.$route.params.id;
@@ -155,7 +155,7 @@
           api.Get(url).then(res => {
             this.openData = res;
             for (var i = 0; i < this.searchBusiness.length; i++) {
-              if (this.openData['businessId'] == this.searchBusiness[i]['idx']) {
+              if (this.openData['businessId'] == this.searchBusiness[i]['id']) {
                 this.openData['businessId'] = this.searchBusiness[i]['value'];
                 console.log(this.searchBusiness[i]['idx']);
               }
@@ -171,9 +171,10 @@
       },
       askBtn(formName) {
         this.$refs[formName].validate(valid => {
+          let id = this.$route.params.id;
           if (valid) {
             var params = {
-              subjectId: this.id,
+              subjectId: id,
               content: this.askForm.askMess
             };
             api.Post("/consult/msg", params).then(res => {

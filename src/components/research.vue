@@ -23,7 +23,7 @@
                                     <el-col :lg="4" :md="24" :sm="24" :xs="24">
                                         <!-- <img :src="item['icon']"> -->
                                         <img v-if="item.icon !== ''" :src="item.icon" alt="">
-                                        <img v-if="item.icon == ''" src="../../static/img/timgBg.png" alt="">
+                                        <img v-if="item.icon == ''" src="../../static/img/moren.png" alt="">
                                     </el-col>
                                     <el-col :lg="20" :md="24" :sm="24" :xs="24">
                                         <h1 class="text-ellipsis">{{item['name']}}</h1>
@@ -49,7 +49,7 @@
                                     <el-col :lg="4" :md="24" :sm="24" :xs="24">
                                         <!-- <img :src="item['photo']"> -->
                                         <img v-if="item.photo !== ''" :src="item.photo" alt="">
-                                        <img v-if="item.photo == ''" src="../../static/img/timgBg.png" alt="">
+                                        <img v-if="item.photo == ''" src="../../static/img/moren.png" alt="">
                                     </el-col>
                                     <el-col :lg="20" :md="24" :sm="24" :xs="24">
                                         <h1 class="text-ellipsis">{{item['name']}}</h1>
@@ -57,12 +57,12 @@
                                         <el-tag type="danger" style="margin-top: 5px;">行业领域：{{item['field'] | filterStr}}</el-tag>
                                     </el-col>
                                 </div>
-                                <!-- <div class="pageNo clearfix">
-                                                        <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
-                                                            <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
-                                                            </el-pagination>
-                                                        </el-col>
-                                                    </div> -->
+                                <div class="pageNo clearfix">
+                                    <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
+                                        <el-pagination :current-page="1" :total="ExeprtPages" @current-change="handleExeprt" layout="prev, pager, next">
+                                        </el-pagination>
+                                    </el-col>
+                                </div>
                             </div>
                         </div>
                         <div class="InvestmentAgency clearfix ResearchInstitute">
@@ -75,7 +75,7 @@
                                 <div :to="{ name: 'tutorDetail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in ResearchInstitute" :key="index">
                                     <el-col :lg="4" :md="24" :sm="24" :xs="24">
                                         <img v-if="item.photo !== ''" :src="item.photo" alt="">
-                                        <img v-if="item.photo == ''" src="../../static/img/timgBg.png" alt="">
+                                        <img v-if="item.photo == ''" src="../../static/img/moren.png" alt="">
                                     </el-col>
                                     <el-col :lg="20" :md="24" :sm="24" :xs="24">
                                         <h1 class="text-ellipsis">{{item['name']}}</h1>
@@ -83,12 +83,12 @@
                                         <el-tag type="danger" style="margin-top: 5px;">研究方向：{{item['field'] | filterStr}}</el-tag>
                                     </el-col>
                                 </div>
-                                <!-- <div class="pageNo clearfix">
-                                                        <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
-                                                            <el-pagination :current-page="1" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
-                                                            </el-pagination>
-                                                        </el-col>
-                                                    </div> -->
+                                <div class="pageNo clearfix">
+                                    <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
+                                        <el-pagination :current-page="1" :total="ResearchPages" @current-change="handleResearch" layout="prev, pager, next">
+                                        </el-pagination>
+                                    </el-col>
+                                </div>
                             </div>
                         </div>
                     </el-col>
@@ -139,7 +139,9 @@
                 totalPages: "",
                 consultPages: "",
                 Exeprt: "", //专家团队
+                ExeprtPages: "",
                 ResearchInstitute: "", //研究机构
+                ResearchPages: "",
             }
         },
         created() {
@@ -212,7 +214,21 @@
                     } else if (this.Exeprt.length > 0) {
                         this.noData2 = false;
                         this.Exeprt = res["data"];
-                        this.totalPages = res["totalPages"] * 10;
+                        this.ExeprtPages = res["totalPages"] * 10;
+                    }
+                });
+            },
+            handleExeprt(val) {
+                //专家团队
+                var url = "/indie/2/" + "4" + "/" + val;
+                api.Get(url).then(res => {
+                    this.Exeprt = res["data"];
+                    if (this.Exeprt.length == 0) {
+                        this.noData2 = true;
+                    } else if (this.Exeprt.length > 0) {
+                        this.noData2 = false;
+                        this.Exeprt = res["data"];
+                        this.ExeprtPages = res["totalPages"] * 10;
                     }
                 });
             },
@@ -226,7 +242,21 @@
                     } else if (this.ResearchInstitute.length > 0) {
                         this.noData5 = false;
                         this.ResearchInstitute = res["data"];
-                        this.totalPages = res["totalPages"] * 10;
+                        this.ResearchPages = res["totalPages"] * 10;
+                    }
+                });
+            },
+            handleResearch(val) {
+                //研究机构
+                var url = "/indie/5/" + "4" + "/" + val;
+                api.Get(url).then(res => {
+                    this.ResearchInstitute = res["data"];
+                    if (this.ResearchInstitute.length == 0) {
+                        this.noData5 = true;
+                    } else if (this.ResearchInstitute.length > 0) {
+                        this.noData5 = false;
+                        this.ResearchInstitute = res["data"];
+                        this.ResearchPages = res["totalPages"] * 10;
                     }
                 });
             },

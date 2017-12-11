@@ -85,17 +85,17 @@
 						required: true,
 						message: '请填写公司名称',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
 					scope: [{
 						required: true,
 						message: '请填写公司经营范围',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
 					period: [{
 						required: true,
 						message: '请填写成立情况',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 15, message: '最多 15 个字符', trigger: 'blur' }],
 					fresh: [{
 						required: true,
 						message: '请选择是否三年内毕业大学生',
@@ -105,18 +105,18 @@
 						required: true,
 						message: '请输入团队人数',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
 					area: [{
 						required: true,
 						message: '请输入所需办公面积/工位数',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
 					contact: [{
 						required: true,
 						message: '请输入联系人姓名',
 						validator: validateContact,
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 10, message: '最多 10 个字符', trigger: 'blur' }],
 					phone: [{
 						required: true,
 						validator: validatePhone,

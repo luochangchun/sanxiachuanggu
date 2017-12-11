@@ -98,8 +98,8 @@
             trigger: "blur"
           }, {
             min: 1,
-            max: 249,
-            message: '最多输入249个字',
+            max: 250,
+            message: '最多输入250个字',
             trigger: 'blur'
           }]
         },
@@ -112,8 +112,8 @@
             trigger: "blur"
           }, {
             min: 1,
-            max: 249,
-            message: '最多输入249个字',
+            max: 250,
+            message: '最多输入250个字',
             trigger: 'blur'
           }]
         }

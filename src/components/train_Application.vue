@@ -54,18 +54,19 @@
 					}],
 					name: [{
 						required: true,
-						validator: validateName,
 						message: '请输入正确姓名',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 10, message: '最多 10 个字符', trigger: 'blur' }],
 				}
 			}
 		},
 		methods: {
 			submitForm(formName) {
 				this.$refs[formName].validate((valid) => {
+					let id = this.$route.params.id;
 					if (valid) {
 						var params = {
+							"activityId": id,
 							"phone": this.trainForm.phone,
 							"name": this.trainForm.name
 						};

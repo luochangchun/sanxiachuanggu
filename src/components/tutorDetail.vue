@@ -105,7 +105,7 @@
             required: true,
             message: "请填写要咨询的问题",
             trigger: "blur"
-          }]
+          },{ min: 1, max: 250, message: '最多 250 个字符', trigger: 'blur' }]
         }
       };
     },
