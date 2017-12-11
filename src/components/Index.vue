@@ -12,7 +12,7 @@
           <el-col :xs="24" :sm="24" :md="24" :lg="13">
             <div class="headLine_swiper">
               <el-carousel :interval="500000" arrow="always" height="360px">
-                <el-carousel-item v-for="(item, index) in topic" :key="index">
+                <el-carousel-item v-for="(item, index) in topic" :key="index" v-if="index<8">
                   <div class="item_img_wrap">
                     <router-link :to="{ name: 'article', params: { id: item.id}}">
                       <img :src='item.icon' style="max-height:358px;">
@@ -140,7 +140,7 @@
             <router-link :to="{ name: 'tutorDetail', params: { id: item.id} }" class="tutor_item rel">
               <div class="tutor_img">
                 <img v-show="item.photo !== ''"  :src="item.photo" alt="">
-                <img v-show="item.photo == ''" src="../../static/img/zs.png" alt="" style="width:164px;height:164px;">
+                <img v-show="item.photo == ''" src="../../static/img/zss.png" alt="">
               </div>
               <p class="tc f14">{{item.name}}
                 <i>&nbsp;&nbsp;{{item.title}}</i>
@@ -266,12 +266,7 @@
         api.Get('/pub/index')
           .then(res => {
             this.topic = res['topic']; //今日头条接口数据
-            for(var i=0;i<res['activity'].length;i++) {
-              if(res['activity'][i]['type'] == 2) {
-                this.activityList.push(res['activity'][i]);
-              }
-            }
-            // this.activity = res['activity']; //活动接口数据
+            this.activityList = res['activity'];
             this.financing = res['financing']; //融资项目
             this.valley = res['valley']; //创谷空间展示
             this.double = res['double']; //双创空间展示

@@ -24,7 +24,7 @@
                         <el-col :xs="21" :sm="21" :md="21" :lg="21" class="clearfix">
                             <div class="incubators_more_img l">
                                 <img v-if="item['icon']" :src="item['icon']" alt="" style="margin-left: -5px;width:212px;height:150px;">
-                                <img v-if="!item['icon']" src="../../static/img/zs.png" alt="" style="width:100%;height:80px;margin-top: 12px;">
+                                <img v-if="!item['icon']" src="../../static/img/zs.png" alt="" style="width:212px;height:150px;margin-top: 12px;">
                             </div>
                             <div class="incubators_more_introduce l" style="margin-left: 10px;">
                                 <h2 v-if="!item['title']">招商</h2>

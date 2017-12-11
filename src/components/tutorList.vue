@@ -13,7 +13,8 @@
             <el-row :gutter="10" style="margin:20px 0">
                 <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in tutorList" :key="index">
                     <div class="research-teacher" style="margin-bottom:20px;">
-                        <img :src="item.photo" alt="">
+                        <img v-show="item.photo != ''"  :src="item.photo" alt="">
+                        <img v-show="item.photo == ''" src="../../static/img/moren.png" alt="">
                         <div>
                             <h3>{{item.name}}</h3>
                             <p>{{item.title}}</p>
@@ -83,10 +84,12 @@
         min-height: 220px;
     }
     .research-teacher img {
-        width: 30%;
+        width: 85px;
+        height: 85px;
         margin-right: auto;
         margin-left: auto;
         display: block;
+        border-radius: 50%;
     }
     .research-teacher div {
         margin-left: 30px;

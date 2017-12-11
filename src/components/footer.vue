@@ -9,10 +9,10 @@
                     <p class="gray">客服电话：0717-6496789</p>
                     <!-- <p class="gray">邮箱：marketing@hansap.com</p> -->
                 </el-col>
-                <!-- <el-col :xs="24" :sm="24" :md="12" :lg="9" class="contact_img">
+                <el-col :xs="24" :sm="24" :md="12" :lg="9" class="contact_img">
                     <p class="b white tc" style="padding-bottom:10px">关注我们<span class="gray">（扫一扫）</span></p>
-                    <img src="http://www.egowork.com/themes/egowork/img/egowork.jpg" class="center-block" style="width:130px;">
-                </el-col> -->
+                    <img src="../../static/img/QR_code.jpg" class="center-block" style="width:130px;">
+                </el-col>
             </el-row>
         </div>
         <div class="bg-dark">
