@@ -233,6 +233,7 @@ __WEBPACK_IMPORTED_MODULE_1_axios___default.a.interceptors.response.use(function
           path: '/login',
           query: { redirect: __WEBPACK_IMPORTED_MODULE_4__routes_js__["a" /* default */].currentRoute.fullPath }
         });
+
     }
   }
   // console.log(JSON.stringify(error));//console : Error: Request failed with status code 402
@@ -810,8 +811,9 @@ var api = __webpack_require__("P9l9");
           if (Authorization) {
             _this.$store.commit(types["a" /* LOGIN */], Authorization);
             _this.$store.commit(types["d" /* USERINFO */], UserInfo);
-            api["a" /* default */].Get('/wc/auth', params).then(function (res) {
-              console.log(res);
+
+            api["a" /* default */].Get('/wc/auth', {}).then(function (res) {
+              window.location.href = res;
             });
           }
         } else if (res['suc'] == false) {
@@ -821,7 +823,7 @@ var api = __webpack_require__("P9l9");
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-4fc84178","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/index.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-faa6ebe4","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/index.vue
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._m(0,false,false),_vm._v(" "),_c('div',{staticClass:"sh-login-main"},[_c('div',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.loginForm.phone),expression:"loginForm.phone"}],staticClass:"s1",attrs:{"type":"text","placeholder":"输入手机号"},domProps:{"value":(_vm.loginForm.phone)},on:{"blur":function($event){_vm.vailPhone(_vm.loginForm.phone)},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.loginForm, "phone", $event.target.value)}}}),_vm._v(" "),_c('p',{class:_vm.loginForm.phoneFlag ? 'true' : 'false'},[_vm._v("* 请输入正确手机号!")])]),_vm._v(" "),_c('div',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.loginForm.pass),expression:"loginForm.pass"}],staticClass:"s2",attrs:{"type":"password","placeholder":"输入账号密码"},domProps:{"value":(_vm.loginForm.pass)},on:{"blur":function($event){_vm.vailPass(_vm.loginForm.pass)},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.loginForm, "pass", $event.target.value)}}}),_vm._v(" "),_c('p',{class:_vm.loginForm.passFlag ? 'true' : 'false'},[_vm._v("* 请输入正确密码!")])]),_vm._v(" "),_c('button',{staticClass:"button",on:{"click":_vm.submitForm}},[_vm._v("登录")])])])}
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"login_img"},[_c('img',{attrs:{"src":__webpack_require__("ZBJ4"),"alt":""}})])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -902,7 +904,7 @@ router.beforeEach(function (to, from, next) {
       next();
     } else {
       next({
-        path: '/login',
+        path: '/index',
         query: { redirect: to.fullPath }
       });
     }
@@ -1144,4 +1146,4 @@ var fz;
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.862b5e69676badc58552.js.map
+//# sourceMappingURL=app.06678f8b4c33a01b5f34.js.map
