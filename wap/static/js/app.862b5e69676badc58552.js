@@ -1,20 +1,6 @@
 webpackJsonp([1],{
 
-/***/ "AY7L":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "EWIa":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "H2DA":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -41,6 +27,45 @@ var USERINFO = 'userinfo';
 var LOGOUT = 'logout';
 
 var TITLE = 'title';
+
+/***/ }),
+
+/***/ "I+Ex":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "KheU":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = formatDate;
+function formatDate(date, fmt) {
+    if (/(y+)/.test(fmt)) {
+        fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+    }
+    let o = {
+        'M+': date.getMonth() + 1,
+        'd+': date.getDate(),
+        'h+': date.getHours(),
+        'm+': date.getMinutes(),
+        's+': date.getSeconds()
+    }
+    for (let k in o) {
+        let str = o[k] + '';
+        if (new RegExp(`(${k})`).test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? str : padLeftZero(str));
+        }
+    }
+    return fmt;
+};
+
+function padLeftZero(str) {
+    return ('00' + str).substr(str.length);
+}
+
 
 /***/ }),
 
@@ -286,30 +311,8 @@ function toDelete(url) {
 // EXTERNAL MODULE: ./src/api/api.js
 var api = __webpack_require__("P9l9");
 
-// CONCATENATED MODULE: ./static/js/date.js
-function date_formatDate(date, fmt) {
-    if (/(y+)/.test(fmt)) {
-        fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
-    }
-    let o = {
-        'M+': date.getMonth() + 1,
-        'd+': date.getDate(),
-        'h+': date.getHours(),
-        'm+': date.getMinutes(),
-        's+': date.getSeconds()
-    }
-    for (let k in o) {
-        let str = o[k] + '';
-        if (new RegExp(`(${k})`).test(fmt)) {
-            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? str : padLeftZero(str));
-        }
-    }
-    return fmt;
-};
-
-function padLeftZero(str) {
-    return ('00' + str).substr(str.length);
-}
+// EXTERNAL MODULE: ./static/js/date.js
+var js_date = __webpack_require__("KheU");
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/activityList.vue
 //
@@ -347,7 +350,7 @@ function padLeftZero(str) {
   filters: {
     formatDate: function formatDate(time) {
       var date = new Date(time);
-      return date_formatDate(date, 'yyyy-MM-dd');
+      return Object(js_date["a" /* formatDate */])(date, 'yyyy-MM-dd');
     }
   },
   methods: {
@@ -424,6 +427,9 @@ var mint_ui_common_default = /*#__PURE__*/__webpack_require__.n(mint_ui_common);
 // EXTERNAL MODULE: ./src/api/api.js
 var api = __webpack_require__("P9l9");
 
+// EXTERNAL MODULE: ./static/js/date.js
+var js_date = __webpack_require__("KheU");
+
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/reply.vue
 //
 //
@@ -452,11 +458,7 @@ var api = __webpack_require__("P9l9");
 //
 //
 //
-//
-//
-//
-//
-//
+
 
 
 
@@ -464,6 +466,9 @@ var api = __webpack_require__("P9l9");
   data: function data() {
     return {
       list: "",
+      question: "", //主题
+      reply: "", //对话
+      flag: false,
       form: {
         content: "",
         flag: false
@@ -475,13 +480,23 @@ var api = __webpack_require__("P9l9");
     this.initDetail(id);
   },
 
+  filters: {
+    formatDate: function formatDate(time) {
+      var date = new Date(time);
+      return Object(js_date["a" /* formatDate */])(date, "yyyy-MM-dd hh:mm");
+    }
+  },
   methods: {
     initDetail: function initDetail(id) {
-      api["a" /* default */].Get('/enq/10/1/' + id).then(function (res) {
-        if (res['suc'] == true) {
-          console.log(res);
+      var _this = this;
+
+      api["a" /* default */].Get("/indie/question/" + id).then(function (res) {
+        if (res["question"] == null) {
+          _this.flag = true;
         } else {
-          console.log(res);
+          _this.question = res["question"];
+          _this.reply = res["reply"];
+          _this.flag = false;
         }
       });
     },
@@ -497,40 +512,38 @@ var api = __webpack_require__("P9l9");
       }
     },
     submitForm: function submitForm() {
+      var _this2 = this;
+
       var params = {
-        "subjectId": this.$route.params.id,
-        "content": this.form.content
+        subjectId: this.$route.params.id,
+        content: this.form.content
       };
-      api["a" /* default */].Post('/indie/reply', params).then(function (res) {
-        if (res['suc'] == true) {
+      api["a" /* default */].Post("/indie/reply", params).then(function (res) {
+        if (res["suc"] == true) {
           Object(mint_ui_common["Toast"])({
-            message: '回复成功',
+            message: "回复成功",
             duration: 500
           });
+          var id = _this2.$route.params.id;
+          _this2.initDetail(id);
         } else {
           Object(mint_ui_common["Toast"])({
-            message: '回复失败',
+            message: "回复失败",
             duration: 500
           });
         }
       });
     }
-    // initList() {
-    //   var url = "/indie/msg/10/1";
-    //   api.Get(url).then(res => {
-    //     console.log(res);
-    //   });
-    // }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-d4ebdea2","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/reply.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._m(0,false,false),_vm._v(" "),_c('div',{staticClass:"footer"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.content),expression:"form.content"}],attrs:{"type":"text","placeholder":"我来回复"},domProps:{"value":(_vm.form.content)},on:{"blur":function($event){_vm.vailEmpty(_vm.form.content)},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "content", $event.target.value)}}}),_vm._v(" "),_c('button',{on:{"click":_vm.submitForm}},[_vm._v("回复")])])])}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"min-height":"calc(100vh - 2.2rem)"}},[_c('div',{staticClass:"main_login"},[_c('h1',[_vm._v("首次创业者必须知道哪些基本常识?")]),_vm._v(" "),_c('p',[_vm._v("首次创业者必须知道哪些基本常识?首次创业者必须知道哪些基本常识?首次创业者必须知道哪些基本常识?首次创业者必须知道哪些基本常识?首次创业者必须知道哪些基本常识?")]),_vm._v(" "),_c('p',{staticClass:"last_p"},[_c('span',[_vm._v("WENDY")]),_vm._v("2017-11-23 11:08")])]),_vm._v(" "),_c('span',{staticStyle:{"background":"linear-gradient(#efefef, #e0e0e0)","width":"100%","height":"0.5rem","display":"block"}}),_vm._v(" "),_c('div',{staticClass:"main_login"},[_c('h2',[_c('span',[_vm._v("|")]),_vm._v("相关交流")]),_vm._v(" "),_c('ul',[_c('li',[_c('p',{staticClass:"last_p"},[_c('span',[_vm._v("李浩")]),_vm._v("2017-11-23 11:08")]),_vm._v(" "),_c('p',{staticClass:"border-b"},[_vm._v("首次创业者必须知道哪些基本常识?首次创业者必须知道哪些基本常识?首次创业者必须知道哪些基本常识?首次创业者必须知道哪些基本常识?首次创业者必须知道哪些基本常识?")])])]),_vm._v(" "),_c('ul',[_c('li',[_c('p',{staticClass:"last_p"},[_c('span',[_vm._v("WENDY")]),_vm._v("2017-11-23 11:08")]),_vm._v(" "),_c('p',{staticClass:"border-b"},[_vm._v("首次创业者必须知道哪些基本常识?首次创业者?")])])])])])}]
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-0e48f9a2","hasScoped":true,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/reply.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{staticStyle:{"min-height":"calc(100vh - 2.2rem)"}},[(!_vm.flag)?_c('div',{staticClass:"main_login"},[_c('h1',[_vm._v(_vm._s(_vm.question['content']))]),_vm._v(" "),_c('p',{staticClass:"last_p"},[_c('span',[_vm._v(_vm._s(_vm.question['name']))]),_vm._v(_vm._s(_vm._f("formatDate")(_vm.question['createAt'])))])]):_vm._e(),_vm._v(" "),_c('span',{staticStyle:{"background":"linear-gradient(#efefef, #e0e0e0)","width":"100%","height":"0.5rem","display":"block"}}),_vm._v(" "),_c('div',{staticClass:"main_login"},[_vm._m(0,false,false),_vm._v(" "),_c('p',{directives:[{name:"show",rawName:"v-show",value:(_vm.reply.length == 0),expression:"reply.length == 0"}]},[_vm._v("暂未交流记录")]),_vm._v(" "),_c('ul',{directives:[{name:"show",rawName:"v-show",value:(_vm.reply.length != 0),expression:"reply.length != 0"}]},_vm._l((_vm.reply),function(item,index){return _c('li',{key:index},[_c('p',{staticClass:"last_p"},[_c('span',{class:{ blue: item['mentor']}},[_vm._v(_vm._s(item['name']))]),_vm._v(_vm._s(_vm._f("formatDate")(item['createAt'])))]),_vm._v(" "),_c('p',{staticClass:"border-b"},[_vm._v(_vm._s(item['content']))])])}))])]),_vm._v(" "),_c('div',{staticClass:"footer",staticStyle:{"background-color":"#fff"}},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.content),expression:"form.content"}],attrs:{"type":"text","placeholder":"我来回复"},domProps:{"value":(_vm.form.content)},on:{"blur":function($event){_vm.vailEmpty(_vm.form.content)},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "content", $event.target.value)}}}),_vm._v(" "),_c('button',{on:{"click":_vm.submitForm}},[_vm._v("回复")])])])}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('h2',[_c('span',[_vm._v("|")]),_vm._v("相关交流")])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ var components_reply = (esExports);
 // CONCATENATED MODULE: ./src/components/reply.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("H2DA")
+  __webpack_require__("rWax")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -542,7 +555,7 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-0e48f9a2"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -572,6 +585,8 @@ var api = __webpack_require__("P9l9");
 //
 //
 //
+//
+
 
 
 /* harmony default export */ var article = ({
@@ -600,14 +615,14 @@ var api = __webpack_require__("P9l9");
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-5ae92562","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/article.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-02eaf4e6","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/article.vue
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{domProps:{"innerHTML":_vm._s(_vm.content)}})}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ var components_article = (esExports);
 // CONCATENATED MODULE: ./src/components/article.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("AY7L")
+  __webpack_require__("I+Ex")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -863,7 +878,7 @@ var Component = normalizeComponent(
 
 __WEBPACK_IMPORTED_MODULE_0_vue__["default"].use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
 
-var routes = [{ path: '/index', name: 'index', component: __WEBPACK_IMPORTED_MODULE_4__src_components_index_vue__["a" /* default */] }, { path: '/Reply/:id', name: 'Reply', component: __WEBPACK_IMPORTED_MODULE_5__src_components_reply_vue__["a" /* default */] }, { path: '/NewsList', name: 'NewsList', component: __WEBPACK_IMPORTED_MODULE_6__src_components_newsList_vue__["a" /* default */] }, { path: '/activityList', name: 'activityList', component: __WEBPACK_IMPORTED_MODULE_7__src_components_activityList_vue__["a" /* default */] }, { path: '/article/:id', name: 'article', component: __WEBPACK_IMPORTED_MODULE_8__src_components_article_vue__["a" /* default */] }];
+var routes = [{ path: '/index', name: 'index', component: __WEBPACK_IMPORTED_MODULE_4__src_components_index_vue__["a" /* default */] }, { path: '/Reply/:id', name: 'Reply', component: __WEBPACK_IMPORTED_MODULE_5__src_components_reply_vue__["a" /* default */] }, { path: '/NewsList', name: 'NewsList', component: __WEBPACK_IMPORTED_MODULE_6__src_components_newsList_vue__["a" /* default */] }, { path: '/activityList', name: 'activityList', component: __WEBPACK_IMPORTED_MODULE_7__src_components_activityList_vue__["a" /* default */] }, { path: '/article/:id', name: 'article', component: __WEBPACK_IMPORTED_MODULE_8__src_components_article_vue__["a" /* default */] }, { path: '*', redirect: '/index' }];
 
 // 页面刷新时，重新赋值token
 if (window.localStorage.getItem('token')) {
@@ -873,6 +888,7 @@ if (window.localStorage.getItem('userinfo')) {
   __WEBPACK_IMPORTED_MODULE_2__src_components_store_store__["a" /* default */].commit(__WEBPACK_IMPORTED_MODULE_3__src_components_store_types__["d" /* USERINFO */], window.localStorage.getItem('userinfo'));
 }
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
+  linkActiveClass: 'active',
   mode: 'hash',
   base: __dirname,
   routes: routes
@@ -1113,6 +1129,13 @@ var fz;
 
 /***/ }),
 
+/***/ "rWax":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "uCtH":
 /***/ (function(module, exports) {
 
@@ -1121,4 +1144,4 @@ var fz;
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.2de8e87d2d56b9012ebd.js.map
+//# sourceMappingURL=app.862b5e69676badc58552.js.map
