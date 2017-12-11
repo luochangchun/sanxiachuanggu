@@ -2830,7 +2830,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }) : _vm._e(), _vm._v(" "), (item.photo == '') ? _c('img', {
       attrs: {
-        "src": __webpack_require__("EAwx"),
+        "src": __webpack_require__("SE8k"),
         "alt": ""
       }
     }) : _vm._e()])]), _vm._v(" "), _c('el-col', {
@@ -2934,7 +2934,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }) : _vm._e(), _vm._v(" "), (item.icon == '') ? _c('img', {
       attrs: {
-        "src": __webpack_require__("EAwx"),
+        "src": __webpack_require__("SE8k"),
         "alt": ""
       }
     }) : _vm._e()])]), _vm._v(" "), _c('el-col', {
@@ -3036,7 +3036,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }) : _vm._e(), _vm._v(" "), (item.icon == '') ? _c('img', {
       attrs: {
-        "src": __webpack_require__("EAwx"),
+        "src": __webpack_require__("SE8k"),
         "alt": ""
       }
     }) : _vm._e()])]), _vm._v(" "), _c('el-col', {
@@ -3278,6 +3278,13 @@ exports.default = {
 
 /***/ }),
 
+/***/ "31vG":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/img/QR_code.735cca2.jpg";
+
+/***/ }),
+
 /***/ "3Dtr":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3367,7 +3374,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "f24"
   }, [_c('span', [_vm._v("基本信息")])]), _vm._v(" "), _c('div', {
     staticClass: "wrapper"
-  }, [_c('p', [_vm._v(" 联系人：" + _vm._s(_vm.train['name'] || "暂无数据") + " ")]), _vm._v(" "), _c('p', [_vm._v(" 联系方式：" + _vm._s(_vm.train['phone'] || "暂无数据") + " ")]), _vm._v(" "), _c('p', [_vm._v(" 时间：" + _vm._s(_vm._f("formatDate")(_vm.train['createAt'])) + " ")]), _vm._v(" "), _c('p', [_vm._v(" 地点：" + _vm._s(_vm.train['location'] || "暂无数据") + " ")])])])])], 1)], 1)])])
+  }, [_c('p', [_vm._v(" 联系人：" + _vm._s(_vm.train['name'] || "暂无数据") + " ")]), _vm._v(" "), _c('p', [_vm._v(" 联系方式：" + _vm._s(_vm.train['phone'] || "暂无数据") + " ")]), _vm._v(" "), _c('p', [_vm._v(" 时间：" + _vm._s(_vm._f("formatDate")(_vm.train['startAt'])) + " ")]), _vm._v(" "), _c('p', [_vm._v(" 地点：" + _vm._s(_vm.train['location'] || "暂无数据") + " ")])])])])], 1)], 1)])])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -3756,12 +3763,12 @@ exports.default = {
 					required: true,
 					message: '请填写创始人姓名',
 					trigger: 'blur'
-				}],
+				}, { min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
 				founderIntro: [{
 					required: true,
 					message: '请填写创始人简介',
 					trigger: 'blur'
-				}],
+				}, { min: 1, max: 250, message: '最多 250 个字符', trigger: 'blur' }],
 				birth: [{
 					type: 'date',
 					required: true,
@@ -3772,7 +3779,7 @@ exports.default = {
 					required: true,
 					message: '请填写项目名称',
 					trigger: 'blur'
-				}],
+				}, { min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
 				businessId: [{
 					type: 'number',
 					required: true,
@@ -3803,17 +3810,17 @@ exports.default = {
 					required: true,
 					message: '请填写项目简介',
 					trigger: 'blur'
-				}],
+				}, { min: 1, max: 140, message: '最多 140 个字符', trigger: 'blur' }],
 				scale: [{
 					required: true,
 					message: '请填写团队规模',
 					trigger: 'blur'
-				}],
+				}, { min: 1, max: 45, message: '最多 45 个字符', trigger: 'blur' }],
 				progress: [{
 					required: true,
 					message: '请填写项目进度情况',
 					trigger: 'blur'
-				}],
+				}, { min: 1, max: 45, message: '最多 45 个字符', trigger: 'blur' }],
 				what: [{
 					required: true,
 					message: '请填写项目说明',
@@ -3833,7 +3840,7 @@ exports.default = {
 					required: true,
 					message: '请填写持股比例',
 					trigger: 'blur'
-				}],
+				}, { min: 1, max: 3, message: '最多 3 个字符', trigger: 'blur' }],
 				edu: [{
 					required: true,
 					message: '请填写学历',
@@ -3843,12 +3850,12 @@ exports.default = {
 					required: true,
 					message: '请填写毕业院校',
 					trigger: 'blur'
-				}],
+				}, { min: 1, max: 25, message: '最多 25 个字符', trigger: 'blur' }],
 				specialty: [{
 					required: true,
 					message: '请填写专业',
 					trigger: 'blur'
-				}]
+				}, { min: 1, max: 25, message: '最多 25 个字符', trigger: 'blur' }]
 			}
 		};
 	},
@@ -4396,7 +4403,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "height": "360px"
     }
   }, _vm._l((_vm.topic), function(item, index) {
-    return _c('el-carousel-item', {
+    return (index < 8) ? _c('el-carousel-item', {
       key: index
     }, [_c('div', {
       staticClass: "item_img_wrap"
@@ -4418,7 +4425,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }), _vm._v(" "), _c('p', {
       staticClass: "text-ellipsis white abs tc f14"
-    }, [_vm._v(_vm._s(item.title))])])], 1)])
+    }, [_vm._v(_vm._s(item.title))])])], 1)]) : _vm._e()
   }))], 1)]), _vm._v(" "), _c('el-col', {
     staticClass: "headLine_news_r",
     attrs: {
@@ -4763,12 +4770,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         value: (item.photo == ''),
         expression: "item.photo == ''"
       }],
-      staticStyle: {
-        "width": "164px",
-        "height": "164px"
-      },
       attrs: {
-        "src": __webpack_require__("YZ8I"),
+        "src": __webpack_require__("86x5"),
         "alt": ""
       }
     })]), _vm._v(" "), _c('p', {
@@ -5105,13 +5108,13 @@ exports.default = {
           required: true,
           message: "请输入标题",
           trigger: "blur"
-        }],
+        }, { min: 1, max: 80, message: '最多 80 个字符', trigger: 'blur' }],
         contact: [{
           required: true,
           validator: validateName,
           message: "请输入联系人",
           trigger: "blur"
-        }],
+        }, { min: 1, max: 10, message: '最多 10 个字符', trigger: 'blur' }],
         phone: [{
           required: true,
           validator: validatePhone,
@@ -5122,27 +5125,27 @@ exports.default = {
           required: true,
           message: "请输入楼盘名称",
           trigger: "blur"
-        }],
+        }, { min: 1, max: 30, message: '最多 30 个字符', trigger: 'blur' }],
         district: [{
           // required: true,
           message: "请输入求租区域",
           trigger: "blur"
-        }],
+        }, { min: 1, max: 45, message: '最多 45 个字符', trigger: 'blur' }],
         area: [{
           required: true,
           message: "请输入面积",
           trigger: "blur"
-        }],
+        }, { min: 1, max: 30, message: '最多 30 个字符', trigger: 'blur' }],
         address: [{
           required: true,
           message: "请输入地址/地段",
           trigger: "blur"
-        }],
+        }, { min: 1, max: 100, message: '最多 100 个字符', trigger: 'blur' }],
         price: [{
           required: true,
           message: "请输入每平米价格",
           trigger: "blur"
-        }],
+        }, { min: 1, max: 30, message: '最多 30 个字符', trigger: 'blur' }],
         unit: [{
           required: true,
           message: "请输入单位",
@@ -5637,6 +5640,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "86x5":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/img/zss.f63aa93.png";
 
 /***/ }),
 
@@ -7268,8 +7278,8 @@ exports.default = {
           trigger: "blur"
         }, {
           min: 1,
-          max: 249,
-          message: '最多输入249个字',
+          max: 250,
+          message: '最多输入250个字',
           trigger: 'blur'
         }]
       },
@@ -7282,8 +7292,8 @@ exports.default = {
           trigger: "blur"
         }, {
           min: 1,
-          max: 249,
-          message: '最多输入249个字',
+          max: 250,
+          message: '最多输入250个字',
           trigger: 'blur'
         }]
       }
@@ -7797,12 +7807,7 @@ exports.default = {
       this.fullscreenLoading = true;
       _api2.default.Get('/pub/index').then(function (res) {
         _this.topic = res['topic']; //今日头条接口数据
-        for (var i = 0; i < res['activity'].length; i++) {
-          if (res['activity'][i]['type'] == 2) {
-            _this.activityList.push(res['activity'][i]);
-          }
-        }
-        // this.activity = res['activity']; //活动接口数据
+        _this.activityList = res['activity'];
         _this.financing = res['financing']; //融资项目
         _this.valley = res['valley']; //创谷空间展示
         _this.double = res['double']; //双创空间展示
@@ -8313,8 +8318,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }) : _vm._e(), _vm._v(" "), (!item['icon']) ? _c('img', {
       staticStyle: {
-        "width": "100%",
-        "height": "80px",
+        "width": "212px",
+        "height": "150px",
         "margin-top": "12px"
       },
       attrs: {
@@ -8707,13 +8712,6 @@ var Component = normalizeComponent(
 
 /* harmony default export */ __webpack_exports__["default"] = (Component.exports);
 
-
-/***/ }),
-
-/***/ "EAwx":
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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"
 
 /***/ }),
 
@@ -11345,7 +11343,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticStyle: {
         "margin-right": "150px"
       }
-    }, [_vm._v(_vm._s(item['contact']))])]), _vm._v(" "), _c('p', [_vm._v("联系方式："), _c('span', [_vm._v("13972576207")])])])])
+    }, [_vm._v(_vm._s(item['contact']))])]), _vm._v(" "), _c('p', [_vm._v("联系方式："), _c('span', [_vm._v(_vm._s(item['phone']))])])])])
   })], 2), _vm._v(" "), _c('el-col', {
     directives: [{
       name: "show",
@@ -14010,7 +14008,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('div', {
     staticClass: "container"
   }, [_c('div', {
-    staticClass: "login_wrap"
+    staticClass: "login_wrap",
+    staticStyle: {
+      "min-height": "500px"
+    }
   }, [_c('el-row', [_c('el-col', {
     attrs: {
       "xs": 24,
@@ -14186,8 +14187,25 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "margin-bottom": "20px"
       }
     }, [_c('img', {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: (item.photo != ''),
+        expression: "item.photo != ''"
+      }],
       attrs: {
         "src": item.photo,
+        "alt": ""
+      }
+    }), _vm._v(" "), _c('img', {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: (item.photo == ''),
+        expression: "item.photo == ''"
+      }],
+      attrs: {
+        "src": __webpack_require__("SE8k"),
         "alt": ""
       }
     }), _vm._v(" "), _c('div', [_c('h3', [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(item.title))]), _vm._v(" "), _c('p', {
@@ -14531,6 +14549,13 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADs
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "SE8k":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/img/moren.5a8ff65.png";
 
 /***/ }),
 
@@ -14890,8 +14915,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }) : _vm._e(), _vm._v(" "), (!item['icon']) ? _c('img', {
       staticStyle: {
-        "width": "100%",
-        "height": "80px",
+        "width": "212px",
+        "height": "150px",
         "margin-top": "12px"
       },
       attrs: {
@@ -16598,6 +16623,7 @@ exports.default = {
 //
 //
 //
+//
 
 /***/ }),
 
@@ -16972,7 +16998,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }) : _vm._e(), _vm._v(" "), (item.icon == '') ? _c('img', {
       attrs: {
-        "src": __webpack_require__("EAwx"),
+        "src": __webpack_require__("SE8k"),
         "alt": ""
       }
     }) : _vm._e()]), _vm._v(" "), _c('el-col', {
@@ -17056,7 +17082,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }) : _vm._e(), _vm._v(" "), (item.photo == '') ? _c('img', {
       attrs: {
-        "src": __webpack_require__("EAwx"),
+        "src": __webpack_require__("SE8k"),
         "alt": ""
       }
     }) : _vm._e()]), _vm._v(" "), _c('el-col', {
@@ -17078,7 +17104,29 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "type": "danger"
       }
     }, [_vm._v("行业领域：" + _vm._s(_vm._f("filterStr")(item['field'])))])], 1)], 1)
-  })], 2)]), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), _c('div', {
+    staticClass: "pageNo clearfix"
+  }, [_c('el-col', {
+    staticStyle: {
+      "padding-top": "20px"
+    },
+    attrs: {
+      "lg": 8,
+      "md": 8,
+      "sm": 24,
+      "xs": 24,
+      "offset": 8
+    }
+  }, [_c('el-pagination', {
+    attrs: {
+      "current-page": 1,
+      "total": _vm.ExeprtPages,
+      "layout": "prev, pager, next"
+    },
+    on: {
+      "current-change": _vm.handleExeprt
+    }
+  })], 1)], 1)], 2)]), _vm._v(" "), _c('div', {
     staticClass: "InvestmentAgency clearfix ResearchInstitute"
   }, [_c('h2', {
     staticClass: "common_sub_title"
@@ -17125,7 +17173,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }) : _vm._e(), _vm._v(" "), (item.photo == '') ? _c('img', {
       attrs: {
-        "src": __webpack_require__("EAwx"),
+        "src": __webpack_require__("SE8k"),
         "alt": ""
       }
     }) : _vm._e()]), _vm._v(" "), _c('el-col', {
@@ -17147,7 +17195,29 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "type": "danger"
       }
     }, [_vm._v("研究方向：" + _vm._s(_vm._f("filterStr")(item['field'])))])], 1)], 1)
-  })], 2)])]), _vm._v(" "), _c('el-col', {
+  }), _vm._v(" "), _c('div', {
+    staticClass: "pageNo clearfix"
+  }, [_c('el-col', {
+    staticStyle: {
+      "padding-top": "20px"
+    },
+    attrs: {
+      "lg": 8,
+      "md": 8,
+      "sm": 24,
+      "xs": 24,
+      "offset": 8
+    }
+  }, [_c('el-pagination', {
+    attrs: {
+      "current-page": 1,
+      "total": _vm.ResearchPages,
+      "layout": "prev, pager, next"
+    },
+    on: {
+      "current-change": _vm.handleResearch
+    }
+  })], 1)], 1)], 2)])]), _vm._v(" "), _c('el-col', {
     staticClass: "pl1",
     attrs: {
       "lg": 12,
@@ -19893,13 +19963,13 @@ exports.default = {
                     validator: validateName,
                     message: '请输入企业名称',
                     trigger: 'blur'
-                }],
+                }, { min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
                 contact: [{
                     required: true,
                     validator: validateContact,
                     message: '请输入联系人姓名！',
                     trigger: 'blur'
-                }],
+                }, { min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
                 phone: [{
                     required: true,
                     validator: validatePhone,
@@ -20320,7 +20390,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "type": "textarea",
       "rows": 5,
-      "placeholder": "请输入你的需求描述（350字内）"
+      "placeholder": "请输入你的需求描述（250字内）"
     },
     model: {
       value: (_vm.serviceForm.needs),
@@ -20475,7 +20545,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "type": "textarea",
       "rows": 5,
-      "placeholder": "请描述你的技术难题（350字内）"
+      "placeholder": "请描述你的技术难题（250字内）"
     },
     model: {
       value: (_vm.cosnultForm.content),
@@ -20712,17 +20782,17 @@ exports.default = {
 					required: true,
 					message: '请填写公司名称',
 					trigger: 'blur'
-				}],
+				}, { min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
 				scope: [{
 					required: true,
 					message: '请填写公司经营范围',
 					trigger: 'blur'
-				}],
+				}, { min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
 				period: [{
 					required: true,
 					message: '请填写成立情况',
 					trigger: 'blur'
-				}],
+				}, { min: 1, max: 15, message: '最多 15 个字符', trigger: 'blur' }],
 				fresh: [{
 					required: true,
 					message: '请选择是否三年内毕业大学生',
@@ -20732,18 +20802,18 @@ exports.default = {
 					required: true,
 					message: '请输入团队人数',
 					trigger: 'blur'
-				}],
+				}, { min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
 				area: [{
 					required: true,
 					message: '请输入所需办公面积/工位数',
 					trigger: 'blur'
-				}],
+				}, { min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
 				contact: [{
 					required: true,
 					message: '请输入联系人姓名',
 					validator: validateContact,
 					trigger: 'blur'
-				}],
+				}, { min: 1, max: 10, message: '最多 10 个字符', trigger: 'blur' }],
 				phone: [{
 					required: true,
 					validator: validatePhone,
@@ -22113,7 +22183,7 @@ exports.default = {
           required: true,
           message: "请填写要咨询的问题",
           trigger: "blur"
-        }]
+        }, { min: 1, max: 250, message: '最多 250 个字符', trigger: 'blur' }]
       }
     };
   },
@@ -22317,7 +22387,30 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "gray"
   }, [_vm._v("公司地址：宜昌市西陵经济开发区西湖路32号")]), _vm._v(" "), _c('p', {
     staticClass: "gray"
-  }, [_vm._v("客服电话：0717-6496789")])])], 1)], 1), _vm._v(" "), _vm._m(0)])
+  }, [_vm._v("客服电话：0717-6496789")])]), _vm._v(" "), _c('el-col', {
+    staticClass: "contact_img",
+    attrs: {
+      "xs": 24,
+      "sm": 24,
+      "md": 12,
+      "lg": 9
+    }
+  }, [_c('p', {
+    staticClass: "b white tc",
+    staticStyle: {
+      "padding-bottom": "10px"
+    }
+  }, [_vm._v("关注我们"), _c('span', {
+    staticClass: "gray"
+  }, [_vm._v("（扫一扫）")])]), _vm._v(" "), _c('img', {
+    staticClass: "center-block",
+    staticStyle: {
+      "width": "130px"
+    },
+    attrs: {
+      "src": __webpack_require__("31vG")
+    }
+  })])], 1)], 1), _vm._v(" "), _vm._m(0)])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
@@ -22444,7 +22537,9 @@ exports.default = {
             totalPages: "",
             consultPages: "",
             Exeprt: "", //专家团队
-            ResearchInstitute: "" //研究机构
+            ExeprtPages: "",
+            ResearchInstitute: "", //研究机构
+            ResearchPages: ""
         };
     },
     created: function created() {
@@ -22525,23 +22620,55 @@ exports.default = {
                 } else if (_this5.Exeprt.length > 0) {
                     _this5.noData2 = false;
                     _this5.Exeprt = res["data"];
-                    _this5.totalPages = res["totalPages"] * 10;
+                    _this5.ExeprtPages = res["totalPages"] * 10;
+                }
+            });
+        },
+        handleExeprt: function handleExeprt(val) {
+            var _this6 = this;
+
+            //专家团队
+            var url = "/indie/2/" + "4" + "/" + val;
+            _api2.default.Get(url).then(function (res) {
+                _this6.Exeprt = res["data"];
+                if (_this6.Exeprt.length == 0) {
+                    _this6.noData2 = true;
+                } else if (_this6.Exeprt.length > 0) {
+                    _this6.noData2 = false;
+                    _this6.Exeprt = res["data"];
+                    _this6.ExeprtPages = res["totalPages"] * 10;
                 }
             });
         },
         initResearch: function initResearch() {
-            var _this6 = this;
+            var _this7 = this;
 
             //研究机构
             var url = "/indie/5/" + "4" + "/" + "1";
             _api2.default.Get(url).then(function (res) {
-                _this6.ResearchInstitute = res["data"];
-                if (_this6.ResearchInstitute.length == 0) {
-                    _this6.noData5 = true;
-                } else if (_this6.ResearchInstitute.length > 0) {
-                    _this6.noData5 = false;
-                    _this6.ResearchInstitute = res["data"];
-                    _this6.totalPages = res["totalPages"] * 10;
+                _this7.ResearchInstitute = res["data"];
+                if (_this7.ResearchInstitute.length == 0) {
+                    _this7.noData5 = true;
+                } else if (_this7.ResearchInstitute.length > 0) {
+                    _this7.noData5 = false;
+                    _this7.ResearchInstitute = res["data"];
+                    _this7.ResearchPages = res["totalPages"] * 10;
+                }
+            });
+        },
+        handleResearch: function handleResearch(val) {
+            var _this8 = this;
+
+            //研究机构
+            var url = "/indie/5/" + "4" + "/" + val;
+            _api2.default.Get(url).then(function (res) {
+                _this8.ResearchInstitute = res["data"];
+                if (_this8.ResearchInstitute.length == 0) {
+                    _this8.noData5 = true;
+                } else if (_this8.ResearchInstitute.length > 0) {
+                    _this8.noData5 = false;
+                    _this8.ResearchInstitute = res["data"];
+                    _this8.ResearchPages = res["totalPages"] * 10;
                 }
             });
         }
@@ -23224,7 +23351,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "xs": 24,
       "offset": 1
     }
-  }, [(_vm.tenancyApply['detail']) ? _c('h6', [_vm._v(_vm._s(_vm.tenancyApply['detail']['title']))]) : _vm._e(), _vm._v(" "), (!_vm.tenancyApply['detail']) ? _c('h6', [_vm._v("暂无标题")]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("地址：" + _vm._s(_vm.tenancyApply['address']))]), _vm._v(" "), _c('p', [_vm._v("联系方式：" + _vm._s(_vm.tenancyApply['contact']) + " " + _vm._s(_vm.tenancyApply['phone']))]), _vm._v(" "), _c('p', [_vm._v("场地面积：" + _vm._s(_vm.tenancyApply['area']) + "平米")])]) : _vm._e(), _vm._v(" "), (_vm.tenancyApply['type'] == 2) ? _c('el-col', {
+  }, [(_vm.tenancyApply['detail']) ? _c('h6', [_vm._v(_vm._s(_vm.tenancyApply['detail']['title']))]) : _vm._e(), _vm._v(" "), (!_vm.tenancyApply['detail']) ? _c('h6', [_vm._v("暂无标题")]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("地段：" + _vm._s(_vm.tenancyApply['address']))]), _vm._v(" "), _c('p', [_vm._v("联系方式：" + _vm._s(_vm.tenancyApply['contact']) + " " + _vm._s(_vm.tenancyApply['phone']))]), _vm._v(" "), _c('p', [_vm._v("场地面积：" + _vm._s(_vm.tenancyApply['area']) + "平米")])]) : _vm._e(), _vm._v(" "), (_vm.tenancyApply['type'] == 2) ? _c('el-col', {
     staticClass: "details-text wanted clearfix",
     attrs: {
       "lg": 11,
@@ -23232,7 +23359,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "sm": 24,
       "xs": 24
     }
-  }, [(_vm.tenancyApply['detail']) ? _c('h6', [_vm._v(_vm._s(_vm.tenancyApply['detail']['title']))]) : _vm._e(), _vm._v(" "), (!_vm.tenancyApply['detail']) ? _c('h6', [_vm._v("暂无标题")]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("地址：" + _vm._s(_vm.tenancyApply['address']))]), _vm._v(" "), (_vm.tenancyApply['district']) ? _c('p', [_c('span', [_vm._v("区域：")]), _vm._v(_vm._s(_vm.tenancyApply['district']))]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("联系方式：" + _vm._s(_vm.tenancyApply['contact']) + " " + _vm._s(_vm.tenancyApply['phone']))]), _vm._v(" "), _c('p', [_vm._v("场地面积：" + _vm._s(_vm.tenancyApply['area']) + "平米")]), _vm._v(" "), _c('p', {
+  }, [(_vm.tenancyApply['detail']) ? _c('h6', [_vm._v(_vm._s(_vm.tenancyApply['detail']['title']))]) : _vm._e(), _vm._v(" "), (!_vm.tenancyApply['detail']) ? _c('h6', [_vm._v("暂无标题")]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("地段：" + _vm._s(_vm.tenancyApply['address']))]), _vm._v(" "), (_vm.tenancyApply['district']) ? _c('p', [_c('span', [_vm._v("区域：")]), _vm._v(_vm._s(_vm.tenancyApply['district']))]) : _vm._e(), _vm._v(" "), _c('p', [_vm._v("联系方式：" + _vm._s(_vm.tenancyApply['contact']) + " " + _vm._s(_vm.tenancyApply['phone']))]), _vm._v(" "), _c('p', [_vm._v("场地面积：" + _vm._s(_vm.tenancyApply['area']) + "平米")]), _vm._v(" "), _c('p', {
     staticStyle: {
       "margin-bottom": "40px"
     }
@@ -24487,10 +24614,9 @@ exports.default = {
 				}],
 				name: [{
 					required: true,
-					validator: validateName,
 					message: '请输入正确姓名',
 					trigger: 'blur'
-				}]
+				}, { min: 1, max: 10, message: '最多 10 个字符', trigger: 'blur' }]
 			}
 		};
 	},
@@ -24500,8 +24626,10 @@ exports.default = {
 			var _this = this;
 
 			this.$refs[formName].validate(function (valid) {
+				var id = _this.$route.params.id;
 				if (valid) {
 					var params = {
+						"activityId": id,
 						"phone": _this.trainForm.phone,
 						"name": _this.trainForm.name
 					};
@@ -24524,10 +24652,10 @@ exports.default = {
 							});
 						} else if (res['suc'] == false) {
 							_this.$message(res['msg']);
-							var id = _this.$route.params.id;
+							var _id = _this.$route.params.id;
 							var redirect = decodeURIComponent('/train_detail/');
 							_this.$router.push({
-								path: redirect + id
+								path: redirect + _id
 							});
 						}
 					});
@@ -25719,8 +25847,8 @@ exports.default = {
           trigger: "blur"
         }, {
           min: 1,
-          max: 249,
-          message: '最多输入249个字',
+          max: 250,
+          message: '最多输入250个字',
           trigger: 'blur'
         }]
       },
@@ -25733,8 +25861,8 @@ exports.default = {
           trigger: "blur"
         }, {
           min: 1,
-          max: 249,
-          message: '最多输入249个字',
+          max: 250,
+          message: '最多输入250个字',
           trigger: 'blur'
         }]
       }
@@ -25763,7 +25891,7 @@ exports.default = {
     Business: function Business() {
       var _this = this;
 
-      var url = "/dict/business";
+      var url = "/dict/consult";
       _api2.default.Get(url).then(function (res) {
         _this.searchBusiness = res;
         var id = _this.$route.params.id;
@@ -25780,7 +25908,7 @@ exports.default = {
         _api2.default.Get(url).then(function (res) {
           _this2.openData = res;
           for (var i = 0; i < _this2.searchBusiness.length; i++) {
-            if (_this2.openData['businessId'] == _this2.searchBusiness[i]['idx']) {
+            if (_this2.openData['businessId'] == _this2.searchBusiness[i]['id']) {
               _this2.openData['businessId'] = _this2.searchBusiness[i]['value'];
               console.log(_this2.searchBusiness[i]['idx']);
             }
@@ -25798,9 +25926,10 @@ exports.default = {
       var _this3 = this;
 
       this.$refs[formName].validate(function (valid) {
+        var id = _this3.$route.params.id;
         if (valid) {
           var params = {
-            subjectId: _this3.id,
+            subjectId: id,
             content: _this3.askForm.askMess
           };
           _api2.default.Post("/consult/msg", params).then(function (res) {
@@ -27657,7 +27786,8 @@ exports.default = {
         enterprise: "", //企业名称
         contact: "", //联系人姓名
         product: "", //产品与项目
-        phone: "" //联系电话
+        phone: "", //联系电话
+        needs: "" //服务需求
       },
       serviceRules: {
         businessId: [{
@@ -27686,6 +27816,11 @@ exports.default = {
           message: "请输入联系人姓名",
           trigger: "blur"
         }],
+        needs: [{
+          required: true,
+          message: "请输入服务需求描述",
+          trigger: "blur"
+        }, { min: 2, max: 250, message: '最多250个字符', trigger: 'blur' }],
         product: [{
           required: true,
           message: "请输入产品与项目",
@@ -27718,13 +27853,13 @@ exports.default = {
           required: true,
           message: "请输入企业名称",
           trigger: "blur"
-        }],
+        }, { min: 1, max: 20, message: "最多 20 个字符", trigger: "blur" }],
         contact: [{
           required: true,
           validator: validateContact,
           message: "请输入联系人姓名",
           trigger: "blur"
-        }],
+        }, { min: 1, max: 10, message: "最多 10 个字符", trigger: "blur" }],
         phone: [{
           required: true,
           validator: validatePhone,
@@ -27735,12 +27870,12 @@ exports.default = {
           required: true,
           message: "请输入难题及需求标题",
           trigger: "blur"
-        }],
+        }, { min: 1, max: 40, message: "最多 40 个字符", trigger: "blur" }],
         content: [{
           required: true,
           message: "请输入咨询内容",
           trigger: "blur"
-        }],
+        }, { min: 2, max: 250, message: '最多250个字符', trigger: 'blur' }],
         product: [{
           // required: true,
           message: "请输入产品与项目",
@@ -28535,4 +28670,4 @@ var Component = normalizeComponent(
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.2b53db56cca85cbcb9b7.js.map
+//# sourceMappingURL=app.28111f0555fff965ce41.js.map
