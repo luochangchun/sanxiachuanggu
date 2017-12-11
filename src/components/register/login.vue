@@ -1,7 +1,7 @@
 <template>
     <div class="login">
         <div class="container">
-            <div class="login_wrap">
+            <div class="login_wrap" style="min-height: 500px;">
                 <el-row>
                     <el-col :xs="24" :sm="24" :md="24" :lg="24">
                         <el-form label-width="90px" class="login_form" :model="loginForm" :rules="loginRules" ref="loginForm">
