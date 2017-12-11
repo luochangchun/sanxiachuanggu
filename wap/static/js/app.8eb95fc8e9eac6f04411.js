@@ -895,6 +895,7 @@ var api = __webpack_require__("P9l9");
             _this.$store.commit(types["a" /* LOGIN */], Authorization);
             _this.$store.commit(types["d" /* USERINFO */], UserInfo);
           }
+          window.location.href = "http://www.sanxiachuanggu.com/wap/#/NewsList";
         } else if (res['suc'] == false) {
           alert(res['msg']);
         }
@@ -902,7 +903,7 @@ var api = __webpack_require__("P9l9");
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-67d8efa0","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/index.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-26be6a84","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/index.vue
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._m(0,false,false),_vm._v(" "),_c('div',{staticClass:"sh-login-main"},[_c('div',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.loginForm.phone),expression:"loginForm.phone"}],staticClass:"s1",attrs:{"type":"text","placeholder":"输入手机号"},domProps:{"value":(_vm.loginForm.phone)},on:{"blur":function($event){_vm.vailPhone(_vm.loginForm.phone)},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.loginForm, "phone", $event.target.value)}}}),_vm._v(" "),_c('p',{class:_vm.loginForm.phoneFlag ? 'true' : 'false'},[_vm._v("* 请输入正确手机号!")])]),_vm._v(" "),_c('div',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.loginForm.pass),expression:"loginForm.pass"}],staticClass:"s2",attrs:{"type":"password","placeholder":"输入账号密码"},domProps:{"value":(_vm.loginForm.pass)},on:{"blur":function($event){_vm.vailPass(_vm.loginForm.pass)},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.loginForm, "pass", $event.target.value)}}}),_vm._v(" "),_c('p',{class:_vm.loginForm.passFlag ? 'true' : 'false'},[_vm._v("* 请输入正确密码!")])]),_vm._v(" "),_c('button',{staticClass:"button",on:{"click":_vm.submitForm}},[_vm._v("绑定微信")])])])}
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"login_img"},[_c('img',{attrs:{"src":__webpack_require__("ZBJ4"),"alt":""}})])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -1233,4 +1234,4 @@ var fz;
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.24adf892864f373e21cb.js.map
+//# sourceMappingURL=app.8eb95fc8e9eac6f04411.js.map
