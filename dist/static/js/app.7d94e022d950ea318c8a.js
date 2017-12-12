@@ -19837,8 +19837,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // axios 配置
-// const baseUrl = 'http://192.168.11.222/servant';
-var baseUrl = "http://www.sanxiachuanggu.com/servant";
+var baseUrl = 'http://192.168.11.222/servant';
+// const baseUrl = "http://www.sanxiachuanggu.com/servant";
 _axios2.default.defaults.timeout = 5000;
 _axios2.default.defaults.baseURL = baseUrl;
 _axios2.default.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -29058,4 +29058,4 @@ var Component = normalizeComponent(
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.bdafadc3b7bda278810d.js.map
+//# sourceMappingURL=app.7d94e022d950ea318c8a.js.map
