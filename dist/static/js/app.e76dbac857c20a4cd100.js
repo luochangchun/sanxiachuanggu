@@ -3507,7 +3507,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     ref: "container",
     attrs: {
       "id": "container",
-      "src": "http://www.sanxiachuanggu.com/static/map.html",
+      "src": "http://192.168.11.222/static/map.html",
       "frameborder": "0"
     }
   })
@@ -11009,7 +11009,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       value: (_vm.visible),
       expression: "visible"
     }]
-  }, [_vm._m(0), _vm._v(" "), _c('li', {
+  }, [_c('li', [_c('router-link', {
+    attrs: {
+      "to": "/index"
+    }
+  }, [_vm._v("首页")])], 1), _vm._v(" "), _c('li', {
     on: {
       "click": function($event) {
         _vm.showMenu_sub()
@@ -11017,11 +11021,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('span', {
     staticClass: "submenu-button submenu-opened"
-  }), _vm._v(" "), _c('a', {
+  }), _vm._v(" "), _c('router-link', {
     attrs: {
-      "href": "#"
+      "to": "/news"
     }
-  }, [_vm._v("创谷空间")])]), _vm._v(" "), _c('li', {
+  }, [_vm._v("创谷资讯")])], 1), _vm._v(" "), _c('li', {
     on: {
       "click": function($event) {
         _vm.showMenu_sub()
@@ -11029,51 +11033,39 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('span', {
     staticClass: "submenu-button submenu-opened"
-  }), _vm._v(" "), _c('a', {
+  }), _vm._v(" "), _c('router-link', {
     attrs: {
-      "href": "#"
+      "to": "/office_list_policy"
     }
-  }, [_vm._v("双创空间")])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm._m(5)])])], 1)])])
-}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v("首页")])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('li', {
+  }, [_vm._v("双创办公室")])], 1), _vm._v(" "), _c('li', {
     staticClass: "has-sub"
-  }, [_c('a', {
+  }, [_c('router-link', {
     attrs: {
-      "href": "#"
+      "to": "/map"
     }
-  }, [_vm._v("创谷学院")])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('li', [_c('a', {
+  }, [_vm._v("创谷空间")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
-      "href": "#"
+      "to": "/incubators"
     }
-  }, [_vm._v("创谷资讯")])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('li', [_c('a', {
+  }, [_vm._v("双创空间")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
-      "href": "#"
+      "to": "/college"
     }
-  }, [_vm._v("创谷研究")])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('li', [_c('a', {
+  }, [_vm._v("创谷学院")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
-      "href": "#"
+      "to": "/service"
     }
-  }, [_vm._v("投融资库")])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('li', [_c('a', {
+  }, [_vm._v("创谷企业")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
-      "href": "#"
+      "to": "/research"
     }
-  }, [_vm._v("创谷人才")])])
-}]
+  }, [_vm._v("创谷研究")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+    attrs: {
+      "to": "/financing"
+    }
+  }, [_vm._v("投融资库")])], 1)])])], 1)])])
+}
+var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
@@ -11427,13 +11419,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "index": "/demand_comm_service/04"
     }
-  }, [_c('p', [_vm._v("招商讯息")]), _c('i', {
+  }, [_c('p', [_vm._v("招商信息")]), _c('i', {
     staticClass: "el-icon-arrow-right"
   })]), _vm._v(" "), _c('el-menu-item', {
     attrs: {
       "index": "/demand_comm_service/05"
     }
-  }, [_c('p', [_vm._v("求租讯息")]), _c('i', {
+  }, [_c('p', [_vm._v("求租信息")]), _c('i', {
     staticClass: "el-icon-arrow-right"
   })])], 1), _vm._v(" "), _c('el-menu-item-group', {
     attrs: {
@@ -19526,8 +19518,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // axios 配置
-// const baseUrl = 'http://192.168.11.222/servant';
-var baseUrl = "http://www.sanxiachuanggu.com/servant";
+var baseUrl = 'http://192.168.11.222/servant';
+// const baseUrl = "http://www.sanxiachuanggu.com/servant";
 _axios2.default.defaults.timeout = 5000;
 _axios2.default.defaults.baseURL = baseUrl;
 _axios2.default.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -26902,14 +26894,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 exports.default = {
   data: function data() {
@@ -28670,4 +28654,4 @@ var Component = normalizeComponent(
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.28111f0555fff965ce41.js.map
+//# sourceMappingURL=app.e76dbac857c20a4cd100.js.map

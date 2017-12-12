@@ -827,24 +827,6 @@
         }
         $(function () {
             //显示详情
-            $('.C_liboxs').on('click', 'a', function () {
-                // alert(1);
-                $('.C_xread').show();
-                var tpmk = markers.get($(this).attr('data-id'));
-                if (tpmk) {
-                    tpmk.emit('click', {
-                        target: tpmk
-                    });
-                    //alert(map.getZoom());
-                    //居中
-                    //map.setCenter(tpmk.getPosition());
-                    map.setZoomAndCenter(15, tpmk.getPosition());
-                }
-                // return false;
-                // $('.C_xbigcs').load('/ajax_new/ajax_action.php?action=com_detail&id=' + $(this).attr('data-id'));
-                //$('.C_xread').scrollTop(0);
-                // $('#J_mapleft').hide();
-            })
             $('.righbon').on('click', function () {
                 if ($(this).hasClass('nn')) {
                     $(this).removeClass('nn').text('◀')
@@ -875,7 +857,7 @@
             });
 
             $.ajax({
-                url: "http://www.sanxiachuanggu.com/servant/pub/incubators", //请求的url地址
+                url: "http://192.168.11.222/servant/pub/incubators", //请求的url地址
                 dataType: "json", //返回格式为json    
                 async: true, //请求是否异步，默认为异步，这也是ajax重要特性    
                 data: {}, //参数值    
@@ -892,7 +874,7 @@
                         $('#total').text(res.length);
                         for (var i = 0; i < res.length; i++) {
                             // var href='javascript:;';
-                            var href = 'http://www.sanxiachuanggu.com/#/incubators_details/' + res[
+                            var href = 'http://192.168.11.222/#/incubators_details/' + res[
                                 i]['id'];
                             var index = i + 1;
                             list += temphtml(href, index, res[i]['name'], res[i]['address']);
@@ -945,16 +927,13 @@
             var data = this.getExtData();
             var type = data.company_type;
             var url = '';
-
-            // console.log(data);
-            // return false;
-            url = 'http://www.sanxiachuanggu.com/#/incubators_details/' + data.id;
+            url = 'http://192.168.11.222/#/incubators_details/' + data.id;
             var html = "";
             html +=
                 "<div class='sh_boxmn'><div class='sh_boxhide' onClick='closeInfoWindow()'>×</div><div class='sh_mation'>";
             html += "<h1></h1></div>";
             //  html += "<dl class='sh_dlsm'><dt><img src=" + data.logo + "></dt>";
-            html += "<dl class='sh_dlsm'><dt></dt>";
+            html += "<dl class='sh_dlsm'><dt><img src="+ data.logo + "></dt>";
             html += "<dd>";
             //        if (data.company) html += "<p>" + data.company + "</p>";
             if (data.map_desc) html += "<p class='clearfix'><span class='l s01'>地址：</span><span class='l s02'>" + data.map_desc +

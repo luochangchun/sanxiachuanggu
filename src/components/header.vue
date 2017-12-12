@@ -31,14 +31,6 @@
             </li>
             <li>
               <router-link to="/office_list_policy">双创办公室</router-link>
-              <!-- <ul>
-                  <li>
-                    <router-link to="/office_list_policy">优惠政策</router-link>
-                  </li>
-                  <li>
-                    <router-link to="/office_list_window">服务窗口</router-link>
-                  </li>
-                </ul> -->
             </li>
             <li class='has-sub'>
               <router-link to="/map">创谷空间</router-link>
@@ -96,39 +88,39 @@
             <li>
               <router-link to="/financing">投融资库</router-link>
             </li>
-            <!-- <li>
-              <router-link to="/intermediary">中介服务</router-link>
-            </li> -->
           </ul>
         </div>
         <div class="nav nav_mobile r">
           <div id="menu-button" @click='showMenu()'>菜单</div>
           <ul v-show="visible">
             <li>
-              <a href='#'>首页</a>
+               <router-link to="/index">首页</router-link>
             </li>
             <li @click='showMenu_sub()'>
               <span class="submenu-button submenu-opened"></span>
-              <a href='#'>创谷空间</a>
+              <router-link to="/news">创谷资讯</router-link>
             </li>
             <li @click='showMenu_sub()'>
               <span class="submenu-button submenu-opened"></span>
-              <a href='#'>双创空间</a>
+              <router-link to="/office_list_policy">双创办公室</router-link>
             </li>
             <li class='has-sub'>
-              <a href='#'>创谷学院</a>
+              <router-link to="/map">创谷空间</router-link>
             </li>
             <li>
-              <a href='#'>创谷资讯</a>
+              <router-link to="/incubators">双创空间</router-link>
             </li>
             <li>
-              <a href='#'>创谷研究</a>
+              <router-link to="/college">创谷学院</router-link>
             </li>
             <li>
-              <a href='#'>投融资库</a>
+              <router-link to="/service">创谷企业</router-link>
             </li>
             <li>
-              <a href='#'>创谷人才</a>
+              <router-link to="/research">创谷研究</router-link>
+            </li>
+            <li>
+              <router-link to="/financing">投融资库</router-link>
             </li>
           </ul>
         </div>
