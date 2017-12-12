@@ -14,7 +14,18 @@ body {
   color: #222;
   background-color: #fff;
 }
-
+p,
+span {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 0.7rem !important;
+  line-height: 1rem;
+}
+.news img{
+  width:100% !important;
+  height: auto !important;
+  margin: 0 auto;
+}
 .f7-all-header {
   font-weight: 400;
   font-size: .5rem;

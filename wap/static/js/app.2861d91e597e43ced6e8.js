@@ -1,12 +1,5 @@
 webpackJsonp([1],{
 
-/***/ "6Jjp":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "EWIa":
 /***/ (function(module, exports) {
 
@@ -730,6 +723,8 @@ var api = __webpack_require__("P9l9");
 //
 //
 //
+//
+//
 
 
 
@@ -759,15 +754,12 @@ var api = __webpack_require__("P9l9");
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-02eaf4e6","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/news.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{domProps:{"innerHTML":_vm._s(_vm.content)}})}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-78a911c3","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/news.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"news"},[_c('div',{domProps:{"innerHTML":_vm._s(_vm.content)}})])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ var components_news = (esExports);
 // CONCATENATED MODULE: ./src/components/news.vue
-function injectStyle (ssrContext) {
-  __webpack_require__("6Jjp")
-}
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
 
@@ -776,7 +768,7 @@ var normalizeComponent = __webpack_require__("VU/8")
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = injectStyle
+var __vue_styles__ = null
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -1244,4 +1236,4 @@ var fz;
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.85915403ef3445f44400.js.map
+//# sourceMappingURL=app.2861d91e597e43ced6e8.js.map
