@@ -13,9 +13,9 @@
                                 <el-menu-item index="/demand_comm_service/03">
                                     <p>融资需求</p><i class="el-icon-arrow-right"></i></el-menu-item>
                                 <el-menu-item index="/demand_comm_service/04">
-                                    <p>招商讯息</p><i class="el-icon-arrow-right"></i></el-menu-item>
+                                    <p>招商信息</p><i class="el-icon-arrow-right"></i></el-menu-item>
                                 <el-menu-item index="/demand_comm_service/05">
-                                    <p>求租讯息</p><i class="el-icon-arrow-right"></i></el-menu-item>
+                                    <p>求租信息</p><i class="el-icon-arrow-right"></i></el-menu-item>
                                 <!-- <el-menu-item index="/demand_comm_service06">
                                     <p>招聘讯息</p><i class="el-icon-arrow-right"></i></el-menu-item> -->
                             </el-menu-item-group>
