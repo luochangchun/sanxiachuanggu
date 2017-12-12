@@ -1,6 +1,6 @@
 <template>
     <div class="personalCenter">
-        <div class="container">
+        <div class="container" style="background-color:#fff;padding-left:0;padding-right:0;padding-bottom:100px;">
             <el-row>
                 <el-col :span="24" class="main">
                     <aside class="menu-expanded">
@@ -11,7 +11,7 @@
                                 <el-menu-item index="/demand_comm_service/02">
                                     <p>技术难题及需求</p><i class="el-icon-arrow-right"></i></el-menu-item>
                                 <el-menu-item index="/demand_comm_service/03">
-                                    <p>融资需求</p><i class="el-icon-arrow-right"></i></el-menu-item>
+                                    <p>融资项目</p><i class="el-icon-arrow-right"></i></el-menu-item>
                                 <el-menu-item index="/demand_comm_service/04">
                                     <p>招商信息</p><i class="el-icon-arrow-right"></i></el-menu-item>
                                 <el-menu-item index="/demand_comm_service/05">

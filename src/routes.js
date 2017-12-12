@@ -26,6 +26,7 @@ import demand_comm_service01 from '../src/components/personalCenter/demand_comm_
 import personalInformation from '../src/components/personalCenter/personalInformation.vue';//个人中心--个人资料
 import passwordSetting from '../src/components/personalCenter/passwordSetting.vue';//个人中心--个人资料
 import service_detail from '../src/components/personalCenter/service_detail.vue';//个人中心--个人服务详情
+import consult_detail from '../src/components/personalCenter/consult_detail.vue';//个人中心--个人服务详情
 import service_apply from '../src/components/service_apply.vue';//服务企业入驻申请表
 import financing_apply from '../src/components/financing_apply.vue';//融资项目表单
 //罗长春
@@ -111,6 +112,7 @@ const routes = [
 			{ path: '/personalInformation', component: personalInformation, name: 'personalInformation', meta: { requireAuth: true, } },
 			{ path: '/passwordSetting', component: passwordSetting, name: 'passwordSetting', meta: { requireAuth: true, } },
 			{ path: '/service_detail/:id', component: service_detail, name: 'service_detail', meta: { requireAuth: true, } },
+			{ path: '/consult_detail/:id', component: consult_detail, name: 'consult_detail', meta: { requireAuth: true, } },
 		]
 	},
 	//个人中心

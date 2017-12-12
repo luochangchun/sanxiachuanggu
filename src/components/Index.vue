@@ -197,7 +197,7 @@
         <el-row :gutter="0">
           <el-col :xs="24" :sm="24" :md="24" :lg="24">
             <div class="l activitys_title"></div>
-            <router-link to="/activity_more" class="r more_plus" style="margin-bottom:20px;"></router-link>
+            <router-link to="/college" class="r more_plus" style="margin-bottom:20px;"></router-link>
           </el-col>
         </el-row>
         <el-row :gutter="20">

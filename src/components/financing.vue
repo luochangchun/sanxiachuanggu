@@ -10,7 +10,7 @@
         </el-row>
         <!--投资机构-->
         <el-row :gutter="0" style="margin-top:40px;margin-bottom:40px;">
-            <div class="container">
+            <div class="container min650">
                 <el-row :gutter="0">
                     <el-col :lg="12" :md="24" :sm="24" :xs="24" class="pl0">
                         <div class="InvestmentAgency clearfix">

@@ -8,7 +8,7 @@
             </el-col>
         </el-row>
         <!--title-->
-        <div class="container" style="margin-top:40px;margin-bottom:40px;">
+        <div class="container min650" style="margin-top:40px;margin-bottom:40px;">
             <el-row :gutter="10">
                 <!--左部分导师-->
                 <el-col :lg="12" :md="12" :sm="24" :xs="24" style="padding-right:20px;">

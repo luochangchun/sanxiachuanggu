@@ -1,6 +1,6 @@
 <template>
     <div style="width:100%;background-color:#ececec;">
-        <div class="container">
+        <div class="container min650">
             <el-row :gutter="10">
                 <el-col :lg="24" :md="24" :sm="24" :xs="24">
                     <div class="object_detail_head">

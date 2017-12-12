@@ -54,7 +54,7 @@
                                     <el-col :lg="20" :md="24" :sm="24" :xs="24">
                                         <h1 class="text-ellipsis">{{item['name']}}</h1>
                                         <p class="text-ellipsis">{{item['intro']}}</p>
-                                        <el-tag type="danger" style="margin-top: 5px;">行业领域：{{item['field'] | filterStr}}</el-tag>
+                                        <el-tag type="danger" style="margin-top: 5px;">研究方向：{{item['field'] | filterStr}}</el-tag>
                                     </el-col>
                                 </div>
                                 <div class="pageNo clearfix">

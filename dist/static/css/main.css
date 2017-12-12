@@ -7,6 +7,7 @@ body {
   color: #333;
   background-color: transparent;
 }
+
 p {
   word-break: break-all;
   word-break: break-word;
@@ -97,6 +98,12 @@ a {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+.min400 {
+  min-height: 400px;
+}
+.min650 {
+  min-height: 650px;
 }
 
 img {

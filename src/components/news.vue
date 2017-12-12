@@ -8,7 +8,7 @@
                 </div>
             </el-col>
         </el-row>
-        <div class="container">
+        <div class="container min650">
             <el-row :gutter="0">
                 <el-col :lg="16" :md="16" :sm="24" :xs="24">
                     <!--导航切换-->

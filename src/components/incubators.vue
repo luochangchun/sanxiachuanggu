@@ -9,7 +9,7 @@
             </el-col>
         </el-row>
         <!--双创空间展示-->
-        <div class="container">
+        <div class="container min650">
             <el-row :gutter="10" style="margin-bottom: 50px;">
                 <el-col :lg="24" :md="24" :sm="24" :xs="24">
                     <div class="title" id="title-incubators">

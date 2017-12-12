@@ -1,12 +1,12 @@
 <template>
 	<div>
 		<el-row :gutter="10" style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
-			<div class="container">
+			<div class="container min650">
 				<el-col :lg="24" :md="24" :sm="24" :xs="24" style="background-color:#fff;padding:30px 25px 15px 0">
 					<p class="tc b f20">孵化器入驻申请表</p>
 				</el-col>
 				<el-col :lg="24" :md="24" :sm="24" :xs="24" style="background-color:#fff;padding:0px 25px 15px 0">
-					<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="enter-ruleForm">
+					<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="200px" class="enter-ruleForm">
 						<el-form-item label="公司名称" prop="enterprise">
 							<el-input type="text" v-model="ruleForm.enterprise"></el-input>
 						</el-form-item>
@@ -39,7 +39,7 @@
 						<el-form-item label="联系电话" prop="phone">
 							<el-input type="tel" v-model="ruleForm.phone"></el-input>
 						</el-form-item>
-						<el-form-item>
+						<el-form-item style="margin-left:100px">
 							<el-button @click="submitForm('ruleForm')" style="background-color: #f48100;border:none;color:#fff;">提交申请</el-button>
 						</el-form-item>
 					</el-form>
@@ -199,7 +199,7 @@ export default {
 
 <style scoped>
 .enter-ruleForm {
-  width: 440px;
+  width: 500px;
   margin: 0 auto;
 }
 </style>

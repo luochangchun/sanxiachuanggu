@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container min650">
         <!-- 创谷 -->
         <el-row :gutter="10" style="margin-bottom: 50px;min-height:500px;">
             <el-col :xs="24" :sm="24" :md="24" :lg="24" style="position:relative;">

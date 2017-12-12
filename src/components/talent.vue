@@ -5,7 +5,7 @@
                 <img src="../../static/img/talent_banner01.png" alt="">
             </el-col>
             <el-col :xs="24" :sm="24" :md="24" :lg="24" style="background-color:#eeeeee;padding:15px 0;">
-                <div class="container" style="padding-top:20px;">
+                <div class="container min650" style="padding-top:20px;">
                     <el-form class="talent_form">
                         <el-form-item>
                             <!--<el-col :xs="18" :sm="18" :md="18" :lg="18">-->

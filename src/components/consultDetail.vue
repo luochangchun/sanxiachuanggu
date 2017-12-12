@@ -1,6 +1,6 @@
 <template>
   <div class="activity_para">
-    <div class="container">
+    <div class="container min650">
       <el-row :gutter="10">
         <el-col :xs="24" :sm="24" :md="24" :lg="24">
           <el-breadcrumb separator="/" class="padder-vx">
@@ -121,9 +121,7 @@
     },
     created() {
       this.Business();
-      this.id = id;
       this.getReplyList();
-      
     },
     filters: {
       formatDate(time) {

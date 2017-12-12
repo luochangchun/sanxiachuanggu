@@ -834,7 +834,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('div', {
     staticClass: "activity_para"
   }, [_c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
@@ -1198,6 +1198,71 @@ exports.default = {
         }
     }
 };
+
+/***/ }),
+
+/***/ "/flr":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _api = __webpack_require__("c2Ch");
+
+var _api2 = _interopRequireDefault(_api);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    data: function data() {
+        return {
+            data: '',
+            searchConsult: ''
+        };
+    },
+    created: function created() {
+        var id = this.$route.params.id;
+        this.getservice(id);
+    },
+
+    methods: {
+        consult: function consult() {
+            var _this = this;
+
+            var url = "/dict/consult";
+            _api2.default.Get(url).then(function (res) {
+                _this.searchConsult = res;
+            });
+        },
+        getservice: function getservice(id) {
+            var _this2 = this;
+
+            _api2.default.Get("/consult/" + id).then(function (res) {
+                _this2.consult();
+                _this2.data = res;
+            });
+        }
+    }
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 
@@ -1741,7 +1806,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('div', {
     staticClass: "activity_para"
   }, [_c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
@@ -1941,7 +2006,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "backgroundImage": "url(../static/img/banner_cgzx.png)"
     }
   })])], 1), _vm._v(" "), _c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     attrs: {
       "gutter": 0
@@ -2449,7 +2514,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("服务需求列表")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("需求详情")])], 1), _vm._v(" "), _c('div', {
     staticClass: "need_import"
-  }, [_c('h3', [_vm._v(_vm._s(_vm.data['title']))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.data['enterprise']) + " | 需求类型: " + _vm._s(_vm.data['title']) + " | 联系人: " + _vm._s(_vm.data['contact']) + " | 联系方式: " + _vm._s(_vm.data['phone']) + " | 2017-10-24 | "), (_vm.data['status'] == 1) ? _c('span', [_vm._v("待解决")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 2) ? _c('span', [_vm._v("进行中")]) : _vm._e(), (_vm.data['status'] == 3) ? _c('span', [_vm._v("已解决")]) : _vm._e()]), _vm._v(" "), _c('p', {
+  }, [_c('h3', [_vm._v(_vm._s(_vm.data['title']))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.data['enterprise']) + " | 需求类型: "), _vm._l((_vm.searchService), function(n) {
+    return (n['id'] == _vm.data['classifyId']) ? _c('span', {
+      key: n
+    }, [_vm._v(_vm._s(n['value']))]) : _vm._e()
+  }), _vm._v(" | 联系人: " + _vm._s(_vm.data['contact']) + " | 联系方式: " + _vm._s(_vm.data['phone']) + " | 2017-10-24 | "), (_vm.data['status'] == 1) ? _c('span', [_vm._v("待解决")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 2) ? _c('span', [_vm._v("进行中")]) : _vm._e(), (_vm.data['status'] == 3) ? _c('span', [_vm._v("已解决")]) : _vm._e()], 2), _vm._v(" "), _c('p', {
     staticStyle: {
       "border-bottom": "none",
       "margin-top": "30px"
@@ -2477,7 +2546,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "gutter": 10
     }
   }, [_c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-col', {
     staticStyle: {
       "background-color": "#fff",
@@ -2759,7 +2828,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "backgroundImage": "url(../static/img/cg.jpg)"
     }
   })])], 1), _vm._v(" "), _c('div', {
-    staticClass: "container",
+    staticClass: "container min650",
     staticStyle: {
       "margin-top": "40px",
       "margin-bottom": "40px"
@@ -3332,7 +3401,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }), _vm._v(" "), _c('p', [_vm._v(" 地点：" + _vm._s(_vm.train['location'] || "暂无数据") + " ")]), _vm._v(" "), _c('p', [_vm._v(" 人数限额：" + _vm._s(_vm.train['total'] || "暂无数据") + "人 ")])])])], 1)], 1)]), _vm._v(" "), _c('div', {
     staticClass: "padder-v-xx"
   }, [_c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
@@ -3528,7 +3597,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('div', {
     staticClass: "padder-v-xxl"
   }, [_c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
@@ -4184,7 +4253,7 @@ exports.default = {
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     staticStyle: {
       "margin-bottom": "50px"
@@ -4802,7 +4871,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "margin-bottom": "20px"
     },
     attrs: {
-      "to": "/activity_more"
+      "to": "/college"
     }
   })], 1)], 1), _vm._v(" "), _c('el-row', {
     attrs: {
@@ -4907,7 +4976,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = {
   data: function data() {
     return {
-      data: ''
+      data: '',
+      searchService: ''
     };
   },
   created: function created() {
@@ -4916,16 +4986,25 @@ exports.default = {
   },
 
   methods: {
-    getservice: function getservice(id) {
+    service: function service() {
       var _this = this;
 
+      var url = "/dict/service";
+      _api2.default.Get(url).then(function (res) {
+        _this.searchService = res;
+      });
+    },
+    getservice: function getservice(id) {
+      var _this2 = this;
+
       _api2.default.Get("/enterprise/apply/" + id).then(function (res) {
-        console.log(res);
-        _this.data = res;
+        _this2.data = res;
+        _this2.service();
       });
     }
   }
 }; //
+//
 //
 //
 //
@@ -5442,7 +5521,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         path: '/'
       }
     }
-  }, [_vm._v("个人中心")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("服务需求")])], 1), _vm._v(" "), _c('el-row', {
+  }, [_vm._v("个人中心")]), _vm._v(" "), (_vm.type == '01') ? _c('el-breadcrumb-item', [_vm._v("服务需求列表")]) : _vm._e(), _vm._v(" "), (_vm.type == '02') ? _c('el-breadcrumb-item', [_vm._v("技术难题及需求列表")]) : _vm._e(), _vm._v(" "), (_vm.type == '03') ? _c('el-breadcrumb-item', [_vm._v("融资项目列表")]) : _vm._e(), _vm._v(" "), (_vm.type == '04') ? _c('el-breadcrumb-item', [_vm._v("招商信息列表")]) : _vm._e(), _vm._v(" "), (_vm.type == '05') ? _c('el-breadcrumb-item', [_vm._v("求租信息列表")]) : _vm._e()], 1), _vm._v(" "), _c('el-row', {
     staticClass: "need_xq",
     attrs: {
       "gutter": 10
@@ -5465,14 +5544,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "sm": 6,
       "xs": 6
     }
-  }, [_c('p', [_vm._v("联系人")])]), _vm._v(" "), _c('el-col', {
+  }, [_c('p', [_vm._v("联系人")])]), _vm._v(" "), (_vm.type != '03') ? _c('el-col', {
     attrs: {
       "lg": 5,
       "md": 5,
       "sm": 5,
       "xs": 5
     }
-  }, [_c('p', [_vm._v("联系方式")])])], 1), _vm._v(" "), (_vm.flag) ? _c('p', {
+  }, [_c('p', [_vm._v("联系方式")])]) : _vm._e()], 1), _vm._v(" "), (_vm.flag) ? _c('p', {
     staticStyle: {
       "padding-left": "5px",
       "line-height": "30px",
@@ -5480,13 +5559,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "font-size": "12px"
     }
   }, [_vm._v("暂无数据")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.List), function(item, index) {
-    return (_vm.type == '01' || _vm.type == '02' || _vm.type == '03') ? _c('el-row', {
+    return (_vm.type == '01') ? _c('el-row', {
       key: index,
       staticClass: "need_xq",
       attrs: {
         "gutter": 10
       }
-    }, [(item.status == 1 || item.status == 2 || item.status == 3) ? _c('router-link', {
+    }, [_c('router-link', {
       attrs: {
         "to": {
           name: 'service_detail',
@@ -5507,7 +5586,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticStyle: {
         "color": "#0089e3"
       }
-    }, [_vm._v(_vm._s(item['enterprise']) + " ")]) : _vm._e(), _c('span', [_vm._v("[" + _vm._s(item['title']) + "]")])])]), _vm._v(" "), _c('el-col', {
+    }, [_vm._v(_vm._s(item['enterprise']) + " ")]) : _vm._e(), _vm._l((_vm.searchService), function(n) {
+      return (n['id'] == item['classifyId']) ? _c('span', {
+        key: n
+      }, [_vm._v("[" + _vm._s(n['value']) + "]")]) : _vm._e()
+    })], 2)]), _vm._v(" "), _c('el-col', {
       attrs: {
         "lg": 6,
         "md": 6,
@@ -5521,7 +5604,94 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "sm": 5,
         "xs": 5
       }
-    }, [_c('p', [_vm._v(_vm._s(item['phone']))])])], 1) : _vm._e()], 1) : _vm._e()
+    }, [_c('p', [_vm._v(_vm._s(item['phone']))])])], 1)], 1) : _vm._e()
+  }), _vm._v(" "), _vm._l((_vm.List), function(item, index) {
+    return (_vm.type == '02') ? _c('el-row', {
+      key: index,
+      staticClass: "need_xq",
+      attrs: {
+        "gutter": 10
+      }
+    }, [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'consult_detail',
+          params: {
+            id: item.id
+          }
+        }
+      }
+    }, [_c('el-col', {
+      staticClass: "need_xq_p",
+      attrs: {
+        "lg": 12,
+        "md": 12,
+        "sm": 12,
+        "xs": 12
+      }
+    }, [_c('p', [(item['enterprise']) ? _c('span', {
+      staticStyle: {
+        "color": "#0089e3"
+      }
+    }, [_vm._v(_vm._s(item['enterprise']) + " ")]) : _vm._e(), _vm._l((_vm.searchConsult), function(n) {
+      return (n['id'] == item['businessId']) ? _c('span', {
+        key: n
+      }, [_vm._v("[" + _vm._s(n['value']) + "]")]) : _vm._e()
+    })], 2)]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 6,
+        "md": 6,
+        "sm": 6,
+        "xs": 6
+      }
+    }, [_c('p', [_vm._v(_vm._s(item['contact']))])]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 5,
+        "md": 5,
+        "sm": 5,
+        "xs": 5
+      }
+    }, [_c('p', [_vm._v(_vm._s(item['phone']))])])], 1)], 1) : _vm._e()
+  }), _vm._v(" "), _vm._l((_vm.List), function(item, index) {
+    return (_vm.type == '03') ? _c('el-row', {
+      key: index,
+      staticClass: "need_xq",
+      attrs: {
+        "gutter": 10
+      }
+    }, [(item.status == 1 || item.status == 2 || item.status == 3) ? _c('router-link', {
+      attrs: {
+        "to": {
+          name: 'financingDetail',
+          params: {
+            id: item.id
+          }
+        }
+      }
+    }, [_c('el-col', {
+      staticClass: "need_xq_p",
+      attrs: {
+        "lg": 12,
+        "md": 12,
+        "sm": 12,
+        "xs": 12
+      }
+    }, [_c('p', [(item['name']) ? _c('span', {
+      staticStyle: {
+        "color": "#0089e3"
+      }
+    }, [_vm._v(_vm._s(item['name']) + " ")]) : _vm._e(), _vm._l((_vm.searchBusiness), function(n) {
+      return (n['id'] == item['businessId']) ? _c('span', {
+        key: n
+      }, [_vm._v("[" + _vm._s(n['value']) + "]")]) : _vm._e()
+    })], 2)]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 6,
+        "md": 6,
+        "sm": 6,
+        "xs": 6
+      }
+    }, [_c('p', [_vm._v(_vm._s(item['founder']))])])], 1) : _vm._e()], 1) : _vm._e()
   }), _vm._v(" "), _vm._l((_vm.List), function(item, index) {
     return (_vm.type == '04' && item['type'] == 1) ? _c('el-row', {
       key: index,
@@ -5546,11 +5716,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "sm": 12,
         "xs": 12
       }
-    }, [_c('p', [(item['enterprise']) ? _c('span', {
+    }, [_c('p', [_c('span', {
       staticStyle: {
         "color": "#0089e3"
       }
-    }, [_vm._v(_vm._s(item['enterprise']) + " ")]) : _vm._e(), _c('span', [_vm._v("[" + _vm._s(item['title']) + "]")])])]), _vm._v(" "), _c('el-col', {
+    }, [_vm._v(_vm._s(item['title']))])])]), _vm._v(" "), _c('el-col', {
       attrs: {
         "lg": 6,
         "md": 6,
@@ -5589,11 +5759,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "sm": 12,
         "xs": 12
       }
-    }, [_c('p', [(item['enterprise']) ? _c('span', {
+    }, [_c('p', [_c('span', {
       staticStyle: {
         "color": "#0089e3"
       }
-    }, [_vm._v(_vm._s(item['enterprise']) + " ")]) : _vm._e(), _c('span', [_vm._v("[" + _vm._s(item['title']) + "]")])])]), _vm._v(" "), _c('el-col', {
+    }, [_vm._v(_vm._s(item['title']))])])]), _vm._v(" "), _c('el-col', {
       attrs: {
         "lg": 6,
         "md": 6,
@@ -6609,7 +6779,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "gutter": 0
     }
   }, [_c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-col', {
     staticStyle: {
       "background-color": "#fff",
@@ -8190,7 +8360,7 @@ var Component = normalizeComponent(
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     staticStyle: {
       "margin-bottom": "50px",
@@ -8554,7 +8724,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "gutter": 0
     }
   }, [_c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-col', {
     attrs: {
       "lg": 24,
@@ -10275,7 +10445,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "backgroundImage": "url(../static/img/banner_sckj.png)"
     }
   })])], 1), _vm._v(" "), _c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     staticStyle: {
       "margin-bottom": "50px"
@@ -10690,7 +10860,7 @@ var Component = normalizeComponent(
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
@@ -11155,7 +11325,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "gutter": 0
     }
   }, [_c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     attrs: {
       "gutter": 0
@@ -11417,7 +11587,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('div', {
     staticClass: "personalCenter"
   }, [_c('div', {
-    staticClass: "container"
+    staticClass: "container",
+    staticStyle: {
+      "background-color": "#fff",
+      "padding-left": "0",
+      "padding-right": "0",
+      "padding-bottom": "100px"
+    }
   }, [_c('el-row', [_c('el-col', {
     staticClass: "main",
     attrs: {
@@ -11453,7 +11629,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "index": "/demand_comm_service/03"
     }
-  }, [_c('p', [_vm._v("融资需求")]), _c('i', {
+  }, [_c('p', [_vm._v("融资项目")]), _c('i', {
     staticClass: "el-icon-arrow-right"
   })]), _vm._v(" "), _c('el-menu-item', {
     attrs: {
@@ -11635,7 +11811,7 @@ exports.default = {
 
 			_api2.default.Get('/qb/tenancy/' + id).then(function (res) {
 				_this.photos = res['photos'];
-				var defaultImg = { uri: "../../static/img/logo.png" };
+				var defaultImg = { uri: "../../static/img/zss.png" };
 				_this.tenancyApply = res['tenancyApply'];
 				if (res['photos'].length > 0) {
 					_this.photos = res['photos'];
@@ -11708,7 +11884,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('div', {
     staticClass: "activity_para"
   }, [_c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
@@ -12197,7 +12373,7 @@ var Component = normalizeComponent(
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
@@ -13685,7 +13861,10 @@ exports.default = {
             List: "",
             flag: false,
             totalPages: '',
-            type: ''
+            type: '',
+            searchService: '',
+            searchConsult: '',
+            searchBusiness: ''
         };
     },
     created: function created() {
@@ -13696,14 +13875,41 @@ exports.default = {
     },
 
     methods: {
-        initDand: function initDand(type) {
+        service: function service() {
             var _this = this;
 
+            var url = "/dict/service";
+            _api2.default.Get(url).then(function (res) {
+                _this.searchService = res;
+            });
+        },
+        consult: function consult() {
+            var _this2 = this;
+
+            var url = "/dict/consult";
+            _api2.default.Get(url).then(function (res) {
+                _this2.searchConsult = res;
+            });
+        },
+        business: function business() {
+            var _this3 = this;
+
+            var url = "/dict/business";
+            _api2.default.Get(url).then(function (res) {
+                _this3.searchBusiness = res;
+            });
+        },
+        initDand: function initDand(type) {
+            var _this4 = this;
+
             if (type == '01') {
+                this.service();
                 var url = "/enterprise/apply/my/" + '/' + '10' + '/' + '1';
             } else if (type == '02') {
+                this.consult();
                 var url = "/consult/my/" + '/' + '10' + '/' + '1';
             } else if (type == '03') {
+                this.business();
                 var url = "/finance/my/" + '/' + '10' + '/' + '1';
             } else if (type == '04') {
                 var url = "/qb/tenancy/my/1" + '/' + '10' + '/' + '1';
@@ -13713,17 +13919,17 @@ exports.default = {
             _api2.default.Get(url).then(function (res) {
                 console.log(res['data'].length == 0);
                 if (res['data'].length == 0) {
-                    _this.flag = true;
-                    _this.List = [];
+                    _this4.flag = true;
+                    _this4.List = [];
                 } else if (res['data'].length > 0) {
-                    _this.flag = false;
-                    _this.List = res['data'];
+                    _this4.flag = false;
+                    _this4.List = res['data'];
                 }
-                _this.totalPages = res['totalPages'] * 10;
+                _this4.totalPages = res['totalPages'] * 10;
             });
         },
         handleCurrentChange: function handleCurrentChange(val) {
-            var _this2 = this;
+            var _this5 = this;
 
             var type = this.$route.params.type;
             //获取到当前分页页码，获取当前页面数据
@@ -13739,8 +13945,8 @@ exports.default = {
                 var url = "/qb/tenancy/my/" + '/' + '10' + '/' + val;
             }
             _api2.default.Get(url).then(function (res) {
-                _this2.List = res['data'];
-                _this2.totalPages = res['totalPages'] * 10;
+                _this5.List = res['data'];
+                _this5.totalPages = res['totalPages'] * 10;
             });
         }
     },
@@ -13753,6 +13959,36 @@ exports.default = {
         }
     }
 }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -14168,7 +14404,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('div', {
     staticClass: "activity_para"
   }, [_c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
@@ -14819,7 +15055,7 @@ exports.default = {
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     staticStyle: {
       "margin-bottom": "50px",
@@ -15049,6 +15285,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "TQ5K":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -15907,7 +16150,7 @@ exports.default = {
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('div', {
     staticClass: "activity"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
@@ -17135,7 +17378,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       attrs: {
         "type": "danger"
       }
-    }, [_vm._v("行业领域：" + _vm._s(_vm._f("filterStr")(item['field'])))])], 1)], 1)
+    }, [_vm._v("研究方向：" + _vm._s(_vm._f("filterStr")(item['field'])))])], 1)], 1)
   }), _vm._v(" "), _c('div', {
     staticClass: "pageNo clearfix"
   }, [_c('el-col', {
@@ -18573,6 +18816,42 @@ var Component = normalizeComponent(
 
 /***/ }),
 
+/***/ "aI6p":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "show_need"
+  }, [_c('el-breadcrumb', {
+    attrs: {
+      "separator": ">"
+    }
+  }, [_c('el-breadcrumb-item', [_vm._v("您所在的位置 :")]), _vm._v(" "), _c('el-breadcrumb-item', {
+    attrs: {
+      "to": {
+        path: '/demand_comm_service01'
+      }
+    }
+  }, [_vm._v("服务需求列表")]), _vm._v(" "), _c('el-breadcrumb-item', [_vm._v("需求详情")])], 1), _vm._v(" "), _c('div', {
+    staticClass: "need_import"
+  }, [_c('h3', [_vm._v(_vm._s(_vm.data['title']))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.data['enterprise']) + " | 需求类型: "), _vm._l((_vm.searchConsult), function(n) {
+    return (n['id'] == _vm.data['businessId']) ? _c('span', {
+      key: n
+    }, [_vm._v(_vm._s(n['value']))]) : _vm._e()
+  }), _vm._v(" | 联系人: " + _vm._s(_vm.data['contact']) + " | 联系方式: " + _vm._s(_vm.data['phone']) + " | 2017-10-24 | "), (_vm.data['status'] == 1) ? _c('span', [_vm._v("待解决")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 2) ? _c('span', [_vm._v("进行中")]) : _vm._e(), (_vm.data['status'] == 3) ? _c('span', [_vm._v("已解决")]) : _vm._e()], 2), _vm._v(" "), _c('p', {
+    staticStyle: {
+      "border-bottom": "none",
+      "margin-top": "30px"
+    }
+  }, [_vm._v(_vm._s(_vm.data['needs']))])])], 1)
+}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
 /***/ "aRYn":
 /***/ (function(module, exports) {
 
@@ -18912,7 +19191,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('div', {
     staticClass: "activity_para"
   }, [_c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
@@ -21114,7 +21393,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "background-color": "#ececec"
     }
   }, [_c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
@@ -21317,6 +21596,10 @@ var _service_detail = __webpack_require__("ejp6");
 
 var _service_detail2 = _interopRequireDefault(_service_detail);
 
+var _consult_detail = __webpack_require__("tNjq");
+
+var _consult_detail2 = _interopRequireDefault(_consult_detail);
+
 var _service_apply = __webpack_require__("Hktg");
 
 var _service_apply2 = _interopRequireDefault(_service_apply);
@@ -21512,25 +21795,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //罗长春
 //个人中心--个人服务详情
 //个人中心--个人资料
-//个人中心
-//精彩瞬间列表页
-//融资项目列表页面
-//
-//创谷人才首页
-//忘记密码
-//注册页面
-//活动详情
-//地图
-_vue2.default.use(_vueRouter2.default);
-//11.8
-
-// import demand from '../src/components/demand.vue'
-
-//10.30
-
-//10.27
-//服务企业入驻申请表
-//个人中心--个人资料
 //个人中心--服务需求
 //服务商分类列表页
 //今日头条列表页
@@ -21541,6 +21805,26 @@ _vue2.default.use(_vueRouter2.default);
 //活动详情
 //活动首页
 //首页
+_vue2.default.use(_vueRouter2.default);
+//11.8
+
+// import demand from '../src/components/demand.vue'
+
+//10.30
+
+//10.27
+//服务企业入驻申请表
+//个人中心--个人服务详情
+//个人中心--个人资料
+//个人中心
+//精彩瞬间列表页
+//融资项目列表页面
+//
+//创谷人才首页
+//忘记密码
+//注册页面
+//活动详情
+//地图
 
 
 var routes = [{ path: '/index', component: _Index2.default, name: 'Index' }, { path: '/map', component: _Map2.default, name: 'Map' }, { path: '/activitys', component: _Activitys2.default, name: 'Activitys' }, { path: '/activityPara/:id', component: _ActivityPara2.default, name: 'ActivityPara' }, { path: '/article/:id', component: _article2.default, name: 'article' }, { path: '/service', component: _service2.default, name: 'service' }, { path: '/register', component: _register2.default, name: 'Register' }, { path: '/login', component: _login2.default, name: 'Login' }, { path: '/service_apply', component: _service_apply2.default, name: 'service_apply' }, { path: '/forgetPassword', component: _forgetPassword2.default, name: 'ForgetPassword' }, { path: '/talent', component: _talent2.default, name: 'Talent' }, { path: '/trainList', component: _trainList2.default, name: 'trainList' }, //培训讲师列表
@@ -21552,7 +21836,7 @@ var routes = [{ path: '/index', component: _Index2.default, name: 'Index' }, { p
 { path: '/topicList', component: _topicList2.default, name: 'topicList' }, //融资项目详情
 { path: '/service_class/:id', component: _service_class2.default, name: 'service_class' }, //服务商分类列表页面
 {
-	path: '/personalCenter', component: _personalCenter2.default, name: 'personalCenter', children: [{ path: '/demand_comm_service/:type', component: _demand_comm_service2.default, name: 'demand_comm_service01', hidden: true, meta: { requireAuth: true } }, { path: '/personalInformation', component: _personalInformation2.default, name: 'personalInformation', meta: { requireAuth: true } }, { path: '/passwordSetting', component: _passwordSetting2.default, name: 'passwordSetting', meta: { requireAuth: true } }, { path: '/service_detail/:id', component: _service_detail2.default, name: 'service_detail', meta: { requireAuth: true } }]
+	path: '/personalCenter', component: _personalCenter2.default, name: 'personalCenter', children: [{ path: '/demand_comm_service/:type', component: _demand_comm_service2.default, name: 'demand_comm_service01', hidden: true, meta: { requireAuth: true } }, { path: '/personalInformation', component: _personalInformation2.default, name: 'personalInformation', meta: { requireAuth: true } }, { path: '/passwordSetting', component: _passwordSetting2.default, name: 'passwordSetting', meta: { requireAuth: true } }, { path: '/service_detail/:id', component: _service_detail2.default, name: 'service_detail', meta: { requireAuth: true } }, { path: '/consult_detail/:id', component: _consult_detail2.default, name: 'consult_detail', meta: { requireAuth: true } }]
 },
 //个人中心
 //  罗长春
@@ -21835,7 +22119,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('div', {
     staticClass: "activity_para"
   }, [_c('div', [_c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
@@ -23396,7 +23680,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "margin-bottom": "40px"
     }
   }, [_vm._v("期望价格：" + _vm._s(_vm.tenancyApply['price']) + _vm._s(_vm.tenancyApply['unit']))])]) : _vm._e()], 1)], 1)], 1)], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "container"
+    staticClass: "container min400"
   }, [_c('el-row', {
     staticClass: "incubators_details_text wanted1",
     staticStyle: {
@@ -23494,7 +23778,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('div', {
     staticClass: "Financing"
   }, [_c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     attrs: {
       "gutter": 0
@@ -24136,7 +24420,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('div', {
     staticClass: "activity_para"
   }, [_c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
@@ -24857,7 +25141,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "gutter": 10
     }
   }, [_c('div', {
-    staticClass: "container"
+    staticClass: "container min650"
   }, [_c('el-col', {
     staticStyle: {
       "background-color": "#fff",
@@ -24888,7 +25172,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "model": _vm.ruleForm,
       "rules": _vm.rules,
-      "label-width": "100px"
+      "label-width": "200px"
     }
   }, [_c('el-form-item', {
     attrs: {
@@ -25036,7 +25320,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       },
       expression: "ruleForm.phone"
     }
-  })], 1), _vm._v(" "), _c('el-form-item', [_c('el-button', {
+  })], 1), _vm._v(" "), _c('el-form-item', {
+    staticStyle: {
+      "margin-left": "100px"
+    }
+  }, [_c('el-button', {
     staticStyle: {
       "background-color": "#f48100",
       "border": "none",
@@ -25697,7 +25985,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       },
       expression: "ruleForm.phone"
     }
-  })], 1), _vm._v(" "), _c('el-form-item', [_c('el-button', {
+  })], 1), _vm._v(" "), _c('el-form-item', {
+    staticStyle: {
+      "margin-left": "100px"
+    }
+  }, [_c('el-button', {
     staticStyle: {
       "background-color": "#f48100",
       "border": "none",
@@ -25741,6 +26033,41 @@ var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_position_vue___default.a,
   __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_b2beffc4_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_position_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "tNjq":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_consult_detail_vue__ = __webpack_require__("/flr");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_consult_detail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_consult_detail_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3636e979_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_consult_detail_vue__ = __webpack_require__("aI6p");
+function injectStyle (ssrContext) {
+  __webpack_require__("TQ5K")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-3636e979"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_consult_detail_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3636e979_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_vue_loader_lib_selector_type_template_index_0_consult_detail_vue__["a" /* default */],
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
@@ -25902,7 +26229,6 @@ exports.default = {
   },
   created: function created() {
     this.Business();
-    this.id = id;
     this.getReplyList();
   },
 
@@ -27059,7 +27385,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "lg": 24
     }
   }, [_c('div', {
-    staticClass: "container",
+    staticClass: "container min650",
     staticStyle: {
       "padding-top": "20px"
     }
@@ -28732,4 +29058,4 @@ var Component = normalizeComponent(
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.6235b2a8588729166ef8.js.map
+//# sourceMappingURL=app.bdafadc3b7bda278810d.js.map

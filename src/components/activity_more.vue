@@ -2,7 +2,7 @@
     <div>
         <!--精彩瞬间详情-->
         <el-row :gutter="0" style="margin-bottom: 50px;">
-            <div class="container">
+            <div class="container min650">
                 <el-col :lg="24" :md="24" :sm="24" :xs="24">
                     <el-breadcrumb separator=">" class="padder-vx">
                         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>

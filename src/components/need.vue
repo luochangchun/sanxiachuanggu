@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container min650">
     <el-row :gutter="10">
       <el-col :lg="24" :md="24" :sm="24" :xs="24">
         <el-row :gutter="10">

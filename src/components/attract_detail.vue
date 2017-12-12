@@ -36,7 +36,7 @@
                 </el-row>
             </div>
         </div>
-        <div class="container">
+        <div class="container min400">
             <el-row :gutter="10" class="incubators_details_text wanted1" style="background-color: #fff;padding:15px;margin-top:20px;">
                 <h1 style="margin-bottom:25px;font-size:16px;" v-if="tenancyApply['type'] == 1">招商说明:</h1>
                 <h1 style="margin-bottom:25px;font-size:16px;" v-if="tenancyApply['type'] == 2">求租说明:</h1>
@@ -64,7 +64,7 @@
 				api.Get('/qb/tenancy/' + id)
 					.then(res => {
                         this.photos = res['photos'];
-                        let defaultImg = {uri:"../../static/img/logo.png"}
+                        let defaultImg = {uri:"../../static/img/zss.png"}
 						this.tenancyApply = res['tenancyApply'];
                         if(res['photos'].length > 0) {
                             this.photos = res['photos'];

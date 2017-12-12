@@ -94,7 +94,7 @@
           <div id="menu-button" @click='showMenu()'>菜单</div>
           <ul v-show="visible">
             <li>
-               <router-link to="/index">首页</router-link>
+              <router-link to="/index">首页</router-link>
             </li>
             <li @click='showMenu_sub()'>
               <span class="submenu-button submenu-opened"></span>
@@ -106,15 +106,53 @@
             </li>
             <li class='has-sub'>
               <router-link to="/map">创谷空间</router-link>
+              <ul>
+                <li>
+                  <router-link to="/map">创谷空间</router-link>
+                </li>
+                <li>
+                  <router-link to="/attract/1">招商信息</router-link>
+                </li>
+                <li>
+                  <router-link to="/attract/2">求租信息</router-link>
+                </li>
+              </ul>
             </li>
             <li>
               <router-link to="/incubators">双创空间</router-link>
+              <ul>
+                <li>
+                  <router-link to="/incubators">双创空间</router-link>
+                </li>
+                <li>
+                  <router-link to="/attract_college/1">招商信息</router-link>
+                </li>
+                <li>
+                  <router-link to="/attract_college/2">求租信息</router-link>
+                </li>
+              </ul>
             </li>
             <li>
               <router-link to="/college">创谷学院</router-link>
+              <ul>
+                <li>
+                  <router-link to="/service">创谷企业</router-link>
+                </li>
+                <li>
+                  <router-link to="/need">服务需求</router-link>
+                </li>
+              </ul>
             </li>
             <li>
               <router-link to="/service">创谷企业</router-link>
+              <ul>
+                <li>
+                  <router-link to="/research">创谷研究</router-link>
+                </li>
+                <li>
+                  <router-link to="/question">技术难题及需求</router-link>
+                </li>
+              </ul>
             </li>
             <li>
               <router-link to="/research">创谷研究</router-link>
@@ -408,7 +446,7 @@
   .nav ul ul li.has-sub:hover>a::after {
     border-color: #ffffff;
   }
-  @media all and (min-width: 120px) {
+  @media all and (min-width: 1200px) {
     .nav_pc {
       display: block;
     }

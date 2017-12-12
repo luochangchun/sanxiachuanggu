@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container min650">
         <el-row :gutter="10" style="margin-bottom: 50px;">
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
                 <p style="font-size:14px;color:#666;line-height:40px;">您所在的位置 : <span style="color:#0089e3;">创谷企业</span> > 入孵企业列表</p>

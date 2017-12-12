@@ -39,7 +39,7 @@
 						<el-form-item label="联系电话" prop="phone">
 							<el-input type="tel" v-model="ruleForm.phone"></el-input>
 						</el-form-item>
-						<el-form-item>
+						<el-form-item style="margin-left:100px">
 							<el-button @click="submitForm('ruleForm')" style="background-color: #f48100;border:none;color:#fff;">提交申请</el-button>
 						</el-form-item>
 					</el-form>
