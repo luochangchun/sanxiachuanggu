@@ -3507,7 +3507,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     ref: "container",
     attrs: {
       "id": "container",
-      "src": "http://192.168.11.222/static/map.html",
+      "src": "http://www.sanxiachuanggu.com/static/map.html",
       "frameborder": "0"
     }
   })
@@ -11043,19 +11043,59 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "to": "/map"
     }
+  }, [_vm._v("创谷空间")]), _vm._v(" "), _c('ul', [_c('li', [_c('router-link', {
+    attrs: {
+      "to": "/map"
+    }
   }, [_vm._v("创谷空间")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+    attrs: {
+      "to": "/attract/1"
+    }
+  }, [_vm._v("招商信息")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+    attrs: {
+      "to": "/attract/2"
+    }
+  }, [_vm._v("求租信息")])], 1)])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+    attrs: {
+      "to": "/incubators"
+    }
+  }, [_vm._v("双创空间")]), _vm._v(" "), _c('ul', [_c('li', [_c('router-link', {
     attrs: {
       "to": "/incubators"
     }
   }, [_vm._v("双创空间")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
+      "to": "/attract_college/1"
+    }
+  }, [_vm._v("招商信息")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+    attrs: {
+      "to": "/attract_college/2"
+    }
+  }, [_vm._v("求租信息")])], 1)])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+    attrs: {
       "to": "/college"
     }
-  }, [_vm._v("创谷学院")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+  }, [_vm._v("创谷学院")]), _vm._v(" "), _c('ul', [_c('li', [_c('router-link', {
     attrs: {
       "to": "/service"
     }
   }, [_vm._v("创谷企业")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+    attrs: {
+      "to": "/need"
+    }
+  }, [_vm._v("服务需求")])], 1)])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+    attrs: {
+      "to": "/service"
+    }
+  }, [_vm._v("创谷企业")]), _vm._v(" "), _c('ul', [_c('li', [_c('router-link', {
+    attrs: {
+      "to": "/research"
+    }
+  }, [_vm._v("创谷研究")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+    attrs: {
+      "to": "/question"
+    }
+  }, [_vm._v("技术难题及需求")])], 1)])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
       "to": "/research"
     }
@@ -19518,8 +19558,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // axios 配置
-var baseUrl = 'http://192.168.11.222/servant';
-// const baseUrl = "http://www.sanxiachuanggu.com/servant";
+// const baseUrl = 'http://192.168.11.222/servant';
+var baseUrl = "http://www.sanxiachuanggu.com/servant";
 _axios2.default.defaults.timeout = 5000;
 _axios2.default.defaults.baseURL = baseUrl;
 _axios2.default.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -26894,6 +26934,44 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
   data: function data() {
@@ -28654,4 +28732,4 @@ var Component = normalizeComponent(
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.e76dbac857c20a4cd100.js.map
+//# sourceMappingURL=app.6235b2a8588729166ef8.js.map
