@@ -36,9 +36,9 @@
                         <div class="i02">
                             <h1 class="i_tit i02_tit">空间招商</h1>
                             <div class="incubators_intro clearfix">
-                                <p class="mr130"><span class="b">园区面积：</span>{{incubator['offerArea']}}㎡ </p>
+                                <p class="mr130"><span class="b">园区面积：</span>{{incubator['area']}}㎡ </p>
                                 <p class="mr130"><span class="b">已使用面积：</span>{{incubator['usedArea']}}㎡ </p>
-                                <p><span class="b">待招商面积：</span>{{incubator['offerArea'] - incubator['usedArea']}}㎡ </p>
+                                <p><span class="b">待招商面积：</span>{{incubator['offerArea']}}㎡ </p>
                                 <p><span class="b">园区特色：</span>{{incubator['intro']}}</p>
                             </div>
                         </div>

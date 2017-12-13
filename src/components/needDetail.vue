@@ -173,6 +173,7 @@
               if (res["suc"] == true) {
                 this.$message("提交成功!");
                 this.getReplyList();
+                this.askForm.askMess = "";
               } else if (res["suc"] == false) {
                 this.$message(res["msg"]);
               }

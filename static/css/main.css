@@ -12,6 +12,7 @@ p {
   word-break: break-all;
   word-break: break-word;
 }
+
 a {
   display: block;
 }
@@ -99,9 +100,11 @@ a {
   margin-right: auto;
   margin-left: auto;
 }
+
 .min400 {
   min-height: 400px;
 }
+
 .min650 {
   min-height: 650px;
 }
@@ -479,7 +482,7 @@ img {
 }
 
 .headLine_swiper .el-carousel__indicators {
-  bottom: 30px;
+  bottom: 50px;
 }
 
 .headLine_swiper a {
@@ -490,7 +493,7 @@ img {
 .headLine_news a {
   display: block;
   border-bottom: 1px dashed #dddddd;
-  padding: 10px 0;
+  padding: 9.2px 0;
 }
 
 .headLine_news a:hover p {
@@ -570,11 +573,15 @@ img {
   width: 100%;
   height: 40px;
   line-height: 40px;
-  bottom: 0;
+  bottom: 0px;
   left: 0;
   padding: 0;
   background-color: rgba(0, 0, 0, .6);
   box-sizing: border-box;
+}
+
+.headLine_swiper p {
+  bottom: 12px;
 }
 
 .space_display .cur_mask {

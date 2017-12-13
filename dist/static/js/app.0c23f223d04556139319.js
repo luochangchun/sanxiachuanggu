@@ -2518,7 +2518,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     return (n['id'] == _vm.data['classifyId']) ? _c('span', {
       key: n
     }, [_vm._v(_vm._s(n['value']))]) : _vm._e()
-  }), _vm._v(" | 联系人: " + _vm._s(_vm.data['contact']) + " | 联系方式: " + _vm._s(_vm.data['phone']) + " | 2017-10-24 | "), (_vm.data['status'] == 1) ? _c('span', [_vm._v("待解决")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 2) ? _c('span', [_vm._v("进行中")]) : _vm._e(), (_vm.data['status'] == 3) ? _c('span', [_vm._v("已解决")]) : _vm._e()], 2), _vm._v(" "), _c('p', {
+  }), _vm._v(" | 联系人: " + _vm._s(_vm.data['contact']) + " | 联系方式: " + _vm._s(_vm.data['phone']) + " | 2017-10-24 | "), (_vm.data['status'] == 1) ? _c('span', [_vm._v("待解决")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 2) ? _c('span', [_vm._v("进行中")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 3) ? _c('span', [_vm._v("已解决")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 4) ? _c('span', [_vm._v("被驳回")]) : _vm._e()], 2), _vm._v(" "), _c('p', {
     staticStyle: {
       "border-bottom": "none",
       "margin-top": "30px"
@@ -3576,7 +3576,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     ref: "container",
     attrs: {
       "id": "container",
-      "src": "http://www.sanxiachuanggu.com/static/map.html",
+      "src": "http://192.168.11.222/static/map.html",
       "frameborder": "0"
     }
   })
@@ -5004,6 +5004,7 @@ exports.default = {
     }
   }
 }; //
+//
 //
 //
 //
@@ -7530,6 +7531,7 @@ exports.default = {
             if (res["suc"] == true) {
               _this3.$message("提交成功!");
               _this3.getReplyList();
+              _this3.askForm.askMess = "";
             } else if (res["suc"] == false) {
               _this3.$message(res["msg"]);
             }
@@ -11535,7 +11537,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('h1', {
       staticClass: "f14 text-ellipsis"
-    }, [_vm._v(_vm._s(item['needs']))]), _vm._v(" "), _c('p', {
+    }, [_vm._v(_vm._s(item['title']))]), _vm._v(" "), _c('p', {
       staticClass: "text-ellipsis"
     }, [_vm._v("企业名称：" + _vm._s(item['enterprise']))]), _vm._v(" "), _c('div', {
       staticClass: "info"
@@ -17335,13 +17337,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     return _c('div', {
       key: index,
       staticClass: "item clearfix",
-      attrs: {
-        "to": {
-          name: 'tutorDetail',
-          params: {
-            id: item.id
-          }
-        }
+      staticStyle: {
+        "cursor": "default"
       }
     }, [_c('el-col', {
       attrs: {
@@ -17426,13 +17423,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     return _c('div', {
       key: index,
       staticClass: "item clearfix",
-      attrs: {
-        "to": {
-          name: 'tutorDetail',
-          params: {
-            id: item.id
-          }
-        }
+      staticStyle: {
+        "cursor": "default"
       }
     }, [_c('el-col', {
       attrs: {
@@ -18839,7 +18831,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     return (n['id'] == _vm.data['businessId']) ? _c('span', {
       key: n
     }, [_vm._v(_vm._s(n['value']))]) : _vm._e()
-  }), _vm._v(" | 联系人: " + _vm._s(_vm.data['contact']) + " | 联系方式: " + _vm._s(_vm.data['phone']) + " | 2017-10-24 | "), (_vm.data['status'] == 1) ? _c('span', [_vm._v("待解决")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 2) ? _c('span', [_vm._v("进行中")]) : _vm._e(), (_vm.data['status'] == 3) ? _c('span', [_vm._v("已解决")]) : _vm._e()], 2), _vm._v(" "), _c('p', {
+  }), _vm._v(" | 联系人: " + _vm._s(_vm.data['contact']) + " | 联系方式: " + _vm._s(_vm.data['phone']) + " | 2017-10-24 | "), (_vm.data['status'] == 1) ? _c('span', [_vm._v("待解决")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 2) ? _c('span', [_vm._v("进行中")]) : _vm._e(), (_vm.data['status'] == 3) ? _c('span', [_vm._v("已解决")]) : _vm._e(), (_vm.data['status'] == 4) ? _c('span', [_vm._v("被驳回")]) : _vm._e()], 2), _vm._v(" "), _c('p', {
     staticStyle: {
       "border-bottom": "none",
       "margin-top": "30px"
@@ -22543,6 +22535,7 @@ exports.default = {
           _api2.default.Post("/indie/question", params).then(function (res) {
             if (res["suc"] == true) {
               _this2.$message("提交成功!");
+              _this2.askForm.askMess = "";
               _this2.getMyMsg();
             } else if (res["suc"] == false) {
               _this2.$message(res["msg"]);
@@ -25320,11 +25313,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       },
       expression: "ruleForm.phone"
     }
-  })], 1), _vm._v(" "), _c('el-form-item', {
-    staticStyle: {
-      "margin-left": "100px"
-    }
-  }, [_c('el-button', {
+  })], 1), _vm._v(" "), _c('el-form-item', [_c('el-button', {
     staticStyle: {
       "background-color": "#f48100",
       "border": "none",
@@ -26294,6 +26283,7 @@ exports.default = {
             if (res["suc"] == true) {
               _this3.$message("提交成功!");
               _this3.getReplyList();
+              _this3.askForm.askMess = "";
             } else if (res["suc"] == false) {
               _this3.$message(res["msg"]);
             }
@@ -27081,13 +27071,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "mr130"
   }, [_c('span', {
     staticClass: "b"
-  }, [_vm._v("园区面积：")]), _vm._v(_vm._s(_vm.incubator['offerArea']) + "㎡ ")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("园区面积：")]), _vm._v(_vm._s(_vm.incubator['area']) + "㎡ ")]), _vm._v(" "), _c('p', {
     staticClass: "mr130"
   }, [_c('span', {
     staticClass: "b"
   }, [_vm._v("已使用面积：")]), _vm._v(_vm._s(_vm.incubator['usedArea']) + "㎡ ")]), _vm._v(" "), _c('p', [_c('span', {
     staticClass: "b"
-  }, [_vm._v("待招商面积：")]), _vm._v(_vm._s(_vm.incubator['offerArea'] - _vm.incubator['usedArea']) + "㎡ ")]), _vm._v(" "), _c('p', [_c('span', {
+  }, [_vm._v("待招商面积：")]), _vm._v(_vm._s(_vm.incubator['offerArea']) + "㎡ ")]), _vm._v(" "), _c('p', [_c('span', {
     staticClass: "b"
   }, [_vm._v("园区特色：")]), _vm._v(_vm._s(_vm.incubator['intro']))])])]), _vm._v(" "), _c('div', {
     staticClass: "i03"
@@ -29058,4 +29048,4 @@ var Component = normalizeComponent(
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.7d94e022d950ea318c8a.js.map
+//# sourceMappingURL=app.0c23f223d04556139319.js.map

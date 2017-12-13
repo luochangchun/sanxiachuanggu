@@ -73,7 +73,7 @@
                             <div class="needList clearfix">
                                 <p v-show="needData.length == 0" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
                                 <router-link :to="{ name: 'needDetail', params: { id: item.id} }" v-for="(item, index) in needData" :key="index" class="item clearfix">
-                                    <h1 class="f14 text-ellipsis">{{item['needs']}}</h1>
+                                    <h1 class="f14 text-ellipsis">{{item['title']}}</h1>
                                     <p class="text-ellipsis">企业名称：{{item['enterprise']}}</p>
                                     <div class="info">
                                         <p class="pw270">联系人：<span style="margin-right:150px;">{{item['contact']}}</span></p>

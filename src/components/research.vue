@@ -45,7 +45,7 @@
                             </h2>
                             <div class="InvestmentList CollegeList">
                                 <p v-show="noData2" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
-                                <div :to="{ name: 'tutorDetail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in Exeprt" :key="index">
+                                <div style="cursor: default;" class="item clearfix" v-for="(item, index) in Exeprt" :key="index">
                                     <el-col :lg="4" :md="24" :sm="24" :xs="24">
                                         <!-- <img :src="item['photo']"> -->
                                         <img v-if="item.photo !== ''" :src="item.photo" alt="">
@@ -72,7 +72,7 @@
                             </h2>
                             <div class="InvestmentList CollegeList">
                                 <p v-show="noData5" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
-                                <div :to="{ name: 'tutorDetail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in ResearchInstitute" :key="index">
+                                <div style="cursor: default;" class="item clearfix" v-for="(item, index) in ResearchInstitute" :key="index">
                                     <el-col :lg="4" :md="24" :sm="24" :xs="24">
                                         <img v-if="item.photo !== ''" :src="item.photo" alt="">
                                         <img v-if="item.photo == ''" src="../../static/img/moren.png" alt="">

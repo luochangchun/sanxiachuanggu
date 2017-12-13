@@ -144,6 +144,7 @@
             api.Post("/indie/question", params).then(res => {
               if (res["suc"] == true) {
                 this.$message("提交成功!");
+                this.askForm.askMess = "";
                 this.getMyMsg();
               } else if (res["suc"] == false) {
                 this.$message(res["msg"]);
