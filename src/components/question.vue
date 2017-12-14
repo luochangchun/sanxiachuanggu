@@ -101,13 +101,14 @@
                     <li v-for="( item,index ) in recommend" :key="index" class="need_teacher" v-show="!recommendFlag">
                       <el-row :gutter="10" style="margin-bottom: 10px;">
                         <el-col :lg="8" :md="8" :sm="8" :xs="8">
-                          <img :src="item['icon']" alt="">
+                          <img v-if="item['photo']" :src="item['icon']" alt="">
+                          <img v-if="!item['photo']" src="../../static/img/incubatorBg.jpeg" alt="">
                         </el-col>
-                        <el-col :lg="8" :md="8" :sm="8" :xs="8">
+                        <el-col :lg="10" :md="10" :sm="10" :xs="10">
                           <p>{{item['name']}}</p>
                           <p class="text-ellipsis">{{item['intro']}}</p>
                         </el-col>
-                        <el-col :lg="8" :md="8" :sm="8" :xs="8">
+                        <el-col :lg="6" :md="6" :sm="6" :xs="6">
                           <router-link :to="{ name: 'tutorDetail', params: { id: item.id} }">查看</router-link>
                         </el-col>
                       </el-row>
@@ -483,16 +484,15 @@
   }
   /*导师推荐*/
   .need_teacher div img {
-    width: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
   }
   .need_teacher div p {
     line-height: 30px;
     font-size: 14px;
   }
-  .need_teacher div p:first-child {
-    margin-top: 25px;
-  }
+
   .need_teacher div a {
     border: none;
     background-color: #f48100;
@@ -501,7 +501,7 @@
     width: 70px;
     height: 28px;
     border-radius: 4px;
-    margin-top: 40px;
+    margin-top: 10px;
     text-align: center;
   }
 </style>

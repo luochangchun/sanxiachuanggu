@@ -45,7 +45,7 @@
                             </h2>
                             <div class="InvestmentList CollegeList">
                                 <p v-show="noData2" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
-                                <div style="cursor: default;" class="item clearfix" v-for="(item, index) in Exeprt" :key="index">
+                                <router-link :to="{ name: 'tutorDetail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in Exeprt" :key="index">
                                     <el-col :lg="4" :md="24" :sm="24" :xs="24">
                                         <!-- <img :src="item['photo']"> -->
                                         <img v-if="item.photo !== ''" :src="item.photo" alt="">
@@ -56,7 +56,7 @@
                                         <p class="text-ellipsis">{{item['intro']}}</p>
                                         <el-tag type="danger" style="margin-top: 5px;">研究方向：{{item['field'] | filterStr}}</el-tag>
                                     </el-col>
-                                </div>
+                                </router-link>
                                 <div class="pageNo clearfix">
                                     <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
                                         <el-pagination :current-page="1" :total="ExeprtPages" @current-change="handleExeprt" layout="prev, pager, next">
@@ -72,7 +72,7 @@
                             </h2>
                             <div class="InvestmentList CollegeList">
                                 <p v-show="noData5" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
-                                <div style="cursor: default;" class="item clearfix" v-for="(item, index) in ResearchInstitute" :key="index">
+                                <router-link :to="{ name: 'tutorDetail', params: { id: item.id} }"  class="item clearfix" v-for="(item, index) in ResearchInstitute" :key="index">
                                     <el-col :lg="4" :md="24" :sm="24" :xs="24">
                                         <img v-if="item.photo !== ''" :src="item.photo" alt="">
                                         <img v-if="item.photo == ''" src="../../static/img/moren.png" alt="">
@@ -82,7 +82,7 @@
                                         <p class="text-ellipsis">{{item['intro']}}</p>
                                         <el-tag type="danger" style="margin-top: 5px;">研究方向：{{item['field'] | filterStr}}</el-tag>
                                     </el-col>
-                                </div>
+                                </router-link>
                                 <div class="pageNo clearfix">
                                     <el-col :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="padding-top:20px;">
                                         <el-pagination :current-page="1" :total="ResearchPages" @current-change="handleResearch" layout="prev, pager, next">

@@ -176,7 +176,7 @@
               if (res["data"].length > 0) {
                 this.diglogLists = res['data'].reverse();
               } else {
-                this.$message('导师还未回复');
+                this.$message('还未回复');
                 this.$set(this.guest_active, i, false)
               }
             });

@@ -89,15 +89,21 @@
                   <ul>
                     <p v-show="recommendFlag" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
                     <li v-for="( item,index ) in recommend" :key="index" class="need_teacher" v-show="!recommendFlag">
+                      <router-link :to="{ name: 'provider', params: { id: item.id} }">
                       <el-row :gutter="10" style="margin-bottom: 10px;">
                         <el-col :lg="8" :md="8" :sm="8" :xs="8">
-                          <img :src="item['icon']" alt="">
+                          <img v-if="item['icon']" :src="item['icon']" alt="">
+                          <img v-if="!item['icon']" src="../../static/img/incubatorBg.jpeg" alt="">
                         </el-col>
-                        <el-col :lg="16" :md="16" :sm="16" :xs="16">
+                        <el-col :lg="10" :md="10" :sm="10" :xs="10">
                           <p>{{item['name']}}</p>
                           <p class="text-ellipsis">{{item['intro']}}</p>
                         </el-col>
+                        <el-col :lg="6" :md="6" :sm="6" :xs="6">
+                          <router-link :to="{ name: 'provider', params: { id: item.id} }" style="color:#fff;">查看</router-link>
+                        </el-col>
                       </el-row>
+                      </router-link>
                     </li>
                   </ul>
                 </div>
@@ -381,6 +387,17 @@
       margin-top: 28px;
     }
   }
+  .need_teacher div a {
+    border: none;
+    background-color: #f48100;
+    color: #fff;
+    font-size: 14px;
+    width: 70px;
+    height: 28px;
+    border-radius: 4px;
+    margin-top: 5px;
+    text-align: center;
+  }
   @media (min-width: 992px) {
     .show_btn {
       border: none;
@@ -457,7 +474,6 @@
     margin-bottom: 10px;
   }
   .news-rightlist ul li, .news-rightlist ul a {
-    clear: both;
     line-height: 30px;
     color: #a1a1a1;
     font-size: 14px;
@@ -475,17 +491,14 @@
   }
   /*导师推荐*/
   .need_teacher div img {
-    width: 100px;
-    height: 60px;
-    max-height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    padding: 10px 0;
   }
   .need_teacher div p {
     line-height: 30px;
     font-size: 14px;
   }
- 
   .need_teacher div button {
     border: none;
     background-color: #f48100;

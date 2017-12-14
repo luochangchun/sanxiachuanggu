@@ -1,11 +1,11 @@
 <template>
   <div>
-    <el-row v-if="!problemFlag" :gutter="10" style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
+    <el-row v-if="!problemFlag" :gutter="0" style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
       <el-col :lg="12" :md="12" :sm="12" :xs="12" :offset="6" style="background-color:#fff;padding:30px 25px 15px 0">
         <h1 class="tc f18" style="color:#0089e3;margin-bottom:30px;">服务需求发布</h1>
         <el-form :model="serviceForm" :rules="serviceRules" ref="serviceForm" label-width="100px" class="demo-ruleForm">
           <el-form-item label="需求类别" prop="classifyId">
-            <el-select v-model="serviceForm.businessId" @change="change">
+            <el-select v-model="serviceForm.classifyId" @change="change">
               <el-option :label="item['value']" :value="item['id']" v-for="(item, index) in category" :key="index"></el-option>
             </el-select>
           </el-form-item>
@@ -31,12 +31,12 @@
         </el-form>
       </el-col>
     </el-row>
-    <el-row v-if="problemFlag" :gutter="10" style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
+    <el-row v-if="problemFlag" :gutter="0" style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
       <el-col :lg="12" :md="12" :sm="12" :xs="12" :offset="6" style="background-color:#fff;padding:30px 25px 15px 0">
         <h1 class="tc f18" style="color:#0089e3;margin-bottom:30px;">企业技术难题及需求发布</h1>
         <el-form :model="cosnultForm" :rules="cosnultRules" ref="cosnultForm" label-width="200px" class="demo-ruleForm">
-          <el-form-item label="行业类别" prop="classifyId">
-            <el-select v-model="cosnultForm.businessId">
+          <el-form-item label="难题类别" prop="classifyId">
+            <el-select v-model="cosnultForm.classifyId">
               <el-option :label="item['value']" :value="item['id']" v-for="(item, index) in category" :key="index"></el-option>
             </el-select>
           </el-form-item>
@@ -99,7 +99,7 @@ export default {
       category: "",
       problemFlag: false,
       serviceForm: {
-        businessId: "", //需求类别
+        classifyId: "", //需求类别
         title: "", //难题及需求标题
         mentorId: "", //难题及需求描述
         enterprise: "", //企业名称
@@ -109,7 +109,7 @@ export default {
         needs: "", //服务需求
       },
       serviceRules: {
-        businessId: [
+        classifyId: [
           {
             required: true,
             message: "请选择需求类别",
@@ -170,7 +170,7 @@ export default {
         ]
       },
       cosnultForm: {
-        businessId: "", //需求类别
+        classifyId: "", //需求类别
         title: "", //难题及需求标题
         mentorId: "", //难题及需求描述
         enterprise: "", //企业名称
@@ -180,10 +180,10 @@ export default {
         content: ""
       },
       cosnultRules: {
-        businessId: [
+        classifyId: [
           {
             required: true,
-            message: "请选择需求类别",
+            message: "请选择难题类别",
             trigger: "change"
           }
         ],
@@ -253,7 +253,7 @@ export default {
       this.$refs[formName].validate(valid => {
         if (valid) {
           var params = {
-            classifyId: this.serviceForm.businessId,
+            classifyId: this.serviceForm.classifyId,
             enterprise: this.serviceForm.enterprise,
             contact: this.serviceForm.contact,
             phone: this.serviceForm.phone,

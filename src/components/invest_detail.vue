@@ -1,7 +1,7 @@
 <template>
     <div>
         <!--服务企业login-->
-        <el-row :gutter="10">
+        <el-row :gutter="0">
             <el-col :lg="24" :md="24" :sm="24" :xs="24" style="background-color:#23b7e5">
                 <el-row :gutter="10">
                     <div class="container">
@@ -18,7 +18,7 @@
             </el-col>
         </el-row>
         <!--企业详情-->
-        <el-row :gutter="10" style="margin-top: 50px;margin-bottom: 50px;">
+        <el-row :gutter="0" style="margin-top: 50px;margin-bottom: 50px;">
             <div class="container">
                 <el-col :lg="24" :md="24" :sm="24" :xs="24">
                     <el-row>
@@ -26,13 +26,13 @@
                             <table border="1" class="table table-bordered bg-light" style="background-color: #edf1f2">
                                 <tbody>
                                     <tr>
-                                        <td class="font-bold w-xs">企业名称</td>
+                                        <td width="100" class="font-bold w-xs">企业名称</td>
                                         <td colspan="3">
                                             <p>{{financeDetail['name']}}</p>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="font-bold w-xs">联系人</td>
+                                        <td width="100"class="font-bold w-xs">联系人</td>
                                         <td>{{financeDetail['contact']}}</td>
                                         <td class="font-bold">联系电话</td>
                                         <td>
@@ -45,8 +45,8 @@
                                             <p>{{financeDetail['address'] || "暂无数据"}}</p>
                                         </td>
                                     </tr> -->
-                                    <tr style="height:240px;">
-                                        <td class="font-bold w-xs h-md">企业简介与优势</td>
+                                    <tr style="height:240px;min-height:240px;">
+                                        <td class="font-bold w-xs h-md"  width="100">企业简介与优势</td>
                                         <td colspan="3">{{financeDetail['intro'] || "暂无数据"}}</td>
                                     </tr>
                                     <!--<tr style="height:90px;">-->

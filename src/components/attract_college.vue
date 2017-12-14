@@ -23,8 +23,8 @@
                         </el-col> -->
                         <el-col :xs="21" :sm="21" :md="21" :lg="21" class="clearfix">
                             <div class="incubators_more_img l">
-                                <img v-if="item['icon']" :src="item['icon']" alt="" style="margin-left: -5px;width:212px;height:150px;">
-                                <img v-if="!item['icon']" src="../../static/img/zs.png" alt="" style="width:212px;height:150px;margin-top: 12px;">
+                                <img v-if="item['icon']" :src="item['icon']" alt="" style="width:100px;height:80px;margin-top: 12px;">
+                                <img v-if="!item['icon']" src="../../static/img/zs.png" alt="" style="width:100px;height:80px;margin-top: 12px;">
                             </div>
                             <div class="incubators_more_introduce l" style="margin-left: 10px;">
                                 <h2 v-if="!item['title']">招商</h2>
@@ -172,8 +172,8 @@
     .incubators_more_introduce h2 {
         color: #0089e3;
         line-height: 26px;
-        font-size: 20px;
-        margin:10px  0;
+        font-size: 16px;
+        margin:8px  0;
     }
     .incubators_more_introduce p {
         line-height: 26px;

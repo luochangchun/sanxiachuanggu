@@ -780,8 +780,9 @@
     <script src="http://www.ctoutiao.com/style/toutiao/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=3b8169faeed399dbb6371be89f27b759"></script>
     <script>
-        var baseUrl = "http://192.168.11.222/";
-        // var baseUrl = "http://www.sanxiachuanggu.com/";
+        // var baseUrl = "http://localhost:8888/";
+        // var baseUrl = "http://192.168.11.222/";
+        var baseUrl = "http://www.sanxiachuanggu.com/";
         function Dictionary() {
             this.data = new Array();
 
@@ -933,7 +934,7 @@
             var html = "";
             html +=
                 "<div class='sh_boxmn'><div class='sh_boxhide' onClick='closeInfoWindow()'>×</div><div class='sh_mation'>";
-            html += "<h1></h1></div>";
+            html += "<h1>" + data.company_name + "</h1></div>";
             //  html += "<dl class='sh_dlsm'><dt><img src=" + data.logo + "></dt>";
             html += "<dl class='sh_dlsm'><dt><img src="+ data.logo + "></dt>";
             html += "<dd>";
