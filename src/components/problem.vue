@@ -303,6 +303,9 @@ export default {
         }
       });
     },
+    resetForm(formName) {
+      window.history.go(-1);
+    },
     change: function() {
       console.log(this.cosnultForm.businessId);
     },

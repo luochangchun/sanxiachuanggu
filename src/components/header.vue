@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <div class="top">
+    <div class="top" style="background-color:#0089e3">
       <div class="container" style="margin-top:0;">
         <el-row :gutter="0">
           <el-col :xs="0" :sm="0" :md="6" :lg="6">
@@ -90,7 +90,7 @@
             </li>
           </ul>
         </div>
-        <div class="nav nav_mobile r">
+        <!-- <div class="nav nav_mobile r">
           <div id="menu-button" @click='showMenu()'>菜单</div>
           <ul v-show="visible">
             <li>
@@ -161,7 +161,7 @@
               <router-link to="/financing">投融资库</router-link>
             </li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -454,147 +454,26 @@
       display: none;
     }
   }
-  @media all and (max-width: 768px) {
-    .logo {
-      display: none;
-    }
-    .nav {
-      width: 100%;
-      padding: 12px 0 0;
-    }
-    .nav ul {
-      width: 100%;
-    }
-    .nav>ul>li:hover>a,
-    .nav>ul>li.active>a {
-      color: #0089e3;
-      border-bottom: none;
-    }
-    .nav.align-center>ul,
-    .nav.align-right ul ul {
-      text-align: left;
-    }
-    .nav ul li,
-    .nav ul ul li,
-    .nav ul li:hover>ul>li {
-      width: 100%;
-      height: auto;
-      border-top: 1px solid rgba(120, 120, 120, 0.15);
-    }
-    .nav ul li a,
-    .nav ul ul li a {
-      width: 100%;
-    }
-    .nav ul li a {
-      font-size: 14px;
-    }
-    .nav>ul>li,
-    .nav.align-center>ul>li,
-    .nav.align-right>ul>li {
-      float: none;
-      display: block;
-    }
-    .nav ul ul li a {
-      padding: 20px 20px 20px 30px;
-      font-size: 12px;
-      color: #000000;
-      background: none;
-    }
-    .nav ul ul li:hover>a,
-    .nav ul ul li a:hover {
-      color: #000000;
-    }
-    .nav ul ul ul li a {
-      padding-left: 40px;
-    }
-    .nav ul ul,
-    .nav ul ul ul {
-      position: relative;
-      left: 0;
-      right: auto;
-      width: 100%;
-      margin: 0;
-    }
-    .nav>ul>li.has-sub>a::after,
-    .nav ul ul li.has-sub>a::after {
-      display: none;
-    }
-    #menu-line {
-      display: none;
-    }
-    .nav #menu-button {
-      display: block;
-      border: 1px solid #eee;
-      padding: 10px;
-      color: #000000;
-      cursor: pointer;
-      font-size: 14px;
-      background-color: #fff;
-      text-transform: uppercase;
-      border-radius: 3px;
-    }
-    .nav #menu-button::after {
-      content: "";
-      position: absolute;
-      top: 12px;
-      right: 20px;
-      display: block;
-      width: 15px;
-      height: 2px;
-      background: #000000;
-    }
-    .nav #menu-button::before {
-      content: "";
-      position: absolute;
-      top: 17px;
-      right: 20px;
-      display: block;
-      width: 15px;
-      height: 3px;
-      border-top: 2px solid #000000;
-      border-bottom: 2px solid #000000;
-    }
-    .nav .submenu-button {
-      position: absolute;
-      z-index: 10;
-      right: 0;
-      top: 0;
-      display: block;
-      border-left: 1px solid rgba(120, 120, 120, 0.15);
-      height: 52px;
-      width: 57px;
-      cursor: pointer;
-    }
-    .nav .submenu-button::after {
-      content: "";
-      position: absolute;
-      top: 21px;
-      left: 26px;
-      display: block;
-      width: 1px;
-      height: 11px;
-      background: #000000;
-      z-index: 99;
-    }
-    .nav .submenu-button::before {
-      content: "";
-      position: absolute;
-      left: 21px;
-      top: 26px;
-      display: block;
-      width: 11px;
-      height: 1px;
-      background: #000000;
-      z-index: 99;
-    }
-    .nav .submenu-button.submenu-opened:after {
-      display: none;
-    }
-    .nav_pc {
-      display: none;
-    }
-    .nav_mobile {
-      display: block;
-    }
+@media all and (max-width: 768px) {
+  .logo{
+    display: none;
   }
+  .header {
+    width: 750px;
+    /* padding: 0; */
+  }
+  .nav {
+    height: 80px;
+    left: 0;
+    /* margin-bottom: 80px; */
+  }
+  .el-col-offset-12 {
+    margin-left:40%;
+  }
+  .nav>ul>li>a {
+    padding: 16px 8px;
+    font-size: 14px;
+  }
+}
+ 
 </style>

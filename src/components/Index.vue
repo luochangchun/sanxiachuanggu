@@ -28,8 +28,8 @@
               <router-link :to="{ name: 'article', params: { id: item.id}}" v-for="(item, index) in topic" :key="index" v-if="index<8">
                 <el-row>
                   <!-- <el-col :span="5">
-                            <img :src='item.icon' class="top_cube">
-                          </el-col> -->
+                                <img :src='item.icon' class="top_cube">
+                              </el-col> -->
                   <el-col :span="18">
                     <p class="text-ellipsis">{{item.title}}</p>
                   </el-col>
@@ -54,16 +54,18 @@
           </el-col>
         </el-row>
         <el-row :gutter="10">
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" v-for="(item, index) in valley" :key="index" class="display_item">
-            <div class="gray" @mouseover="show_display(index)" @mouseout="hide_display(index)">
-              <img :src="item['icon']" alt="">
-              <p class="word white abs tc f14" :class="{ dn: display_active[index]}">{{item.name}}</p>
-              <div class="cur_mask abs" :class="{ cur_mask_after : display_active[index] }">
-                <h1 class="f20 tc text-ellipsis">{{item.name}}</h1>
-                <p class="f14 white text-ellipsis-muti text-ellipsis-3">{{item.intro}}</p>
-                <router-link :to="{ name: 'incubators_details', params: { id: item.id} }" class="Apply white f14 tc b">
-                  查看详情
-                </router-link>
+          <el-col :xs="24" :sm="24" :md="12" :lg="6" v-for="(item, index) in valley" :key="index">
+            <div class="display_item">
+              <div class="gray" @mouseover="show_display(index)" @mouseout="hide_display(index)">
+                <img :src="item['icon']" alt="">
+                <p class="word white abs tc f14" :class="{ dn: display_active[index]}">{{item.name}}</p>
+                <div class="cur_mask abs" :class="{ cur_mask_after : display_active[index] }">
+                  <h1 class="f20 tc text-ellipsis">{{item.name}}</h1>
+                  <p class="f14 white text-ellipsis-muti text-ellipsis-3">{{item.intro}}</p>
+                  <router-link :to="{ name: 'incubators_details', params: { id: item.id} }" class="Apply white f14 tc b">
+                    查看详情
+                  </router-link>
+                </div>
               </div>
             </div>
           </el-col>
@@ -81,16 +83,18 @@
           </el-col>
         </el-row>
         <el-row :gutter="10">
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" v-for="(item, index) in double" :key="index" class="double_item" style="overflow:hidden;">
-            <div class="gray" @mouseover="show_double(index)" @mouseout="hide_double(index)">
-              <img :src="item['icon']" alt="">
-              <p class="word white abs tc f14" :class="{ dn: double_active[index]}">{{item.name}}</p>
-              <div class="cur_mask abs" :class="{ cur_mask_after : double_active[index] }">
-                <h1 class="f20 tc text-ellipsis">{{item.name}}</h1>
-                <p class="f14 white text-ellipsis-muti text-ellipsis-3">{{item.intro}}</p>
-                <router-link :to="{ name: 'incubators_details', params: { id: item.id} }" class="Apply white f14 tc b">
-                  查看详情
-                </router-link>
+          <el-col :xs="24" :sm="24" :md="12" :lg="6" v-for="(item, index) in double" :key="index">
+            <div class="double_item" style="overflow:hidden;">
+              <div class="gray" @mouseover="show_double(index)" @mouseout="hide_double(index)">
+                <img :src="item['icon']" alt="" style="height:225px">
+                <p class="word white abs tc f14" :class="{ dn: double_active[index]}">{{item.name}}</p>
+                <div class="cur_mask abs" :class="{ cur_mask_after : double_active[index] }">
+                  <h1 class="f20 tc text-ellipsis">{{item.name}}</h1>
+                  <p class="f14 white text-ellipsis-muti text-ellipsis-3">{{item.intro}}</p>
+                  <router-link :to="{ name: 'incubators_details', params: { id: item.id} }" class="Apply white f14 tc b">
+                    查看详情
+                  </router-link>
+                </div>
               </div>
             </div>
           </el-col>
@@ -139,7 +143,7 @@
           <el-col :xs="12" :sm="12" :md="6" :lg="6" v-for="(item, index) in mentor" :key="index" v-if="index<4">
             <router-link :to="{ name: 'tutorDetail', params: { id: item.id} }" class="tutor_item rel">
               <div class="tutor_img">
-                <img v-show="item.photo !== ''"  :src="item.photo" alt="">
+                <img v-show="item.photo !== ''" :src="item.photo" alt="">
                 <img v-show="item.photo == ''" src="../../static/img/zss.png" alt="">
               </div>
               <p class="tc f14">{{item.name}}
@@ -153,43 +157,43 @@
     </div>
     <!-- 融资项目 -->
     <!-- <div class="Financing">
-              <div class="container">
-                <el-row :gutter="0">
-                  <el-col :xs="24" :sm="24" :md="24" :lg="24">
-                    <div class="l Financing_title"></div>
-                    <router-link :to="{ name: 'financingList'}" class="r more_plus"></router-link>
-                  </el-col>
-                </el-row>
-                <el-row :gutter="20">
-                  <el-col :xs="24" :sm="12" :md="12" :lg="12" v-for="(item, index) in financing" :key="index" v-if="index<2">
-                      <div :style="{backgroundImage: 'url(' +item.logo+ ')'}" class="bg-cover" style="margin-bottom:0;"></div>
-                      <div class="Financing_wrap">
-                        <div class="Financing_info">
-                          <h1 class="f16">{{item.name}}</h1>
-                          <p class="text-ellipsis">{{item.intro}}</p>
-                        </div>
-                        <el-row type="flex" class="Financing_money">
-                          <el-col :span="6">
-                            <p class="f14">{{item.archived}}万<br/>已获得投资意向</p>
-                          </el-col>
-                          <el-col :span="6" :push="12">
-                            <p class="f14 tr">{{item.financing}}万<br/>预融资总额</p>
-                          </el-col>
-                        </el-row>
-                        <el-tag type="primary" style="margin-left:8px">行业领域:
-                          <span>消费生活</span>
-                        </el-tag>
-                        <el-tag type="success">已完成融资:
-                          <span v-if="item.status == 1">未融资</span>
-                          <span v-if="item.status == 2">未完成融资</span>
-                        </el-tag>
-                        <p class="f14 pl10" style="margin-left:8px;">发起人:{{item.founder}}</p>
-                      </div>
-                    </router-link>
-                  </el-col>
-                </el-row>
-              </div>
-            </div> -->
+                  <div class="container">
+                    <el-row :gutter="0">
+                      <el-col :xs="24" :sm="24" :md="24" :lg="24">
+                        <div class="l Financing_title"></div>
+                        <router-link :to="{ name: 'financingList'}" class="r more_plus"></router-link>
+                      </el-col>
+                    </el-row>
+                    <el-row :gutter="20">
+                      <el-col :xs="24" :sm="12" :md="12" :lg="12" v-for="(item, index) in financing" :key="index" v-if="index<2">
+                          <div :style="{backgroundImage: 'url(' +item.logo+ ')'}" class="bg-cover" style="margin-bottom:0;"></div>
+                          <div class="Financing_wrap">
+                            <div class="Financing_info">
+                              <h1 class="f16">{{item.name}}</h1>
+                              <p class="text-ellipsis">{{item.intro}}</p>
+                            </div>
+                            <el-row type="flex" class="Financing_money">
+                              <el-col :span="6">
+                                <p class="f14">{{item.archived}}万<br/>已获得投资意向</p>
+                              </el-col>
+                              <el-col :span="6" :push="12">
+                                <p class="f14 tr">{{item.financing}}万<br/>预融资总额</p>
+                              </el-col>
+                            </el-row>
+                            <el-tag type="primary" style="margin-left:8px">行业领域:
+                              <span>消费生活</span>
+                            </el-tag>
+                            <el-tag type="success">已完成融资:
+                              <span v-if="item.status == 1">未融资</span>
+                              <span v-if="item.status == 2">未完成融资</span>
+                            </el-tag>
+                            <p class="f14 pl10" style="margin-left:8px;">发起人:{{item.founder}}</p>
+                          </div>
+                        </router-link>
+                      </el-col>
+                    </el-row>
+                  </div>
+                </div> -->
     <!-- 融资项目 -->
     <!-- 创业导师 -->
     <div class="activitys">
@@ -223,7 +227,9 @@
 <script>
   import api from '../axios/api.js'
   import Swiper from '../components/swiper.vue'
-  import {formatDate} from '../../static/js/date.js'
+  import {
+    formatDate
+  } from '../../static/js/date.js'
   export default {
     data() {
       return {
@@ -273,7 +279,6 @@
             this.mentor = res['mentor']; //创业导师
             this.office = res['office']; //双创办公室
             this.provider = res['provider']; //服务商接口数据
-
             this.fullscreenLoading = false;
           });
       },
@@ -335,7 +340,6 @@
             this.$set(this.activity_active, i, false)
           } else {
             this.$set(this.activity_active, i, true)
-
           }
         }
       },

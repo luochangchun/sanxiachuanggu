@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-row :gutter="0">
-            <el-col :lg="24" :md="24" :sm="24" :xs="24" class="banner_img"  style="backgroundImage: url(../static/img/service02.jpg)">
+            <el-col :lg="24" :md="24" :sm="24" :xs="24" class="banner_img" style="backgroundImage: url(../static/img/service02.jpg)">
             </el-col>
         </el-row>
         <!--title-->
@@ -159,13 +159,17 @@
                                             <dl>
                                                 <!-- <dt>项目阶段</dt> -->
                                                 <dd style="width: 93%;" :class="{ auto : moreFlag }">
-                                                    <a href="javascript:;" :class="{ on : display_active[index] }" @click="handleClick(index,item.id)" class="sx_child" v-for="(item , index) in category" :key="index" :seid="item.id" v-if="index>0">{{ item['name']}}</a>
+                                                    <el-tooltip class="item" effect="dark" :content="item.name" placement="top-start" v-for="(item , index) in category " :key="index " :class="{ on : display_active[index] } ">
+                                                         <a href=" javascript:; " :class="{ on : display_active[index] } " @click="handleClick(index,item.id) " class="sx_child " :seid="item.id
+                                                            " v-if="index>0">{{ item['name']}}</a>
+                                                    </el-tooltip>
+                                                   
                                                 </dd>
                                             </dl>
                                         </div>
-                                        <div class="filte_body" v-loading.body="loading">
+                                        <div class="filte_body">
                                             <el-row :gutter="10">
-                                                <p v-show="nodata" style="margin-left:15px;">暂无数据</p>
+                                                <p v-if="nodata" style="margin-left:15px;">暂无数据</p>
                                                 <el-col v-show="!nodata" class="gh" :xs="24" :sm="24" :md="24" :lg="24" v-for="(item,index) in serviceBody" :key="index">
                                                     <router-link :to="{name:'invest_detail', params: {id:item.id}}">
                                                         <div class="intermediary_list">
@@ -175,7 +179,7 @@
                                                                 <p>电话:{{ item['phone']}}</p>
                                                             </div>
                                                             <ul class="clearfix">
-                                                                <li v-show="item == '51'" class="green" v-for="(item,index) in item['labels']" :key="item.id">{{item.id}}信息化</li>
+                                                                <li v-show="item == '51'" class="green" v-for="(item,index) in item['labels']" :key="item.id">信息化</li>
                                                                 <li v-show="item == '52'" class="green" v-for="(item,index) in item['labels']" :key="item.id">知识产权</li>
                                                                 <li v-show="item == '53'" class="green" v-for="(item,index) in item['labels']" :key="item.id">科技转化</li>
                                                                 <li v-show="item == '54'" class="green" v-for="(item,index) in item['labels']" :key="item.id">金融服务</li>
@@ -183,7 +187,7 @@
                                                                 <li v-show="item == '56'" class="green" v-for="(item,index) in item['labels']" :key="item.id">财税/法务</li>
                                                                 <li v-show="item == '57'" class="green" v-for="(item,index) in item['labels']" :key="item.id">招聘/培训</li>
                                                                 <li v-show="item == '58'" class="green" v-for="(item,index) in item['labels']" :key="item.id">物业服务</li>
-                                                                <li v-show="item == '51'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">{{item.id}}信息化</li>
+                                                                <li v-show="item == '51'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">{信息化</li>
                                                                 <li v-show="item == '52'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">知识产权</li>
                                                                 <li v-show="item == '53'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">科技转化</li>
                                                                 <li v-show="item == '54'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">金融服务</li>
@@ -191,7 +195,7 @@
                                                                 <li v-show="item == '56'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">财税/法务</li>
                                                                 <li v-show="item == '57'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">招聘/培训</li>
                                                                 <li v-show="item == '58'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">物业服务</li>
-                                                                <li v-show="item == '51'" class="gray" v-for="(item,index) in item['others']" :key="item.id">{{item.id}}信息化</li>
+                                                                <li v-show="item == '51'" class="gray" v-for="(item,index) in item['others']" :key="item.id">信息化</li>
                                                                 <li v-show="item == '52'" class="gray" v-for="(item,index) in item['others']" :key="item.id">知识产权</li>
                                                                 <li v-show="item == '53'" class="gray" v-for="(item,index) in item['others']" :key="item.id">{{item.id}}科技转化</li>
                                                                 <li v-show="item == '54'" class="gray" v-for="(item,index) in item['others']" :key="item.id">金融服务</li>
@@ -203,7 +207,7 @@
                                                         </div>
                                                     </router-link>
                                                 </el-col>
-                                                <el-col v-show="!nodata" :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="margin-bottom: 50px;margin-top:50px;">
+                                                <el-col v-if="!nodata" :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="margin-bottom: 50px;margin-top:50px;">
                                                     <div class="block">
                                                         <el-pagination :current-page="curPage" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
                                                         </el-pagination>
@@ -233,8 +237,7 @@
                 loading: false,
                 moreFlag: true,
                 needData: '',
-                noData: false,
-                noDate: false,
+                nodata: false,
                 serviceBody: '',
                 display_active: [false, false, false, false],
                 activeName: "tab1",
@@ -363,7 +366,6 @@
                         }
                         this.totalPages = res["totalPages"] * 10;
                     }
-                    
                 });
                 var info = "/pub/info/22" + "/" + "10" + "/1";
                 api.Get(info).then(res => {
@@ -606,11 +608,11 @@
     }
     /*banner*/
     /* .service-banner {
-        background: url(../../static/img/service02.jpg) no-repeat center center;
-        background-size: cover;
-        width: 100%;
-        height: 260px;
-    } */
+                background: url(../../static/img/service02.jpg) no-repeat center center;
+                background-size: cover;
+                width: 100%;
+                height: 260px;
+            } */
     .service-nav {
         border-bottom: 1px solid #ddd;
         color: #333;

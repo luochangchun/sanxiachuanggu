@@ -4559,13 +4559,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, _vm._l((_vm.valley), function(item, index) {
     return _c('el-col', {
       key: index,
-      staticClass: "display_item",
       attrs: {
         "xs": 24,
-        "sm": 12,
+        "sm": 24,
         "md": 12,
         "lg": 6
       }
+    }, [_c('div', {
+      staticClass: "display_item"
     }, [_c('div', {
       staticClass: "gray",
       on: {
@@ -4605,7 +4606,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           }
         }
       }
-    }, [_vm._v("\n                查看详情\n              ")])], 1)])])
+    }, [_vm._v("\n                  查看详情\n                ")])], 1)])])])
   }))], 1)]), _vm._v(" "), _c('div', {
     staticClass: "space_display"
   }, [_c('div', {
@@ -4635,15 +4636,16 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, _vm._l((_vm.double), function(item, index) {
     return _c('el-col', {
       key: index,
+      attrs: {
+        "xs": 24,
+        "sm": 24,
+        "md": 12,
+        "lg": 6
+      }
+    }, [_c('div', {
       staticClass: "double_item",
       staticStyle: {
         "overflow": "hidden"
-      },
-      attrs: {
-        "xs": 24,
-        "sm": 12,
-        "md": 12,
-        "lg": 6
       }
     }, [_c('div', {
       staticClass: "gray",
@@ -4656,6 +4658,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }
     }, [_c('img', {
+      staticStyle: {
+        "height": "225px"
+      },
       attrs: {
         "src": item['icon'],
         "alt": ""
@@ -4684,7 +4689,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           }
         }
       }
-    }, [_vm._v("\n                查看详情\n              ")])], 1)])])
+    }, [_vm._v("\n                  查看详情\n                ")])], 1)])])])
   }))], 1)]), _vm._v(" "), _c('div', {
     staticClass: "office"
   }, [_c('div', {
@@ -7987,7 +7992,6 @@ exports.default = {
         _this.mentor = res['mentor']; //创业导师
         _this.office = res['office']; //双创办公室
         _this.provider = res['provider']; //服务商接口数据
-
         _this.fullscreenLoading = false;
       });
     },
@@ -8063,6 +8067,10 @@ exports.default = {
     }
   }
 }; //
+//
+//
+//
+//
 //
 //
 //
@@ -9706,8 +9714,7 @@ exports.default = {
             loading: false,
             moreFlag: true,
             needData: '',
-            noData: false,
-            noDate: false,
+            nodata: false,
             serviceBody: '',
             display_active: [false, false, false, false],
             activeName: "tab1",
@@ -9903,6 +9910,10 @@ exports.default = {
         }
     }
 }; //
+//
+//
+//
+//
 //
 //
 //
@@ -11005,7 +11016,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('div', {
     staticClass: "header"
   }, [_c('div', {
-    staticClass: "top"
+    staticClass: "top",
+    staticStyle: {
+      "background-color": "#0089e3"
+    }
   }, [_c('div', {
     staticClass: "container",
     staticStyle: {
@@ -11167,118 +11181,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "to": "/question"
     }
   }, [_vm._v("技术难题及需求")])], 1)])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": "/financing"
-    }
-  }, [_vm._v("投融资库")])], 1)])]), _vm._v(" "), _c('div', {
-    staticClass: "nav nav_mobile r"
-  }, [_c('div', {
-    attrs: {
-      "id": "menu-button"
-    },
-    on: {
-      "click": function($event) {
-        _vm.showMenu()
-      }
-    }
-  }, [_vm._v("菜单")]), _vm._v(" "), _c('ul', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.visible),
-      expression: "visible"
-    }]
-  }, [_c('li', [_c('router-link', {
-    attrs: {
-      "to": "/index"
-    }
-  }, [_vm._v("首页")])], 1), _vm._v(" "), _c('li', {
-    on: {
-      "click": function($event) {
-        _vm.showMenu_sub()
-      }
-    }
-  }, [_c('span', {
-    staticClass: "submenu-button submenu-opened"
-  }), _vm._v(" "), _c('router-link', {
-    attrs: {
-      "to": "/news"
-    }
-  }, [_vm._v("创谷资讯")])], 1), _vm._v(" "), _c('li', {
-    on: {
-      "click": function($event) {
-        _vm.showMenu_sub()
-      }
-    }
-  }, [_c('span', {
-    staticClass: "submenu-button submenu-opened"
-  }), _vm._v(" "), _c('router-link', {
-    attrs: {
-      "to": "/office_list_policy"
-    }
-  }, [_vm._v("双创办公室")])], 1), _vm._v(" "), _c('li', {
-    staticClass: "has-sub"
-  }, [_c('router-link', {
-    attrs: {
-      "to": "/map"
-    }
-  }, [_vm._v("创谷空间")]), _vm._v(" "), _c('ul', [_c('li', [_c('router-link', {
-    attrs: {
-      "to": "/map"
-    }
-  }, [_vm._v("创谷空间")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": "/attract/1"
-    }
-  }, [_vm._v("招商信息")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": "/attract/2"
-    }
-  }, [_vm._v("求租信息")])], 1)])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": "/incubators"
-    }
-  }, [_vm._v("双创空间")]), _vm._v(" "), _c('ul', [_c('li', [_c('router-link', {
-    attrs: {
-      "to": "/incubators"
-    }
-  }, [_vm._v("双创空间")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": "/attract_college/1"
-    }
-  }, [_vm._v("招商信息")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": "/attract_college/2"
-    }
-  }, [_vm._v("求租信息")])], 1)])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": "/college"
-    }
-  }, [_vm._v("创谷学院")]), _vm._v(" "), _c('ul', [_c('li', [_c('router-link', {
-    attrs: {
-      "to": "/service"
-    }
-  }, [_vm._v("创谷企业")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": "/need"
-    }
-  }, [_vm._v("服务需求")])], 1)])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": "/service"
-    }
-  }, [_vm._v("创谷企业")]), _vm._v(" "), _c('ul', [_c('li', [_c('router-link', {
-    attrs: {
-      "to": "/research"
-    }
-  }, [_vm._v("创谷研究")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": "/question"
-    }
-  }, [_vm._v("技术难题及需求")])], 1)])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": "/research"
-    }
-  }, [_vm._v("创谷研究")])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
       "to": "/financing"
     }
@@ -15723,14 +15625,24 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "width": "93%"
     }
   }, _vm._l((_vm.category), function(item, index) {
-    return (index > 0) ? _c('a', {
+    return _c('el-tooltip', {
       key: index,
-      staticClass: "sx_child",
+      staticClass: "item",
       class: {
         on: _vm.display_active[index]
       },
       attrs: {
-        "href": "javascript:;",
+        "effect": "dark",
+        "content": item.name,
+        "placement": "top-start"
+      }
+    }, [(index > 0) ? _c('a', {
+      staticClass: "sx_child ",
+      class: {
+        on: _vm.display_active[index]
+      },
+      attrs: {
+        "href": " javascript:; ",
         "seid": item.id
       },
       on: {
@@ -15738,33 +15650,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           _vm.handleClick(index, item.id)
         }
       }
-    }, [_vm._v(_vm._s(item['name']))]) : _vm._e()
+    }, [_vm._v(_vm._s(item['name']))]) : _vm._e()])
   }))])]), _vm._v(" "), _c('div', {
-    directives: [{
-      name: "loading",
-      rawName: "v-loading.body",
-      value: (_vm.loading),
-      expression: "loading",
-      modifiers: {
-        "body": true
-      }
-    }],
     staticClass: "filte_body"
   }, [_c('el-row', {
     attrs: {
       "gutter": 10
     }
-  }, [_c('p', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.nodata),
-      expression: "nodata"
-    }],
+  }, [(_vm.nodata) ? _c('p', {
     staticStyle: {
       "margin-left": "15px"
     }
-  }, [_vm._v("暂无数据")]), _vm._v(" "), _vm._l((_vm.serviceBody), function(item, index) {
+  }, [_vm._v("暂无数据")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.serviceBody), function(item, index) {
     return _c('el-col', {
       directives: [{
         name: "show",
@@ -15805,7 +15702,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }],
         key: item.id,
         staticClass: "green"
-      }, [_vm._v(_vm._s(item.id) + "信息化")])
+      }, [_vm._v("信息化")])
     }), _vm._v(" "), _vm._l((item['labels']), function(item, index) {
       return _c('li', {
         directives: [{
@@ -15893,7 +15790,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }],
         key: item.id,
         staticClass: "yellow"
-      }, [_vm._v(_vm._s(item.id) + "信息化")])
+      }, [_vm._v("{信息化")])
     }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
       return _c('li', {
         directives: [{
@@ -15981,7 +15878,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }],
         key: item.id,
         staticClass: "gray"
-      }, [_vm._v(_vm._s(item.id) + "信息化")])
+      }, [_vm._v("信息化")])
     }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
       return _c('li', {
         directives: [{
@@ -16060,13 +15957,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         staticClass: "gray"
       }, [_vm._v("物业服务")])
     })], 2)])])], 1)
-  }), _vm._v(" "), _c('el-col', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (!_vm.nodata),
-      expression: "!nodata"
-    }],
+  }), _vm._v(" "), (!_vm.nodata) ? _c('el-col', {
     staticStyle: {
       "margin-bottom": "50px",
       "margin-top": "50px"
@@ -16089,7 +15980,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "current-change": _vm.handleCurrentChange
     }
-  })], 1)])], 2)], 1)])])])])], 1)], 1)], 1)], 1)], 1)
+  })], 1)]) : _vm._e()], 2)], 1)])])])])], 1)], 1)], 1)], 1)], 1)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -28397,6 +28288,9 @@ exports.default = {
         }
       });
     },
+    resetForm: function resetForm(formName) {
+      window.history.go(-1);
+    },
 
     change: function change() {
       console.log(this.cosnultForm.businessId);
@@ -29113,4 +29007,4 @@ var Component = normalizeComponent(
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.09ede4c6f6d943e97535.js.map
+//# sourceMappingURL=app.90a8cf4431b442ba4554.js.map
