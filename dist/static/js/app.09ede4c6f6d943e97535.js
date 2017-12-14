@@ -2315,6 +2315,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 
 exports.default = {
   data: function data() {
@@ -3576,7 +3577,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     ref: "container",
     attrs: {
       "id": "container",
-      "src": "http://192.168.11.222/static/map.html",
+      "src": "http://www.sanxiachuanggu.com/static/map.html",
       "frameborder": "0"
     }
   })
@@ -8480,9 +8481,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "incubators_more_img l"
     }, [(item['icon']) ? _c('img', {
       staticStyle: {
-        "margin-left": "-5px",
-        "width": "212px",
-        "height": "150px"
+        "width": "100px",
+        "height": "80px",
+        "margin-top": "12px"
       },
       attrs: {
         "src": item['icon'],
@@ -8490,8 +8491,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }) : _vm._e(), _vm._v(" "), (!item['icon']) ? _c('img', {
       staticStyle: {
-        "width": "212px",
-        "height": "150px",
+        "width": "100px",
+        "height": "80px",
         "margin-top": "12px"
       },
       attrs: {
@@ -9102,6 +9103,12 @@ var _date = __webpack_require__("KheU");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -11685,7 +11692,7 @@ module.exports = __webpack_require__.p + "static/img/talent_banner01.810d7ed.png
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('el-row', {
     attrs: {
-      "gutter": 10
+      "gutter": 0
     }
   }, [_c('el-col', {
     staticStyle: {
@@ -11724,7 +11731,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "margin-bottom": "50px"
     },
     attrs: {
-      "gutter": 10
+      "gutter": 0
     }
   }, [_c('div', {
     staticClass: "container"
@@ -11751,21 +11758,31 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "border": "1"
     }
   }, [_c('tbody', [_c('tr', [_c('td', {
-    staticClass: "font-bold w-xs"
+    staticClass: "font-bold w-xs",
+    attrs: {
+      "width": "100"
+    }
   }, [_vm._v("企业名称")]), _vm._v(" "), _c('td', {
     attrs: {
       "colspan": "3"
     }
   }, [_c('p', [_vm._v(_vm._s(_vm.financeDetail['name']))])])]), _vm._v(" "), _c('tr', [_c('td', {
-    staticClass: "font-bold w-xs"
+    staticClass: "font-bold w-xs",
+    attrs: {
+      "width": "100"
+    }
   }, [_vm._v("联系人")]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.financeDetail['contact']))]), _vm._v(" "), _c('td', {
     staticClass: "font-bold"
   }, [_vm._v("联系电话")]), _vm._v(" "), _c('td', [_c('p', [_vm._v(_vm._s(_vm.financeDetail['phone'] || "暂无数据"))])])]), _vm._v(" "), _c('tr', {
     staticStyle: {
-      "height": "240px"
+      "height": "240px",
+      "min-height": "240px"
     }
   }, [_c('td', {
-    staticClass: "font-bold w-xs h-md"
+    staticClass: "font-bold w-xs h-md",
+    attrs: {
+      "width": "100"
+    }
   }, [_vm._v("企业简介与优势")]), _vm._v(" "), _c('td', {
     attrs: {
       "colspan": "3"
@@ -12693,6 +12710,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }],
       key: index,
       staticClass: "need_teacher"
+    }, [_c('router-link', {
+      attrs: {
+        "to": {
+          name: 'provider',
+          params: {
+            id: item.id
+          }
+        }
+      }
     }, [_c('el-row', {
       staticStyle: {
         "margin-bottom": "10px"
@@ -12707,21 +12733,45 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "sm": 8,
         "xs": 8
       }
-    }, [_c('img', {
+    }, [(item['icon']) ? _c('img', {
       attrs: {
         "src": item['icon'],
         "alt": ""
       }
-    })]), _vm._v(" "), _c('el-col', {
+    }) : _vm._e(), _vm._v(" "), (!item['icon']) ? _c('img', {
       attrs: {
-        "lg": 16,
-        "md": 16,
-        "sm": 16,
-        "xs": 16
+        "src": __webpack_require__("0db8"),
+        "alt": ""
+      }
+    }) : _vm._e()]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 10,
+        "md": 10,
+        "sm": 10,
+        "xs": 10
       }
     }, [_c('p', [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', {
       staticClass: "text-ellipsis"
-    }, [_vm._v(_vm._s(item['intro']))])])], 1)], 1)
+    }, [_vm._v(_vm._s(item['intro']))])]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 6,
+        "md": 6,
+        "sm": 6,
+        "xs": 6
+      }
+    }, [_c('router-link', {
+      staticStyle: {
+        "color": "#fff"
+      },
+      attrs: {
+        "to": {
+          name: 'provider',
+          params: {
+            id: item.id
+          }
+        }
+      }
+    }, [_vm._v("查看")])], 1)], 1)], 1)], 1)
   })], 2)])])], 1)], 1)], 1)], 1)], 1)], 1)
 }
 var staticRenderFns = []
@@ -15175,9 +15225,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "incubators_more_img l"
     }, [(item['icon']) ? _c('img', {
       staticStyle: {
-        "margin-left": "-5px",
-        "width": "212px",
-        "height": "150px"
+        "width": "100px",
+        "height": "80px",
+        "margin-top": "12px"
       },
       attrs: {
         "src": item['icon'],
@@ -15185,8 +15235,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }) : _vm._e(), _vm._v(" "), (!item['icon']) ? _c('img', {
       staticStyle: {
-        "width": "212px",
-        "height": "150px",
+        "width": "100px",
+        "height": "80px",
         "margin-top": "12px"
       },
       attrs: {
@@ -16764,26 +16814,31 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "sm": 8,
         "xs": 8
       }
-    }, [_c('img', {
+    }, [(item['photo']) ? _c('img', {
       attrs: {
         "src": item['icon'],
         "alt": ""
       }
-    })]), _vm._v(" "), _c('el-col', {
+    }) : _vm._e(), _vm._v(" "), (!item['photo']) ? _c('img', {
       attrs: {
-        "lg": 8,
-        "md": 8,
-        "sm": 8,
-        "xs": 8
+        "src": __webpack_require__("0db8"),
+        "alt": ""
+      }
+    }) : _vm._e()]), _vm._v(" "), _c('el-col', {
+      attrs: {
+        "lg": 10,
+        "md": 10,
+        "sm": 10,
+        "xs": 10
       }
     }, [_c('p', [_vm._v(_vm._s(item['name']))]), _vm._v(" "), _c('p', {
       staticClass: "text-ellipsis"
     }, [_vm._v(_vm._s(item['intro']))])]), _vm._v(" "), _c('el-col', {
       attrs: {
-        "lg": 8,
-        "md": 8,
-        "sm": 8,
-        "xs": 8
+        "lg": 6,
+        "md": 6,
+        "sm": 6,
+        "xs": 6
       }
     }, [_c('router-link', {
       attrs: {
@@ -17334,11 +17389,16 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "line-height": "30px"
     }
   }, [_vm._v("此栏目暂无数据")]), _vm._v(" "), _vm._l((_vm.Exeprt), function(item, index) {
-    return _c('div', {
+    return _c('router-link', {
       key: index,
       staticClass: "item clearfix",
-      staticStyle: {
-        "cursor": "default"
+      attrs: {
+        "to": {
+          name: 'tutorDetail',
+          params: {
+            id: item.id
+          }
+        }
       }
     }, [_c('el-col', {
       attrs: {
@@ -17420,11 +17480,16 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "line-height": "30px"
     }
   }, [_vm._v("此栏目暂无数据")]), _vm._v(" "), _vm._l((_vm.ResearchInstitute), function(item, index) {
-    return _c('div', {
+    return _c('router-link', {
       key: index,
       staticClass: "item clearfix",
-      staticStyle: {
-        "cursor": "default"
+      attrs: {
+        "to": {
+          name: 'tutorDetail',
+          params: {
+            id: item.id
+          }
+        }
       }
     }, [_c('el-col', {
       attrs: {
@@ -19829,8 +19894,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // axios 配置
-var baseUrl = 'http://192.168.11.222/servant';
-// const baseUrl = "http://www.sanxiachuanggu.com/servant";
+// const baseUrl = 'http://192.168.11.222/servant';
+var baseUrl = "http://www.sanxiachuanggu.com/servant";
 _axios2.default.defaults.timeout = 5000;
 _axios2.default.defaults.baseURL = baseUrl;
 _axios2.default.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -20616,7 +20681,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "padding-bottom": "50px"
     },
     attrs: {
-      "gutter": 10
+      "gutter": 0
     }
   }, [_c('el-col', {
     staticStyle: {
@@ -20654,11 +20719,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "change": _vm.change
     },
     model: {
-      value: (_vm.serviceForm.businessId),
+      value: (_vm.serviceForm.classifyId),
       callback: function($$v) {
-        _vm.serviceForm.businessId = $$v
+        _vm.serviceForm.classifyId = $$v
       },
-      expression: "serviceForm.businessId"
+      expression: "serviceForm.classifyId"
     }
   }, _vm._l((_vm.category), function(item, index) {
     return _c('el-option', {
@@ -20774,7 +20839,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "padding-bottom": "50px"
     },
     attrs: {
-      "gutter": 10
+      "gutter": 0
     }
   }, [_c('el-col', {
     staticStyle: {
@@ -20804,16 +20869,16 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('el-form-item', {
     attrs: {
-      "label": "行业类别",
+      "label": "难题类别",
       "prop": "classifyId"
     }
   }, [_c('el-select', {
     model: {
-      value: (_vm.cosnultForm.businessId),
+      value: (_vm.cosnultForm.classifyId),
       callback: function($$v) {
-        _vm.cosnultForm.businessId = $$v
+        _vm.cosnultForm.classifyId = $$v
       },
-      expression: "cosnultForm.businessId"
+      expression: "cosnultForm.classifyId"
     }
   }, _vm._l((_vm.category), function(item, index) {
     return _c('el-option', {
@@ -22572,7 +22637,7 @@ exports.default = {
             if (res["data"].length > 0) {
               _this4.diglogLists = res['data'].reverse();
             } else {
-              _this4.$message('导师还未回复');
+              _this4.$message('还未回复');
               _this4.$set(_this4.guest_active, i, false);
             }
           });
@@ -28158,7 +28223,7 @@ exports.default = {
       category: "",
       problemFlag: false,
       serviceForm: {
-        businessId: "", //需求类别
+        classifyId: "", //需求类别
         title: "", //难题及需求标题
         mentorId: "", //难题及需求描述
         enterprise: "", //企业名称
@@ -28168,7 +28233,7 @@ exports.default = {
         needs: "" //服务需求
       },
       serviceRules: {
-        businessId: [{
+        classifyId: [{
           required: true,
           message: "请选择需求类别",
           trigger: "change"
@@ -28212,7 +28277,7 @@ exports.default = {
         }]
       },
       cosnultForm: {
-        businessId: "", //需求类别
+        classifyId: "", //需求类别
         title: "", //难题及需求标题
         mentorId: "", //难题及需求描述
         enterprise: "", //企业名称
@@ -28222,9 +28287,9 @@ exports.default = {
         content: ""
       },
       cosnultRules: {
-        businessId: [{
+        classifyId: [{
           required: true,
-          message: "请选择需求类别",
+          message: "请选择难题类别",
           trigger: "change"
         }],
         enterprise: [{
@@ -28280,7 +28345,7 @@ exports.default = {
       this.$refs[formName].validate(function (valid) {
         if (valid) {
           var params = {
-            classifyId: _this.serviceForm.businessId,
+            classifyId: _this.serviceForm.classifyId,
             enterprise: _this.serviceForm.enterprise,
             contact: _this.serviceForm.contact,
             phone: _this.serviceForm.phone,
@@ -29048,4 +29113,4 @@ var Component = normalizeComponent(
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.0c23f223d04556139319.js.map
+//# sourceMappingURL=app.09ede4c6f6d943e97535.js.map
