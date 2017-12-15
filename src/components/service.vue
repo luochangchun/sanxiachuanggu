@@ -187,7 +187,7 @@
                                                                 <li v-show="item == '56'" class="green" v-for="(item,index) in item['labels']" :key="item.id">财税/法务</li>
                                                                 <li v-show="item == '57'" class="green" v-for="(item,index) in item['labels']" :key="item.id">招聘/培训</li>
                                                                 <li v-show="item == '58'" class="green" v-for="(item,index) in item['labels']" :key="item.id">物业服务</li>
-                                                                <li v-show="item == '51'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">{信息化</li>
+                                                                <li v-show="item == '51'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">信息化</li>
                                                                 <li v-show="item == '52'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">知识产权</li>
                                                                 <li v-show="item == '53'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">科技转化</li>
                                                                 <li v-show="item == '54'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">金融服务</li>
@@ -197,7 +197,7 @@
                                                                 <li v-show="item == '58'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">物业服务</li>
                                                                 <li v-show="item == '51'" class="gray" v-for="(item,index) in item['others']" :key="item.id">信息化</li>
                                                                 <li v-show="item == '52'" class="gray" v-for="(item,index) in item['others']" :key="item.id">知识产权</li>
-                                                                <li v-show="item == '53'" class="gray" v-for="(item,index) in item['others']" :key="item.id">{{item.id}}科技转化</li>
+                                                                <li v-show="item == '53'" class="gray" v-for="(item,index) in item['others']" :key="item.id">科技转化</li>
                                                                 <li v-show="item == '54'" class="gray" v-for="(item,index) in item['others']" :key="item.id">金融服务</li>
                                                                 <li v-show="item == '55'" class="gray" v-for="(item,index) in item['others']" :key="item.id">电子商务</li>
                                                                 <li v-show="item == '56'" class="gray" v-for="(item,index) in item['others']" :key="item.id">财税/法务</li>

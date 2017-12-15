@@ -10,7 +10,7 @@
         </el-upload>
       </el-col>
       <el-col :lg="24" :md="24" :sm="24" :xs="24">
-        <el-form :model="userForm" :rules="userRules" ref="userForm" label-width="60px">
+        <el-form :model="userForm" :rules="userRules" ref="userForm" label-width="80px">
           <el-form-item label="用户名:">
             <p style="display:inline-block">{{name}}</p>
           </el-form-item>

@@ -5,7 +5,8 @@
         <h1 class="tc f18" style="color:#0089e3;margin-bottom:30px;">服务需求发布</h1>
         <el-form :model="serviceForm" :rules="serviceRules" ref="serviceForm" label-width="100px" class="demo-ruleForm">
           <el-form-item label="需求类别" prop="classifyId">
-            <el-select v-model="serviceForm.classifyId" @change="change">
+            <el-select v-model="serviceForm.classifyId">
+              {{serviceForm.classifyId}}
               <el-option :label="item['value']" :value="item['id']" v-for="(item, index) in category" :key="index"></el-option>
             </el-select>
           </el-form-item>
@@ -112,6 +113,7 @@ export default {
         classifyId: [
           {
             required: true,
+            type: "number",
             message: "请选择需求类别",
             trigger: "change"
           }
@@ -140,10 +142,10 @@ export default {
         contact: [
           {
             required: true,
-            validator: validateContact,
             message: "请输入联系人姓名",
             trigger: "blur"
-          }
+          },
+          { min: 1, max: 10, message: '最多10个字符', trigger: 'blur' }
         ],
         needs: [
           {
@@ -183,6 +185,7 @@ export default {
         classifyId: [
           {
             required: true,
+            type: "number",
             message: "请选择难题类别",
             trigger: "change"
           }
@@ -198,7 +201,6 @@ export default {
         contact: [
           {
             required: true,
-            validator: validateContact,
             message: "请输入联系人姓名",
             trigger: "blur"
           },

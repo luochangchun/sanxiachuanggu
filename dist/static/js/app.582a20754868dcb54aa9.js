@@ -1416,6 +1416,8 @@ exports.default = {
 //
 //
 //
+//
+//
 
 /***/ }),
 
@@ -3576,7 +3578,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     ref: "container",
     attrs: {
       "id": "container",
-      "src": "http://www.sanxiachuanggu.com/static/map.html",
+      "src": "http://192.168.11.222/static/map.html",
       "frameborder": "0"
     }
   })
@@ -14021,7 +14023,7 @@ exports.default = {
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('el-row', {
     attrs: {
-      "gutter": 10
+      "gutter": 0
     }
   }, [_c('el-col', {
     staticStyle: {
@@ -14058,7 +14060,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "container"
   }, [_c('el-row', {
     attrs: {
-      "gutter": 10
+      "gutter": 0
     }
   }, [_c('el-col', {
     staticClass: "provider_discounts",
@@ -14068,7 +14070,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "sm": 24,
       "xs": 24
     }
-  }, [_c('h1', [_vm._v("优惠服务")]), _vm._v(" "), _c('el-row', {
+  }, [(_vm.provider['type'] == '1' || _vm.provider['type'] == '2') ? _c('h1', [_vm._v("优惠服务")]) : _vm._e(), _vm._v(" "), (_vm.provider['type'] == '3') ? _c('h1', [_vm._v("简介")]) : _vm._e(), _vm._v(" "), _c('el-row', {
     staticClass: "provider_p"
   }, [_c('el-col', {
     attrs: {
@@ -14077,7 +14079,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "sm": 24,
       "xs": 24
     }
-  }, [_c('p', [_vm._v("服务内容")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.provider['intro']))])]), _vm._v(" "), _c('el-col', {
+  }, [_c('p', [_vm._v(_vm._s(_vm.provider['intro']))])]), _vm._v(" "), _c('el-col', {
     attrs: {
       "lg": 4,
       "md": 4,
@@ -14095,7 +14097,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1)], 1)], 1)], 1), _vm._v(" "), _c('el-row', {
     attrs: {
-      "gutter": 10
+      "gutter": 0
     }
   }, [_c('el-col', {
     staticClass: "provider_discounts",
@@ -14108,7 +14110,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "sm": 24,
       "xs": 24
     }
-  }, [_c('h1', [_vm._v("服务详情介绍")]), _vm._v(" "), _c('el-row', {
+  }, [(_vm.provider['type'] == '1' || _vm.provider['type'] == '2') ? _c('h1', [_vm._v("服务详情介绍")]) : _vm._e(), _vm._v(" "), (_vm.provider['type'] == '3') ? _c('h1', [_vm._v("详细介绍")]) : _vm._e(), _vm._v(" "), _c('el-row', {
     staticClass: "provider_p"
   }, [_c('el-col', {
     attrs: {
@@ -15789,7 +15791,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }],
         key: item.id,
         staticClass: "yellow"
-      }, [_vm._v("{信息化")])
+      }, [_vm._v("信息化")])
     }), _vm._v(" "), _vm._l((item['serviceIds']), function(item, index) {
       return _c('li', {
         directives: [{
@@ -15899,7 +15901,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }],
         key: item.id,
         staticClass: "gray"
-      }, [_vm._v(_vm._s(item.id) + "科技转化")])
+      }, [_vm._v("科技转化")])
     }), _vm._v(" "), _vm._l((item['others']), function(item, index) {
       return _c('li', {
         directives: [{
@@ -18250,7 +18252,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "model": _vm.userForm,
       "rules": _vm.userRules,
-      "label-width": "60px"
+      "label-width": "80px"
     }
   }, [_c('el-form-item', {
     attrs: {
@@ -19784,8 +19786,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // axios 配置
-// const baseUrl = 'http://192.168.11.222/servant';
-var baseUrl = "http://www.sanxiachuanggu.com/servant";
+var baseUrl = 'http://192.168.11.222/servant';
+// const baseUrl = "http://www.sanxiachuanggu.com/servant";
 _axios2.default.defaults.timeout = 5000;
 _axios2.default.defaults.baseURL = baseUrl;
 _axios2.default.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -20605,9 +20607,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "prop": "classifyId"
     }
   }, [_c('el-select', {
-    on: {
-      "change": _vm.change
-    },
     model: {
       value: (_vm.serviceForm.classifyId),
       callback: function($$v) {
@@ -20615,7 +20614,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       },
       expression: "serviceForm.classifyId"
     }
-  }, _vm._l((_vm.category), function(item, index) {
+  }, [_vm._v("\n            " + _vm._s(_vm.serviceForm.classifyId) + "\n            "), _vm._l((_vm.category), function(item, index) {
     return _c('el-option', {
       key: index,
       attrs: {
@@ -20623,7 +20622,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "value": item['id']
       }
     })
-  }))], 1), _vm._v(" "), _c('el-form-item', {
+  })], 2)], 1), _vm._v(" "), _c('el-form-item', {
     attrs: {
       "label": "需求标题",
       "prop": "title"
@@ -28125,6 +28124,7 @@ exports.default = {
       serviceRules: {
         classifyId: [{
           required: true,
+          type: "number",
           message: "请选择需求类别",
           trigger: "change"
         }],
@@ -28145,10 +28145,9 @@ exports.default = {
         }],
         contact: [{
           required: true,
-          validator: validateContact,
           message: "请输入联系人姓名",
           trigger: "blur"
-        }],
+        }, { min: 1, max: 10, message: '最多10个字符', trigger: 'blur' }],
         needs: [{
           required: true,
           message: "请输入服务需求描述",
@@ -28179,6 +28178,7 @@ exports.default = {
       cosnultRules: {
         classifyId: [{
           required: true,
+          type: "number",
           message: "请选择难题类别",
           trigger: "change"
         }],
@@ -28189,7 +28189,6 @@ exports.default = {
         }, { min: 1, max: 20, message: "最多 20 个字符", trigger: "blur" }],
         contact: [{
           required: true,
-          validator: validateContact,
           message: "请输入联系人姓名",
           trigger: "blur"
         }, { min: 1, max: 10, message: "最多 10 个字符", trigger: "blur" }],
@@ -28312,6 +28311,7 @@ exports.default = {
     }
   }
 }; //
+//
 //
 //
 //
@@ -29006,4 +29006,4 @@ var Component = normalizeComponent(
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.76028d546ae1f350eb81.js.map
+//# sourceMappingURL=app.582a20754868dcb54aa9.js.map
