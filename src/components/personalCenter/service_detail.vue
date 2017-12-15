@@ -8,7 +8,7 @@
     </el-breadcrumb>
     <div class="need_import">
       <h3>{{data['title']}}</h3>
-      <p>{{data['enterprise']}} | 需求类型: <span v-for="n in searchService" :key="n" v-if="n['id'] == data['classifyId']">{{n['value']}}</span> | 联系人: {{data['contact']}} | 联系方式: {{data['phone']}} | 2017-10-24 | <span v-if="data['status'] == 1">待解决</span>
+      <p>{{data['enterprise']}} | 需求类型: <span v-for="n in searchService" :key="n" v-if="n['id'] == data['classifyId']">{{n['value']}}</span> | 联系人: {{data['contact']}} | 联系方式: {{data['phone']}} | {{data['createAt'] | formatDate}} | <span v-if="data['status'] == 1">待解决</span>
         <span v-if="data['status'] == 2">进行中</span>
         <span v-if="data['status'] == 3">已解决</span>
         <span v-if="data['status'] == 4">被驳回</span></p>
@@ -19,12 +19,21 @@
 
 <script>
   import api from "../../axios/api.js";
+  import {
+    formatDate
+  } from '../../../static/js/date.js'
   export default {
     data() {
       return {
         data: '',
         searchService: '',
       };
+    },
+    filters: {
+      formatDate(time) {
+        let date = new Date(time)
+        return formatDate(date, 'yyyy-MM-dd')
+      }
     },
     created() {
       let id = this.$route.params.id;

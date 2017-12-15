@@ -6,7 +6,6 @@
         <el-form :model="serviceForm" :rules="serviceRules" ref="serviceForm" label-width="100px" class="demo-ruleForm">
           <el-form-item label="需求类别" prop="classifyId">
             <el-select v-model="serviceForm.classifyId">
-              {{serviceForm.classifyId}}
               <el-option :label="item['value']" :value="item['id']" v-for="(item, index) in category" :key="index"></el-option>
             </el-select>
           </el-form-item>
@@ -36,9 +35,9 @@
       <el-col :lg="12" :md="12" :sm="12" :xs="12" :offset="6" style="background-color:#fff;padding:30px 25px 15px 0">
         <h1 class="tc f18" style="color:#0089e3;margin-bottom:30px;">企业技术难题及需求发布</h1>
         <el-form :model="cosnultForm" :rules="cosnultRules" ref="cosnultForm" label-width="200px" class="demo-ruleForm">
-          <el-form-item label="难题类别" prop="classifyId">
-            <el-select v-model="cosnultForm.classifyId">
-              <el-option :label="item['value']" :value="item['id']" v-for="(item, index) in category" :key="index"></el-option>
+          <el-form-item label="难题类别" prop="businessId">
+            <el-select v-model="cosnultForm.businessId">
+              <el-option :label="item['value']" :value="item['id']" v-for="(item, index) in category" :key="index" v-if="index>0"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="难题及需求标题" prop="title">
@@ -172,7 +171,7 @@ export default {
         ]
       },
       cosnultForm: {
-        classifyId: "", //需求类别
+        businessId: "", //需求类别
         title: "", //难题及需求标题
         mentorId: "", //难题及需求描述
         enterprise: "", //企业名称
@@ -182,7 +181,7 @@ export default {
         content: ""
       },
       cosnultRules: {
-        classifyId: [
+        businessId: [
           {
             required: true,
             type: "number",

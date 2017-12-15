@@ -1215,7 +1215,26 @@ var _api = __webpack_require__("c2Ch");
 
 var _api2 = _interopRequireDefault(_api);
 
+var _date = __webpack_require__("KheU");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
     data: function data() {
@@ -1229,6 +1248,12 @@ exports.default = {
         this.getservice(id);
     },
 
+    filters: {
+        formatDate: function formatDate(time) {
+            var date = new Date(time);
+            return (0, _date.formatDate)(date, 'yyyy-MM-dd');
+        }
+    },
     methods: {
         consult: function consult() {
             var _this = this;
@@ -1247,22 +1272,7 @@ exports.default = {
             });
         }
     }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+};
 
 /***/ }),
 
@@ -2520,7 +2530,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     return (n['id'] == _vm.data['classifyId']) ? _c('span', {
       key: n
     }, [_vm._v(_vm._s(n['value']))]) : _vm._e()
-  }), _vm._v(" | 联系人: " + _vm._s(_vm.data['contact']) + " | 联系方式: " + _vm._s(_vm.data['phone']) + " | 2017-10-24 | "), (_vm.data['status'] == 1) ? _c('span', [_vm._v("待解决")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 2) ? _c('span', [_vm._v("进行中")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 3) ? _c('span', [_vm._v("已解决")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 4) ? _c('span', [_vm._v("被驳回")]) : _vm._e()], 2), _vm._v(" "), _c('p', {
+  }), _vm._v(" | 联系人: " + _vm._s(_vm.data['contact']) + " | 联系方式: " + _vm._s(_vm.data['phone']) + " | " + _vm._s(_vm._f("formatDate")(_vm.data['createAt'])) + " | "), (_vm.data['status'] == 1) ? _c('span', [_vm._v("待解决")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 2) ? _c('span', [_vm._v("进行中")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 3) ? _c('span', [_vm._v("已解决")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 4) ? _c('span', [_vm._v("被驳回")]) : _vm._e()], 2), _vm._v(" "), _c('p', {
     staticStyle: {
       "border-bottom": "none",
       "margin-top": "30px"
@@ -3578,7 +3588,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     ref: "container",
     attrs: {
       "id": "container",
-      "src": "http://www.sanxiachuanggu.com/static/map.html",
+      "src": "http://192.168.11.222/static/map.html",
       "frameborder": "0"
     }
   })
@@ -4978,7 +4988,29 @@ var _api = __webpack_require__("c2Ch");
 
 var _api2 = _interopRequireDefault(_api);
 
+var _date = __webpack_require__("KheU");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
   data: function data() {
@@ -4986,6 +5018,13 @@ exports.default = {
       data: '',
       searchService: ''
     };
+  },
+
+  filters: {
+    formatDate: function formatDate(time) {
+      var date = new Date(time);
+      return (0, _date.formatDate)(date, 'yyyy-MM-dd');
+    }
   },
   created: function created() {
     var id = this.$route.params.id;
@@ -5010,25 +5049,7 @@ exports.default = {
       });
     }
   }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+};
 
 /***/ }),
 
@@ -18801,7 +18822,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     return (n['id'] == _vm.data['businessId']) ? _c('span', {
       key: n
     }, [_vm._v(_vm._s(n['value']))]) : _vm._e()
-  }), _vm._v(" | 联系人: " + _vm._s(_vm.data['contact']) + " | 联系方式: " + _vm._s(_vm.data['phone']) + " | 2017-10-24 | "), (_vm.data['status'] == 1) ? _c('span', [_vm._v("待解决")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 2) ? _c('span', [_vm._v("进行中")]) : _vm._e(), (_vm.data['status'] == 3) ? _c('span', [_vm._v("已解决")]) : _vm._e(), (_vm.data['status'] == 4) ? _c('span', [_vm._v("被驳回")]) : _vm._e()], 2), _vm._v(" "), _c('p', {
+  }), _vm._v(" | 联系人: " + _vm._s(_vm.data['contact']) + " | 联系方式: " + _vm._s(_vm.data['phone']) + " | " + _vm._s(_vm._f("formatDate")(_vm.data['createAt'])) + " | "), (_vm.data['status'] == 1) ? _c('span', [_vm._v("待解决")]) : _vm._e(), _vm._v(" "), (_vm.data['status'] == 2) ? _c('span', [_vm._v("进行中")]) : _vm._e(), (_vm.data['status'] == 3) ? _c('span', [_vm._v("已解决")]) : _vm._e(), (_vm.data['status'] == 4) ? _c('span', [_vm._v("被驳回")]) : _vm._e()], 2), _vm._v(" "), _c('p', {
     staticStyle: {
       "border-bottom": "none",
       "margin-top": "30px"
@@ -19799,8 +19820,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // axios 配置
-// const baseUrl = 'http://192.168.11.222/servant';
-var baseUrl = "http://www.sanxiachuanggu.com/servant";
+var baseUrl = 'http://192.168.11.222/servant';
+// const baseUrl = "http://www.sanxiachuanggu.com/servant";
 _axios2.default.defaults.timeout = 5000;
 _axios2.default.defaults.baseURL = baseUrl;
 _axios2.default.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -20627,7 +20648,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       },
       expression: "serviceForm.classifyId"
     }
-  }, [_vm._v("\n            " + _vm._s(_vm.serviceForm.classifyId) + "\n            "), _vm._l((_vm.category), function(item, index) {
+  }, _vm._l((_vm.category), function(item, index) {
     return _c('el-option', {
       key: index,
       attrs: {
@@ -20635,7 +20656,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "value": item['id']
       }
     })
-  })], 2)], 1), _vm._v(" "), _c('el-form-item', {
+  }))], 1), _vm._v(" "), _c('el-form-item', {
     attrs: {
       "label": "需求标题",
       "prop": "title"
@@ -20772,24 +20793,24 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('el-form-item', {
     attrs: {
       "label": "难题类别",
-      "prop": "classifyId"
+      "prop": "businessId"
     }
   }, [_c('el-select', {
     model: {
-      value: (_vm.cosnultForm.classifyId),
+      value: (_vm.cosnultForm.businessId),
       callback: function($$v) {
-        _vm.cosnultForm.classifyId = $$v
+        _vm.cosnultForm.businessId = $$v
       },
-      expression: "cosnultForm.classifyId"
+      expression: "cosnultForm.businessId"
     }
   }, _vm._l((_vm.category), function(item, index) {
-    return _c('el-option', {
+    return (index > 0) ? _c('el-option', {
       key: index,
       attrs: {
         "label": item['value'],
         "value": item['id']
       }
-    })
+    }) : _vm._e()
   }))], 1), _vm._v(" "), _c('el-form-item', {
     attrs: {
       "label": "难题及需求标题",
@@ -28179,7 +28200,7 @@ exports.default = {
         }]
       },
       cosnultForm: {
-        classifyId: "", //需求类别
+        businessId: "", //需求类别
         title: "", //难题及需求标题
         mentorId: "", //难题及需求描述
         enterprise: "", //企业名称
@@ -28189,7 +28210,7 @@ exports.default = {
         content: ""
       },
       cosnultRules: {
-        classifyId: [{
+        businessId: [{
           required: true,
           type: "number",
           message: "请选择难题类别",
@@ -28324,7 +28345,6 @@ exports.default = {
     }
   }
 }; //
-//
 //
 //
 //
@@ -29019,4 +29039,4 @@ var Component = normalizeComponent(
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.02b97a748c51472d9737.js.map
+//# sourceMappingURL=app.4491495641eabd54c03b.js.map
