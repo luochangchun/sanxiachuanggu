@@ -18,7 +18,7 @@
             <el-input v-show="flag" type="tel" v-model="userForm.nickname" auto-complete="off" placeholder="请输入昵称" style="width:200px;"></el-input>
             <p v-show="!flag" style="display:inline-block;">{{nickName}}</p>
             <span v-show="!flag" style="border:1px solid #eee;background-color:#0089e3;padding:6px 10px;border-radius:5px;color:#fff;" @click="modfityName">修改</span>
-            <span v-show="flag" style="border:1px solid #eee;background-color:#0089e3;padding:6px 10px;border-radius:5px;color:#fff;" @click="submitName">确认</span>
+            <span v-show="flag" style="border:1px solid #eee;background-color:#0089e3;padding:6px 10px;border-radius:5px;color:#fff;" @click="submitName('userForm')">确认</span>
             <span v-show="flag" style="border:1px solid #eee;background-color:#0089e3;padding:6px 10px;border-radius:5px;color:#fff;" @click="cancelName">取消</span>
           </el-form-item>
           <el-form-item label="联系方式:">
@@ -76,8 +76,13 @@
         userRules: {
           nickname: [{
             required: true,
-            message: '昵称',
+            message: '请输入昵称',
             trigger: 'blur'
+          }, {
+            min: 1,
+            max: 10,
+            message: "最多 10 个字符",
+            trigger: "blur"
           }]
         },
       };
@@ -125,7 +130,6 @@
             .then(res => {
               if (res["suc"] == true) {
                 this.$message('上传成功');
-                
                 window.localStorage.setItem('userinfo', user); //将修改后的昵称修改后存到localstorage
                 window.location.reload();
               }
@@ -149,29 +153,36 @@
       cancelName() {
         this.flag = false;
       },
-      submitName() {
-        this.flag = false;
-        let userinfoStr = window.localStorage.getItem('userinfo');
-        if (userinfoStr) {
-          let user = JSON.parse(userinfoStr);
-          var params = {
-            "id": user['data']['id'],
-            "nickname": this.userForm.nickname,
-          }
-          api.Put('/account/update', params)
-            .then(res => {
-              if (res['suc'] == true) {
-                let userinfoStr = window.localStorage.getItem('userinfo');
-                if (userinfoStr) {
-                  let user = JSON.parse(userinfoStr);
-                  user['data']['nickname'] = this.userForm.nickname;
-                  user = JSON.stringify(user);
-                  window.localStorage.setItem('userinfo', user); //将修改后的昵称修改后存到localstorage
-                  window.location.reload();
-                }
+      submitName(formName) {
+        this.$refs[formName].validate(valid => {
+          if (valid) {
+            let userinfoStr = window.localStorage.getItem('userinfo');
+            if (userinfoStr) {
+              let user = JSON.parse(userinfoStr);
+              var params = {
+                "id": user['data']['id'],
+                "nickname": this.userForm.nickname,
               }
-            });
-        }
+              api.Put('/account/update', params)
+                .then(res => {
+                  if (res['suc'] == true) {
+                    let userinfoStr = window.localStorage.getItem('userinfo');
+                    if (userinfoStr) {
+                      this.flag = false;
+                      let user = JSON.parse(userinfoStr);
+                      user['data']['nickname'] = this.userForm.nickname;
+                      user = JSON.stringify(user);
+                      window.localStorage.setItem('userinfo', user); //将修改后的昵称修改后存到localstorage
+                      window.location.reload();
+                    }
+                  }
+                });
+            }
+          }
+        });
+        // if(this.userForm.nickname == "" || this.userForm.nickname.length ==0) {
+        //     return;
+        // }
       }
     }
   }

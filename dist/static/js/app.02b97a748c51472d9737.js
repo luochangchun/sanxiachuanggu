@@ -6380,8 +6380,13 @@ exports.default = {
       userRules: {
         nickname: [{
           required: true,
-          message: '昵称',
+          message: '请输入昵称',
           trigger: 'blur'
+        }, {
+          min: 1,
+          max: 10,
+          message: "最多 10 个字符",
+          trigger: "blur"
         }]
       }
     };
@@ -6431,7 +6436,6 @@ exports.default = {
         _api2.default.Put('/account/update', params).then(function (res) {
           if (res["suc"] == true) {
             _this.$message('上传成功');
-
             window.localStorage.setItem('userinfo', user); //将修改后的昵称修改后存到localstorage
             window.location.reload();
           }
@@ -6455,30 +6459,37 @@ exports.default = {
     cancelName: function cancelName() {
       this.flag = false;
     },
-    submitName: function submitName() {
+    submitName: function submitName(formName) {
       var _this2 = this;
 
-      this.flag = false;
-      var userinfoStr = window.localStorage.getItem('userinfo');
-      if (userinfoStr) {
-        var user = JSON.parse(userinfoStr);
-        var params = {
-          "id": user['data']['id'],
-          "nickname": this.userForm.nickname
-        };
-        _api2.default.Put('/account/update', params).then(function (res) {
-          if (res['suc'] == true) {
-            var _userinfoStr = window.localStorage.getItem('userinfo');
-            if (_userinfoStr) {
-              var _user = JSON.parse(_userinfoStr);
-              _user['data']['nickname'] = _this2.userForm.nickname;
-              _user = JSON.stringify(_user);
-              window.localStorage.setItem('userinfo', _user); //将修改后的昵称修改后存到localstorage
-              window.location.reload();
-            }
+      this.$refs[formName].validate(function (valid) {
+        if (valid) {
+          var userinfoStr = window.localStorage.getItem('userinfo');
+          if (userinfoStr) {
+            var user = JSON.parse(userinfoStr);
+            var params = {
+              "id": user['data']['id'],
+              "nickname": _this2.userForm.nickname
+            };
+            _api2.default.Put('/account/update', params).then(function (res) {
+              if (res['suc'] == true) {
+                var _userinfoStr = window.localStorage.getItem('userinfo');
+                if (_userinfoStr) {
+                  _this2.flag = false;
+                  var _user = JSON.parse(_userinfoStr);
+                  _user['data']['nickname'] = _this2.userForm.nickname;
+                  _user = JSON.stringify(_user);
+                  window.localStorage.setItem('userinfo', _user); //将修改后的昵称修改后存到localstorage
+                  window.location.reload();
+                }
+              }
+            });
           }
-        });
-      }
+        }
+      });
+      // if(this.userForm.nickname == "" || this.userForm.nickname.length ==0) {
+      //     return;
+      // }
     }
   }
 }; //
@@ -18331,7 +18342,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "color": "#fff"
     },
     on: {
-      "click": _vm.submitName
+      "click": function($event) {
+        _vm.submitName('userForm')
+      }
     }
   }, [_vm._v("确认")]), _vm._v(" "), _c('span', {
     directives: [{
@@ -29006,4 +29019,4 @@ var Component = normalizeComponent(
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.185fbbfe5b8c58f6d8dc.js.map
+//# sourceMappingURL=app.02b97a748c51472d9737.js.map
