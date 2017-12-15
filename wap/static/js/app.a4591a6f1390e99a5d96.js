@@ -676,6 +676,7 @@ var js_date = __webpack_require__("KheU");
             message: "回复成功",
             duration: 500
           });
+          _this2.form.content = "";
           var id = _this2.$route.params.id;
           _this2.initDetail(id);
         } else {
@@ -688,14 +689,14 @@ var js_date = __webpack_require__("KheU");
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-13a684e1","hasScoped":true,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/reply.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-63ccf424","hasScoped":true,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/reply.vue
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{staticStyle:{"min-height":"calc(100vh - 2.2rem)"}},[(!_vm.flag)?_c('div',{staticClass:"main_login"},[_c('h1',[_vm._v(_vm._s(_vm.question['content']))]),_vm._v(" "),_c('p',{staticClass:"last_p"},[_c('span',[_vm._v(_vm._s(_vm.question['name']))]),_vm._v(_vm._s(_vm._f("formatDate")(_vm.question['createAt'])))])]):_vm._e(),_vm._v(" "),_c('span',{staticStyle:{"background":"linear-gradient(#efefef, #e0e0e0)","width":"100%","height":"0.5rem","display":"block"}}),_vm._v(" "),_c('div',{staticClass:"main_login"},[_vm._m(0,false,false),_vm._v(" "),_c('p',{directives:[{name:"show",rawName:"v-show",value:(_vm.reply.length == 0),expression:"reply.length == 0"}]},[_vm._v("暂未交流记录")]),_vm._v(" "),_c('ul',{directives:[{name:"show",rawName:"v-show",value:(_vm.reply.length != 0),expression:"reply.length != 0"}]},_vm._l((_vm.reply),function(item,index){return _c('li',{key:index},[_c('p',{staticClass:"last_p"},[_c('span',{class:{ blue: item['mentor']}},[_vm._v(_vm._s(item['name']))]),_vm._v(_vm._s(_vm._f("formatDate")(item['createAt'])))]),_vm._v(" "),_c('p',{staticClass:"border-b"},[_vm._v(_vm._s(item['content']))])])}))])]),_vm._v(" "),_c('div',{staticClass:"footer",staticStyle:{"background-color":"#fff"}},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.content),expression:"form.content"}],attrs:{"type":"text","placeholder":"我来回复"},domProps:{"value":(_vm.form.content)},on:{"blur":function($event){_vm.vailEmpty(_vm.form.content)},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "content", $event.target.value)}}}),_vm._v(" "),_c('button',{on:{"click":_vm.submitForm}},[_vm._v("回复")])])])}
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('h2',[_c('span',[_vm._v("|")]),_vm._v("相关交流")])}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ var components_reply = (esExports);
 // CONCATENATED MODULE: ./src/components/reply.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("b14N")
+  __webpack_require__("wNYe")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -707,7 +708,7 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-13a684e1"
+var __vue_scopeId__ = "data-v-63ccf424"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -853,13 +854,6 @@ __WEBPACK_IMPORTED_MODULE_2_vue__["default"].use(__WEBPACK_IMPORTED_MODULE_1_vue
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,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"
-
-/***/ }),
-
-/***/ "b14N":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -1382,7 +1376,14 @@ var fz;
 
 // removed by extract-text-webpack-plugin
 
+/***/ }),
+
+/***/ "wNYe":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.4a0c2ca0ae2fe0a17e4c.js.map
+//# sourceMappingURL=app.a4591a6f1390e99a5d96.js.map

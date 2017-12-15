@@ -3576,7 +3576,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     ref: "container",
     attrs: {
       "id": "container",
-      "src": "http://192.168.11.222/static/map.html",
+      "src": "http://www.sanxiachuanggu.com/static/map.html",
       "frameborder": "0"
     }
   })
@@ -19784,8 +19784,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // axios 配置
-var baseUrl = 'http://192.168.11.222/servant';
-// const baseUrl = "http://www.sanxiachuanggu.com/servant";
+// const baseUrl = 'http://192.168.11.222/servant';
+var baseUrl = "http://www.sanxiachuanggu.com/servant";
 _axios2.default.defaults.timeout = 5000;
 _axios2.default.defaults.baseURL = baseUrl;
 _axios2.default.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -29006,4 +29006,4 @@ var Component = normalizeComponent(
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.829aceefed2669815921.js.map
+//# sourceMappingURL=app.76028d546ae1f350eb81.js.map
