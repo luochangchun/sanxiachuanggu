@@ -120,9 +120,9 @@
                 var  url = "";
                 this.type = this.$route.params.type;
                 if(this.type == 1) {
-                    url = "/qb/tenancy/3/1/" + '10' + val;
+                    url = "/qb/tenancy/3/1/" + '10/' + val;
                 } else if(this.type == 2){
-                    url = "/qb/tenancy/3/2/" + '10' + val;
+                    url = "/qb/tenancy/3/2/" + '10/' + val;
                 }
                 // var url = '/qb/tenancy/3/' + '10' + '/' + val
                 api.Get(url)

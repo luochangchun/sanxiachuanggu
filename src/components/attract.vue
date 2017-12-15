@@ -115,11 +115,10 @@
                 var  url = "";
                 this.type = this.$route.params.type;
                 if(this.type == 1) {
-                    url = "/qb/tenancy/2/1/" + '10'+ val;
+                    url = "/qb/tenancy/2/1/" + '10/'+ val;
                 } else if(this.type == 2){
-                    url = "/qb/tenancy/2/2/" + '10'+ val;
+                    url = "/qb/tenancy/2/2/" + '10/'+ val;
                 }
-                // var url = '/qb/tenancy/2/' + '10' + '/' + val
                 api.Get(url)
                     .then(res => {
                         this.investData = res['data'];

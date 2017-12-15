@@ -172,15 +172,7 @@ export default {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-.container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  /*margin-top:40px;*/
-  box-sizing: border-box;
-}
+
 .bg-cover {
   background-repeat: no-repeat;
   background-size: cover;

@@ -1498,11 +1498,10 @@ exports.default = {
             var url = "";
             this.type = this.$route.params.type;
             if (this.type == 1) {
-                url = "/qb/tenancy/2/1/" + '10' + val;
+                url = "/qb/tenancy/2/1/" + '10/' + val;
             } else if (this.type == 2) {
-                url = "/qb/tenancy/2/2/" + '10' + val;
+                url = "/qb/tenancy/2/2/" + '10/' + val;
             }
-            // var url = '/qb/tenancy/2/' + '10' + '/' + val
             _api2.default.Get(url).then(function (res) {
                 _this2.investData = res['data'];
                 _this2.totalPages = res['totalPages'] * 10;
@@ -3577,7 +3576,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     ref: "container",
     attrs: {
       "id": "container",
-      "src": "http://www.sanxiachuanggu.com/static/map.html",
+      "src": "http://192.168.11.222/static/map.html",
       "frameborder": "0"
     }
   })
@@ -19785,8 +19784,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // axios 配置
-// const baseUrl = 'http://192.168.11.222/servant';
-var baseUrl = "http://www.sanxiachuanggu.com/servant";
+var baseUrl = 'http://192.168.11.222/servant';
+// const baseUrl = "http://www.sanxiachuanggu.com/servant";
 _axios2.default.defaults.timeout = 5000;
 _axios2.default.defaults.baseURL = baseUrl;
 _axios2.default.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -25417,9 +25416,9 @@ exports.default = {
             var url = "";
             this.type = this.$route.params.type;
             if (this.type == 1) {
-                url = "/qb/tenancy/3/1/" + '10' + val;
+                url = "/qb/tenancy/3/1/" + '10/' + val;
             } else if (this.type == 2) {
-                url = "/qb/tenancy/3/2/" + '10' + val;
+                url = "/qb/tenancy/3/2/" + '10/' + val;
             }
             // var url = '/qb/tenancy/3/' + '10' + '/' + val
             _api2.default.Get(url).then(function (res) {
@@ -29007,4 +29006,4 @@ var Component = normalizeComponent(
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.90a8cf4431b442ba4554.js.map
+//# sourceMappingURL=app.829aceefed2669815921.js.map
