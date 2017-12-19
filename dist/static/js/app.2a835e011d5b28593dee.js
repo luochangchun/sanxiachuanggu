@@ -9832,20 +9832,24 @@ exports.default = {
             var _this3 = this;
 
             _api2.default.Get('/qb').then(function (res) {
-                _this3.category = res;
+                _this3.category = res.reverse();
+                console.log(_this3.category);
                 _this3.category.forEach(function (value, index, array) {
-                    if (index == 1) {
-                        _this3.$set(_this3.display_active, 1, true);
+                    if (index == 0) {
+                        _this3.$set(_this3.display_active, 0, true);
                         _this3.initNewsList(_this3.category[index]["id"]);
                         _this3.fullscreenLoading = false;
                         window.localStorage.setItem("seid", _this3.category[index]["id"]);
+                    }
+                    if (index == _this3.category.length - 1) {
+                        _this3.category[_this3.category.length - 1]["name"] = "其它";
                     }
                 });
             });
         },
         handleClick: function handleClick(index, seid) {
             var sx_child_item = document.querySelectorAll('.sx_child');
-            for (var i = 1; i <= sx_child_item.length; i++) {
+            for (var i = 0; i <= sx_child_item.length; i++) {
                 if (sx_child_item[i] != sx_child_item[index]) {
                     this.$set(this.display_active, i, false);
                 } else {
@@ -9943,7 +9947,6 @@ exports.default = {
         }
     }
 }; //
-//
 //
 //
 //
@@ -15669,7 +15672,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "content": item.name,
         "placement": "top-start"
       }
-    }, [(index > 0) ? _c('a', {
+    }, [_c('a', {
       staticClass: "sx_child ",
       class: {
         on: _vm.display_active[index]
@@ -15683,7 +15686,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           _vm.handleClick(index, item.id)
         }
       }
-    }, [_vm._v(_vm._s(item['name']))]) : _vm._e()])
+    }, [_vm._v(_vm._s(item['name']))])])
   }))])]), _vm._v(" "), _c('div', {
     staticClass: "filte_body"
   }, [_c('el-row', {
@@ -29039,4 +29042,4 @@ var Component = normalizeComponent(
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.f6de4eb5c3491a551bf9.js.map
+//# sourceMappingURL=app.2a835e011d5b28593dee.js.map

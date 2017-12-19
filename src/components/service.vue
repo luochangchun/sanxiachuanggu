@@ -160,8 +160,7 @@
                                                 <!-- <dt>项目阶段</dt> -->
                                                 <dd style="width: 93%;" :class="{ auto : moreFlag }">
                                                     <el-tooltip class="item" effect="dark" :content="item.name" placement="top-start" v-for="(item , index) in category " :key="index " :class="{ on : display_active[index] } ">
-                                                         <a href=" javascript:; " :class="{ on : display_active[index] } " @click="handleClick(index,item.id) " class="sx_child " :seid="item.id
-                                                            " v-if="index>0">{{ item['name']}}</a>
+                                                         <a href=" javascript:; " :class="{ on : display_active[index] } " @click="handleClick(index,item.id) " class="sx_child " :seid="item.id">{{ item['name']}}</a>
                                                     </el-tooltip>
                                                    
                                                 </dd>
@@ -315,20 +314,25 @@
             getQb() {
                 api.Get('/qb')
                     .then(res => {
-                        this.category = res;
+                        this.category = res.reverse();
+                        console.log(this.category);
                         this.category.forEach((value, index, array) => {
-                            if (index == 1) {
-                                this.$set(this.display_active, 1, true)
+                            if (index == 0) {
+                                this.$set(this.display_active, 0, true)
                                 this.initNewsList(this.category[index]["id"]);
                                 this.fullscreenLoading = false;
                                 window.localStorage.setItem("seid", this.category[index]["id"]);
                             }
+                            if(index == (this.category.length -1)) {
+                                this.category[this.category.length -1]["name"] = "其它";
+                            }
                         });
+                        
                     })
             },
             handleClick(index, seid) {
                 var sx_child_item = document.querySelectorAll('.sx_child');
-                for (let i = 1; i <= sx_child_item.length; i++) {
+                for (let i = 0; i <= sx_child_item.length; i++) {
                     if (sx_child_item[i] != sx_child_item[index]) {
                         this.$set(this.display_active, i, false)
                     } else {
