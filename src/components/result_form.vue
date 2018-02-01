@@ -1,107 +1,92 @@
 <template>
     <div>
         <el-row :gutter="0" style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
-            <div class="container min650">
-                <el-col :lg="14" :md="10" :sm="10" :offset="5" style="background-color:#fff;padding:30px 25px 15px 0">
-                    <h1 class="tc f16 b result_title">项目成果转化发布</h1>
-                <el-form :model="resultForm" :rules="resultRules" ref="resultForm" label-width="150px" class="demo-ruleForm"size="mini">
-                        <el-form-item label="成果名称" prop="resultsName">
-                            <el-input type="text" v-model="resultForm.resultsName" placeholder="请输入成果名称" auto-complete="off"></el-input>
-                        </el-form-item>
-                        <el-form-item label="成果权利人名称" prop="rightName">
-                            <el-input type="text" v-model="resultForm.rightName" placeholder="请输入成果权利人名称"></el-input>
-                        </el-form-item>
-                        <el-form-item label="成果所属方" prop="belongsTo">
-                            <el-input type="text" v-model="resultForm.belongsTo" placeholder="请输入成果所属方"></el-input>
-                        </el-form-item>
-                        <el-form-item label="联系人" prop="name">
-                            <el-input type="text" v-model="resultForm.name" placeholder="请输入联系人姓名"></el-input>
-                        </el-form-item>
-                        <el-form-item label="联系电话" prop="phone">
-                            <el-input type="text" v-model="resultForm.phone" placeholder="请输入联系电话"></el-input>
-                        </el-form-item>
-                        <el-form-item label="邮箱" prop="mail">
-                            <el-input type="text" v-model="resultForm.mail" placeholder="请输入邮箱"></el-input>
-                        </el-form-item>
-                        <el-form-item label="成果类别" prop="resultsId">
-                            <el-select v-model="resultForm.resultsId">
-                                <!--<el-option :label="item['value']" :value="item['id']" v-for="(item, index) in category" :key="index">-->
-                                <el-option label="发明专利" value="0"></el-option>
-                                <el-option label="实用新型专利" value="1"></el-option>
-                                <el-option label="技术秘密" value="2"></el-option>
-                                <el-option label="软件著作权" value="3"></el-option>
-                                <el-option label="集成电路布图设计" value="4"></el-option>
-                                <el-option label="经鉴定或评价的科技成果" value="5"></el-option>
-                                <el-option label="其他" value="6"></el-option>
-                            </el-select>
-                        </el-form-item>
-                        <el-form-item label="成熟度" prop="mature">
-                            <el-select v-model="resultForm.mature">
-                                <el-option label="研发" value="3"></el-option>
-                                <el-option label="中试" value="2"></el-option>
-                                <el-option label="小试" value="1"></el-option>
-                                <el-option label="其他" value="0"></el-option>
-                            </el-select>
-                        </el-form-item>
+            <el-col :lg="14" :md="10" :sm="10" :xs="10" :offset="5">
+                <el-form :model="resultForm" :rules="resultRules" ref="resultForm" label-width="150px" class="resultForm">
+                    <el-form-item class="tc f18 b">项目成果转化发布</el-form-item>
+                    <el-form-item label="成果名称" prop="resultsName">
+                        <el-input type="text" v-model="resultForm.resultsName" placeholder="请输入成果名称" auto-complete="off"></el-input>
+                    </el-form-item>
+                    <el-form-item label="成果权利人名称" prop="rightName">
+                        <el-input type="text" v-model="resultForm.rightName" placeholder="请输入成果权利人名称"></el-input>
+                    </el-form-item>
+                    <el-form-item label="成果所属方" prop="belongsTo">
+                        <el-input type="text" v-model="resultForm.belongsTo" placeholder="请输入成果所属方"></el-input>
+                    </el-form-item>
+                    <el-form-item label="联系人" prop="name">
+                        <el-input type="text" v-model="resultForm.name" placeholder="请输入联系人姓名"></el-input>
+                    </el-form-item>
+                    <el-form-item label="联系电话" prop="phone">
+                        <el-input type="text" v-model="resultForm.phone" placeholder="请输入联系电话"></el-input>
+                    </el-form-item>
+                    <el-form-item label="邮箱" prop="mail">
+                        <el-input type="text" v-model="resultForm.mail" placeholder="请输入邮箱"></el-input>
+                    </el-form-item>
+                    <el-form-item label="成果类别" prop="resultsId">
+                        <el-select v-model="resultForm.resultsId">
+                            <!--<el-option :label="item['value']" :value="item['id']" v-for="(item, index) in category" :key="index">-->
+                            <el-option label="发明专利" value="0"></el-option>
+                            <el-option label="实用新型专利" value="1"></el-option>
+                            <el-option label="技术秘密" value="2"></el-option>
+                            <el-option label="软件著作权" value="3"></el-option>
+                            <el-option label="集成电路布图设计" value="4"></el-option>
+                            <el-option label="经鉴定或评价的科技成果" value="5"></el-option>
+                            <el-option label="其他" value="6"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label="成熟度" prop="mature">
+                        <el-select v-model="resultForm.mature">
+                            <el-option label="研发" value="3"></el-option>
+                            <el-option label="中试" value="2"></el-option>
+                            <el-option label="小试" value="1"></el-option>
+                            <el-option label="其他" value="0"></el-option>
+                        </el-select>
+                    </el-form-item>
 
-                        <el-form-item label="应用领域" prop="fieldId">
-                            <el-checkbox-group v-model="resultForm.fieldId">
-                                <!--<el-checkbox :label="item['value']" :value="item.id" v-for="(item, index) in field" :key="index"></el-checkbox>-->
-                                <el-checkbox label="新进制造" name="type"></el-checkbox>
-                                <el-checkbox label="航天航空及交通" name="type"></el-checkbox>
-                                <el-checkbox label="光机电一体化" name="type"></el-checkbox>
-                                <el-checkbox label="生物技术" name="type"></el-checkbox>
-                                <el-checkbox label="新材料" name="type"></el-checkbox>
-                                <el-checkbox label="新能源与高效节能" name="type"></el-checkbox>
-                                <el-checkbox label="环境保护" name="type"></el-checkbox>
-                                <el-checkbox label="地球,空间与海洋" name="type"></el-checkbox>
-                                <el-checkbox label="核技术应用" name="type"></el-checkbox>
-                                <el-checkbox label="医药和医学工程" name="type"></el-checkbox>
-                                <el-checkbox label="农业" name="type"></el-checkbox>
-                                <el-checkbox label="石油,化工" name="type"></el-checkbox>
-                                <el-checkbox label="人文社科" name="type"></el-checkbox>
-                                <el-checkbox label="其他" name="type"></el-checkbox>
-                            </el-checkbox-group>
-                        </el-form-item>
+                    <el-form-item label="应用领域" prop="fieldId">
+                        <el-checkbox-group v-model="resultForm.fieldId">
+                            <el-checkbox :label="item['value']" :value="item.id" v-for="(item, index) in field" :key="index"></el-checkbox>
+                        </el-checkbox-group>
+                    </el-form-item>
 
-                        <el-form-item label="成果描述" prop="describes">
-                            <el-input type="textarea" :rows="5" v-model="resultForm.describes" placeholder="请输入你的成果描述（250字内）"></el-input>
-                        </el-form-item>
-                        <el-form-item label="市场前景分析" prop="market">
-                            <el-input type="textarea" :rows="5" v-model="resultForm.market" placeholder="请输入市场前景分析（250字内）"></el-input>
-                        </el-form-item>
-                        <el-form-item label="与同类成果相比的优势分析" prop="advantage">
-                            <el-input type="textarea" :rows="5" v-model="resultForm.advantage" placeholder="请输入与同类成果相比的优势分析（250字内）"></el-input>
-                        </el-form-item>
-                        <el-form-item label="合作形式" prop="plan">
-                            <el-select v-model="resultForm.plan">
-                                <el-option label="一次转让" value="1"></el-option>
-                                <el-option label="分地区转让" value="2"></el-option>
-                                <el-option label="技术入股" value="3"></el-option>
-                                <el-option label="使用许可" value="4"></el-option>
-                                <el-option label="其他" value="0"></el-option>
-                            </el-select>
-                        </el-form-item>
-                        <el-form-item label="可否向国外推介" prop="toPromote">
-                            <el-radio-group v-model="resultForm.toPromote">
-                                <el-radio label="true">可</el-radio>
-                                <el-radio label="false">不可</el-radio>
-                            </el-radio-group>
-                        </el-form-item>
-                        <el-form-item label="能否提供英文版本" prop="englishVersion">
-                            <el-radio-group v-model="resultForm.englishVersion">
-                                <el-radio label="true">能</el-radio>
-                                <el-radio label="false">否</el-radio>
-                            </el-radio-group>
-                        </el-form-item>
-                        <el-form-item label="预估标的金额(万元)" prop="money">
-                            <el-input v-model="resultForm.money" placeholder="请输入预估标的金额"></el-input>
-                        </el-form-item>
+                    <el-form-item label="成果描述" prop="describes">
+                        <el-input type="textarea" :rows="5" v-model="resultForm.describes" placeholder="请输入你的成果描述（250字内）"></el-input>
+                    </el-form-item>
+                    <el-form-item label="市场前景分析" prop="market">
+                        <el-input type="textarea" :rows="5" v-model="resultForm.market" placeholder="请输入市场前景分析（250字内）"></el-input>
+                    </el-form-item>
+                    <el-form-item label="与同类成果相比的优势分析" prop="advantage">
+                        <el-input type="textarea" :rows="5" v-model="resultForm.advantage" placeholder="请输入与同类成果相比的优势分析（250字内）"></el-input>
+                    </el-form-item>
+                    <el-form-item label="合作形式" prop="plan">
+                        <el-select v-model="resultForm.plan">
+                            <el-option label="一次转让" value="1"></el-option>
+                            <el-option label="分地区转让" value="2"></el-option>
+                            <el-option label="技术入股" value="3"></el-option>
+                            <el-option label="使用许可" value="4"></el-option>
+                            <el-option label="其他" value="0"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label="可否向国外推介" prop="toPromote">
+                        <el-radio-group v-model="resultForm.toPromote">
+                            <el-radio label="true">可</el-radio>
+                            <el-radio label="false">不可</el-radio>
+                        </el-radio-group>
+                    </el-form-item>
+                    <el-form-item label="能否提供英文版本" prop="englishVersion">
+                        <el-radio-group v-model="resultForm.englishVersion">
+                            <el-radio label="true">能</el-radio>
+                            <el-radio label="false">否</el-radio>
+                        </el-radio-group>
+                    </el-form-item>
+                    <el-form-item label="预估标的金额(万元)" prop="money">
+                        <el-input v-model="resultForm.money" placeholder="请输入预估标的金额"></el-input>
+                    </el-form-item>
 
-                        <!--<el-form-item label="有效期至" prop="date | formatDate">-->
-                            <!--<el-date-picker v-model="resultForm.date | formatDate" type="date" placeholder="选择日期时间">-->
-                            <!--</el-date-picker>-->
-                        <!--</el-form-item>-->
+                    <!--<el-form-item label="有效期至" prop="date | formatDate">-->
+                    <!--<el-date-picker v-model="resultForm.date | formatDate" type="date" placeholder="选择日期时间">-->
+                    <!--</el-date-picker>-->
+                    <!--</el-form-item>-->
                     <el-form-item>
                         <el-button type="primary" @click="submitForm('resultForm')">发布</el-button>
                         <!--<el-button @click="publishForm('resultForm')" style="background-color: #f48100;border:none;color:#fff;">发布</el-button>-->
@@ -109,7 +94,6 @@
                     </el-form-item>
                 </el-form>
             </el-col>
-            </div>
         </el-row>
     </div>
 </template>
@@ -309,7 +293,7 @@
         },
         created() {
 //            this.getCategory();
-//            this.getField();
+            this.getField();
             this.openResultForm()
         },
 
@@ -427,12 +411,12 @@
 //                    this.category = res;
 //                });
 //            },
-//            getField() {
-//                //应用领域
-//                api.Get("/dict/application").then(res => {
-//                    this.field = res;
-//                });
-//            },
+            getField() {
+                //应用领域
+                api.Get("/dict/application").then(res => {
+                    this.field = res;
+                });
+            },
 
         },
 //        filters: {
@@ -448,6 +432,29 @@
 
 </script>
 <style>
+    .resultForm {
+        width: 600px;
+        background-color: #fff;
+        padding: 30px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .resultForm .tc {
+        color: #06affe;
+        border-bottom: 2px solid #06affe;
+    }
+    .resultForm .tc .el-form-item__content {
+        margin-left: 0 !important;
+    }
+    h2 {
+        color: #20a0ff;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 20px 10px;
+    }
+    .line {
+        text-align: center;
+    }
     .result_title {
         color: #06affe;
         border-bottom: 2px solid #06affe;

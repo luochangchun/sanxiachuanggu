@@ -230,10 +230,7 @@
         this.typeFlag = "求租";
       }
     },
-<<<<<<< HEAD
 
-=======
->>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
     computed: {
       headers() {
         let userinfoStr = window.localStorage.getItem("userinfo");
@@ -347,8 +344,4 @@
   .line {
     text-align: center;
   }
-<<<<<<< HEAD
-
-=======
->>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
 </style>

@@ -23,7 +23,7 @@ import splendid_list from '../src/components/splendid_list.vue'//精彩瞬间列
 import service_class from '../src/components/service_class.vue'//服务商分类列表页
 import personalCenter from '../src/components/personalCenter/personalCenter.vue';//个人中心
 import demand_comm_service01 from '../src/components/personalCenter/demand_comm_service01.vue';//个人中心--服务需求
-import personalInformation from '../src/components/personalCenter/personalInformation.vue';//个人中心--个人资料
+// import personalInformation from '../src/components/personalCenter/personalInformation.vue';//个人中心--个人资料
 import passwordSetting from '../src/components/personalCenter/passwordSetting.vue';//个人中心--个人资料
 import service_detail from '../src/components/personalCenter/service_detail.vue';//个人中心--个人服务详情
 import consult_detail from '../src/components/personalCenter/consult_detail.vue';//个人中心--个人服务详情
@@ -32,7 +32,7 @@ import financing_apply from '../src/components/financing_apply.vue';//融资项�
 //罗长春
 import news from '../src/components/news.vue'
 import incubators from '../src/components/incubators.vue'
-import service from '../src/components/service.vue'
+// import service from '../src/components/service.vue'
 import financing from '../src/components/financing.vue'
 import college from '../src/components/college.vue'
 import station from '../src/components/station.vue'
@@ -61,11 +61,11 @@ import invest_more from '../src/components/invest_more.vue'
 import invest_detail from '../src/components/invest_detail.vue'
 import financingDetail from '../src/components/financingDetail.vue'
 //10.29
-import problem from '../src/components/problem.vue'
+// import problem from '../src/components/problem.vue'
 import tutorProblem from '../src/components/tutorProblem.vue'
 import service_needs from '../src/components/service_needs.vue'
 //10.30
-import attract from '../src/components/attract.vue'
+// import attract from '../src/components/attract.vue'
 import attract_college from '../src/components/attract_college.vue'
 // import demand from '../src/components/demand.vue'
 import financing_more from '../src/components/financing_more.vue'
@@ -82,15 +82,12 @@ import talent_detail from '../src/components/talent_detail.vue'
 //11.9
 import employment from '../src/components/employment.vue'
 import intermediary from '../src/components/intermediary.vue'
-<<<<<<< HEAD
 //1.26
 import mine from '../src/components/mine.vue'//关于我们
 //1.29
 import result_detail from '../src/components/result_detail.vue'//科技成果转化详情页
 import result_form from '../src/components/result_form.vue'//关于我们
-=======
 
->>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
 
 Vue.use(VueRouter)
 
@@ -100,7 +97,7 @@ const routes = [
 	{ path: '/activitys', component: Activitys, name: 'Activitys' },
 	{ path: '/activityPara/:id', component: ActivityPara, name: 'ActivityPara' },
 	{ path: '/article/:id', component: article, name: 'article' },
-	{ path: '/service', component: service, name: 'service' },
+	// { path: '/service', component: service, name: 'service' },
 	{ path: '/register', component: Register, name: 'Register' },
 	{ path: '/login', component: Login, name: 'Login' },
 	{ path: '/service_apply', component: service_apply, name: 'service_apply' },
@@ -117,7 +114,7 @@ const routes = [
 	{
 		path: '/personalCenter', component: personalCenter, name: 'personalCenter', children: [
 			{ path: '/demand_comm_service/:type', component: demand_comm_service01, name: 'demand_comm_service01', hidden: true, meta: { requireAuth: true, } },
-			{ path: '/personalInformation', component: personalInformation, name: 'personalInformation', meta: { requireAuth: true, } },
+			// { path: '/personalInformation', component: personalInformation, name: 'personalInformation', meta: { requireAuth: true, } },
 			{ path: '/passwordSetting', component: passwordSetting, name: 'passwordSetting', meta: { requireAuth: true, } },
 			{ path: '/service_detail/:id', component: service_detail, name: 'service_detail', meta: { requireAuth: true, } },
 			{ path: '/consult_detail/:id', component: consult_detail, name: 'consult_detail', meta: { requireAuth: true, } },
@@ -127,7 +124,7 @@ const routes = [
 	//  罗长春
 	{ path: '/news', component: news, name: 'news' },//创谷资讯首页
 	{ path: '/incubators', component: incubators, name: 'incubators' },//双创空间首页
-	{ path: '/service', component: service, name: 'service' },//创谷企业首页
+	// { path: '/service', component: service, name: 'service' },//创谷企业首页
 	{ path: '/financing', component: financing, name: 'financing' },//投融资库首页
 	{ path: '/research', component: research, name: 'research' },//创谷研究首页
 	{ path: '/station/:id', component: station, name: 'station', meta: { requireAuth: true, } },//申请工位表单
@@ -157,11 +154,11 @@ const routes = [
 	{ path: '/service_provider_more', component: service_provider_more, name: 'service_provider_more' },//服务商(more)
 	{ path: '/financingDetail', component: financingDetail, name: 'financingDetail' },//投资项目详情页
 	//10.29
-	{ path: '/problem/:type', component: problem, name: 'problem', meta: { requireAuth: true, } },//发布企业难题表单
+	// { path: '/problem/:type', component: problem, name: 'problem', meta: { requireAuth: true, } },//发布企业难题表单
 	{ path: '/tutorProblem/:businessId/:id', component: tutorProblem, name: 'tutorProblem', meta: { requireAuth: true, } },//向导师发布技术难题表单
 	{ path: '/service_needs', component: service_needs, name: 'service_needs' },//服务需求发布表单
 	//10.30
-	{ path: '/attract/:type', component: attract, name: 'attract' },//招商/求租列表页
+	// { path: '/attract/:type', component: attract, name: 'attract' },//招商/求租列表页
 	{ path: '/attract_college/:type', component: attract_college, name: 'attract_college' },//创谷学院招商讯息页
 	// { path: '/demand', component: demand, name: 'demand' },//求租讯息页
 	{ path: '/financing_more', component: financing_more, name: 'financing_more' },//融资项目(more)
@@ -180,15 +177,12 @@ const routes = [
 	//11.9
 	{ path: '/employment', component: employment, name: 'employment' },//招聘表单
 	{ path: '/intermediary', component: intermediary, name: 'intermediary' },//中介服务
-<<<<<<< HEAD
 	//1.26
     { path: '/mine', component: mine, name: 'mine' },//关于我们
 	//1.29
     { path: '/result_detail/:id', component: result_detail, name: 'result_detail' },//科技成果转化详情页
     { path: '/result_form', component: result_form, name: 'result_form' },//科技成果转化发布表单
 
-=======
->>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
 ];
 // 页面刷新时，重新赋值token
 if (window.localStorage.getItem('token')) {

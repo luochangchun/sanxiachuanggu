@@ -23,48 +23,48 @@
         </el-row>
         <!--优惠服务-->
         <div class="container">
-<<<<<<< HEAD
             <el-row :gutter="10">
                 <el-col :lg="24" :md="24" :sm="24" :xs="24" class="provider_discounts">
                     <h1>优惠服务</h1>
                     <el-row class="provider_p">
                         <el-col :lg="20" :md="20" :sm="24" :xs="24">
                             <p>服务内容</p>
-=======
-            <el-row :gutter="0">
-                <el-col :lg="24" :md="24" :sm="24" :xs="24" class="provider_discounts">
-                    <h1 v-if="provider['type'] == '1' || provider['type'] == '2'">优惠服务</h1>
-                    <h1 v-if="provider['type'] == '3'">简介</h1>
-                    <el-row class="provider_p">
-                        <el-col :lg="20" :md="20" :sm="24" :xs="24">
-                            
->>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
-                            <p>{{provider['intro']}}</p>
-                        </el-col>
-                        <el-col :lg="4" :md="4" :sm="24" :xs="24">
-                            <el-popover ref="popover1" placement="top-start" title="请联系平台" width="200" trigger="hover" content="027-65465656">
-                            </el-popover>
-                            <!-- <el-button v-popover:popover1>申请服务</el-button> -->
+                            <el-row :gutter="0">
+                                <el-col :lg="24" :md="24" :sm="24" :xs="24" class="provider_discounts">
+                                    <h1 v-if="provider['type'] == '1' || provider['type'] == '2'">优惠服务</h1>
+                                    <h1 v-if="provider['type'] == '3'">简介</h1>
+                                    <el-row class="provider_p">
+                                        <el-col :lg="20" :md="20" :sm="24" :xs="24">
+
+                                            <p>{{provider['intro']}}</p>
+                                        </el-col>
+                                        <el-col :lg="4" :md="4" :sm="24" :xs="24">
+                                            <el-popover ref="popover1" placement="top-start" title="请联系平台" width="200" trigger="hover" content="027-65465656">
+                                            </el-popover>
+                                            <!-- <el-button v-popover:popover1>申请服务</el-button> -->
+                                        </el-col>
+                                    </el-row>
+                                </el-col>
+                            </el-row>
                         </el-col>
                     </el-row>
-                </el-col>
-            </el-row>
             <!--服务详情介绍-->
-<<<<<<< HEAD
-            <el-row :gutter="10">
-                <el-col :lg="24" :md="24" :sm="24" :xs="24" class="provider_discounts" style="margin-bottom:30px;">
-                    <h1>服务详情介绍</h1>
-=======
-            <el-row :gutter="0">
-                <el-col :lg="24" :md="24" :sm="24" :xs="24" class="provider_discounts" style="margin-bottom:30px;">
-                    <h1 v-if="provider['type'] == '1' || provider['type'] == '2'">服务详情介绍</h1>
-                    <h1 v-if="provider['type'] == '3'">详细介绍</h1>
->>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
-                    <el-row class="provider_p">
-                        <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                            <div v-html="content"></div>
-                        </el-col>
-                    </el-row>
+                    <el-row :gutter="10">
+                                <el-col :lg="24" :md="24" :sm="24" :xs="24" class="provider_discounts" style="margin-bottom:30px;">
+                                    <h1>服务详情介绍</h1>
+                                    <el-row :gutter="0">
+                                        <el-col :lg="24" :md="24" :sm="24" :xs="24" class="provider_discounts" style="margin-bottom:30px;">
+                                            <h1 v-if="provider['type'] == '1' || provider['type'] == '2'">服务详情介绍</h1>
+                                            <h1 v-if="provider['type'] == '3'">详细介绍</h1>
+                                            <el-row class="provider_p">
+                                                <el-col :lg="24" :md="24" :sm="24" :xs="24">
+                                                    <div v-html="content"></div>
+                                                </el-col>
+                                            </el-row>
+                                        </el-col>
+                                    </el-row>
+                                </el-col>
+                            </el-row>
                 </el-col>
             </el-row>
         </div>

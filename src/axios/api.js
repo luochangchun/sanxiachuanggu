@@ -3,13 +3,10 @@ import store from '../components/store/store'
 import * as types from '../components/store/types'
 import router from '../routes.js'
 // axios 配置
-<<<<<<< HEAD
 const baseUrl = 'http://192.168.11.222/servant';
 // const baseUrl = "http://www.sanxiachuanggu.com/servant";
-=======
 // const baseUrl = 'http://192.168.11.222/servant';
-const baseUrl = "http://www.sanxiachuanggu.com/servant";
->>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
+// const baseUrl = "http://www.sanxiachuanggu.com/servant";
 axios.defaults.timeout = 5000;
 axios.defaults.baseURL = baseUrl;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'

@@ -88,7 +88,6 @@
             <li>
               <router-link to="/financing">投融资库</router-link>
             </li>
-<<<<<<< HEAD
             <li>
               <router-link to="/mine">关于我们</router-link>
             </li>
@@ -201,8 +200,6 @@
             <img src="static/img/QR_code.735cca2.jpg" style="width:120px; height:120px;">
           </span>
         </div>
-=======
-          </ul>
         </div>
         <!-- <div class="nav nav_mobile r">
           <div id="menu-button" @click='showMenu()'>菜单</div>
@@ -276,7 +273,6 @@
             </li>
           </ul>
         </div> -->
->>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
       </div>
     </div>
   </div>
@@ -575,19 +571,16 @@
   }
   .header {
     width: 750px;
-<<<<<<< HEAD
     padding: 0;
   }
   .nav {
     position: static;
-=======
     /* padding: 0; */
   }
   .nav {
     height: 80px;
     left: 0;
     /* margin-bottom: 80px; */
->>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
   }
   .el-col-offset-12 {
     margin-left:40%;
@@ -597,7 +590,6 @@
     font-size: 14px;
   }
 }
-<<<<<<< HEAD
   /*客服*/
   .call img{
     width:24px;
@@ -789,8 +781,4 @@
   }
 
   /*客服*/
-
-=======
- 
->>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
 </style>
