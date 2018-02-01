@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container min650">
         <div class="activity">
             <div class="activity-title">
                 <p class="word">近期活动</p>

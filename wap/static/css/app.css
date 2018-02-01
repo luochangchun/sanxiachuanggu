@@ -1,0 +1,460 @@
+/*header*/
+
+html {
+  background: #fff;
+  font-family: 'STHeiti', 'Microsoft YaHei', 'Helvetica', 'Arial', sans-serif;
+  -webkit-text-size-adjust: none;
+  word-break: break-word;
+}
+
+body {
+  font-size: 14px;
+  line-height: 1.7;
+  word-wrap: break-word;
+  color: #222;
+  background-color: #fff;
+}
+p,
+span {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 0.7rem !important;
+  line-height: 1rem;
+}
+.news img{
+  width:100% !important;
+  height: auto !important;
+  margin: 0 auto;
+}
+.f7-all-header {
+  font-weight: 400;
+  font-size: .5rem;
+  height: 2rem;
+  line-height: 1.2rem;
+  border-bottom: 0.02rem solid #ddd;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: #373b3e;
+  z-index: 100;
+}
+
+.f7-all-header>.center {
+  width: 90%;
+  float: left;
+  font-size: 0.9rem;
+  line-height: 2rem;
+  color: rgb(255, 255, 255);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.f7-all-header a {
+  width: 20%;
+  float: left;
+  text-decoration: none;
+}
+
+.left {
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: normal;
+}
+
+.f7-all-header>.right {
+  display: inline-block;
+  line-height: 2rem;
+  margin: 0 auto;
+  vertical-align: middle
+}
+
+.f7-all-header>.right img {
+  width: 0.25rem;
+  margin-right: 0;
+  margin-bottom: -0.4rem;
+}
+
+
+/*login_img*/
+
+.login_img {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.login_img img {
+  width: 4rem;
+}
+
+
+/*手机号及密码*/
+
+.sh-login-main {
+  text-align: center;
+}
+
+.sh-login-main input {
+  height: 1.8rem;
+  line-height: 1.44rem;
+  font-size: 0.5rem;
+  background-color: transparent;
+  color: rgb(153, 153, 153);
+  border: 1px solid #ddd;
+  width: 10rem;
+  display: block;
+  margin: auto;
+  border-radius: 4px;
+  /*margin-bottom:1rem;*/
+}
+
+.s1 {
+  margin-top: 1.3rem;
+  background: url(../../static/img/user@3x.png);
+  background-repeat: no-repeat;
+  background-size: 0.8rem;
+  background-position: 0.2rem 0.34rem;
+  padding-left: 1.5rem;
+}
+
+.s2 {
+  background: url(../../static/img/pwd@3x.png);
+  background-repeat: no-repeat;
+  background-size: 0.8rem;
+  background-position: 0.2rem 0.4rem;
+  padding-left: 1.5rem;
+  /*border-top:none !important;*/
+}
+
+.sh-login-main button {
+  margin-top: 1.3rem;
+  height: 1.8rem;
+  width: 11.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(1, 137, 227);
+  color: rgb(255, 255, 255);
+  box-shadow: 3px 6px 4px rgba(0, 0, 0, 0.15);
+}
+
+.false {
+  display: block;
+  /*color:red;*/
+  font-size: 0.6rem;
+  width: 100%;
+  background-color: transparent;
+  height: 1rem;
+  line-height: 1rem;
+  color: #fff;
+}
+
+.true {
+  font-size: 0.6rem;
+  color: red !important;
+  height: 1rem;
+  line-height: 1rem;
+}
+
+
+/*已绑定账号*/
+
+.already {
+  text-align: center;
+}
+
+.already input {
+  height: 1.8rem;
+  line-height: 1.44rem;
+  font-size: 0.5rem;
+  background-color: #f1f1f1;
+  color: rgb(153, 153, 153);
+  border: 1px solid #ddd;
+  width: 10rem;
+  display: block;
+  margin: auto;
+  border-radius: 4px;
+}
+
+.already button {
+  margin-top: 1.3rem;
+  height: 1.8rem;
+  width: 11.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #ccc;
+  color: rgb(255, 255, 255);
+  box-shadow: 3px 6px 4px rgba(0, 0, 0, 0.15);
+}
+
+
+/*main_login*/
+
+.main_login {
+  padding: 0.4rem 0.5rem;
+}
+
+.main_login h1 {
+  font-size: 0.8rem;
+  font-weight: normal;
+  line-height: 1.2rem;
+  color: #333;
+}
+
+.main_login p {
+  font-size: 0.54rem;
+  line-height: 1rem;
+  color: #666;
+}
+
+.main_login p span {
+  color: #333;
+  margin-right: 0.3rem;
+  font-size: 0.7rem;
+}
+
+.main_login .last_p {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+}
+
+.main_login h2 {
+  color: #0089e3;
+  font-size: 0.6rem;
+  line-height: 1rem;
+}
+
+.main_login h2 span {
+  margin-right: 0.4rem;
+}
+
+.border-b {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.footer {
+  width: 100%;
+  /* height: 1.4rem; */
+  padding: 0.4rem 0.5rem;
+  position: fixed;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+.footer input {
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 1.3rem;
+  padding-left: 0.5rem;
+  color: #666;
+  margin-right: 5%;
+  font-size: 0.6rem;
+}
+
+.footer button {
+  width: 20%;
+  height: 1.32rem;
+  border: none;
+  background-color: #0089e3;
+  color: #fff;
+  font-size: 0.6rem;
+  border-radius: 4px;
+}
+
+
+/*新闻*/
+
+.new_img_banner img {
+  width: 100%;
+  height: 9rem;
+}
+
+.new_tab ul li:last-child {
+  margin-right: 0;
+}
+
+.new_tab ul li {
+  float: left;
+  margin-right: 0.3rem;
+  font-size: 0.6rem;
+  line-height: 1rem;
+}
+
+.li_one {
+  color: #000;
+  line-height: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.new_main {
+  clear: both;
+  margin-top: 1rem;
+}
+
+.new_img {
+  float: left;
+  width: 25%;
+  margin-right: 5%;
+}
+
+.new_img img {
+  width: 4rem;
+  height: 3rem;
+}
+
+.new_content {
+  float: left;
+  width: 70%;
+  font-size: 0.4rem;
+}
+
+.new_content h1 a {
+  color: #333;
+}
+
+.new_content p {
+  line-height: 1rem;
+  color: #999;
+}
+
+.new_bt img {
+  width: 0.5rem;
+}
+
+
+/*活动列表*/
+
+.activity_img img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.new_content h2 {
+  line-height: 1rem;
+  color: #666;
+  font-size: 0.7rem;
+}
+
+.activity_list {
+  height: 4.5rem;
+  margin: 0.25rem 0.5rem 0 0.5rem;
+}
+
+.activity_main {
+  padding-top: 0.2rem;
+  border-top: 0.5rem solid #efefef;
+}
+
+.gradient {
+  background: linear-gradient(#efefef, #e0e0e0);
+  width: 100%;
+  height: 0.5rem;
+  display: block;
+}
+
+.activity_list span img {
+  width: 3rem;
+}
+
+
+/* 新闻列表分页 */
+
+.new_img_banner {
+  font-size: 0;
+}
+
+.news_list {
+  width: 100%;
+}
+
+.news_list .mint-navbar {
+  background-color: #f4f5f6;
+}
+
+.mint-navbar .mint-tab-item.is-selected,
+.mint-navbar .mint-tab-item.is-selected .mint-tab-item-label {
+  color: #26a2ff;
+  border-bottom: none;
+}
+
+.news_list .mint-navbar .mint-tab-item {
+  padding: 0.4rem 0;
+  height: 1rem;
+  line-height: 1rem;
+}
+
+.news_list .mint-tab-item-label {
+  font-size: .7rem;
+  line-height: 1rem;
+  height: 1rem;
+  color: #505050;
+}
+
+.news_list .mint-tab-container-item .item,
+.activityList .item {
+  width: 100%;
+  display: flex;
+  height: 3.6rem;
+  padding: 0.4rem 0.2rem;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(221, 221, 221, 0.6);
+}
+
+.news_list .item .item_img,
+.activityList .item .item_img {
+  width: 25%;
+}
+
+.news_list .item .item_word {
+  flex: 1;
+  font-size: 0.6rem;
+  margin-left: 0.4rem;
+}
+
+.news_list .item .item_word h1,
+.activityList .item .item_word h1 {
+  color: #222;
+  line-height: 1rem;
+  font-size: 0.65rem;
+  font-weight: normal;
+}
+
+.news_list .item .item_word p,
+.activityList .item .item_word p {
+  color: #999;
+  line-height: 0.8rem;
+}
+
+
+/* 活动列表分页 */
+
+.activityList {
+  width: 100%;
+  /* background-color: #f1f1f1; */
+}
+
+.activityList .item .item_word {
+  flex: 1;
+  margin-left: .4rem;
+}
+
+.activityList .item .item_word h1,
+.activityList .item .item_word p {
+  line-height: 1rem;
+  height: 1rem;
+}

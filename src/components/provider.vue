@@ -11,6 +11,9 @@
                             </div>
                             <div>
                                 <p>{{provider['name']}}</p>
+                                <!-- <router-link :to="{ name: 'article'}">
+                                        申请成为服务商
+                                    </router-link> -->
                                 <!-- <button>贷款</button> -->
                             </div>
                         </el-col>
@@ -18,8 +21,8 @@
                 </div>
             </el-col>
         </el-row>
+        <!--优惠服务-->
         <div class="container">
-            <!--优惠服务-->
             <el-row :gutter="10">
                 <el-col :lg="24" :md="24" :sm="24" :xs="24" class="provider_discounts">
                     <h1>优惠服务</h1>
@@ -42,67 +45,64 @@
                     <h1>服务详情介绍</h1>
                     <el-row class="provider_p">
                         <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                            <!-- <div>
-                                <img src="../../static/img/provide_1.jpg" alt="">
-                            </div> -->
-                            <p style="margin:40px 0;">{{content}}</p>
+                            <div v-html="content"></div>
                         </el-col>
                     </el-row>
                 </el-col>
             </el-row>
-            <!--企业详情-->
-            <!-- <el-row :gutter="10" style="margin-top: 50px;margin-bottom: 50px;">
-                <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                    <el-row>
-                        <el-col :lg="17" :md="17" :sm="24" :xs="24">
-                            <table border="1" class="table table-bordered bg-light" style="background-color: #edf1f2">
-                                <tbody>
-                                    <tr>
-                                        <td class="font-bold w-xs">企业名称</td>
-                                        <td colspan="3">
-                                            <p>{{provider['name']}}</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-bold w-xs">联系人</td>
-                                        <td>{{provider['author']}}</td>
-                                        <td class="font-bold">联系电话</td>
-                                        <td>
-                                            <p>15172525978</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-bold w-xs">地址</td>
-                                        <td colspan="3">
-                                            <p>武汉市洪山区珞狮北路2号樱花大厦A座</p>
-                                        </td>
-                                    </tr>
-                                    <tr style="height:240px;">
-                                        <td class="font-bold w-xs h-md">企业简介与优势</td>
-                                        <td colspan="3">{{content}}</td>
-                                    </tr>
-                                    <tr style="height:90px;">
-                                        <td class="font-bold w-xs">服务领域</td>
-                                        <td colspan="3" class="h-xs">
-                                            <p>小微型企业、个体经营户</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-bold w-xs">备注</td>
-                                        <td colspan="3"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </el-col>
-                        <el-col :lg="6" :md="6" :sm="24" :xs="24" :offset="1">
-                            <div>
-                                <img src="../../static/img/provider_2.jpg" alt="">
-                            </div>
-                        </el-col>
-                    </el-row>
-                </el-col>
-            </el-row> -->
         </div>
+        <!--企业详情-->
+        <!-- <el-row :gutter="10" style="margin-top: 50px;margin-bottom: 50px;">
+                    <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
+                        <el-row>
+                            <el-col :lg="17" :md="17" :sm="24" :xs="24">
+                                <table border="1" class="table table-bordered bg-light" style="background-color: #edf1f2">
+                                    <tbody>
+                                        <tr>
+                                            <td class="font-bold w-xs">企业名称</td>
+                                            <td colspan="3">
+                                                <p>{{provider['name']}}</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold w-xs">联系人</td>
+                                            <td>{{provider['author']}}</td>
+                                            <td class="font-bold">联系电话</td>
+                                            <td>
+                                                <p>15172525978</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold w-xs">地址</td>
+                                            <td colspan="3">
+                                                <p>武汉市洪山区珞狮北路2号樱花大厦A座</p>
+                                            </td>
+                                        </tr>
+                                        <tr style="height:240px;">
+                                            <td class="font-bold w-xs h-md">企业简介与优势</td>
+                                            <td colspan="3">{{content}}</td>
+                                        </tr>
+                                        <tr style="height:90px;">
+                                            <td class="font-bold w-xs">服务领域</td>
+                                            <td colspan="3" class="h-xs">
+                                                <p>小微型企业、个体经营户</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold w-xs">备注</td>
+                                            <td colspan="3"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </el-col>
+                            <el-col :lg="6" :md="6" :sm="24" :xs="24" :offset="1">
+                                <div>
+                                    <img src="../../static/img/provider_2.jpg" alt="">
+                                </div>
+                            </el-col>
+                        </el-row>
+                    </el-col>
+                </el-row> -->
     </div>
 </template>
 
@@ -124,10 +124,10 @@
                 api.Get('/enterprise/' + id)
                     .then(res => {
                         this.provider = res;
-                        if(res['detail'] == null) {
-                            this.content="暂无数据"
+                        if (res['detail'] == null) {
+                            this.content = "暂无数据"
                         } else {
-                            this.content=res['detail']['content'];
+                            this.content = res['detail']['content'];
                         }
                     });
             }
@@ -135,17 +135,18 @@
     }
 </script>
 
-<style>
+<style scoped>
     /*服务企业login*/
     .provider_header p {
         line-height: 60px;
         color: #fff;
         font-size: 14px;
     }
-    .provider_header button {
+    .provider_header a {
         border: 1px solid #fff;
         background-color: transparent;
-        width: 60px;
+        width: auto;
+        display: inline-block;
         color: #fff;
         font-size: 12px;
         text-align: center;
@@ -192,7 +193,6 @@
         text-align: center;
     }
     .el-button {
-        padding: 0;
         border: none;
     }
     /*企业详情*/

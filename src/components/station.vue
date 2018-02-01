@@ -1,48 +1,50 @@
 <template>
-	<div class="container">
-		<el-row :gutter="10" style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
-			<el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" style="background-color:#fff;padding:30px 25px 15px 0">
-				<p class="tc b f20">工位申请表</p>
-			</el-col>
-			<el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3" style="background-color:#fff;padding:0px 25px 15px 0">
-				<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="enter-ruleForm">
-					<el-form-item label="公司名称" prop="enterprise">
-						<el-input type="text" v-model="ruleForm.enterprise"></el-input>
-					</el-form-item>
-					<el-form-item label="团队人数" prop="employees">
-						<el-input type="number" v-model="ruleForm.employees"></el-input>
-					</el-form-item>
-					<el-form-item label="成立情况" prop="period">
-						<el-radio-group v-model="ruleForm.period">
-							<el-radio label="筹建"></el-radio>
-							<el-radio label="初建"></el-radio>
-							<el-radio label="2年以内"></el-radio>
-							<el-radio label="2年以上"></el-radio>
-						</el-radio-group>
-					</el-form-item>
-					<el-form-item label="是否毕业3年内大学生" prop="fresh">
-						<el-radio-group v-model="ruleForm.fresh">
-							<el-radio label="true">是</el-radio>
-							<el-radio label="false">否</el-radio>
-						</el-radio-group>
-					</el-form-item>
-					<el-form-item label="公司经营范围" prop="scope">
-						<el-input type="text" v-model="ruleForm.scope"></el-input>
-					</el-form-item>
-					<el-form-item label="所需办公面积/工位" prop="area">
-						<el-input type="number" v-model="ruleForm.area"></el-input>
-					</el-form-item>
-					<el-form-item label="联系人" prop="contact">
-						<el-input type="text" v-model="ruleForm.contact"></el-input>
-					</el-form-item>
-					<el-form-item label="联系电话" prop="phone">
-						<el-input type="tel" v-model="ruleForm.phone"></el-input>
-					</el-form-item>
-					<el-form-item>
-						<el-button @click="submitForm('ruleForm')" style="background-color: #f48100;border:none;color:#fff;">提交申请</el-button>
-					</el-form-item>
-				</el-form>
-			</el-col>
+	<div>
+		<el-row :gutter="0" style="background-color:rgb(238, 238, 238);padding-top: 50px;padding-bottom: 50px;">
+			<div class="container">
+				<el-col :lg="24" :md="24" :sm="24" :xs="24" style="background-color:#fff;padding:30px 25px 15px 0">
+					<p class="tc b f20">入驻申请</p>
+				</el-col>
+				<el-col :lg="24" :md="24" :sm="24" :xs="24" style="background-color:#fff;padding:0px 25px 15px 0">
+					<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="160px" class="enter-ruleForm">
+						<el-form-item label="公司名称" prop="enterprise">
+							<el-input type="text" v-model="ruleForm.enterprise"></el-input>
+						</el-form-item>
+						<el-form-item label="团队人数" prop="employees">
+							<el-input type="number" v-model="ruleForm.employees"></el-input>
+						</el-form-item>
+						<el-form-item label="成立情况" prop="period">
+							<el-radio-group v-model="ruleForm.period">
+								<el-radio label="筹建"></el-radio>
+								<el-radio label="初建"></el-radio>
+								<el-radio label="2年以内"></el-radio>
+								<el-radio label="2年以上"></el-radio>
+							</el-radio-group>
+						</el-form-item>
+						<el-form-item label="是否毕业3年内大学生" prop="fresh">
+							<el-radio-group v-model="ruleForm.fresh">
+								<el-radio label="true">是</el-radio>
+								<el-radio label="false">否</el-radio>
+							</el-radio-group>
+						</el-form-item>
+						<el-form-item label="公司经营范围" prop="scope">
+							<el-input type="text" v-model="ruleForm.scope"></el-input>
+						</el-form-item>
+						<el-form-item label="所需办公面积/工位" prop="area">
+							<el-input type="number" v-model="ruleForm.area"></el-input>
+						</el-form-item>
+						<el-form-item label="联系人" prop="contact">
+							<el-input type="text" v-model="ruleForm.contact"></el-input>
+						</el-form-item>
+						<el-form-item label="联系电话" prop="phone">
+							<el-input type="tel" v-model="ruleForm.phone"></el-input>
+						</el-form-item>
+						<el-form-item style="margin-left:100px">
+							<el-button @click="submitForm('ruleForm')" style="background-color: #f48100;border:none;color:#fff;">提交申请</el-button>
+						</el-form-item>
+					</el-form>
+				</el-col>
+			</div>
 		</el-row>
 	</div>
 </template>
@@ -52,21 +54,21 @@
 	export default {
 		data() {
 			let validatePhone = (rule, value, callback) => {
-                let re = /^1[34578]\d{9}$/;
-                if (value === "" || !re.test(value) || value.length < 11) {
-                    callback(new Error("请输入正确手机号！"));
-                } else {
-                    callback();
-                }
+				let re = /(^1[34578]\d{9}$)|(^0\d{2,3}-\d{7,8}$)|(^\d{7,8}$)/;
+				if (value === "" || !re.test(value) || value.length < 7) {
+					callback(new Error("请输入联系方式！"));
+				} else {
+					callback();
+				}
 			};
 			let validateContact = (rule, value, callback) => {
-                let re = /^[\u4E00-\u9FA5\uf900-\ufa2d]{2,5}$/;
-                if (value === "" || !re.test(value) || value.length < 2 || value.length > 5) {
-                    callback(new Error("请输入联系人姓名！"));
-                } else {
-                    callback();
-                }
-            };
+				let re = /^[\u4E00-\u9FA5\uf900-\ufa2d]{2,5}$/;
+				if (value === "" || !re.test(value) || value.length < 2 || value.length > 5) {
+					callback(new Error("请输入联系人姓名！"));
+				} else {
+					callback();
+				}
+			};
 			return {
 				ruleForm: {
 					"enterprise": "", //企业名称
@@ -76,24 +78,24 @@
 					"employees": "", //团队人数
 					"area": "", //所需办公面积/工位数
 					"contact": "", //联系人姓名
-					"phone": "", //联系人手机号
+					"phone": "", //联系方式
 				},
 				rules: {
 					enterprise: [{
 						required: true,
 						message: '请填写公司名称',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
 					scope: [{
 						required: true,
 						message: '请填写公司经营范围',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
 					period: [{
 						required: true,
 						message: '请填写成立情况',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 15, message: '最多 15 个字符', trigger: 'blur' }],
 					fresh: [{
 						required: true,
 						message: '请选择是否三年内毕业大学生',
@@ -103,22 +105,22 @@
 						required: true,
 						message: '请输入团队人数',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
 					area: [{
 						required: true,
 						message: '请输入所需办公面积/工位数',
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 20, message: '最多 20 个字符', trigger: 'blur' }],
 					contact: [{
 						required: true,
 						message: '请输入联系人姓名',
 						validator: validateContact,
 						trigger: 'blur'
-					}],
+					},{ min: 1, max: 10, message: '最多 10 个字符', trigger: 'blur' }],
 					phone: [{
 						required: true,
 						validator: validatePhone,
-						message: '请输入正确手机号',
+						message: '请输入联系方式',
 						trigger: 'blur'
 					}]
 				}
@@ -147,6 +149,11 @@
 							.then(res => {
 								if (res['suc'] == true) {
 									this.$message('申请成功！');
+									let id = this.$route.params.id;
+									let redirect = decodeURIComponent('/incubators_details/');
+									this.$router.push({
+										path: redirect + id
+									})
 								} else if (res['suc'] == false) {
 									this.$message('申请失败！');
 								}
@@ -163,7 +170,7 @@
 
 <style scoped>
 	.enter-ruleForm {
-		width: 440px;
+		width: 460px;
 		margin: 0 auto;
 	}
 </style>

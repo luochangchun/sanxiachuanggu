@@ -22,12 +22,12 @@
                         <h3 class="title">职位描述</h3>
                         <p style="margin-bottom:10px;">岗位职责:</p>
                         <ol class="posDes">
-                            <li v-for="(item , index) in detail" :key="index"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item['description']}}</li>
+                            <li v-for="(item , index) in detail" :key="index"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{detail.description}}</li>
                         </ol>
                     </div>
                     <div class="item_con">
                         <h3 class="title">公司简介:</h3>
-                        <p>{{item['content']}}</p>
+                        <p>{{detail.content}}</p>
                     </div>
                 </div>
             </el-col>
@@ -37,34 +37,61 @@
 
 
 
-<script type="text/ecmascript-6">
+<script>
 	import api from '../axios/api.js'
 	export default {
 		data() {
 			return {
 				checked: 'true',
-				employment: '',
-				detail: ''
+				employmentForm: {
+					title: '',
+					job: '',
+					salaryMin: '',
+					salaryMax: '',
+					demand: '',
+					edu: '',
+					exp: '',
+					content: ''
+				},
 			};
 		},
 		methods: {
-			talentDetail(id) {
-					api.Get('/recruit/' + id)
-						.then(res => {
-							this.title = res['title'];
-							this.job = res['job'];
-							this.salaryMin = res['salaryMin'];
-							this.salaryMax = res['salaryMax'];
-							this.demand = res['demand'];
-							this.edu = res['edu'];
-						})
-				},
-
+			employmentDetail(formName) {
+				this.$refs[formName].validate((valid) => {
+					if (valid) {
+//						let id = this.$route.params.id;
+						var createTime = new Date();
+						var createAt = Number(createTime);
+						var params = {
+//							"talent": id,
+							"title": this.employmentForm.title,
+							"job": this.employmentForm.job,
+							"salaryMin": this.employmentForm.salaryMin,
+							"salaryMax": this.employmentForm.salaryMax,
+							"demand": this.employmentForm.demand,
+							"edu": this.employmentForm.edu,
+							"exp": this.employmentForm.exp,
+							"content": this.employmentForm.content
+						};
+						api.Post('/recruit/'+ id, params).then(res => {
+							console.log(res);
+							if (res["suc"] == true) {
+								this.$message('招聘信息发布成功');
+							} else {
+								this.$message(res["msg"]);
+							}
+						});
+					}else {
+						console.log("发布难题失败!");
+						return false;
+					}
+				});
 			},
+		}
 	}
 </script>
 
-<style>
+<style scoped>
     .talent_title,.item_con{
         background-color:#fff;
         padding:20px 30px;

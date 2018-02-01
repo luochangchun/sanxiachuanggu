@@ -29,7 +29,7 @@
 
 </script>
 
-<style>
+<style scoped>
     .incubators_more_area img{
         width:100%;
         /*margin-left: -5px;*/

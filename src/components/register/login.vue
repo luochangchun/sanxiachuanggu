@@ -1,7 +1,7 @@
 <template>
     <div class="login">
         <div class="container">
-            <div class="login_wrap">
+            <div class="login_wrap" style="min-height: 500px;">
                 <el-row>
                     <el-col :xs="24" :sm="24" :md="24" :lg="24">
                         <el-form label-width="90px" class="login_form" :model="loginForm" :rules="loginRules" ref="loginForm">
@@ -13,7 +13,7 @@
                                 <el-input type="password" v-model="loginForm.pass" auto-complete="off" placeholder="密码长度为6-16位，可由字母和数字组成，区分大小写"></el-input>
                             </el-form-item>
                             <el-form-item class="loginBtn">
-                                <el-button type="primary" @click="login('loginForm')">登录</el-button>
+                                <el-button type="primary" @click.stop.prevent="login('loginForm')">登录</el-button>
                                 <router-link to="/register" class="r f12">立即注册</router-link>
                                 <router-link to="/forgetPassword" class="r f12">忘记密码&nbsp;&nbsp;|&nbsp;&nbsp;</router-link>
                             </el-form-item>
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+    import * as types from '../store/types'
     import api from '../../axios/api.js'
     export default {
         data() {
@@ -47,6 +48,7 @@
                 }
             };
             return {
+                token: '',
                 loginForm: {
                     phone: "",
                     pass: ""
@@ -66,6 +68,11 @@
                 },
             }
         },
+        mounted() {
+            console.log(this.$store);
+            this.$store.commit(types.TITLE, 'Login');
+            this.$store.commit(types.TITLE, 'userinfo');
+        },
         methods: {
             login(formName) {
                 this.$refs[formName].validate((valid) => {
@@ -77,13 +84,27 @@
                         api.Post('/pub/sign/in', params)
                             .then(res => {
                                 if (res['suc'] == true) {
-                                    var expireDate = new Date();
-                                    expireDate.setDate(expireDate.getDate() + 1);
-                                    window.localStorage.setItem('Authorization',res['msg']);//存取授权值
-                                    let userCookie = JSON.stringify(res);    
-                                    api.SetCookie("userInfo", userCookie, expireDate);
-                                    this.$router.push({ path: 'index' }) 
-                                } else if(res['suc'] == false){
+                                    // this.$router.push({ path: 'index' }) 
+                                    this.$confirm('登录成功', '提示', {
+                                        confirmButtonText: '确定',
+                                        cancelButtonText: '取消',
+                                        type: 'success'
+                                    }).then(() => {
+                                        let Authorization = res['msg'];//存取授权值
+                                        let UserInfo = JSON.stringify(res);//存取用户信息
+                                        if (Authorization) {
+                                            this.$store.commit(types.LOGIN, Authorization)
+                                            this.$store.commit(types.USERINFO, UserInfo)
+                                            let redirect = decodeURIComponent('/index');
+                                            this.$router.push({
+                                                path: redirect
+                                            });
+                                            window.location.reload();
+                                        }
+                                    }).catch(() => {
+                                        //点击取消
+                                    });
+                                } else if (res['suc'] == false) {
                                     alert(res['msg']);
                                 }
                             });

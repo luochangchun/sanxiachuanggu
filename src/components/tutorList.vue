@@ -1,6 +1,6 @@
 <template>
     <div class="activity_para">
-        <div class="container">
+        <div class="container min650">
             <el-row :gutter="10">
                 <el-col :xs="24" :sm="24" :md="24" :lg="24">
                     <el-breadcrumb separator="/" class="padder-vx">
@@ -10,16 +10,18 @@
                     </el-breadcrumb>
                 </el-col>
             </el-row>
-            <el-row :gutter="10">
+            <el-row :gutter="10" style="margin:20px 0">
                 <el-col :lg="6" :md="6" :sm="12" :xs="24" v-for="(item, index) in tutorList" :key="index">
-                    <div class="research-teacher">
-                        <img :src="item.photo" alt="">
-                        <div class="b">
-                            <h3 class="f16">{{item.name}}</h3>
+                    <div class="research-teacher" style="margin-bottom:20px;">
+                        <img v-show="item.photo != ''"  :src="item.photo" alt="">
+                        <img v-show="item.photo == ''" src="../../static/img/moren.png" alt="">
+                        <div>
+                            <h3>{{item.name}}</h3>
                             <p>{{item.title}}</p>
+                            <p class="text-ellipsis-muti text-ellipsis-2">{{item.intro}}</p>
                         </div>
-                        <div class="tutorcCheck white tc f14">
-                            <router-link :to="{name:'tutorDetail', params: {id:item.id} }" style="color:#fff;">
+                        <div>
+                            <router-link :to="{name:'tutorDetail', params: {id:item.id}}">
                                 查看更多>>
                             </router-link>
                         </div>
@@ -62,7 +64,7 @@
             },
             handleCurrentChange(val) {
                 //获取到当前分页页码，获取当前页面数据
-                var url = '/enterprise/' + '3' + '/' + '8' + '/' + val
+                var url = '/indie/' + '3' + '/' + '8' + '/' + val
                 api.Get(url)
                     .then(res => {
                         this.tutorList = res['data'];
@@ -74,55 +76,40 @@
 </script>
 
 <style scoped>
-    .white{
-        color:#fff;
-    }
-    .f16{
-        text-align: center;
-    }
-    .b p{
-        text-align: center;
-        line-height: 30px;
-        padding: 0% 5px;
-    }
     .research-teacher {
-        margin-bottom: 30px;
+        background-color: #0068b7;
+        padding: 20px 0;
+        border-radius:5px;
+        position: relative;
+        min-height: 220px;
     }
-    .activity_para {
-        height: auto;
-        min-height: 100%;
+    .research-teacher img {
+        width: 85px;
+        height: 85px;
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
+        border-radius: 50%;
     }
-    .activity_para p {
-        margin: 0 0 10px;
-        line-height: 24px;
-    }
-    .activity_para h1,
-    .activity_para p {
-        color: #fff;
-    }
-    .tutorList .item {
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        margin-bottom: 15px;
-    }
-    .tutorList .item img {
-        width: 80%;
-        padding: 10%;
-        border-radius: 20px;
-    }
-    .tutorList .item p {
-        width: 90%;
-        line-height: 30px;
-        padding: 0% 5px;
+    .research-teacher div {
+        margin-left: 30px;
+        margin-right: 30px;
         text-align: center;
-        margin-left: 5%;
+        color: #fff;
+        margin-top: 25px;
     }
-    .tutorcCheck {
-        width: 96px;
-        padding: 10px 6px;
-        background-color: #f48100;
-        border-color: #f48100;
-        margin: 0 auto 5% auto;
-        border-radius: 8px;
+    .research-teacher a {
+        width: 100px;
+        line-height: 26px;
+        border-radius: 12px;
+        background-color: #f53436;
+        color: #fff;
+        font-size: 14px;
+        border: none;
+        margin: 20px auto;
+    }   
+    .research-teacher div p {
+        height: 40px;
+        margin-bottom: 10px;
     }
 </style>

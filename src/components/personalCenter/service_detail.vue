@@ -8,10 +8,12 @@
     </el-breadcrumb>
     <div class="need_import">
       <h3>{{data['title']}}</h3>
-      <p>{{data['enterprise']}} | 需求类型: {{data['title']}} | 联系人: {{data['contact']}} | 联系方式: {{data['phone']}} | 2017-10-24 | 已解决</p>
+      <p>{{data['enterprise']}} | 需求类型: <span v-for="n in searchService" :key="n" v-if="n['id'] == data['classifyId']">{{n['value']}}</span> | 联系人: {{data['contact']}} | 联系方式: {{data['phone']}} | 2017-10-24 | <span v-if="data['status'] == 1">待解决</span>
+        <span v-if="data['status'] == 2">进行中</span>
+        <span v-if="data['status'] == 3">已解决</span>
+        <span v-if="data['status'] == 4">被驳回</span></p>
       <p style="border-bottom:none;margin-top:30px;">{{data['needs']}}</p>
     </div>
-    
   </div>
 </template>
 
@@ -20,7 +22,8 @@
   export default {
     data() {
       return {
-        data: ''
+        data: '',
+        searchService: '',
       };
     },
     created() {
@@ -28,10 +31,16 @@
       this.getservice(id);
     },
     methods: {
+      service() {
+        var url = "/dict/service";
+        api.Get(url).then(res => {
+          this.searchService = res;
+        });
+      },
       getservice(id) {
         api.Get("/enterprise/apply/" + id).then(res => {
-          console.log(res);
-          this.data = res
+          this.data = res;
+          this.service();
         });
       }
     }

@@ -1,17 +1,17 @@
 <template>
     <div>
         <!--header-->
-        <el-row :gutter="10">
+        <el-row :gutter="0">
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                <div class="banner_img">
-                    <img src="../../static/img/banner_sckj.png" alt="">
+                <div class="banner_img"   style="backgroundImage: url(../static/img/banner_sckj.png)">
+                    <!-- <img src="../../static/img/banner_sckj.png" alt=""> -->
                 </div>
             </el-col>
         </el-row>
         <!--双创空间展示-->
-        <div>
+        <div class="container min650">
             <el-row :gutter="10" style="margin-bottom: 50px;">
-                <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
+                <el-col :lg="24" :md="24" :sm="24" :xs="24">
                     <div class="title" id="title-incubators">
                         <h1>双创空间展示</h1>
                         <p>ENTREPRENEURIAL MENTOP</p>
@@ -22,7 +22,8 @@
                     <el-row :gutter="10">
                         <el-col :lg="6" :md="6" :sm="12" :xs="24" class="incubators-show" v-for="(item,index) in incubator" :key="index">
                             <router-link :to="{ name: 'incubators_details', params: { id: item.id} }" style="position: relative">
-                                <img :src="item['icon']" alt="">
+                                <img v-if="item['icon'] !== ''"  :src="item['icon']" alt="">
+                                <img v-if="item['icon'] == ''" src="../../static/img/incubatorBg.jpeg" alt="">
                                 <!-- <div class="img" :style="{backgroundImage: 'url('+'http://'+ item['icon'] + ')'}"  :key="index"></div> -->
                                 <p>{{item.name}}</p>
                             </router-link>
@@ -31,7 +32,7 @@
                 </el-col>
             </el-row>
             <!--职能部门展示-->
-            <div style="background-color: #eee;padding-bottom: 40px;">
+            <div v-if="false" style="background-color: #eee;padding-bottom: 40px;">
                 <el-row :gutter="10">
                     <el-col :lg="18" :md="18" :sm="18" :xs="18" :offset="3">
                         <div class="title" id="title-department">
@@ -144,6 +145,7 @@
     }
     .incubators-show img {
         width: 100%;
+        height: 225px;
     }
     .incubators-show img:hover{
         box-shadow: 0 0 10px #999;

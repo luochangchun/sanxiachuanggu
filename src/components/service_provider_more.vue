@@ -2,21 +2,14 @@
     <div class="container">
         <el-row :gutter="10" style="margin-bottom: 50px;">
             <el-col :lg="24" :md="24" :sm="24" :xs="24">
-                <p style="font-size:14px;color:#666;line-height:40px;">您所在的位置 : <span style="color:#0089e3;">创谷企业</span> > 服务商列表</p>
-                <!--<div>-->
-                <!--<ol>-->
-                <!--<li>服务类型:</li>-->
-                <!--<li>全部</li>-->
-                <!--<li>信息化服务</li>-->
-                <!--<li>物业服务</li>-->
-                <!--<li>设备维修服务</li>-->
-                <!--<li>投融资服务</li>-->
-                <!--<li>项目申报服务</li>-->
-                <!--<li>法律税收服务</li>-->
-                <!--<li>人才招聘/培训服务</li>-->
-                <!--<li>工商注册服务/li>-->
-                <!--</ol>-->
-                <!--</div>-->
+                <div style="position:relative;">
+                    <el-breadcrumb separator=">" class="padder-vx">
+                        <el-breadcrumb-item :to="{ path: '>' }">首页</el-breadcrumb-item>
+                        <el-breadcrumb-item>创谷企业</el-breadcrumb-item>
+                        <el-breadcrumb-item>服务窗口入口列表</el-breadcrumb-item>
+                    </el-breadcrumb>
+                    <router-link class="zs" :to="{ name: 'service_apply'}">申请为服务商</router-link>
+                </div>
                 <div>
                     <el-row :gutter="10" style="margin-bottom: 10px;" class="into_more_header">
                         <el-col :xs="12" :sm="12" :md="12" :lg="12">
@@ -51,10 +44,10 @@
                                 <h1 class="tc">{{item['service']}}</h1>
                             </el-col>
                             <el-col :xs="3" :sm="3" :md="3" :lg="3">
-                                <h2 class="tc">曹总</h2>
+                                <h2 class="tc">{{item['contact'] || '暂无数据'}}</h2>
                             </el-col>
                             <el-col :xs="5" :sm="5" :md="5" :lg="5">
-                                <h2 class="tc">13232658712</h2>
+                                <h2 class="tc">{{item['phone'] || '暂无数据'}}</h2>
                             </el-col>
                         </router-link>
                     </el-row>
@@ -115,7 +108,20 @@
     };
 </script>
 
-<style>
+<style scoped>
+    .zs {
+        background-color: #f48100;
+        border: none;
+        color: #fff;
+        border-radius: 4px;
+        width: 100px;
+        height: 26px;
+        text-align: center;
+        line-height: 26px;
+        position: absolute;
+        right: 0px;
+        top: 5px;
+    }
     .into_more_header h2 {
         color: #666;
         background-color: #f1f1f1;
@@ -125,11 +131,13 @@
     }
     .into_more_header {
         background-color: #f1f1f1;
-        /*height: 40px;*/
-        /*line-height: 40px;*/
+        height: 40px;
+        line-height: 40px;
     }
     .into_more_img img {
         width: 100%;
+        max-height: 60px;
+        /* padding: 5px 0; */
     }
     .into_more_list {
         border: 1px solid #ddd;

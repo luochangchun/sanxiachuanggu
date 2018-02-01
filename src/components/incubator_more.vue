@@ -44,7 +44,7 @@
         font-weight: normal;
         line-height:30px;
         font-size: 16px;
-        margin-top: 20px;
+        /* margin-top: 20px; */
     }
     .incubators_more_introduce p{
         line-height:30px;

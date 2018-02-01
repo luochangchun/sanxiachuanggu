@@ -1,6 +1,6 @@
 <template>
     <div class="Financing">
-        <div class="container">
+        <div class="container min650">
             <el-row :gutter="0">
                 <el-col :xs="24" :sm="24" :md="24" :lg="24">
                     <el-breadcrumb separator="/" class="padder-v">

@@ -5,10 +5,10 @@
                 <h1 class="tc f18" style="color:#0089e3;margin-bottom:30px;">企业技术难题及需求发布</h1>
                 <el-form :model="cosnultForm" :rules="cosnultRules" ref="cosnultForm" label-width="200px" class="demo-ruleForm">
                     <!-- <el-form-item label="行业类别" prop="classifyId">
-                <el-select v-model="cosnultForm.businessId">
-                  <el-option :label="item['value']" :value="item['id']" v-for="(item, index) in category" :key="index"></el-option>
-                </el-select>
-              </el-form-item> -->
+                    <el-select v-model="cosnultForm.businessId">
+                      <el-option :label="item['value']" :value="item['id']" v-for="(item, index) in category" :key="index"></el-option>
+                    </el-select>
+                  </el-form-item> -->
                     <el-form-item label="难题及需求标题" prop="title">
                         <el-input v-model="cosnultForm.title" placeholder="请输入你的技术难题标题"></el-input>
                     </el-form-item>
@@ -24,8 +24,8 @@
                     <el-form-item label="联系人" prop="contact">
                         <el-input v-model="cosnultForm.contact" placeholder="请输入联系人姓名"></el-input>
                     </el-form-item>
-                    <el-form-item label="手机号" prop="phone">
-                        <el-input v-model="cosnultForm.phone" placeholder="请输入联系人手机号码"></el-input>
+                    <el-form-item label="联系方式" prop="phone">
+                        <el-input v-model="cosnultForm.phone" placeholder="请输入联系方式"></el-input>
                     </el-form-item>
                     <el-form-item>
                         <el-button @click="consultForm('cosnultForm')" style="background-color: #f48100;border:none;color:#fff;">发布</el-button>
@@ -56,9 +56,9 @@
             };
             //手机号
             let validatePhone = (rule, value, callback) => {
-                let re = /^1[34578]\d{9}$/;
-                if (value === "" || !re.test(value) || value.length < 11) {
-                    callback(new Error("请输入正确手机号！"));
+                let re = /(^1[34578]\d{9}$)|(^0\d{2,3}-\d{7,8}$)|(^\d{7,8}$)/;
+                if (value === "" || !re.test(value) || value.length < 7) {
+                    callback(new Error("请输入联系方式！"));
                 } else {
                     callback();
                 }
@@ -89,7 +89,7 @@
                     phone: [{
                         required: true,
                         validator: validatePhone,
-                        message: "请输入手机号",
+                        message: "请输入联系方式",
                         trigger: "blur"
                     }],
                     title: [{
@@ -116,7 +116,6 @@
                     let id = this.$route.params.id;
                     let businessId = this.$route.params.businessId;
                     if (valid) {
-                        
                         var params = {
                             businessId: businessId,
                             enterprise: this.cosnultForm.enterprise,
@@ -132,7 +131,7 @@
                                 this.$message('技术难题发布成功');
                                 let redirect = decodeURIComponent('/tutorDetail/');
                                 this.$router.push({
-                                    path: redirect+id
+                                    path: redirect + id
                                 })
                             } else {
                                 this.$message(res["msg"]);

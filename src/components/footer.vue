@@ -7,17 +7,17 @@
                     <p class="gray">公司名称：宜昌市西陵区高新技术产业孵化中心</p>
                     <p class="gray">公司地址：宜昌市西陵经济开发区西湖路32号</p>
                     <p class="gray">客服电话：0717-6496789</p>
-                    <p class="gray">邮箱：marketing@hansap.com</p>
+                    <!-- <p class="gray">邮箱：marketing@hansap.com</p> -->
                 </el-col>
                 <el-col :xs="24" :sm="24" :md="12" :lg="9" class="contact_img">
                     <p class="b white tc" style="padding-bottom:10px">关注我们<span class="gray">（扫一扫）</span></p>
-                    <img src="http://www.egowork.com/themes/egowork/img/egowork.jpg" class="center-block" style="width:130px;">
+                    <img src="../../static/img/QR_code.jpg" class="center-block" style="width:130px;">
                 </el-col>
             </el-row>
         </div>
         <div class="bg-dark">
             <div class="tc padder-v-xxs">
-                <p class="m-b-xs m-t-xs">Copyright © 2017.Phoenix All rights reserved.鄂ICP备17024353号</p>
+                <p class="m-b-xs m-t-xs">Copyright © 2017.Phoenix All rights reserved.鄂ICP备16001629号-1</p>
             </div>
         </div>
     </div>

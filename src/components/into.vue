@@ -182,7 +182,6 @@
         text-align: center;
     }
     .el-button {
-        padding: 0;
         border: none;
     }
     /*企业详情*/

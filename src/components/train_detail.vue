@@ -12,7 +12,7 @@
                         <div class="padder-v">
                             <p class="f18 b">{{train['name']}}</p>
                             <hr class="line-w">
-                            <p> 培训时间：{{train['createAt'] | formatDate}}</p>
+                            <p> 时间：{{train['startAt'] | formatDate}}</p>
                             <hr class="line-w">
                             <p> 地点：{{train['location'] || "暂无数据"}} </p>
                             <p> 人数限额：{{train['total'] || "暂无数据"}}人 </p>
@@ -22,55 +22,30 @@
             </div>
         </div>
         <div class="padder-v-xx">
-            <div class="container">
+            <div class="container min650">
                 <el-row :gutter="10">
                     <el-col :lg="24">
                         <div class="padder-v">
                             <div class="content">
                                 <p class="f24">
-                                    <span>培训内容</span>
-                                    <router-link :to="{ name: 'train_Application', params: { id: train['id']} }">培训申请</router-link>
+                                    <span>内容介绍</span>
+                                    <router-link :to="{ name: 'train_Application', params: { id: train['id']} }">报名申请</router-link>
                                 </p>
-                                <div class="wrapper">
-                                    {{train['detail']['content']}}
-                                    <!-- <p>陈文强</p>
-                                    <p><br></p>
-                                    <p>武汉泰利美信医疗科技有限公司CEO。首都医科大学医学本科，清华大学工业设计专业硕士。</p>
-                                    <p><br></p>
-                                    <p>资深顶级医疗外企职业经理人，曾供职于GE、KODAK及BARCO，历任产品线经理、销售总监、以及大中华区业务负责人。</p>
-                                    <p><br></p>
-                                    <p>DEMO China创业导师，医疗组评委。</p>
-                                    <p>四、活动内容</p>
-                                    <p><br></p>
-                                    <p>1．结合陈老师的亲身经历讲解创业初期存在的问题；</p>
-                                    <p>2．告诉你如何避免创业中的各种雷坑；</p>
-                                    <p>3．现场和陈老师一对一交流，答疑解惑。</p>
-                                    <p>陈文强</p>
-                                    <p><br></p>
-                                    <p>武汉泰利美信医疗科技有限公司CEO。首都医科大学医学本科，清华大学工业设计专业硕士。</p>
-                                    <p><br></p>
-                                    <p>资深顶级医疗外企职业经理人，曾供职于GE、KODAK及BARCO，历任产品线经理、销售总监、以及大中华区业务负责人。</p>
-                                    <p><br></p>
-                                    <p>DEMO China创业导师，医疗组评委。</p>
-                                    <p>四、活动内容</p>
-                                    <p><br></p>
-                                    <p>1．结合陈老师的亲身经历讲解创业初期存在的问题；</p>
-                                    <p>2．告诉你如何避免创业中的各种雷坑；</p>
-                                    <p>3．现场和陈老师一对一交流，答疑解惑。</p> -->
+                                <div class="wrapper" v-html="train['detail']['content']">
                                 </div>
                             </div>
                         </div>
                     </el-col>
-                    <el-col :xs="24" :sm="24" :md="16"  :lg="10">
+                    <el-col :xs="24" :sm="24" :md="24"  :lg="24">
                         <div class="content">
                             <p class="f24">
-                                <span>培训基本信息</span>
+                                <span>基本信息</span>
                             </p>
                             <div class="wrapper">
                                 <p> 联系人：{{train['name'] || "暂无数据"}} </p>
-                                <p> 手机号码：{{train['phone'] || "暂无数据"}} </p>
-                                <p> 培训时间：{{train['createAt'] | formatDate}} </p>
-                                <p> 培训地点：{{train['location'] || "暂无数据"}} </p>
+                                <p> 联系方式：{{train['phone'] || "暂无数据"}} </p>
+                                <p> 时间：{{train['startAt'] | formatDate}} </p>
+                                <p> 地点：{{train['location'] || "暂无数据"}} </p>
                             </div>
                         </div>
                     </el-col>
@@ -81,87 +56,84 @@
 </template>
 
 <script>
-    import api from '../axios/api.js'
-    import {
-        formatDate
-    } from '../../static/js/date.js'
-    export default {
-        data() {
-            return {
-                train: '',
-            }
-        },
-        created() {
-            let id = this.$route.params.id
-            this.getActivity(id);
-        },
-        methods: {
-            getActivity(id) {
-                api.Get('/activity/' + id)
-                    .then(res => {
-                        this.train = res['activity'];
-                    });
-            }
-        },
-        filters: {
-            formatDate(time) {
-                let date = new Date(time)
-                return formatDate(date, 'yyyy-MM-dd hh:mm')
-            }
-        }
+import api from "../axios/api.js";
+import { formatDate } from "../../static/js/date.js";
+export default {
+  data() {
+    return {
+      train: ""
+    };
+  },
+  created() {
+    let id = this.$route.params.id;
+    this.getActivity(id);
+  },
+  methods: {
+    getActivity(id) {
+      api.Get("/activity/" + id).then(res => {
+        this.train = res["activity"];
+      });
     }
+  },
+  filters: {
+    formatDate(time) {
+      let date = new Date(time);
+      return formatDate(date, "yyyy-MM-dd hh:mm");
+    }
+  }
+};
 </script>
 
 <style scoped>
-    .f24 span {
-        float: left;
-        margin-bottom: 10px;
-    }
-    .f24 a {
-        float: right;
-        background-color: #f48100;
-        border: none;
-        color: #fff;
-        border-radius: 4px;
-        width: 90px;
-        height: 30px;
-        text-align: center;
-        line-height: 30px;
-        font-size: 16px;
-    }
-    .wrapper {
-        clear: both;
-    }
-    .activity_para {
-        height: auto;
-        min-height: 100%;
-    }
-    .bg-info {
-        color: #dcf2f8;
-        background-color: #0089e3;
-    }
-    .activity_para p {
-        margin: 0 0 10px;
-    }
-    .line-w {
-        margin-top: 5px;
-        margin-bottom: 10px;
-        border: 0;
-        border-top: 2px solid #eee;
-        margin-right: 30%;
-    }
-    .padder-v-xx {
-        padding-top: 20px;
-        padding-bottom: 50px;
-    }
-    .wrapper {
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        padding: 15px;
-    }
-    .stamp img {
-        display: block;
-        height: 90px;
-        max-width: 100%;
-        margin-bottom: 50px;
-    }
+.f24 span {
+  float: left;
+  margin-bottom: 10px;
+}
+.f24 a {
+  float: right;
+  background-color: #f48100;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  width: 90px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 16px;
+}
+.wrapper {
+  clear: both;
+}
+.activity_para {
+  height: auto;
+  min-height: 100%;
+}
+.bg-info {
+  color: #dcf2f8;
+  background-color: #0089e3;
+}
+.activity_para p {
+  margin: 0 0 10px;
+}
+.line-w {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 2px solid #eee;
+  margin-right: 30%;
+}
+.padder-v-xx {
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+.wrapper {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 15px;
+}
+.stamp img {
+  display: block;
+  height: 90px;
+  max-width: 100%;
+  margin-bottom: 50px;
+}
 </style>
