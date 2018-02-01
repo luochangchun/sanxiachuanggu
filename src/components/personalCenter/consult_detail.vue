@@ -8,7 +8,11 @@
         </el-breadcrumb>
         <div class="need_import">
             <h3>{{data['title']}}</h3>
+<<<<<<< HEAD
             <p>{{data['enterprise']}} | 需求类型: <span v-for="n in searchConsult" :key="n" v-if="n['id'] == data['businessId']">{{n['value']}}</span> | 联系人: {{data['contact']}} | 联系方式: {{data['phone']}} | 2017-10-24 | <span v-if="data['status'] == 1">待解决</span> <span v-if="data['status'] == 2">进行中</span><span v-if="data['status'] == 3">已解决</span><span v-if="data['status'] == 4">被驳回</span></p>
+=======
+            <p>{{data['enterprise']}} | 需求类型: <span v-for="n in searchConsult" :key="n" v-if="n['id'] == data['businessId']">{{n['value']}}</span> | 联系人: {{data['contact']}} | 联系方式: {{data['phone']}} | {{data['createAt'] | formatDate}} | <span v-if="data['status'] == 1">待解决</span>            <span v-if="data['status'] == 2">进行中</span><span v-if="data['status'] == 3">已解决</span><span v-if="data['status'] == 4">被驳回</span></p>
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
             <p style="border-bottom:none;margin-top:30px;">{{data['needs']}}</p>
         </div>
     </div>
@@ -16,6 +20,12 @@
 
 <script>
     import api from "../../axios/api.js";
+<<<<<<< HEAD
+=======
+    import {
+        formatDate
+    } from '../../../static/js/date.js'
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
     export default {
         data() {
             return {
@@ -27,6 +37,15 @@
             let id = this.$route.params.id;
             this.getservice(id);
         },
+<<<<<<< HEAD
+=======
+        filters: {
+            formatDate(time) {
+                let date = new Date(time)
+                return formatDate(date, 'yyyy-MM-dd')
+            }
+        },
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
         methods: {
             consult() {
                 var url = "/dict/consult";

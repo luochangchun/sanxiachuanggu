@@ -13,7 +13,10 @@
             <div class="container">
                 <el-row :gutter="0">
                     <el-col :lg="12" :md="24" :sm="24" :xs="24" class="pl0">
+<<<<<<< HEAD
                         <!--大学院校-->
+=======
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                         <div class="InvestmentAgency clearfix">
                             <h2 class="common_sub_title">
                                 <p class="tc white">大学院校</p>
@@ -39,7 +42,10 @@
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
                         <!--专家团队-->
+=======
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                         <div class="InvestmentAgency clearfix ExpertTeam">
                             <h2 class="common_sub_title">
                                 <p class="tc white">专家团队</p>
@@ -67,7 +73,10 @@
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
                         <!--研究机构-->
+=======
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                         <div class="InvestmentAgency clearfix ResearchInstitute">
                             <h2 class="common_sub_title">
                                 <p class="tc white">研究机构</p>
@@ -96,6 +105,7 @@
                         </div>
                     </el-col>
                     <el-col :lg="12" :md="24" :sm="24" :xs="24" class="pl1">
+<<<<<<< HEAD
                         <!--项目成果转化-->
                         <div class="FinancingProject clearfix">
                             <h2 class="common_sub_title result-title">
@@ -146,15 +156,36 @@
                                         </span>
                                     </el-tag>
                                     <el-tag type="success">{{ item.date | formatDate }}</el-tag>
+=======
+                        <div class="FinancingNeeds clearfix BusinessNeeds">
+                            <h2 class="common_sub_title">
+                                <p class="tc white">技术难题及需求</p>
+                                <div class="line"></div>
+                            </h2>
+                            <div class="needList clearfix">
+                                <p v-show="noData" style="font-size:12px;line-height:30px;">此栏目暂无数据</p>
+                                <router-link :to="{ name: 'consultDetail', params: { id: item.id} }" class="item clearfix" v-for="(item, index) in needData" :key="index">
+                                    <h1 class="f14">{{item['title']}}</h1>
+                                    <p class="text-ellipsis">企业名称：{{item['enterprise']}}</p>
+                                    <div class="info">
+                                        <p class="pw270">联系人：<span style="margin-right:150px;">{{item['contact']}}</span></p>
+                                        <p>联系方式：<span>13972576207</span></p>
+                                    </div>
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                                 </router-link>
                             </div>
                             <el-col :lg="16" :md="16" :sm="24" :xs="24" :offset="8">
                                 <div class="block">
+<<<<<<< HEAD
                                     <el-pagination :current-page="1" :total="resultPages" @current-change="handleResult" layout="prev, pager, next">
+=======
+                                    <el-pagination :current-page="1" :total="consultPages" @current-change="handleCurrentChange" layout="prev, pager, next">
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                                     </el-pagination>
                                 </div>
                             </el-col>
                         </div>
+<<<<<<< HEAD
                         <!--技术难题及需求-->
                         <div class="FinancingNeeds clearfix BusinessNeeds">
                             <h2 class="common_sub_title">
@@ -179,6 +210,8 @@
                                 </div>
                             </el-col>
                         </div>
+=======
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                     </el-col>
                 </el-row>
             </div>
@@ -187,8 +220,12 @@
 </template>
 
 <script>
+<<<<<<< HEAD
     import api from "../axios/api.js";
     import { formatDate } from "../../static/js/date.js";
+=======
+    import api from '../axios/api.js'
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
     export default {
         data() {
             return {
@@ -206,6 +243,7 @@
                 ExeprtPages: "",
                 ResearchInstitute: "", //研究机构
                 ResearchPages: "",
+<<<<<<< HEAD
                 resultList: "",//科技成果转化
                 resultPages: "",//科技成果转化分页
                 field: "",//应用领域字典
@@ -220,6 +258,15 @@
             this.initResult();
             this.initField();
             this.initCategory();
+=======
+            }
+        },
+        created() {
+            this.researchApi()
+            this.initServicesList()
+            this.initExeprt()
+            this.initResearch()
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
         },
         filters: {
             filterStr(input) {
@@ -233,10 +280,13 @@
                         return input;
                     }
                 }
+<<<<<<< HEAD
             },
             formatDate(time) {
                 let date = new Date(time);
                 return formatDate(date, "yyyy-MM-dd hh:mm");
+=======
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
             }
         },
         methods: {
@@ -335,6 +385,7 @@
                     }
                 });
             },
+<<<<<<< HEAD
             initResult() {
                 var url = "/science/" + "8" + "/" + "1";
                 api.Get(url).then(res => {
@@ -361,6 +412,9 @@
                 });
             }
         },
+=======
+        }
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
     }
 </script>
 
@@ -372,6 +426,7 @@
         border-radius: 0px;
         border: none;
         margin-left: auto;
+<<<<<<< HEAD
     }
     .BusinessNeeds {
         margin-top: 0;
@@ -406,5 +461,16 @@
     }
     .cr{
         color:#ff4949!important;
+=======
+    }
+    .BusinessNeeds {
+        margin-top: 0;
+    }
+    .ExpertTeam {
+        margin-top: 40px;
+    }
+    .ExpertTeam img {
+        padding: 1px;
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
     }
 </style>

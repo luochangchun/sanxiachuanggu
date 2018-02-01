@@ -448,13 +448,6 @@
 
 </script>
 <style>
-    .resultForm {
-        width: 600px;
-        background-color: #fff;
-        padding: 30px;
-        margin-left: auto;
-        margin-right: auto;
-    }
     .result_title {
         color: #06affe;
         border-bottom: 2px solid #06affe;

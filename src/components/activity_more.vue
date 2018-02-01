@@ -33,7 +33,11 @@
                         </div>
                     </el-col>
                 </el-row>
+<<<<<<< HEAD
 
+=======
+                </el-col>
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
             </div>
         </el-row>
     </div>

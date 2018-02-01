@@ -155,6 +155,49 @@
         </el-row>
       </div>
     </div>
+<<<<<<< HEAD
+=======
+    <!-- 融资项目 -->
+    <!-- <div class="Financing">
+                  <div class="container">
+                    <el-row :gutter="0">
+                      <el-col :xs="24" :sm="24" :md="24" :lg="24">
+                        <div class="l Financing_title"></div>
+                        <router-link :to="{ name: 'financingList'}" class="r more_plus"></router-link>
+                      </el-col>
+                    </el-row>
+                    <el-row :gutter="20">
+                      <el-col :xs="24" :sm="12" :md="12" :lg="12" v-for="(item, index) in financing" :key="index" v-if="index<2">
+                          <div :style="{backgroundImage: 'url(' +item.logo+ ')'}" class="bg-cover" style="margin-bottom:0;"></div>
+                          <div class="Financing_wrap">
+                            <div class="Financing_info">
+                              <h1 class="f16">{{item.name}}</h1>
+                              <p class="text-ellipsis">{{item.intro}}</p>
+                            </div>
+                            <el-row type="flex" class="Financing_money">
+                              <el-col :span="6">
+                                <p class="f14">{{item.archived}}万<br/>已获得投资意向</p>
+                              </el-col>
+                              <el-col :span="6" :push="12">
+                                <p class="f14 tr">{{item.financing}}万<br/>预融资总额</p>
+                              </el-col>
+                            </el-row>
+                            <el-tag type="primary" style="margin-left:8px">行业领域:
+                              <span>消费生活</span>
+                            </el-tag>
+                            <el-tag type="success">已完成融资:
+                              <span v-if="item.status == 1">未融资</span>
+                              <span v-if="item.status == 2">未完成融资</span>
+                            </el-tag>
+                            <p class="f14 pl10" style="margin-left:8px;">发起人:{{item.founder}}</p>
+                          </div>
+                        </router-link>
+                      </el-col>
+                    </el-row>
+                  </div>
+                </div> -->
+    <!-- 融资项目 -->
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
     <!-- 创业导师 -->
     <div class="activitys">
       <div class="container">

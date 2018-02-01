@@ -82,11 +82,15 @@ import talent_detail from '../src/components/talent_detail.vue'
 //11.9
 import employment from '../src/components/employment.vue'
 import intermediary from '../src/components/intermediary.vue'
+<<<<<<< HEAD
 //1.26
 import mine from '../src/components/mine.vue'//关于我们
 //1.29
 import result_detail from '../src/components/result_detail.vue'//科技成果转化详情页
 import result_form from '../src/components/result_form.vue'//关于我们
+=======
+
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
 
 Vue.use(VueRouter)
 
@@ -176,12 +180,15 @@ const routes = [
 	//11.9
 	{ path: '/employment', component: employment, name: 'employment' },//招聘表单
 	{ path: '/intermediary', component: intermediary, name: 'intermediary' },//中介服务
+<<<<<<< HEAD
 	//1.26
     { path: '/mine', component: mine, name: 'mine' },//关于我们
 	//1.29
     { path: '/result_detail/:id', component: result_detail, name: 'result_detail' },//科技成果转化详情页
     { path: '/result_form', component: result_form, name: 'result_form' },//科技成果转化发布表单
 
+=======
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
 ];
 // 页面刷新时，重新赋值token
 if (window.localStorage.getItem('token')) {

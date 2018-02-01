@@ -52,7 +52,10 @@
                     </el-tabs>
                 </el-col>
                 <!--右边热门排行-->
+<<<<<<< HEAD
 
+=======
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                 <el-col :lg="7" :md="7" :sm="24" :xs="24" :offset="1">
                     <el-row :gutter="10">
                         <el-col :lg="24" :md="24" :sm="24" :xs="24">
@@ -173,6 +176,7 @@ export default {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+<<<<<<< HEAD
 .container {
   width: 100%;
   padding-right: 15px;
@@ -182,6 +186,9 @@ export default {
   /*margin-top:40px;*/
   box-sizing: border-box;
 }
+=======
+
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
 .bg-cover {
   background-repeat: no-repeat;
   background-size: cover;

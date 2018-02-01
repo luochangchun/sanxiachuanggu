@@ -2,6 +2,320 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="404f4c3e-f85c-4ccd-a9fb-82a38926636b" name="Default" comment="创谷学院,创谷企业页面及数据接口">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/config/._.DS_Store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/dist/._.DS_Store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/._.DS_Store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/._.DS_Store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/._service.vue的副本 2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/._store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/personalCenter/._.DS_Store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/._.DS_Store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/css/._.DS_Store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._.DS_Store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._1-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._D.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._E.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._F.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._QR_code.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._S.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._SC.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._T.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._activitys_item.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._activitys_t.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._b1-1-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._b1-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._b1-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._b2-1-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._b2-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._b2-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._b3-1-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._b3-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._b3-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._banner-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._banner_cgxy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._banner_cgyj.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._banner_cgyj.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._banner_cgzx.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._banner_sckj.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._banner_trzk.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._banner_trzk.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._cg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._download.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._fw1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._fw2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._headLine.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-04.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-05.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-06.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-07.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-08.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-09.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-10.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-11.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-12.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-13.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-14.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-15.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-16.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-17.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-18.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-19.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-20.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-21.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-22.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-23.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-24.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-25.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-26.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-27.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._i-28.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._incubatorBg.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._int1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._keji.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._more.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._moren.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._nav_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._nav_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._nav_3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._nav_4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._nav_5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._nav_6.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._nav_7.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._nav_8.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._next.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._office_item.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._prev.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._provider_2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._s_05.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._s_07.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._s_09.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._service01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._service02.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._service_area.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._servie01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._shv3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._space_display_title.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._swiper_button_003.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._tag.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._talent_banner01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._timgBg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._trzk_btn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._x_03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._x_05.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._x_07.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._x_09.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._x_11.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._zn_07.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._zs.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/img/._zss.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/static/js/._.DS_Store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/wap/._.DS_Store" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/1-1.18d2570.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/QR_code.735cca2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/QR_code.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/SC.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/activitys_item.31f03af.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/activitys_item.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/activitys_t.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/b1-1-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/b1-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/b1-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/b2-1-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/b2-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/b2-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/b3-1-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/b3-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/b3-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/banner-2.e9d8e1c.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/banner_cgyj.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/banner_trzk.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-04.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-05.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-06.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-07.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-08.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-09.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-10.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-11.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-12.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-13.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-14.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-15.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-16.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-17.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-18.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-19.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-20.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-21.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-22.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-23.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-24.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-25.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-26.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-27.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i-28.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i01.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i02.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/i03.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/incubatorBg.53085cc.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/incubatorBg.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/int1.8d49ccd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/moren.5a8ff65.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/moren.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/next.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/office_item.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/prev.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/service02.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/service_area.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/swiper_button_003.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/talent_banner01.810d7ed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/timgBg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/trzk_btn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/zs.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/zss.f63aa93.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/img/zss.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/QR_code.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/SC.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/activitys_item.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/activitys_t.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/b1-1-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/b1-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/b1-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/b2-1-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/b2-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/b2-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/b3-1-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/b3-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/b3-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/banner-zi.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/banner_cgyj.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/banner_trzk.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/dianhua.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/email.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/gywm_bg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-04.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-05.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-06.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-07.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-08.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-09.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-10.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-11.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-12.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-13.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-14.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-15.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-16.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-17.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-18.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-19.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-20.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-21.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-22.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-23.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-24.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-25.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-26.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-27.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i-28.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i01.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i02.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/i03.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/incubatorBg.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/lianxiren.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/mine-banner.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/mine-bg1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/mine-bg2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/mine-bg3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/mine-bg4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/moren.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/next.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/office_item.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/phone.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/prev.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/qq.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/result.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/service02.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/service_area.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/swiper_button_003.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/timgBg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/trzk_btn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/weixin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/zs.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/zss.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/img/12.d7cf207.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/img/12.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/img/close@3x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/img/fx@3x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/img/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/img/pwd@3x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/img/user@3x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vagrant.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/._index.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/._routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/._attract.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/._attract_detail.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/._college.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/._demand.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/._demand_detail.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/._demand_list.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/._employment.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/._financing_more.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/._into_more.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/._invest_detail.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/._position.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/._talent.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__MACOSX/src/components/._talent_detail.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/css/app.17f83e8392429d95868946245da6045b.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/css/app.17f83e8392429d95868946245da6045b.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/js/app.09ede4c6f6d943e97535.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/js/app.09ede4c6f6d943e97535.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/js/manifest.26abbb186e60f9d03ee4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/js/manifest.26abbb186e60f9d03ee4.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/js/vendor.d83a792c88ec75a4c066.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/static/js/vendor.d83a792c88ec75a4c066.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/college.vue的副本" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/consultDetail.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/financing_apply.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/intermediary.vue的副本" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/mine.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/needDetail.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/personalCenter/consult_detail.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/research.vue的副本" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/result_detail.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/result_form.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/service.vue的副本" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/service.vue的副本 2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/swiper.vue的副本" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/swiper.vue的副本 2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/css/app.850bd3a406cd0f37dee72a2cfac6406d.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/css/app.850bd3a406cd0f37dee72a2cfac6406d.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/css/app.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/css/reset.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/js/app.4a0c2ca0ae2fe0a17e4c.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/js/app.4a0c2ca0ae2fe0a17e4c.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/js/date.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/js/manifest.72ebf6144c599f0992e4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/js/manifest.72ebf6144c599f0992e4.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/js/rem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/js/vendor.3f5e075eb3b1254f0244.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wap/static/js/vendor.3f5e075eb3b1254f0244.js.map" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/css/app.bb5a368a5883d0c1b6de01df49926bc4.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/css/app.bb5a368a5883d0c1b6de01df49926bc4.css.map" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/css/app.cefa2f6902757208637388b760113c54.css" afterPath="" />
@@ -24,7 +338,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/banner_cgyj.b5c1e34.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/banner_cgzx.07426ad.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/banner_cgzx.2f9115e.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/banner_sckj.8f17e28.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/banner_sckj.b2b7940.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/banner_trzk.59ebb88.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/img/banner_trzk.cede345.png" afterPath="" />
@@ -72,10 +385,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/js/vendor.6979039618a060d0b7b6.js.map" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/js/vendor.968cbba7830788217378.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/static/js/vendor.968cbba7830788217378.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/Index.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/register/forgetPassword.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/register/login.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/register/register.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/ActivityPara.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/Activitys.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/Index.vue" afterPath="" />
@@ -106,9 +415,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/map.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/need.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/news.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/office_list_detail.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/office_list_policy.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/office_list_window.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/personalCenter/demand_comm_service01.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/personalCenter/passwordSetting.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/personalCenter/personalCenter.vue" afterPath="" />
@@ -116,7 +423,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/personalCenter/service_detail.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/position.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/problem.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/provider.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/question.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/register/forgetPassword.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/register/login.vue" afterPath="" />
@@ -125,7 +431,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/school_detail.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/service.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/service_apply.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/service_class.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/service_needs.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/service_provider_more.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/space_more.vue" afterPath="" />
@@ -136,7 +441,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/store/types.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/swiper.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/talent.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/topicList.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/trainList.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/train_Application.vue" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/components的副本/train_detail.vue" afterPath="" />
@@ -174,7 +478,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/img/banner_cgxy.png" afterPath="$PROJECT_DIR$/dist/static/img/banner_cgxy.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/img/banner_cgyj.png" afterPath="$PROJECT_DIR$/dist/static/img/banner_cgyj.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/img/banner_cgzx.png" afterPath="$PROJECT_DIR$/dist/static/img/banner_cgzx.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/img/banner_sckj.png" afterPath="$PROJECT_DIR$/dist/static/img/banner_sckj.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/img/banner_trzk.png" afterPath="$PROJECT_DIR$/dist/static/img/banner_trzk.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/img/cg.jpg" afterPath="$PROJECT_DIR$/dist/static/img/cg.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/img/download.jpg" afterPath="$PROJECT_DIR$/dist/static/img/download.jpg" />
@@ -256,21 +559,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/img/x_11.png" afterPath="$PROJECT_DIR$/static/img/x_11.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/img/zn_07.png" afterPath="$PROJECT_DIR$/static/img/zn_07.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/build.js" afterPath="$PROJECT_DIR$/build/build.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/check-versions.js" afterPath="$PROJECT_DIR$/build/check-versions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/dev-client.js" afterPath="$PROJECT_DIR$/build/dev-client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/dev-server.js" afterPath="$PROJECT_DIR$/build/dev-server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/utils.js" afterPath="$PROJECT_DIR$/build/utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/vue-loader.conf.js" afterPath="$PROJECT_DIR$/build/vue-loader.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/webpack.base.conf.js" afterPath="$PROJECT_DIR$/build/webpack.base.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/webpack.dev.conf.js" afterPath="$PROJECT_DIR$/build/webpack.dev.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/webpack.prod.conf.js" afterPath="$PROJECT_DIR$/build/webpack.prod.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/dev.env.js" afterPath="$PROJECT_DIR$/config/dev.env.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/index.js" afterPath="$PROJECT_DIR$/config/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/prod.env.js" afterPath="$PROJECT_DIR$/config/prod.env.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes_zw.js" afterPath="$PROJECT_DIR$/config/routes_zw.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/test.env.js" afterPath="$PROJECT_DIR$/config/test.env.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/index.html" afterPath="$PROJECT_DIR$/dist/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/css/main.css" afterPath="$PROJECT_DIR$/dist/static/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/static/css/reset.css" afterPath="$PROJECT_DIR$/dist/static/css/reset.css" />
@@ -279,11 +568,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.vue" afterPath="$PROJECT_DIR$/src/App.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.vue" afterPath="$PROJECT_DIR$/src/Main.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/axios/api.js" afterPath="$PROJECT_DIR$/src/axios/api.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ActivityPara.vue" afterPath="$PROJECT_DIR$/src/components/ActivityPara.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Activitys.vue" afterPath="$PROJECT_DIR$/src/components/Activitys.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Index.vue" afterPath="$PROJECT_DIR$/src/components/Index.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/activity_more.vue" afterPath="$PROJECT_DIR$/src/components/activity_more.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/article.vue" afterPath="$PROJECT_DIR$/src/components/article.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/attract.vue" afterPath="$PROJECT_DIR$/src/components/attract.vue" />
@@ -311,32 +599,28 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/map.vue" afterPath="$PROJECT_DIR$/src/components/map.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/need.vue" afterPath="$PROJECT_DIR$/src/components/need.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/news.vue" afterPath="$PROJECT_DIR$/src/components/news.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/office_list_detail.vue" afterPath="$PROJECT_DIR$/src/components/office_list_detail.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/office_list_policy.vue" afterPath="$PROJECT_DIR$/src/components/office_list_policy.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/office_list_window.vue" afterPath="$PROJECT_DIR$/src/components/office_list_window.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/personalCenter/demand_comm_service01.vue" afterPath="$PROJECT_DIR$/src/components/personalCenter/demand_comm_service01.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/personalCenter/personalCenter.vue" afterPath="$PROJECT_DIR$/src/components/personalCenter/personalCenter.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/personalCenter/personalInformation.vue" afterPath="$PROJECT_DIR$/src/components/personalCenter/personalInformation.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/personalCenter/service_detail.vue" afterPath="$PROJECT_DIR$/src/components/personalCenter/service_detail.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/position.vue" afterPath="$PROJECT_DIR$/src/components/position.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/problem.vue" afterPath="$PROJECT_DIR$/src/components/problem.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/provider.vue" afterPath="$PROJECT_DIR$/src/components/provider.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/question.vue" afterPath="$PROJECT_DIR$/src/components/question.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/register/forgetPassword.vue" afterPath="$PROJECT_DIR$/src/components/register/forgetPassword.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/register/login.vue" afterPath="$PROJECT_DIR$/src/components/register/login.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/register/register.vue" afterPath="$PROJECT_DIR$/src/components/register/register.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/research.vue" afterPath="$PROJECT_DIR$/src/components/research.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/school_detail.vue" afterPath="$PROJECT_DIR$/src/components/school_detail.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/service.vue" afterPath="$PROJECT_DIR$/src/components/service.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/service_apply.vue" afterPath="$PROJECT_DIR$/src/components/service_apply.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/service_class.vue" afterPath="$PROJECT_DIR$/src/components/service_class.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/service_needs.vue" afterPath="$PROJECT_DIR$/src/components/service_needs.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/service_provider_more.vue" afterPath="$PROJECT_DIR$/src/components/service_provider_more.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/space_more.vue" afterPath="$PROJECT_DIR$/src/components/space_more.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/splendid_detail.vue" afterPath="$PROJECT_DIR$/src/components/splendid_detail.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/splendid_list.vue" afterPath="$PROJECT_DIR$/src/components/splendid_list.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/station.vue" afterPath="$PROJECT_DIR$/src/components/station.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/swiper.vue" afterPath="$PROJECT_DIR$/src/components/swiper.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/talent.vue" afterPath="$PROJECT_DIR$/src/components/talent.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/talent_detail.vue" afterPath="$PROJECT_DIR$/src/components/talent_detail.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/topicList.vue" afterPath="$PROJECT_DIR$/src/components/topicList.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/trainList.vue" afterPath="$PROJECT_DIR$/src/components/trainList.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/train_Application.vue" afterPath="$PROJECT_DIR$/src/components/train_Application.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/train_detail.vue" afterPath="$PROJECT_DIR$/src/components/train_detail.vue" />
@@ -344,15 +628,15 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/tutorList.vue" afterPath="$PROJECT_DIR$/src/components/tutorList.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/tutorProblem.vue" afterPath="$PROJECT_DIR$/src/components/tutorProblem.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mock.js" afterPath="$PROJECT_DIR$/src/mock.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/npm-debug.log" afterPath="$PROJECT_DIR$/src/npm-debug.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes.js" afterPath="$PROJECT_DIR$/src/routes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/main.css" afterPath="$PROJECT_DIR$/static/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/map.html" afterPath="$PROJECT_DIR$/static/map.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/e2e/custom-assertions/elementCount.js" afterPath="$PROJECT_DIR$/test/e2e/custom-assertions/elementCount.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/e2e/nightwatch.conf.js" afterPath="$PROJECT_DIR$/test/e2e/nightwatch.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/e2e/runner.js" afterPath="$PROJECT_DIR$/test/e2e/runner.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/e2e/specs/test.js" afterPath="$PROJECT_DIR$/test/e2e/specs/test.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dist/static/img/banner_sckj.8f17e28.png" afterPath="$PROJECT_DIR$/dist/static/img/banner_sckj.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components的副本/office_list_detail.vue" afterPath="$PROJECT_DIR$/src/components/office_list_detail.vue" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components的副本/office_list_window.vue" afterPath="$PROJECT_DIR$/src/components/office_list_window.vue" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components的副本/provider.vue" afterPath="$PROJECT_DIR$/src/components/provider.vue" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components的副本/service_class.vue" afterPath="$PROJECT_DIR$/src/components/service_class.vue" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components的副本/topicList.vue" afterPath="$PROJECT_DIR$/src/components/topicList.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -369,8 +653,8 @@
       <file leaf-file-name="result_form.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/result_form.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+            <state relative-caret-position="304">
+              <caret line="449" column="7" lean-forward="false" selection-start-line="449" selection-start-column="7" selection-end-line="449" selection-end-column="7" />
               <folding>
                 <element signature="n#style#0;n#el-row#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-col#0;n#div#0;n#el-row#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -395,7 +679,7 @@
                 <element signature="e#14029#14245#0" expanded="false" />
                 <element signature="e#14283#14500#0" expanded="false" />
                 <element signature="e#14529#14748#0" expanded="false" />
-                <marker date="1517447526040" expanded="false" signature="7729:7778" ph="..." />
+                <marker date="1517447718310" expanded="false" signature="7729:7778" ph="..." />
               </folding>
             </state>
           </provider>
@@ -593,9 +877,9 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="788" />
-    <option name="y" value="99" />
-    <option name="width" value="1118" />
+    <option name="x" value="693" />
+    <option name="y" value="52" />
+    <option name="width" value="1204" />
     <option name="height" value="857" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -821,12 +1105,12 @@
       <workItem from="1517189165634" duration="19893000" />
       <workItem from="1517274154532" duration="26672000" />
       <workItem from="1517360580740" duration="25601000" />
-      <workItem from="1517446750023" duration="779000" />
+      <workItem from="1517446750023" duration="976000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="497853000" />
+    <option name="totallyTimeSpent" value="498050000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -838,10 +1122,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="788" y="99" width="1118" height="857" extended-state="0" />
+    <frame x="693" y="52" width="1204" height="857" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18240741" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16895369" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32955974" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299748" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1341,8 +1625,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/result_form.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+        <state relative-caret-position="304">
+          <caret line="449" column="7" lean-forward="false" selection-start-line="449" selection-start-column="7" selection-end-line="449" selection-end-column="7" />
           <folding>
             <element signature="n#style#0;n#el-row#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#el-col#0;n#div#0;n#el-row#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -1367,7 +1651,7 @@
             <element signature="e#14029#14245#0" expanded="false" />
             <element signature="e#14283#14500#0" expanded="false" />
             <element signature="e#14529#14748#0" expanded="false" />
-            <marker date="1517447526040" expanded="false" signature="7729:7778" ph="..." />
+            <marker date="1517447718310" expanded="false" signature="7729:7778" ph="..." />
           </folding>
         </state>
       </provider>

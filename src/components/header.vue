@@ -88,6 +88,7 @@
             <li>
               <router-link to="/financing">投融资库</router-link>
             </li>
+<<<<<<< HEAD
             <li>
               <router-link to="/mine">关于我们</router-link>
             </li>
@@ -200,6 +201,82 @@
             <img src="static/img/QR_code.735cca2.jpg" style="width:120px; height:120px;">
           </span>
         </div>
+=======
+          </ul>
+        </div>
+        <!-- <div class="nav nav_mobile r">
+          <div id="menu-button" @click='showMenu()'>菜单</div>
+          <ul v-show="visible">
+            <li>
+              <router-link to="/index">首页</router-link>
+            </li>
+            <li @click='showMenu_sub()'>
+              <span class="submenu-button submenu-opened"></span>
+              <router-link to="/news">创谷资讯</router-link>
+            </li>
+            <li @click='showMenu_sub()'>
+              <span class="submenu-button submenu-opened"></span>
+              <router-link to="/office_list_policy">双创办公室</router-link>
+            </li>
+            <li class='has-sub'>
+              <router-link to="/map">创谷空间</router-link>
+              <ul>
+                <li>
+                  <router-link to="/map">创谷空间</router-link>
+                </li>
+                <li>
+                  <router-link to="/attract/1">招商信息</router-link>
+                </li>
+                <li>
+                  <router-link to="/attract/2">求租信息</router-link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <router-link to="/incubators">双创空间</router-link>
+              <ul>
+                <li>
+                  <router-link to="/incubators">双创空间</router-link>
+                </li>
+                <li>
+                  <router-link to="/attract_college/1">招商信息</router-link>
+                </li>
+                <li>
+                  <router-link to="/attract_college/2">求租信息</router-link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <router-link to="/college">创谷学院</router-link>
+              <ul>
+                <li>
+                  <router-link to="/service">创谷企业</router-link>
+                </li>
+                <li>
+                  <router-link to="/need">服务需求</router-link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <router-link to="/service">创谷企业</router-link>
+              <ul>
+                <li>
+                  <router-link to="/research">创谷研究</router-link>
+                </li>
+                <li>
+                  <router-link to="/question">技术难题及需求</router-link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <router-link to="/research">创谷研究</router-link>
+            </li>
+            <li>
+              <router-link to="/financing">投融资库</router-link>
+            </li>
+          </ul>
+        </div> -->
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
       </div>
     </div>
   </div>
@@ -498,10 +575,19 @@
   }
   .header {
     width: 750px;
+<<<<<<< HEAD
     padding: 0;
   }
   .nav {
     position: static;
+=======
+    /* padding: 0; */
+  }
+  .nav {
+    height: 80px;
+    left: 0;
+    /* margin-bottom: 80px; */
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
   }
   .el-col-offset-12 {
     margin-left:40%;
@@ -511,6 +597,7 @@
     font-size: 14px;
   }
 }
+<<<<<<< HEAD
   /*客服*/
   .call img{
     width:24px;
@@ -703,4 +790,7 @@
 
   /*客服*/
 
+=======
+ 
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
 </style>

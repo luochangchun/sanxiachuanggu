@@ -115,11 +115,18 @@
                 var  url = "";
                 this.type = this.$route.params.type;
                 if(this.type == 1) {
+<<<<<<< HEAD
                     url = "/qb/tenancy/2/1/" + '10'+ val;
                 } else if(this.type == 2){
                     url = "/qb/tenancy/2/2/" + '10'+ val;
                 }
                 // var url = '/qb/tenancy/2/' + '10' + '/' + val
+=======
+                    url = "/qb/tenancy/2/1/" + '10/'+ val;
+                } else if(this.type == 2){
+                    url = "/qb/tenancy/2/2/" + '10/'+ val;
+                }
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                 api.Get(url)
                     .then(res => {
                         this.investData = res['data'];

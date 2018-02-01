@@ -5,7 +5,11 @@
         <h1 class="tc f18" style="color:#0089e3;margin-bottom:30px;">服务需求发布</h1>
         <el-form :model="serviceForm" :rules="serviceRules" ref="serviceForm" label-width="100px" class="demo-ruleForm">
           <el-form-item label="需求类别" prop="classifyId">
+<<<<<<< HEAD
             <el-select v-model="serviceForm.classifyId" @change="change">
+=======
+            <el-select v-model="serviceForm.classifyId">
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
               <el-option :label="item['value']" :value="item['id']" v-for="(item, index) in category" :key="index"></el-option>
             </el-select>
           </el-form-item>
@@ -35,9 +39,15 @@
       <el-col :lg="12" :md="12" :sm="12" :xs="12" :offset="6" style="background-color:#fff;padding:30px 25px 15px 0">
         <h1 class="tc f18" style="color:#0089e3;margin-bottom:30px;">企业技术难题及需求发布</h1>
         <el-form :model="cosnultForm" :rules="cosnultRules" ref="cosnultForm" label-width="200px" class="demo-ruleForm">
+<<<<<<< HEAD
           <el-form-item label="难题类别" prop="classifyId">
             <el-select v-model="cosnultForm.classifyId">
               <el-option :label="item['value']" :value="item['id']" v-for="(item, index) in category" :key="index"></el-option>
+=======
+          <el-form-item label="难题类别" prop="businessId">
+            <el-select v-model="cosnultForm.businessId">
+              <el-option :label="item['value']" :value="item['id']" v-for="(item, index) in category" :key="index" v-if="index>0"></el-option>
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
             </el-select>
           </el-form-item>
           <el-form-item label="难题及需求标题" prop="title">
@@ -75,7 +85,15 @@ export default {
     let validateContact = (rule, value, callback) => {
       let re = /^[\u4E00-\u9FA5\uf900-\ufa2d]{2,5}$/;
       if (
+<<<<<<< HEAD
         value === "" || !re.test(value) || value.length < 2 || value.length > 5) {
+=======
+        value === "" ||
+        !re.test(value) ||
+        value.length < 2 ||
+        value.length > 5
+      ) {
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
         callback(new Error("请输入联系人姓名！"));
       } else {
         callback();
@@ -108,6 +126,10 @@ export default {
         classifyId: [
           {
             required: true,
+<<<<<<< HEAD
+=======
+            type: "number",
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
             message: "请选择需求类别",
             trigger: "change"
           }
@@ -136,10 +158,17 @@ export default {
         contact: [
           {
             required: true,
+<<<<<<< HEAD
             validator: validateContact,
             message: "请输入联系人姓名",
             trigger: "blur"
           }
+=======
+            message: "请输入联系人姓名",
+            trigger: "blur"
+          },
+          { min: 1, max: 10, message: '最多10个字符', trigger: 'blur' }
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
         ],
         needs: [
           {
@@ -166,7 +195,11 @@ export default {
         ]
       },
       cosnultForm: {
+<<<<<<< HEAD
         classifyId: "", //需求类别
+=======
+        businessId: "", //需求类别
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
         title: "", //难题及需求标题
         mentorId: "", //难题及需求描述
         enterprise: "", //企业名称
@@ -176,9 +209,16 @@ export default {
         content: ""
       },
       cosnultRules: {
+<<<<<<< HEAD
         classifyId: [
           {
             required: true,
+=======
+        businessId: [
+          {
+            required: true,
+            type: "number",
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
             message: "请选择难题类别",
             trigger: "change"
           }
@@ -194,7 +234,10 @@ export default {
         contact: [
           {
             required: true,
+<<<<<<< HEAD
             validator: validateContact,
+=======
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
             message: "请输入联系人姓名",
             trigger: "blur"
           },
@@ -266,7 +309,11 @@ export default {
             }
           });
         } else {
+<<<<<<< HEAD
           console.log("服务需求发布失败!");
+=======
+          console.log("发布难题失败!");
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
           return false;
         }
       });
@@ -287,7 +334,11 @@ export default {
           api.Post("/consult", params).then(res => {
             console.log(res);
             if (res["suc"] == true) {
+<<<<<<< HEAD
               this.$message("技术难题发布成功");
+=======
+              this.$message("服务需求发布成功");
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
               window.history.go(-1);
             } else {
               this.$message(res["msg"]);
@@ -299,6 +350,12 @@ export default {
         }
       });
     },
+<<<<<<< HEAD
+=======
+    resetForm(formName) {
+      window.history.go(-1);
+    },
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
     change: function() {
       console.log(this.cosnultForm.businessId);
     },

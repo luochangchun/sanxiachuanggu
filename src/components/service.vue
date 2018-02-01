@@ -1,7 +1,11 @@
 <template>
     <div>
         <el-row :gutter="0">
+<<<<<<< HEAD
             <el-col :lg="24" :md="24" :sm="24" :xs="24" class="banner_img"  style="backgroundImage: url(../static/img/service02.jpg)">
+=======
+            <el-col :lg="24" :md="24" :sm="24" :xs="24" class="banner_img" style="backgroundImage: url(../static/img/service02.jpg)">
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
             </el-col>
         </el-row>
         <!--title-->
@@ -159,6 +163,7 @@
                                             <dl>
                                                 <!-- <dt>项目阶段</dt> -->
                                                 <dd style="width: 93%;" :class="{ auto : moreFlag }">
+<<<<<<< HEAD
                                                     <a href="javascript:;" :class="{ on : display_active[index] }" @click="handleClick(index,item.id)" class="sx_child" v-for="(item , index) in category" :key="index" :seid="item.id" v-if="index>0">{{ item['name']}}</a>
                                                 </dd>
                                             </dl>
@@ -166,6 +171,18 @@
                                         <div class="filte_body" v-loading.body="loading">
                                             <el-row :gutter="10">
                                                 <p v-show="nodata" style="margin-left:15px;">暂无数据</p>
+=======
+                                                    <el-tooltip class="item" effect="dark" :content="item.name" placement="top-start" v-for="(item , index) in category " :key="index " :class="{ on : display_active[index] } ">
+                                                         <a href=" javascript:; " :class="{ on : display_active[index] } " @click="handleClick(index,item.id) " class="sx_child " :seid="item.id">{{ item['name']}}</a>
+                                                    </el-tooltip>
+                                                   
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                        <div class="filte_body">
+                                            <el-row :gutter="10">
+                                                <p v-if="nodata" style="margin-left:15px;">暂无数据</p>
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                                                 <el-col v-show="!nodata" class="gh" :xs="24" :sm="24" :md="24" :lg="24" v-for="(item,index) in serviceBody" :key="index">
                                                     <router-link :to="{name:'invest_detail', params: {id:item.id}}">
                                                         <div class="intermediary_list">
@@ -175,7 +192,11 @@
                                                                 <p>电话:{{ item['phone']}}</p>
                                                             </div>
                                                             <ul class="clearfix">
+<<<<<<< HEAD
                                                                 <li v-show="item == '51'" class="green" v-for="(item,index) in item['labels']" :key="item.id">{{item.id}}信息化</li>
+=======
+                                                                <li v-show="item == '51'" class="green" v-for="(item,index) in item['labels']" :key="item.id">信息化</li>
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                                                                 <li v-show="item == '52'" class="green" v-for="(item,index) in item['labels']" :key="item.id">知识产权</li>
                                                                 <li v-show="item == '53'" class="green" v-for="(item,index) in item['labels']" :key="item.id">科技转化</li>
                                                                 <li v-show="item == '54'" class="green" v-for="(item,index) in item['labels']" :key="item.id">金融服务</li>
@@ -183,7 +204,11 @@
                                                                 <li v-show="item == '56'" class="green" v-for="(item,index) in item['labels']" :key="item.id">财税/法务</li>
                                                                 <li v-show="item == '57'" class="green" v-for="(item,index) in item['labels']" :key="item.id">招聘/培训</li>
                                                                 <li v-show="item == '58'" class="green" v-for="(item,index) in item['labels']" :key="item.id">物业服务</li>
+<<<<<<< HEAD
                                                                 <li v-show="item == '51'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">{{item.id}}信息化</li>
+=======
+                                                                <li v-show="item == '51'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">信息化</li>
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                                                                 <li v-show="item == '52'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">知识产权</li>
                                                                 <li v-show="item == '53'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">科技转化</li>
                                                                 <li v-show="item == '54'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">金融服务</li>
@@ -191,9 +216,15 @@
                                                                 <li v-show="item == '56'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">财税/法务</li>
                                                                 <li v-show="item == '57'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">招聘/培训</li>
                                                                 <li v-show="item == '58'" class="yellow" v-for="(item,index) in item['serviceIds']" :key="item.id">物业服务</li>
+<<<<<<< HEAD
                                                                 <li v-show="item == '51'" class="gray" v-for="(item,index) in item['others']" :key="item.id">{{item.id}}信息化</li>
                                                                 <li v-show="item == '52'" class="gray" v-for="(item,index) in item['others']" :key="item.id">知识产权</li>
                                                                 <li v-show="item == '53'" class="gray" v-for="(item,index) in item['others']" :key="item.id">{{item.id}}科技转化</li>
+=======
+                                                                <li v-show="item == '51'" class="gray" v-for="(item,index) in item['others']" :key="item.id">信息化</li>
+                                                                <li v-show="item == '52'" class="gray" v-for="(item,index) in item['others']" :key="item.id">知识产权</li>
+                                                                <li v-show="item == '53'" class="gray" v-for="(item,index) in item['others']" :key="item.id">科技转化</li>
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                                                                 <li v-show="item == '54'" class="gray" v-for="(item,index) in item['others']" :key="item.id">金融服务</li>
                                                                 <li v-show="item == '55'" class="gray" v-for="(item,index) in item['others']" :key="item.id">电子商务</li>
                                                                 <li v-show="item == '56'" class="gray" v-for="(item,index) in item['others']" :key="item.id">财税/法务</li>
@@ -203,7 +234,11 @@
                                                         </div>
                                                     </router-link>
                                                 </el-col>
+<<<<<<< HEAD
                                                 <el-col v-show="!nodata" :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="margin-bottom: 50px;margin-top:50px;">
+=======
+                                                <el-col v-if="!nodata" :lg="8" :md="8" :sm="24" :xs="24" :offset="8" style="margin-bottom: 50px;margin-top:50px;">
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                                                     <div class="block">
                                                         <el-pagination :current-page="curPage" :total="totalPages" @current-change="handleCurrentChange" layout="prev, pager, next">
                                                         </el-pagination>
@@ -233,8 +268,12 @@
                 loading: false,
                 moreFlag: true,
                 needData: '',
+<<<<<<< HEAD
                 noData: false,
                 noDate: false,
+=======
+                nodata: false,
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                 serviceBody: '',
                 display_active: [false, false, false, false],
                 activeName: "tab1",
@@ -312,20 +351,40 @@
             getQb() {
                 api.Get('/qb')
                     .then(res => {
+<<<<<<< HEAD
                         this.category = res;
                         this.category.forEach((value, index, array) => {
                             if (index == 1) {
                                 this.$set(this.display_active, 1, true)
+=======
+                        this.category = res.reverse();
+                        console.log(this.category);
+                        this.category.forEach((value, index, array) => {
+                            if (index == 0) {
+                                this.$set(this.display_active, 0, true)
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                                 this.initNewsList(this.category[index]["id"]);
                                 this.fullscreenLoading = false;
                                 window.localStorage.setItem("seid", this.category[index]["id"]);
                             }
+<<<<<<< HEAD
                         });
+=======
+                            if(index == (this.category.length -1)) {
+                                this.category[this.category.length -1]["name"] = "其它";
+                            }
+                        });
+                        
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                     })
             },
             handleClick(index, seid) {
                 var sx_child_item = document.querySelectorAll('.sx_child');
+<<<<<<< HEAD
                 for (let i = 1; i <= sx_child_item.length; i++) {
+=======
+                for (let i = 0; i <= sx_child_item.length; i++) {
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                     if (sx_child_item[i] != sx_child_item[index]) {
                         this.$set(this.display_active, i, false)
                     } else {
@@ -363,7 +422,10 @@
                         }
                         this.totalPages = res["totalPages"] * 10;
                     }
+<<<<<<< HEAD
                     
+=======
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
                 });
                 var info = "/pub/info/22" + "/" + "10" + "/1";
                 api.Get(info).then(res => {
@@ -509,6 +571,7 @@
     }
     .filte dl dd.auto {
         height: auto;
+<<<<<<< HEAD
     }
     .filte dl dd a {
         margin-right: 10px;
@@ -530,6 +593,29 @@
         padding-bottom: 10px;
         margin-bottom: 20px;
     }
+=======
+    }
+    .filte dl dd a {
+        margin-right: 10px;
+        margin-bottom: 10px;
+        display: inline-block;
+        color: #8391a5;
+        font-size: 14px;
+    }
+    .filte dl dd a.on {
+        color: #e38000;
+        font-size: 13px;
+        font-weight: 600;
+        border: 1px solid #e38000;
+    }
+    /*tab切换*/
+    .s_intermediary_list {
+        clear: both;
+        margin-top: 50px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
     .intermediary_list {
         border-bottom: 1px dashed #ccc;
         padding: 5px 10px;
@@ -606,11 +692,19 @@
     }
     /*banner*/
     /* .service-banner {
+<<<<<<< HEAD
         background: url(../../static/img/service02.jpg) no-repeat center center;
         background-size: cover;
         width: 100%;
         height: 260px;
     } */
+=======
+                background: url(../../static/img/service02.jpg) no-repeat center center;
+                background-size: cover;
+                width: 100%;
+                height: 260px;
+            } */
+>>>>>>> e635a5d43f7fbfd5b3e492f48905c787457e575f
     .service-nav {
         border-bottom: 1px solid #ddd;
         color: #333;
